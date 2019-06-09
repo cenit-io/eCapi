@@ -1,0 +1,10 @@
+get:
+  tags:
+    - Store
+  operationId: authorizeStoreConnection
+  summary: Authorize store connection
+  description: |
+    Find store settings by given id and redirect navigation to authorization uri.
+  responses:
+    404:
+      $ref: '#/components/responses/StoreNotFound'

@@ -1,0 +1,57 @@
+get:
+  tags:
+    - Store
+  operationId: getStores
+  summary: Get the list of store settings
+  description: |
+    Returns the list of stores settings.
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              pagination:
+                  $ref: '#/components/schemas/Pagination'
+
+          example:
+            data:
+              -
+                id: "shop_01"
+                name: "Shop-01"
+                channel: "LazadaSG"
+                authorized: true
+                last_import_orders_date: "2019-06-07T20:47:14+00:00"
+                created_at: "2019-06-07T00:06:52+00:00"
+                updated_at: "2019-06-07T20:47:32+00:00"
+              -
+                id: "shop_02"
+                name: "Shop-02"
+                channel: "LazadaMY"
+                authorized: true
+                last_import_orders_date: "2019-07-07T20:47:14+00:00"
+                created_at: "2019-07-07T00:06:52+00:00"
+                updated_at: "2019-07-07T20:47:32+00:00"
+            pagination:
+              offset: 0
+              limit: 10
+              total: 2
+
+post:
+  tags:
+    - Store
+  operationId: createStoreById
+  summary: Create a new store settings
+  description: |
+    Create store settings from a given name and channel.
+  responses:
+    200:
+      $ref: '#/components/responses/StoreItem'
+    400:
+      $ref: '#/components/responses/AlreadyExists'

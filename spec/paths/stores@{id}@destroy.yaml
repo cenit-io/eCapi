@@ -1,0 +1,16 @@
+get:
+  tags:
+    - Store
+  operationId: destroyStoreSettings
+  summary: Destroy store settings
+  description: |
+    Find store settings by given id and destroy it.
+
+    ~~~
+    Only unauthorize stores can be destroyed.
+    ~~~
+  responses:
+    200:
+      $ref: '#/components/responses/Success'
+    404:
+      $ref: '#/components/responses/StoreNotFound'

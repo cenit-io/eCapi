@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Store
+  operationId: getStoreSettings
+  summary: Get store settings
+  description: |
+    Find store settings by given id and returns it.
+  responses:
+    200:
+      $ref: '#/components/responses/StoreItem'
+    404:
+      $ref: '#/components/responses/StoreNotFound'
+
+delete:
+  tags:
+    - Store
+  operationId: deleteStoreSettings
+  summary: Destroy store settings
+  description: |
+    Find store settings by given id and destroy it.
+
+    ~~~
+    Only unauthorize stores can be destroyed.
+    ~~~
+
+  responses:
+    200:
+      $ref: '#/components/responses/Success'
+    404:
+      $ref: '#/components/responses/StoreNotFound'

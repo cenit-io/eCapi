@@ -1,62 +1,40 @@
 openapi: 3.0.0
 info:
-  version: 1.0.0
-  title: Example.com
+  version: v1
+  title: eCapi
   termsOfService: 'https://example.com/terms/'
   contact:
-    email: contact@example.com
-    url: 'http://example.com/contact'
+    email: support@cenit.io
+    url: 'https://cenitio.slack.com/messages/support'
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
-    url: 'https://apis.guru/openapi-template/logo.png'
+    url: 'https://cenit.io/assets/cenit-logo-c4e099552f7dc77c1870b7c77600380177da8b01c0a4a70dbf608b73e61da3ce.png'
   description: >
-    This is an **example** API to demonstrate features of OpenAPI specification
-
     # Introduction
 
-    This specification is intended to to be a good starting point for describing
-    your API in 
+    * The eCommerce's API is built over REST services on HTTPS.
 
-    [OpenAPI/Swagger
-    format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md).
+    * It has predictable resource URLs.
 
-    It also demonstrates features of
-    [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo)
-    tool and 
+    * It returns HTTP response codes to indicate errors.
 
-    [ReDoc](https://github.com/Rebilly/ReDoc) documentation engine. So beyond
-    the standard OpenAPI syntax we use a few 
+    * It also accepts and returns JSON in the HTTP body.
 
-    [vendor
-    extensions](https://github.com/Rebilly/ReDoc/blob/master/docs/redoc-vendor-extensions.md).
+    * You can use your favorite HTTP/REST library for your programming language to use eCommerce's API,
 
+    # Authentication
 
-    # OpenAPI Specification
+    TODO: ...
 
-    The goal of The OpenAPI Specification is to define a standard,
-    language-agnostic interface to REST APIs which
-
-    allows both humans and computers to discover and understand the capabilities
-    of the service without access to source
-
-    code, documentation, or through network traffic inspection. When properly
-    defined via OpenAPI, a consumer can 
-
-    understand and interact with the remote service with a minimal amount of
-    implementation logic. Similar to what
-
-    interfaces have done for lower-level programming, OpenAPI removes the
-    guesswork in calling the service.
-externalDocs:
-  description: Find out how to create Github repo for your OpenAPI spec.
-  url: 'https://github.com/Rebilly/generator-openapi-repo'
 tags:
-  - name: Echo
-    description: Example echo operations
-  - name: User
-    description: Operations about user
+  - name: Store
+    description: Operations about store
+  - name: Order
+    description: Operations about orders
+  - name: Tasks
+    description: Operations about tasks
+
 servers:
-  - url: 'http://example.com/api/v1'
-  - url: 'https://example.com/api/v1'
+  - url: 'https://cenit.io/app/ecapi'

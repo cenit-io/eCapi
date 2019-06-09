@@ -1,0 +1,3 @@
+description: Date and time when the record was created
+type: datetime
+format: iso8601

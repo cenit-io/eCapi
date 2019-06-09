@@ -1,0 +1,8 @@
+description: Already exist
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/Success'
+    example:
+      success: false
+      message: "Already exist"

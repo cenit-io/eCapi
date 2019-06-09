@@ -1,0 +1,7 @@
+description: Success
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/Success'
+    example:
+      success: true

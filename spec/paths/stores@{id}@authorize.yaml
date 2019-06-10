@@ -15,4 +15,4 @@ get:
         $ref: '#/components/schemas/RedirectURI'
   responses:
     404:
-      $ref: '#/components/responses/StoreNotFound'
+      $ref: '#/components/responses/store_not_found'

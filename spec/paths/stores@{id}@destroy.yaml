@@ -11,6 +11,6 @@ get:
     ~~~
   responses:
     200:
-      $ref: '#/components/responses/Success'
+      $ref: '#/components/responses/success'
     404:
-      $ref: '#/components/responses/StoreNotFound'
+      $ref: '#/components/responses/store_not_found'

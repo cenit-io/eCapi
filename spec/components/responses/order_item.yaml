@@ -1,0 +1,11 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Order'
+
+    example:
+      $ref: '#/components/examples/order_response'

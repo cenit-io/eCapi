@@ -1,0 +1,26 @@
+title: "Address"
+type: "object"
+properties:
+  first_name:
+    type: string
+  last_name:
+    type: string
+  country:
+    type: string
+  state:
+    type: string
+  city:
+    type: string
+  district:
+    type: string
+  town:
+    type: string
+  phone:
+    type: string
+  zip_code:
+    type: string
+  address:
+    type: "array"
+    items:
+      type: string
+

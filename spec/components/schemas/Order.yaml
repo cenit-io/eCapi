@@ -1,0 +1,41 @@
+title: "Order"
+type: "object"
+properties:
+  order_id:
+    type: string
+  number:
+    type: string
+  total_price:
+    type: string
+  total_quantity:
+    type: integer
+  status:
+    type: string
+  payment_method:
+    type: string
+  ship_address:
+    $ref: "#/components/schemas/Address"
+  bill_address:
+    $ref: "#/components/schemas/Address"
+  line_items:
+    type: "array"
+    items:
+      $ref: "#/components/schemas/LineItem"
+  hmac:
+    type: string
+  created_date:
+    description: Date in iso8601 when the order was created
+    type: string
+    format: date-time
+  updated_date:
+    description: Date in iso8601 when the order was updated
+    type: string
+    format: date-time
+  last_import_date:
+    type: string
+    format: date-time
+  customer:
+    $ref: "#/components/schemas/Customer"
+  store:
+    $ref: "#/components/schemas/Store"
+

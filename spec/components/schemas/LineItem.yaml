@@ -1,0 +1,16 @@
+title: "LineItem"
+type: "object"
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  quantity:
+    type: integer
+  price:
+    type: "number"
+  sku:
+    type: string
+  product_id:
+    type: string
+

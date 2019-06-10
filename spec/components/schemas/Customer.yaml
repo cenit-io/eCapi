@@ -1,0 +1,14 @@
+title: "Customer"
+type: "object"
+properties:
+  customer_id:
+    type: string
+    title: "Id"
+    description: "Unique identifier for the customer"
+  firstname:
+    type: string
+    description: "Customers first name"
+  lastname:
+    type: string
+    description: "Customers last name"
+

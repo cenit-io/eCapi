@@ -1,0 +1,38 @@
+get:
+  tags:
+    - Order
+  operationId: getOrders
+  summary: Get orders
+  description: |
+    Returns the list of orders settings.
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+              pagination:
+                  $ref: '#/components/schemas/Pagination'
+
+          example:
+            data:
+              -
+                order_id: "..."
+                last_import_date: "2019-06-07T20:47:14+00:00"
+                created_at: "2019-06-07T00:06:52+00:00"
+                updated_at: "2019-06-07T20:47:32+00:00"
+              -
+                order_id: "..."
+                last_import_date: "2019-06-07T20:47:14+00:00"
+                created_at: "2019-06-07T00:06:52+00:00"
+                updated_at: "2019-06-07T20:47:32+00:00"
+            pagination:
+              offset: 0
+              limit: 10
+              total: 2

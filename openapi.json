@@ -27,7 +27,7 @@
       "description": "Operations about orders"
     },
     {
-      "name": "Tasks",
+      "name": "Task",
       "description": "Operations about tasks"
     }
   ],
@@ -240,6 +240,76 @@
           }
         }
       }
+    },
+    "/tasks": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "operationId": "getTasks",
+        "summary": "Get tasks",
+        "description": "Returns the list of tasks executions.\n",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Task"
+                      }
+                    },
+                    "pagination": {
+                      "$ref": "#/components/schemas/Pagination"
+                    }
+                  }
+                },
+                "example": {
+                  "$ref": "#/components/examples/tasks_response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tasks/{id}": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "operationId": "getTaskSettings",
+        "summary": "Get task",
+        "description": "Find task settings by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Task"
+        ],
+        "operationId": "deleteTaskSettings",
+        "summary": "Destroy task",
+        "description": "Find task settings by given id and destroy it.\n\n~~~\nThe tasks in running status can't be destroyed.\n~~~\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_not_found"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -307,6 +377,21 @@
           }
         }
       },
+      "Execution": {
+        "type": "object",
+        "properties": {
+          "started_at": {
+            "description": "Date in iso8601 when the task was started",
+            "type": "string",
+            "format": "date-time"
+          },
+          "completed_at": {
+            "description": "Date in iso8601 when the task was completed",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
       "LineItem": {
         "title": "LineItem",
         "type": "object",
@@ -327,6 +412,19 @@
             "type": "string"
           },
           "product_id": {
+            "type": "string"
+          }
+        }
+      },
+      "Notification": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Notification type [info, notice, warning or error]",
+            "type": "string"
+          },
+          "message": {
+            "description": "Notification message",
             "type": "string"
           }
         }
@@ -464,6 +562,51 @@
           }
         }
       },
+      "Task": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Task identifier",
+            "type": "string"
+          },
+          "status": {
+            "description": "Task execution status",
+            "type": "string"
+          },
+          "progress": {
+            "description": "Task execution progress",
+            "type": "integer"
+          },
+          "description": {
+            "description": "Task execution description",
+            "type": "string"
+          },
+          "executions": {
+            "description": "Dates that started and completed each instance of execution of the task",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Execution"
+            }
+          },
+          "notifications": {
+            "description": "Notifications of tasks",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Notification"
+            }
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/UpdatedAt"
+          }
+        },
+        "required": [
+          "name",
+          "channel"
+        ]
+      },
       "UpdatedAt": {
         "description": "Date in iso8601 when the record was updated",
         "type": "string",
@@ -558,6 +701,38 @@
             },
             "example": {
               "success": true
+            }
+          }
+        }
+      },
+      "task_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Task"
+                }
+              }
+            },
+            "example": {
+              "$ref": "#/components/examples/task_response"
+            }
+          }
+        }
+      },
+      "task_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found task with id: 1234567890"
             }
           }
         }
@@ -768,16 +943,127 @@
           "limit": 10,
           "total": 2
         }
-      }
-    },
-    "headers": {
-      "ExpiresAfter": {
-        "description": "date in UTC when token expires",
-        "schema": {
-          "type": "string",
-          "format": "date-time"
+      },
+      "task_response": {
+        "data": {
+          "id": "5cfe690b25d9854b3b02241b",
+          "status": "completed",
+          "progress": 100,
+          "description": "Importing last updated orders from 'Shop-01' store.",
+          "created_at": "2019-06-10T14:28:27+00:00",
+          "updated_at": "2019-06-10T14:28:43+00:00",
+          "executions": [
+            {
+              "started_at": "2019-06-10T14:28:27+00:00",
+              "completed_at": "2019-06-10T14:28:43+00:00"
+            }
+          ],
+          "notifications": [
+            {
+              "type": "info",
+              "message": "Imported order 17851977370457 from Shop-01 store."
+            },
+            {
+              "type": "info",
+              "message": "Imported order 8834309804556 from Shop-01 store."
+            },
+            {
+              "type": "info",
+              "message": "Imported order 16159781406633 from Shop-01 store."
+            },
+            {
+              "type": "info",
+              "message": "Importing form 1 to 3."
+            },
+            {
+              "type": "info",
+              "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
+            }
+          ]
+        }
+      },
+      "tasks_response": {
+        "data": [
+          {
+            "id": "5cfe690b25d9854b3b02241b",
+            "status": "completed",
+            "progress": 100,
+            "description": "Importing last updated orders from 'Shop-01' store.",
+            "created_at": "2019-06-10T13:35:27+00:00",
+            "updated_at": "2019-06-10T13:35:43+00:00",
+            "executions": [
+              {
+                "started_at": "2019-06-10T13:35:27+00:00",
+                "completed_at": "2019-06-10T13:35:43+00:00"
+              }
+            ],
+            "notifications": [
+              {
+                "type": "info",
+                "message": "Imported order 17851977370457 from Shop-01 store."
+              },
+              {
+                "type": "info",
+                "message": "Imported order 8834309804556 from Shop-01 store."
+              },
+              {
+                "type": "info",
+                "message": "Imported order 16159781406633 from Shop-01 store."
+              },
+              {
+                "type": "info",
+                "message": "Importing form 1 to 3."
+              },
+              {
+                "type": "info",
+                "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
+              }
+            ]
+          },
+          {
+            "id": "5cfe5ca825d9854aff021043",
+            "status": "completed",
+            "progress": 100,
+            "description": "Importing last updated orders from 'Shop-01' store.",
+            "created_at": "2019-06-10T13:35:27+00:00",
+            "updated_at": "2019-06-10T13:35:43+00:00",
+            "executions": [
+              {
+                "started_at": "2019-06-10T13:35:27+00:00",
+                "completed_at": "2019-06-10T13:35:43+00:00"
+              }
+            ],
+            "notifications": [
+              {
+                "type": "info",
+                "message": "Imported order 37851977370457 from Shop-01 store."
+              },
+              {
+                "type": "info",
+                "message": "Imported order 2834309804556 from Shop-01 store."
+              },
+              {
+                "type": "info",
+                "message": "Imported order 36159781406633 from Shop-01 store."
+              },
+              {
+                "type": "info",
+                "message": "Importing form 1 to 3."
+              },
+              {
+                "type": "info",
+                "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
+              }
+            ]
+          }
+        ],
+        "pagination": {
+          "offset": 0,
+          "limit": 10,
+          "total": 2
         }
       }
-    }
+    },
+    "headers": {}
   }
 }

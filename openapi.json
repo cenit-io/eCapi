@@ -65,28 +65,44 @@
                   }
                 },
                 "example": {
-                  "data": [
-                    {
-                      "order_id": "...",
-                      "last_import_date": "2019-06-07T20:47:14+00:00",
-                      "created_at": "2019-06-07T00:06:52+00:00",
-                      "updated_at": "2019-06-07T20:47:32+00:00"
-                    },
-                    {
-                      "order_id": "...",
-                      "last_import_date": "2019-06-07T20:47:14+00:00",
-                      "created_at": "2019-06-07T00:06:52+00:00",
-                      "updated_at": "2019-06-07T20:47:32+00:00"
-                    }
-                  ],
-                  "pagination": {
-                    "offset": 0,
-                    "limit": 10,
-                    "total": 2
-                  }
+                  "$ref": "#/components/examples/orders_response"
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/orders/{id}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "getOrderSettings",
+        "summary": "Get order",
+        "description": "Find order settings by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/order_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "deleteOrderSettings",
+        "summary": "Destroy order",
+        "description": "Find order settings by given id and destroy it.\n\n~~~\nOnly unauthorize orders can be destroyed.\n~~~\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/order_not_found"
           }
         }
       }
@@ -119,31 +135,7 @@
                   }
                 },
                 "example": {
-                  "data": [
-                    {
-                      "id": "shop_01",
-                      "name": "Shop-01",
-                      "channel": "LazadaSG",
-                      "authorized": true,
-                      "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-                      "created_at": "2019-06-07T00:06:52+00:00",
-                      "updated_at": "2019-06-07T20:47:32+00:00"
-                    },
-                    {
-                      "id": "shop_02",
-                      "name": "Shop-02",
-                      "channel": "LazadaMY",
-                      "authorized": true,
-                      "last_import_orders_date": "2019-07-07T20:47:14+00:00",
-                      "created_at": "2019-07-07T00:06:52+00:00",
-                      "updated_at": "2019-07-07T20:47:32+00:00"
-                    }
-                  ],
-                  "pagination": {
-                    "offset": 0,
-                    "limit": 10,
-                    "total": 2
-                  }
+                  "$ref": "#/components/examples/stores_response"
                 }
               }
             }
@@ -159,10 +151,10 @@
         "description": "Create store settings from a given name and channel.\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/StoreItem"
+            "$ref": "#/components/responses/store_item"
           },
           "400": {
-            "$ref": "#/components/responses/AlreadyExists"
+            "$ref": "#/components/responses/already_exists"
           }
         }
       }
@@ -177,10 +169,10 @@
         "description": "Find store settings by given id and returns it.\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/StoreItem"
+            "$ref": "#/components/responses/store_item"
           },
           "404": {
-            "$ref": "#/components/responses/StoreNotFound"
+            "$ref": "#/components/responses/store_not_found"
           }
         }
       },
@@ -193,10 +185,10 @@
         "description": "Find store settings by given id and destroy it.\n\n~~~\nOnly unauthorize stores can be destroyed.\n~~~\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/Success"
+            "$ref": "#/components/responses/success"
           },
           "404": {
-            "$ref": "#/components/responses/StoreNotFound"
+            "$ref": "#/components/responses/store_not_found"
           }
         }
       }
@@ -227,7 +219,7 @@
         ],
         "responses": {
           "404": {
-            "$ref": "#/components/responses/StoreNotFound"
+            "$ref": "#/components/responses/store_not_found"
           }
         }
       }
@@ -242,10 +234,10 @@
         "description": "Find store settings by given id and destroy it.\n\n~~~\nOnly unauthorize stores can be destroyed.\n~~~\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/Success"
+            "$ref": "#/components/responses/success"
           },
           "404": {
-            "$ref": "#/components/responses/StoreNotFound"
+            "$ref": "#/components/responses/store_not_found"
           }
         }
       }
@@ -260,7 +252,7 @@
         "description": "Find store settings by given id and disallow their connection.\n\n~~~\nOnly authorize stores can be unauthorizes.\n~~~\n",
         "responses": {
           "404": {
-            "$ref": "#/components/responses/StoreNotFound"
+            "$ref": "#/components/responses/store_not_found"
           }
         }
       }
@@ -495,7 +487,7 @@
       }
     },
     "responses": {
-      "AlreadyExists": {
+      "already_exists": {
         "description": "Already exist",
         "content": {
           "application/json": {
@@ -509,7 +501,39 @@
           }
         }
       },
-      "StoreItem": {
+      "order_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            },
+            "example": {
+              "$ref": "#/components/examples/order_response"
+            }
+          }
+        }
+      },
+      "order_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found order with number: 9151224232846"
+            }
+          }
+        }
+      },
+      "store_item": {
         "description": "Success",
         "content": {
           "application/json": {
@@ -522,20 +546,12 @@
               }
             },
             "example": {
-              "data": {
-                "id": "shop_01",
-                "name": "Shop-01",
-                "channel": "LazadaSG",
-                "authorized": true,
-                "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-                "created_at": "2019-06-07T00:06:52+00:00",
-                "updated_at": "2019-06-07T20:47:32+00:00"
-              }
+              "$ref": "#/components/examples/store_response"
             }
           }
         }
       },
-      "StoreNotFound": {
+      "store_not_found": {
         "description": "Not found",
         "content": {
           "application/json": {
@@ -549,7 +565,7 @@
           }
         }
       },
-      "Success": {
+      "success": {
         "description": "Success",
         "content": {
           "application/json": {
@@ -560,6 +576,213 @@
               "success": true
             }
           }
+        }
+      }
+    },
+    "examples": {
+      "order_response": {
+        "data": {
+          "order_id": "9151224232845",
+          "number": "9151224232845",
+          "total_price": "2.00",
+          "total_quantity": 1,
+          "status": "canceled",
+          "payment_method": "Lazada_GENERIC",
+          "ship_address": {
+            "country": "Singapore",
+            "state": "Singapore",
+            "city": "Singapore, Singapore",
+            "phone": "6590547759, 6590547759",
+            "zip_code": "549751",
+            "address": [
+              "21 DA SILVA LANE,",
+              "549751"
+            ]
+          },
+          "bill_address": {
+            "country": "Singapore",
+            "state": "Singapore",
+            "city": "Singapore, Singapore",
+            "phone": "6590547759, 6590547759",
+            "zip_code": "549751",
+            "address": [
+              "21 DA SILVA LANE,",
+              "549751"
+            ]
+          },
+          "last_import_date": "2019-06-07T20:47:26+00:00",
+          "customer": {
+            "firstname": "Christy Lee"
+          },
+          "line_items": [
+            {
+              "id": "9151224432845",
+              "name": "Short sleeve t-shirt",
+              "quantity": 1,
+              "price": 1.51,
+              "sku": "2468"
+            }
+          ],
+          "store": {
+            "id": "shop_01",
+            "name": "Shop-01",
+            "channel": "LazadaSG",
+            "authorized": false,
+            "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+            "created_at": "2019-06-07T00:06:52+00:00",
+            "updated_at": "2019-06-07T20:47:32+00:00"
+          }
+        }
+      },
+      "orders_response": {
+        "data": [
+          {
+            "order_id": "9151224232845",
+            "number": "9151224232845",
+            "total_price": "2.00",
+            "total_quantity": 1,
+            "status": "canceled",
+            "payment_method": "Lazada_GENERIC",
+            "ship_address": {
+              "country": "Singapore",
+              "state": "Singapore",
+              "city": "Singapore, Singapore",
+              "phone": "6590547759, 6590547759",
+              "zip_code": "549751",
+              "address": [
+                "21 DA SILVA LANE,",
+                "549751"
+              ]
+            },
+            "bill_address": {
+              "country": "Singapore",
+              "state": "Singapore",
+              "city": "Singapore, Singapore",
+              "phone": "6590547759, 6590547759",
+              "zip_code": "549751",
+              "address": [
+                "21 DA SILVA LANE,",
+                "549751"
+              ]
+            },
+            "last_import_date": "2019-06-07T20:47:26+00:00",
+            "customer": {
+              "firstname": "Christy Lee"
+            },
+            "line_items": [
+              {
+                "id": "9151224432845",
+                "name": "Short sleeve t-shirt",
+                "quantity": 1,
+                "price": 1.51,
+                "sku": "2468"
+              }
+            ],
+            "store": {
+              "id": "shop_01",
+              "name": "Shop-01",
+              "channel": "LazadaSG",
+              "authorized": false,
+              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+              "created_at": "2019-06-07T00:06:52+00:00",
+              "updated_at": "2019-06-07T20:47:32+00:00"
+            }
+          },
+          {
+            "order_id": "9170283050978",
+            "number": "9170283050978",
+            "total_price": "1.00",
+            "total_quantity": 1,
+            "status": "canceled",
+            "payment_method": "Lazada_GENERIC",
+            "ship_address": {
+              "country": "Singapore",
+              "state": "Singapore",
+              "city": "Singapore, Singapore",
+              "phone": "6583221206, 6583221206",
+              "zip_code": "637665",
+              "address": [
+                "98 NANYANG CRESCENT,#06-06",
+                "637665"
+              ]
+            },
+            "bill_address": {
+              "country": "Singapore",
+              "state": "Singapore",
+              "city": "Singapore, Singapore",
+              "phone": "6583221206, 6583221206",
+              "zip_code": "637665",
+              "address": [
+                "98 NANYANG CRESCENT,#06-06",
+                "637665"
+              ]
+            },
+            "last_import_date": "2019-06-07T20:47:27+00:00",
+            "customer": {
+              "firstname": "Aravind Dasari"
+            },
+            "line_items": [
+              {
+                "id": "9170283250978",
+                "name": "Actxa Swift / Swift+ Charging Cradle",
+                "quantity": 1,
+                "price": 1,
+                "sku": "0018227994491"
+              }
+            ],
+            "store": {
+              "id": "shop_01",
+              "name": "Shop-01",
+              "channel": "LazadaSG",
+              "authorized": false,
+              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+              "created_at": "2019-06-07T00:06:52+00:00",
+              "updated_at": "2019-06-07T20:47:32+00:00"
+            }
+          }
+        ],
+        "pagination": {
+          "offset": 0,
+          "limit": 10,
+          "total": 2
+        }
+      },
+      "store_response": {
+        "data": {
+          "id": "shop_01",
+          "name": "Shop-01",
+          "channel": "LazadaSG",
+          "authorized": true,
+          "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+          "created_at": "2019-06-07T00:06:52+00:00",
+          "updated_at": "2019-06-07T20:47:32+00:00"
+        }
+      },
+      "stores_response": {
+        "data": [
+          {
+            "id": "shop_01",
+            "name": "Shop-01",
+            "channel": "LazadaSG",
+            "authorized": true,
+            "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+            "created_at": "2019-06-07T00:06:52+00:00",
+            "updated_at": "2019-06-07T20:47:32+00:00"
+          },
+          {
+            "id": "shop_02",
+            "name": "Shop-02",
+            "channel": "LazadaMY",
+            "authorized": true,
+            "last_import_orders_date": "2019-07-07T20:47:14+00:00",
+            "created_at": "2019-07-07T00:06:52+00:00",
+            "updated_at": "2019-07-07T20:47:32+00:00"
+          }
+        ],
+        "pagination": {
+          "offset": 0,
+          "limit": 10,
+          "total": 2
         }
       }
     },

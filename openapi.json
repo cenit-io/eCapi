@@ -1,286 +1,564 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "1.0.0",
-    "title": "Example.com",
+    "version": "v1",
+    "title": "eCapi",
     "termsOfService": "https://example.com/terms/",
     "contact": {
-      "email": "contact@example.com",
-      "url": "http://example.com/contact"
+      "email": "support@cenit.io",
+      "url": "https://cenitio.slack.com/messages/support"
     },
     "license": {
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     },
     "x-logo": {
-      "url": "https://apis.guru/openapi-template/logo.png"
+      "url": "https://cenit.io/assets/cenit-logo-c4e099552f7dc77c1870b7c77600380177da8b01c0a4a70dbf608b73e61da3ce.png"
     },
-    "description": "This is an **example** API to demonstrate features of OpenAPI specification\n# Introduction\nThis specification is intended to to be a good starting point for describing your API in \n[OpenAPI/Swagger format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md).\nIt also demonstrates features of [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo) tool and \n[ReDoc](https://github.com/Rebilly/ReDoc) documentation engine. So beyond the standard OpenAPI syntax we use a few \n[vendor extensions](https://github.com/Rebilly/ReDoc/blob/master/docs/redoc-vendor-extensions.md).\n\n# OpenAPI Specification\nThe goal of The OpenAPI Specification is to define a standard, language-agnostic interface to REST APIs which\nallows both humans and computers to discover and understand the capabilities of the service without access to source\ncode, documentation, or through network traffic inspection. When properly defined via OpenAPI, a consumer can \nunderstand and interact with the remote service with a minimal amount of implementation logic. Similar to what\ninterfaces have done for lower-level programming, OpenAPI removes the guesswork in calling the service.\n"
-  },
-  "externalDocs": {
-    "description": "Find out how to create Github repo for your OpenAPI spec.",
-    "url": "https://github.com/Rebilly/generator-openapi-repo"
+    "description": "# Introduction\n* The eCommerce's API is built over REST services on HTTPS.\n* It has predictable resource URLs.\n* It returns HTTP response codes to indicate errors.\n* It also accepts and returns JSON in the HTTP body.\n* You can use your favorite HTTP/REST library for your programming language to use eCommerce's API,\n# Authentication\nTODO: ...\n"
   },
   "tags": [
     {
-      "name": "Echo",
-      "description": "Example echo operations"
+      "name": "Store",
+      "description": "Operations about store"
     },
     {
-      "name": "User",
-      "description": "Operations about user"
+      "name": "Order",
+      "description": "Operations about orders"
+    },
+    {
+      "name": "Tasks",
+      "description": "Operations about tasks"
     }
   ],
   "servers": [
     {
-      "url": "http://example.com/api/v1"
-    },
-    {
-      "url": "https://example.com/api/v1"
+      "url": "https://cenit.io/app/ecapi"
     }
   ],
   "paths": {
-    "/echo": {
-      "post": {
-        "tags": [
-          "Echo"
-        ],
-        "summary": "Echo test",
-        "description": "Receive the exact message you've sent",
-        "operationId": "echo",
-        "security": [
-          {
-            "api_key": []
-          },
-          {
-            "basic_auth": []
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "headers": {
-              "X-Rate-Limit": {
-                "description": "calls per hour allowed by the user",
-                "schema": {
-                  "type": "integer",
-                  "format": "int32"
-                }
-              },
-              "X-Expires-After": {
-                "$ref": "#/components/headers/ExpiresAfter"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                },
-                "examples": {
-                  "response": {
-                    "value": "Hello world!"
-                  }
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "text/csv": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "string",
-                "example": "Hello world!"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "type": "string",
-                "example": "Hello world!"
-              }
-            }
-          },
-          "description": "Echo payload",
-          "required": true
-        },
-        "x-code-samples": [
-          {
-            "lang": "C#",
-            "source": "API.v1.Echo echo = new API.v1.Echo();\necho.message = \"Hello World!\");\nEchoResponse response = echo.post();\nif (response.statusCode == HttpStatusCode.Created)\n{\n  // Success\n}\nelse\n{\n  // Something wrong -- check response for errors\n  Console.WriteLine(response.getRawResponse());\n}\n"
-          },
-          {
-            "lang": "PHP",
-            "source": "$form = new \\API\\Entities\\Echo();\n$form->setMessage(\"Hello World!\");\ntry {\n    $pet = $client->echo()->post($form);\n} catch (UnprocessableEntityException $e) {\n    var_dump($e->getErrors());\n}\n"
-          }
-        ]
-      }
-    },
-    "/users/{username}": {
-      "parameters": [
-        {
-          "name": "pretty_print",
-          "in": "query",
-          "description": "Pretty print response",
-          "schema": {
-            "type": "boolean"
-          }
-        }
-      ],
+    "/orders": {
       "get": {
         "tags": [
-          "User"
+          "Order"
         ],
-        "summary": "Get user by user name",
-        "description": "Some description of the operation. \nYou can use `markdown` here.\n",
-        "operationId": "getUserByName",
-        "parameters": [
-          {
-            "name": "username",
-            "in": "path",
-            "description": "The name that needs to be fetched",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "with_email",
-            "in": "query",
-            "description": "Filter users without email",
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "security": [
-          {
-            "main_auth": [
-              "read:users"
-            ]
-          },
-          {
-            "api_key": []
-          }
-        ],
+        "operationId": "getOrders",
+        "summary": "Get orders",
+        "description": "Returns the list of orders settings.\n",
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Order"
+                      }
+                    },
+                    "pagination": {
+                      "$ref": "#/components/schemas/Pagination"
+                    }
+                  }
                 },
                 "example": {
-                  "username": "user1",
-                  "email": "user@example.com"
+                  "data": [
+                    {
+                      "order_id": "...",
+                      "last_import_date": "2019-06-07T20:47:14+00:00",
+                      "created_at": "2019-06-07T00:06:52+00:00",
+                      "updated_at": "2019-06-07T20:47:32+00:00"
+                    },
+                    {
+                      "order_id": "...",
+                      "last_import_date": "2019-06-07T20:47:14+00:00",
+                      "created_at": "2019-06-07T00:06:52+00:00",
+                      "updated_at": "2019-06-07T20:47:32+00:00"
+                    }
+                  ],
+                  "pagination": {
+                    "offset": 0,
+                    "limit": 10,
+                    "total": 2
+                  }
                 }
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/stores": {
+      "get": {
+        "tags": [
+          "Store"
+        ],
+        "operationId": "getStores",
+        "summary": "Get stores",
+        "description": "Returns the list of stores settings.\n",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Store"
+                      }
+                    },
+                    "pagination": {
+                      "$ref": "#/components/schemas/Pagination"
+                    }
+                  }
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "shop_01",
+                      "name": "Shop-01",
+                      "channel": "LazadaSG",
+                      "authorized": true,
+                      "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+                      "created_at": "2019-06-07T00:06:52+00:00",
+                      "updated_at": "2019-06-07T20:47:32+00:00"
+                    },
+                    {
+                      "id": "shop_02",
+                      "name": "Shop-02",
+                      "channel": "LazadaMY",
+                      "authorized": true,
+                      "last_import_orders_date": "2019-07-07T20:47:14+00:00",
+                      "created_at": "2019-07-07T00:06:52+00:00",
+                      "updated_at": "2019-07-07T20:47:32+00:00"
+                    }
+                  ],
+                  "pagination": {
+                    "offset": 0,
+                    "limit": 10,
+                    "total": 2
+                  }
+                }
+              }
+            }
           }
         }
       },
-      "put": {
+      "post": {
         "tags": [
-          "User"
+          "Store"
         ],
-        "summary": "Updated user",
-        "description": "This can only be done by the logged in user.",
-        "operationId": "updateUser",
+        "operationId": "createStoreById",
+        "summary": "Create store",
+        "description": "Create store settings from a given name and channel.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/StoreItem"
+          },
+          "400": {
+            "$ref": "#/components/responses/AlreadyExists"
+          }
+        }
+      }
+    },
+    "/stores/{id}": {
+      "get": {
+        "tags": [
+          "Store"
+        ],
+        "operationId": "getStoreSettings",
+        "summary": "Get store",
+        "description": "Find store settings by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/StoreItem"
+          },
+          "404": {
+            "$ref": "#/components/responses/StoreNotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Store"
+        ],
+        "operationId": "deleteStoreSettings",
+        "summary": "Destroy store",
+        "description": "Find store settings by given id and destroy it.\n\n~~~\nOnly unauthorize stores can be destroyed.\n~~~\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Success"
+          },
+          "404": {
+            "$ref": "#/components/responses/StoreNotFound"
+          }
+        }
+      }
+    },
+    "/stores/{id}/authorize": {
+      "parameters": [
+        {
+          "name": "redirect_uri",
+          "in": "query",
+          "schema": {
+            "$ref": "#/components/schemas/RedirectURI"
+          }
+        }
+      ],
+      "get": {
+        "tags": [
+          "Store"
+        ],
+        "operationId": "authorizeStoreConnection",
+        "summary": "Authorize store",
+        "description": "Find store settings by given id and redirect navigation to authorization uri.\n",
         "parameters": [
           {
-            "name": "username",
-            "in": "path",
-            "description": "The name that needs to be updated",
-            "required": true,
-            "schema": {
-              "type": "string"
+            "redirect_uri": {
+              "$ref": "#/components/schemas/RedirectURI"
             }
-          }
-        ],
-        "security": [
-          {
-            "main_auth": [
-              "write:users"
-            ]
           }
         ],
         "responses": {
+          "404": {
+            "$ref": "#/components/responses/StoreNotFound"
+          }
+        }
+      }
+    },
+    "/stores/{id}/destroy": {
+      "get": {
+        "tags": [
+          "Store"
+        ],
+        "operationId": "destroyStoreSettings",
+        "summary": "Destroy store",
+        "description": "Find store settings by given id and destroy it.\n\n~~~\nOnly unauthorize stores can be destroyed.\n~~~\n",
+        "responses": {
           "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Invalid user supplied"
+            "$ref": "#/components/responses/Success"
           },
           "404": {
-            "description": "User not found"
+            "$ref": "#/components/responses/StoreNotFound"
           }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          },
-          "description": "Updated user object",
-          "required": true
+        }
+      }
+    },
+    "/stores/{id}/unauthorize": {
+      "get": {
+        "tags": [
+          "Store"
+        ],
+        "operationId": "unauthorizeStoreConnection",
+        "summary": "Cancel authorization",
+        "description": "Find store settings by given id and disallow their connection.\n\n~~~\nOnly authorize stores can be unauthorizes.\n~~~\n",
+        "responses": {
+          "404": {
+            "$ref": "#/components/responses/StoreNotFound"
+          }
         }
       }
     }
   },
   "components": {
     "schemas": {
-      "Email": {
-        "description": "User email address",
-        "type": "string",
-        "format": "test",
-        "example": "john.smith@example.com"
-      },
-      "User": {
+      "Address": {
+        "title": "Address",
         "type": "object",
         "properties": {
-          "username": {
-            "description": "User supplied username",
-            "type": "string",
-            "minLength": 4,
-            "example": "John78"
+          "first_name": {
+            "type": "string"
           },
-          "firstName": {
-            "description": "User first name",
-            "type": "string",
-            "minLength": 1,
-            "example": "John"
+          "last_name": {
+            "type": "string"
           },
-          "lastName": {
-            "description": "User last name",
-            "type": "string",
-            "minLength": 1,
-            "example": "Smith"
+          "country": {
+            "type": "string"
           },
-          "email": {
-            "$ref": "#/components/schemas/Email"
+          "state": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "town": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "zip_code": {
+            "type": "string"
+          },
+          "address": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "CreatedAt": {
+        "description": "Date in iso8601 when the record was created",
+        "type": "string",
+        "format": "date-time"
+      },
+      "Customer": {
+        "title": "Customer",
+        "type": "object",
+        "properties": {
+          "customer_id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Unique identifier for the customer"
+          },
+          "firstname": {
+            "type": "string",
+            "description": "Customers first name"
+          },
+          "lastname": {
+            "type": "string",
+            "description": "Customers last name"
+          }
+        }
+      },
+      "LineItem": {
+        "title": "LineItem",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer"
+          },
+          "price": {
+            "type": "number"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "product_id": {
+            "type": "string"
+          }
+        }
+      },
+      "Order": {
+        "title": "Order",
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "total_price": {
+            "type": "string"
+          },
+          "total_quantity": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          },
+          "payment_method": {
+            "type": "string"
+          },
+          "ship_address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "bill_address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "line_items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineItem"
+            }
+          },
+          "hmac": {
+            "type": "string"
+          },
+          "created_date": {
+            "description": "Date in iso8601 when the order was created",
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_date": {
+            "description": "Date in iso8601 when the order was updated",
+            "type": "string",
+            "format": "date-time"
+          },
+          "last_import_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/Customer"
+          },
+          "store": {
+            "$ref": "#/components/schemas/Store"
+          }
+        }
+      },
+      "Pagination": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "description": "Offset",
+            "type": "integer"
+          },
+          "limit": {
+            "description": "Limit",
+            "type": "integer"
+          },
+          "total": {
+            "description": "Limit",
+            "type": "integer"
+          }
+        }
+      },
+      "RedirectURI": {
+        "description": "URI to back after do authorization",
+        "type": "string"
+      },
+      "Store": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Store identifier",
+            "type": "string",
+            "example": "shop_01"
+          },
+          "name": {
+            "description": "Store name",
+            "type": "string"
+          },
+          "channel": {
+            "description": "Channel identifier",
+            "type": "string",
+            "example": "LazadaSG"
+          },
+          "authorized": {
+            "description": "If store is authorized or not",
+            "type": "boolean"
+          },
+          "last_import_orders_date": {
+            "description": "The last import orders date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/UpdatedAt"
+          }
+        },
+        "required": [
+          "name",
+          "channel"
+        ]
+      },
+      "Success": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "description": "Success status",
+            "type": "boolean",
+            "example": false
+          },
+          "message": {
+            "description": "Error or Success message",
+            "type": "string",
+            "example": "[404] - Not found store with id: shop_20"
+          }
+        }
+      },
+      "UpdatedAt": {
+        "description": "Date in iso8601 when the record was updated",
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "responses": {
+      "AlreadyExists": {
+        "description": "Already exist",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Already exist"
+            }
+          }
+        }
+      },
+      "StoreItem": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Store"
+                }
+              }
+            },
+            "example": {
+              "data": {
+                "id": "shop_01",
+                "name": "Shop-01",
+                "channel": "LazadaSG",
+                "authorized": true,
+                "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+                "created_at": "2019-06-07T00:06:52+00:00",
+                "updated_at": "2019-06-07T20:47:32+00:00"
+              }
+            }
+          }
+        }
+      },
+      "StoreNotFound": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found store with id: shop_20"
+            }
+          }
+        }
+      },
+      "Success": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": true
+            }
           }
         }
       }
@@ -291,29 +569,6 @@
         "schema": {
           "type": "string",
           "format": "date-time"
-        }
-      }
-    },
-    "securitySchemes": {
-      "api_key": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "api_key"
-      },
-      "basic_auth": {
-        "type": "http",
-        "scheme": "basic"
-      },
-      "main_auth": {
-        "type": "oauth2",
-        "flows": {
-          "implicit": {
-            "authorizationUrl": "http://example.com/api/oauth/dialog",
-            "scopes": {
-              "read:users": "read users info",
-              "write:users": "modify or remove users"
-            }
-          }
         }
       }
     }

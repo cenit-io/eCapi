@@ -2,7 +2,7 @@ get:
   tags:
     - Store
   operationId: getStoreSettings
-  summary: Get store settings
+  summary: Get store
   description: |
     Find store settings by given id and returns it.
   responses:
@@ -15,7 +15,7 @@ delete:
   tags:
     - Store
   operationId: deleteStoreSettings
-  summary: Destroy store settings
+  summary: Destroy store
   description: |
     Find store settings by given id and destroy it.
 

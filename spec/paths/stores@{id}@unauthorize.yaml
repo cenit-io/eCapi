@@ -2,7 +2,7 @@ get:
   tags:
     - Store
   operationId: unauthorizeStoreConnection
-  summary: Unauthorize store connection
+  summary: Cancel authorization
   description: |
     Find store settings by given id and disallow their connection.
 

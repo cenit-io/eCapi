@@ -1,10 +1,18 @@
+parameters:
+- name: redirect_uri
+  in: query
+  schema:
+    $ref: '#/components/schemas/RedirectURI'
 get:
   tags:
     - Store
   operationId: authorizeStoreConnection
-  summary: Authorize store connection
+  summary: Authorize store
   description: |
     Find store settings by given id and redirect navigation to authorization uri.
+  parameters:
+    - redirect_uri:
+        $ref: '#/components/schemas/RedirectURI'
   responses:
     404:
       $ref: '#/components/responses/StoreNotFound'

@@ -2,7 +2,7 @@ get:
   tags:
     - Store
   operationId: getStores
-  summary: Get the list of store settings
+  summary: Get stores
   description: |
     Returns the list of stores settings.
   responses:
@@ -47,7 +47,7 @@ post:
   tags:
     - Store
   operationId: createStoreById
-  summary: Create a new store settings
+  summary: Create store
   description: |
     Create store settings from a given name and channel.
   responses:

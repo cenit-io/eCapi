@@ -10,21 +10,3 @@ get:
       $ref: '#/components/responses/order_item'
     404:
       $ref: '#/components/responses/order_not_found'
-
-delete:
-  tags:
-    - Order
-  operationId: deleteOrderSettings
-  summary: Destroy order
-  description: |
-    Find order settings by given id and destroy it.
-
-    ~~~
-    Only unauthorize orders can be destroyed.
-    ~~~
-
-  responses:
-    200:
-      $ref: '#/components/responses/success'
-    404:
-      $ref: '#/components/responses/order_not_found'

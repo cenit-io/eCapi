@@ -1,0 +1,30 @@
+type: object
+properties:
+  id:
+    description: Task identifier
+    type: string
+  status:
+    description: Task execution status
+    type: string
+  progress:
+    description: Task execution progress
+    type: integer
+  description:
+    description: Task execution description
+    type: string
+  executions:
+    description: Dates that started and completed each instance of execution of the task
+    type: array
+    items:
+      $ref: "#/components/schemas/Execution"
+  notifications:
+    description: Notifications of tasks
+    type: array
+    items:
+      $ref: "#/components/schemas/Notification"
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
+  updated_at:
+    $ref: "#/components/schemas/UpdatedAt"
+
+"required": ["name", "channel"]

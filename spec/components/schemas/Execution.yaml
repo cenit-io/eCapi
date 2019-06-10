@@ -1,0 +1,10 @@
+type: "object"
+properties:
+  started_at:
+    description: Date in iso8601 when the task was started
+    type: string
+    format: date-time
+  completed_at:
+    description: Date in iso8601 when the task was completed
+    type: string
+    format: date-time

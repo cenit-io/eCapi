@@ -1,0 +1,8 @@
+type: "object"
+properties:
+  type:
+    description: Notification type [info, notice, warning or error]
+    type: string
+  message:
+    description: Notification message
+    type: string

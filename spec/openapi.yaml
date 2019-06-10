@@ -33,7 +33,7 @@ tags:
     description: Operations about store
   - name: Order
     description: Operations about orders
-  - name: Tasks
+  - name: Task
     description: Operations about tasks
 
 servers:

@@ -1,0 +1,24 @@
+get:
+  tags:
+    - Task
+  operationId: getTasks
+  summary: Get tasks
+  description: |
+    Returns the list of tasks executions.
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+              pagination:
+                  $ref: '#/components/schemas/Pagination'
+
+          example:
+            $ref: '#/components/examples/tasks_response'

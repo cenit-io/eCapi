@@ -7,20 +7,7 @@ parameters:
 get:
   tags:
     - Task
-  operationId: getTask
-  summary: Get task
-  description: |
-    Find task by given id and returns it.
-  responses:
-    200:
-      $ref: '#/components/responses/task_item'
-    404:
-      $ref: '#/components/responses/task_not_found'
-
-delete:
-  tags:
-    - Task
-  operationId: deleteTask
+  operationId: destroyTask
   summary: Destroy task
   description: |
     Find task by given id and destroy it.

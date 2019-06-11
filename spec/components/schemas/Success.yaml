@@ -3,8 +3,6 @@ properties:
   success:
     description: Success status
     type: boolean
-    example: false
   message:
     description: Error or Success message
     type: string
-    example: "[404] - Not found store with id: shop_20"

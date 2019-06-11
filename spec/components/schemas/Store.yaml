@@ -3,14 +3,12 @@ properties:
   id:
     description: Store identifier
     type: string
-    example: shop_01
   name:
     description: Store name
     type: string
   channel:
     description: Channel identifier
     type: string
-    example: LazadaSG
   authorized:
     description: If store is authorized or not
     type: boolean

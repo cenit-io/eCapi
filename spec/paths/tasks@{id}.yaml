@@ -1,3 +1,9 @@
+parameters:
+  - name: id
+    in: path
+    schema:
+      $ref: '#/components/schemas/TaskID'
+
 get:
   tags:
     - Task

@@ -1,8 +1,12 @@
 parameters:
-- name: redirect_uri
-  in: query
-  schema:
-    $ref: '#/components/schemas/RedirectURI'
+  - name: id
+    in: path
+    schema:
+      $ref: '#/components/schemas/StoreID'
+  - name: redirect_uri
+    in: query
+    schema:
+      $ref: '#/components/schemas/RedirectURI'
 get:
   tags:
     - Store

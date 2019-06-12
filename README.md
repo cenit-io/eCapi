@@ -1,4 +1,4 @@
-# eCommerce API OpenAPI Specification
+# OMNA API OpenAPI Specification
 [![Build Status](https://travis-ci.com/cenit-io/eCapi.svg?branch=master)](https://travis-ci.com/cenit-io/eCapi)
 ## Steps to finish
 

@@ -14,7 +14,7 @@ info:
   description: >
     # Introduction
 
-    * The eCommerce's API is built over REST services on HTTPS.
+    * The OMNA's API is built over REST services on HTTPS.
 
     * It has predictable resource URLs.
 
@@ -22,7 +22,7 @@ info:
 
     * It also accepts and returns JSON in the HTTP body.
 
-    * You can use your favorite HTTP/REST library for your programming language to use eCommerce's API,
+    * You can use your favorite HTTP/REST library for your programming language to use OMNA's API,
 
     # Authentication
 

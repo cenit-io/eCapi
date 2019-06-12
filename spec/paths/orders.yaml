@@ -4,7 +4,7 @@ get:
   operationId: getOrders
   summary: Get orders
   description: |
-    Returns the list of orders settings.
+    Returns the list of orders.
   responses:
     200:
       description: Success

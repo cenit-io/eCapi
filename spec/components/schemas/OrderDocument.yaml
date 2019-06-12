@@ -1,0 +1,11 @@
+type: object
+properties:
+  file:
+    description: File content in base64 encoded
+    type: string
+  mime_type:
+    description: Mime type
+    type: string
+  document_type:
+    description: Type of document
+    type: string

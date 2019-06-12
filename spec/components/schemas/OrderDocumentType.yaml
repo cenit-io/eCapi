@@ -1,0 +1,8 @@
+type: object
+properties:
+  type:
+    description: Document type identifier
+    type: string
+  name:
+    description: Nombre legible del tipo de documento
+    type: string

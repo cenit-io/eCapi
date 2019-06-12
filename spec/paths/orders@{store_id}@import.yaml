@@ -1,0 +1,18 @@
+parameters:
+  - name: store_id
+    in: path
+    schema:
+      $ref: '#/components/schemas/StoreID'
+
+get:
+  tags:
+    - Order
+  operationId: importOrders
+  summary: Import updated orders
+  description: |
+    Import the last updated orders from a store
+  responses:
+    200:
+      $ref: '#/components/responses/task_item'
+    404:
+      $ref: '#/components/responses/store_not_found'

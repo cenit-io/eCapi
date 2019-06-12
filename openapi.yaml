@@ -13,11 +13,11 @@ info:
     url: 'https://cenit.io/assets/cenit-logo-c4e099552f7dc77c1870b7c77600380177da8b01c0a4a70dbf608b73e61da3ce.png'
   description: |
     # Introduction
-    * The eCommerce's API is built over REST services on HTTPS.
+    * The OMNA's API is built over REST services on HTTPS.
     * It has predictable resource URLs.
     * It returns HTTP response codes to indicate errors.
     * It also accepts and returns JSON in the HTTP body.
-    * You can use your favorite HTTP/REST library for your programming language to use eCommerce's API,
+    * You can use your favorite HTTP/REST library for your programming language to use OMNA's API,
     # Authentication
     TODO: ...
 tags:
@@ -91,13 +91,7 @@ paths:
         ~~~
       responses:
         '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/OrderDocument'
+          $ref: '#/components/responses/order_doc'
   '/orders/{store_id}/{number}/import':
     parameters:
       - name: store_id
@@ -130,13 +124,7 @@ paths:
         Return the list of types of order documents
       responses:
         '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/OrderDocumentType'
+          $ref: '#/components/responses/order_doc_types'
   '/orders/{store_id}/import':
     parameters:
       - name: store_id
@@ -165,20 +153,7 @@ paths:
         Returns the list of stores settings.
       responses:
         '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Store'
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
-              example:
-                $ref: '#/components/examples/stores_response'
+          $ref: '#/components/responses/store_items'
     post:
       tags:
         - Store
@@ -186,6 +161,33 @@ paths:
       summary: Create store
       description: |
         Create store settings from a given name and channel.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  type: object
+                  properties:
+                    name:
+                      description: Store name
+                      type: string
+                    channel:
+                      description: Channel identifier
+                      type: string
+            examples:
+              e1:
+                summary: To Lazada store
+                value:
+                  data:
+                    name: Shop-01
+                    channel: LazadaSG
+              e2:
+                summary: To Shopee store
+                value:
+                  data:
+                    name: Shop-02
+                    channel: ShopeeSG
       responses:
         '200':
           $ref: '#/components/responses/store_item'
@@ -619,6 +621,30 @@ components:
           example:
             success: false
             message: Already exist
+    order_doc_types:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderDocumentType'
+          example:
+            $ref: '#/components/examples/order_doc_types_response'
+    order_doc:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/OrderDocument'
+          example:
+            $ref: '#/components/examples/order_doc_response'
     order_item:
       description: Success
       content:
@@ -649,7 +675,22 @@ components:
               data:
                 $ref: '#/components/schemas/Store'
           example:
-            $ref: '#/components/examples/store_response'
+            $ref: '#/components/examples/store_item_response'
+    store_items:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
+          example:
+            $ref: '#/components/examples/store_items_response'
     store_not_found:
       description: Not found
       content:
@@ -688,6 +729,19 @@ components:
             success: false
             message: 'Not found task with id: 1234567890'
   examples:
+    order_doc_response:
+      data:
+        file: T3JkZXIgZG9jdWVtbnQgZXhhbXBsZS4uLgo=
+        mime_type: text/html
+        document_type: invoice
+    order_doc_types_response:
+      data:
+        - type: invoice
+          title: Invoice
+        - type: shippingLabel
+          title: Shipping Label
+        - type: carrierManifest
+          title: Carrier Manifest
     order_response:
       data:
         order_id: '9151224232845'
@@ -819,7 +873,7 @@ components:
         offset: 0
         limit: 10
         total: 2
-    store_response:
+    store_item_response:
       data:
         id: shop_01
         name: Shop-01
@@ -828,7 +882,7 @@ components:
         last_import_orders_date: '2019-06-07T20:47:14+00:00'
         created_at: '2019-06-07T00:06:52+00:00'
         updated_at: '2019-06-07T20:47:32+00:00'
-    stores_response:
+    store_items_response:
       data:
         - id: shop_01
           name: Shop-01

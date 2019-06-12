@@ -44,7 +44,7 @@
         ],
         "operationId": "getOrders",
         "summary": "Get orders",
-        "description": "Returns the list of orders settings.\n",
+        "description": "Returns the list of orders.\n",
         "responses": {
           "200": {
             "description": "Success",
@@ -73,20 +73,147 @@
         }
       }
     },
-    "/orders/{id}": {
+    "/orders/{store_id}/{number}": {
+      "parameters": [
+        {
+          "name": "store_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/StoreID"
+          }
+        },
+        {
+          "name": "number",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/OrderNumber"
+          }
+        }
+      ],
       "get": {
         "tags": [
           "Order"
         ],
-        "operationId": "getOrderSettings",
+        "operationId": "getOrder",
         "summary": "Get order",
-        "description": "Find order settings by given id and returns it.\n",
+        "description": "Find order by given id and returns it.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/order_item"
           },
           "404": {
             "$ref": "#/components/responses/order_not_found"
+          }
+        }
+      }
+    },
+    "/orders/{store_id}/{number}/doc/{type}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "getOrderDoc",
+        "summary": "Get document",
+        "description": "Returns a specific document of the order\n\n~~~\nTo reconstruct the file, the data from the node needs to be base64 decoded,\nand interpreted according to the mime_type.\n~~~\n",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderDocument"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{store_id}/{number}/import": {
+      "parameters": [
+        {
+          "name": "store_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/StoreID"
+          }
+        },
+        {
+          "name": "number",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/OrderNumber"
+          }
+        }
+      ],
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "importOrder",
+        "summary": "Import a single order",
+        "description": "Import a specific order from a store\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/store_not_found"
+          }
+        }
+      }
+    },
+    "/orders/{store_id}/doc/types": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "getOrderDocTypes",
+        "summary": "Get documents types",
+        "description": "Return the list of types of order documents\n",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderDocumentType"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{store_id}/import": {
+      "parameters": [
+        {
+          "name": "store_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/StoreID"
+          }
+        }
+      ],
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "importOrders",
+        "summary": "Import updated orders",
+        "description": "Import the last updated orders from a store\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/store_not_found"
           }
         }
       }
@@ -144,6 +271,15 @@
       }
     },
     "/stores/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/StoreID"
+          }
+        }
+      ],
       "get": {
         "tags": [
           "Store"
@@ -180,6 +316,13 @@
     "/stores/{id}/authorize": {
       "parameters": [
         {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/StoreID"
+          }
+        },
+        {
           "name": "redirect_uri",
           "in": "query",
           "schema": {
@@ -209,6 +352,15 @@
       }
     },
     "/stores/{id}/destroy": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/StoreID"
+          }
+        }
+      ],
       "get": {
         "tags": [
           "Store"
@@ -227,6 +379,15 @@
       }
     },
     "/stores/{id}/unauthorize": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/StoreID"
+          }
+        }
+      ],
       "get": {
         "tags": [
           "Store"
@@ -278,13 +439,22 @@
       }
     },
     "/tasks/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/TaskID"
+          }
+        }
+      ],
       "get": {
         "tags": [
           "Task"
         ],
-        "operationId": "getTaskSettings",
+        "operationId": "getTask",
         "summary": "Get task",
-        "description": "Find task settings by given id and returns it.\n",
+        "description": "Find task by given id and returns it.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -298,9 +468,36 @@
         "tags": [
           "Task"
         ],
-        "operationId": "deleteTaskSettings",
+        "operationId": "deleteTask",
         "summary": "Destroy task",
-        "description": "Find task settings by given id and destroy it.\n\n~~~\nThe tasks in running status can't be destroyed.\n~~~\n",
+        "description": "Find task by given id and destroy it.\n\n~~~\nThe tasks in running status can't be destroyed.\n~~~\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_not_found"
+          }
+        }
+      }
+    },
+    "/tasks/{id}/destroy": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/TaskID"
+          }
+        }
+      ],
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "operationId": "destroyTask",
+        "summary": "Destroy task",
+        "description": "Find task by given id and destroy it.\n\n~~~\nThe tasks in running status can't be destroyed.\n~~~\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -488,6 +685,40 @@
           }
         }
       },
+      "OrderDocument": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "description": "File content in base64 encoded",
+            "type": "string"
+          },
+          "mime_type": {
+            "description": "Mime type",
+            "type": "string"
+          },
+          "document_type": {
+            "description": "Type of document",
+            "type": "string"
+          }
+        }
+      },
+      "OrderDocumentType": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Document type identifier",
+            "type": "string"
+          },
+          "name": {
+            "description": "Nombre legible del tipo de documento",
+            "type": "string"
+          }
+        }
+      },
+      "OrderNumber": {
+        "description": "Order number",
+        "type": "string"
+      },
       "Pagination": {
         "type": "object",
         "properties": {
@@ -514,8 +745,7 @@
         "properties": {
           "id": {
             "description": "Store identifier",
-            "type": "string",
-            "example": "shop_01"
+            "type": "string"
           },
           "name": {
             "description": "Store name",
@@ -523,8 +753,7 @@
           },
           "channel": {
             "description": "Channel identifier",
-            "type": "string",
-            "example": "LazadaSG"
+            "type": "string"
           },
           "authorized": {
             "description": "If store is authorized or not",
@@ -547,18 +776,20 @@
           "channel"
         ]
       },
+      "StoreID": {
+        "description": "Store identifier",
+        "type": "string"
+      },
       "Success": {
         "type": "object",
         "properties": {
           "success": {
             "description": "Success status",
-            "type": "boolean",
-            "example": false
+            "type": "boolean"
           },
           "message": {
             "description": "Error or Success message",
-            "type": "string",
-            "example": "[404] - Not found store with id: shop_20"
+            "type": "string"
           }
         }
       },
@@ -606,6 +837,10 @@
           "name",
           "channel"
         ]
+      },
+      "TaskID": {
+        "description": "Task identifier",
+        "type": "string"
       },
       "UpdatedAt": {
         "description": "Date in iso8601 when the record was updated",

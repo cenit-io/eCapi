@@ -1,0 +1,15 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Store'
+        pagination:
+            $ref: '#/components/schemas/Pagination'
+
+    example:
+      $ref: '#/components/examples/store_items_response'

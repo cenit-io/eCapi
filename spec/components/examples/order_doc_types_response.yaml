@@ -1,0 +1,9 @@
+data:
+- type: invoice
+  title: Invoice
+
+- type: shippingLabel
+  title: Shipping Label
+
+- type: carrierManifest
+  title: Carrier Manifest

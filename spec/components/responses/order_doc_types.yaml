@@ -1,0 +1,13 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderDocumentType'
+
+    example:
+      $ref: '#/components/examples/order_doc_types_response'

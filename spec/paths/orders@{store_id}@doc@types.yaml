@@ -7,10 +7,4 @@ get:
     Return the list of types of order documents
   responses:
     200:
-      description: Success
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/OrderDocumentType'
+      $ref: '#/components/responses/order_doc_types'

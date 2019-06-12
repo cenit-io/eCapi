@@ -5,7 +5,7 @@ content:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/Store'
+          $ref: '#/components/schemas/OrderDocument'
 
     example:
-      $ref: '#/components/examples/store_item_response'
+      $ref: '#/components/examples/order_doc_response'

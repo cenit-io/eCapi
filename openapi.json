@@ -38,6 +38,20 @@
   ],
   "paths": {
     "/orders": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/filter_term_for_orders"
+        },
+        {
+          "$ref": "#/components/parameters/filter_store"
+        },
+        {
+          "$ref": "#/components/parameters/offset"
+        },
+        {
+          "$ref": "#/components/parameters/limit"
+        }
+      ],
       "get": {
         "tags": [
           "Order"
@@ -47,28 +61,7 @@
         "description": "Returns the list of orders.\n",
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/Order"
-                      }
-                    },
-                    "pagination": {
-                      "$ref": "#/components/schemas/Pagination"
-                    }
-                  }
-                },
-                "example": {
-                  "$ref": "#/components/examples/orders_response"
-                }
-              }
-            }
+            "$ref": "#/components/responses/order_items"
           }
         }
       }
@@ -206,6 +199,20 @@
         "operationId": "getStores",
         "summary": "Get stores",
         "description": "Returns the list of stores settings.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/filter_term_for_stores"
+          },
+          {
+            "$ref": "#/components/parameters/filter_store_channel"
+          },
+          {
+            "$ref": "#/components/parameters/offset"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          }
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/store_items"
@@ -339,13 +346,6 @@
         "operationId": "authorizeStoreConnection",
         "summary": "Authorize store",
         "description": "Find store settings by given id and redirect navigation to authorization uri.\n",
-        "parameters": [
-          {
-            "redirect_uri": {
-              "$ref": "#/components/schemas/RedirectURI"
-            }
-          }
-        ],
         "responses": {
           "404": {
             "$ref": "#/components/responses/store_not_found"
@@ -400,6 +400,21 @@
         "responses": {
           "404": {
             "$ref": "#/components/responses/store_not_found"
+          }
+        }
+      }
+    },
+    "/stores/{store_id}/orders": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "operationId": "getStoreOrders",
+        "summary": "Get store orders",
+        "description": "Returns the order list of a specific store.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_items"
           }
         }
       }
@@ -922,6 +937,30 @@
           }
         }
       },
+      "order_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Order"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "example": {
+              "$ref": "#/components/examples/order_items_response"
+            }
+          }
+        }
+      },
       "order_not_found": {
         "description": "Not found",
         "content": {
@@ -1038,6 +1077,62 @@
         }
       }
     },
+    "parameters": {
+      "filter_store_channel": {
+        "name": "channel",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the items by store channel.",
+          "type": "string",
+          "example": "LazadaSG"
+        }
+      },
+      "filter_store": {
+        "name": "store_id",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the items by store.",
+          "type": "string",
+          "example": "shop_01"
+        }
+      },
+      "filter_term_for_orders": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the orders that contain the value of the term in their ***number*** or ***status***.",
+          "type": "string",
+          "example": "pending"
+        }
+      },
+      "filter_term_for_stores": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the stores settings that contain the value of the term in their ***name***.",
+          "type": "string",
+          "example": "Shop-Lazada"
+        }
+      },
+      "limit": {
+        "name": "limit",
+        "in": "query",
+        "schema": {
+          "description": "The maximum number of items that can be returned. The supported values ​​are between 10 and 100.",
+          "type": "integer",
+          "example": 10
+        }
+      },
+      "offset": {
+        "name": "offset",
+        "in": "query",
+        "schema": {
+          "description": "Number of items to skip at the beginning of the list.",
+          "type": "integer",
+          "example": 10
+        }
+      }
+    },
     "examples": {
       "order_doc_response": {
         "data": {
@@ -1062,61 +1157,7 @@
           }
         ]
       },
-      "order_response": {
-        "data": {
-          "order_id": "9151224232845",
-          "number": "9151224232845",
-          "total_price": "2.00",
-          "total_quantity": 1,
-          "status": "canceled",
-          "payment_method": "Lazada_GENERIC",
-          "ship_address": {
-            "country": "Singapore",
-            "state": "Singapore",
-            "city": "Singapore, Singapore",
-            "phone": "6590547759, 6590547759",
-            "zip_code": "549751",
-            "address": [
-              "21 DA SILVA LANE,",
-              "549751"
-            ]
-          },
-          "bill_address": {
-            "country": "Singapore",
-            "state": "Singapore",
-            "city": "Singapore, Singapore",
-            "phone": "6590547759, 6590547759",
-            "zip_code": "549751",
-            "address": [
-              "21 DA SILVA LANE,",
-              "549751"
-            ]
-          },
-          "last_import_date": "2019-06-07T20:47:26+00:00",
-          "customer": {
-            "firstname": "Christy Lee"
-          },
-          "line_items": [
-            {
-              "id": "9151224432845",
-              "name": "Short sleeve t-shirt",
-              "quantity": 1,
-              "price": 1.51,
-              "sku": "2468"
-            }
-          ],
-          "store": {
-            "id": "shop_01",
-            "name": "Shop-01",
-            "channel": "LazadaSG",
-            "authorized": false,
-            "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-            "created_at": "2019-06-07T00:06:52+00:00",
-            "updated_at": "2019-06-07T20:47:32+00:00"
-          }
-        }
-      },
-      "orders_response": {
+      "order_items_response": {
         "data": [
           {
             "order_id": "9151224232845",
@@ -1227,6 +1268,60 @@
           "offset": 0,
           "limit": 10,
           "total": 2
+        }
+      },
+      "order_response": {
+        "data": {
+          "order_id": "9151224232845",
+          "number": "9151224232845",
+          "total_price": "2.00",
+          "total_quantity": 1,
+          "status": "canceled",
+          "payment_method": "Lazada_GENERIC",
+          "ship_address": {
+            "country": "Singapore",
+            "state": "Singapore",
+            "city": "Singapore, Singapore",
+            "phone": "6590547759, 6590547759",
+            "zip_code": "549751",
+            "address": [
+              "21 DA SILVA LANE,",
+              "549751"
+            ]
+          },
+          "bill_address": {
+            "country": "Singapore",
+            "state": "Singapore",
+            "city": "Singapore, Singapore",
+            "phone": "6590547759, 6590547759",
+            "zip_code": "549751",
+            "address": [
+              "21 DA SILVA LANE,",
+              "549751"
+            ]
+          },
+          "last_import_date": "2019-06-07T20:47:26+00:00",
+          "customer": {
+            "firstname": "Christy Lee"
+          },
+          "line_items": [
+            {
+              "id": "9151224432845",
+              "name": "Short sleeve t-shirt",
+              "quantity": 1,
+              "price": 1.51,
+              "sku": "2468"
+            }
+          ],
+          "store": {
+            "id": "shop_01",
+            "name": "Shop-01",
+            "channel": "LazadaSG",
+            "authorized": false,
+            "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+            "created_at": "2019-06-07T00:06:52+00:00",
+            "updated_at": "2019-06-07T20:47:32+00:00"
+          }
         }
       },
       "store_item_response": {

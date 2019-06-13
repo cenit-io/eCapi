@@ -1,0 +1,15 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+        pagination:
+            $ref: '#/components/schemas/Pagination'
+
+    example:
+      $ref: '#/components/examples/order_items_response'

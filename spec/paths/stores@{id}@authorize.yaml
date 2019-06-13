@@ -14,9 +14,6 @@ get:
   summary: Authorize store
   description: |
     Find store settings by given id and redirect navigation to authorization uri.
-  parameters:
-    - redirect_uri:
-        $ref: '#/components/schemas/RedirectURI'
   responses:
     404:
       $ref: '#/components/responses/store_not_found'

@@ -1,0 +1,10 @@
+get:
+  tags:
+    - Order
+  operationId: getStoreOrders
+  summary: Get store orders
+  description: |
+    Returns the order list of a specific store.
+  responses:
+    200:
+      $ref: '#/components/responses/order_items'

@@ -1,0 +1,6 @@
+name: store_id
+in: query
+schema:
+  description: Allow to filter the items by store.
+  type: string
+  example: shop_01

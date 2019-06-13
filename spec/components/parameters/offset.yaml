@@ -1,0 +1,6 @@
+name: offset
+in: query
+schema:
+  description: Number of items to skip at the beginning of the list.
+  type: integer
+  example: 10

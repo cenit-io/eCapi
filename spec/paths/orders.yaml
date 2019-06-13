@@ -1,3 +1,9 @@
+parameters:
+  - $ref: '#/components/parameters/filter_term_for_orders'
+  - $ref: '#/components/parameters/filter_store'
+  - $ref: '#/components/parameters/offset'
+  - $ref: '#/components/parameters/limit'
+
 get:
   tags:
     - Order
@@ -7,18 +13,4 @@ get:
     Returns the list of orders.
   responses:
     200:
-      description: Success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Order'
-              pagination:
-                  $ref: '#/components/schemas/Pagination'
-
-          example:
-            $ref: '#/components/examples/orders_response'
+      $ref: '#/components/responses/order_items'

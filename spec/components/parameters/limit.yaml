@@ -1,0 +1,6 @@
+name: limit
+in: query
+schema:
+  description: The maximum number of items that can be returned. The supported values ​​are between 10 and 100.
+  type: integer
+  example: 10

@@ -1,0 +1,11 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Flow'
+
+    example:
+      $ref: '#/components/examples/flow_item_response'

@@ -1,9 +1,12 @@
 data:
-- type: invoice
-  title: Invoice
+  -
+    type: invoice
+    title: Invoice
 
-- type: shippingLabel
-  title: Shipping Label
+  -
+    type: shippingLabel
+    title: Shipping Label
 
-- type: carrierManifest
-  title: Carrier Manifest
+  -
+    type: carrierManifest
+    title: Carrier Manifest

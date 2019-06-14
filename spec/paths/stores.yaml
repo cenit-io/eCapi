@@ -17,7 +17,7 @@ get:
 post:
   tags:
     - Stores
-  operationId: createStoreById
+  operationId: createStore
   summary: Create store
   description: |
     Create store settings from a given name and channel.

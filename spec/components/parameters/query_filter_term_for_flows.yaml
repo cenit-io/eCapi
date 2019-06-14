@@ -1,0 +1,6 @@
+name: term
+in: query
+schema:
+  description: Allow to filter the flows that contain the value of the term in their ***id*** or ***name***.
+  type: string
+  example: Shop-Lazada

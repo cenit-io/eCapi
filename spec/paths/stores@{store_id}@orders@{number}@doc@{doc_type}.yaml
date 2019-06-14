@@ -9,7 +9,7 @@ get:
   operationId: getOrderDoc
   summary: Get document
   description: |
-    Returns a specific document of the order
+    Returns a specific document of the order.
 
     ~~~
     To reconstruct the file, the data from the node needs to be base64 decoded,

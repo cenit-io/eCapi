@@ -1,0 +1,6 @@
+name: flow_id
+in: path
+schema:
+  description: Flow identifier
+  type: string
+  example: 5d04051125d9852c71016793

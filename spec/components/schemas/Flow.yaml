@@ -1,11 +1,16 @@
 type: "object"
 properties:
   id:
+    description: Flow identifier
     type: string
-  name:
+  type:
+    description: Flow type name
+    type: string
+  title:
+    description: The human-readable flow type name
     type: string
   schedule:
+    description: Schedule settings
     type: string
   store:
     $ref: "#/components/schemas/Store"
-

@@ -19,15 +19,23 @@
   },
   "tags": [
     {
-      "name": "Store",
+      "name": "Stores",
       "description": "Operations about store"
     },
     {
-      "name": "Order",
+      "name": "Orders",
       "description": "Operations about orders"
     },
     {
-      "name": "Task",
+      "name": "Flows",
+      "description": "Operations about flows"
+    },
+    {
+      "name": "Webhooks",
+      "description": "Operations about webhooks"
+    },
+    {
+      "name": "Tasks",
       "description": "Operations about tasks"
     }
   ],
@@ -40,21 +48,21 @@
     "/orders": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/filter_term_for_orders"
+          "$ref": "#/components/parameters/query_filter_term_for_orders"
         },
         {
-          "$ref": "#/components/parameters/filter_store"
+          "$ref": "#/components/parameters/query_filter_store"
         },
         {
-          "$ref": "#/components/parameters/offset"
+          "$ref": "#/components/parameters/query_offset"
         },
         {
-          "$ref": "#/components/parameters/limit"
+          "$ref": "#/components/parameters/query_limit"
         }
       ],
       "get": {
         "tags": [
-          "Order"
+          "Orders"
         ],
         "operationId": "getOrders",
         "summary": "Get orders",
@@ -69,23 +77,15 @@
     "/orders/{store_id}/{number}": {
       "parameters": [
         {
-          "name": "store_id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/StoreID"
-          }
+          "$ref": "#/components/parameters/path_store_id"
         },
         {
-          "name": "number",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/OrderNumber"
-          }
+          "$ref": "#/components/parameters/path_order_number"
         }
       ],
       "get": {
         "tags": [
-          "Order"
+          "Orders"
         ],
         "operationId": "getOrder",
         "summary": "Get order",
@@ -101,9 +101,20 @@
       }
     },
     "/orders/{store_id}/{number}/doc/{type}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_store_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_order_number"
+        },
+        {
+          "$ref": "#/components/parameters/path_doc_type"
+        }
+      ],
       "get": {
         "tags": [
-          "Order"
+          "Orders"
         ],
         "operationId": "getOrderDoc",
         "summary": "Get document",
@@ -118,23 +129,15 @@
     "/orders/{store_id}/{number}/import": {
       "parameters": [
         {
-          "name": "store_id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/StoreID"
-          }
+          "$ref": "#/components/parameters/path_store_id"
         },
         {
-          "name": "number",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/OrderNumber"
-          }
+          "$ref": "#/components/parameters/path_order_number"
         }
       ],
       "get": {
         "tags": [
-          "Order"
+          "Orders"
         ],
         "operationId": "importOrder",
         "summary": "Import a single order",
@@ -150,9 +153,14 @@
       }
     },
     "/orders/{store_id}/doc/types": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_store_id"
+        }
+      ],
       "get": {
         "tags": [
-          "Order"
+          "Orders"
         ],
         "operationId": "getOrderDocTypes",
         "summary": "Get documents types",
@@ -167,16 +175,12 @@
     "/orders/{store_id}/import": {
       "parameters": [
         {
-          "name": "store_id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/StoreID"
-          }
+          "$ref": "#/components/parameters/path_store_id"
         }
       ],
       "get": {
         "tags": [
-          "Order"
+          "Orders"
         ],
         "operationId": "importOrders",
         "summary": "Import updated orders",
@@ -194,23 +198,23 @@
     "/stores": {
       "get": {
         "tags": [
-          "Store"
+          "Stores"
         ],
         "operationId": "getStores",
         "summary": "Get stores",
         "description": "Returns the list of stores settings.\n",
         "parameters": [
           {
-            "$ref": "#/components/parameters/filter_term_for_stores"
+            "$ref": "#/components/parameters/query_filter_term_for_stores"
           },
           {
-            "$ref": "#/components/parameters/filter_store_channel"
+            "$ref": "#/components/parameters/query_filter_store_channel"
           },
           {
-            "$ref": "#/components/parameters/offset"
+            "$ref": "#/components/parameters/query_offset"
           },
           {
-            "$ref": "#/components/parameters/limit"
+            "$ref": "#/components/parameters/query_limit"
           }
         ],
         "responses": {
@@ -221,7 +225,7 @@
       },
       "post": {
         "tags": [
-          "Store"
+          "Stores"
         ],
         "operationId": "createStoreById",
         "summary": "Create store",
@@ -279,19 +283,15 @@
         }
       }
     },
-    "/stores/{id}": {
+    "/stores/{store_id}": {
       "parameters": [
         {
-          "name": "id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/StoreID"
-          }
+          "$ref": "#/components/parameters/path_store_id"
         }
       ],
       "get": {
         "tags": [
-          "Store"
+          "Stores"
         ],
         "operationId": "getStoreSettings",
         "summary": "Get store",
@@ -307,7 +307,7 @@
       },
       "delete": {
         "tags": [
-          "Store"
+          "Stores"
         ],
         "operationId": "deleteStoreSettings",
         "summary": "Destroy store",
@@ -322,14 +322,10 @@
         }
       }
     },
-    "/stores/{id}/authorize": {
+    "/stores/{store_id}/authorize": {
       "parameters": [
         {
-          "name": "id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/StoreID"
-          }
+          "$ref": "#/components/parameters/path_store_id"
         },
         {
           "name": "redirect_uri",
@@ -341,7 +337,7 @@
       ],
       "get": {
         "tags": [
-          "Store"
+          "Stores"
         ],
         "operationId": "authorizeStoreConnection",
         "summary": "Authorize store",
@@ -353,19 +349,15 @@
         }
       }
     },
-    "/stores/{id}/destroy": {
+    "/stores/{store_id}/destroy": {
       "parameters": [
         {
-          "name": "id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/StoreID"
-          }
+          "$ref": "#/components/parameters/path_store_id"
         }
       ],
       "get": {
         "tags": [
-          "Store"
+          "Stores"
         ],
         "operationId": "destroyStoreSettings",
         "summary": "Destroy store",
@@ -380,34 +372,15 @@
         }
       }
     },
-    "/stores/{id}/unauthorize": {
+    "/stores/{store_id}/orders": {
       "parameters": [
         {
-          "name": "id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/StoreID"
-          }
+          "$ref": "#/components/parameters/path_store_id"
         }
       ],
       "get": {
         "tags": [
-          "Store"
-        ],
-        "operationId": "unauthorizeStoreConnection",
-        "summary": "Cancel authorization",
-        "description": "Find store settings by given id and disallow their connection.\n\n~~~\nOnly authorize stores can be unauthorizes.\n~~~\n",
-        "responses": {
-          "404": {
-            "$ref": "#/components/responses/store_not_found"
-          }
-        }
-      }
-    },
-    "/stores/{store_id}/orders": {
-      "get": {
-        "tags": [
-          "Order"
+          "Orders"
         ],
         "operationId": "getStoreOrders",
         "summary": "Get store orders",
@@ -419,14 +392,63 @@
         }
       }
     },
+    "/stores/{store_id}/unauthorize": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_store_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Stores"
+        ],
+        "operationId": "unauthorizeStoreConnection",
+        "summary": "Cancel authorization",
+        "description": "Find store settings by given id and disallow their connection.\n\n~~~\nOnly authorize stores can be unauthorizes.\n~~~\n",
+        "responses": {
+          "404": {
+            "$ref": "#/components/responses/store_not_found"
+          }
+        }
+      }
+    },
+    "/stores/channles": {
+      "get": {
+        "tags": [
+          "Stores"
+        ],
+        "operationId": "getStoreChannels",
+        "summary": "Get store channels",
+        "description": "Returns the list of store channels availables.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/store_channels"
+          }
+        }
+      }
+    },
     "/tasks": {
       "get": {
         "tags": [
-          "Task"
+          "Tasks"
         ],
         "operationId": "getTasks",
         "summary": "Get tasks",
         "description": "Returns the list of tasks executions.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_tasks"
+          },
+          {
+            "$ref": "#/components/parameters/query_task_status"
+          },
+          {
+            "$ref": "#/components/parameters/query_offset"
+          },
+          {
+            "$ref": "#/components/parameters/query_limit"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
@@ -455,19 +477,15 @@
         }
       }
     },
-    "/tasks/{id}": {
+    "/tasks/{task_id}": {
       "parameters": [
         {
-          "name": "id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/TaskID"
-          }
+          "$ref": "#/components/parameters/path_task_id"
         }
       ],
       "get": {
         "tags": [
-          "Task"
+          "Tasks"
         ],
         "operationId": "getTask",
         "summary": "Get task",
@@ -483,7 +501,7 @@
       },
       "delete": {
         "tags": [
-          "Task"
+          "Tasks"
         ],
         "operationId": "deleteTask",
         "summary": "Destroy task",
@@ -498,19 +516,15 @@
         }
       }
     },
-    "/tasks/{id}/destroy": {
+    "/tasks/{task_id}/destroy": {
       "parameters": [
         {
-          "name": "id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/TaskID"
-          }
+          "$ref": "#/components/parameters/path_task_id"
         }
       ],
       "get": {
         "tags": [
-          "Task"
+          "Tasks"
         ],
         "operationId": "destroyTask",
         "summary": "Destroy task",
@@ -732,10 +746,6 @@
           }
         }
       },
-      "OrderNumber": {
-        "description": "Order number",
-        "type": "string"
-      },
       "Pagination": {
         "type": "object",
         "properties": {
@@ -793,9 +803,18 @@
           "channel"
         ]
       },
-      "StoreID": {
-        "description": "Store identifier",
-        "type": "string"
+      "StoreChannel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Channel identifier",
+            "type": "string"
+          },
+          "title": {
+            "description": "Channel identifier",
+            "type": "string"
+          }
+        }
       },
       "Success": {
         "type": "object",
@@ -854,10 +873,6 @@
           "name",
           "channel"
         ]
-      },
-      "TaskID": {
-        "description": "Task identifier",
-        "type": "string"
       },
       "UpdatedAt": {
         "description": "Date in iso8601 when the record was updated",
@@ -975,6 +990,30 @@
           }
         }
       },
+      "store_channels": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StoreChannel"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "example": {
+              "$ref": "#/components/examples/store_channels_response"
+            }
+          }
+        }
+      },
       "store_item": {
         "description": "Success",
         "content": {
@@ -1078,7 +1117,43 @@
       }
     },
     "parameters": {
-      "filter_store_channel": {
+      "path_doc_type": {
+        "name": "doc_type",
+        "in": "path",
+        "schema": {
+          "description": "Document type",
+          "type": "string",
+          "example": "invoice"
+        }
+      },
+      "path_order_number": {
+        "name": "number",
+        "in": "path",
+        "schema": {
+          "description": "Order number",
+          "type": "string",
+          "example": 9170283050978
+        }
+      },
+      "path_store_id": {
+        "name": "store_id",
+        "in": "path",
+        "schema": {
+          "description": "Store identifier",
+          "type": "string",
+          "example": "shop_01"
+        }
+      },
+      "path_task_id": {
+        "name": "task_id",
+        "in": "path",
+        "schema": {
+          "description": "Task identifier",
+          "type": "string",
+          "example": "5d029d6625d985755e02202c"
+        }
+      },
+      "query_filter_store_channel": {
         "name": "channel",
         "in": "query",
         "schema": {
@@ -1087,7 +1162,7 @@
           "example": "LazadaSG"
         }
       },
-      "filter_store": {
+      "query_filter_store": {
         "name": "store_id",
         "in": "query",
         "schema": {
@@ -1096,7 +1171,7 @@
           "example": "shop_01"
         }
       },
-      "filter_term_for_orders": {
+      "query_filter_term_for_orders": {
         "name": "term",
         "in": "query",
         "schema": {
@@ -1105,7 +1180,7 @@
           "example": "pending"
         }
       },
-      "filter_term_for_stores": {
+      "query_filter_term_for_stores": {
         "name": "term",
         "in": "query",
         "schema": {
@@ -1114,7 +1189,16 @@
           "example": "Shop-Lazada"
         }
       },
-      "limit": {
+      "query_filter_term_for_tasks": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the tasks that contain the value of the term in their ***status*** or ***description***.",
+          "type": "string",
+          "example": "Shop-Lazada"
+        }
+      },
+      "query_limit": {
         "name": "limit",
         "in": "query",
         "schema": {
@@ -1123,13 +1207,22 @@
           "example": 10
         }
       },
-      "offset": {
+      "query_offset": {
         "name": "offset",
         "in": "query",
         "schema": {
           "description": "Number of items to skip at the beginning of the list.",
           "type": "integer",
           "example": 10
+        }
+      },
+      "query_task_status": {
+        "name": "status",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the tasks by ***status***.",
+          "type": "string",
+          "example": "5d029d6625d985755e02202c"
         }
       }
     },
@@ -1323,6 +1416,26 @@
             "updated_at": "2019-06-07T20:47:32+00:00"
           }
         }
+      },
+      "store_channels_response": {
+        "data": [
+          {
+            "name": "LazadaID",
+            "title": "Lazada Indonesia"
+          },
+          {
+            "name": "LazadaMY",
+            "title": "Lazada Malaysia"
+          },
+          {
+            "name": "ShopeeTH",
+            "title": "Shopee Thailand"
+          },
+          {
+            "name": "ShopeeVN",
+            "title": "Shopee Vietnam"
+          }
+        ]
       },
       "store_item_response": {
         "data": {

@@ -21,24 +21,28 @@ info:
     # Authentication
     TODO: ...
 tags:
-  - name: Store
+  - name: Stores
     description: Operations about store
-  - name: Order
+  - name: Orders
     description: Operations about orders
-  - name: Task
+  - name: Flows
+    description: Operations about flows
+  - name: Webhooks
+    description: Operations about webhooks
+  - name: Tasks
     description: Operations about tasks
 servers:
   - url: 'https://cenit.io/app/ecapi'
 paths:
   /orders:
     parameters:
-      - $ref: '#/components/parameters/filter_term_for_orders'
-      - $ref: '#/components/parameters/filter_store'
-      - $ref: '#/components/parameters/offset'
-      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/query_filter_term_for_orders'
+      - $ref: '#/components/parameters/query_filter_store'
+      - $ref: '#/components/parameters/query_offset'
+      - $ref: '#/components/parameters/query_limit'
     get:
       tags:
-        - Order
+        - Orders
       operationId: getOrders
       summary: Get orders
       description: |
@@ -48,17 +52,11 @@ paths:
           $ref: '#/components/responses/order_items'
   '/orders/{store_id}/{number}':
     parameters:
-      - name: store_id
-        in: path
-        schema:
-          $ref: '#/components/schemas/StoreID'
-      - name: number
-        in: path
-        schema:
-          $ref: '#/components/schemas/OrderNumber'
+      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_order_number'
     get:
       tags:
-        - Order
+        - Orders
       operationId: getOrder
       summary: Get order
       description: |
@@ -69,9 +67,13 @@ paths:
         '404':
           $ref: '#/components/responses/order_not_found'
   '/orders/{store_id}/{number}/doc/{type}':
+    parameters:
+      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_order_number'
+      - $ref: '#/components/parameters/path_doc_type'
     get:
       tags:
-        - Order
+        - Orders
       operationId: getOrderDoc
       summary: Get document
       description: |
@@ -86,17 +88,11 @@ paths:
           $ref: '#/components/responses/order_doc'
   '/orders/{store_id}/{number}/import':
     parameters:
-      - name: store_id
-        in: path
-        schema:
-          $ref: '#/components/schemas/StoreID'
-      - name: number
-        in: path
-        schema:
-          $ref: '#/components/schemas/OrderNumber'
+      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_order_number'
     get:
       tags:
-        - Order
+        - Orders
       operationId: importOrder
       summary: Import a single order
       description: |
@@ -107,9 +103,11 @@ paths:
         '404':
           $ref: '#/components/responses/store_not_found'
   '/orders/{store_id}/doc/types':
+    parameters:
+      - $ref: '#/components/parameters/path_store_id'
     get:
       tags:
-        - Order
+        - Orders
       operationId: getOrderDocTypes
       summary: Get documents types
       description: |
@@ -119,13 +117,10 @@ paths:
           $ref: '#/components/responses/order_doc_types'
   '/orders/{store_id}/import':
     parameters:
-      - name: store_id
-        in: path
-        schema:
-          $ref: '#/components/schemas/StoreID'
+      - $ref: '#/components/parameters/path_store_id'
     get:
       tags:
-        - Order
+        - Orders
       operationId: importOrders
       summary: Import updated orders
       description: |
@@ -138,22 +133,22 @@ paths:
   /stores:
     get:
       tags:
-        - Store
+        - Stores
       operationId: getStores
       summary: Get stores
       description: |
         Returns the list of stores settings.
       parameters:
-        - $ref: '#/components/parameters/filter_term_for_stores'
-        - $ref: '#/components/parameters/filter_store_channel'
-        - $ref: '#/components/parameters/offset'
-        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/query_filter_term_for_stores'
+        - $ref: '#/components/parameters/query_filter_store_channel'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
       responses:
         '200':
           $ref: '#/components/responses/store_items'
     post:
       tags:
-        - Store
+        - Stores
       operationId: createStoreById
       summary: Create store
       description: |
@@ -190,15 +185,12 @@ paths:
           $ref: '#/components/responses/store_item'
         '400':
           $ref: '#/components/responses/already_exists'
-  '/stores/{id}':
+  '/stores/{store_id}':
     parameters:
-      - name: id
-        in: path
-        schema:
-          $ref: '#/components/schemas/StoreID'
+      - $ref: '#/components/parameters/path_store_id'
     get:
       tags:
-        - Store
+        - Stores
       operationId: getStoreSettings
       summary: Get store
       description: |
@@ -210,7 +202,7 @@ paths:
           $ref: '#/components/responses/store_not_found'
     delete:
       tags:
-        - Store
+        - Stores
       operationId: deleteStoreSettings
       summary: Destroy store
       description: |
@@ -224,19 +216,16 @@ paths:
           $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/store_not_found'
-  '/stores/{id}/authorize':
+  '/stores/{store_id}/authorize':
     parameters:
-      - name: id
-        in: path
-        schema:
-          $ref: '#/components/schemas/StoreID'
+      - $ref: '#/components/parameters/path_store_id'
       - name: redirect_uri
         in: query
         schema:
           $ref: '#/components/schemas/RedirectURI'
     get:
       tags:
-        - Store
+        - Stores
       operationId: authorizeStoreConnection
       summary: Authorize store
       description: |
@@ -244,15 +233,12 @@ paths:
       responses:
         '404':
           $ref: '#/components/responses/store_not_found'
-  '/stores/{id}/destroy':
+  '/stores/{store_id}/destroy':
     parameters:
-      - name: id
-        in: path
-        schema:
-          $ref: '#/components/schemas/StoreID'
+      - $ref: '#/components/parameters/path_store_id'
     get:
       tags:
-        - Store
+        - Stores
       operationId: destroyStoreSettings
       summary: Destroy store
       description: |
@@ -266,15 +252,25 @@ paths:
           $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/store_not_found'
-  '/stores/{id}/unauthorize':
+  '/stores/{store_id}/orders':
     parameters:
-      - name: id
-        in: path
-        schema:
-          $ref: '#/components/schemas/StoreID'
+      - $ref: '#/components/parameters/path_store_id'
     get:
       tags:
-        - Store
+        - Orders
+      operationId: getStoreOrders
+      summary: Get store orders
+      description: |
+        Returns the order list of a specific store.
+      responses:
+        '200':
+          $ref: '#/components/responses/order_items'
+  '/stores/{store_id}/unauthorize':
+    parameters:
+      - $ref: '#/components/parameters/path_store_id'
+    get:
+      tags:
+        - Stores
       operationId: unauthorizeStoreConnection
       summary: Cancel authorization
       description: |
@@ -286,25 +282,30 @@ paths:
       responses:
         '404':
           $ref: '#/components/responses/store_not_found'
-  '/stores/{store_id}/orders':
+  /stores/channles:
     get:
       tags:
-        - Order
-      operationId: getStoreOrders
-      summary: Get store orders
+        - Stores
+      operationId: getStoreChannels
+      summary: Get store channels
       description: |
-        Returns the order list of a specific store.
+        Returns the list of store channels availables.
       responses:
         '200':
-          $ref: '#/components/responses/order_items'
+          $ref: '#/components/responses/store_channels'
   /tasks:
     get:
       tags:
-        - Task
+        - Tasks
       operationId: getTasks
       summary: Get tasks
       description: |
         Returns the list of tasks executions.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_tasks'
+        - $ref: '#/components/parameters/query_task_status'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
       responses:
         '200':
           description: Success
@@ -321,15 +322,12 @@ paths:
                     $ref: '#/components/schemas/Pagination'
               example:
                 $ref: '#/components/examples/tasks_response'
-  '/tasks/{id}':
+  '/tasks/{task_id}':
     parameters:
-      - name: id
-        in: path
-        schema:
-          $ref: '#/components/schemas/TaskID'
+      - $ref: '#/components/parameters/path_task_id'
     get:
       tags:
-        - Task
+        - Tasks
       operationId: getTask
       summary: Get task
       description: |
@@ -341,7 +339,7 @@ paths:
           $ref: '#/components/responses/task_not_found'
     delete:
       tags:
-        - Task
+        - Tasks
       operationId: deleteTask
       summary: Destroy task
       description: |
@@ -355,15 +353,12 @@ paths:
           $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/task_not_found'
-  '/tasks/{id}/destroy':
+  '/tasks/{task_id}/destroy':
     parameters:
-      - name: id
-        in: path
-        schema:
-          $ref: '#/components/schemas/TaskID'
+      - $ref: '#/components/parameters/path_task_id'
     get:
       tags:
-        - Task
+        - Tasks
       operationId: destroyTask
       summary: Destroy task
       description: |
@@ -521,9 +516,6 @@ components:
         name:
           description: Nombre legible del tipo de documento
           type: string
-    OrderNumber:
-      description: Order number
-      type: string
     Pagination:
       type: object
       properties:
@@ -565,9 +557,15 @@ components:
       required:
         - name
         - channel
-    StoreID:
-      description: Store identifier
-      type: string
+    StoreChannel:
+      type: object
+      properties:
+        name:
+          description: Channel identifier
+          type: string
+        title:
+          description: Channel identifier
+          type: string
     Success:
       type: object
       properties:
@@ -609,9 +607,6 @@ components:
       required:
         - name
         - channel
-    TaskID:
-      description: Task identifier
-      type: string
     UpdatedAt:
       description: Date in iso8601 when the record was updated
       type: string
@@ -685,6 +680,21 @@ components:
           example:
             success: false
             message: 'Not found order with number: 9151224232846'
+    store_channels:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreChannel'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
+          example:
+            $ref: '#/components/examples/store_channels_response'
     store_item:
       description: Success
       content:
@@ -749,48 +759,90 @@ components:
             success: false
             message: 'Not found task with id: 1234567890'
   parameters:
-    filter_store_channel:
+    path_doc_type:
+      name: doc_type
+      in: path
+      schema:
+        description: Document type
+        type: string
+        example: invoice
+    path_order_number:
+      name: number
+      in: path
+      schema:
+        description: Order number
+        type: string
+        example: 9170283050978
+    path_store_id:
+      name: store_id
+      in: path
+      schema:
+        description: Store identifier
+        type: string
+        example: shop_01
+    path_task_id:
+      name: task_id
+      in: path
+      schema:
+        description: Task identifier
+        type: string
+        example: 5d029d6625d985755e02202c
+    query_filter_store_channel:
       name: channel
       in: query
       schema:
         description: Allow to filter the items by store channel.
         type: string
         example: LazadaSG
-    filter_store:
+    query_filter_store:
       name: store_id
       in: query
       schema:
         description: Allow to filter the items by store.
         type: string
         example: shop_01
-    filter_term_for_orders:
+    query_filter_term_for_orders:
       name: term
       in: query
       schema:
         description: Allow to filter the orders that contain the value of the term in their ***number*** or ***status***.
         type: string
         example: pending
-    filter_term_for_stores:
+    query_filter_term_for_stores:
       name: term
       in: query
       schema:
         description: Allow to filter the stores settings that contain the value of the term in their ***name***.
         type: string
         example: Shop-Lazada
-    limit:
+    query_filter_term_for_tasks:
+      name: term
+      in: query
+      schema:
+        description: Allow to filter the tasks that contain the value of the term in their ***status*** or ***description***.
+        type: string
+        example: Shop-Lazada
+    query_limit:
       name: limit
       in: query
       schema:
         description: The maximum number of items that can be returned. The supported values ​​are between 10 and 100.
         type: integer
         example: 10
-    offset:
+    query_offset:
       name: offset
       in: query
       schema:
         description: Number of items to skip at the beginning of the list.
         type: integer
         example: 10
+    query_task_status:
+      name: status
+      in: query
+      schema:
+        description: Allow to filter the tasks by ***status***.
+        type: string
+        example: 5d029d6625d985755e02202c
   examples:
     order_doc_response:
       data:
@@ -936,6 +988,16 @@ components:
           last_import_orders_date: '2019-06-07T20:47:14+00:00'
           created_at: '2019-06-07T00:06:52+00:00'
           updated_at: '2019-06-07T20:47:32+00:00'
+    store_channels_response:
+      data:
+        - name: LazadaID
+          title: Lazada Indonesia
+        - name: LazadaMY
+          title: Lazada Malaysia
+        - name: ShopeeTH
+          title: Shopee Thailand
+        - name: ShopeeVN
+          title: Shopee Vietnam
     store_item_response:
       data:
         id: shop_01

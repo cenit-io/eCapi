@@ -245,10 +245,6 @@ paths:
   '/stores/{store_id}/authorize':
     parameters:
       - $ref: '#/components/parameters/path_store_id'
-      - name: redirect_uri
-        in: query
-        schema:
-          $ref: '#/components/schemas/RedirectURI'
     get:
       tags:
         - Stores
@@ -256,6 +252,25 @@ paths:
       summary: Get store authorization
       description: |
         Find store settings by given id and redirect navigation to authorization uri.
+      parameters:
+        - name: redirect_uri
+          in: query
+          schema:
+            $ref: '#/components/schemas/RedirectURI'
+      responses:
+        '404':
+          $ref: '#/components/responses/store_not_found'
+    delete:
+      tags:
+        - Stores
+      operationId: unauthorizeStoreConnection
+      summary: Cancel store authorization
+      description: |
+        Find store settings by given id and disallow their connection.
+
+        ~~~
+        Only authorize stores can be unauthorizes.
+        ~~~
       responses:
         '404':
           $ref: '#/components/responses/store_not_found'
@@ -377,7 +392,7 @@ paths:
     get:
       tags:
         - Stores
-      operationId: unauthorizeStoreConnection
+      operationId: unauthorizeStoreConnection2
       summary: Cancel store authorization
       description: |
         Find store settings by given id and disallow their connection.
@@ -388,7 +403,7 @@ paths:
       responses:
         '404':
           $ref: '#/components/responses/store_not_found'
-  /stores/channles:
+  /stores/channels:
     get:
       tags:
         - Stores

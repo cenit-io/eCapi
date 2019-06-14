@@ -20,7 +20,7 @@
   "tags": [
     {
       "name": "Stores",
-      "description": "Operations about store"
+      "description": "Operations about stores"
     },
     {
       "name": "Orders",
@@ -45,6 +45,119 @@
     }
   ],
   "paths": {
+    "/flows": {
+      "get": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "getFlows",
+        "summary": "Get flows",
+        "description": "Returns the list of flows settings.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_flows"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_flow_type"
+          },
+          {
+            "$ref": "#/components/parameters/query_offset"
+          },
+          {
+            "$ref": "#/components/parameters/query_limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_items"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "createFlow",
+        "summary": "Create flow",
+        "description": "Create flow settings from a given name and channel.\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Flow name",
+                        "type": "string"
+                      },
+                      "channel": {
+                        "description": "Channel identifier",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "data": {
+                  "store_id": "shop_01",
+                  "type": "import_orders"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_item"
+          },
+          "400": {
+            "$ref": "#/components/responses/already_exists"
+          }
+        }
+      }
+    },
+    "/flows/{flow_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_flow_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "getFlow",
+        "summary": "Get flow",
+        "description": "Find flow by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/flow_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "deleteFlowSettings",
+        "summary": "Destroy flow",
+        "description": "Find flow settings by given id and destroy it.\n\n~~~\nOnly unauthorize flows can be destroyed.\n~~~\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/flow_not_found"
+          }
+        }
+      }
+    },
     "/orders": {
       "parameters": [
         {
@@ -84,10 +197,11 @@
         }
       ],
       "get": {
+        "deprecated": true,
         "tags": [
           "Orders"
         ],
-        "operationId": "getOrder",
+        "operationId": "getOrderDeprecate",
         "summary": "Get order",
         "description": "Find order by given id and returns it.\n",
         "responses": {
@@ -100,78 +214,6 @@
         }
       }
     },
-    "/orders/{store_id}/{number}/doc/{type}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        },
-        {
-          "$ref": "#/components/parameters/path_order_number"
-        },
-        {
-          "$ref": "#/components/parameters/path_doc_type"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "operationId": "getOrderDoc",
-        "summary": "Get document",
-        "description": "Returns a specific document of the order\n\n~~~\nTo reconstruct the file, the data from the node needs to be base64 decoded,\nand interpreted according to the mime_type.\n~~~\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/order_doc"
-          }
-        }
-      }
-    },
-    "/orders/{store_id}/{number}/import": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        },
-        {
-          "$ref": "#/components/parameters/path_order_number"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "operationId": "importOrder",
-        "summary": "Import a single order",
-        "description": "Import a specific order from a store\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/task_item"
-          },
-          "404": {
-            "$ref": "#/components/responses/store_not_found"
-          }
-        }
-      }
-    },
-    "/orders/{store_id}/doc/types": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "operationId": "getOrderDocTypes",
-        "summary": "Get documents types",
-        "description": "Return the list of types of order documents\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/order_doc_types"
-          }
-        }
-      }
-    },
     "/orders/{store_id}/import": {
       "parameters": [
         {
@@ -179,10 +221,11 @@
         }
       ],
       "get": {
+        "deprecated": true,
         "tags": [
           "Orders"
         ],
-        "operationId": "importOrders",
+        "operationId": "importOrdersDeprecate",
         "summary": "Import updated orders",
         "description": "Import the last updated orders from a store\n",
         "responses": {
@@ -227,7 +270,7 @@
         "tags": [
           "Stores"
         ],
-        "operationId": "createStoreById",
+        "operationId": "createStore",
         "summary": "Create store",
         "description": "Create store settings from a given name and channel.\n",
         "requestBody": {
@@ -392,6 +435,127 @@
         }
       }
     },
+    "/stores/{store_id}/orders/{number}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_store_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_order_number"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "getOrder",
+        "summary": "Get order",
+        "description": "Find order by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/order_not_found"
+          }
+        }
+      }
+    },
+    "/stores/{store_id}/orders/{number}/doc/{doc_type}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_store_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_order_number"
+        },
+        {
+          "$ref": "#/components/parameters/path_doc_type"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "getOrderDoc",
+        "summary": "Get document",
+        "description": "Returns a specific document of the order.\n\n~~~\nTo reconstruct the file, the data from the node needs to be base64 decoded,\nand interpreted according to the mime_type.\n~~~\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_doc"
+          }
+        }
+      }
+    },
+    "/stores/{store_id}/orders/{number}/doc/types": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_store_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "getOrderDocTypes",
+        "summary": "Get documents types",
+        "description": "Return the list of types of order documents\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_doc_types"
+          }
+        }
+      }
+    },
+    "/stores/{store_id}/orders/{number}/import": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_store_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_order_number"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "importOrder",
+        "summary": "Import a single order",
+        "description": "Import a specific order from a store\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/store_not_found"
+          }
+        }
+      }
+    },
+    "/stores/{store_id}/orders/import": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_store_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "importOrders",
+        "summary": "Import updated orders",
+        "description": "Import the last updated orders from a store\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/store_not_found"
+          }
+        }
+      }
+    },
     "/stores/{store_id}/unauthorize": {
       "parameters": [
         {
@@ -543,7 +707,6 @@
   "components": {
     "schemas": {
       "Address": {
-        "title": "Address",
         "type": "object",
         "properties": {
           "first_name": {
@@ -587,19 +750,18 @@
         "format": "date-time"
       },
       "Customer": {
-        "title": "Customer",
         "type": "object",
+        "description": "Customer",
         "properties": {
           "customer_id": {
             "type": "string",
-            "title": "Id",
             "description": "Unique identifier for the customer"
           },
-          "firstname": {
+          "first_name": {
             "type": "string",
             "description": "Customers first name"
           },
-          "lastname": {
+          "last_name": {
             "type": "string",
             "description": "Customers last name"
           }
@@ -617,6 +779,30 @@
             "description": "Date in iso8601 when the task was completed",
             "type": "string",
             "format": "date-time"
+          }
+        }
+      },
+      "Flow": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Flow identifier",
+            "type": "string"
+          },
+          "type": {
+            "description": "Flow type name",
+            "type": "string"
+          },
+          "title": {
+            "description": "The human-readable flow type name",
+            "type": "string"
+          },
+          "schedule": {
+            "description": "Schedule settings",
+            "type": "string"
+          },
+          "store": {
+            "$ref": "#/components/schemas/Store"
           }
         }
       },
@@ -658,41 +844,54 @@
         }
       },
       "Order": {
-        "title": "Order",
         "type": "object",
         "properties": {
           "order_id": {
+            "description": "Order identifier",
             "type": "string"
           },
           "number": {
+            "description": "The human-readable order number",
             "type": "string"
           },
           "total_price": {
+            "description": "Total amount for this order",
             "type": "string"
           },
           "total_quantity": {
+            "description": "Number of items in order",
             "type": "integer"
           },
           "status": {
+            "description": "Order status",
             "type": "string"
           },
           "payment_method": {
+            "description": "The method of the payment",
             "type": "string"
           },
           "ship_address": {
-            "$ref": "#/components/schemas/Address"
+            "description": "Shipping address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ]
           },
           "bill_address": {
-            "$ref": "#/components/schemas/Address"
+            "description": "Billing address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ]
           },
           "line_items": {
+            "description": "Order items",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/LineItem"
             }
-          },
-          "hmac": {
-            "type": "string"
           },
           "created_date": {
             "description": "Date in iso8601 when the order was created",
@@ -705,6 +904,7 @@
             "format": "date-time"
           },
           "last_import_date": {
+            "description": "Date in iso8601 when the order was imported",
             "type": "string",
             "format": "date-time"
           },
@@ -769,6 +969,7 @@
       },
       "Store": {
         "type": "object",
+        "description": "Store settings",
         "properties": {
           "id": {
             "description": "Store identifier",
@@ -891,6 +1092,62 @@
             "example": {
               "success": false,
               "message": "Already exist"
+            }
+          }
+        }
+      },
+      "flow_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Flow"
+                }
+              }
+            },
+            "example": {
+              "$ref": "#/components/examples/flow_item_response"
+            }
+          }
+        }
+      },
+      "flow_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Flow"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "example": {
+              "$ref": "#/components/examples/flow_items_response"
+            }
+          }
+        }
+      },
+      "flow_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found flow with id: 5d04051125d9852c71016793"
             }
           }
         }
@@ -1126,6 +1383,15 @@
           "example": "invoice"
         }
       },
+      "path_flow_id": {
+        "name": "flow_id",
+        "in": "path",
+        "schema": {
+          "description": "Flow identifier",
+          "type": "string",
+          "example": "5d04051125d9852c71016793"
+        }
+      },
       "path_order_number": {
         "name": "number",
         "in": "path",
@@ -1153,6 +1419,15 @@
           "example": "5d029d6625d985755e02202c"
         }
       },
+      "query_filter_flow_type": {
+        "name": "type",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the items by flow type.",
+          "type": "string",
+          "example": "import_orders"
+        }
+      },
       "query_filter_store_channel": {
         "name": "channel",
         "in": "query",
@@ -1169,6 +1444,15 @@
           "description": "Allow to filter the items by store.",
           "type": "string",
           "example": "shop_01"
+        }
+      },
+      "query_filter_term_for_flows": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the flows that contain the value of the term in their ***id*** or ***name***.",
+          "type": "string",
+          "example": "Shop-Lazada"
         }
       },
       "query_filter_term_for_orders": {
@@ -1227,6 +1511,49 @@
       }
     },
     "examples": {
+      "flow_item_response": {
+        "data": {
+          "id": "5d04051125d9852c71016793",
+          "type": "import_orders",
+          "title": "Import orders from store",
+          "store": {
+            "id": "shop_01",
+            "name": "Shop-01",
+            "channel": "LazadaSG",
+            "authorized": true,
+            "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+            "created_at": "2019-06-07T00:06:52+00:00",
+            "updated_at": "2019-06-07T20:47:32+00:00"
+          },
+          "created_at": "2019-06-07T00:06:52+00:00",
+          "updated_at": "2019-06-07T20:47:32+00:00"
+        }
+      },
+      "flow_items_response": {
+        "data": [
+          {
+            "id": "5d04051125d9852c71016793",
+            "type": "import_orders",
+            "title": "Import orders from store",
+            "store": {
+              "id": "shop_01",
+              "name": "Shop-01",
+              "channel": "LazadaSG",
+              "authorized": true,
+              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+              "created_at": "2019-06-07T00:06:52+00:00",
+              "updated_at": "2019-06-07T20:47:32+00:00"
+            },
+            "created_at": "2019-06-07T00:06:52+00:00",
+            "updated_at": "2019-06-07T20:47:32+00:00"
+          }
+        ],
+        "pagination": {
+          "offset": 0,
+          "limit": 10,
+          "total": 1
+        }
+      },
       "order_doc_response": {
         "data": {
           "file": "T3JkZXIgZG9jdWVtbnQgZXhhbXBsZS4uLgo=",

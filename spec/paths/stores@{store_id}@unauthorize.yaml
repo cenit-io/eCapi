@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Stores
-  operationId: unauthorizeStoreConnection
+  operationId: unauthorizeStoreConnection2
   summary: Cancel store authorization
   description: |
     Find store settings by given id and disallow their connection.

@@ -1,0 +1,6 @@
+name: number
+in: path
+schema:
+  description: Order number
+  type: string
+  example: 9170283050978

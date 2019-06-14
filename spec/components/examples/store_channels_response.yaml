@@ -1,0 +1,10 @@
+data:
+  - name: "LazadaID"
+    title: "Lazada Indonesia"
+  - name: "LazadaMY"
+    title: "Lazada Malaysia"
+
+  - name: "ShopeeTH"
+    title: "Shopee Thailand"
+  - name: "ShopeeVN"
+    title: "Shopee Vietnam"

@@ -1,0 +1,6 @@
+name: store_id
+in: path
+schema:
+  description: Store identifier
+  type: string
+  example: shop_01

@@ -1,0 +1,8 @@
+type: object
+properties:
+  name:
+    description: Channel identifier
+    type: string
+  title:
+    description: Channel identifier
+    type: string

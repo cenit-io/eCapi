@@ -5,6 +5,11 @@ get:
   summary: Get tasks
   description: |
     Returns the list of tasks executions.
+  parameters:
+    - $ref: '#/components/parameters/query_filter_term_for_tasks'
+    - $ref: '#/components/parameters/query_task_status'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
   responses:
     200:
       description: Success

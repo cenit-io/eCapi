@@ -1,0 +1,10 @@
+get:
+  tags:
+    - Store
+  operationId: getStoreChannels
+  summary: Get store channels
+  description: |
+    Returns the list of store channels availables.
+  responses:
+    200:
+      $ref: '#/components/responses/store_channels'

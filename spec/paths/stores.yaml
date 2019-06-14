@@ -6,10 +6,10 @@ get:
   description: |
     Returns the list of stores settings.
   parameters:
-    - $ref: '#/components/parameters/filter_term_for_stores'
-    - $ref: '#/components/parameters/filter_store_channel'
-    - $ref: '#/components/parameters/offset'
-    - $ref: '#/components/parameters/limit'
+    - $ref: '#/components/parameters/query_filter_term_for_stores'
+    - $ref: '#/components/parameters/query_filter_store_channel'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
   responses:
     200:
       $ref: '#/components/responses/store_items'

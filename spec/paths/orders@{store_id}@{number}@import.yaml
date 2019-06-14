@@ -1,12 +1,6 @@
 parameters:
-  - name: store_id
-    in: path
-    schema:
-      $ref: '#/components/schemas/StoreID'
-  - name: number
-    in: path
-    schema:
-      $ref: '#/components/schemas/OrderNumber'
+  - $ref: '#/components/parameters/path_store_id'
+  - $ref: '#/components/parameters/path_order_number'
 
 get:
   tags:

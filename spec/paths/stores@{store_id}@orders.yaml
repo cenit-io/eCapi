@@ -1,3 +1,6 @@
+parameters:
+  - $ref: '#/components/parameters/path_store_id'
+
 get:
   tags:
     - Order

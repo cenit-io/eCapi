@@ -1,0 +1,6 @@
+name: doc_type
+in: path
+schema:
+  description: Document type
+  type: string
+  example: invoice

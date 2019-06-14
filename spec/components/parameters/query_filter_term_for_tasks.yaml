@@ -1,0 +1,6 @@
+name: term
+in: query
+schema:
+  description: Allow to filter the tasks that contain the value of the term in their ***status*** or ***description***.
+  type: string
+  example: Shop-Lazada

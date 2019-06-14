@@ -1,8 +1,5 @@
 parameters:
-  - name: id
-    in: path
-    schema:
-      $ref: '#/components/schemas/StoreID'
+  - $ref: '#/components/parameters/path_store_id'
   - name: redirect_uri
     in: query
     schema:

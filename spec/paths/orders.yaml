@@ -1,8 +1,8 @@
 parameters:
-  - $ref: '#/components/parameters/filter_term_for_orders'
-  - $ref: '#/components/parameters/filter_store'
-  - $ref: '#/components/parameters/offset'
-  - $ref: '#/components/parameters/limit'
+  - $ref: '#/components/parameters/query_filter_term_for_orders'
+  - $ref: '#/components/parameters/query_filter_store'
+  - $ref: '#/components/parameters/query_offset'
+  - $ref: '#/components/parameters/query_limit'
 
 get:
   tags:

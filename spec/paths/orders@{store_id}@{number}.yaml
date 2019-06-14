@@ -6,7 +6,7 @@ get:
   deprecated: true
   tags:
     - Orders
-  operationId: getOrder
+  operationId: getOrderDeprecate
   summary: Get order
   description: |
     Find order by given id and returns it.

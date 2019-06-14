@@ -1,4 +1,3 @@
-title: "Address"
 type: "object"
 properties:
   first_name:

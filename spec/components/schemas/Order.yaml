@@ -1,28 +1,36 @@
-title: "Order"
 type: "object"
 properties:
   order_id:
+    description: Order identifier
     type: string
   number:
+    description: The human-readable order number
     type: string
   total_price:
+    description: Total amount for this order
     type: string
   total_quantity:
+    description: Number of items in order
     type: integer
   status:
+    description: Order status
     type: string
   payment_method:
+    description: The method of the payment
     type: string
   ship_address:
-    $ref: "#/components/schemas/Address"
+    description: Shipping address
+    allOf:
+      - $ref: "#/components/schemas/Address"
   bill_address:
-    $ref: "#/components/schemas/Address"
+    description: Billing address
+    allOf:
+      - $ref: "#/components/schemas/Address"
   line_items:
+    description: Order items
     type: "array"
     items:
       $ref: "#/components/schemas/LineItem"
-  hmac:
-    type: string
   created_date:
     description: Date in iso8601 when the order was created
     type: string
@@ -32,6 +40,7 @@ properties:
     type: string
     format: date-time
   last_import_date:
+    description: Date in iso8601 when the order was imported
     type: string
     format: date-time
   customer:

@@ -1,14 +1,13 @@
-title: "Customer"
 type: "object"
+description: "Customer"
 properties:
   customer_id:
     type: string
-    title: "Id"
     description: "Unique identifier for the customer"
-  firstname:
+  first_name:
     type: string
     description: "Customers first name"
-  lastname:
+  last_name:
     type: string
     description: "Customers last name"
 

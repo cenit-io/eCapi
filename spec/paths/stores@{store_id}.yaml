@@ -3,7 +3,7 @@ parameters:
 
 get:
   tags:
-    - Store
+    - Stores
   operationId: getStoreSettings
   summary: Get store
   description: |
@@ -16,7 +16,7 @@ get:
 
 delete:
   tags:
-    - Store
+    - Stores
   operationId: deleteStoreSettings
   summary: Destroy store
   description: |

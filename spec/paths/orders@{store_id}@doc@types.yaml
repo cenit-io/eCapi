@@ -3,7 +3,7 @@ parameters:
 
 get:
   tags:
-    - Order
+    - Orders
   operationId: getOrderDocTypes
   summary: Get documents types
   description: |

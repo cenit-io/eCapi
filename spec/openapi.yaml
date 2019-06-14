@@ -29,12 +29,17 @@ info:
     TODO: ...
 
 tags:
-  - name: Store
+  - name: Stores
     description: Operations about store
-  - name: Order
+  - name: Orders
     description: Operations about orders
-  - name: Task
+  - name: Flows
+    description: Operations about flows
+  - name: Webhooks
+    description: Operations about webhooks
+  - name: Tasks
     description: Operations about tasks
+
 
 servers:
   - url: 'https://cenit.io/app/ecapi'

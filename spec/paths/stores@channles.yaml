@@ -1,6 +1,6 @@
 get:
   tags:
-    - Store
+    - Stores
   operationId: getStoreChannels
   summary: Get store channels
   description: |

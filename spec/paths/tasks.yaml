@@ -1,6 +1,6 @@
 get:
   tags:
-    - Task
+    - Tasks
   operationId: getTasks
   summary: Get tasks
   description: |

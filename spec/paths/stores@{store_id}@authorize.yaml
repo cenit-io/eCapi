@@ -6,7 +6,7 @@ parameters:
       $ref: '#/components/schemas/RedirectURI'
 get:
   tags:
-    - Store
+    - Stores
   operationId: authorizeStoreConnection
   summary: Authorize store
   description: |

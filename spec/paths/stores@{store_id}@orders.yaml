@@ -3,7 +3,7 @@ parameters:
 
 get:
   tags:
-    - Order
+    - Orders
   operationId: getStoreOrders
   summary: Get store orders
   description: |

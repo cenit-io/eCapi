@@ -3,7 +3,7 @@ parameters:
 
 get:
   tags:
-    - Store
+    - Stores
   operationId: unauthorizeStoreConnection
   summary: Cancel authorization
   description: |

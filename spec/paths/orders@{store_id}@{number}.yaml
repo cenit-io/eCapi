@@ -4,7 +4,7 @@ parameters:
 
 get:
   tags:
-    - Order
+    - Orders
   operationId: getOrder
   summary: Get order
   description: |

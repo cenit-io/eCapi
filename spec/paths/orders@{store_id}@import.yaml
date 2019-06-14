@@ -3,7 +3,7 @@ parameters:
 
 get:
   tags:
-    - Order
+    - Orders
   operationId: importOrders
   summary: Import updated orders
   description: |

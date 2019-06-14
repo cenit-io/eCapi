@@ -3,7 +3,7 @@ parameters:
 
 get:
   tags:
-    - Task
+    - Tasks
   operationId: getTask
   summary: Get task
   description: |
@@ -16,7 +16,7 @@ get:
 
 delete:
   tags:
-    - Task
+    - Tasks
   operationId: deleteTask
   summary: Destroy task
   description: |

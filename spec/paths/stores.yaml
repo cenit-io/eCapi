@@ -1,6 +1,6 @@
 get:
   tags:
-    - Store
+    - Stores
   operationId: getStores
   summary: Get stores
   description: |
@@ -16,7 +16,7 @@ get:
 
 post:
   tags:
-    - Store
+    - Stores
   operationId: createStoreById
   summary: Create store
   description: |

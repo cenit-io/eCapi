@@ -3,7 +3,6 @@ parameters:
   - $ref: '#/components/parameters/path_order_number'
 
 get:
-  deprecated: true
   tags:
     - Orders
   operationId: getOrder

@@ -30,7 +30,7 @@ info:
 
 tags:
   - name: Stores
-    description: Operations about store
+    description: Operations about stores
   - name: Orders
     description: Operations about orders
   - name: Flows

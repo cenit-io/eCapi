@@ -383,7 +383,7 @@
           "Stores"
         ],
         "operationId": "authorizeStoreConnection",
-        "summary": "Authorize store",
+        "summary": "Get store authorization",
         "description": "Find store settings by given id and redirect navigation to authorization uri.\n",
         "responses": {
           "404": {
@@ -567,7 +567,7 @@
           "Stores"
         ],
         "operationId": "unauthorizeStoreConnection",
-        "summary": "Cancel authorization",
+        "summary": "Cancel store authorization",
         "description": "Find store settings by given id and disallow their connection.\n\n~~~\nOnly authorize stores can be unauthorizes.\n~~~\n",
         "responses": {
           "404": {

@@ -8,7 +8,7 @@ get:
   tags:
     - Stores
   operationId: authorizeStoreConnection
-  summary: Authorize store
+  summary: Get store authorization
   description: |
     Find store settings by given id and redirect navigation to authorization uri.
   responses:

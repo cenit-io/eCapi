@@ -147,7 +147,7 @@
         ],
         "operationId": "deleteFlowSettings",
         "summary": "Destroy flow",
-        "description": "Find flow settings by given id and destroy it.\n\n~~~\nOnly unauthorize flows can be destroyed.\n~~~\n",
+        "description": "Find flow settings by given id and destroy it.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"

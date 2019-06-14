@@ -102,10 +102,6 @@ paths:
       summary: Destroy flow
       description: |
         Find flow settings by given id and destroy it.
-
-        ~~~
-        Only unauthorize flows can be destroyed.
-        ~~~
       responses:
         '200':
           $ref: '#/components/responses/success'

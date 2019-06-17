@@ -5,12 +5,12 @@ parameters:
 
 get:
   tags:
-    - Orders
+    - Flows
     - Stores
-  operationId: getStoreOrders
-  summary: Get store orders
+  operationId: getStoreFlows
+  summary: Get store flows
   description: |
-    Returns the order list of a specific store.
+    Returns the flow list of a specific store.
   responses:
     200:
-      $ref: '#/components/responses/order_items'
+      $ref: '#/components/responses/flow_items'

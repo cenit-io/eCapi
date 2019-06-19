@@ -1,0 +1,15 @@
+parameters:
+  - $ref: '#/components/parameters/path_flow_id'
+
+get:
+  tags:
+    - Flows
+  operationId: toggleFlowSchedulerStatus
+  summary: Toggle scheduler status
+  description: |
+    Find flow by given id and activate or deactivate its scheduler.
+  responses:
+    200:
+      $ref: '#/components/responses/flow_item'
+    404:
+      $ref: '#/components/responses/flow_not_found'

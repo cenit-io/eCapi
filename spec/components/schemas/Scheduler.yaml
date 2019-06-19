@@ -1,0 +1,33 @@
+type: object
+description: Scheduler settings
+properties:
+  active:
+    description: Scheduler status
+    type: boolean
+  start_date:
+    description: Date from which the task will begin executing
+    type: string
+    format: date
+  end_date:
+    description: Date from which the task will be stopped executing
+    type: string
+    format: date
+  time:
+    description: Hour and minute in which the task will be executed
+    type: string
+    format: time
+  days_of_week:
+    description: Days of the week in which the task will be executed
+    type: array
+    items:
+      type: string
+  weeks_of_month:
+    description: Weeks of the month in which the task will be executed
+    type: array
+    items:
+      type: string
+  months_of_year:
+    description: Months of the year in which the task will be executed
+    type: array
+    items:
+      type: string

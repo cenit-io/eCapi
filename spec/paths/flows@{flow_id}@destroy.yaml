@@ -4,20 +4,7 @@ parameters:
 get:
   tags:
     - Flows
-  operationId: getFlow
-  summary: Get flow
-  description: |
-    Find flow by given id and returns it.
-  responses:
-    200:
-      $ref: '#/components/responses/flow_item'
-    404:
-      $ref: '#/components/responses/flow_not_found'
-
-delete:
-  tags:
-    - Flows
-  operationId: deleteFlow
+  operationId: destroyFlow
   summary: Destroy flow
   description: |
     Find flow by given id and destroy it.

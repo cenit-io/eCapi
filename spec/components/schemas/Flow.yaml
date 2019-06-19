@@ -10,7 +10,6 @@ properties:
     description: The human-readable flow type name
     type: string
   schedule:
-    description: Schedule settings
-    type: string
+    $ref: "#/components/schemas/Scheduler"
   store:
     $ref: "#/components/schemas/Store"

@@ -25,9 +25,7 @@ delete:
   description: |
     Find store settings by given id and disallow their connection.
 
-    ~~~
-    Only authorize stores can be unauthorizes.
-    ~~~
+    >> Only authorize stores can be unauthorizes.
   responses:
     404:
       $ref: '#/components/responses/store_not_found'

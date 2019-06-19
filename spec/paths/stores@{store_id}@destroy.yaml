@@ -9,9 +9,7 @@ get:
   description: |
     Find store settings by given id and destroy it.
 
-    ~~~
-    Only unauthorize stores can be destroyed.
-    ~~~
+    >> Only unauthorize stores can be destroyed.
   responses:
     200:
       $ref: '#/components/responses/success'

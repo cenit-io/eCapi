@@ -1,4 +1,10 @@
 theme:
+  logo:
+    gutter: 20px 30px 14px 30px
   colors:
-    primary:
-      main: '#32329f'
+    text:
+      primary: '#333333'
+  rightPanel:
+    backgroundColor: "#263238"
+  links:
+    color: "#6CC496"

@@ -22,10 +22,7 @@ delete:
   description: |
     Find task by given id and destroy it.
 
-    ~~~
-    The tasks in running status can't be destroyed.
-    ~~~
-
+    >> The tasks in running status can't be destroyed.
   responses:
     200:
       $ref: '#/components/responses/success'

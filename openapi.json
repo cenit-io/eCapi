@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "version": "v1",
-    "title": "eCapi",
+    "title": "OMNA Commerce API",
     "termsOfService": "https://example.com/terms/",
     "contact": {
       "email": "support@cenit.io",
@@ -13,9 +13,9 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     },
     "x-logo": {
-      "url": "https://cenit.io/assets/cenit-logo-c4e099552f7dc77c1870b7c77600380177da8b01c0a4a70dbf608b73e61da3ce.png"
+      "url": "https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/43008569985/logo/2IrD0Q3-FYFQZSrwZlK-czoXx8WwuBipkg.png"
     },
-    "description": "# Introduction\n* The OMNA's API is built over REST services on HTTPS.\n* It has predictable resource URLs.\n* It returns HTTP response codes to indicate errors.\n* It also accepts and returns JSON in the HTTP body.\n* You can use your favorite HTTP/REST library for your programming language to use OMNA's API,\n# Authentication\nTODO: ...\n"
+    "description": "# Introduction\n* The OMNA Commerce API is built over REST services on HTTPS.\n* It has predictable resource URLs.\n* It returns HTTP response codes to indicate errors.\n* It also accepts and returns JSON in the HTTP body.\n* You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API,\n# Authentication\nTODO: ...\n"
   },
   "tags": [
     {
@@ -56,6 +56,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/query_filter_term_for_flows"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_store"
           },
           {
             "$ref": "#/components/parameters/query_filter_flow_type"
@@ -145,12 +148,58 @@
         "tags": [
           "Flows"
         ],
-        "operationId": "deleteFlowSettings",
+        "operationId": "deleteFlow",
         "summary": "Destroy flow",
-        "description": "Find flow settings by given id and destroy it.\n",
+        "description": "Find flow by given id and destroy it.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/flow_not_found"
+          }
+        }
+      }
+    },
+    "/flows/{flow_id}/destroy": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_flow_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "destroyFlow",
+        "summary": "Destroy flow",
+        "description": "Find flow by given id and destroy it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/flow_not_found"
+          }
+        }
+      }
+    },
+    "/flows/{flow_id}/toggle/scheduler/status": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_flow_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "toggleFlowSchedulerStatus",
+        "summary": "Toggle scheduler status",
+        "description": "Find flow by given id and activate or deactivate its scheduler.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_item"
           },
           "404": {
             "$ref": "#/components/responses/flow_not_found"
@@ -354,7 +403,7 @@
         ],
         "operationId": "deleteStoreSettings",
         "summary": "Destroy store",
-        "description": "Find store settings by given id and destroy it.\n\n~~~\nOnly unauthorize stores can be destroyed.\n~~~\n",
+        "description": "Find store settings by given id and destroy it.\n\n>> Only unauthorize stores can be destroyed.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -399,7 +448,7 @@
         ],
         "operationId": "unauthorizeStoreConnection",
         "summary": "Cancel store authorization",
-        "description": "Find store settings by given id and disallow their connection.\n\n~~~\nOnly authorize stores can be unauthorizes.\n~~~\n",
+        "description": "Find store settings by given id and disallow their connection.\n\n>> Only authorize stores can be unauthorizes.\n",
         "responses": {
           "404": {
             "$ref": "#/components/responses/store_not_found"
@@ -419,7 +468,7 @@
         ],
         "operationId": "destroyStoreSettings",
         "summary": "Destroy store",
-        "description": "Find store settings by given id and destroy it.\n\n~~~\nOnly unauthorize stores can be destroyed.\n~~~\n",
+        "description": "Find store settings by given id and destroy it.\n\n>> Only unauthorize stores can be destroyed.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -430,15 +479,58 @@
         }
       }
     },
-    "/stores/{store_id}/orders": {
+    "/stores/{store_id}/flows": {
       "parameters": [
         {
           "$ref": "#/components/parameters/path_store_id"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_flows"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_flow_type"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
         }
       ],
       "get": {
         "tags": [
-          "Orders"
+          "Flows",
+          "Stores"
+        ],
+        "operationId": "getStoreFlows",
+        "summary": "Get store flows",
+        "description": "Returns the flow list of a specific store.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_items"
+          }
+        }
+      }
+    },
+    "/stores/{store_id}/orders": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_store_id"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_orders"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders",
+          "Stores"
         ],
         "operationId": "getStoreOrders",
         "summary": "Get store orders",
@@ -494,7 +586,7 @@
         ],
         "operationId": "getOrderDoc",
         "summary": "Get document",
-        "description": "Returns a specific document of the order.\n\n~~~\nTo reconstruct the file, the data from the node needs to be base64 decoded,\nand interpreted according to the mime_type.\n~~~\n",
+        "description": "Returns a specific document of the order.\n\n>> To reconstruct the file, the data from the node needs to be base64 decoded, and interpreted according to the mime_type.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/order_doc"
@@ -583,7 +675,7 @@
         ],
         "operationId": "unauthorizeStoreConnection2",
         "summary": "Cancel store authorization",
-        "description": "Find store settings by given id and disallow their connection.\n\n~~~\nOnly authorize stores can be unauthorizes.\n~~~\n",
+        "description": "Find store settings by given id and disallow their connection.\n\n>> Only authorize stores can be unauthorizes.\n",
         "responses": {
           "404": {
             "$ref": "#/components/responses/store_not_found"
@@ -684,7 +776,7 @@
         ],
         "operationId": "deleteTask",
         "summary": "Destroy task",
-        "description": "Find task by given id and destroy it.\n\n~~~\nThe tasks in running status can't be destroyed.\n~~~\n",
+        "description": "Find task by given id and destroy it.\n\n>> The tasks in running status can't be destroyed.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -707,7 +799,7 @@
         ],
         "operationId": "destroyTask",
         "summary": "Destroy task",
-        "description": "Find task by given id and destroy it.\n\n~~~\nThe tasks in running status can't be destroyed.\n~~~\n",
+        "description": "Find task by given id and destroy it.\n\n>> The tasks in running status can't be destroyed.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -785,6 +877,10 @@
       "Execution": {
         "type": "object",
         "properties": {
+          "status": {
+            "description": "Status of task execution",
+            "type": "string"
+          },
           "started_at": {
             "description": "Date in iso8601 when the task was started",
             "type": "string",
@@ -812,9 +908,8 @@
             "description": "The human-readable flow type name",
             "type": "string"
           },
-          "schedule": {
-            "description": "Schedule settings",
-            "type": "string"
+          "task": {
+            "$ref": "#/components/schemas/Task"
           },
           "store": {
             "$ref": "#/components/schemas/Store"
@@ -982,6 +1077,52 @@
         "description": "URI to back after do authorization",
         "type": "string"
       },
+      "Scheduler": {
+        "type": "object",
+        "description": "Scheduler settings",
+        "properties": {
+          "active": {
+            "description": "Scheduler status",
+            "type": "boolean"
+          },
+          "start_date": {
+            "description": "Date from which the task will begin executing",
+            "type": "string",
+            "format": "date"
+          },
+          "end_date": {
+            "description": "Date from which the task will be stopped executing",
+            "type": "string",
+            "format": "date"
+          },
+          "time": {
+            "description": "Hour and minute in which the task will be executed",
+            "type": "string",
+            "format": "time"
+          },
+          "days_of_week": {
+            "description": "Days of the week in which the task will be executed",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "weeks_of_month": {
+            "description": "Weeks of the month in which the task will be executed",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "months_of_year": {
+            "description": "Months of the year in which the task will be executed",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "Store": {
         "type": "object",
         "description": "Store settings",
@@ -1077,6 +1218,9 @@
             "items": {
               "$ref": "#/components/schemas/Notification"
             }
+          },
+          "scheduler": {
+            "$ref": "#/components/schemas/Scheduler"
           },
           "created_at": {
             "$ref": "#/components/schemas/CreatedAt"
@@ -1465,7 +1609,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the flows that contain the value of the term in their ***id*** or ***name***.",
+          "description": "Allow to filter the flows that contain the value of the term in their ***type***.",
           "type": "string",
           "example": "Shop-Lazada"
         }
@@ -1531,6 +1675,8 @@
           "id": "5d04051125d9852c71016793",
           "type": "import_orders",
           "title": "Import orders from store",
+          "created_at": "2019-06-07T00:06:52+00:00",
+          "updated_at": "2019-06-07T20:47:32+00:00",
           "store": {
             "id": "shop_01",
             "name": "Shop-01",
@@ -1540,8 +1686,65 @@
             "created_at": "2019-06-07T00:06:52+00:00",
             "updated_at": "2019-06-07T20:47:32+00:00"
           },
-          "created_at": "2019-06-07T00:06:52+00:00",
-          "updated_at": "2019-06-07T20:47:32+00:00"
+          "task": {
+            "id": "5cfe690b25d9854b3b02241b",
+            "status": "completed",
+            "progress": 100,
+            "description": "Importing last updated orders from 'Shop-01' store.",
+            "created_at": "2019-06-10T14:28:27+00:00",
+            "updated_at": "2019-06-10T14:28:43+00:00",
+            "executions": [
+              {
+                "status": "completed",
+                "started_at": "2019-06-10T14:28:27+00:00",
+                "completed_at": "2019-06-10T14:28:43+00:00"
+              }
+            ],
+            "notifications": [
+              {
+                "type": "info",
+                "message": "Imported order 17851977370457 from Shop-01 store."
+              },
+              {
+                "type": "info",
+                "message": "Imported order 8834309804556 from Shop-01 store."
+              },
+              {
+                "type": "info",
+                "message": "Imported order 16159781406633 from Shop-01 store."
+              },
+              {
+                "type": "info",
+                "message": "Importing form 1 to 3."
+              },
+              {
+                "type": "info",
+                "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
+              }
+            ],
+            "scheduler": {
+              "active": true,
+              "start_date": "2019-06-20",
+              "end_date": "2019-06-21",
+              "time": "12:0",
+              "days_of_week": [
+                "Mon",
+                "Wed",
+                "Fri"
+              ],
+              "weeks_of_month": [
+                "First",
+                "Third",
+                "Last"
+              ],
+              "months_of_year": [
+                "Jan",
+                "Apr",
+                "Jul",
+                "Oct"
+              ]
+            }
+          }
         }
       },
       "flow_items_response": {
@@ -1550,6 +1753,8 @@
             "id": "5d04051125d9852c71016793",
             "type": "import_orders",
             "title": "Import orders from store",
+            "created_at": "2019-06-07T00:06:52+00:00",
+            "updated_at": "2019-06-07T20:47:32+00:00",
             "store": {
               "id": "shop_01",
               "name": "Shop-01",
@@ -1559,8 +1764,65 @@
               "created_at": "2019-06-07T00:06:52+00:00",
               "updated_at": "2019-06-07T20:47:32+00:00"
             },
-            "created_at": "2019-06-07T00:06:52+00:00",
-            "updated_at": "2019-06-07T20:47:32+00:00"
+            "task": {
+              "id": "5cfe690b25d9854b3b02241b",
+              "status": "completed",
+              "progress": 100,
+              "description": "Importing last updated orders from 'Shop-01' store.",
+              "created_at": "2019-06-10T14:28:27+00:00",
+              "updated_at": "2019-06-10T14:28:43+00:00",
+              "executions": [
+                {
+                  "status": "completed",
+                  "started_at": "2019-06-10T14:28:27+00:00",
+                  "completed_at": "2019-06-10T14:28:43+00:00"
+                }
+              ],
+              "notifications": [
+                {
+                  "type": "info",
+                  "message": "Imported order 17851977370457 from Shop-01 store."
+                },
+                {
+                  "type": "info",
+                  "message": "Imported order 8834309804556 from Shop-01 store."
+                },
+                {
+                  "type": "info",
+                  "message": "Imported order 16159781406633 from Shop-01 store."
+                },
+                {
+                  "type": "info",
+                  "message": "Importing form 1 to 3."
+                },
+                {
+                  "type": "info",
+                  "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
+                }
+              ],
+              "scheduler": {
+                "active": true,
+                "start_date": "2019-06-20",
+                "end_date": "2019-06-21",
+                "time": "12:0",
+                "days_of_week": [
+                  "Mon",
+                  "Wed",
+                  "Fri"
+                ],
+                "weeks_of_month": [
+                  "First",
+                  "Third",
+                  "Last"
+                ],
+                "months_of_year": [
+                  "Jan",
+                  "Apr",
+                  "Jul",
+                  "Oct"
+                ]
+              }
+            }
           }
         ],
         "pagination": {
@@ -1827,6 +2089,7 @@
           "updated_at": "2019-06-10T14:28:43+00:00",
           "executions": [
             {
+              "status": "completed",
               "started_at": "2019-06-10T14:28:27+00:00",
               "completed_at": "2019-06-10T14:28:43+00:00"
             }
@@ -1852,7 +2115,29 @@
               "type": "info",
               "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
             }
-          ]
+          ],
+          "scheduler": {
+            "active": true,
+            "start_date": "2019-06-20",
+            "end_date": "2019-06-21",
+            "time": "12:0",
+            "days_of_week": [
+              "Mon",
+              "Wed",
+              "Fri"
+            ],
+            "weeks_of_month": [
+              "First",
+              "Third",
+              "Last"
+            ],
+            "months_of_year": [
+              "Jan",
+              "Apr",
+              "Jul",
+              "Oct"
+            ]
+          }
         }
       },
       "tasks_response": {
@@ -1866,6 +2151,7 @@
             "updated_at": "2019-06-10T13:35:43+00:00",
             "executions": [
               {
+                "status": "completed",
                 "started_at": "2019-06-10T13:35:27+00:00",
                 "completed_at": "2019-06-10T13:35:43+00:00"
               }
@@ -1891,7 +2177,29 @@
                 "type": "info",
                 "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
               }
-            ]
+            ],
+            "scheduler": {
+              "active": true,
+              "start_date": "2019-06-20",
+              "end_date": "2019-06-21",
+              "time": "12:0",
+              "days_of_week": [
+                "Mon",
+                "Wed",
+                "Fri"
+              ],
+              "weeks_of_month": [
+                "First",
+                "Third",
+                "Last"
+              ],
+              "months_of_year": [
+                "Jan",
+                "Apr",
+                "Jul",
+                "Oct"
+              ]
+            }
           },
           {
             "id": "5cfe5ca825d9854aff021043",
@@ -1902,6 +2210,7 @@
             "updated_at": "2019-06-10T13:35:43+00:00",
             "executions": [
               {
+                "status": "completed",
                 "started_at": "2019-06-10T13:35:27+00:00",
                 "completed_at": "2019-06-10T13:35:43+00:00"
               }

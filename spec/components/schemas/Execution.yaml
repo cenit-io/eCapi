@@ -1,5 +1,8 @@
 type: "object"
 properties:
+  status:
+    description: Status of task execution
+    type: string
   started_at:
     description: Date in iso8601 when the task was started
     type: string

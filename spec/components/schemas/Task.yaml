@@ -22,6 +22,8 @@ properties:
     type: array
     items:
       $ref: "#/components/schemas/Notification"
+  scheduler:
+    $ref: "#/components/schemas/Scheduler"
   created_at:
     $ref: "#/components/schemas/CreatedAt"
   updated_at:

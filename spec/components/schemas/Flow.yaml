@@ -9,7 +9,7 @@ properties:
   title:
     description: The human-readable flow type name
     type: string
-  schedule:
-    $ref: "#/components/schemas/Scheduler"
+  task:
+    $ref: "#/components/schemas/Task"
   store:
     $ref: "#/components/schemas/Store"

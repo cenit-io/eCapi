@@ -10,7 +10,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
-    url: 'https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/43008569985/logo/2IrD0Q3-FYFQZSrwZlK-czoXx8WwuBipkg.png'
+    url: 'http://www.omna.io/wp-content/uploads/2019/06/omna_logo-331x100.png'
   description: |
     # Introduction
     * The OMNA Commerce API is built over REST services on HTTPS.

@@ -13,7 +13,7 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     },
     "x-logo": {
-      "url": "https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/43008569985/logo/2IrD0Q3-FYFQZSrwZlK-czoXx8WwuBipkg.png"
+      "url": "http://www.omna.io/wp-content/uploads/2019/06/omna_logo-331x100.png"
     },
     "description": "# Introduction\n* The OMNA Commerce API is built over REST services on HTTPS.\n* It has predictable resource URLs.\n* It returns HTTP response codes to indicate errors.\n* It also accepts and returns JSON in the HTTP body.\n* You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API,\n# Authentication\nTODO: ...\n"
   },

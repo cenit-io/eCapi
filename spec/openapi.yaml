@@ -10,7 +10,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
-    url: 'http://www.omna.io/wp-content/uploads/2019/06/omna_logo-331x100.png'
+    url: 'omna_logo.png'
   description: >
     # Introduction
 

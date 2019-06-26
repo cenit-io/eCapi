@@ -1,63 +1,64 @@
-data:
-  id: "5d04051125d9852c71016793"
-  type: "import_orders"
-  title: "Import orders from store"
-  created_at: "2019-06-07T00:06:52+00:00"
-  updated_at: "2019-06-07T20:47:32+00:00"
-
-  store:
-    id: "shop_01"
-    name: "Shop-01"
-    channel: "LazadaSG"
-    authorized: true
-    last_import_orders_date: "2019-06-07T20:47:14+00:00"
+value:
+  data:
+    id: "5d04051125d9852c71016793"
+    type: "import_orders"
+    title: "Import orders from store"
     created_at: "2019-06-07T00:06:52+00:00"
     updated_at: "2019-06-07T20:47:32+00:00"
 
-  task:
-    id: "5cfe690b25d9854b3b02241b"
-    status: "completed"
-    progress: 100
-    description: "Importing last updated orders from 'Shop-01' store."
-    created_at: "2019-06-10T14:28:27+00:00"
-    updated_at: "2019-06-10T14:28:43+00:00"
-    executions:
-      -
-        status: "completed"
-        started_at: "2019-06-10T14:28:27+00:00"
-        completed_at: "2019-06-10T14:28:43+00:00"
-    notifications:
-      -
-        type: "info"
-        message: "Imported order 17851977370457 from Shop-01 store."
-      -
-        type: "info"
-        message: "Imported order 8834309804556 from Shop-01 store."
-      -
-        type: "info"
-        message: "Imported order 16159781406633 from Shop-01 store."
-      -
-        type: "info"
-        message: "Importing form 1 to 3."
-      -
-        type: "info"
-        message: "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
+    store:
+      id: "shop_01"
+      name: "Shop-01"
+      channel: "LazadaSG"
+      authorized: true
+      last_import_orders_date: "2019-06-07T20:47:14+00:00"
+      created_at: "2019-06-07T00:06:52+00:00"
+      updated_at: "2019-06-07T20:47:32+00:00"
 
-    scheduler:
-      active: true
-      start_date: "2019-06-20"
-      end_date: "2019-06-21"
-      time: "12:0"
-      days_of_week:
-        - "Mon"
-        - "Wed"
-        - "Fri"
-      weeks_of_month:
-        - "First"
-        - "Third"
-        - "Last"
-      months_of_year:
-        - "Jan"
-        - "Apr"
-        - "Jul"
-        - "Oct"
+    task:
+      id: "5cfe690b25d9854b3b02241b"
+      status: "completed"
+      progress: 100
+      description: "Importing last updated orders from 'Shop-01' store."
+      created_at: "2019-06-10T14:28:27+00:00"
+      updated_at: "2019-06-10T14:28:43+00:00"
+      executions:
+        -
+          status: "completed"
+          started_at: "2019-06-10T14:28:27+00:00"
+          completed_at: "2019-06-10T14:28:43+00:00"
+      notifications:
+        -
+          type: "info"
+          message: "Imported order 17851977370457 from Shop-01 store."
+        -
+          type: "info"
+          message: "Imported order 8834309804556 from Shop-01 store."
+        -
+          type: "info"
+          message: "Imported order 16159781406633 from Shop-01 store."
+        -
+          type: "info"
+          message: "Importing form 1 to 3."
+        -
+          type: "info"
+          message: "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
+
+      scheduler:
+        active: true
+        start_date: "2019-06-20"
+        end_date: "2019-06-21"
+        time: "12:0"
+        days_of_week:
+          - "Mon"
+          - "Wed"
+          - "Fri"
+        weeks_of_month:
+          - "First"
+          - "Third"
+          - "Last"
+        months_of_year:
+          - "Jan"
+          - "Apr"
+          - "Jul"
+          - "Oct"

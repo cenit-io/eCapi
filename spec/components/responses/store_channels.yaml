@@ -11,5 +11,6 @@ content:
         pagination:
             $ref: '#/components/schemas/Pagination'
 
-    example:
-      $ref: '#/components/examples/store_channels_response'
+    examples:
+      Ex1:
+        $ref: '#/components/examples/store_channels_response'

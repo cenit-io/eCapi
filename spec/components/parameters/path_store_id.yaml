@@ -1,5 +1,6 @@
 name: store_id
 in: path
+required: true
 schema:
   description: Store identifier
   type: string

@@ -7,5 +7,6 @@ content:
         data:
           $ref: '#/components/schemas/Store'
 
-    example:
-      $ref: '#/components/examples/store_item_response'
+    examples:
+      Ex1:
+        $ref: '#/components/examples/store_item_response'

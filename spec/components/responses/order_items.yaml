@@ -11,5 +11,6 @@ content:
         pagination:
             $ref: '#/components/schemas/Pagination'
 
-    example:
-      $ref: '#/components/examples/order_items_response'
+    examples:
+      Ex1:
+        $ref: '#/components/examples/order_items_response'

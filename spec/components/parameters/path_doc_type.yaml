@@ -1,5 +1,6 @@
 name: doc_type
 in: path
+required: true
 schema:
   description: Document type
   type: string

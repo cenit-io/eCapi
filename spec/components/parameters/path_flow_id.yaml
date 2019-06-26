@@ -1,5 +1,6 @@
 name: flow_id
 in: path
+required: true
 schema:
   description: Flow identifier
   type: string

@@ -7,5 +7,6 @@ content:
         data:
           $ref: '#/components/schemas/Flow'
 
-    example:
-      $ref: '#/components/examples/flow_item_response'
+    examples:
+      Ex1:
+        $ref: '#/components/examples/flow_item_response'

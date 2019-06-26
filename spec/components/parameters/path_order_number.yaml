@@ -1,5 +1,6 @@
 name: number
 in: path
+required: true
 schema:
   description: Order number
   type: string

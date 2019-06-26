@@ -1,5 +1,6 @@
 name: task_id
 in: path
+required: true
 schema:
   description: Task identifier
   type: string

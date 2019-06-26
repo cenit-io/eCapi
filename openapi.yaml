@@ -1156,8 +1156,9 @@ components:
             properties:
               data:
                 $ref: '#/components/schemas/Webhook'
-          example:
-            $ref: '#/components/examples/webhook_item_response'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/webhook_item_response'
     webhook_items:
       description: Success
       content:
@@ -1171,8 +1172,9 @@ components:
                   $ref: '#/components/schemas/Webhook'
               pagination:
                 $ref: '#/components/schemas/Pagination'
-          example:
-            $ref: '#/components/examples/webhooks_items_response'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/webhooks_items_response'
     webhook_not_found:
       description: Not found
       content:

@@ -1,5 +1,6 @@
 name: webhook_id
 in: path
+required: true
 schema:
   description: Webhook identifier
   type: string

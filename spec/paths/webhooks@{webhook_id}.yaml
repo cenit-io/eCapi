@@ -1,0 +1,28 @@
+parameters:
+  - $ref: '#/components/parameters/path_webhook_id'
+
+get:
+  tags:
+    - Webhooks
+  operationId: getWebhook
+  summary: Get webhook
+  description: |
+    Find webhook by given id and returns it.
+  responses:
+    200:
+      $ref: '#/components/responses/webhook_item'
+    404:
+      $ref: '#/components/responses/webhook_not_found'
+
+delete:
+  tags:
+    - Webhooks
+  operationId: deleteWebhook
+  summary: Destroy webhook
+  description: |
+    Find webhook by given id and destroy it.
+  responses:
+    200:
+      $ref: '#/components/responses/success'
+    404:
+      $ref: '#/components/responses/webhook_not_found'

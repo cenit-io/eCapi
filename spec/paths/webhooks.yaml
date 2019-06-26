@@ -1,0 +1,51 @@
+get:
+  tags:
+    - Webhooks
+  operationId: getWebhooks
+  summary: Get webhooks
+  description: |
+    Returns the list of webhooks settings.
+  parameters:
+    - $ref: '#/components/parameters/query_filter_term_for_webhooks'
+    - $ref: '#/components/parameters/query_filter_webhook_topic'
+    - $ref: '#/components/parameters/query_filter_store'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
+  responses:
+    200:
+      $ref: '#/components/responses/webhook_items'
+
+post:
+  tags:
+    - Webhooks
+  operationId: createWebhook
+  summary: Create webhook
+  description: |
+    Create webhook settings from a given topic, address and store.
+
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          properties:
+            data:
+              type: object
+              properties:
+                topic:
+                  description: Webhook name
+                  type: string
+                address:
+                  description: URl destination of information
+                  type: string
+
+        example:
+          data:
+            store_id: shop_01
+            topic: orders/registered
+            address: "http://mystore.com"
+
+  responses:
+    200:
+      $ref: '#/components/responses/webhook_item'
+    400:
+      $ref: '#/components/responses/already_exists'

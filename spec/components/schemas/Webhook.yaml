@@ -1,0 +1,13 @@
+type: "object"
+properties:
+  id:
+    description: Webhook identifier
+    type: string
+  topic:
+    description: Webhook topic name
+    type: string
+  address:
+    description: URl destination of information
+    type: string
+  store:
+    $ref: "#/components/schemas/Store"

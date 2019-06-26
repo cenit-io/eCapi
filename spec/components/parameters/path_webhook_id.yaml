@@ -1,0 +1,6 @@
+name: webhook_id
+in: path
+schema:
+  description: Webhook identifier
+  type: string
+  example: 5d13be7025d9853de90012b6

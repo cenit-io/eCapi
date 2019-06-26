@@ -1,0 +1,6 @@
+name: type
+in: query
+schema:
+  description: Allow to filter the items by webhook topic.
+  type: string
+  example: orders/registered

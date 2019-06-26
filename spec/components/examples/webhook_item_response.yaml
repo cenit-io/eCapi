@@ -1,4 +1,5 @@
-data:
+value:
+  data:
     id: "5d13be7025d9853de90012b6"
     topic: "orders/registered"
     address: "http://mystore.com"

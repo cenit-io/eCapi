@@ -1,22 +1,23 @@
-data:
-  -
-    id: "5d13be7025d9853de90012b6"
-    topic: "orders/registered"
-    address: "http://mystore.com"
+value:
+  data:
+    -
+      id: "5d13be7025d9853de90012b6"
+      topic: "orders/registered"
+      address: "http://mystore.com"
 
-    store:
-      id: "shop_01"
-      name: "Shop-01"
-      channel: "LazadaSG"
-      authorized: true
-      last_import_orders_date: "2019-06-07T20:47:14+00:00"
-      created_at: "2019-06-07T00:06:52+00:00"
-      updated_at: "2019-06-07T20:47:32+00:00"
+      store:
+        id: "shop_01"
+        name: "Shop-01"
+        channel: "LazadaSG"
+        authorized: true
+        last_import_orders_date: "2019-06-07T20:47:14+00:00"
+        created_at: "2019-06-07T00:06:52+00:00"
+        updated_at: "2019-06-07T20:47:32+00:00"
 
-    created_at: "2019-06-18T16:21:46+00:00"
-    updated_at: "2019-06-18T16:22:12+00:00"
+      created_at: "2019-06-18T16:21:46+00:00"
+      updated_at: "2019-06-18T16:22:12+00:00"
 
-pagination:
-  offset: 0
-  limit: 5
-  total: 1
+  pagination:
+    offset: 0
+    limit: 5
+    total: 1

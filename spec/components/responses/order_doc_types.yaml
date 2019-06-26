@@ -9,5 +9,6 @@ content:
           items:
             $ref: '#/components/schemas/OrderDocumentType'
 
-    example:
-      $ref: '#/components/examples/order_doc_types_response'
+    examples:
+      Ex1:
+        $ref: '#/components/examples/order_doc_types_response'

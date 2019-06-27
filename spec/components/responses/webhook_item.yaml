@@ -7,5 +7,6 @@ content:
         data:
           $ref: '#/components/schemas/Webhook'
 
-    example:
-      $ref: '#/components/examples/webhook_item_response'
+    examples:
+      Ex1:
+        $ref: '#/components/examples/webhook_item_response'

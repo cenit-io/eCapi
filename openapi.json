@@ -951,6 +951,22 @@
             "$ref": "#/components/responses/webhook_not_found"
           }
         }
+      },
+      "post": {
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "updWebhook",
+        "summary": "Update webhook",
+        "description": "Find webhook by given id and update it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/webhook_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/webhook_not_found"
+          }
+        }
       }
     },
     "/webhooks/{webhook_id}/destroy": {

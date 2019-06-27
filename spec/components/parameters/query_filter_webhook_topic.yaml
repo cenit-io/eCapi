@@ -1,4 +1,4 @@
-name: type
+name: topic
 in: query
 schema:
   description: Allow to filter the items by webhook topic.

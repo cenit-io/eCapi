@@ -1288,9 +1288,9 @@ components:
       schema:
         description: Allow to filter the webhooks that contain the value of the term in their ***topic***.
         type: string
-        example: Shop-Lazada
+        example: orders
     query_filter_webhook_topic:
-      name: type
+      name: topic
       in: query
       schema:
         description: Allow to filter the items by webhook topic.

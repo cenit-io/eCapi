@@ -84,33 +84,7 @@
         "summary": "CREATE A FLOW",
         "description": "Create flow settings from a given name and channel.\n",
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "data": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "description": "Flow name",
-                        "type": "string"
-                      },
-                      "channel": {
-                        "description": "Channel identifier",
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              },
-              "example": {
-                "data": {
-                  "store_id": "shop_01",
-                  "type": "import_orders"
-                }
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/create_flow"
         },
         "responses": {
           "200": {
@@ -135,6 +109,25 @@
         "operationId": "getFlow",
         "summary": "RETRIEVE A FLOW",
         "description": "Find flow by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/flow_not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "updateFlow",
+        "summary": "UPDATE A FLOW SCHEDULER",
+        "description": "Find flow by given id and update it scheduler.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/update_flow"
+        },
         "responses": {
           "200": {
             "$ref": "#/components/responses/flow_item"
@@ -1098,6 +1091,24 @@
           }
         }
       },
+      "FlowRequestBody": {
+        "type": "object",
+        "title": "Flow",
+        "description": "Flow request body scheme",
+        "properties": {
+          "store_id": {
+            "description": "Store settings identifier",
+            "type": "string"
+          },
+          "type": {
+            "description": "Flow type name",
+            "type": "string"
+          },
+          "scheduler": {
+            "$ref": "#/components/schemas/SchedulerRequestBody"
+          }
+        }
+      },
       "LineItem": {
         "title": "LineItem",
         "type": "object",
@@ -1267,6 +1278,49 @@
             "description": "Scheduler status",
             "type": "boolean"
           },
+          "start_date": {
+            "description": "Date from which the task will begin executing",
+            "type": "string",
+            "format": "date"
+          },
+          "end_date": {
+            "description": "Date from which the task will be stopped executing",
+            "type": "string",
+            "format": "date"
+          },
+          "time": {
+            "description": "Hour and minute in which the task will be executed",
+            "type": "string",
+            "format": "time"
+          },
+          "days_of_week": {
+            "description": "Days of the week in which the task will be executed",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "weeks_of_month": {
+            "description": "Weeks of the month in which the task will be executed",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "months_of_year": {
+            "description": "Months of the year in which the task will be executed",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "SchedulerRequestBody": {
+        "type": "object",
+        "title": "Scheduler",
+        "description": "Scheduler request body scheme",
+        "properties": {
           "start_date": {
             "description": "Date from which the task will begin executing",
             "type": "string",
@@ -1985,6 +2039,45 @@
       }
     },
     "examples": {
+      "flow_create_request_1": {
+        "summary": "With scheduler",
+        "value": {
+          "data": {
+            "store_id": "shop_01",
+            "type": "import_orders",
+            "scheduler": {
+              "start_date": "2019-06-20",
+              "end_date": "2019-06-21",
+              "time": "12:0",
+              "days_of_week": [
+                "Mon",
+                "Wed",
+                "Fri"
+              ],
+              "weeks_of_month": [
+                "First",
+                "Third",
+                "Last"
+              ],
+              "months_of_year": [
+                "Jan",
+                "Apr",
+                "Jul",
+                "Oct"
+              ]
+            }
+          }
+        }
+      },
+      "flow_create_request_2": {
+        "summary": "Without scheduler",
+        "value": {
+          "data": {
+            "store_id": "shop_01",
+            "type": "import_orders"
+          }
+        }
+      },
       "flow_item_response": {
         "value": {
           "data": {
@@ -2147,6 +2240,34 @@
             "offset": 0,
             "limit": 10,
             "total": 1
+          }
+        }
+      },
+      "flow_update_request": {
+        "summary": "With scheduler",
+        "value": {
+          "data": {
+            "scheduler": {
+              "start_date": "2019-06-20",
+              "end_date": "2019-06-21",
+              "time": "12:0",
+              "days_of_week": [
+                "Mon",
+                "Wed",
+                "Fri"
+              ],
+              "weeks_of_month": [
+                "First",
+                "Third",
+                "Last"
+              ],
+              "months_of_year": [
+                "Jan",
+                "Apr",
+                "Jul",
+                "Oct"
+              ]
+            }
           }
         }
       },
@@ -2626,6 +2747,56 @@
             "offset": 0,
             "limit": 5,
             "total": 1
+          }
+        }
+      }
+    },
+    "requestBodies": {
+      "create_flow": {
+        "description": "Flow that will be added to the system",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/FlowRequestBody"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/flow_create_request_1"
+              },
+              "Ex2": {
+                "$ref": "#/components/examples/flow_create_request_2"
+              }
+            }
+          }
+        }
+      },
+      "update_flow": {
+        "description": "Flow scheduler that will be updated",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "scheduler": {
+                      "$ref": "#/components/schemas/SchedulerRequestBody"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/flow_update_request"
+              }
+            }
           }
         }
       }

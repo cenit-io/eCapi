@@ -1,17 +1,16 @@
 parameters:
   - $ref: '#/components/parameters/path_task_id'
-
 get:
   tags:
     - Tasks
   operationId: destroyTask
-  summary: Destroy task
+  summary: DESTROY A TASK
   description: |
     Find task by given id and destroy it.
 
-    >> The tasks in running status can't be destroyed.
+    > The tasks in running status can't be destroyed.
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/success'
-    404:
+    '404':
       $ref: '#/components/responses/task_not_found'

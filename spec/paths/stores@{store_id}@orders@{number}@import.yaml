@@ -1,16 +1,15 @@
 parameters:
   - $ref: '#/components/parameters/path_store_id'
   - $ref: '#/components/parameters/path_order_number'
-
 get:
   tags:
     - Orders
   operationId: importOrder
-  summary: Import a single order
+  summary: IMPORT A SINGLE ORDER FROM A STORE
   description: |
     Import a specific order from a store
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/task_item'
-    404:
+    '404':
       $ref: '#/components/responses/store_not_found'

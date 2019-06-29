@@ -2,7 +2,7 @@ get:
   tags:
     - Webhooks
   operationId: getWebhooks
-  summary: Get webhooks
+  summary: LIST ALL WEBHOOKS
   description: |
     Returns the list of webhooks settings.
   parameters:
@@ -12,20 +12,18 @@ get:
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/webhook_items'
-
 post:
   tags:
     - Webhooks
   operationId: createWebhook
-  summary: Create webhook
+  summary: CREATE A WEBHOOK
   description: |
     Create webhook settings from a given topic, address and store.
-
   requestBody:
     content:
-      'application/json':
+      application/json:
         schema:
           properties:
             data:
@@ -37,15 +35,13 @@ post:
                 address:
                   description: URl destination of information
                   type: string
-
         example:
           data:
             store_id: shop_01
             topic: orders/registered
-            address: "http://mystore.com"
-
+            address: 'http://mystore.com'
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/webhook_item'
-    400:
+    '400':
       $ref: '#/components/responses/already_exists'

@@ -2,16 +2,17 @@ parameters:
   - $ref: '#/components/parameters/path_store_id'
   - $ref: '#/components/parameters/path_order_number'
   - $ref: '#/components/parameters/path_doc_type'
-
 get:
   tags:
     - Orders
   operationId: getOrderDoc
-  summary: Get document
-  description: |
-    Returns a specific document of the order.
+  summary: RETRIEVE A DOCUMENT FROM AN ORDER
+  description: >
+    Retrieve a specific document of the order.
 
-    >> To reconstruct the file, the data from the node needs to be base64 decoded, and interpreted according to the mime_type.
+
+    > To reconstruct the file, the data from the node needs to be base64
+    decoded, and interpreted according to the mime_type.
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/order_doc'

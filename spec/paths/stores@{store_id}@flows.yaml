@@ -4,15 +4,14 @@ parameters:
   - $ref: '#/components/parameters/query_filter_flow_type'
   - $ref: '#/components/parameters/query_offset'
   - $ref: '#/components/parameters/query_limit'
-
 get:
   tags:
     - Flows
     - Stores
   operationId: getStoreFlows
-  summary: Get store flows
+  summary: LIST ALL FLOWS FROM A STORE
   description: |
     Returns the flow list of a specific store.
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/flow_items'

@@ -3,14 +3,13 @@ parameters:
   - $ref: '#/components/parameters/query_filter_store'
   - $ref: '#/components/parameters/query_offset'
   - $ref: '#/components/parameters/query_limit'
-
 get:
   tags:
     - Orders
   operationId: getOrders
-  summary: Get orders
+  summary: LIST ALL ORDERS
   description: |
     Returns the list of orders.
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/order_items'

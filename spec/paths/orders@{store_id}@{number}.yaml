@@ -1,17 +1,16 @@
 parameters:
   - $ref: '#/components/parameters/path_store_id'
   - $ref: '#/components/parameters/path_order_number'
-
 get:
   deprecated: true
   tags:
     - Orders
   operationId: getOrderDeprecate
-  summary: Get order
+  summary: RETRIEVE AN ORDER
   description: |
     Find order by given id and returns it.
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/order_item'
-    404:
+    '404':
       $ref: '#/components/responses/order_not_found'

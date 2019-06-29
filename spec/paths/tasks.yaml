@@ -2,7 +2,7 @@ get:
   tags:
     - Tasks
   operationId: getTasks
-  summary: Get tasks
+  summary: LIST ALL TASKS
   description: |
     Returns the list of tasks executions.
   parameters:
@@ -11,7 +11,7 @@ get:
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
   responses:
-    200:
+    '200':
       description: Success
       content:
         application/json:
@@ -23,7 +23,6 @@ get:
                 items:
                   $ref: '#/components/schemas/Task'
               pagination:
-                  $ref: '#/components/schemas/Pagination'
-
+                $ref: '#/components/schemas/Pagination'
           example:
             $ref: '#/components/examples/tasks_response'

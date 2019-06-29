@@ -1,14 +1,13 @@
 parameters:
   - $ref: '#/components/parameters/path_store_id'
   - $ref: '#/components/parameters/path_order_number'
-
 get:
   tags:
     - Orders
   operationId: getOrderDocTypes
-  summary: Get documents types
+  summary: LIST ALL DOCUMENT TYPES FROM AN ORDER
   description: |
     Return the list of types of order documents
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/order_doc_types'

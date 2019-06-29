@@ -1,15 +1,14 @@
 parameters:
   - $ref: '#/components/parameters/path_store_id'
-
 get:
   tags:
     - Orders
   operationId: importOrders
-  summary: Import updated orders
+  summary: IMPORT UPDATED ORDERS FROM STORE
   description: |
     Import the last updated orders from a store
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/task_item'
-    404:
+    '404':
       $ref: '#/components/responses/store_not_found'

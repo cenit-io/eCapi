@@ -2,7 +2,7 @@ get:
   tags:
     - Flows
   operationId: getFlows
-  summary: Get flows
+  summary: LIST ALL FLOWS
   description: |
     Returns the list of flows settings.
   parameters:
@@ -12,20 +12,18 @@ get:
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/flow_items'
-
 post:
   tags:
     - Flows
   operationId: createFlow
-  summary: Create flow
+  summary: CREATE A FLOW
   description: |
     Create flow settings from a given name and channel.
-
   requestBody:
     content:
-      'application/json':
+      application/json:
         schema:
           properties:
             data:
@@ -37,14 +35,12 @@ post:
                 channel:
                   description: Channel identifier
                   type: string
-
         example:
           data:
             store_id: shop_01
             type: import_orders
-
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/flow_item'
-    400:
+    '400':
       $ref: '#/components/responses/already_exists'

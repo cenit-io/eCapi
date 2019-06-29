@@ -1,17 +1,18 @@
 parameters:
   - $ref: '#/components/parameters/path_flow_id'
-
 get:
   tags:
     - Flows
   operationId: startFlow
-  summary: Start flow
-  description: |
+  summary: START A FLOW
+  description: >
     Find flow by given id and start its processing.
 
-    >> If exists any task of this flow in the execution or pending state, then the same task is returned, otherwise a new task is created.
+
+    > If exists any task of this flow in the execution or pending state, then
+    the same task is returned, otherwise a new task is created.
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/task_item'
-    404:
+    '404':
       $ref: '#/components/responses/flow_not_found'

@@ -2,29 +2,27 @@ get:
   tags:
     - Stores
   operationId: getStores
-  summary: Get stores
+  summary: LIST ALL STORES
   description: |
-    Returns the list of stores settings.
+    Returns the list of your stores.
   parameters:
     - $ref: '#/components/parameters/query_filter_term_for_stores'
     - $ref: '#/components/parameters/query_filter_store_channel'
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/store_items'
-
 post:
   tags:
     - Stores
   operationId: createStore
-  summary: Create store
+  summary: CREATE A STORE
   description: |
-    Create store settings from a given name and channel.
-
+    Creates a new store object from a given name and channel.
   requestBody:
     content:
-      'application/json':
+      application/json:
         schema:
           properties:
             data:
@@ -36,7 +34,6 @@ post:
                 channel:
                   description: Channel identifier
                   type: string
-
         examples:
           e1:
             summary: To Lazada store
@@ -44,16 +41,14 @@ post:
               data:
                 name: Shop-01
                 channel: LazadaSG
-
           e2:
             summary: To Shopee store
             value:
               data:
                 name: Shop-02
                 channel: ShopeeSG
-
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/store_item'
-    400:
+    '400':
       $ref: '#/components/responses/already_exists'

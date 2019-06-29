@@ -1,20 +1,20 @@
 openapi: 3.0.0
 info:
   version: v1
-  title: OMNA Commerce API
-  termsOfService: 'https://example.com/terms/'
+  title: OMNA COMMERCE API
+  termsOfService: 'https://cenit.io/terms'
   contact:
-    email: support@cenit.io
+    email: hello@omna.io
     url: 'https://cenitio.slack.com/messages/support'
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
-    url: 'omna_logo.png'
+    url: omna_logo.png
   description: >
     # Introduction
 
-    * The OMNA Commerce API is built over REST services on HTTPS.
+    * The OMNA COMMERCE API is built over REST services on HTTPS.
 
     * It has predictable resource URLs.
 
@@ -22,7 +22,8 @@ info:
 
     * It also accepts and returns JSON in the HTTP body.
 
-    * You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API,
+    * You can use your favorite HTTP/REST library for your programming language
+    to use OMNA COMMERCE API,
 
     # Authentication
 

@@ -1,31 +1,30 @@
 parameters:
   - $ref: '#/components/parameters/path_store_id'
-
 get:
   tags:
     - Stores
   operationId: authorizeStoreConnection
-  summary: Get store authorization
-  description: |
-    Find store settings by given id and redirect navigation to authorization uri.
+  summary: RETRIEVE A STORE AUTHORIATION
+  description: >
+    Find store settings by given id and redirect navigation to authorization
+    uri.
   parameters:
     - name: redirect_uri
       in: query
       schema:
         $ref: '#/components/schemas/RedirectURI'
   responses:
-    404:
+    '404':
       $ref: '#/components/responses/store_not_found'
-
 delete:
   tags:
     - Stores
   operationId: unauthorizeStoreConnection
-  summary: Cancel store authorization
+  summary: CANCEL A STORE AUTHORIATION
   description: |
     Find store settings by given id and disallow their connection.
 
-    >> Only authorize stores can be unauthorizes.
+    > Only authorize stores can be unauthorizes.
   responses:
-    404:
+    '404':
       $ref: '#/components/responses/store_not_found'

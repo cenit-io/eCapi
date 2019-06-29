@@ -1,28 +1,26 @@
 parameters:
   - $ref: '#/components/parameters/path_flow_id'
-
 get:
   tags:
     - Flows
   operationId: getFlow
-  summary: Get flow
+  summary: RETRIEVE A FLOW
   description: |
     Find flow by given id and returns it.
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/flow_item'
-    404:
+    '404':
       $ref: '#/components/responses/flow_not_found'
-
 delete:
   tags:
     - Flows
   operationId: deleteFlow
-  summary: Destroy flow
+  summary: DELETE A FLOW
   description: |
     Find flow by given id and destroy it.
   responses:
-    200:
+    '200':
       $ref: '#/components/responses/success'
-    404:
+    '404':
       $ref: '#/components/responses/flow_not_found'

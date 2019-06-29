@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
   version: v1
-  title: OMNA Commerce API
-  termsOfService: 'https://example.com/terms/'
+  title: OMNA COMMERCE API
+  termsOfService: 'https://cenit.io/terms'
   contact:
-    email: support@cenit.io
+    email: hello@omna.io
     url: 'https://cenitio.slack.com/messages/support'
   license:
     name: Apache 2.0
@@ -13,11 +13,11 @@ info:
     url: omna_logo.png
   description: |
     # Introduction
-    * The OMNA Commerce API is built over REST services on HTTPS.
+    * The OMNA COMMERCE API is built over REST services on HTTPS.
     * It has predictable resource URLs.
     * It returns HTTP response codes to indicate errors.
     * It also accepts and returns JSON in the HTTP body.
-    * You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API,
+    * You can use your favorite HTTP/REST library for your programming language to use OMNA COMMERCE API,
     # Authentication
     TODO: ....
 tags:
@@ -39,7 +39,7 @@ paths:
       tags:
         - Flows
       operationId: getFlows
-      summary: Get flows
+      summary: LIST ALL FLOWS
       description: |
         Returns the list of flows settings.
       parameters:
@@ -55,7 +55,7 @@ paths:
       tags:
         - Flows
       operationId: createFlow
-      summary: Create flow
+      summary: CREATE A FLOW
       description: |
         Create flow settings from a given name and channel.
       requestBody:
@@ -88,7 +88,7 @@ paths:
       tags:
         - Flows
       operationId: getFlow
-      summary: Get flow
+      summary: RETRIEVE A FLOW
       description: |
         Find flow by given id and returns it.
       responses:
@@ -100,7 +100,7 @@ paths:
       tags:
         - Flows
       operationId: deleteFlow
-      summary: Destroy flow
+      summary: DELETE A FLOW
       description: |
         Find flow by given id and destroy it.
       responses:
@@ -115,7 +115,7 @@ paths:
       tags:
         - Flows
       operationId: destroyFlow
-      summary: Destroy flow
+      summary: DESTROY A FLOW
       description: |
         Find flow by given id and destroy it.
       responses:
@@ -130,11 +130,11 @@ paths:
       tags:
         - Flows
       operationId: startFlow
-      summary: Start flow
+      summary: START A FLOW
       description: |
         Find flow by given id and start its processing.
 
-        >> If exists any task of this flow in the execution or pending state, then the same task is returned, otherwise a new task is created.
+        > If exists any task of this flow in the execution or pending state, then the same task is returned, otherwise a new task is created.
       responses:
         '200':
           $ref: '#/components/responses/task_item'
@@ -147,7 +147,7 @@ paths:
       tags:
         - Flows
       operationId: toggleFlowSchedulerStatus
-      summary: Toggle scheduler status
+      summary: TOGGLE A SCHEDULER STATUS
       description: |
         Find flow by given id and activate or deactivate its scheduler.
       responses:
@@ -165,7 +165,7 @@ paths:
       tags:
         - Orders
       operationId: getOrders
-      summary: Get orders
+      summary: LIST ALL ORDERS
       description: |
         Returns the list of orders.
       responses:
@@ -180,7 +180,7 @@ paths:
       tags:
         - Orders
       operationId: getOrderDeprecate
-      summary: Get order
+      summary: RETRIEVE AN ORDER
       description: |
         Find order by given id and returns it.
       responses:
@@ -196,7 +196,7 @@ paths:
       tags:
         - Orders
       operationId: importOrdersDeprecate
-      summary: Import updated orders
+      summary: IMPORT UPDATED ORDERS
       description: |
         Import the last updated orders from a store
       responses:
@@ -209,9 +209,9 @@ paths:
       tags:
         - Stores
       operationId: getStores
-      summary: Get stores
+      summary: LIST ALL STORES
       description: |
-        Returns the list of stores settings.
+        Returns the list of your stores.
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_stores'
         - $ref: '#/components/parameters/query_filter_store_channel'
@@ -224,9 +224,9 @@ paths:
       tags:
         - Stores
       operationId: createStore
-      summary: Create store
+      summary: CREATE A STORE
       description: |
-        Create store settings from a given name and channel.
+        Creates a new store object from a given name and channel.
       requestBody:
         content:
           application/json:
@@ -266,7 +266,7 @@ paths:
       tags:
         - Stores
       operationId: getStoreSettings
-      summary: Get store
+      summary: RETRIEVE A STORE
       description: |
         Find store settings by given id and returns it.
       responses:
@@ -278,11 +278,11 @@ paths:
       tags:
         - Stores
       operationId: deleteStoreSettings
-      summary: Destroy store
+      summary: DELETE A STORE
       description: |
         Find store settings by given id and destroy it.
 
-        >> Only unauthorize stores can be destroyed.
+        > Only unauthorize stores can be destroyed.
       responses:
         '200':
           $ref: '#/components/responses/success'
@@ -295,7 +295,7 @@ paths:
       tags:
         - Stores
       operationId: authorizeStoreConnection
-      summary: Get store authorization
+      summary: RETRIEVE A STORE AUTHORIATION
       description: |
         Find store settings by given id and redirect navigation to authorization uri.
       parameters:
@@ -310,11 +310,11 @@ paths:
       tags:
         - Stores
       operationId: unauthorizeStoreConnection
-      summary: Cancel store authorization
+      summary: CANCEL A STORE AUTHORIATION
       description: |
         Find store settings by given id and disallow their connection.
 
-        >> Only authorize stores can be unauthorizes.
+        > Only authorize stores can be unauthorizes.
       responses:
         '404':
           $ref: '#/components/responses/store_not_found'
@@ -325,11 +325,11 @@ paths:
       tags:
         - Stores
       operationId: destroyStoreSettings
-      summary: Destroy store
+      summary: DESTROY A STORE
       description: |
         Find store settings by given id and destroy it.
 
-        >> Only unauthorize stores can be destroyed.
+        > Only unauthorize stores can be destroyed.
       responses:
         '200':
           $ref: '#/components/responses/success'
@@ -347,7 +347,7 @@ paths:
         - Flows
         - Stores
       operationId: getStoreFlows
-      summary: Get store flows
+      summary: LIST ALL FLOWS FROM A STORE
       description: |
         Returns the flow list of a specific store.
       responses:
@@ -364,7 +364,7 @@ paths:
         - Orders
         - Stores
       operationId: getStoreOrders
-      summary: Get store orders
+      summary: LIST ALL ORDERS FROM A STORE
       description: |
         Returns the order list of a specific store.
       responses:
@@ -378,7 +378,7 @@ paths:
       tags:
         - Orders
       operationId: getOrder
-      summary: Get order
+      summary: RETRIVE AN ORDER FROM A STORE
       description: |
         Find order by given id and returns it.
       responses:
@@ -395,11 +395,11 @@ paths:
       tags:
         - Orders
       operationId: getOrderDoc
-      summary: Get document
+      summary: RETRIEVE A DOCUMENT FROM AN ORDER
       description: |
-        Returns a specific document of the order.
+        Retrieve a specific document of the order.
 
-        >> To reconstruct the file, the data from the node needs to be base64 decoded, and interpreted according to the mime_type.
+        > To reconstruct the file, the data from the node needs to be base64 decoded, and interpreted according to the mime_type.
       responses:
         '200':
           $ref: '#/components/responses/order_doc'
@@ -411,7 +411,7 @@ paths:
       tags:
         - Orders
       operationId: getOrderDocTypes
-      summary: Get documents types
+      summary: LIST ALL DOCUMENT TYPES FROM AN ORDER
       description: |
         Return the list of types of order documents
       responses:
@@ -425,7 +425,7 @@ paths:
       tags:
         - Orders
       operationId: importOrder
-      summary: Import a single order
+      summary: IMPORT A SINGLE ORDER FROM A STORE
       description: |
         Import a specific order from a store
       responses:
@@ -440,7 +440,7 @@ paths:
       tags:
         - Orders
       operationId: importOrders
-      summary: Import updated orders
+      summary: IMPORT UPDATED ORDERS FROM STORE
       description: |
         Import the last updated orders from a store
       responses:
@@ -455,11 +455,11 @@ paths:
       tags:
         - Stores
       operationId: unauthorizeStoreConnection2
-      summary: Cancel store authorization
+      summary: CANCEL A STORE AUTHORIZATION
       description: |
         Find store settings by given id and disallow their connection.
 
-        >> Only authorize stores can be unauthorizes.
+        > Only authorize stores can be unauthorizes.
       responses:
         '404':
           $ref: '#/components/responses/store_not_found'
@@ -468,7 +468,7 @@ paths:
       tags:
         - Stores
       operationId: getStoreChannels
-      summary: Get store channels
+      summary: LIST ALL STORE CHANNELS
       description: |
         Returns the list of store channels availables.
       responses:
@@ -479,7 +479,7 @@ paths:
       tags:
         - Tasks
       operationId: getTasks
-      summary: Get tasks
+      summary: LIST ALL TASKS
       description: |
         Returns the list of tasks executions.
       parameters:
@@ -510,7 +510,7 @@ paths:
       tags:
         - Tasks
       operationId: getTask
-      summary: Get task
+      summary: RETRIEVE A TASK
       description: |
         Find task by given id and returns it.
       responses:
@@ -522,11 +522,11 @@ paths:
       tags:
         - Tasks
       operationId: deleteTask
-      summary: Destroy task
+      summary: DELETE A TASK
       description: |
-        Find task by given id and destroy it.
+        Find task by given id and delete it.
 
-        >> The tasks in running status can't be destroyed.
+        > The tasks in running status can't be deleted.
       responses:
         '200':
           $ref: '#/components/responses/success'
@@ -539,11 +539,11 @@ paths:
       tags:
         - Tasks
       operationId: destroyTask
-      summary: Destroy task
+      summary: DESTROY A TASK
       description: |
         Find task by given id and destroy it.
 
-        >> The tasks in running status can't be destroyed.
+        > The tasks in running status can't be destroyed.
       responses:
         '200':
           $ref: '#/components/responses/success'
@@ -554,7 +554,7 @@ paths:
       tags:
         - Webhooks
       operationId: getWebhooks
-      summary: Get webhooks
+      summary: LIST ALL WEBHOOKS
       description: |
         Returns the list of webhooks settings.
       parameters:
@@ -570,7 +570,7 @@ paths:
       tags:
         - Webhooks
       operationId: createWebhook
-      summary: Create webhook
+      summary: CREATE A WEBHOOK
       description: |
         Create webhook settings from a given topic, address and store.
       requestBody:
@@ -604,7 +604,7 @@ paths:
       tags:
         - Webhooks
       operationId: getWebhook
-      summary: Get webhook
+      summary: RETRIEVE A WEBHOOK
       description: |
         Find webhook by given id and returns it.
       responses:
@@ -616,9 +616,9 @@ paths:
       tags:
         - Webhooks
       operationId: deleteWebhook
-      summary: Destroy webhook
+      summary: DELETE A WEBHOOK
       description: |
-        Find webhook by given id and destroy it.
+        Find webhook by given id and delete it.
       responses:
         '200':
           $ref: '#/components/responses/success'
@@ -628,7 +628,7 @@ paths:
       tags:
         - Webhooks
       operationId: updWebhook
-      summary: Update webhook
+      summary: UPDATE A WEBHOOK
       description: |
         Find webhook by given id and update it.
       responses:
@@ -643,7 +643,7 @@ paths:
       tags:
         - Webhooks
       operationId: destroyWebhook
-      summary: Destroy webhook
+      summary: DESTROY A WEBHOOK
       description: |
         Find webhook by given id and destroy it.
       responses:

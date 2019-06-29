@@ -2,10 +2,10 @@
   "openapi": "3.0.0",
   "info": {
     "version": "v1",
-    "title": "OMNA Commerce API",
-    "termsOfService": "https://example.com/terms/",
+    "title": "OMNA COMMERCE API",
+    "termsOfService": "https://cenit.io/terms",
     "contact": {
-      "email": "support@cenit.io",
+      "email": "hello@omna.io",
       "url": "https://cenitio.slack.com/messages/support"
     },
     "license": {
@@ -15,7 +15,7 @@
     "x-logo": {
       "url": "omna_logo.png"
     },
-    "description": "# Introduction\n* The OMNA Commerce API is built over REST services on HTTPS.\n* It has predictable resource URLs.\n* It returns HTTP response codes to indicate errors.\n* It also accepts and returns JSON in the HTTP body.\n* You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API,\n# Authentication\nTODO: ....\n"
+    "description": "# Introduction\n* The OMNA COMMERCE API is built over REST services on HTTPS.\n* It has predictable resource URLs.\n* It returns HTTP response codes to indicate errors.\n* It also accepts and returns JSON in the HTTP body.\n* You can use your favorite HTTP/REST library for your programming language to use OMNA COMMERCE API,\n# Authentication\nTODO: ....\n"
   },
   "tags": [
     {
@@ -51,7 +51,7 @@
           "Flows"
         ],
         "operationId": "getFlows",
-        "summary": "Get flows",
+        "summary": "LIST ALL FLOWS",
         "description": "Returns the list of flows settings.\n",
         "parameters": [
           {
@@ -81,7 +81,7 @@
           "Flows"
         ],
         "operationId": "createFlow",
-        "summary": "Create flow",
+        "summary": "CREATE A FLOW",
         "description": "Create flow settings from a given name and channel.\n",
         "requestBody": {
           "content": {
@@ -133,7 +133,7 @@
           "Flows"
         ],
         "operationId": "getFlow",
-        "summary": "Get flow",
+        "summary": "RETRIEVE A FLOW",
         "description": "Find flow by given id and returns it.\n",
         "responses": {
           "200": {
@@ -149,7 +149,7 @@
           "Flows"
         ],
         "operationId": "deleteFlow",
-        "summary": "Destroy flow",
+        "summary": "DELETE A FLOW",
         "description": "Find flow by given id and destroy it.\n",
         "responses": {
           "200": {
@@ -172,7 +172,7 @@
           "Flows"
         ],
         "operationId": "destroyFlow",
-        "summary": "Destroy flow",
+        "summary": "DESTROY A FLOW",
         "description": "Find flow by given id and destroy it.\n",
         "responses": {
           "200": {
@@ -195,8 +195,8 @@
           "Flows"
         ],
         "operationId": "startFlow",
-        "summary": "Start flow",
-        "description": "Find flow by given id and start its processing.\n\n>> If exists any task of this flow in the execution or pending state, then the same task is returned, otherwise a new task is created.\n",
+        "summary": "START A FLOW",
+        "description": "Find flow by given id and start its processing.\n\n> If exists any task of this flow in the execution or pending state, then the same task is returned, otherwise a new task is created.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -218,7 +218,7 @@
           "Flows"
         ],
         "operationId": "toggleFlowSchedulerStatus",
-        "summary": "Toggle scheduler status",
+        "summary": "TOGGLE A SCHEDULER STATUS",
         "description": "Find flow by given id and activate or deactivate its scheduler.\n",
         "responses": {
           "200": {
@@ -250,7 +250,7 @@
           "Orders"
         ],
         "operationId": "getOrders",
-        "summary": "Get orders",
+        "summary": "LIST ALL ORDERS",
         "description": "Returns the list of orders.\n",
         "responses": {
           "200": {
@@ -274,7 +274,7 @@
           "Orders"
         ],
         "operationId": "getOrderDeprecate",
-        "summary": "Get order",
+        "summary": "RETRIEVE AN ORDER",
         "description": "Find order by given id and returns it.\n",
         "responses": {
           "200": {
@@ -298,7 +298,7 @@
           "Orders"
         ],
         "operationId": "importOrdersDeprecate",
-        "summary": "Import updated orders",
+        "summary": "IMPORT UPDATED ORDERS",
         "description": "Import the last updated orders from a store\n",
         "responses": {
           "200": {
@@ -316,8 +316,8 @@
           "Stores"
         ],
         "operationId": "getStores",
-        "summary": "Get stores",
-        "description": "Returns the list of stores settings.\n",
+        "summary": "LIST ALL STORES",
+        "description": "Returns the list of your stores.\n",
         "parameters": [
           {
             "$ref": "#/components/parameters/query_filter_term_for_stores"
@@ -343,8 +343,8 @@
           "Stores"
         ],
         "operationId": "createStore",
-        "summary": "Create store",
-        "description": "Create store settings from a given name and channel.\n",
+        "summary": "CREATE A STORE",
+        "description": "Creates a new store object from a given name and channel.\n",
         "requestBody": {
           "content": {
             "application/json": {
@@ -409,7 +409,7 @@
           "Stores"
         ],
         "operationId": "getStoreSettings",
-        "summary": "Get store",
+        "summary": "RETRIEVE A STORE",
         "description": "Find store settings by given id and returns it.\n",
         "responses": {
           "200": {
@@ -425,8 +425,8 @@
           "Stores"
         ],
         "operationId": "deleteStoreSettings",
-        "summary": "Destroy store",
-        "description": "Find store settings by given id and destroy it.\n\n>> Only unauthorize stores can be destroyed.\n",
+        "summary": "DELETE A STORE",
+        "description": "Find store settings by given id and destroy it.\n\n> Only unauthorize stores can be destroyed.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -448,7 +448,7 @@
           "Stores"
         ],
         "operationId": "authorizeStoreConnection",
-        "summary": "Get store authorization",
+        "summary": "RETRIEVE A STORE AUTHORIATION",
         "description": "Find store settings by given id and redirect navigation to authorization uri.\n",
         "parameters": [
           {
@@ -470,8 +470,8 @@
           "Stores"
         ],
         "operationId": "unauthorizeStoreConnection",
-        "summary": "Cancel store authorization",
-        "description": "Find store settings by given id and disallow their connection.\n\n>> Only authorize stores can be unauthorizes.\n",
+        "summary": "CANCEL A STORE AUTHORIATION",
+        "description": "Find store settings by given id and disallow their connection.\n\n> Only authorize stores can be unauthorizes.\n",
         "responses": {
           "404": {
             "$ref": "#/components/responses/store_not_found"
@@ -490,8 +490,8 @@
           "Stores"
         ],
         "operationId": "destroyStoreSettings",
-        "summary": "Destroy store",
-        "description": "Find store settings by given id and destroy it.\n\n>> Only unauthorize stores can be destroyed.\n",
+        "summary": "DESTROY A STORE",
+        "description": "Find store settings by given id and destroy it.\n\n> Only unauthorize stores can be destroyed.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -526,7 +526,7 @@
           "Stores"
         ],
         "operationId": "getStoreFlows",
-        "summary": "Get store flows",
+        "summary": "LIST ALL FLOWS FROM A STORE",
         "description": "Returns the flow list of a specific store.\n",
         "responses": {
           "200": {
@@ -556,7 +556,7 @@
           "Stores"
         ],
         "operationId": "getStoreOrders",
-        "summary": "Get store orders",
+        "summary": "LIST ALL ORDERS FROM A STORE",
         "description": "Returns the order list of a specific store.\n",
         "responses": {
           "200": {
@@ -579,7 +579,7 @@
           "Orders"
         ],
         "operationId": "getOrder",
-        "summary": "Get order",
+        "summary": "RETRIVE AN ORDER FROM A STORE",
         "description": "Find order by given id and returns it.\n",
         "responses": {
           "200": {
@@ -608,8 +608,8 @@
           "Orders"
         ],
         "operationId": "getOrderDoc",
-        "summary": "Get document",
-        "description": "Returns a specific document of the order.\n\n>> To reconstruct the file, the data from the node needs to be base64 decoded, and interpreted according to the mime_type.\n",
+        "summary": "RETRIEVE A DOCUMENT FROM AN ORDER",
+        "description": "Retrieve a specific document of the order.\n\n> To reconstruct the file, the data from the node needs to be base64 decoded, and interpreted according to the mime_type.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/order_doc"
@@ -631,7 +631,7 @@
           "Orders"
         ],
         "operationId": "getOrderDocTypes",
-        "summary": "Get documents types",
+        "summary": "LIST ALL DOCUMENT TYPES FROM AN ORDER",
         "description": "Return the list of types of order documents\n",
         "responses": {
           "200": {
@@ -654,7 +654,7 @@
           "Orders"
         ],
         "operationId": "importOrder",
-        "summary": "Import a single order",
+        "summary": "IMPORT A SINGLE ORDER FROM A STORE",
         "description": "Import a specific order from a store\n",
         "responses": {
           "200": {
@@ -677,7 +677,7 @@
           "Orders"
         ],
         "operationId": "importOrders",
-        "summary": "Import updated orders",
+        "summary": "IMPORT UPDATED ORDERS FROM STORE",
         "description": "Import the last updated orders from a store\n",
         "responses": {
           "200": {
@@ -700,8 +700,8 @@
           "Stores"
         ],
         "operationId": "unauthorizeStoreConnection2",
-        "summary": "Cancel store authorization",
-        "description": "Find store settings by given id and disallow their connection.\n\n>> Only authorize stores can be unauthorizes.\n",
+        "summary": "CANCEL A STORE AUTHORIZATION",
+        "description": "Find store settings by given id and disallow their connection.\n\n> Only authorize stores can be unauthorizes.\n",
         "responses": {
           "404": {
             "$ref": "#/components/responses/store_not_found"
@@ -715,7 +715,7 @@
           "Stores"
         ],
         "operationId": "getStoreChannels",
-        "summary": "Get store channels",
+        "summary": "LIST ALL STORE CHANNELS",
         "description": "Returns the list of store channels availables.\n",
         "responses": {
           "200": {
@@ -730,7 +730,7 @@
           "Tasks"
         ],
         "operationId": "getTasks",
-        "summary": "Get tasks",
+        "summary": "LIST ALL TASKS",
         "description": "Returns the list of tasks executions.\n",
         "parameters": [
           {
@@ -785,7 +785,7 @@
           "Tasks"
         ],
         "operationId": "getTask",
-        "summary": "Get task",
+        "summary": "RETRIEVE A TASK",
         "description": "Find task by given id and returns it.\n",
         "responses": {
           "200": {
@@ -801,8 +801,8 @@
           "Tasks"
         ],
         "operationId": "deleteTask",
-        "summary": "Destroy task",
-        "description": "Find task by given id and destroy it.\n\n>> The tasks in running status can't be destroyed.\n",
+        "summary": "DELETE A TASK",
+        "description": "Find task by given id and delete it.\n\n> The tasks in running status can't be deleted.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -824,8 +824,8 @@
           "Tasks"
         ],
         "operationId": "destroyTask",
-        "summary": "Destroy task",
-        "description": "Find task by given id and destroy it.\n\n>> The tasks in running status can't be destroyed.\n",
+        "summary": "DESTROY A TASK",
+        "description": "Find task by given id and destroy it.\n\n> The tasks in running status can't be destroyed.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -842,7 +842,7 @@
           "Webhooks"
         ],
         "operationId": "getWebhooks",
-        "summary": "Get webhooks",
+        "summary": "LIST ALL WEBHOOKS",
         "description": "Returns the list of webhooks settings.\n",
         "parameters": [
           {
@@ -872,7 +872,7 @@
           "Webhooks"
         ],
         "operationId": "createWebhook",
-        "summary": "Create webhook",
+        "summary": "CREATE A WEBHOOK",
         "description": "Create webhook settings from a given topic, address and store.\n",
         "requestBody": {
           "content": {
@@ -925,7 +925,7 @@
           "Webhooks"
         ],
         "operationId": "getWebhook",
-        "summary": "Get webhook",
+        "summary": "RETRIEVE A WEBHOOK",
         "description": "Find webhook by given id and returns it.\n",
         "responses": {
           "200": {
@@ -941,8 +941,8 @@
           "Webhooks"
         ],
         "operationId": "deleteWebhook",
-        "summary": "Destroy webhook",
-        "description": "Find webhook by given id and destroy it.\n",
+        "summary": "DELETE A WEBHOOK",
+        "description": "Find webhook by given id and delete it.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -957,7 +957,7 @@
           "Webhooks"
         ],
         "operationId": "updWebhook",
-        "summary": "Update webhook",
+        "summary": "UPDATE A WEBHOOK",
         "description": "Find webhook by given id and update it.\n",
         "responses": {
           "200": {
@@ -980,7 +980,7 @@
           "Webhooks"
         ],
         "operationId": "destroyWebhook",
-        "summary": "Destroy webhook",
+        "summary": "DESTROY A WEBHOOK",
         "description": "Find webhook by given id and destroy it.\n",
         "responses": {
           "200": {

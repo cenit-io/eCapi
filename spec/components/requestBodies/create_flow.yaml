@@ -1,0 +1,14 @@
+description: Flow that will be added to the system
+required: true
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: '#/components/schemas/FlowRequestBody'
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/flow_create_request_1'
+      Ex2:
+        $ref: '#/components/examples/flow_create_request_2'

@@ -1,0 +1,22 @@
+summary: With scheduler
+value:
+  data:
+    store_id: shop_01
+    type: import_orders
+    scheduler:
+      start_date: "2019-06-20"
+      end_date: "2019-06-21"
+      time: "12:0"
+      days_of_week:
+        - "Mon"
+        - "Wed"
+        - "Fri"
+      weeks_of_month:
+        - "First"
+        - "Third"
+        - "Last"
+      months_of_year:
+        - "Jan"
+        - "Apr"
+        - "Jul"
+        - "Oct"

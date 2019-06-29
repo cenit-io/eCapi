@@ -22,23 +22,7 @@ post:
   description: |
     Create flow settings from a given name and channel.
   requestBody:
-    content:
-      application/json:
-        schema:
-          properties:
-            data:
-              type: object
-              properties:
-                name:
-                  description: Flow name
-                  type: string
-                channel:
-                  description: Channel identifier
-                  type: string
-        example:
-          data:
-            store_id: shop_01
-            type: import_orders
+    $ref: '#/components/requestBodies/create_flow'
   responses:
     '200':
       $ref: '#/components/responses/flow_item'

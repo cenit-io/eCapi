@@ -1,0 +1,12 @@
+type: "object"
+title: Flow
+description: Flow request body scheme
+properties:
+  store_id:
+    description: Store settings identifier
+    type: string
+  type:
+    description: Flow type name
+    type: string
+  scheduler:
+    $ref: "#/components/schemas/SchedulerRequestBody"

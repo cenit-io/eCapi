@@ -12,6 +12,22 @@ get:
       $ref: '#/components/responses/flow_item'
     '404':
       $ref: '#/components/responses/flow_not_found'
+
+post:
+  tags:
+    - Flows
+  operationId: updateFlow
+  summary: UPDATE A FLOW SCHEDULER
+  description: |
+    Find flow by given id and update it scheduler.
+  requestBody:
+    $ref: '#/components/requestBodies/update_flow'
+  responses:
+    '200':
+      $ref: '#/components/responses/flow_item'
+    '404':
+      $ref: '#/components/responses/flow_not_found'
+
 delete:
   tags:
     - Flows

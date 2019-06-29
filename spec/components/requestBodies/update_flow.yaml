@@ -1,0 +1,15 @@
+description: Flow scheduler that will be updated
+required: true
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          type: object
+          properties:
+            scheduler:
+              $ref: "#/components/schemas/SchedulerRequestBody"
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/flow_update_request'

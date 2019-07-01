@@ -19,8 +19,8 @@
   },
   "tags": [
     {
-      "name": "Stores",
-      "description": "Operations about stores"
+      "name": "Integrations",
+      "description": "Operations about integrations"
     },
     {
       "name": "Orders",
@@ -41,13 +41,14 @@
   ],
   "servers": [
     {
-      "url": "https://cenit.io/app/ecapi"
+      "url": "https://cenit.io/app/ecapi-v1"
     }
   ],
   "security": [
     {
-      "X-OMNA-Token": [],
-      "X-OMNA-HMac": []
+      "Token": [],
+      "Timestamp": [],
+      "HMac": []
     }
   ],
   "paths": {
@@ -64,7 +65,7 @@
             "$ref": "#/components/parameters/query_filter_term_for_flows"
           },
           {
-            "$ref": "#/components/parameters/query_filter_store"
+            "$ref": "#/components/parameters/query_filter_integration"
           },
           {
             "$ref": "#/components/parameters/query_filter_flow_type"
@@ -229,13 +230,427 @@
         }
       }
     },
+    "/integrations": {
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "getIntegrations",
+        "summary": "LIST ALL INTEGRATIONS",
+        "description": "Returns the list of your integrations.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_integrations"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_integration_channel"
+          },
+          {
+            "$ref": "#/components/parameters/query_offset"
+          },
+          {
+            "$ref": "#/components/parameters/query_limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/integration_items"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "createIntegration",
+        "summary": "CREATE A INTEGRATION",
+        "description": "Creates a new integration object from a given name and channel.\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Integration name",
+                        "type": "string"
+                      },
+                      "channel": {
+                        "description": "Channel identifier",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "e1": {
+                  "summary": "To Lazada integration",
+                  "value": {
+                    "data": {
+                      "name": "Shop-01",
+                      "channel": "LazadaSG"
+                    }
+                  }
+                },
+                "e2": {
+                  "summary": "To Shopee integration",
+                  "value": {
+                    "data": {
+                      "name": "Shop-02",
+                      "channel": "ShopeeSG"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/integration_item"
+          },
+          "400": {
+            "$ref": "#/components/responses/already_exists"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "getIntegrationSettings",
+        "summary": "RETRIEVE A INTEGRATION",
+        "description": "Find integration settings by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/integration_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "deleteIntegrationSettings",
+        "summary": "DELETE A INTEGRATION",
+        "description": "Find integration settings by given id and destroy it.\n\n> Only unauthorize integrations can be destroyed.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/authorize": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "authorizeIntegrationConnection",
+        "summary": "RETRIEVE A INTEGRATION AUTHORIATION",
+        "description": "Find integration settings by given id and redirect navigation to authorization uri.\n",
+        "parameters": [
+          {
+            "name": "redirect_uri",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/RedirectURI"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "unauthorizeIntegrationConnection",
+        "summary": "CANCEL A INTEGRATION AUTHORIATION",
+        "description": "Find integration settings by given id and disallow their connection.\n\n> Only authorize integrations can be unauthorizes.\n",
+        "responses": {
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/destroy": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "destroyIntegrationSettings",
+        "summary": "DESTROY A INTEGRATION",
+        "description": "Find integration settings by given id and destroy it.\n\n> Only unauthorize integrations can be destroyed.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/flows": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_flows"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_flow_type"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Flows",
+          "Integrations"
+        ],
+        "operationId": "getIntegrationFlows",
+        "summary": "LIST ALL FLOWS FROM A INTEGRATION",
+        "description": "Returns the flow list of a specific integration.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_items"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/orders": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_orders"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders",
+          "Integrations"
+        ],
+        "operationId": "getIntegrationOrders",
+        "summary": "LIST ALL ORDERS FROM A INTEGRATION",
+        "description": "Returns the order list of a specific integration.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_items"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/orders/{number}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_order_number"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "getOrder",
+        "summary": "RETRIVE AN ORDER FROM A INTEGRATION",
+        "description": "Find order by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/order_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/orders/{number}/doc/{doc_type}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_order_number"
+        },
+        {
+          "$ref": "#/components/parameters/path_doc_type"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "getOrderDoc",
+        "summary": "RETRIEVE A DOCUMENT FROM AN ORDER",
+        "description": "Retrieve a specific document of the order.\n\n> To reconstruct the file, the data from the node needs to be base64 decoded, and interpreted according to the mime_type.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_doc"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/orders/{number}/doc/types": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_order_number"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "getOrderDocTypes",
+        "summary": "LIST ALL DOCUMENT TYPES FROM AN ORDER",
+        "description": "Return the list of types of order documents\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_doc_types"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/orders/{number}/import": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_order_number"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "importOrder",
+        "summary": "IMPORT A SINGLE ORDER FROM A INTEGRATION",
+        "description": "Import a specific order from a integration\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/orders/import": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "importOrders",
+        "summary": "IMPORT UPDATED ORDERS FROM INTEGRATION",
+        "description": "Import the last updated orders from a integration\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/unauthorize": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "unauthorizeIntegrationConnection2",
+        "summary": "CANCEL A INTEGRATION AUTHORIZATION",
+        "description": "Find integration settings by given id and disallow their connection.\n\n> Only authorize integrations can be unauthorizes.\n",
+        "responses": {
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/channels": {
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "getIntegrationChannels",
+        "summary": "LIST ALL INTEGRATION CHANNELS",
+        "description": "Returns the list of integration channels availables.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/integration_channels"
+          }
+        }
+      }
+    },
     "/orders": {
       "parameters": [
         {
           "$ref": "#/components/parameters/query_filter_term_for_orders"
         },
         {
-          "$ref": "#/components/parameters/query_filter_store"
+          "$ref": "#/components/parameters/query_filter_integration"
         },
         {
           "$ref": "#/components/parameters/query_offset"
@@ -258,10 +673,10 @@
         }
       }
     },
-    "/orders/{store_id}/{number}": {
+    "/orders/{integration_id}/{number}": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/path_store_id"
+          "$ref": "#/components/parameters/path_integration_id"
         },
         {
           "$ref": "#/components/parameters/path_order_number"
@@ -285,10 +700,10 @@
         }
       }
     },
-    "/orders/{store_id}/import": {
+    "/orders/{integration_id}/import": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/path_store_id"
+          "$ref": "#/components/parameters/path_integration_id"
         }
       ],
       "get": {
@@ -298,427 +713,13 @@
         ],
         "operationId": "importOrdersDeprecate",
         "summary": "IMPORT UPDATED ORDERS",
-        "description": "Import the last updated orders from a store\n",
+        "description": "Import the last updated orders from a integration\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
           },
           "404": {
-            "$ref": "#/components/responses/store_not_found"
-          }
-        }
-      }
-    },
-    "/stores": {
-      "get": {
-        "tags": [
-          "Stores"
-        ],
-        "operationId": "getStores",
-        "summary": "LIST ALL STORES",
-        "description": "Returns the list of your stores.\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/query_filter_term_for_stores"
-          },
-          {
-            "$ref": "#/components/parameters/query_filter_store_channel"
-          },
-          {
-            "$ref": "#/components/parameters/query_offset"
-          },
-          {
-            "$ref": "#/components/parameters/query_limit"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/store_items"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Stores"
-        ],
-        "operationId": "createStore",
-        "summary": "CREATE A STORE",
-        "description": "Creates a new store object from a given name and channel.\n",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "data": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "description": "Store name",
-                        "type": "string"
-                      },
-                      "channel": {
-                        "description": "Channel identifier",
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              },
-              "examples": {
-                "e1": {
-                  "summary": "To Lazada store",
-                  "value": {
-                    "data": {
-                      "name": "Shop-01",
-                      "channel": "LazadaSG"
-                    }
-                  }
-                },
-                "e2": {
-                  "summary": "To Shopee store",
-                  "value": {
-                    "data": {
-                      "name": "Shop-02",
-                      "channel": "ShopeeSG"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/store_item"
-          },
-          "400": {
-            "$ref": "#/components/responses/already_exists"
-          }
-        }
-      }
-    },
-    "/stores/{store_id}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Stores"
-        ],
-        "operationId": "getStoreSettings",
-        "summary": "RETRIEVE A STORE",
-        "description": "Find store settings by given id and returns it.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/store_item"
-          },
-          "404": {
-            "$ref": "#/components/responses/store_not_found"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Stores"
-        ],
-        "operationId": "deleteStoreSettings",
-        "summary": "DELETE A STORE",
-        "description": "Find store settings by given id and destroy it.\n\n> Only unauthorize stores can be destroyed.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/success"
-          },
-          "404": {
-            "$ref": "#/components/responses/store_not_found"
-          }
-        }
-      }
-    },
-    "/stores/{store_id}/authorize": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Stores"
-        ],
-        "operationId": "authorizeStoreConnection",
-        "summary": "RETRIEVE A STORE AUTHORIATION",
-        "description": "Find store settings by given id and redirect navigation to authorization uri.\n",
-        "parameters": [
-          {
-            "name": "redirect_uri",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/RedirectURI"
-            }
-          }
-        ],
-        "responses": {
-          "404": {
-            "$ref": "#/components/responses/store_not_found"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Stores"
-        ],
-        "operationId": "unauthorizeStoreConnection",
-        "summary": "CANCEL A STORE AUTHORIATION",
-        "description": "Find store settings by given id and disallow their connection.\n\n> Only authorize stores can be unauthorizes.\n",
-        "responses": {
-          "404": {
-            "$ref": "#/components/responses/store_not_found"
-          }
-        }
-      }
-    },
-    "/stores/{store_id}/destroy": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Stores"
-        ],
-        "operationId": "destroyStoreSettings",
-        "summary": "DESTROY A STORE",
-        "description": "Find store settings by given id and destroy it.\n\n> Only unauthorize stores can be destroyed.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/success"
-          },
-          "404": {
-            "$ref": "#/components/responses/store_not_found"
-          }
-        }
-      }
-    },
-    "/stores/{store_id}/flows": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        },
-        {
-          "$ref": "#/components/parameters/query_filter_term_for_flows"
-        },
-        {
-          "$ref": "#/components/parameters/query_filter_flow_type"
-        },
-        {
-          "$ref": "#/components/parameters/query_offset"
-        },
-        {
-          "$ref": "#/components/parameters/query_limit"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Flows",
-          "Stores"
-        ],
-        "operationId": "getStoreFlows",
-        "summary": "LIST ALL FLOWS FROM A STORE",
-        "description": "Returns the flow list of a specific store.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/flow_items"
-          }
-        }
-      }
-    },
-    "/stores/{store_id}/orders": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        },
-        {
-          "$ref": "#/components/parameters/query_filter_term_for_orders"
-        },
-        {
-          "$ref": "#/components/parameters/query_offset"
-        },
-        {
-          "$ref": "#/components/parameters/query_limit"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Orders",
-          "Stores"
-        ],
-        "operationId": "getStoreOrders",
-        "summary": "LIST ALL ORDERS FROM A STORE",
-        "description": "Returns the order list of a specific store.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/order_items"
-          }
-        }
-      }
-    },
-    "/stores/{store_id}/orders/{number}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        },
-        {
-          "$ref": "#/components/parameters/path_order_number"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "operationId": "getOrder",
-        "summary": "RETRIVE AN ORDER FROM A STORE",
-        "description": "Find order by given id and returns it.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/order_item"
-          },
-          "404": {
-            "$ref": "#/components/responses/order_not_found"
-          }
-        }
-      }
-    },
-    "/stores/{store_id}/orders/{number}/doc/{doc_type}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        },
-        {
-          "$ref": "#/components/parameters/path_order_number"
-        },
-        {
-          "$ref": "#/components/parameters/path_doc_type"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "operationId": "getOrderDoc",
-        "summary": "RETRIEVE A DOCUMENT FROM AN ORDER",
-        "description": "Retrieve a specific document of the order.\n\n> To reconstruct the file, the data from the node needs to be base64 decoded, and interpreted according to the mime_type.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/order_doc"
-          }
-        }
-      }
-    },
-    "/stores/{store_id}/orders/{number}/doc/types": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        },
-        {
-          "$ref": "#/components/parameters/path_order_number"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "operationId": "getOrderDocTypes",
-        "summary": "LIST ALL DOCUMENT TYPES FROM AN ORDER",
-        "description": "Return the list of types of order documents\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/order_doc_types"
-          }
-        }
-      }
-    },
-    "/stores/{store_id}/orders/{number}/import": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        },
-        {
-          "$ref": "#/components/parameters/path_order_number"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "operationId": "importOrder",
-        "summary": "IMPORT A SINGLE ORDER FROM A STORE",
-        "description": "Import a specific order from a store\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/task_item"
-          },
-          "404": {
-            "$ref": "#/components/responses/store_not_found"
-          }
-        }
-      }
-    },
-    "/stores/{store_id}/orders/import": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "operationId": "importOrders",
-        "summary": "IMPORT UPDATED ORDERS FROM STORE",
-        "description": "Import the last updated orders from a store\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/task_item"
-          },
-          "404": {
-            "$ref": "#/components/responses/store_not_found"
-          }
-        }
-      }
-    },
-    "/stores/{store_id}/unauthorize": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_store_id"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Stores"
-        ],
-        "operationId": "unauthorizeStoreConnection2",
-        "summary": "CANCEL A STORE AUTHORIZATION",
-        "description": "Find store settings by given id and disallow their connection.\n\n> Only authorize stores can be unauthorizes.\n",
-        "responses": {
-          "404": {
-            "$ref": "#/components/responses/store_not_found"
-          }
-        }
-      }
-    },
-    "/stores/channels": {
-      "get": {
-        "tags": [
-          "Stores"
-        ],
-        "operationId": "getStoreChannels",
-        "summary": "LIST ALL STORE CHANNELS",
-        "description": "Returns the list of store channels availables.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/store_channels"
+            "$ref": "#/components/responses/integration_not_found"
           }
         }
       }
@@ -874,7 +875,7 @@
             "$ref": "#/components/parameters/query_filter_webhook_topic"
           },
           {
-            "$ref": "#/components/parameters/query_filter_store"
+            "$ref": "#/components/parameters/query_filter_integration"
           },
           {
             "$ref": "#/components/parameters/query_offset"
@@ -895,7 +896,7 @@
         ],
         "operationId": "createWebhook",
         "summary": "CREATE A WEBHOOK",
-        "description": "Create webhook settings from a given topic, address and store.\n",
+        "description": "Create webhook settings from a given topic, address and integration.\n",
         "requestBody": {
           "content": {
             "application/json": {
@@ -918,9 +919,9 @@
               },
               "example": {
                 "data": {
-                  "store_id": "shop_01",
+                  "integration_id": "shop_01",
                   "topic": "orders/registered",
-                  "address": "http://mystore.com"
+                  "address": "http://myintegration.com"
                 }
               }
             }
@@ -1115,8 +1116,8 @@
           "task": {
             "$ref": "#/components/schemas/Task"
           },
-          "store": {
-            "$ref": "#/components/schemas/Store"
+          "integration": {
+            "$ref": "#/components/schemas/Integration"
           }
         }
       },
@@ -1125,8 +1126,8 @@
         "title": "Flow",
         "description": "Flow request body scheme",
         "properties": {
-          "store_id": {
-            "description": "Store settings identifier",
+          "integration_id": {
+            "description": "Integration settings identifier",
             "type": "string"
           },
           "type": {
@@ -1135,6 +1136,56 @@
           },
           "scheduler": {
             "$ref": "#/components/schemas/SchedulerRequestBody"
+          }
+        }
+      },
+      "Integration": {
+        "type": "object",
+        "description": "Integration settings",
+        "properties": {
+          "id": {
+            "description": "Integration identifier",
+            "type": "string"
+          },
+          "name": {
+            "description": "Integration name",
+            "type": "string"
+          },
+          "channel": {
+            "description": "Channel identifier",
+            "type": "string"
+          },
+          "authorized": {
+            "description": "If integration is authorized or not",
+            "type": "boolean"
+          },
+          "last_import_orders_date": {
+            "description": "The last import orders date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/UpdatedAt"
+          }
+        },
+        "required": [
+          "name",
+          "channel"
+        ]
+      },
+      "IntegrationChannel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Channel identifier",
+            "type": "string"
+          },
+          "title": {
+            "description": "Channel identifier",
+            "type": "string"
           }
         }
       },
@@ -1243,8 +1294,8 @@
           "customer": {
             "$ref": "#/components/schemas/Customer"
           },
-          "store": {
-            "$ref": "#/components/schemas/Store"
+          "integration": {
+            "$ref": "#/components/schemas/Integration"
           }
         }
       },
@@ -1388,56 +1439,6 @@
           }
         }
       },
-      "Store": {
-        "type": "object",
-        "description": "Store settings",
-        "properties": {
-          "id": {
-            "description": "Store identifier",
-            "type": "string"
-          },
-          "name": {
-            "description": "Store name",
-            "type": "string"
-          },
-          "channel": {
-            "description": "Channel identifier",
-            "type": "string"
-          },
-          "authorized": {
-            "description": "If store is authorized or not",
-            "type": "boolean"
-          },
-          "last_import_orders_date": {
-            "description": "The last import orders date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "created_at": {
-            "$ref": "#/components/schemas/CreatedAt"
-          },
-          "updated_at": {
-            "$ref": "#/components/schemas/UpdatedAt"
-          }
-        },
-        "required": [
-          "name",
-          "channel"
-        ]
-      },
-      "StoreChannel": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "Channel identifier",
-            "type": "string"
-          },
-          "title": {
-            "description": "Channel identifier",
-            "type": "string"
-          }
-        }
-      },
       "Success": {
         "type": "object",
         "properties": {
@@ -1519,8 +1520,8 @@
             "description": "URl destination of information",
             "type": "string"
           },
-          "store": {
-            "$ref": "#/components/schemas/Store"
+          "integration": {
+            "$ref": "#/components/schemas/Integration"
           }
         }
       }
@@ -1596,6 +1597,92 @@
             "example": {
               "success": false,
               "message": "Not found flow with id: 5d04051125d9852c71016793"
+            }
+          }
+        }
+      },
+      "integration_channels": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IntegrationChannel"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/integration_channels_response"
+              }
+            }
+          }
+        }
+      },
+      "integration_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Integration"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/integration_item_response"
+              }
+            }
+          }
+        }
+      },
+      "integration_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Integration"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/integration_items_response"
+              }
+            }
+          }
+        }
+      },
+      "integration_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found integration with id: shop_20"
             }
           }
         }
@@ -1699,92 +1786,6 @@
             "example": {
               "success": false,
               "message": "Not found order with number: 9151224232846"
-            }
-          }
-        }
-      },
-      "store_channels": {
-        "description": "Success",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StoreChannel"
-                  }
-                },
-                "pagination": {
-                  "$ref": "#/components/schemas/Pagination"
-                }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/store_channels_response"
-              }
-            }
-          }
-        }
-      },
-      "store_item": {
-        "description": "Success",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/components/schemas/Store"
-                }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/store_item_response"
-              }
-            }
-          }
-        }
-      },
-      "store_items": {
-        "description": "Success",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Store"
-                  }
-                },
-                "pagination": {
-                  "$ref": "#/components/schemas/Pagination"
-                }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/store_items_response"
-              }
-            }
-          }
-        }
-      },
-      "store_not_found": {
-        "description": "Not found",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Success"
-            },
-            "example": {
-              "success": false,
-              "message": "Not found store with id: shop_20"
             }
           }
         }
@@ -1898,6 +1899,36 @@
       }
     },
     "parameters": {
+      "auth_hmac": {
+        "name": "hmac",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "description": "Keyed-Hash message authentication code.",
+          "type": "string",
+          "example": "d24c9128362b0518f9ca2bf767b4a60a59aefe0f63ebeb7d47ec594442fc7a8f"
+        }
+      },
+      "auth_timestamp": {
+        "name": "timestamp",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "description": "The time stamp of the request with less than 7200 secounds difference from UTC time.",
+          "type": "integer",
+          "example": 1517820392000
+        }
+      },
+      "auth_token": {
+        "name": "token",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "description": "Tenant authentication token.",
+          "type": "string",
+          "example": "Ds3sBBSnyFnOqSjCARmX"
+        }
+      },
       "path_doc_type": {
         "name": "doc_type",
         "in": "path",
@@ -1918,6 +1949,16 @@
           "example": "5d04051125d9852c71016793"
         }
       },
+      "path_integration_id": {
+        "name": "integration_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Integration identifier",
+          "type": "string",
+          "example": "shop_01"
+        }
+      },
       "path_order_number": {
         "name": "number",
         "in": "path",
@@ -1926,16 +1967,6 @@
           "description": "Order number",
           "type": "string",
           "example": 9170283050978
-        }
-      },
-      "path_store_id": {
-        "name": "store_id",
-        "in": "path",
-        "required": true,
-        "schema": {
-          "description": "Store identifier",
-          "type": "string",
-          "example": "shop_01"
         }
       },
       "path_task_id": {
@@ -1967,20 +1998,20 @@
           "example": "import_orders"
         }
       },
-      "query_filter_store_channel": {
+      "query_filter_integration_channel": {
         "name": "channel",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the items by store channel.",
+          "description": "Allow to filter the items by integration channel.",
           "type": "string",
           "example": "LazadaSG"
         }
       },
-      "query_filter_store": {
-        "name": "store_id",
+      "query_filter_integration": {
+        "name": "integration_id",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the items by store.",
+          "description": "Allow to filter the items by integration.",
           "type": "string",
           "example": "shop_01"
         }
@@ -1994,6 +2025,15 @@
           "example": "Shop-Lazada"
         }
       },
+      "query_filter_term_for_integrations": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the integrations settings that contain the value of the term in their ***name***.",
+          "type": "string",
+          "example": "Shop-Lazada"
+        }
+      },
       "query_filter_term_for_orders": {
         "name": "term",
         "in": "query",
@@ -2001,15 +2041,6 @@
           "description": "Allow to filter the orders that contain the value of the term in their ***number*** or ***status***.",
           "type": "string",
           "example": "pending"
-        }
-      },
-      "query_filter_term_for_stores": {
-        "name": "term",
-        "in": "query",
-        "schema": {
-          "description": "Allow to filter the stores settings that contain the value of the term in their ***name***.",
-          "type": "string",
-          "example": "Shop-Lazada"
         }
       },
       "query_filter_term_for_tasks": {
@@ -2072,7 +2103,7 @@
         "summary": "With scheduler",
         "value": {
           "data": {
-            "store_id": "shop_01",
+            "integration_id": "shop_01",
             "type": "import_orders",
             "scheduler": {
               "start_date": "2019-06-20",
@@ -2102,7 +2133,7 @@
         "summary": "Without scheduler",
         "value": {
           "data": {
-            "store_id": "shop_01",
+            "integration_id": "shop_01",
             "type": "import_orders"
           }
         }
@@ -2112,10 +2143,10 @@
           "data": {
             "id": "5d04051125d9852c71016793",
             "type": "import_orders",
-            "title": "Import orders from store",
+            "title": "Import orders from integration",
             "created_at": "2019-06-07T00:06:52+00:00",
             "updated_at": "2019-06-07T20:47:32+00:00",
-            "store": {
+            "integration": {
               "id": "shop_01",
               "name": "Shop-01",
               "channel": "LazadaSG",
@@ -2128,7 +2159,7 @@
               "id": "5cfe690b25d9854b3b02241b",
               "status": "completed",
               "progress": 100,
-              "description": "Importing last updated orders from 'Shop-01' store.",
+              "description": "Importing last updated orders from 'Shop-01' integration.",
               "created_at": "2019-06-10T14:28:27+00:00",
               "updated_at": "2019-06-10T14:28:43+00:00",
               "executions": [
@@ -2141,15 +2172,15 @@
               "notifications": [
                 {
                   "type": "info",
-                  "message": "Imported order 17851977370457 from Shop-01 store."
+                  "message": "Imported order 17851977370457 from Shop-01 integration."
                 },
                 {
                   "type": "info",
-                  "message": "Imported order 8834309804556 from Shop-01 store."
+                  "message": "Imported order 8834309804556 from Shop-01 integration."
                 },
                 {
                   "type": "info",
-                  "message": "Imported order 16159781406633 from Shop-01 store."
+                  "message": "Imported order 16159781406633 from Shop-01 integration."
                 },
                 {
                   "type": "info",
@@ -2157,7 +2188,7 @@
                 },
                 {
                   "type": "info",
-                  "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
+                  "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
                 }
               ],
               "scheduler": {
@@ -2192,10 +2223,10 @@
             {
               "id": "5d04051125d9852c71016793",
               "type": "import_orders",
-              "title": "Import orders from store",
+              "title": "Import orders from integration",
               "created_at": "2019-06-07T00:06:52+00:00",
               "updated_at": "2019-06-07T20:47:32+00:00",
-              "store": {
+              "integration": {
                 "id": "shop_01",
                 "name": "Shop-01",
                 "channel": "LazadaSG",
@@ -2208,7 +2239,7 @@
                 "id": "5cfe690b25d9854b3b02241b",
                 "status": "completed",
                 "progress": 100,
-                "description": "Importing last updated orders from 'Shop-01' store.",
+                "description": "Importing last updated orders from 'Shop-01' integration.",
                 "created_at": "2019-06-10T14:28:27+00:00",
                 "updated_at": "2019-06-10T14:28:43+00:00",
                 "executions": [
@@ -2221,15 +2252,15 @@
                 "notifications": [
                   {
                     "type": "info",
-                    "message": "Imported order 17851977370457 from Shop-01 store."
+                    "message": "Imported order 17851977370457 from Shop-01 integration."
                   },
                   {
                     "type": "info",
-                    "message": "Imported order 8834309804556 from Shop-01 store."
+                    "message": "Imported order 8834309804556 from Shop-01 integration."
                   },
                   {
                     "type": "info",
-                    "message": "Imported order 16159781406633 from Shop-01 store."
+                    "message": "Imported order 16159781406633 from Shop-01 integration."
                   },
                   {
                     "type": "info",
@@ -2237,7 +2268,7 @@
                   },
                   {
                     "type": "info",
-                    "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
+                    "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
                   }
                 ],
                 "scheduler": {
@@ -2297,6 +2328,70 @@
                 "Oct"
               ]
             }
+          }
+        }
+      },
+      "integration_channels_response": {
+        "value": {
+          "data": [
+            {
+              "name": "LazadaID",
+              "title": "Lazada Indonesia"
+            },
+            {
+              "name": "LazadaMY",
+              "title": "Lazada Malaysia"
+            },
+            {
+              "name": "ShopeeTH",
+              "title": "Shopee Thailand"
+            },
+            {
+              "name": "ShopeeVN",
+              "title": "Shopee Vietnam"
+            }
+          ]
+        }
+      },
+      "integration_item_response": {
+        "value": {
+          "data": {
+            "id": "shop_01",
+            "name": "Shop-01",
+            "channel": "LazadaSG",
+            "authorized": true,
+            "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+            "created_at": "2019-06-07T00:06:52+00:00",
+            "updated_at": "2019-06-07T20:47:32+00:00"
+          }
+        }
+      },
+      "integration_items_response": {
+        "value": {
+          "data": [
+            {
+              "id": "shop_01",
+              "name": "Shop-01",
+              "channel": "LazadaSG",
+              "authorized": true,
+              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+              "created_at": "2019-06-07T00:06:52+00:00",
+              "updated_at": "2019-06-07T20:47:32+00:00"
+            },
+            {
+              "id": "shop_02",
+              "name": "Shop-02",
+              "channel": "LazadaMY",
+              "authorized": true,
+              "last_import_orders_date": "2019-07-07T20:47:14+00:00",
+              "created_at": "2019-07-07T00:06:52+00:00",
+              "updated_at": "2019-07-07T20:47:32+00:00"
+            }
+          ],
+          "pagination": {
+            "offset": 0,
+            "limit": 10,
+            "total": 2
           }
         }
       },
@@ -2372,7 +2467,7 @@
                   "sku": "2468"
                 }
               ],
-              "store": {
+              "integration": {
                 "id": "shop_01",
                 "name": "Shop-01",
                 "channel": "LazadaSG",
@@ -2424,7 +2519,7 @@
                   "sku": "0018227994491"
                 }
               ],
-              "store": {
+              "integration": {
                 "id": "shop_01",
                 "name": "Shop-01",
                 "channel": "LazadaSG",
@@ -2486,7 +2581,7 @@
                 "sku": "2468"
               }
             ],
-            "store": {
+            "integration": {
               "id": "shop_01",
               "name": "Shop-01",
               "channel": "LazadaSG",
@@ -2498,77 +2593,13 @@
           }
         }
       },
-      "store_channels_response": {
-        "value": {
-          "data": [
-            {
-              "name": "LazadaID",
-              "title": "Lazada Indonesia"
-            },
-            {
-              "name": "LazadaMY",
-              "title": "Lazada Malaysia"
-            },
-            {
-              "name": "ShopeeTH",
-              "title": "Shopee Thailand"
-            },
-            {
-              "name": "ShopeeVN",
-              "title": "Shopee Vietnam"
-            }
-          ]
-        }
-      },
-      "store_item_response": {
-        "value": {
-          "data": {
-            "id": "shop_01",
-            "name": "Shop-01",
-            "channel": "LazadaSG",
-            "authorized": true,
-            "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-            "created_at": "2019-06-07T00:06:52+00:00",
-            "updated_at": "2019-06-07T20:47:32+00:00"
-          }
-        }
-      },
-      "store_items_response": {
-        "value": {
-          "data": [
-            {
-              "id": "shop_01",
-              "name": "Shop-01",
-              "channel": "LazadaSG",
-              "authorized": true,
-              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-              "created_at": "2019-06-07T00:06:52+00:00",
-              "updated_at": "2019-06-07T20:47:32+00:00"
-            },
-            {
-              "id": "shop_02",
-              "name": "Shop-02",
-              "channel": "LazadaMY",
-              "authorized": true,
-              "last_import_orders_date": "2019-07-07T20:47:14+00:00",
-              "created_at": "2019-07-07T00:06:52+00:00",
-              "updated_at": "2019-07-07T20:47:32+00:00"
-            }
-          ],
-          "pagination": {
-            "offset": 0,
-            "limit": 10,
-            "total": 2
-          }
-        }
-      },
       "task_response": {
         "value": {
           "data": {
             "id": "5cfe690b25d9854b3b02241b",
             "status": "completed",
             "progress": 100,
-            "description": "Importing last updated orders from 'Shop-01' store.",
+            "description": "Importing last updated orders from 'Shop-01' integration.",
             "created_at": "2019-06-10T14:28:27+00:00",
             "updated_at": "2019-06-10T14:28:43+00:00",
             "executions": [
@@ -2581,15 +2612,15 @@
             "notifications": [
               {
                 "type": "info",
-                "message": "Imported order 17851977370457 from Shop-01 store."
+                "message": "Imported order 17851977370457 from Shop-01 integration."
               },
               {
                 "type": "info",
-                "message": "Imported order 8834309804556 from Shop-01 store."
+                "message": "Imported order 8834309804556 from Shop-01 integration."
               },
               {
                 "type": "info",
-                "message": "Imported order 16159781406633 from Shop-01 store."
+                "message": "Imported order 16159781406633 from Shop-01 integration."
               },
               {
                 "type": "info",
@@ -2597,7 +2628,7 @@
               },
               {
                 "type": "info",
-                "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
+                "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
               }
             ],
             "scheduler": {
@@ -2632,7 +2663,7 @@
               "id": "5cfe690b25d9854b3b02241b",
               "status": "completed",
               "progress": 100,
-              "description": "Importing last updated orders from 'Shop-01' store.",
+              "description": "Importing last updated orders from 'Shop-01' integration.",
               "created_at": "2019-06-10T13:35:27+00:00",
               "updated_at": "2019-06-10T13:35:43+00:00",
               "executions": [
@@ -2645,15 +2676,15 @@
               "notifications": [
                 {
                   "type": "info",
-                  "message": "Imported order 17851977370457 from Shop-01 store."
+                  "message": "Imported order 17851977370457 from Shop-01 integration."
                 },
                 {
                   "type": "info",
-                  "message": "Imported order 8834309804556 from Shop-01 store."
+                  "message": "Imported order 8834309804556 from Shop-01 integration."
                 },
                 {
                   "type": "info",
-                  "message": "Imported order 16159781406633 from Shop-01 store."
+                  "message": "Imported order 16159781406633 from Shop-01 integration."
                 },
                 {
                   "type": "info",
@@ -2661,7 +2692,7 @@
                 },
                 {
                   "type": "info",
-                  "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
+                  "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
                 }
               ],
               "scheduler": {
@@ -2691,7 +2722,7 @@
               "id": "5cfe5ca825d9854aff021043",
               "status": "completed",
               "progress": 100,
-              "description": "Importing last updated orders from 'Shop-01' store.",
+              "description": "Importing last updated orders from 'Shop-01' integration.",
               "created_at": "2019-06-10T13:35:27+00:00",
               "updated_at": "2019-06-10T13:35:43+00:00",
               "executions": [
@@ -2704,15 +2735,15 @@
               "notifications": [
                 {
                   "type": "info",
-                  "message": "Imported order 37851977370457 from Shop-01 store."
+                  "message": "Imported order 37851977370457 from Shop-01 integration."
                 },
                 {
                   "type": "info",
-                  "message": "Imported order 2834309804556 from Shop-01 store."
+                  "message": "Imported order 2834309804556 from Shop-01 integration."
                 },
                 {
                   "type": "info",
-                  "message": "Imported order 36159781406633 from Shop-01 store."
+                  "message": "Imported order 36159781406633 from Shop-01 integration."
                 },
                 {
                   "type": "info",
@@ -2720,7 +2751,7 @@
                 },
                 {
                   "type": "info",
-                  "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 store."
+                  "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
                 }
               ]
             }
@@ -2737,8 +2768,8 @@
           "data": {
             "id": "5d13be7025d9853de90012b6",
             "topic": "orders/registered",
-            "address": "http://mystore.com",
-            "store": {
+            "address": "http://myintegration.com",
+            "integration": {
               "id": "shop_01",
               "name": "Shop-01",
               "channel": "LazadaSG",
@@ -2758,8 +2789,8 @@
             {
               "id": "5d13be7025d9853de90012b6",
               "topic": "orders/registered",
-              "address": "http://mystore.com",
-              "store": {
+              "address": "http://myintegration.com",
+              "integration": {
                 "id": "shop_01",
                 "name": "Shop-01",
                 "channel": "LazadaSG",
@@ -2831,17 +2862,23 @@
       }
     },
     "securitySchemes": {
-      "X-OMNA-HMac": {
+      "HMac": {
         "type": "apiKey",
-        "name": "X-OMNA-HMac",
-        "in": "header",
-        "description": "Keyed-Hash message authentication code.\n\n> Each service request must includes an X-OMNA-HMac header, which is generated using the tenant's\n  key along with service path and the data sent in the request.\n\n**Example:**\n\n```Ruby\nTODO: ...\n```\n"
+        "name": "hmac",
+        "in": "query",
+        "description": "Keyed-Hash message authentication code.\n\n> Each service request must includes an hmac parameter, which is generated using the tenant's\n  key along with service path and the data sent in the request.\n\n**Example:**\n\n```Ruby\nTODO: ...\n```\n"
       },
-      "X-OMNA-Token": {
+      "Timestamp": {
+        "description": "The time stamp of the request with less than 7200 secounds difference from UTC time.\n",
+        "type": "apiKey",
+        "name": "timestamp",
+        "in": "query"
+      },
+      "Token": {
         "description": "Tenant authentication token.\n",
         "type": "apiKey",
-        "name": "X-OMNA-Token",
-        "in": "header"
+        "name": "token",
+        "in": "query"
       }
     }
   }

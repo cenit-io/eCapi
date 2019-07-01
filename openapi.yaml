@@ -19,8 +19,8 @@ info:
     * It also accepts and returns JSON in the HTTP body.
     * You can use your favorite HTTP/REST library for your programming language to use OMNA COMMERCE API.
 tags:
-  - name: Stores
-    description: Operations about stores
+  - name: Integrations
+    description: Operations about integrations
   - name: Orders
     description: Operations about orders
   - name: Flows
@@ -30,10 +30,11 @@ tags:
   - name: Tasks
     description: Operations about tasks
 servers:
-  - url: 'https://cenit.io/app/ecapi'
+  - url: 'https://cenit.io/app/ecapi-v1'
 security:
-  - X-OMNA-Token: []
-    X-OMNA-HMac: []
+  - Token: []
+    Timestamp: []
+    HMac: []
 paths:
   /flows:
     get:
@@ -45,7 +46,7 @@ paths:
         Returns the list of flows settings.
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_flows'
-        - $ref: '#/components/parameters/query_filter_store'
+        - $ref: '#/components/parameters/query_filter_integration'
         - $ref: '#/components/parameters/query_filter_flow_type'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
@@ -154,78 +155,29 @@ paths:
           $ref: '#/components/responses/flow_item'
         '404':
           $ref: '#/components/responses/flow_not_found'
-  /orders:
-    parameters:
-      - $ref: '#/components/parameters/query_filter_term_for_orders'
-      - $ref: '#/components/parameters/query_filter_store'
-      - $ref: '#/components/parameters/query_offset'
-      - $ref: '#/components/parameters/query_limit'
+  /integrations:
     get:
       tags:
-        - Orders
-      operationId: getOrders
-      summary: LIST ALL ORDERS
+        - Integrations
+      operationId: getIntegrations
+      summary: LIST ALL INTEGRATIONS
       description: |
-        Returns the list of orders.
-      responses:
-        '200':
-          $ref: '#/components/responses/order_items'
-  '/orders/{store_id}/{number}':
-    parameters:
-      - $ref: '#/components/parameters/path_store_id'
-      - $ref: '#/components/parameters/path_order_number'
-    get:
-      deprecated: true
-      tags:
-        - Orders
-      operationId: getOrderDeprecate
-      summary: RETRIEVE AN ORDER
-      description: |
-        Find order by given id and returns it.
-      responses:
-        '200':
-          $ref: '#/components/responses/order_item'
-        '404':
-          $ref: '#/components/responses/order_not_found'
-  '/orders/{store_id}/import':
-    parameters:
-      - $ref: '#/components/parameters/path_store_id'
-    get:
-      deprecated: true
-      tags:
-        - Orders
-      operationId: importOrdersDeprecate
-      summary: IMPORT UPDATED ORDERS
-      description: |
-        Import the last updated orders from a store
-      responses:
-        '200':
-          $ref: '#/components/responses/task_item'
-        '404':
-          $ref: '#/components/responses/store_not_found'
-  /stores:
-    get:
-      tags:
-        - Stores
-      operationId: getStores
-      summary: LIST ALL STORES
-      description: |
-        Returns the list of your stores.
+        Returns the list of your integrations.
       parameters:
-        - $ref: '#/components/parameters/query_filter_term_for_stores'
-        - $ref: '#/components/parameters/query_filter_store_channel'
+        - $ref: '#/components/parameters/query_filter_term_for_integrations'
+        - $ref: '#/components/parameters/query_filter_integration_channel'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
       responses:
         '200':
-          $ref: '#/components/responses/store_items'
+          $ref: '#/components/responses/integration_items'
     post:
       tags:
-        - Stores
-      operationId: createStore
-      summary: CREATE A STORE
+        - Integrations
+      operationId: createIntegration
+      summary: CREATE A INTEGRATION
       description: |
-        Creates a new store object from a given name and channel.
+        Creates a new integration object from a given name and channel.
       requestBody:
         content:
           application/json:
@@ -235,68 +187,68 @@ paths:
                   type: object
                   properties:
                     name:
-                      description: Store name
+                      description: Integration name
                       type: string
                     channel:
                       description: Channel identifier
                       type: string
             examples:
               e1:
-                summary: To Lazada store
+                summary: To Lazada integration
                 value:
                   data:
                     name: Shop-01
                     channel: LazadaSG
               e2:
-                summary: To Shopee store
+                summary: To Shopee integration
                 value:
                   data:
                     name: Shop-02
                     channel: ShopeeSG
       responses:
         '200':
-          $ref: '#/components/responses/store_item'
+          $ref: '#/components/responses/integration_item'
         '400':
           $ref: '#/components/responses/already_exists'
-  '/stores/{store_id}':
+  '/integrations/{integration_id}':
     parameters:
-      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_integration_id'
     get:
       tags:
-        - Stores
-      operationId: getStoreSettings
-      summary: RETRIEVE A STORE
+        - Integrations
+      operationId: getIntegrationSettings
+      summary: RETRIEVE A INTEGRATION
       description: |
-        Find store settings by given id and returns it.
+        Find integration settings by given id and returns it.
       responses:
         '200':
-          $ref: '#/components/responses/store_item'
+          $ref: '#/components/responses/integration_item'
         '404':
-          $ref: '#/components/responses/store_not_found'
+          $ref: '#/components/responses/integration_not_found'
     delete:
       tags:
-        - Stores
-      operationId: deleteStoreSettings
-      summary: DELETE A STORE
+        - Integrations
+      operationId: deleteIntegrationSettings
+      summary: DELETE A INTEGRATION
       description: |
-        Find store settings by given id and destroy it.
+        Find integration settings by given id and destroy it.
 
-        > Only unauthorize stores can be destroyed.
+        > Only unauthorize integrations can be destroyed.
       responses:
         '200':
           $ref: '#/components/responses/success'
         '404':
-          $ref: '#/components/responses/store_not_found'
-  '/stores/{store_id}/authorize':
+          $ref: '#/components/responses/integration_not_found'
+  '/integrations/{integration_id}/authorize':
     parameters:
-      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_integration_id'
     get:
       tags:
-        - Stores
-      operationId: authorizeStoreConnection
-      summary: RETRIEVE A STORE AUTHORIATION
+        - Integrations
+      operationId: authorizeIntegrationConnection
+      summary: RETRIEVE A INTEGRATION AUTHORIATION
       description: |
-        Find store settings by given id and redirect navigation to authorization uri.
+        Find integration settings by given id and redirect navigation to authorization uri.
       parameters:
         - name: redirect_uri
           in: query
@@ -304,39 +256,39 @@ paths:
             $ref: '#/components/schemas/RedirectURI'
       responses:
         '404':
-          $ref: '#/components/responses/store_not_found'
+          $ref: '#/components/responses/integration_not_found'
     delete:
       tags:
-        - Stores
-      operationId: unauthorizeStoreConnection
-      summary: CANCEL A STORE AUTHORIATION
+        - Integrations
+      operationId: unauthorizeIntegrationConnection
+      summary: CANCEL A INTEGRATION AUTHORIATION
       description: |
-        Find store settings by given id and disallow their connection.
+        Find integration settings by given id and disallow their connection.
 
-        > Only authorize stores can be unauthorizes.
+        > Only authorize integrations can be unauthorizes.
       responses:
         '404':
-          $ref: '#/components/responses/store_not_found'
-  '/stores/{store_id}/destroy':
+          $ref: '#/components/responses/integration_not_found'
+  '/integrations/{integration_id}/destroy':
     parameters:
-      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_integration_id'
     get:
       tags:
-        - Stores
-      operationId: destroyStoreSettings
-      summary: DESTROY A STORE
+        - Integrations
+      operationId: destroyIntegrationSettings
+      summary: DESTROY A INTEGRATION
       description: |
-        Find store settings by given id and destroy it.
+        Find integration settings by given id and destroy it.
 
-        > Only unauthorize stores can be destroyed.
+        > Only unauthorize integrations can be destroyed.
       responses:
         '200':
           $ref: '#/components/responses/success'
         '404':
-          $ref: '#/components/responses/store_not_found'
-  '/stores/{store_id}/flows':
+          $ref: '#/components/responses/integration_not_found'
+  '/integrations/{integration_id}/flows':
     parameters:
-      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_integration_id'
       - $ref: '#/components/parameters/query_filter_term_for_flows'
       - $ref: '#/components/parameters/query_filter_flow_type'
       - $ref: '#/components/parameters/query_offset'
@@ -344,40 +296,40 @@ paths:
     get:
       tags:
         - Flows
-        - Stores
-      operationId: getStoreFlows
-      summary: LIST ALL FLOWS FROM A STORE
+        - Integrations
+      operationId: getIntegrationFlows
+      summary: LIST ALL FLOWS FROM A INTEGRATION
       description: |
-        Returns the flow list of a specific store.
+        Returns the flow list of a specific integration.
       responses:
         '200':
           $ref: '#/components/responses/flow_items'
-  '/stores/{store_id}/orders':
+  '/integrations/{integration_id}/orders':
     parameters:
-      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_integration_id'
       - $ref: '#/components/parameters/query_filter_term_for_orders'
       - $ref: '#/components/parameters/query_offset'
       - $ref: '#/components/parameters/query_limit'
     get:
       tags:
         - Orders
-        - Stores
-      operationId: getStoreOrders
-      summary: LIST ALL ORDERS FROM A STORE
+        - Integrations
+      operationId: getIntegrationOrders
+      summary: LIST ALL ORDERS FROM A INTEGRATION
       description: |
-        Returns the order list of a specific store.
+        Returns the order list of a specific integration.
       responses:
         '200':
           $ref: '#/components/responses/order_items'
-  '/stores/{store_id}/orders/{number}':
+  '/integrations/{integration_id}/orders/{number}':
     parameters:
-      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_integration_id'
       - $ref: '#/components/parameters/path_order_number'
     get:
       tags:
         - Orders
       operationId: getOrder
-      summary: RETRIVE AN ORDER FROM A STORE
+      summary: RETRIVE AN ORDER FROM A INTEGRATION
       description: |
         Find order by given id and returns it.
       responses:
@@ -385,9 +337,9 @@ paths:
           $ref: '#/components/responses/order_item'
         '404':
           $ref: '#/components/responses/order_not_found'
-  '/stores/{store_id}/orders/{number}/doc/{doc_type}':
+  '/integrations/{integration_id}/orders/{number}/doc/{doc_type}':
     parameters:
-      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_integration_id'
       - $ref: '#/components/parameters/path_order_number'
       - $ref: '#/components/parameters/path_doc_type'
     get:
@@ -402,9 +354,9 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/order_doc'
-  '/stores/{store_id}/orders/{number}/doc/types':
+  '/integrations/{integration_id}/orders/{number}/doc/types':
     parameters:
-      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_integration_id'
       - $ref: '#/components/parameters/path_order_number'
     get:
       tags:
@@ -416,63 +368,112 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/order_doc_types'
-  '/stores/{store_id}/orders/{number}/import':
+  '/integrations/{integration_id}/orders/{number}/import':
     parameters:
-      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_integration_id'
       - $ref: '#/components/parameters/path_order_number'
     get:
       tags:
         - Orders
       operationId: importOrder
-      summary: IMPORT A SINGLE ORDER FROM A STORE
+      summary: IMPORT A SINGLE ORDER FROM A INTEGRATION
       description: |
-        Import a specific order from a store
+        Import a specific order from a integration
       responses:
         '200':
           $ref: '#/components/responses/task_item'
         '404':
-          $ref: '#/components/responses/store_not_found'
-  '/stores/{store_id}/orders/import':
+          $ref: '#/components/responses/integration_not_found'
+  '/integrations/{integration_id}/orders/import':
     parameters:
-      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_integration_id'
     get:
       tags:
         - Orders
       operationId: importOrders
-      summary: IMPORT UPDATED ORDERS FROM STORE
+      summary: IMPORT UPDATED ORDERS FROM INTEGRATION
       description: |
-        Import the last updated orders from a store
+        Import the last updated orders from a integration
       responses:
         '200':
           $ref: '#/components/responses/task_item'
         '404':
-          $ref: '#/components/responses/store_not_found'
-  '/stores/{store_id}/unauthorize':
+          $ref: '#/components/responses/integration_not_found'
+  '/integrations/{integration_id}/unauthorize':
     parameters:
-      - $ref: '#/components/parameters/path_store_id'
+      - $ref: '#/components/parameters/path_integration_id'
     get:
       tags:
-        - Stores
-      operationId: unauthorizeStoreConnection2
-      summary: CANCEL A STORE AUTHORIZATION
+        - Integrations
+      operationId: unauthorizeIntegrationConnection2
+      summary: CANCEL A INTEGRATION AUTHORIZATION
       description: |
-        Find store settings by given id and disallow their connection.
+        Find integration settings by given id and disallow their connection.
 
-        > Only authorize stores can be unauthorizes.
+        > Only authorize integrations can be unauthorizes.
       responses:
         '404':
-          $ref: '#/components/responses/store_not_found'
-  /stores/channels:
+          $ref: '#/components/responses/integration_not_found'
+  /integrations/channels:
     get:
       tags:
-        - Stores
-      operationId: getStoreChannels
-      summary: LIST ALL STORE CHANNELS
+        - Integrations
+      operationId: getIntegrationChannels
+      summary: LIST ALL INTEGRATION CHANNELS
       description: |
-        Returns the list of store channels availables.
+        Returns the list of integration channels availables.
       responses:
         '200':
-          $ref: '#/components/responses/store_channels'
+          $ref: '#/components/responses/integration_channels'
+  /orders:
+    parameters:
+      - $ref: '#/components/parameters/query_filter_term_for_orders'
+      - $ref: '#/components/parameters/query_filter_integration'
+      - $ref: '#/components/parameters/query_offset'
+      - $ref: '#/components/parameters/query_limit'
+    get:
+      tags:
+        - Orders
+      operationId: getOrders
+      summary: LIST ALL ORDERS
+      description: |
+        Returns the list of orders.
+      responses:
+        '200':
+          $ref: '#/components/responses/order_items'
+  '/orders/{integration_id}/{number}':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+      - $ref: '#/components/parameters/path_order_number'
+    get:
+      deprecated: true
+      tags:
+        - Orders
+      operationId: getOrderDeprecate
+      summary: RETRIEVE AN ORDER
+      description: |
+        Find order by given id and returns it.
+      responses:
+        '200':
+          $ref: '#/components/responses/order_item'
+        '404':
+          $ref: '#/components/responses/order_not_found'
+  '/orders/{integration_id}/import':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+    get:
+      deprecated: true
+      tags:
+        - Orders
+      operationId: importOrdersDeprecate
+      summary: IMPORT UPDATED ORDERS
+      description: |
+        Import the last updated orders from a integration
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/integration_not_found'
   /tasks:
     get:
       tags:
@@ -576,7 +577,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_webhooks'
         - $ref: '#/components/parameters/query_filter_webhook_topic'
-        - $ref: '#/components/parameters/query_filter_store'
+        - $ref: '#/components/parameters/query_filter_integration'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
       responses:
@@ -588,7 +589,7 @@ paths:
       operationId: createWebhook
       summary: CREATE A WEBHOOK
       description: |
-        Create webhook settings from a given topic, address and store.
+        Create webhook settings from a given topic, address and integration.
       requestBody:
         content:
           application/json:
@@ -605,9 +606,9 @@ paths:
                       type: string
             example:
               data:
-                store_id: shop_01
+                integration_id: shop_01
                 topic: orders/registered
-                address: 'http://mystore.com'
+                address: 'http://myintegration.com'
       responses:
         '200':
           $ref: '#/components/responses/webhook_item'
@@ -739,21 +740,57 @@ components:
           type: string
         task:
           $ref: '#/components/schemas/Task'
-        store:
-          $ref: '#/components/schemas/Store'
+        integration:
+          $ref: '#/components/schemas/Integration'
     FlowRequestBody:
       type: object
       title: Flow
       description: Flow request body scheme
       properties:
-        store_id:
-          description: Store settings identifier
+        integration_id:
+          description: Integration settings identifier
           type: string
         type:
           description: Flow type name
           type: string
         scheduler:
           $ref: '#/components/schemas/SchedulerRequestBody'
+    Integration:
+      type: object
+      description: Integration settings
+      properties:
+        id:
+          description: Integration identifier
+          type: string
+        name:
+          description: Integration name
+          type: string
+        channel:
+          description: Channel identifier
+          type: string
+        authorized:
+          description: If integration is authorized or not
+          type: boolean
+        last_import_orders_date:
+          description: The last import orders date
+          type: string
+          format: date-time
+        created_at:
+          $ref: '#/components/schemas/CreatedAt'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAt'
+      required:
+        - name
+        - channel
+    IntegrationChannel:
+      type: object
+      properties:
+        name:
+          description: Channel identifier
+          type: string
+        title:
+          description: Channel identifier
+          type: string
     LineItem:
       title: LineItem
       type: object
@@ -827,8 +864,8 @@ components:
           format: date-time
         customer:
           $ref: '#/components/schemas/Customer'
-        store:
-          $ref: '#/components/schemas/Store'
+        integration:
+          $ref: '#/components/schemas/Integration'
     OrderDocument:
       type: object
       properties:
@@ -931,42 +968,6 @@ components:
           type: array
           items:
             type: string
-    Store:
-      type: object
-      description: Store settings
-      properties:
-        id:
-          description: Store identifier
-          type: string
-        name:
-          description: Store name
-          type: string
-        channel:
-          description: Channel identifier
-          type: string
-        authorized:
-          description: If store is authorized or not
-          type: boolean
-        last_import_orders_date:
-          description: The last import orders date
-          type: string
-          format: date-time
-        created_at:
-          $ref: '#/components/schemas/CreatedAt'
-        updated_at:
-          $ref: '#/components/schemas/UpdatedAt'
-      required:
-        - name
-        - channel
-    StoreChannel:
-      type: object
-      properties:
-        name:
-          description: Channel identifier
-          type: string
-        title:
-          description: Channel identifier
-          type: string
     Success:
       type: object
       properties:
@@ -1026,8 +1027,8 @@ components:
         address:
           description: URl destination of information
           type: string
-        store:
-          $ref: '#/components/schemas/Store'
+        integration:
+          $ref: '#/components/schemas/Integration'
   responses:
     already_exists:
       description: Already exist
@@ -1075,6 +1076,59 @@ components:
           example:
             success: false
             message: 'Not found flow with id: 5d04051125d9852c71016793'
+    integration_channels:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IntegrationChannel'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/integration_channels_response'
+    integration_item:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Integration'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/integration_item_response'
+    integration_items:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Integration'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/integration_items_response'
+    integration_not_found:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Success'
+          example:
+            success: false
+            message: 'Not found integration with id: shop_20'
     order_doc_types:
       description: Success
       content:
@@ -1138,59 +1192,6 @@ components:
           example:
             success: false
             message: 'Not found order with number: 9151224232846'
-    store_channels:
-      description: Success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/components/schemas/StoreChannel'
-              pagination:
-                $ref: '#/components/schemas/Pagination'
-          examples:
-            Ex1:
-              $ref: '#/components/examples/store_channels_response'
-    store_item:
-      description: Success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/components/schemas/Store'
-          examples:
-            Ex1:
-              $ref: '#/components/examples/store_item_response'
-    store_items:
-      description: Success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Store'
-              pagination:
-                $ref: '#/components/schemas/Pagination'
-          examples:
-            Ex1:
-              $ref: '#/components/examples/store_items_response'
-    store_not_found:
-      description: Not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Success'
-          example:
-            success: false
-            message: 'Not found store with id: shop_20'
     success:
       description: Success
       content:
@@ -1258,6 +1259,30 @@ components:
             success: false
             message: 'Not found webhook with id: 5d04051125d9852c71016793'
   parameters:
+    auth_hmac:
+      name: hmac
+      in: query
+      required: true
+      schema:
+        description: Keyed-Hash message authentication code.
+        type: string
+        example: d24c9128362b0518f9ca2bf767b4a60a59aefe0f63ebeb7d47ec594442fc7a8f
+    auth_timestamp:
+      name: timestamp
+      in: query
+      required: true
+      schema:
+        description: The time stamp of the request with less than 7200 secounds difference from UTC time.
+        type: integer
+        example: 1517820392000
+    auth_token:
+      name: token
+      in: query
+      required: true
+      schema:
+        description: Tenant authentication token.
+        type: string
+        example: Ds3sBBSnyFnOqSjCARmX
     path_doc_type:
       name: doc_type
       in: path
@@ -1274,6 +1299,14 @@ components:
         description: Flow identifier
         type: string
         example: 5d04051125d9852c71016793
+    path_integration_id:
+      name: integration_id
+      in: path
+      required: true
+      schema:
+        description: Integration identifier
+        type: string
+        example: shop_01
     path_order_number:
       name: number
       in: path
@@ -1282,14 +1315,6 @@ components:
         description: Order number
         type: string
         example: 9170283050978
-    path_store_id:
-      name: store_id
-      in: path
-      required: true
-      schema:
-        description: Store identifier
-        type: string
-        example: shop_01
     path_task_id:
       name: task_id
       in: path
@@ -1313,18 +1338,18 @@ components:
         description: Allow to filter the items by flow type.
         type: string
         example: import_orders
-    query_filter_store_channel:
+    query_filter_integration_channel:
       name: channel
       in: query
       schema:
-        description: Allow to filter the items by store channel.
+        description: Allow to filter the items by integration channel.
         type: string
         example: LazadaSG
-    query_filter_store:
-      name: store_id
+    query_filter_integration:
+      name: integration_id
       in: query
       schema:
-        description: Allow to filter the items by store.
+        description: Allow to filter the items by integration.
         type: string
         example: shop_01
     query_filter_term_for_flows:
@@ -1334,6 +1359,13 @@ components:
         description: Allow to filter the flows that contain the value of the term in their ***type***.
         type: string
         example: Shop-Lazada
+    query_filter_term_for_integrations:
+      name: term
+      in: query
+      schema:
+        description: Allow to filter the integrations settings that contain the value of the term in their ***name***.
+        type: string
+        example: Shop-Lazada
     query_filter_term_for_orders:
       name: term
       in: query
@@ -1341,13 +1373,6 @@ components:
         description: Allow to filter the orders that contain the value of the term in their ***number*** or ***status***.
         type: string
         example: pending
-    query_filter_term_for_stores:
-      name: term
-      in: query
-      schema:
-        description: Allow to filter the stores settings that contain the value of the term in their ***name***.
-        type: string
-        example: Shop-Lazada
     query_filter_term_for_tasks:
       name: term
       in: query
@@ -1395,7 +1420,7 @@ components:
       summary: With scheduler
       value:
         data:
-          store_id: shop_01
+          integration_id: shop_01
           type: import_orders
           scheduler:
             start_date: '2019-06-20'
@@ -1418,17 +1443,17 @@ components:
       summary: Without scheduler
       value:
         data:
-          store_id: shop_01
+          integration_id: shop_01
           type: import_orders
     flow_item_response:
       value:
         data:
           id: 5d04051125d9852c71016793
           type: import_orders
-          title: Import orders from store
+          title: Import orders from integration
           created_at: '2019-06-07T00:06:52+00:00'
           updated_at: '2019-06-07T20:47:32+00:00'
-          store:
+          integration:
             id: shop_01
             name: Shop-01
             channel: LazadaSG
@@ -1440,7 +1465,7 @@ components:
             id: 5cfe690b25d9854b3b02241b
             status: completed
             progress: 100
-            description: Importing last updated orders from 'Shop-01' store.
+            description: Importing last updated orders from 'Shop-01' integration.
             created_at: '2019-06-10T14:28:27+00:00'
             updated_at: '2019-06-10T14:28:43+00:00'
             executions:
@@ -1449,15 +1474,15 @@ components:
                 completed_at: '2019-06-10T14:28:43+00:00'
             notifications:
               - type: info
-                message: Imported order 17851977370457 from Shop-01 store.
+                message: Imported order 17851977370457 from Shop-01 integration.
               - type: info
-                message: Imported order 8834309804556 from Shop-01 store.
+                message: Imported order 8834309804556 from Shop-01 integration.
               - type: info
-                message: Imported order 16159781406633 from Shop-01 store.
+                message: Imported order 16159781406633 from Shop-01 integration.
               - type: info
                 message: Importing form 1 to 3.
               - type: info
-                message: 'Importing orders updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 store.'
+                message: 'Importing orders updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 integration.'
             scheduler:
               active: true
               start_date: '2019-06-20'
@@ -1481,10 +1506,10 @@ components:
         data:
           - id: 5d04051125d9852c71016793
             type: import_orders
-            title: Import orders from store
+            title: Import orders from integration
             created_at: '2019-06-07T00:06:52+00:00'
             updated_at: '2019-06-07T20:47:32+00:00'
-            store:
+            integration:
               id: shop_01
               name: Shop-01
               channel: LazadaSG
@@ -1496,7 +1521,7 @@ components:
               id: 5cfe690b25d9854b3b02241b
               status: completed
               progress: 100
-              description: Importing last updated orders from 'Shop-01' store.
+              description: Importing last updated orders from 'Shop-01' integration.
               created_at: '2019-06-10T14:28:27+00:00'
               updated_at: '2019-06-10T14:28:43+00:00'
               executions:
@@ -1505,15 +1530,15 @@ components:
                   completed_at: '2019-06-10T14:28:43+00:00'
               notifications:
                 - type: info
-                  message: Imported order 17851977370457 from Shop-01 store.
+                  message: Imported order 17851977370457 from Shop-01 integration.
                 - type: info
-                  message: Imported order 8834309804556 from Shop-01 store.
+                  message: Imported order 8834309804556 from Shop-01 integration.
                 - type: info
-                  message: Imported order 16159781406633 from Shop-01 store.
+                  message: Imported order 16159781406633 from Shop-01 integration.
                 - type: info
                   message: Importing form 1 to 3.
                 - type: info
-                  message: 'Importing orders updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 store.'
+                  message: 'Importing orders updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 integration.'
               scheduler:
                 active: true
                 start_date: '2019-06-20'
@@ -1557,6 +1582,48 @@ components:
               - Apr
               - Jul
               - Oct
+    integration_channels_response:
+      value:
+        data:
+          - name: LazadaID
+            title: Lazada Indonesia
+          - name: LazadaMY
+            title: Lazada Malaysia
+          - name: ShopeeTH
+            title: Shopee Thailand
+          - name: ShopeeVN
+            title: Shopee Vietnam
+    integration_item_response:
+      value:
+        data:
+          id: shop_01
+          name: Shop-01
+          channel: LazadaSG
+          authorized: true
+          last_import_orders_date: '2019-06-07T20:47:14+00:00'
+          created_at: '2019-06-07T00:06:52+00:00'
+          updated_at: '2019-06-07T20:47:32+00:00'
+    integration_items_response:
+      value:
+        data:
+          - id: shop_01
+            name: Shop-01
+            channel: LazadaSG
+            authorized: true
+            last_import_orders_date: '2019-06-07T20:47:14+00:00'
+            created_at: '2019-06-07T00:06:52+00:00'
+            updated_at: '2019-06-07T20:47:32+00:00'
+          - id: shop_02
+            name: Shop-02
+            channel: LazadaMY
+            authorized: true
+            last_import_orders_date: '2019-07-07T20:47:14+00:00'
+            created_at: '2019-07-07T00:06:52+00:00'
+            updated_at: '2019-07-07T20:47:32+00:00'
+        pagination:
+          offset: 0
+          limit: 10
+          total: 2
     order_doc_response:
       value:
         data:
@@ -1608,7 +1675,7 @@ components:
                 quantity: 1
                 price: 1.51
                 sku: '2468'
-            store:
+            integration:
               id: shop_01
               name: Shop-01
               channel: LazadaSG
@@ -1649,7 +1716,7 @@ components:
                 quantity: 1
                 price: 1
                 sku: 0018227994491
-            store:
+            integration:
               id: shop_01
               name: Shop-01
               channel: LazadaSG
@@ -1697,7 +1764,7 @@ components:
               quantity: 1
               price: 1.51
               sku: '2468'
-          store:
+          integration:
             id: shop_01
             name: Shop-01
             channel: LazadaSG
@@ -1705,55 +1772,13 @@ components:
             last_import_orders_date: '2019-06-07T20:47:14+00:00'
             created_at: '2019-06-07T00:06:52+00:00'
             updated_at: '2019-06-07T20:47:32+00:00'
-    store_channels_response:
-      value:
-        data:
-          - name: LazadaID
-            title: Lazada Indonesia
-          - name: LazadaMY
-            title: Lazada Malaysia
-          - name: ShopeeTH
-            title: Shopee Thailand
-          - name: ShopeeVN
-            title: Shopee Vietnam
-    store_item_response:
-      value:
-        data:
-          id: shop_01
-          name: Shop-01
-          channel: LazadaSG
-          authorized: true
-          last_import_orders_date: '2019-06-07T20:47:14+00:00'
-          created_at: '2019-06-07T00:06:52+00:00'
-          updated_at: '2019-06-07T20:47:32+00:00'
-    store_items_response:
-      value:
-        data:
-          - id: shop_01
-            name: Shop-01
-            channel: LazadaSG
-            authorized: true
-            last_import_orders_date: '2019-06-07T20:47:14+00:00'
-            created_at: '2019-06-07T00:06:52+00:00'
-            updated_at: '2019-06-07T20:47:32+00:00'
-          - id: shop_02
-            name: Shop-02
-            channel: LazadaMY
-            authorized: true
-            last_import_orders_date: '2019-07-07T20:47:14+00:00'
-            created_at: '2019-07-07T00:06:52+00:00'
-            updated_at: '2019-07-07T20:47:32+00:00'
-        pagination:
-          offset: 0
-          limit: 10
-          total: 2
     task_response:
       value:
         data:
           id: 5cfe690b25d9854b3b02241b
           status: completed
           progress: 100
-          description: Importing last updated orders from 'Shop-01' store.
+          description: Importing last updated orders from 'Shop-01' integration.
           created_at: '2019-06-10T14:28:27+00:00'
           updated_at: '2019-06-10T14:28:43+00:00'
           executions:
@@ -1762,15 +1787,15 @@ components:
               completed_at: '2019-06-10T14:28:43+00:00'
           notifications:
             - type: info
-              message: Imported order 17851977370457 from Shop-01 store.
+              message: Imported order 17851977370457 from Shop-01 integration.
             - type: info
-              message: Imported order 8834309804556 from Shop-01 store.
+              message: Imported order 8834309804556 from Shop-01 integration.
             - type: info
-              message: Imported order 16159781406633 from Shop-01 store.
+              message: Imported order 16159781406633 from Shop-01 integration.
             - type: info
               message: Importing form 1 to 3.
             - type: info
-              message: 'Importing orders updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 store.'
+              message: 'Importing orders updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 integration.'
           scheduler:
             active: true
             start_date: '2019-06-20'
@@ -1795,7 +1820,7 @@ components:
           - id: 5cfe690b25d9854b3b02241b
             status: completed
             progress: 100
-            description: Importing last updated orders from 'Shop-01' store.
+            description: Importing last updated orders from 'Shop-01' integration.
             created_at: '2019-06-10T13:35:27+00:00'
             updated_at: '2019-06-10T13:35:43+00:00'
             executions:
@@ -1804,15 +1829,15 @@ components:
                 completed_at: '2019-06-10T13:35:43+00:00'
             notifications:
               - type: info
-                message: Imported order 17851977370457 from Shop-01 store.
+                message: Imported order 17851977370457 from Shop-01 integration.
               - type: info
-                message: Imported order 8834309804556 from Shop-01 store.
+                message: Imported order 8834309804556 from Shop-01 integration.
               - type: info
-                message: Imported order 16159781406633 from Shop-01 store.
+                message: Imported order 16159781406633 from Shop-01 integration.
               - type: info
                 message: Importing form 1 to 3.
               - type: info
-                message: 'Importing orders updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 store.'
+                message: 'Importing orders updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 integration.'
             scheduler:
               active: true
               start_date: '2019-06-20'
@@ -1834,7 +1859,7 @@ components:
           - id: 5cfe5ca825d9854aff021043
             status: completed
             progress: 100
-            description: Importing last updated orders from 'Shop-01' store.
+            description: Importing last updated orders from 'Shop-01' integration.
             created_at: '2019-06-10T13:35:27+00:00'
             updated_at: '2019-06-10T13:35:43+00:00'
             executions:
@@ -1843,15 +1868,15 @@ components:
                 completed_at: '2019-06-10T13:35:43+00:00'
             notifications:
               - type: info
-                message: Imported order 37851977370457 from Shop-01 store.
+                message: Imported order 37851977370457 from Shop-01 integration.
               - type: info
-                message: Imported order 2834309804556 from Shop-01 store.
+                message: Imported order 2834309804556 from Shop-01 integration.
               - type: info
-                message: Imported order 36159781406633 from Shop-01 store.
+                message: Imported order 36159781406633 from Shop-01 integration.
               - type: info
                 message: Importing form 1 to 3.
               - type: info
-                message: 'Importing orders updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 store.'
+                message: 'Importing orders updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 integration.'
         pagination:
           offset: 0
           limit: 10
@@ -1861,8 +1886,8 @@ components:
         data:
           id: 5d13be7025d9853de90012b6
           topic: orders/registered
-          address: 'http://mystore.com'
-          store:
+          address: 'http://myintegration.com'
+          integration:
             id: shop_01
             name: Shop-01
             channel: LazadaSG
@@ -1877,8 +1902,8 @@ components:
         data:
           - id: 5d13be7025d9853de90012b6
             topic: orders/registered
-            address: 'http://mystore.com'
-            store:
+            address: 'http://myintegration.com'
+            integration:
               id: shop_01
               name: Shop-01
               channel: LazadaSG
@@ -1923,14 +1948,14 @@ components:
             Ex1:
               $ref: '#/components/examples/flow_update_request'
   securitySchemes:
-    X-OMNA-HMac:
+    HMac:
       type: apiKey
-      name: X-OMNA-HMac
-      in: header
+      name: hmac
+      in: query
       description: |
         Keyed-Hash message authentication code.
 
-        > Each service request must includes an X-OMNA-HMac header, which is generated using the tenant's
+        > Each service request must includes an hmac parameter, which is generated using the tenant's
           key along with service path and the data sent in the request.
 
         **Example:**
@@ -1938,9 +1963,15 @@ components:
         ```Ruby
         TODO: ...
         ```
-    X-OMNA-Token:
+    Timestamp:
+      description: |
+        The time stamp of the request with less than 7200 secounds difference from UTC time.
+      type: apiKey
+      name: timestamp
+      in: query
+    Token:
       description: |
         Tenant authentication token.
       type: apiKey
-      name: X-OMNA-Token
-      in: header
+      name: token
+      in: query

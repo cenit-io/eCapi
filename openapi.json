@@ -15,7 +15,7 @@
     "x-logo": {
       "url": "omna_logo.png"
     },
-    "description": "# Introduction\n* The OMNA COMMERCE API is built over REST services on HTTPS.\n* It has predictable resource URLs.\n* It returns HTTP response codes to indicate errors.\n* It also accepts and returns JSON in the HTTP body.\n* You can use your favorite HTTP/REST library for your programming language to use OMNA COMMERCE API,\n# Authentication\nTODO: ....\n"
+    "description": "# Introduction\n* The OMNA COMMERCE API is built over REST services on HTTPS.\n* It has predictable resource URLs.\n* It returns HTTP response codes to indicate errors.\n* It also accepts and returns JSON in the HTTP body.\n* You can use your favorite HTTP/REST library for your programming language to use OMNA COMMERCE API.\n"
   },
   "tags": [
     {
@@ -42,6 +42,12 @@
   "servers": [
     {
       "url": "https://cenit.io/app/ecapi"
+    }
+  ],
+  "security": [
+    {
+      "X-OMNA-Token": [],
+      "X-OMNA-HMac": []
     }
   ],
   "paths": {
@@ -819,6 +825,29 @@
         "operationId": "destroyTask",
         "summary": "DESTROY A TASK",
         "description": "Find task by given id and destroy it.\n\n> The tasks in running status can't be destroyed.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_not_found"
+          }
+        }
+      }
+    },
+    "/tasks/{task_id}/retry": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_task_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "operationId": "retryTask",
+        "summary": "RETRY A TASK",
+        "description": "Find a task for the given id and retry its execution.\n\n> Only failed tasks can be retry.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -2799,6 +2828,20 @@
             }
           }
         }
+      }
+    },
+    "securitySchemes": {
+      "X-OMNA-HMac": {
+        "type": "apiKey",
+        "name": "X-OMNA-HMac",
+        "in": "header",
+        "description": "Keyed-Hash message authentication code.\n\n> Each service request must includes an X-OMNA-HMac header, which is generated using the tenant's\n  key along with service path and the data sent in the request.\n\n**Example:**\n\n```Ruby\nTODO: ...\n```\n"
+      },
+      "X-OMNA-Token": {
+        "description": "Tenant authentication token.\n",
+        "type": "apiKey",
+        "name": "X-OMNA-Token",
+        "in": "header"
       }
     }
   }

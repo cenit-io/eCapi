@@ -17,9 +17,7 @@ info:
     * It has predictable resource URLs.
     * It returns HTTP response codes to indicate errors.
     * It also accepts and returns JSON in the HTTP body.
-    * You can use your favorite HTTP/REST library for your programming language to use OMNA COMMERCE API,
-    # Authentication
-    TODO: ....
+    * You can use your favorite HTTP/REST library for your programming language to use OMNA COMMERCE API.
 tags:
   - name: Stores
     description: Operations about stores
@@ -33,6 +31,9 @@ tags:
     description: Operations about tasks
 servers:
   - url: 'https://cenit.io/app/ecapi'
+security:
+  - X-OMNA-Token: []
+    X-OMNA-HMac: []
 paths:
   /flows:
     get:
@@ -542,6 +543,23 @@ paths:
         Find task by given id and destroy it.
 
         > The tasks in running status can't be destroyed.
+      responses:
+        '200':
+          $ref: '#/components/responses/success'
+        '404':
+          $ref: '#/components/responses/task_not_found'
+  '/tasks/{task_id}/retry':
+    parameters:
+      - $ref: '#/components/parameters/path_task_id'
+    get:
+      tags:
+        - Tasks
+      operationId: retryTask
+      summary: RETRY A TASK
+      description: |
+        Find a task for the given id and retry its execution.
+
+        > Only failed tasks can be retry.
       responses:
         '200':
           $ref: '#/components/responses/success'
@@ -1904,3 +1922,25 @@ components:
           examples:
             Ex1:
               $ref: '#/components/examples/flow_update_request'
+  securitySchemes:
+    X-OMNA-HMac:
+      type: apiKey
+      name: X-OMNA-HMac
+      in: header
+      description: |
+        Keyed-Hash message authentication code.
+
+        > Each service request must includes an X-OMNA-HMac header, which is generated using the tenant's
+          key along with service path and the data sent in the request.
+
+        **Example:**
+
+        ```Ruby
+        TODO: ...
+        ```
+    X-OMNA-Token:
+      description: |
+        Tenant authentication token.
+      type: apiKey
+      name: X-OMNA-Token
+      in: header

@@ -1,0 +1,16 @@
+parameters:
+  - $ref: '#/components/parameters/path_task_id'
+get:
+  tags:
+    - Tasks
+  operationId: retryTask
+  summary: RETRY A TASK
+  description: |
+    Find a task for the given id and retry its execution.
+
+    > Only failed tasks can be retry.
+  responses:
+    '200':
+      $ref: '#/components/responses/success'
+    '404':
+      $ref: '#/components/responses/task_not_found'

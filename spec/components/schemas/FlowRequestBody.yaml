@@ -2,8 +2,8 @@ type: "object"
 title: Flow
 description: Flow request body scheme
 properties:
-  store_id:
-    description: Store settings identifier
+  integration_id:
+    description: Integration settings identifier
     type: string
   type:
     description: Flow type name

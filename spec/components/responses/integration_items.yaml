@@ -7,10 +7,10 @@ content:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/Store'
+            $ref: '#/components/schemas/Integration'
         pagination:
             $ref: '#/components/schemas/Pagination'
 
     examples:
       Ex1:
-        $ref: '#/components/examples/store_items_response'
+        $ref: '#/components/examples/integration_items_response'

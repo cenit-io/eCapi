@@ -1,12 +1,11 @@
 parameters:
-  - $ref: '#/components/parameters/path_store_id'
+  - $ref: '#/components/parameters/path_integration_id'
   - $ref: '#/components/parameters/path_order_number'
 get:
-  deprecated: true
   tags:
     - Orders
-  operationId: getOrderDeprecate
-  summary: RETRIEVE AN ORDER
+  operationId: getOrder
+  summary: RETRIVE AN ORDER FROM A INTEGRATION
   description: |
     Find order by given id and returns it.
   responses:

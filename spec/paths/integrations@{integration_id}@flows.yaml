@@ -1,5 +1,5 @@
 parameters:
-  - $ref: '#/components/parameters/path_store_id'
+  - $ref: '#/components/parameters/path_integration_id'
   - $ref: '#/components/parameters/query_filter_term_for_flows'
   - $ref: '#/components/parameters/query_filter_flow_type'
   - $ref: '#/components/parameters/query_offset'
@@ -7,11 +7,11 @@ parameters:
 get:
   tags:
     - Flows
-    - Stores
-  operationId: getStoreFlows
-  summary: LIST ALL FLOWS FROM A STORE
+    - Integrations
+  operationId: getIntegrationFlows
+  summary: LIST ALL FLOWS FROM A INTEGRATION
   description: |
-    Returns the flow list of a specific store.
+    Returns the flow list of a specific integration.
   responses:
     '200':
       $ref: '#/components/responses/flow_items'

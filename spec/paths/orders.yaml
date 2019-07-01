@@ -1,6 +1,6 @@
 parameters:
   - $ref: '#/components/parameters/query_filter_term_for_orders'
-  - $ref: '#/components/parameters/query_filter_store'
+  - $ref: '#/components/parameters/query_filter_integration'
   - $ref: '#/components/parameters/query_offset'
   - $ref: '#/components/parameters/query_limit'
 get:

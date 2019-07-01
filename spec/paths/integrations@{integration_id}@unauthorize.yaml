@@ -1,0 +1,14 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+get:
+  tags:
+    - Integrations
+  operationId: unauthorizeIntegrationConnection2
+  summary: CANCEL A INTEGRATION AUTHORIZATION
+  description: |
+    Find integration settings by given id and disallow their connection.
+
+    > Only authorize integrations can be unauthorizes.
+  responses:
+    '404':
+      $ref: '#/components/responses/integration_not_found'

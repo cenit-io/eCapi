@@ -45,6 +45,6 @@ properties:
     format: date-time
   customer:
     $ref: "#/components/schemas/Customer"
-  store:
-    $ref: "#/components/schemas/Store"
+  integration:
+    $ref: "#/components/schemas/Integration"
 

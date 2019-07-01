@@ -9,5 +9,5 @@ properties:
   address:
     description: URl destination of information
     type: string
-  store:
-    $ref: "#/components/schemas/Store"
+  integration:
+    $ref: "#/components/schemas/Integration"

@@ -1,0 +1,7 @@
+name: timestamp
+in: query
+required: true
+schema:
+  description: The time stamp of the request with less than 7200 secounds difference from UTC time.
+  type: integer
+  example: 1517820392000

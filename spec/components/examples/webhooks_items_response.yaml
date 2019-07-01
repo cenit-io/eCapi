@@ -3,9 +3,9 @@ value:
     -
       id: "5d13be7025d9853de90012b6"
       topic: "orders/registered"
-      address: "http://mystore.com"
+      address: "http://myintegration.com"
 
-      store:
+      integration:
         id: "shop_01"
         name: "Shop-01"
         channel: "LazadaSG"

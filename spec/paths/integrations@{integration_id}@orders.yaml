@@ -1,16 +1,16 @@
 parameters:
-  - $ref: '#/components/parameters/path_store_id'
+  - $ref: '#/components/parameters/path_integration_id'
   - $ref: '#/components/parameters/query_filter_term_for_orders'
   - $ref: '#/components/parameters/query_offset'
   - $ref: '#/components/parameters/query_limit'
 get:
   tags:
     - Orders
-    - Stores
-  operationId: getStoreOrders
-  summary: LIST ALL ORDERS FROM A STORE
+    - Integrations
+  operationId: getIntegrationOrders
+  summary: LIST ALL ORDERS FROM A INTEGRATION
   description: |
-    Returns the order list of a specific store.
+    Returns the order list of a specific integration.
   responses:
     '200':
       $ref: '#/components/responses/order_items'

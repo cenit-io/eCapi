@@ -1,0 +1,7 @@
+name: hmac
+in: query
+required: true
+schema:
+  description: Keyed-Hash message authentication code.
+  type: string
+  example: d24c9128362b0518f9ca2bf767b4a60a59aefe0f63ebeb7d47ec594442fc7a8f

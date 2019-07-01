@@ -1,0 +1,6 @@
+name: integration_id
+in: query
+schema:
+  description: Allow to filter the items by integration.
+  type: string
+  example: shop_01

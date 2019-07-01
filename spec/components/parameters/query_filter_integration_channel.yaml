@@ -1,6 +1,6 @@
 name: channel
 in: query
 schema:
-  description: Allow to filter the items by store channel.
+  description: Allow to filter the items by integration channel.
   type: string
   example: LazadaSG

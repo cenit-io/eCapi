@@ -1,0 +1,28 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+get:
+  tags:
+    - Integrations
+  operationId: getIntegrationSettings
+  summary: RETRIEVE A INTEGRATION
+  description: |
+    Find integration settings by given id and returns it.
+  responses:
+    '200':
+      $ref: '#/components/responses/integration_item'
+    '404':
+      $ref: '#/components/responses/integration_not_found'
+delete:
+  tags:
+    - Integrations
+  operationId: deleteIntegrationSettings
+  summary: DELETE A INTEGRATION
+  description: |
+    Find integration settings by given id and destroy it.
+
+    > Only unauthorize integrations can be destroyed.
+  responses:
+    '200':
+      $ref: '#/components/responses/success'
+    '404':
+      $ref: '#/components/responses/integration_not_found'

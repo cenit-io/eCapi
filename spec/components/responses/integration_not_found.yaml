@@ -5,4 +5,4 @@ content:
       $ref: '#/components/schemas/Success'
     example:
       success: false
-      message: "Not found store with id: shop_20"
+      message: "Not found integration with id: shop_20"

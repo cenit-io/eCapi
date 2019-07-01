@@ -11,5 +11,5 @@ properties:
     type: string
   task:
     $ref: "#/components/schemas/Task"
-  store:
-    $ref: "#/components/schemas/Store"
+  integration:
+    $ref: "#/components/schemas/Integration"

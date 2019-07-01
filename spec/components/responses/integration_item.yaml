@@ -5,8 +5,8 @@ content:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/Store'
+          $ref: '#/components/schemas/Integration'
 
     examples:
       Ex1:
-        $ref: '#/components/examples/store_item_response'
+        $ref: '#/components/examples/integration_item_response'

@@ -26,8 +26,8 @@ info:
     to use OMNA COMMERCE API.
 
 tags:
-  - name: Stores
-    description: Operations about stores
+  - name: Integrations
+    description: Operations about integrations
   - name: Orders
     description: Operations about orders
   - name: Flows
@@ -41,5 +41,6 @@ servers:
   - url: 'https://cenit.io/app/ecapi'
 
 security:
-  - X-OMNA-Token: []
-    X-OMNA-HMac: []
+  - Token: []
+    Timestamp: []
+    HMac: []

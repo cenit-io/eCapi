@@ -1,0 +1,10 @@
+get:
+  tags:
+    - Integrations
+  operationId: getIntegrationChannels
+  summary: LIST ALL INTEGRATION CHANNELS
+  description: |
+    Returns the list of integration channels availables.
+  responses:
+    '200':
+      $ref: '#/components/responses/integration_channels'

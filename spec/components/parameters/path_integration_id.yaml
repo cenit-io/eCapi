@@ -1,7 +1,7 @@
-name: store_id
+name: integration_id
 in: path
 required: true
 schema:
-  description: Store identifier
+  description: Integration identifier
   type: string
   example: shop_01

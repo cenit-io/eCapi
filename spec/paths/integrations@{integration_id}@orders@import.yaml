@@ -1,0 +1,14 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+get:
+  tags:
+    - Orders
+  operationId: importOrders
+  summary: IMPORT UPDATED ORDERS FROM INTEGRATION
+  description: |
+    Import the last updated orders from a integration
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/integration_not_found'

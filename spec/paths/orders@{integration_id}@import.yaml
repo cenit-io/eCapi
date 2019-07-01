@@ -1,5 +1,5 @@
 parameters:
-  - $ref: '#/components/parameters/path_store_id'
+  - $ref: '#/components/parameters/path_integration_id'
 get:
   deprecated: true
   tags:
@@ -7,9 +7,9 @@ get:
   operationId: importOrdersDeprecate
   summary: IMPORT UPDATED ORDERS
   description: |
-    Import the last updated orders from a store
+    Import the last updated orders from a integration
   responses:
     '200':
       $ref: '#/components/responses/task_item'
     '404':
-      $ref: '#/components/responses/store_not_found'
+      $ref: '#/components/responses/integration_not_found'

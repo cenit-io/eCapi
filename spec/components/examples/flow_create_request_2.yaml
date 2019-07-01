@@ -1,5 +1,5 @@
 summary: Without scheduler
 value:
   data:
-    store_id: shop_01
+    integration_id: shop_01
     type: import_orders

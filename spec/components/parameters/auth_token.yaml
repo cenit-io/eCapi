@@ -1,0 +1,7 @@
+name: token
+in: query
+required: true
+schema:
+  description: Tenant authentication token.
+  type: string
+  example: Ds3sBBSnyFnOqSjCARmX

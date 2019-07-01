@@ -1,17 +1,17 @@
 type: object
-description: Store settings
+description: Integration settings
 properties:
   id:
-    description: Store identifier
+    description: Integration identifier
     type: string
   name:
-    description: Store name
+    description: Integration name
     type: string
   channel:
     description: Channel identifier
     type: string
   authorized:
-    description: If store is authorized or not
+    description: If integration is authorized or not
     type: boolean
   last_import_orders_date:
     description: The last import orders date

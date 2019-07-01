@@ -34,7 +34,7 @@ value:
         quantity: 1
         price: 1.51
         sku: "2468"
-    store:
+    integration:
       id: "shop_01"
       name: "Shop-01"
       channel: "LazadaSG"

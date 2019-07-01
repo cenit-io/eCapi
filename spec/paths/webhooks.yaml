@@ -8,7 +8,7 @@ get:
   parameters:
     - $ref: '#/components/parameters/query_filter_term_for_webhooks'
     - $ref: '#/components/parameters/query_filter_webhook_topic'
-    - $ref: '#/components/parameters/query_filter_store'
+    - $ref: '#/components/parameters/query_filter_integration'
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
   responses:
@@ -20,7 +20,7 @@ post:
   operationId: createWebhook
   summary: CREATE A WEBHOOK
   description: |
-    Create webhook settings from a given topic, address and store.
+    Create webhook settings from a given topic, address and integration.
   requestBody:
     content:
       application/json:
@@ -37,9 +37,9 @@ post:
                   type: string
         example:
           data:
-            store_id: shop_01
+            integration_id: shop_01
             topic: orders/registered
-            address: 'http://mystore.com'
+            address: 'http://myintegration.com'
   responses:
     '200':
       $ref: '#/components/responses/webhook_item'

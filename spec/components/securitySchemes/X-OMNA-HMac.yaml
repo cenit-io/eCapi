@@ -1,0 +1,14 @@
+type: apiKey
+name: X-OMNA-HMac
+in: header
+description: |
+  Keyed-Hash message authentication code.
+
+  > Each service request must includes an X-OMNA-HMac header, which is generated using the tenant's
+    key along with service path and the data sent in the request.
+
+  **Example:**
+
+  ```Ruby
+  TODO: ...
+  ```

@@ -1,0 +1,5 @@
+description: |
+  Tenant authentication token.
+type: apiKey
+name: X-OMNA-Token
+in: header

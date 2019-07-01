@@ -23,11 +23,7 @@ info:
     * It also accepts and returns JSON in the HTTP body.
 
     * You can use your favorite HTTP/REST library for your programming language
-    to use OMNA COMMERCE API,
-
-    # Authentication
-
-    TODO: ....
+    to use OMNA COMMERCE API.
 
 tags:
   - name: Stores
@@ -41,6 +37,9 @@ tags:
   - name: Tasks
     description: Operations about tasks
 
-
 servers:
   - url: 'https://cenit.io/app/ecapi'
+
+security:
+  - X-OMNA-Token: []
+    X-OMNA-HMac: []

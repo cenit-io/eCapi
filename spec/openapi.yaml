@@ -38,7 +38,7 @@ tags:
     description: Operations about tasks
 
 servers:
-  - url: 'https://cenit.io/app/ecapi'
+  - url: 'https://cenit.io/app/ecapi-v1'
 
 security:
   - Token: []

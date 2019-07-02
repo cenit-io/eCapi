@@ -36,6 +36,8 @@ tags:
     description: Operations about webhooks
   - name: Tasks
     description: Operations about tasks
+  - name: Users
+    description: Operations about users and tenants
 
 servers:
   - url: 'https://cenit.io/app/ecapi-v1'

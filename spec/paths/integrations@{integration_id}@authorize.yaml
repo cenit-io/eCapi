@@ -9,10 +9,7 @@ get:
     Find integration settings by given id and redirect navigation to authorization
     uri.
   parameters:
-    - name: redirect_uri
-      in: query
-      schema:
-        $ref: '#/components/schemas/RedirectURI'
+    - $ref: '#/components/parameters/query_redirect_uri'
   responses:
     '404':
       $ref: '#/components/responses/integration_not_found'

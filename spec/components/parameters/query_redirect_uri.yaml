@@ -1,0 +1,6 @@
+name: redirect_uri
+in: query
+required: true
+schema:
+  description: URI to back after do sign_in or authorization
+  type: string

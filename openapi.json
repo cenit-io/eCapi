@@ -37,6 +37,10 @@
     {
       "name": "Tasks",
       "description": "Operations about tasks"
+    },
+    {
+      "name": "Users",
+      "description": "Operations about users and tenants"
     }
   ],
   "servers": [
@@ -372,11 +376,7 @@
         "description": "Find integration settings by given id and redirect navigation to authorization uri.\n",
         "parameters": [
           {
-            "name": "redirect_uri",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/RedirectURI"
-            }
+            "$ref": "#/components/parameters/query_redirect_uri"
           }
         ],
         "responses": {
@@ -720,6 +720,26 @@
           },
           "404": {
             "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/sign_in": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/query_redirect_uri"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "sign_in",
+        "summary": "SIGN IN",
+        "description": "Authenticate in OMNA to obtain the token and the secret of the active tenant of the authenticated user.\n\n> The token and the secret will be sent to the given uri for the redirect (redirect_uri).\n  You must save them for use in any other application to the OMNA API.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_items"
           }
         }
       }
@@ -1345,10 +1365,6 @@
             "type": "integer"
           }
         }
-      },
-      "RedirectURI": {
-        "description": "URI to back after do authorization",
-        "type": "string"
       },
       "Scheduler": {
         "type": "object",
@@ -2086,6 +2102,15 @@
           "description": "Number of items to skip at the beginning of the list.",
           "type": "integer",
           "example": 10
+        }
+      },
+      "query_redirect_uri": {
+        "name": "redirect_uri",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "description": "URI to back after do sign_in or authorization",
+          "type": "string"
         }
       },
       "query_task_status": {

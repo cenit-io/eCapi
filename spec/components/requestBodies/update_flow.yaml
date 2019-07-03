@@ -8,7 +8,7 @@ content:
           type: object
           properties:
             scheduler:
-              $ref: "#/components/schemas/SchedulerRequestBody"
+              $ref: "#/components/schemas/Scheduler"
 
     examples:
       Ex1:

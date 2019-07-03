@@ -3,13 +3,21 @@ properties:
   id:
     description: Flow identifier
     type: string
+    readOnly: true
   type:
     description: Flow type name
     type: string
   title:
     description: The human-readable flow type name
     type: string
+    readOnly: true
   task:
     $ref: "#/components/schemas/Task"
   integration:
     $ref: "#/components/schemas/Integration"
+  integration_id:
+    description: Integration settings identifier
+    type: string
+    writeOnly: true
+  scheduler:
+    $ref: "#/components/schemas/Scheduler"

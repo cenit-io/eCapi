@@ -5,7 +5,7 @@ content:
     schema:
       properties:
         data:
-          $ref: '#/components/schemas/FlowRequestBody'
+          $ref: '#/components/schemas/Flow'
 
     examples:
       Ex1:

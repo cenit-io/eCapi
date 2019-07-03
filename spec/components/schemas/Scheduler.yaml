@@ -4,6 +4,7 @@ properties:
   active:
     description: Scheduler status
     type: boolean
+    readOnly: true
   start_date:
     description: Date from which the task will begin executing
     type: string

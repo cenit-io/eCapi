@@ -1,5 +1,6 @@
 type: object
 description: Integration settings
+readOnly: true
 properties:
   id:
     description: Integration identifier

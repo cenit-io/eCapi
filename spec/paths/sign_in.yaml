@@ -13,5 +13,8 @@ get:
     > The token and the secret will be sent to the given uri for the redirect (redirect_uri).
       You must save them for use in any other application to the OMNA API.
   responses:
-    '200':
-      $ref: '#/components/responses/order_items'
+    '303':
+      description: |
+        Redirect to given URI.
+
+        > Returns to the application using the URI given in the redirect_uri parameter.

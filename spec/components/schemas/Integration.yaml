@@ -5,6 +5,7 @@ properties:
   id:
     description: Integration identifier
     type: string
+    readOnly: true
   name:
     description: Integration name
     type: string
@@ -14,13 +15,15 @@ properties:
   authorized:
     description: If integration is authorized or not
     type: boolean
+    readOnly: true
   last_import_orders_date:
     description: The last import orders date
     type: string
     format: date-time
+    readOnly: true
   created_at:
     $ref: "#/components/schemas/CreatedAt"
   updated_at:
     $ref: "#/components/schemas/UpdatedAt"
 
-"required": ["name", "channel"]
+required: [name, channel]

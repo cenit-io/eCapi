@@ -29,5 +29,3 @@ properties:
     $ref: "#/components/schemas/CreatedAt"
   updated_at:
     $ref: "#/components/schemas/UpdatedAt"
-
-"required": ["name", "channel"]

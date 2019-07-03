@@ -13,6 +13,7 @@ get:
   responses:
     '200':
       $ref: '#/components/responses/integration_items'
+
 post:
   tags:
     - Integrations
@@ -21,32 +22,7 @@ post:
   description: |
     Creates a new integration object from a given name and channel.
   requestBody:
-    content:
-      application/json:
-        schema:
-          properties:
-            data:
-              type: object
-              properties:
-                name:
-                  description: Integration name
-                  type: string
-                channel:
-                  description: Channel identifier
-                  type: string
-        examples:
-          e1:
-            summary: To Lazada integration
-            value:
-              data:
-                name: Shop-01
-                channel: LazadaSG
-          e2:
-            summary: To Shopee integration
-            value:
-              data:
-                name: Shop-02
-                channel: ShopeeSG
+    $ref: '#/components/requestBodies/create_integration'
   responses:
     '200':
       $ref: '#/components/responses/integration_item'

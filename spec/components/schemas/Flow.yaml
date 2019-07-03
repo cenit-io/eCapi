@@ -21,3 +21,5 @@ properties:
     writeOnly: true
   scheduler:
     $ref: "#/components/schemas/Scheduler"
+
+required: [type, integration_id]

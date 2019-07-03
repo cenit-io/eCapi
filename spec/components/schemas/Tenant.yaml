@@ -25,4 +25,4 @@ properties:
   updated_at:
     $ref: "#/components/schemas/UpdatedAt"
 
-"required": ["name"]
+required: [name]

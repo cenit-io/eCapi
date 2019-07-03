@@ -181,32 +181,7 @@ paths:
       description: |
         Creates a new integration object from a given name and channel.
       requestBody:
-        content:
-          application/json:
-            schema:
-              properties:
-                data:
-                  type: object
-                  properties:
-                    name:
-                      description: Integration name
-                      type: string
-                    channel:
-                      description: Channel identifier
-                      type: string
-            examples:
-              e1:
-                summary: To Lazada integration
-                value:
-                  data:
-                    name: Shop-01
-                    channel: LazadaSG
-              e2:
-                summary: To Shopee integration
-                value:
-                  data:
-                    name: Shop-02
-                    channel: ShopeeSG
+        $ref: '#/components/requestBodies/create_integration'
       responses:
         '200':
           $ref: '#/components/responses/integration_item'
@@ -481,14 +456,18 @@ paths:
         - Users
       operationId: sign_in
       summary: SIGN IN
+      security: []
       description: |
         Authenticate in OMNA to obtain the token and the secret of the active tenant of the authenticated user.
 
         > The token and the secret will be sent to the given uri for the redirect (redirect_uri).
           You must save them for use in any other application to the OMNA API.
       responses:
-        '200':
-          $ref: '#/components/responses/order_items'
+        '303':
+          description: |
+            Redirect to given URI.
+
+            > Returns to the application using the URI given in the redirect_uri parameter.
   /tasks:
     get:
       tags:
@@ -504,20 +483,7 @@ paths:
         - $ref: '#/components/parameters/query_limit'
       responses:
         '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Task'
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
-              example:
-                $ref: '#/components/examples/tasks_response'
+          $ref: '#/components/responses/task_items'
   '/tasks/{task_id}':
     parameters:
       - $ref: '#/components/parameters/path_task_id'
@@ -581,6 +547,75 @@ paths:
           $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/task_not_found'
+  /tenants:
+    parameters:
+      - $ref: '#/components/parameters/query_redirect_uri'
+    get:
+      tags:
+        - Users
+      operationId: get_tenants
+      summary: LIST ALL TENANT
+      description: |
+        Returns the list of tenants of authenticated user.
+      responses:
+        '200':
+          $ref: '#/components/responses/tenant_items'
+    post:
+      tags:
+        - Users
+      operationId: create_tenant
+      summary: CREATE A TENANT
+      description: |
+        Create a new tenant.
+      requestBody:
+        $ref: '#/components/requestBodies/create_tenant'
+      responses:
+        '200':
+          $ref: '#/components/responses/tenant_item'
+        '400':
+          $ref: '#/components/responses/already_exists'
+  '/tenants/{tenant_id}':
+    parameters:
+      - $ref: '#/components/parameters/path_tenant_id'
+    get:
+      tags:
+        - Users
+      operationId: getTenant
+      summary: RETRIEVE A TENANT
+      description: |
+        Find tenant by given id and returns it.
+      responses:
+        '200':
+          $ref: '#/components/responses/tenant_item'
+        '404':
+          $ref: '#/components/responses/tenant_not_found'
+    delete:
+      tags:
+        - Users
+      operationId: deleteTenant
+      summary: DELETE A TENANT
+      description: |
+        Find tenant by given id and delete it.
+      responses:
+        '200':
+          $ref: '#/components/responses/success'
+        '404':
+          $ref: '#/components/responses/tenant_not_found'
+  '/tenants/{tenant_id}/destroy':
+    parameters:
+      - $ref: '#/components/parameters/path_tenant_id'
+    get:
+      tags:
+        - Users
+      operationId: destroyTenant
+      summary: DESTROY A TENANT
+      description: |
+        Find tenant by given id and destroy it.
+      responses:
+        '200':
+          $ref: '#/components/responses/success'
+        '404':
+          $ref: '#/components/responses/tenant_not_found'
   /webhooks:
     get:
       tags:
@@ -714,6 +749,7 @@ components:
       description: Date in iso8601 when the record was created
       type: string
       format: date-time
+      readOnly: true
     Customer:
       type: object
       description: Customer
@@ -747,36 +783,36 @@ components:
         id:
           description: Flow identifier
           type: string
+          readOnly: true
         type:
           description: Flow type name
           type: string
         title:
           description: The human-readable flow type name
           type: string
+          readOnly: true
         task:
           $ref: '#/components/schemas/Task'
         integration:
           $ref: '#/components/schemas/Integration'
-    FlowRequestBody:
-      type: object
-      title: Flow
-      description: Flow request body scheme
-      properties:
         integration_id:
           description: Integration settings identifier
           type: string
-        type:
-          description: Flow type name
-          type: string
+          writeOnly: true
         scheduler:
-          $ref: '#/components/schemas/SchedulerRequestBody'
+          $ref: '#/components/schemas/Scheduler'
+      required:
+        - type
+        - integration_id
     Integration:
       type: object
       description: Integration settings
+      readOnly: true
       properties:
         id:
           description: Integration identifier
           type: string
+          readOnly: true
         name:
           description: Integration name
           type: string
@@ -786,10 +822,12 @@ components:
         authorized:
           description: If integration is authorized or not
           type: boolean
+          readOnly: true
         last_import_orders_date:
           description: The last import orders date
           type: string
           format: date-time
+          readOnly: true
         created_at:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
@@ -921,6 +959,7 @@ components:
         active:
           description: Scheduler status
           type: boolean
+          readOnly: true
         start_date:
           description: Date from which the task will begin executing
           type: string
@@ -948,38 +987,10 @@ components:
           type: array
           items:
             type: string
-    SchedulerRequestBody:
-      type: object
-      title: Scheduler
-      description: Scheduler request body scheme
-      properties:
-        start_date:
-          description: Date from which the task will begin executing
-          type: string
-          format: date
-        end_date:
-          description: Date from which the task will be stopped executing
-          type: string
-          format: date
-        time:
-          description: Hour and minute in which the task will be executed
-          type: string
-          format: time
-        days_of_week:
-          description: Days of the week in which the task will be executed
-          type: array
-          items:
-            type: string
-        weeks_of_month:
-          description: Weeks of the month in which the task will be executed
-          type: array
-          items:
-            type: string
-        months_of_year:
-          description: Months of the year in which the task will be executed
-          type: array
-          items:
-            type: string
+      required:
+        - start_date
+        - end_date
+        - time
     Success:
       type: object
       properties:
@@ -991,6 +1002,7 @@ components:
           type: string
     Task:
       type: object
+      readOnly: true
       properties:
         id:
           description: Task identifier
@@ -1020,13 +1032,40 @@ components:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
           $ref: '#/components/schemas/UpdatedAt'
+    Tenant:
+      type: object
+      properties:
+        id:
+          description: Tenant identifier
+          type: string
+          readOnly: true
+        name:
+          description: Tenant unique name
+          type: string
+        token:
+          description: Authentication token
+          type: string
+          readOnly: true
+        secret:
+          description: Secret key to sign each request
+          type: string
+          readOnly: true
+        deactivation:
+          description: Deactivation date
+          type: string
+          format: date-time
+          readOnly: true
+        created_at:
+          $ref: '#/components/schemas/CreatedAt'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAt'
       required:
         - name
-        - channel
     UpdatedAt:
       description: Date in iso8601 when the record was updated
       type: string
       format: date-time
+      readOnly: true
     Webhook:
       type: object
       properties:
@@ -1223,7 +1262,23 @@ components:
                 $ref: '#/components/schemas/Task'
           examples:
             Ex1:
-              $ref: '#/components/examples/task_response'
+              $ref: '#/components/examples/task_item_response'
+    task_items:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/task_items_response'
     task_not_found:
       description: Not found
       content:
@@ -1233,6 +1288,43 @@ components:
           example:
             success: false
             message: 'Not found task with id: 1234567890'
+    tenant_item:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Tenant'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/tenant_item_response'
+    tenant_items:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tenant'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/tenant_items_response'
+    tenant_not_found:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Success'
+          example:
+            success: false
+            message: 'Not found tenant with id: 1234567890'
     webhook_item:
       description: Success
       content:
@@ -1333,6 +1425,14 @@ components:
       required: true
       schema:
         description: Task identifier
+        type: string
+        example: 5d029d6625d985755e02202c
+    path_tenant_id:
+      name: tenant_id
+      in: path
+      required: true
+      schema:
+        description: Tenant identifier
         type: string
         example: 5d029d6625d985755e02202c
     path_webhook_id:
@@ -1791,7 +1891,7 @@ components:
             last_import_orders_date: '2019-06-07T20:47:14+00:00'
             created_at: '2019-06-07T00:06:52+00:00'
             updated_at: '2019-06-07T20:47:32+00:00'
-    task_response:
+    task_item_response:
       value:
         data:
           id: 5cfe690b25d9854b3b02241b
@@ -1833,7 +1933,7 @@ components:
               - Apr
               - Jul
               - Oct
-    tasks_response:
+    task_items_response:
       value:
         data:
           - id: 5cfe690b25d9854b3b02241b
@@ -1900,6 +2000,37 @@ components:
           offset: 0
           limit: 10
           total: 2
+    tenant_item_response:
+      value:
+        data:
+          id: f8sf8f8f78dsf8v8fd87ff86
+          name: main_omna
+          token: rXfNJmFUpsyv3zocVolI
+          secret: 42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38
+          deactivation: '2019-07-03T15:48:57+00:00'
+          created_at: '2019-05-02T18:16:34+00:00'
+          updated_at: '2019-06-03T15:48:57+00:00'
+    tenant_items_response:
+      value:
+        data:
+          - id: f8sf8f8f78dsf8v8fd87ff86
+            name: main_omna
+            token: rXfNJmFUpsyv3zocVolI
+            secret: 42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38
+            deactivation: '2019-07-03T15:48:57+00:00'
+            created_at: '2019-05-02T18:16:34+00:00'
+            updated_at: '2019-06-03T15:48:57+00:00'
+          - id: 7d78jdudsdsd997dskds89d8
+            name: omna-develop@omna-ii
+            token: DG8W9yz6hXJjpP9SVoXv
+            secret: e11875f2a1611d98ca87e867d9898f045b72ef09e0b3ac737477e897c6972cce
+            deactivation: '2019-06-06T20:55:24+00:00'
+            created_at: '2019-05-07T15:11:16+00:00'
+            updated_at: '2019-05-13T19:58:28+00:00'
+        pagination:
+          offset: 0
+          limit: 10
+          total: 2
     webhook_item_response:
       value:
         data:
@@ -1943,26 +2074,75 @@ components:
       content:
         application/json:
           schema:
+            required:
+              - data
             properties:
               data:
-                $ref: '#/components/schemas/FlowRequestBody'
+                $ref: '#/components/schemas/Flow'
           examples:
             Ex1:
               $ref: '#/components/examples/flow_create_request_1'
             Ex2:
               $ref: '#/components/examples/flow_create_request_2'
+    create_integration:
+      description: Integration that will be added to the system
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                required:
+                  - name
+                  - channel
+                properties:
+                  name:
+                    description: Integration name
+                    type: string
+                  channel:
+                    description: Channel identifier
+                    type: string
+          examples:
+            e1:
+              summary: To Lazada integration
+              value:
+                data:
+                  name: Shop-01
+                  channel: LazadaSG
+            e2:
+              summary: To Shopee integration
+              value:
+                data:
+                  name: Shop-02
+                  channel: ShopeeSG
+    create_tenant:
+      description: Tenant that will be added to the system
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                $ref: '#/components/schemas/Tenant'
     update_flow:
       description: Flow scheduler that will be updated
       required: true
       content:
         application/json:
           schema:
+            required:
+              - data
             properties:
               data:
                 type: object
                 properties:
                   scheduler:
-                    $ref: '#/components/schemas/SchedulerRequestBody'
+                    $ref: '#/components/schemas/Scheduler'
           examples:
             Ex1:
               $ref: '#/components/examples/flow_update_request'

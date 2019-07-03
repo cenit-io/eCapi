@@ -1,7 +1,7 @@
-name: task_id
+name: tenant_id
 in: path
 required: true
 schema:
-  description: Task identifier
+  description: Tenant identifier
   type: string
   example: 5d029d6625d985755e02202c

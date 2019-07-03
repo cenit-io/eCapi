@@ -1,5 +1,6 @@
 parameters:
   - $ref: '#/components/parameters/path_tenant_id'
+
 get:
   tags:
     - Users
@@ -12,9 +13,10 @@ get:
       $ref: '#/components/responses/tenant_item'
     '404':
       $ref: '#/components/responses/tenant_not_found'
+
 delete:
   tags:
-    - Tenants
+    - Users
   operationId: deleteTenant
   summary: DELETE A TENANT
   description: |

@@ -6,6 +6,7 @@ get:
     - Users
   operationId: sign_in
   summary: SIGN IN
+  security: []
   description: |
     Authenticate in OMNA to obtain the token and the secret of the active tenant of the authenticated user.
 

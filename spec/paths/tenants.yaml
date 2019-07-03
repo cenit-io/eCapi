@@ -1,0 +1,13 @@
+parameters:
+  - $ref: '#/components/parameters/query_redirect_uri'
+
+get:
+  tags:
+    - Users
+  operationId: get_tenants
+  summary: LIST ALL TASKS
+  description: |
+    Returns the list of tenants of authenticated user.
+  responses:
+    '200':
+      $ref: '#/components/responses/tenant_items'

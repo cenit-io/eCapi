@@ -9,4 +9,4 @@ content:
 
     examples:
       Ex1:
-        $ref: '#/components/examples/task_response'
+        $ref: '#/components/examples/task_item_response'

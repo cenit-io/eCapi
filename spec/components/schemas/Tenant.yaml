@@ -1,0 +1,28 @@
+type: object
+properties:
+  id:
+    description: Tenant identifier
+    type: string
+    readOnly: true
+  name:
+    description: Tenant unique name
+    type: string
+  token:
+    description: Authentication token
+    type: string
+    readOnly: true
+  secret:
+    description: Secret key to sign each request
+    type: string
+    readOnly: true
+  deactivation:
+    description: Deactivation date
+    type: string
+    format: date-time
+    readOnly: true
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
+  updated_at:
+    $ref: "#/components/schemas/UpdatedAt"
+
+"required": ["name"]

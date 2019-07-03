@@ -5,9 +5,24 @@ get:
   tags:
     - Users
   operationId: get_tenants
-  summary: LIST ALL TASKS
+  summary: LIST ALL TENANT
   description: |
     Returns the list of tenants of authenticated user.
   responses:
     '200':
       $ref: '#/components/responses/tenant_items'
+
+post:
+  tags:
+    - Users
+  operationId: create_tenant
+  summary: CREATE A TENANT
+  description: |
+    Create a new tenant.
+  requestBody:
+    $ref: '#/components/requestBodies/create_tenant'
+  responses:
+    '200':
+      $ref: '#/components/responses/tenant_item'
+    '400':
+      $ref: '#/components/responses/already_exists'

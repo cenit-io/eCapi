@@ -1,0 +1,12 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Tenant'
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/tenant_item_response'

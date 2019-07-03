@@ -1,0 +1,12 @@
+description: Tenant that will be added to the system
+required: true
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: '#/components/schemas/Tenant'
+
+#    examples:
+#      Ex1:
+#        $ref: '#/components/examples/tenant_create_request_1'

@@ -1,0 +1,16 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tenant'
+        pagination:
+            $ref: '#/components/schemas/Pagination'
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/tenant_items_response'

@@ -1,3 +1,4 @@
 description: Date in iso8601 when the record was created
 type: string
 format: date-time
+readOnly: true

@@ -260,7 +260,13 @@
           "200": {
             "$ref": "#/components/responses/integration_items"
           }
-        }
+        },
+        "x-code-samples": [
+          {
+            "lang": "JavaScript",
+            "source": "const\n    current_tenant = { token: '....', secret: '...' },\n    base_url = 'http://cenit.io/app/ecapi-v1/',\n\n    sign_params = (path, params) => {\n        params = params || {};\n\n        // Add token and timestamp parameters.\n        params.token = current_tenant.token;\n        params.timestamp = Date.now();\n\n        // Join the service path and the ordered sequence of characters, excluding the quotes,\n        // corresponding to the JSON of the parameters that will be sent.\n        msg = path + JSON.stringify(params).replace(/[\"']/g, '').split('').sort().join('');\n\n        // Generate the corresponding hmac using the js-sha256 or similar library.\n        params.hmac = sha256.hmac.update(current_tenant.secret, msg).hex();\n\n        return params;\n    },\n\n    get_integrations = (params) => {\n        const path = 'integrations';\n        // Call to service using jQuery\n        return $.getJSON({ url: base_url + path, data: sign_params(path, params) });\n    };\n\nget_integrations({ limit: 10, offset: 0, channel: 'LazadaSG' }).done((response) => {\n    console.log(response)\n}).fail((response) => {\n    console.error(response)\n});\n\n"
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -279,7 +285,13 @@
           "400": {
             "$ref": "#/components/responses/already_exists"
           }
-        }
+        },
+        "x-code-samples": [
+          {
+            "lang": "JavaScript",
+            "source": "/*\n See current_tenant, base_url and sign_params\n in 'LIST ALL INTEGRATIONS' service.\n*/\n\nconst create_integration = (params) => {\n    const path = 'integrations';\n    // Call to service using jQuery\n    return $.post({\n        url: base_url + path,\n        data: JSON.stringify(sign_params(path, params)),\n        dataType: 'json',\n        contentType: 'application/json'\n    })\n};\n\ncreate_integration({\n    data: { name: \"Shop-01\", channel: \"LazadaSG\" }\n}).done((response) => {\n    console.log(response)\n}).fail((response) => {\n    console.error(response)\n});"
+          }
+        ]
       }
     },
     "/integrations/{integration_id}": {
@@ -302,7 +314,13 @@
           "404": {
             "$ref": "#/components/responses/integration_not_found"
           }
-        }
+        },
+        "x-code-samples": [
+          {
+            "lang": "JavaScript",
+            "source": "/*\n See current_tenant, base_url and sign_params\n in 'LIST ALL INTEGRATIONS' service.\n*/\n\nconst get_integration = (id) => {\n    const path = 'integrations/' + id;\n    // Call to service using jQuery\n    return $.getJSON({ url: base_url + path, data: sign_params(path) });\n};\n\nget_integration('shop_01').done((response) => {\n    console.log(response)\n}).fail((response) => {\n    console.error(response)\n});"
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -318,7 +336,13 @@
           "404": {
             "$ref": "#/components/responses/integration_not_found"
           }
-        }
+        },
+        "x-code-samples": [
+          {
+            "lang": "JavaScript",
+            "source": "/*\n See current_tenant, base_url and sign_params\n in 'LIST ALL INTEGRATIONS' service.\n*/\n\nconst delete_integration = (id) => {\n    const path = 'integrations/' + id;\n    // Call to service using jQuery\n    return $.ajax({ url: base_url + path, type: 'DELETE', data: sign_params(path) });\n};\n\ndelete_integration('shop_01').done((response) => {\n    console.log(response)\n}).fail((response) => {\n    console.error(response)\n});"
+          }
+        ]
       }
     },
     "/integrations/{integration_id}/authorize": {
@@ -379,7 +403,13 @@
           "404": {
             "$ref": "#/components/responses/integration_not_found"
           }
-        }
+        },
+        "x-code-samples": [
+          {
+            "lang": "JavaScript",
+            "source": "/*\n See current_tenant, base_url and sign_params\n in 'LIST ALL INTEGRATIONS' service.\n*/\n\nconst destroy_integration = (id) => {\n    const path = 'integrations/' + id + '/destroy';\n    // Call to service using jQuery\n    return $.getJSON({ url: base_url + path, data: sign_params(path) });\n};\n\ndestroy_integration('shop_01').done((response) => {\n    console.log(response)\n}).fail((response) => {\n    console.error(response)\n});"
+          }
+        ]
       }
     },
     "/integrations/{integration_id}/flows": {

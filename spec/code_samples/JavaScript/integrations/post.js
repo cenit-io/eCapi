@@ -4,20 +4,20 @@
 */
 
 const create_integration = (params) => {
-    const path = 'integrations';
-    // Call to service using jQuery
-    return $.post({
-        url: base_url + path,
-        data: JSON.stringify(sign_params(path, params)),
-        dataType: 'json',
-        contentType: 'application/json'
-    })
+  const path = 'integrations';
+  // Call to service using jQuery
+  return $.post({
+    url: base_url + path,
+    data: JSON.stringify(sign_params(path, params)),
+    dataType: 'json',
+    contentType: 'application/json'
+  })
 };
 
 create_integration({
-    data: { name: "Shop-01", channel: "LazadaSG" }
+  data: { name: "Shop-01", channel: "LazadaSG" }
 }).done((response) => {
-    console.log(response)
+  console.log(response)
 }).fail((response) => {
-    console.error(response)
+  console.error(response)
 });

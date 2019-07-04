@@ -42,7 +42,7 @@ paths:
     get:
       tags:
         - Flows
-      operationId: getFlows
+      operationId: get_flows
       summary: LIST ALL FLOWS
       description: |
         Returns the list of flows settings.
@@ -58,7 +58,7 @@ paths:
     post:
       tags:
         - Flows
-      operationId: createFlow
+      operationId: create_flow
       summary: CREATE A FLOW
       description: |
         Create flow settings from a given name and channel.
@@ -75,7 +75,7 @@ paths:
     get:
       tags:
         - Flows
-      operationId: getFlow
+      operationId: get_flow
       summary: RETRIEVE A FLOW
       description: |
         Find flow by given id and returns it.
@@ -87,7 +87,7 @@ paths:
     post:
       tags:
         - Flows
-      operationId: updateFlow
+      operationId: update_flow
       summary: UPDATE A FLOW SCHEDULER
       description: |
         Find flow by given id and update it scheduler.
@@ -101,7 +101,7 @@ paths:
     delete:
       tags:
         - Flows
-      operationId: deleteFlow
+      operationId: delete_flow
       summary: DELETE A FLOW
       description: |
         Find flow by given id and destroy it.
@@ -116,7 +116,7 @@ paths:
     get:
       tags:
         - Flows
-      operationId: destroyFlow
+      operationId: destroy_flow
       summary: DESTROY A FLOW
       description: |
         Find flow by given id and destroy it.
@@ -131,7 +131,7 @@ paths:
     get:
       tags:
         - Flows
-      operationId: startFlow
+      operationId: start_flow
       summary: START A FLOW
       description: |
         Find flow by given id and start its processing.
@@ -148,7 +148,7 @@ paths:
     get:
       tags:
         - Flows
-      operationId: toggleFlowSchedulerStatus
+      operationId: toggle_flow_scheduler_status
       summary: TOGGLE A SCHEDULER STATUS
       description: |
         Find flow by given id and activate or deactivate its scheduler.
@@ -161,7 +161,7 @@ paths:
     get:
       tags:
         - Integrations
-      operationId: getIntegrations
+      operationId: get_integrations
       summary: LIST ALL INTEGRATIONS
       description: |
         Returns the list of your integrations.
@@ -176,7 +176,7 @@ paths:
     post:
       tags:
         - Integrations
-      operationId: createIntegration
+      operationId: create_integration
       summary: CREATE A INTEGRATION
       description: |
         Creates a new integration object from a given name and channel.
@@ -193,10 +193,10 @@ paths:
     get:
       tags:
         - Integrations
-      operationId: getIntegrationSettings
+      operationId: get_integration_settings
       summary: RETRIEVE A INTEGRATION
       description: |
-        Find integration settings by given id and returns it.
+        Find integration by given id and returns it.
       responses:
         '200':
           $ref: '#/components/responses/integration_item'
@@ -205,10 +205,10 @@ paths:
     delete:
       tags:
         - Integrations
-      operationId: deleteIntegrationSettings
+      operationId: delete_integration
       summary: DELETE A INTEGRATION
       description: |
-        Find integration settings by given id and destroy it.
+        Find integration by given id and destroy it.
 
         > Only unauthorize integrations can be destroyed.
       responses:
@@ -222,10 +222,10 @@ paths:
     get:
       tags:
         - Integrations
-      operationId: authorizeIntegrationConnection
+      operationId: authorize_integration
       summary: RETRIEVE A INTEGRATION AUTHORIATION
       description: |
-        Find integration settings by given id and redirect navigation to authorization uri.
+        Find integration by given id and redirect navigation to authorization uri.
       parameters:
         - $ref: '#/components/parameters/query_redirect_uri'
       responses:
@@ -234,10 +234,10 @@ paths:
     delete:
       tags:
         - Integrations
-      operationId: unauthorizeIntegrationConnection
+      operationId: deauthorize_integration
       summary: CANCEL A INTEGRATION AUTHORIATION
       description: |
-        Find integration settings by given id and disallow their connection.
+        Find integration by given id and disallow their connection.
 
         > Only authorize integrations can be unauthorizes.
       responses:
@@ -249,10 +249,10 @@ paths:
     get:
       tags:
         - Integrations
-      operationId: destroyIntegrationSettings
+      operationId: destroy_integration
       summary: DESTROY A INTEGRATION
       description: |
-        Find integration settings by given id and destroy it.
+        Find integration by given id and destroy it.
 
         > Only unauthorize integrations can be destroyed.
       responses:
@@ -271,7 +271,7 @@ paths:
       tags:
         - Flows
         - Integrations
-      operationId: getIntegrationFlows
+      operationId: get_integration_flows
       summary: LIST ALL FLOWS FROM A INTEGRATION
       description: |
         Returns the flow list of a specific integration.
@@ -288,7 +288,7 @@ paths:
       tags:
         - Orders
         - Integrations
-      operationId: getIntegrationOrders
+      operationId: get_integration_orders
       summary: LIST ALL ORDERS FROM A INTEGRATION
       description: |
         Returns the order list of a specific integration.
@@ -302,7 +302,7 @@ paths:
     get:
       tags:
         - Orders
-      operationId: getOrder
+      operationId: get_order
       summary: RETRIVE AN ORDER FROM A INTEGRATION
       description: |
         Find order by given id and returns it.
@@ -319,7 +319,7 @@ paths:
     get:
       tags:
         - Orders
-      operationId: getOrderDoc
+      operationId: get_order_doc
       summary: RETRIEVE A DOCUMENT FROM AN ORDER
       description: |
         Retrieve a specific document of the order.
@@ -335,7 +335,7 @@ paths:
     get:
       tags:
         - Orders
-      operationId: getOrderDocTypes
+      operationId: get_order_doc_types
       summary: LIST ALL DOCUMENT TYPES FROM AN ORDER
       description: |
         Return the list of types of order documents
@@ -349,7 +349,7 @@ paths:
     get:
       tags:
         - Orders
-      operationId: importOrder
+      operationId: import_order
       summary: IMPORT A SINGLE ORDER FROM A INTEGRATION
       description: |
         Import a specific order from a integration
@@ -364,7 +364,7 @@ paths:
     get:
       tags:
         - Orders
-      operationId: importOrders
+      operationId: import_orders
       summary: IMPORT UPDATED ORDERS FROM INTEGRATION
       description: |
         Import the last updated orders from a integration
@@ -379,10 +379,10 @@ paths:
     get:
       tags:
         - Integrations
-      operationId: unauthorizeIntegrationConnection2
+      operationId: unauthorize_integration
       summary: CANCEL A INTEGRATION AUTHORIZATION
       description: |
-        Find integration settings by given id and disallow their connection.
+        Find integration by given id and disallow their connection.
 
         > Only authorize integrations can be unauthorizes.
       responses:
@@ -392,7 +392,7 @@ paths:
     get:
       tags:
         - Integrations
-      operationId: getIntegrationChannels
+      operationId: get_integration_channels
       summary: LIST ALL INTEGRATION CHANNELS
       description: |
         Returns the list of integration channels availables.
@@ -408,46 +408,13 @@ paths:
     get:
       tags:
         - Orders
-      operationId: getOrders
+      operationId: get_orders
       summary: LIST ALL ORDERS
       description: |
         Returns the list of orders.
       responses:
         '200':
           $ref: '#/components/responses/order_items'
-  '/orders/{integration_id}/{number}':
-    parameters:
-      - $ref: '#/components/parameters/path_integration_id'
-      - $ref: '#/components/parameters/path_order_number'
-    get:
-      deprecated: true
-      tags:
-        - Orders
-      operationId: getOrderDeprecate
-      summary: RETRIEVE AN ORDER
-      description: |
-        Find order by given id and returns it.
-      responses:
-        '200':
-          $ref: '#/components/responses/order_item'
-        '404':
-          $ref: '#/components/responses/order_not_found'
-  '/orders/{integration_id}/import':
-    parameters:
-      - $ref: '#/components/parameters/path_integration_id'
-    get:
-      deprecated: true
-      tags:
-        - Orders
-      operationId: importOrdersDeprecate
-      summary: IMPORT UPDATED ORDERS
-      description: |
-        Import the last updated orders from a integration
-      responses:
-        '200':
-          $ref: '#/components/responses/task_item'
-        '404':
-          $ref: '#/components/responses/integration_not_found'
   /sign_in:
     parameters:
       - $ref: '#/components/parameters/query_redirect_uri'
@@ -472,7 +439,7 @@ paths:
     get:
       tags:
         - Tasks
-      operationId: getTasks
+      operationId: get_tasks
       summary: LIST ALL TASKS
       description: |
         Returns the list of tasks executions.
@@ -490,7 +457,7 @@ paths:
     get:
       tags:
         - Tasks
-      operationId: getTask
+      operationId: get_task
       summary: RETRIEVE A TASK
       description: |
         Find task by given id and returns it.
@@ -502,7 +469,7 @@ paths:
     delete:
       tags:
         - Tasks
-      operationId: deleteTask
+      operationId: delete_task
       summary: DELETE A TASK
       description: |
         Find task by given id and delete it.
@@ -519,7 +486,7 @@ paths:
     get:
       tags:
         - Tasks
-      operationId: destroyTask
+      operationId: destroy_task
       summary: DESTROY A TASK
       description: |
         Find task by given id and destroy it.
@@ -536,7 +503,7 @@ paths:
     get:
       tags:
         - Tasks
-      operationId: retryTask
+      operationId: retry_task
       summary: RETRY A TASK
       description: |
         Find a task for the given id and retry its execution.
@@ -580,7 +547,7 @@ paths:
     get:
       tags:
         - Users
-      operationId: getTenant
+      operationId: get_tenant
       summary: RETRIEVE A TENANT
       description: |
         Find tenant by given id and returns it.
@@ -592,7 +559,7 @@ paths:
     delete:
       tags:
         - Users
-      operationId: deleteTenant
+      operationId: delete_tenant
       summary: DELETE A TENANT
       description: |
         Find tenant by given id and delete it.
@@ -607,7 +574,7 @@ paths:
     get:
       tags:
         - Users
-      operationId: destroyTenant
+      operationId: destroy_tenant
       summary: DESTROY A TENANT
       description: |
         Find tenant by given id and destroy it.
@@ -620,7 +587,7 @@ paths:
     get:
       tags:
         - Webhooks
-      operationId: getWebhooks
+      operationId: get_webhooks
       summary: LIST ALL WEBHOOKS
       description: |
         Returns the list of webhooks settings.
@@ -636,7 +603,7 @@ paths:
     post:
       tags:
         - Webhooks
-      operationId: createWebhook
+      operationId: create_webhook
       summary: CREATE A WEBHOOK
       description: |
         Create webhook settings from a given topic, address and integration.
@@ -670,7 +637,7 @@ paths:
     get:
       tags:
         - Webhooks
-      operationId: getWebhook
+      operationId: get_webhook
       summary: RETRIEVE A WEBHOOK
       description: |
         Find webhook by given id and returns it.
@@ -682,7 +649,7 @@ paths:
     delete:
       tags:
         - Webhooks
-      operationId: deleteWebhook
+      operationId: delete_webhook
       summary: DELETE A WEBHOOK
       description: |
         Find webhook by given id and delete it.
@@ -694,7 +661,7 @@ paths:
     post:
       tags:
         - Webhooks
-      operationId: updWebhook
+      operationId: update_webhook
       summary: UPDATE A WEBHOOK
       description: |
         Find webhook by given id and update it.
@@ -709,7 +676,7 @@ paths:
     get:
       tags:
         - Webhooks
-      operationId: destroyWebhook
+      operationId: destroy_webhook
       summary: DESTROY A WEBHOOK
       description: |
         Find webhook by given id and destroy it.
@@ -796,7 +763,7 @@ components:
         integration:
           $ref: '#/components/schemas/Integration'
         integration_id:
-          description: Integration settings identifier
+          description: Integration identifier
           type: string
           writeOnly: true
         scheduler:
@@ -806,7 +773,7 @@ components:
         - integration_id
     Integration:
       type: object
-      description: Integration settings
+      description: Integration
       readOnly: true
       properties:
         id:
@@ -2157,10 +2124,20 @@ components:
         > Each service request must includes an hmac parameter, which is generated using the tenant's
           key along with service path and the data sent in the request.
 
-        **Example:**
+        ### Examples:
 
-        ```Ruby
-        TODO: ...
+        #### JavaScript
+        ```JavaScript
+          // Add token and timestamp parameters.
+          params.token = current_tenant.token;
+          params.timestamp = Date.now();
+
+          // Join the service path and the ordered sequence of characters, excluding the quotes,
+          // corresponding to the JSON of the parameters that will be sent.
+          msg = path + JSON.stringify(params).replace(/["']/g, '').split('').sort().join('')
+
+          // Generate the corresponding hmac using the js-sha256 or similar library.
+          params.hmac = sha256.hmac.update(current_tenant.secret, msg).hex()
         ```
     Timestamp:
       description: |

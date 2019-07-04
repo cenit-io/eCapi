@@ -14,8 +14,4 @@ get:
       You must save them for use in any other application to the OMNA API.
   responses:
     '303':
-      description: |
-        Redirect to given URI.
-
-        > Returns to the application using the URI given in the redirect_uri parameter.
       $ref: '#/components/responses/sign_in'

@@ -1,4 +1,7 @@
-description: Success
+description: |
+  Redirect to given URI.
+
+  > Returns to the application using the URI given in the redirect_uri parameter.
 content:
   application/json:
     schema:

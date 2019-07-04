@@ -1,6 +1,7 @@
 parameters:
   - $ref: '#/components/parameters/path_integration_id'
   - $ref: '#/components/parameters/path_order_number'
+
 get:
   tags:
     - Orders

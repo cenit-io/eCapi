@@ -7,7 +7,7 @@ get:
   tags:
     - Orders
     - Integrations
-  operationId: getIntegrationOrders
+  operationId: get_integration_orders
   summary: LIST ALL ORDERS FROM A INTEGRATION
   description: |
     Returns the order list of a specific integration.

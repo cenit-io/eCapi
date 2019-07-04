@@ -1,9 +1,10 @@
 parameters:
   - $ref: '#/components/parameters/path_webhook_id'
+
 get:
   tags:
     - Webhooks
-  operationId: getWebhook
+  operationId: get_webhook
   summary: RETRIEVE A WEBHOOK
   description: |
     Find webhook by given id and returns it.
@@ -12,10 +13,11 @@ get:
       $ref: '#/components/responses/webhook_item'
     '404':
       $ref: '#/components/responses/webhook_not_found'
+
 delete:
   tags:
     - Webhooks
-  operationId: deleteWebhook
+  operationId: delete_webhook
   summary: DELETE A WEBHOOK
   description: |
     Find webhook by given id and delete it.
@@ -24,10 +26,11 @@ delete:
       $ref: '#/components/responses/success'
     '404':
       $ref: '#/components/responses/webhook_not_found'
+
 post:
   tags:
     - Webhooks
-  operationId: updWebhook
+  operationId: update_webhook
   summary: UPDATE A WEBHOOK
   description: |
     Find webhook by given id and update it.

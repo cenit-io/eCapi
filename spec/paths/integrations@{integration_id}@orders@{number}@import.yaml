@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Orders
-  operationId: importOrder
+  operationId: import_order
   summary: IMPORT A SINGLE ORDER FROM A INTEGRATION
   description: |
     Import a specific order from a integration

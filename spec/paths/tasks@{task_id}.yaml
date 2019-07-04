@@ -1,9 +1,10 @@
 parameters:
   - $ref: '#/components/parameters/path_task_id'
+
 get:
   tags:
     - Tasks
-  operationId: getTask
+  operationId: get_task
   summary: RETRIEVE A TASK
   description: |
     Find task by given id and returns it.
@@ -12,10 +13,11 @@ get:
       $ref: '#/components/responses/task_item'
     '404':
       $ref: '#/components/responses/task_not_found'
+
 delete:
   tags:
     - Tasks
-  operationId: deleteTask
+  operationId: delete_task
   summary: DELETE A TASK
   description: |
     Find task by given id and delete it.

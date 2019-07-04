@@ -6,7 +6,7 @@ parameters:
 get:
   tags:
     - Orders
-  operationId: getOrders
+  operationId: get_orders
   summary: LIST ALL ORDERS
   description: |
     Returns the list of orders.

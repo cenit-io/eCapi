@@ -1,7 +1,7 @@
 get:
   tags:
     - Webhooks
-  operationId: getWebhooks
+  operationId: get_webhooks
   summary: LIST ALL WEBHOOKS
   description: |
     Returns the list of webhooks settings.
@@ -14,10 +14,11 @@ get:
   responses:
     '200':
       $ref: '#/components/responses/webhook_items'
+
 post:
   tags:
     - Webhooks
-  operationId: createWebhook
+  operationId: create_webhook
   summary: CREATE A WEBHOOK
   description: |
     Create webhook settings from a given topic, address and integration.

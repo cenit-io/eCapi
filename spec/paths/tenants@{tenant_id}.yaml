@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Users
-  operationId: getTenant
+  operationId: get_tenant
   summary: RETRIEVE A TENANT
   description: |
     Find tenant by given id and returns it.
@@ -17,7 +17,7 @@ get:
 delete:
   tags:
     - Users
-  operationId: deleteTenant
+  operationId: delete_tenant
   summary: DELETE A TENANT
   description: |
     Find tenant by given id and delete it.

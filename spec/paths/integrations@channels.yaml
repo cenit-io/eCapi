@@ -1,7 +1,7 @@
 get:
   tags:
     - Integrations
-  operationId: getIntegrationChannels
+  operationId: get_integration_channels
   summary: LIST ALL INTEGRATION CHANNELS
   description: |
     Returns the list of integration channels availables.

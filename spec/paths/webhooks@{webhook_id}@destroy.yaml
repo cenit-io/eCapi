@@ -1,9 +1,10 @@
 parameters:
   - $ref: '#/components/parameters/path_webhook_id'
+
 get:
   tags:
     - Webhooks
-  operationId: destroyWebhook
+  operationId: destroy_webhook
   summary: DESTROY A WEBHOOK
   description: |
     Find webhook by given id and destroy it.

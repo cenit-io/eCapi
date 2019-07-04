@@ -3,7 +3,7 @@ parameters:
 get:
   tags:
     - Orders
-  operationId: importOrders
+  operationId: import_orders
   summary: IMPORT UPDATED ORDERS FROM INTEGRATION
   description: |
     Import the last updated orders from a integration

@@ -1,7 +1,7 @@
 get:
   tags:
     - Tasks
-  operationId: getTasks
+  operationId: get_tasks
   summary: LIST ALL TASKS
   description: |
     Returns the list of tasks executions.

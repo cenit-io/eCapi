@@ -3,10 +3,10 @@ parameters:
 get:
   tags:
     - Integrations
-  operationId: getIntegrationSettings
+  operationId: get_integration_settings
   summary: RETRIEVE A INTEGRATION
   description: |
-    Find integration settings by given id and returns it.
+    Find integration by given id and returns it.
   responses:
     '200':
       $ref: '#/components/responses/integration_item'
@@ -15,10 +15,10 @@ get:
 delete:
   tags:
     - Integrations
-  operationId: deleteIntegrationSettings
+  operationId: delete_integration
   summary: DELETE A INTEGRATION
   description: |
-    Find integration settings by given id and destroy it.
+    Find integration by given id and destroy it.
 
     > Only unauthorize integrations can be destroyed.
   responses:

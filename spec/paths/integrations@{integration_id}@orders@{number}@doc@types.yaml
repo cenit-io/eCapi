@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Orders
-  operationId: getOrderDocTypes
+  operationId: get_order_doc_types
   summary: LIST ALL DOCUMENT TYPES FROM AN ORDER
   description: |
     Return the list of types of order documents

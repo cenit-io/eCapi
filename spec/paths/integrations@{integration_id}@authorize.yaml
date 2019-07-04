@@ -1,25 +1,26 @@
 parameters:
   - $ref: '#/components/parameters/path_integration_id'
+
 get:
   tags:
     - Integrations
-  operationId: authorizeIntegrationConnection
+  operationId: authorize_integration
   summary: RETRIEVE A INTEGRATION AUTHORIATION
   description: >
-    Find integration settings by given id and redirect navigation to authorization
-    uri.
+    Find integration by given id and redirect navigation to authorization uri.
   parameters:
     - $ref: '#/components/parameters/query_redirect_uri'
   responses:
     '404':
       $ref: '#/components/responses/integration_not_found'
+
 delete:
   tags:
     - Integrations
-  operationId: unauthorizeIntegrationConnection
+  operationId: deauthorize_integration
   summary: CANCEL A INTEGRATION AUTHORIATION
   description: |
-    Find integration settings by given id and disallow their connection.
+    Find integration by given id and disallow their connection.
 
     > Only authorize integrations can be unauthorizes.
   responses:

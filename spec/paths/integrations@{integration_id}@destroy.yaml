@@ -3,10 +3,10 @@ parameters:
 get:
   tags:
     - Integrations
-  operationId: destroyIntegrationSettings
+  operationId: destroy_integration
   summary: DESTROY A INTEGRATION
   description: |
-    Find integration settings by given id and destroy it.
+    Find integration by given id and destroy it.
 
     > Only unauthorize integrations can be destroyed.
   responses:

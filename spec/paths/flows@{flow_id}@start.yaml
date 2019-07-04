@@ -3,7 +3,7 @@ parameters:
 get:
   tags:
     - Flows
-  operationId: startFlow
+  operationId: start_flow
   summary: START A FLOW
   description: >
     Find flow by given id and start its processing.

@@ -16,7 +16,7 @@ properties:
   integration:
     $ref: "#/components/schemas/Integration"
   integration_id:
-    description: Integration settings identifier
+    description: Integration identifier
     type: string
     writeOnly: true
   scheduler:

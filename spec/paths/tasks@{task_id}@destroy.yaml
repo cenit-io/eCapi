@@ -1,9 +1,10 @@
 parameters:
   - $ref: '#/components/parameters/path_task_id'
+
 get:
   tags:
     - Tasks
-  operationId: destroyTask
+  operationId: destroy_task
   summary: DESTROY A TASK
   description: |
     Find task by given id and destroy it.

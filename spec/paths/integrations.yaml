@@ -1,7 +1,7 @@
 get:
   tags:
     - Integrations
-  operationId: getIntegrations
+  operationId: get_integrations
   summary: LIST ALL INTEGRATIONS
   description: |
     Returns the list of your integrations.
@@ -17,7 +17,7 @@ get:
 post:
   tags:
     - Integrations
-  operationId: createIntegration
+  operationId: create_integration
   summary: CREATE A INTEGRATION
   description: |
     Creates a new integration object from a given name and channel.

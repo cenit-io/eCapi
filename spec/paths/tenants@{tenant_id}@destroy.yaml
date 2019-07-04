@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Users
-  operationId: destroyTenant
+  operationId: destroy_tenant
   summary: DESTROY A TENANT
   description: |
     Find tenant by given id and destroy it.

@@ -5,7 +5,7 @@ parameters:
 get:
   tags:
     - Orders
-  operationId: getOrderDoc
+  operationId: get_order_doc
   summary: RETRIEVE A DOCUMENT FROM AN ORDER
   description: >
     Retrieve a specific document of the order.

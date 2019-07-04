@@ -1,9 +1,10 @@
 parameters:
   - $ref: '#/components/parameters/path_task_id'
+
 get:
   tags:
     - Tasks
-  operationId: retryTask
+  operationId: retry_task
   summary: RETRY A TASK
   description: |
     Find a task for the given id and retry its execution.

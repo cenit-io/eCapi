@@ -3,7 +3,7 @@ parameters:
 get:
   tags:
     - Flows
-  operationId: destroyFlow
+  operationId: destroy_flow
   summary: DESTROY A FLOW
   description: |
     Find flow by given id and destroy it.

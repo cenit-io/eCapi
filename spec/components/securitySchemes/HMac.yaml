@@ -7,8 +7,18 @@ description: |
   > Each service request must includes an hmac parameter, which is generated using the tenant's
     key along with service path and the data sent in the request.
 
-  **Example:**
+  ### Examples:
 
-  ```Ruby
-  TODO: ...
+  #### JavaScript
+  ```JavaScript
+    // Add token and timestamp parameters.
+    params.token = current_tenant.token;
+    params.timestamp = Date.now();
+
+    // Join the service path and the ordered sequence of characters, excluding the quotes,
+    // corresponding to the JSON of the parameters that will be sent.
+    msg = path + JSON.stringify(params).replace(/["']/g, '').split('').sort().join('')
+
+    // Generate the corresponding hmac using the js-sha256 or similar library.
+    params.hmac = sha256.hmac.update(current_tenant.secret, msg).hex()
   ```

@@ -1,5 +1,6 @@
 parameters:
   - $ref: '#/components/parameters/path_integration_id'
+
 get:
   tags:
     - Integrations
@@ -12,6 +13,7 @@ get:
       $ref: '#/components/responses/integration_item'
     '404':
       $ref: '#/components/responses/integration_not_found'
+
 delete:
   tags:
     - Integrations

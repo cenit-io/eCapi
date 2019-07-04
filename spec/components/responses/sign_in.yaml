@@ -1,15 +1,9 @@
 description: |
   Redirect to given URI.
 
-  > Returns to the application using the URI given in the redirect_uri parameter.
-content:
-  application/json:
-    schema:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/User'
+  > Redirect to given URI passing the token and the secret of the active tenant of the authenticated user.
 
-    examples:
-      Ex1:
-        $ref: '#/components/examples/user_item_response'
+  ### Example redirect to:
+  ```
+  http://my.example.com/home?token=rXfNJmFUpsyv3zocVolI&secret=42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38
+  ```

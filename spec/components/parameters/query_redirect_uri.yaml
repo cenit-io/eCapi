@@ -4,3 +4,4 @@ required: true
 schema:
   description: URI to back after do sign_in or authorization
   type: string
+  example: http://my.example.com/home

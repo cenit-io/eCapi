@@ -552,6 +552,11 @@ paths:
         '303':
           $ref: '#/components/responses/sign_in'
   /tasks:
+    parameters:
+      - $ref: '#/components/parameters/query_filter_term_for_tasks'
+      - $ref: '#/components/parameters/query_task_status'
+      - $ref: '#/components/parameters/query_offset'
+      - $ref: '#/components/parameters/query_limit'
     get:
       tags:
         - Tasks
@@ -559,11 +564,6 @@ paths:
       summary: LIST ALL TASKS
       description: |
         Returns the list of tasks executions.
-      parameters:
-        - $ref: '#/components/parameters/query_filter_term_for_tasks'
-        - $ref: '#/components/parameters/query_task_status'
-        - $ref: '#/components/parameters/query_offset'
-        - $ref: '#/components/parameters/query_limit'
       responses:
         '200':
           $ref: '#/components/responses/task_items'
@@ -638,6 +638,10 @@ paths:
       summary: LIST ALL TENANT
       description: |
         Returns the list of tenants of authenticated user.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_tenants'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
       responses:
         '200':
           $ref: '#/components/responses/tenant_items'
@@ -1599,6 +1603,13 @@ components:
       in: query
       schema:
         description: Allow to filter the tasks that contain the value of the term in their ***status*** or ***description***.
+        type: string
+        example: Shop-Lazada
+    query_filter_term_for_tenants:
+      name: term
+      in: query
+      schema:
+        description: Allow to filter the tenants that contain the value of the term in their ***name***.
         type: string
         example: Shop-Lazada
     query_filter_term_for_webhooks:

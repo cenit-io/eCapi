@@ -1,0 +1,12 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/User'
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/user_item_response'

@@ -1,0 +1,17 @@
+type: object
+properties:
+  name:
+    description: Fullname of user
+    type: string
+    readOnly: true
+  email:
+    description: eMail address
+    type: string
+    readOnly: true
+  picture:
+    description: URI of user picture
+    type: string
+    readOnly: true
+  tenant:
+    $ref: "#/components/schemas/Tenant"
+    readOnly: true

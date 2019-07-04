@@ -1,0 +1,14 @@
+value:
+  data:
+    name: 'Alejandro Pérez Pérez'
+    email: 'alepp@example.com'
+    picture: 'http://example.com/users/pictures/alepp.png'
+    
+    tenant:
+      id: 'f8sf8f8f78dsf8v8fd87ff86'
+      name: 'main_omna'
+      token: 'rXfNJmFUpsyv3zocVolI'
+      secret: '42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38'
+      deactivation: '2019-07-03T15:48:57+00:00'
+      created_at: '2019-05-02T18:16:34+00:00'
+      updated_at: '2019-06-03T15:48:57+00:00'

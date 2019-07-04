@@ -18,3 +18,4 @@ get:
         Redirect to given URI.
 
         > Returns to the application using the URI given in the redirect_uri parameter.
+      $ref: '#/components/responses/sign_in'

@@ -679,7 +679,8 @@
         "description": "Authenticate in OMNA to obtain the token and the secret of the active tenant of the authenticated user.\n\n> The token and the secret will be sent to the given uri for the redirect (redirect_uri).\n  You must save them for use in any other application to the OMNA API.\n",
         "responses": {
           "303": {
-            "description": "Redirect to given URI.\n\n> Returns to the application using the URI given in the redirect_uri parameter.\n"
+            "description": "Redirect to given URI.\n\n> Returns to the application using the URI given in the redirect_uri parameter.\n",
+            "$ref": "#/components/responses/sign_in"
           }
         }
       }
@@ -1542,6 +1543,30 @@
         "format": "date-time",
         "readOnly": true
       },
+      "User": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Fullname of user",
+            "type": "string",
+            "readOnly": true
+          },
+          "email": {
+            "description": "eMail address",
+            "type": "string",
+            "readOnly": true
+          },
+          "picture": {
+            "description": "URI of user picture",
+            "type": "string",
+            "readOnly": true
+          },
+          "tenant": {
+            "$ref": "#/components/schemas/Tenant",
+            "readOnly": true
+          }
+        }
+      },
       "Webhook": {
         "type": "object",
         "properties": {
@@ -1823,6 +1848,26 @@
             "example": {
               "success": false,
               "message": "Not found order with number: 9151224232846"
+            }
+          }
+        }
+      },
+      "sign_in": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/user_item_response"
+              }
             }
           }
         }
@@ -2944,6 +2989,24 @@
             "offset": 0,
             "limit": 10,
             "total": 2
+          }
+        }
+      },
+      "user_item_response": {
+        "value": {
+          "data": {
+            "name": "Alejandro Pérez Pérez",
+            "email": "alepp@example.com",
+            "picture": "http://example.com/users/pictures/alepp.png",
+            "tenant": {
+              "id": "f8sf8f8f78dsf8v8fd87ff86",
+              "name": "main_omna",
+              "token": "rXfNJmFUpsyv3zocVolI",
+              "secret": "42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38",
+              "deactivation": "2019-07-03T15:48:57+00:00",
+              "created_at": "2019-05-02T18:16:34+00:00",
+              "updated_at": "2019-06-03T15:48:57+00:00"
+            }
           }
         }
       },

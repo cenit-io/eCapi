@@ -26,6 +26,7 @@ tags:
   - name: Flows
     description: |
       Operations about flows.
+
       The flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be executed manually or automated through the configuration and activation of their schedulers. For example, the user can want to receive products form an integration 1 and orders form another integration.
   - name: Webhooks
     description: Operations about webhooks

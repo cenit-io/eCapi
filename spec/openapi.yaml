@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: v1
-  title: OMNA COMMERCE API
+  title: OMNA Commerce API
   termsOfService: 'https://cenit.io/terms'
   contact:
     email: hello@omna.io
@@ -14,16 +14,16 @@ info:
   description: >
     # Introduction
 
-    * The OMNA COMMERCE API is built over REST services on HTTPS.
+    * The OMNA Commerce API is built over REST services on HTTPS.
 
     * It has predictable resource URLs.
 
     * It returns HTTP response codes to indicate errors.
 
-    * It also accepts and returns JSON in the HTTP body.
+    * It accepts and returns JSON in the HTTP body.
 
     * You can use your favorite HTTP/REST library for your programming language
-    to use OMNA COMMERCE API.
+    to use OMNA Commerce API.
 
 tags:
   - name: Integrations
@@ -31,7 +31,10 @@ tags:
   - name: Orders
     description: Operations about orders
   - name: Flows
-    description: Operations about flows
+    description: >
+     Operations about flows.
+
+     The flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be executed manually or automated through the configuration and activation of their schedulers. For example, the user can want to receive products form an integration 1 and orders form another integration.
   - name: Webhooks
     description: Operations about webhooks
   - name: Tasks

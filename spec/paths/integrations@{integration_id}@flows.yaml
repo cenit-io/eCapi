@@ -10,7 +10,7 @@ get:
     - Flows
     - Integrations
   operationId: get_integration_flows
-  summary: LIST ALL FLOWS FROM A INTEGRATION
+  summary: LIST ALL FLOWS FROM AN INTEGRATION
   description: |
     Returns the flow list of a specific integration.
   responses:

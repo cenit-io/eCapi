@@ -9,7 +9,7 @@ get:
     - Orders
     - Integrations
   operationId: get_integration_orders
-  summary: LIST ALL ORDERS FROM A INTEGRATION
+  summary: LIST ALL ORDERS FROM AN INTEGRATION
   description: |
     Returns the order list of a specific integration.
   responses:

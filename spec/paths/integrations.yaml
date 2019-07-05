@@ -18,7 +18,7 @@ post:
   tags:
     - Integrations
   operationId: create_integration
-  summary: CREATE A INTEGRATION
+  summary: CREATE AN INTEGRATION
   description: |
     Creates a new integration object from a given name and channel.
   requestBody:

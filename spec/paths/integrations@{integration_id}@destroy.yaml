@@ -4,7 +4,7 @@ get:
   tags:
     - Integrations
   operationId: destroy_integration
-  summary: DESTROY A INTEGRATION
+  summary: DESTROY AN INTEGRATION
   description: |
     Find integration by given id and destroy it.
 

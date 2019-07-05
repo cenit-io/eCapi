@@ -5,7 +5,7 @@ get:
   tags:
     - Integrations
   operationId: get_integration_settings
-  summary: RETRIEVE A INTEGRATION
+  summary: RETRIEVE AN INTEGRATION
   description: |
     Find integration by given id and returns it.
   responses:
@@ -18,7 +18,7 @@ delete:
   tags:
     - Integrations
   operationId: delete_integration
-  summary: DELETE A INTEGRATION
+  summary: DELETE AN INTEGRATION
   description: |
     Find integration by given id and destroy it.
 

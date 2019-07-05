@@ -6,7 +6,7 @@ get:
   operationId: import_orders
   summary: IMPORT UPDATED ORDERS FROM INTEGRATION
   description: |
-    Import the last updated orders from a integration
+    Import the last updated orders from an integration
   responses:
     '200':
       $ref: '#/components/responses/task_item'

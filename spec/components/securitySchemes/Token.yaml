@@ -1,5 +1,5 @@
 description: |
-  Tenant authentication token.
+  Tenant authentication token. The token of the tenant is obtained from the ***sign_in***. When the user registers through the ***sign_in*** action, as a result of the request, the information about the token is returned.
 type: apiKey
 name: token
 in: query

@@ -22,7 +22,7 @@ delete:
   description: |
     Find task by given id and delete it.
 
-    > The tasks in running status can't be deleted.
+    > The task in running status can not be deleted.
   responses:
     '200':
       $ref: '#/components/responses/success'

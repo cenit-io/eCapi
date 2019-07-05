@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: v1
-  title: OMNA COMMERCE API
+  title: OMNA Commerce API
   termsOfService: 'https://cenit.io/terms'
   contact:
     email: hello@omna.io
@@ -13,18 +13,20 @@ info:
     url: omna_logo.png
   description: |
     # Introduction
-    * The OMNA COMMERCE API is built over REST services on HTTPS.
+    * The OMNA Commerce API is built over REST services on HTTPS.
     * It has predictable resource URLs.
     * It returns HTTP response codes to indicate errors.
-    * It also accepts and returns JSON in the HTTP body.
-    * You can use your favorite HTTP/REST library for your programming language to use OMNA COMMERCE API.
+    * It accepts and returns JSON in the HTTP body.
+    * You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API.
 tags:
   - name: Integrations
     description: Operations about integrations
   - name: Orders
     description: Operations about orders
   - name: Flows
-    description: Operations about flows
+    description: |
+      Operations about flows.
+      The flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be executed manually or automated through the configuration and activation of their schedulers. For example, the user can want to receive products form an integration 1 and orders form another integration.
   - name: Webhooks
     description: Operations about webhooks
   - name: Tasks
@@ -213,7 +215,7 @@ paths:
       tags:
         - Integrations
       operationId: create_integration
-      summary: CREATE A INTEGRATION
+      summary: CREATE AN INTEGRATION
       description: |
         Creates a new integration object from a given name and channel.
       requestBody:
@@ -256,7 +258,7 @@ paths:
       tags:
         - Integrations
       operationId: get_integration_settings
-      summary: RETRIEVE A INTEGRATION
+      summary: RETRIEVE AN INTEGRATION
       description: |
         Find integration by given id and returns it.
       responses:
@@ -287,7 +289,7 @@ paths:
       tags:
         - Integrations
       operationId: delete_integration
-      summary: DELETE A INTEGRATION
+      summary: DELETE AN INTEGRATION
       description: |
         Find integration by given id and destroy it.
 
@@ -323,7 +325,7 @@ paths:
       tags:
         - Integrations
       operationId: authorize_integration
-      summary: RETRIEVE A INTEGRATION AUTHORIATION
+      summary: RETRIEVE AN INTEGRATION AUTHORIATION
       description: |
         Find integration by given id and redirect navigation to authorization uri.
       parameters:
@@ -335,7 +337,7 @@ paths:
       tags:
         - Integrations
       operationId: deauthorize_integration
-      summary: CANCEL A INTEGRATION AUTHORIATION
+      summary: CANCEL AN INTEGRATION AUTHORIATION
       description: |
         Find integration by given id and disallow their connection.
 
@@ -350,7 +352,7 @@ paths:
       tags:
         - Integrations
       operationId: destroy_integration
-      summary: DESTROY A INTEGRATION
+      summary: DESTROY AN INTEGRATION
       description: |
         Find integration by given id and destroy it.
 
@@ -391,7 +393,7 @@ paths:
         - Flows
         - Integrations
       operationId: get_integration_flows
-      summary: LIST ALL FLOWS FROM A INTEGRATION
+      summary: LIST ALL FLOWS FROM AN INTEGRATION
       description: |
         Returns the flow list of a specific integration.
       responses:
@@ -408,7 +410,7 @@ paths:
         - Orders
         - Integrations
       operationId: get_integration_orders
-      summary: LIST ALL ORDERS FROM A INTEGRATION
+      summary: LIST ALL ORDERS FROM AN INTEGRATION
       description: |
         Returns the order list of a specific integration.
       responses:
@@ -422,7 +424,7 @@ paths:
       tags:
         - Orders
       operationId: get_order
-      summary: RETRIVE AN ORDER FROM A INTEGRATION
+      summary: RETRIVE AN ORDER FROM AN INTEGRATION
       description: |
         Find order by given id and returns it.
       responses:
@@ -469,9 +471,9 @@ paths:
       tags:
         - Orders
       operationId: import_order
-      summary: IMPORT A SINGLE ORDER FROM A INTEGRATION
+      summary: IMPORT A SINGLE ORDER FROM AN INTEGRATION
       description: |
-        Import a specific order from a integration
+        Import a specific order from an integration
       responses:
         '200':
           $ref: '#/components/responses/task_item'
@@ -486,7 +488,7 @@ paths:
       operationId: import_orders
       summary: IMPORT UPDATED ORDERS FROM INTEGRATION
       description: |
-        Import the last updated orders from a integration
+        Import the last updated orders from an integration
       responses:
         '200':
           $ref: '#/components/responses/task_item'
@@ -499,7 +501,7 @@ paths:
       tags:
         - Integrations
       operationId: unauthorize_integration
-      summary: CANCEL A INTEGRATION AUTHORIZATION
+      summary: CANCEL AN INTEGRATION AUTHORIZATION
       description: |
         Find integration by given id and disallow their connection.
 
@@ -590,7 +592,7 @@ paths:
       description: |
         Find task by given id and delete it.
 
-        > The tasks in running status can't be deleted.
+        > The task in running status can not be deleted.
       responses:
         '200':
           $ref: '#/components/responses/success'
@@ -607,7 +609,7 @@ paths:
       description: |
         Find task by given id and destroy it.
 
-        > The tasks in running status can't be destroyed.
+        > The task in running status can not be destroyed.
       responses:
         '200':
           $ref: '#/components/responses/success'
@@ -1489,7 +1491,7 @@ components:
       in: query
       required: true
       schema:
-        description: The time stamp of the request with less than 7200 secounds difference from UTC time.
+        description: The timestamp of the request with less than 7200 secounds difference from UTC time.
         type: integer
         example: 1517820392000
     auth_token:
@@ -2309,13 +2311,13 @@ components:
         ```
     Timestamp:
       description: |
-        The time stamp of the request with less than 7200 secounds difference from UTC time.
+        The timestamp of the request with less than 7200 secounds difference from UTC time.
       type: apiKey
       name: timestamp
       in: query
     Token:
       description: |
-        Tenant authentication token.
+        Tenant authentication token. The token of the tenant is obtained from the ***sign_in***. When the user registers through the ***sign_in*** action, as a result of the request, the information about the token is returned.
       type: apiKey
       name: token
       in: query

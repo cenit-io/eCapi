@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "version": "v1",
-    "title": "OMNA COMMERCE API",
+    "title": "OMNA Commerce API",
     "termsOfService": "https://cenit.io/terms",
     "contact": {
       "email": "hello@omna.io",
@@ -15,7 +15,7 @@
     "x-logo": {
       "url": "omna_logo.png"
     },
-    "description": "# Introduction\n* The OMNA COMMERCE API is built over REST services on HTTPS.\n* It has predictable resource URLs.\n* It returns HTTP response codes to indicate errors.\n* It also accepts and returns JSON in the HTTP body.\n* You can use your favorite HTTP/REST library for your programming language to use OMNA COMMERCE API.\n"
+    "description": "# Introduction\n* The OMNA Commerce API is built over REST services on HTTPS.\n* It has predictable resource URLs.\n* It returns HTTP response codes to indicate errors.\n* It accepts and returns JSON in the HTTP body.\n* You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API.\n"
   },
   "tags": [
     {
@@ -28,7 +28,7 @@
     },
     {
       "name": "Flows",
-      "description": "Operations about flows"
+      "description": "Operations about flows.\nThe flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be executed manually or automated through the configuration and activation of their schedulers. For example, the user can want to receive products form an integration 1 and orders form another integration.\n"
     },
     {
       "name": "Webhooks",
@@ -273,7 +273,7 @@
           "Integrations"
         ],
         "operationId": "create_integration",
-        "summary": "CREATE A INTEGRATION",
+        "summary": "CREATE AN INTEGRATION",
         "description": "Creates a new integration object from a given name and channel.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/create_integration"
@@ -305,7 +305,7 @@
           "Integrations"
         ],
         "operationId": "get_integration_settings",
-        "summary": "RETRIEVE A INTEGRATION",
+        "summary": "RETRIEVE AN INTEGRATION",
         "description": "Find integration by given id and returns it.\n",
         "responses": {
           "200": {
@@ -327,7 +327,7 @@
           "Integrations"
         ],
         "operationId": "delete_integration",
-        "summary": "DELETE A INTEGRATION",
+        "summary": "DELETE AN INTEGRATION",
         "description": "Find integration by given id and destroy it.\n\n> Only unauthorize integrations can be destroyed.\n",
         "responses": {
           "200": {
@@ -356,7 +356,7 @@
           "Integrations"
         ],
         "operationId": "authorize_integration",
-        "summary": "RETRIEVE A INTEGRATION AUTHORIATION",
+        "summary": "RETRIEVE AN INTEGRATION AUTHORIATION",
         "description": "Find integration by given id and redirect navigation to authorization uri.\n",
         "parameters": [
           {
@@ -374,7 +374,7 @@
           "Integrations"
         ],
         "operationId": "deauthorize_integration",
-        "summary": "CANCEL A INTEGRATION AUTHORIATION",
+        "summary": "CANCEL AN INTEGRATION AUTHORIATION",
         "description": "Find integration by given id and disallow their connection.\n\n> Only authorize integrations can be unauthorizes.\n",
         "responses": {
           "404": {
@@ -394,7 +394,7 @@
           "Integrations"
         ],
         "operationId": "destroy_integration",
-        "summary": "DESTROY A INTEGRATION",
+        "summary": "DESTROY AN INTEGRATION",
         "description": "Find integration by given id and destroy it.\n\n> Only unauthorize integrations can be destroyed.\n",
         "responses": {
           "200": {
@@ -436,7 +436,7 @@
           "Integrations"
         ],
         "operationId": "get_integration_flows",
-        "summary": "LIST ALL FLOWS FROM A INTEGRATION",
+        "summary": "LIST ALL FLOWS FROM AN INTEGRATION",
         "description": "Returns the flow list of a specific integration.\n",
         "responses": {
           "200": {
@@ -466,7 +466,7 @@
           "Integrations"
         ],
         "operationId": "get_integration_orders",
-        "summary": "LIST ALL ORDERS FROM A INTEGRATION",
+        "summary": "LIST ALL ORDERS FROM AN INTEGRATION",
         "description": "Returns the order list of a specific integration.\n",
         "responses": {
           "200": {
@@ -489,7 +489,7 @@
           "Orders"
         ],
         "operationId": "get_order",
-        "summary": "RETRIVE AN ORDER FROM A INTEGRATION",
+        "summary": "RETRIVE AN ORDER FROM AN INTEGRATION",
         "description": "Find order by given id and returns it.\n",
         "responses": {
           "200": {
@@ -564,8 +564,8 @@
           "Orders"
         ],
         "operationId": "import_order",
-        "summary": "IMPORT A SINGLE ORDER FROM A INTEGRATION",
-        "description": "Import a specific order from a integration\n",
+        "summary": "IMPORT A SINGLE ORDER FROM AN INTEGRATION",
+        "description": "Import a specific order from an integration\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -588,7 +588,7 @@
         ],
         "operationId": "import_orders",
         "summary": "IMPORT UPDATED ORDERS FROM INTEGRATION",
-        "description": "Import the last updated orders from a integration\n",
+        "description": "Import the last updated orders from an integration\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -610,7 +610,7 @@
           "Integrations"
         ],
         "operationId": "unauthorize_integration",
-        "summary": "CANCEL A INTEGRATION AUTHORIZATION",
+        "summary": "CANCEL AN INTEGRATION AUTHORIZATION",
         "description": "Find integration by given id and disallow their connection.\n\n> Only authorize integrations can be unauthorizes.\n",
         "responses": {
           "404": {
@@ -741,7 +741,7 @@
         ],
         "operationId": "delete_task",
         "summary": "DELETE A TASK",
-        "description": "Find task by given id and delete it.\n\n> The tasks in running status can't be deleted.\n",
+        "description": "Find task by given id and delete it.\n\n> The task in running status can not be deleted.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -764,7 +764,7 @@
         ],
         "operationId": "destroy_task",
         "summary": "DESTROY A TASK",
-        "description": "Find task by given id and destroy it.\n\n> The tasks in running status can't be destroyed.\n",
+        "description": "Find task by given id and destroy it.\n\n> The task in running status can not be destroyed.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -2070,7 +2070,7 @@
         "in": "query",
         "required": true,
         "schema": {
-          "description": "The time stamp of the request with less than 7200 secounds difference from UTC time.",
+          "description": "The timestamp of the request with less than 7200 secounds difference from UTC time.",
           "type": "integer",
           "example": 1517820392000
         }
@@ -3190,13 +3190,13 @@
         "description": "Keyed-Hash message authentication code.\n\n> Each service request must includes an hmac parameter, which is generated using the tenant's\n  key along with service path and the data sent in the request.\n\n### Examples:\n\n#### JavaScript\n```JavaScript\n  // Add token and timestamp parameters.\n  params.token = current_tenant.token;\n  params.timestamp = Date.now();\n\n  // Join the service path and the ordered sequence of characters, excluding the quotes,\n  // corresponding to the JSON of the parameters that will be sent.\n  msg = path + JSON.stringify(params).replace(/[\"']/g, '').split('').sort().join('')\n\n  // Generate the corresponding hmac using the js-sha256 or similar library.\n  params.hmac = sha256.hmac.update(current_tenant.secret, msg).hex()\n```\n"
       },
       "Timestamp": {
-        "description": "The time stamp of the request with less than 7200 secounds difference from UTC time.\n",
+        "description": "The timestamp of the request with less than 7200 secounds difference from UTC time.\n",
         "type": "apiKey",
         "name": "timestamp",
         "in": "query"
       },
       "Token": {
-        "description": "Tenant authentication token.\n",
+        "description": "Tenant authentication token. The token of the tenant is obtained from the ***sign_in***. When the user registers through the ***sign_in*** action, as a result of the request, the information about the token is returned.\n",
         "type": "apiKey",
         "name": "token",
         "in": "query"

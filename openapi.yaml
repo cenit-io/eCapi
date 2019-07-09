@@ -547,7 +547,7 @@ paths:
       summary: SIGN IN
       security: []
       description: |
-        Authenticate in OMNA to obtain the token and the secret of the active tenant of the authenticated user.
+        Authenticate in OMNA to obtain the token and the secret of the tenant of the authenticated user.
 
         > The token and the secret will be sent to the given uri for the redirect (redirect_uri).
           You must save them for use in any other application to the OMNA API.
@@ -1353,7 +1353,7 @@ components:
       description: |
         Redirect to given URI.
 
-        > Redirect to given URI passing the token and the secret of the active tenant of the authenticated user.
+        > Redirect to given URI passing the token and the secret of the tenant of the authenticated user.
 
         ### Example redirect to:
         ```

@@ -3,11 +3,19 @@ properties:
   id:
     description: Webhook identifier
     type: string
+    readOnly: true
   topic:
-    description: Webhook topic name
+    description: |
+      Event that triggers the webhook.
+
+      **Valid values are:** order/registered, order/updated
     type: string
   address:
     description: URl destination of information
     type: string
   integration:
     $ref: "#/components/schemas/Integration"
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
+  updated_at:
+    $ref: "#/components/schemas/UpdatedAt"

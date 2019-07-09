@@ -21,26 +21,9 @@ post:
   operationId: create_webhook
   summary: CREATE A WEBHOOK
   description: |
-    Create webhook settings from a given topic, address and integration.
+    Create a new webhook subscription for an integration by specifying an address and a subject.
   requestBody:
-    content:
-      application/json:
-        schema:
-          properties:
-            data:
-              type: object
-              properties:
-                topic:
-                  description: Webhook name
-                  type: string
-                address:
-                  description: URl destination of information
-                  type: string
-        example:
-          data:
-            integration_id: shop_01
-            topic: orders/registered
-            address: 'http://myintegration.com'
+    $ref: '#/components/requestBodies/create_webhook'
   responses:
     '200':
       $ref: '#/components/responses/webhook_item'

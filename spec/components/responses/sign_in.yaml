@@ -1,7 +1,7 @@
 description: |
   Redirect to given URI.
 
-  > Redirect to given URI passing the token and the secret of the active tenant of the authenticated user.
+  > Redirect to given URI passing the token and the secret of the tenant of the authenticated user.
 
   ### Example redirect to:
   ```

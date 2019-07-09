@@ -20,7 +20,10 @@ info:
     * You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API.
 tags:
   - name: Integrations
-    description: Operations about integrations
+    description: |
+      The term integration refers to resource set on which is possible operate, updated with the latest information, and consolidating information into a single processing workflow.
+
+      The available integration is Lazada.
   - name: Orders
     description: Operations about orders
   - name: Flows

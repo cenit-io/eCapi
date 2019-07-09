@@ -23,7 +23,7 @@ tags:
     description: |
       The term integration refers to resource set on which is possible operate, updated with the latest information, and consolidating information into a single processing workflow.
 
-      The available integration is Lazada.
+      The available integrations are Lazada, Shopee.
   - name: Orders
     description: Operations about orders
   - name: Flows
@@ -32,11 +32,12 @@ tags:
 
       The flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be executed manually or automated through the configuration and activation of their schedulers. For example, the user can want to receive products form an integration 1 and orders form another integration.
   - name: Webhooks
-    description: Operations about webhooks
+    description: |
+      A webhook is a hook through which a notification is sent to a URL of user choice when a certain event occurs. They allow to receive real-time HTTP notifications of changes to specific objects. Webhooks facilitate syncing and relaying data between two endpoints.
   - name: Tasks
-    description: Operations about tasks
+    description: 'Each of the actions that make up the api generate one or more tasks when are process. In the details of the task we can find information about the processing triggered by the action like status, fulfillment %, notifications, etc.'
   - name: Users
-    description: Operations about users and tenants
+    description: 'User represent a person or a company, it is a user in Cenit System.'
 servers:
   - url: 'https://cenit.io/app/ecapi-v1'
 security:

@@ -21,23 +21,71 @@ info:
 tags:
   - name: Integrations
     description: |
-      The term integration refers to resource set on which is possible operate, updated with the latest information, and consolidating information into a single processing workflow.
+      The term integration refers to resource set on which is possible operate, updated with the latest information,
+      and consolidating information into a single processing workflow.
 
       The available integrations are Lazada, Shopee.
   - name: Orders
-    description: Operations about orders
+    description: |
+      Operations about orders
   - name: Flows
     description: |
       Operations about flows.
-
       The flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be executed manually or automated through the configuration and activation of their schedulers. For example, the user can want to receive products form an integration 1 and orders form another integration.
   - name: Webhooks
     description: |
-      A webhook is a hook through which a notification is sent to a URL of user choice when a certain event occurs. They allow to receive real-time HTTP notifications of changes to specific objects. Webhooks facilitate syncing and relaying data between two endpoints.
+      A webhook is a hook through which a notification is sent to a URL of user choice when a certain event occurs.
+      They allow to receive real-time HTTP notifications of changes to specific objects. Webhooks facilitate syncing
+      and relaying data between two endpoints.
+
+      ### Anatomy of a webhook
+
+      After you configure a webhook subscription, the events that you specified will trigger a webhook notification
+      each time they occur. This notification contains a JSON payload and and HTTP headers that provide context.
+      For example, the order/updated webhook includes the following headers:
+
+      - **X-Tenant-Id**: 5cfe690b25d9854b3b02241b,
+      - **X-Topic**: order/updated,
+      - **X-API-Version**: v1
+      - **X-HMac-Sha256**: d24c9128362b0518f9ca2bf767b4a60a59aefe0f63ebeb7d47ec594442fc7a8f
+
+      Some HTTP headers are particularly useful for your app:
+
+      - **X-Topic** represents the type of object and the event that occurred.
+      - **X-HMac-Sha256** and **X-Tenant-Id** are used to verify webhooks.
+      - **X-API-Version** is used to confirm what version of the API used to serialize the webhook event payload.
+
+      ### Verifying webhooks
+
+      Webhooks created through the API are verified by calculating a digital signature. Each webhook request includes
+      **X-HMac-Sha256** header, which is generated using the tenant shared secret along with the data sent in the request.
+
+      To verify that the request came from OMNA, compute the **HMAC** digest according to the following algorithm and
+      compare it to the value in the **X-HMac-Sha256** header. If they match, then you can be sure that the webhook was
+      sent from OMNA.
+
+      **The following Ruby example apply to Sinatra or RoR web frameworks to verify a webhook request:**
+
+      ```Ruby
+        require 'openssl'
+
+        request.body.rewind
+        body = request.body.read
+
+        secret = '...' # Get this from tenant with equal to **X-Tenant-Id** header.
+
+        hmac1 = request.headers['X-HMac-Sha256']
+        hmac2 = OpenSSL::HMAC.hexdigest('sha256', secret, body)
+
+        raise 'The request is not valid...' if hmac1 != hmac2
+      ```
   - name: Tasks
-    description: 'Each of the actions that make up the api generate one or more tasks when are process. In the details of the task we can find information about the processing triggered by the action like status, fulfillment %, notifications, etc.'
+    description: |
+      Each of the actions that make up the api generate one or more tasks when are process. In the details of the task
+      we can find information about the processing triggered by the action like status, fulfillment %, notifications, etc.
   - name: Users
-    description: 'User represent a person or a company, it is a user in Cenit System.'
+    description: |
+      User represent a person or a company, it is a user in Cenit System.
 servers:
   - url: 'https://cenit.io/app/ecapi-v1'
 security:
@@ -731,26 +779,9 @@ paths:
       operationId: create_webhook
       summary: CREATE A WEBHOOK
       description: |
-        Create webhook settings from a given topic, address and integration.
+        Create a new webhook subscription for an integration by specifying an address and a subject.
       requestBody:
-        content:
-          application/json:
-            schema:
-              properties:
-                data:
-                  type: object
-                  properties:
-                    topic:
-                      description: Webhook name
-                      type: string
-                    address:
-                      description: URl destination of information
-                      type: string
-            example:
-              data:
-                integration_id: shop_01
-                topic: orders/registered
-                address: 'http://myintegration.com'
+        $ref: '#/components/requestBodies/create_webhook'
       responses:
         '200':
           $ref: '#/components/responses/webhook_item'
@@ -1182,14 +1213,22 @@ components:
         id:
           description: Webhook identifier
           type: string
+          readOnly: true
         topic:
-          description: Webhook topic name
+          description: |
+            Event that triggers the webhook.
+
+            **Valid values are:** order/registered, order/updated
           type: string
         address:
           description: URl destination of information
           type: string
         integration:
           $ref: '#/components/schemas/Integration'
+        created_at:
+          $ref: '#/components/schemas/CreatedAt'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAt'
   responses:
     already_exists:
       description: Already exist
@@ -1632,7 +1671,7 @@ components:
       schema:
         description: Allow to filter the items by webhook topic.
         type: string
-        example: orders/registered
+        example: order/registered
     query_limit:
       name: limit
       in: query
@@ -2173,12 +2212,26 @@ components:
             deactivation: '2019-07-03T15:48:57+00:00'
             created_at: '2019-05-02T18:16:34+00:00'
             updated_at: '2019-06-03T15:48:57+00:00'
+    webhook_create_request_1:
+      summary: For when an order is registered
+      value:
+        data:
+          integration_id: shop_01
+          topic: order/registered
+          address: 'http://myintegration.com/catch/order/registered'
+    webhook_create_request_2:
+      summary: For when an order is updated
+      value:
+        data:
+          integration_id: shop_01
+          topic: order/updated
+          address: 'http://myintegration.com/catch/order/updated'
     webhook_item_response:
       value:
         data:
           id: 5d13be7025d9853de90012b6
-          topic: orders/registered
-          address: 'http://myintegration.com'
+          topic: order/registered
+          address: 'http://myintegration.com/catch/order/registered'
           integration:
             id: shop_01
             name: Shop-01
@@ -2187,13 +2240,13 @@ components:
             last_import_orders_date: '2019-06-07T20:47:14+00:00'
             created_at: '2019-06-07T00:06:52+00:00'
             updated_at: '2019-06-07T20:47:32+00:00'
-          created_at: '2019-06-18T16:21:46+00:00'
-          updated_at: '2019-06-18T16:22:12+00:00'
+          created_at: '2019-06-07T00:06:52+00:00'
+          updated_at: '2019-06-07T20:47:32+00:00'
     webhooks_items_response:
       value:
         data:
           - id: 5d13be7025d9853de90012b6
-            topic: orders/registered
+            topic: order/registered
             address: 'http://myintegration.com'
             integration:
               id: shop_01
@@ -2203,8 +2256,8 @@ components:
               last_import_orders_date: '2019-06-07T20:47:14+00:00'
               created_at: '2019-06-07T00:06:52+00:00'
               updated_at: '2019-06-07T20:47:32+00:00'
-            created_at: '2019-06-18T16:21:46+00:00'
-            updated_at: '2019-06-18T16:22:12+00:00'
+            created_at: '2019-06-07T00:06:52+00:00'
+            updated_at: '2019-06-07T20:47:32+00:00'
         pagination:
           offset: 0
           limit: 5
@@ -2271,6 +2324,22 @@ components:
             properties:
               data:
                 $ref: '#/components/schemas/Tenant'
+    create_webhook:
+      description: Webhook that will be added to the system
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                $ref: '#/components/schemas/Webhook'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/webhook_create_request_1'
+            Ex2:
+              $ref: '#/components/examples/webhook_create_request_2'
     update_flow:
       description: Flow scheduler that will be updated
       required: true
@@ -2297,7 +2366,7 @@ components:
         Keyed-Hash message authentication code.
 
         > Each service request must includes an hmac parameter, which is generated using the tenant's
-          key along with service path and the data sent in the request.
+          secret along with service path and the data sent in the request.
 
         ### Examples:
 

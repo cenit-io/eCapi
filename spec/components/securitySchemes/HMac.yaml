@@ -5,7 +5,7 @@ description: |
   Keyed-Hash message authentication code.
 
   > Each service request must includes an hmac parameter, which is generated using the tenant's
-    key along with service path and the data sent in the request.
+    secret along with service path and the data sent in the request.
 
   ### Examples:
 

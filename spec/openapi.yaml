@@ -51,6 +51,48 @@ tags:
       They allow to receive real-time HTTP notifications of changes to specific objects. Webhooks facilitate syncing
       and relaying data between two endpoints.
 
+      ### Anatomy of a webhook
+
+      After you configure a webhook subscription, the events that you specified will trigger a webhook notification
+      each time they occur. This notification contains a JSON payload and and HTTP headers that provide context.
+      For example, the order/updated webhook includes the following headers:
+
+      - **X-Tenant-Id**: 5cfe690b25d9854b3b02241b,
+      - **X-Topic**: order/updated,
+      - **X-API-Version**: v1
+      - **X-HMac-Sha256**: d24c9128362b0518f9ca2bf767b4a60a59aefe0f63ebeb7d47ec594442fc7a8f
+
+      Some HTTP headers are particularly useful for your app:
+
+      - **X-Topic** represents the type of object and the event that occurred.
+      - **X-HMac-Sha256** and **X-Tenant-Id** are used to verify webhooks.
+      - **X-API-Version** is used to confirm what version of the API used to serialize the webhook event payload.
+
+      ### Verifying webhooks
+
+      Webhooks created through the API are verified by calculating a digital signature. Each webhook request includes
+      **X-HMac-Sha256** header, which is generated using the tenant shared secret along with the data sent in the request.
+
+      To verify that the request came from OMNA, compute the **HMAC** digest according to the following algorithm and
+      compare it to the value in the **X-HMac-Sha256** header. If they match, then you can be sure that the webhook was
+      sent from OMNA.
+
+      **The following Ruby example apply to Sinatra or RoR web frameworks to verify a webhook request:**
+
+      ```Ruby
+        require 'openssl'
+
+        request.body.rewind
+        body = request.body.read
+
+        secret = '...' # Get this from tenant with equal to **X-Tenant-Id** header.
+
+        hmac1 = request.headers['X-HMac-Sha256']
+        hmac2 = OpenSSL::HMAC.hexdigest('sha256', secret, body)
+
+        raise 'The request is not valid...' if hmac1 != hmac2
+      ```
+
   - name: Tasks
     description: |
       Each of the actions that make up the api generate one or more tasks when are process. In the details of the task

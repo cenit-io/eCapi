@@ -1259,19 +1259,33 @@
           },
           "total_price": {
             "description": "Total amount for this order",
-            "type": "string"
+            "type": "number"
           },
           "total_quantity": {
-            "description": "Number of items in order",
+            "description": "Number of items in this order",
             "type": "integer"
           },
           "status": {
             "description": "Order status",
             "type": "string"
           },
-          "payment_method": {
-            "description": "The method of the payment",
-            "type": "string"
+          "payment": {
+            "description": "The information of the payment",
+            "type": "object",
+            "properties": {
+              "method": {
+                "description": "The method of the payment",
+                "type": "string"
+              },
+              "status": {
+                "description": "The status of the payment",
+                "type": "string"
+              },
+              "amount": {
+                "description": "The amount of the payment",
+                "type": "number"
+              }
+            }
           },
           "ship_address": {
             "description": "Shipping address",
@@ -1791,7 +1805,7 @@
             },
             "examples": {
               "Ex1": {
-                "$ref": "#/components/examples/order_response"
+                "$ref": "#/components/examples/order_item_response"
               }
             }
           }
@@ -2013,7 +2027,7 @@
             },
             "examples": {
               "Ex1": {
-                "$ref": "#/components/examples/webhooks_items_response"
+                "$ref": "#/components/examples/webhook_items_response"
               }
             }
           }
@@ -2587,16 +2601,80 @@
           ]
         }
       },
+      "order_item_response": {
+        "value": {
+          "data": {
+            "order_id": "9151224232845",
+            "number": "9151224232845",
+            "total_price": 2,
+            "total_quantity": 1,
+            "status": "canceled",
+            "payment": {
+              "method": "COD",
+              "status": "paid",
+              "amount": 2
+            },
+            "ship_address": {
+              "country": "Singapore",
+              "state": "Singapore",
+              "city": "Singapore, Singapore",
+              "phone": "6590547759, 6590547759",
+              "zip_code": "549751",
+              "address": [
+                "21 DA SILVA LANE,",
+                "549751"
+              ]
+            },
+            "bill_address": {
+              "country": "Singapore",
+              "state": "Singapore",
+              "city": "Singapore, Singapore",
+              "phone": "6590547759, 6590547759",
+              "zip_code": "549751",
+              "address": [
+                "21 DA SILVA LANE,",
+                "549751"
+              ]
+            },
+            "last_import_date": "2019-06-07T20:47:26+00:00",
+            "customer": {
+              "firstname": "Christy Lee"
+            },
+            "line_items": [
+              {
+                "id": "9151224432845",
+                "name": "Short sleeve t-shirt",
+                "quantity": 1,
+                "price": 1.51,
+                "sku": "2468"
+              }
+            ],
+            "integration": {
+              "id": "shop_01",
+              "name": "Shop-01",
+              "channel": "LazadaSG",
+              "authorized": false,
+              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+              "created_at": "2019-06-07T00:06:52+00:00",
+              "updated_at": "2019-06-07T20:47:32+00:00"
+            }
+          }
+        }
+      },
       "order_items_response": {
         "value": {
           "data": [
             {
               "order_id": "9151224232845",
               "number": "9151224232845",
-              "total_price": "2.00",
+              "total_price": 2,
               "total_quantity": 1,
               "status": "canceled",
-              "payment_method": "Lazada_GENERIC",
+              "payment": {
+                "method": "COD",
+                "status": "paid",
+                "amount": 2
+              },
               "ship_address": {
                 "country": "Singapore",
                 "state": "Singapore",
@@ -2645,10 +2723,14 @@
             {
               "order_id": "9170283050978",
               "number": "9170283050978",
-              "total_price": "1.00",
+              "total_price": 1,
               "total_quantity": 1,
               "status": "canceled",
-              "payment_method": "Lazada_GENERIC",
+              "payment": {
+                "method": "COD",
+                "status": "paid",
+                "amount": 1
+              },
               "ship_address": {
                 "country": "Singapore",
                 "state": "Singapore",
@@ -2699,62 +2781,6 @@
             "offset": 0,
             "limit": 10,
             "total": 2
-          }
-        }
-      },
-      "order_response": {
-        "value": {
-          "data": {
-            "order_id": "9151224232845",
-            "number": "9151224232845",
-            "total_price": "2.00",
-            "total_quantity": 1,
-            "status": "canceled",
-            "payment_method": "Lazada_GENERIC",
-            "ship_address": {
-              "country": "Singapore",
-              "state": "Singapore",
-              "city": "Singapore, Singapore",
-              "phone": "6590547759, 6590547759",
-              "zip_code": "549751",
-              "address": [
-                "21 DA SILVA LANE,",
-                "549751"
-              ]
-            },
-            "bill_address": {
-              "country": "Singapore",
-              "state": "Singapore",
-              "city": "Singapore, Singapore",
-              "phone": "6590547759, 6590547759",
-              "zip_code": "549751",
-              "address": [
-                "21 DA SILVA LANE,",
-                "549751"
-              ]
-            },
-            "last_import_date": "2019-06-07T20:47:26+00:00",
-            "customer": {
-              "firstname": "Christy Lee"
-            },
-            "line_items": [
-              {
-                "id": "9151224432845",
-                "name": "Short sleeve t-shirt",
-                "quantity": 1,
-                "price": 1.51,
-                "sku": "2468"
-              }
-            ],
-            "integration": {
-              "id": "shop_01",
-              "name": "Shop-01",
-              "channel": "LazadaSG",
-              "authorized": false,
-              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-              "created_at": "2019-06-07T00:06:52+00:00",
-              "updated_at": "2019-06-07T20:47:32+00:00"
-            }
           }
         }
       },
@@ -3028,7 +3054,7 @@
           }
         }
       },
-      "webhooks_items_response": {
+      "webhook_items_response": {
         "value": {
           "data": [
             {

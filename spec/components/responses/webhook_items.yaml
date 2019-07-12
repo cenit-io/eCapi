@@ -13,4 +13,4 @@ content:
 
     examples:
       Ex1:
-        $ref: '#/components/examples/webhooks_items_response'
+        $ref: '#/components/examples/webhook_items_response'

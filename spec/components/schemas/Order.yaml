@@ -8,16 +8,26 @@ properties:
     type: string
   total_price:
     description: Total amount for this order
-    type: string
+    type: number
   total_quantity:
-    description: Number of items in order
+    description: Number of items in this order
     type: integer
   status:
     description: Order status
     type: string
-  payment_method:
-    description: The method of the payment
-    type: string
+  payment:
+    description: The information of the payment
+    type: object
+    properties:
+      method:
+        description: The method of the payment
+        type: string
+      status:
+        description: The status of the payment
+        type: string
+      amount:
+        description: The amount of the payment
+        type: number
   ship_address:
     description: Shipping address
     allOf:

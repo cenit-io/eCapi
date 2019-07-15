@@ -1269,22 +1269,11 @@
             "description": "Order status",
             "type": "string"
           },
-          "payment": {
-            "description": "The information of the payment",
-            "type": "object",
-            "properties": {
-              "method": {
-                "description": "The method of the payment",
-                "type": "string"
-              },
-              "status": {
-                "description": "The status of the payment",
-                "type": "string"
-              },
-              "amount": {
-                "description": "The amount of the payment",
-                "type": "number"
-              }
+          "payments": {
+            "description": "The information of the payments",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Payment"
             }
           },
           "ship_address": {
@@ -1377,6 +1366,29 @@
           "total": {
             "description": "Limit",
             "type": "integer"
+          }
+        }
+      },
+      "Payment": {
+        "type": "object",
+        "description": "Payment",
+        "readOnly": true,
+        "properties": {
+          "method": {
+            "description": "The payment method",
+            "type": "string"
+          },
+          "amount": {
+            "description": "Total amount",
+            "type": "number"
+          },
+          "currency": {
+            "description": "The three-letter code ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format) for the shop currency\n",
+            "type": "string"
+          },
+          "status": {
+            "description": "The payment status",
+            "type": "string"
           }
         }
       },
@@ -2609,11 +2621,14 @@
             "total_price": 2,
             "total_quantity": 1,
             "status": "canceled",
-            "payment": {
-              "method": "COD",
-              "status": "paid",
-              "amount": 2
-            },
+            "payments": [
+              {
+                "method": "COD",
+                "status": "paid",
+                "currensy": "USD",
+                "amount": 2
+              }
+            ],
             "ship_address": {
               "country": "Singapore",
               "state": "Singapore",
@@ -2670,11 +2685,14 @@
               "total_price": 2,
               "total_quantity": 1,
               "status": "canceled",
-              "payment": {
-                "method": "COD",
-                "status": "paid",
-                "amount": 2
-              },
+              "payments": [
+                {
+                  "method": "COD",
+                  "status": "paid",
+                  "currensy": "USD",
+                  "amount": 2
+                }
+              ],
               "ship_address": {
                 "country": "Singapore",
                 "state": "Singapore",
@@ -2726,11 +2744,14 @@
               "total_price": 1,
               "total_quantity": 1,
               "status": "canceled",
-              "payment": {
-                "method": "COD",
-                "status": "paid",
-                "amount": 1
-              },
+              "payments": [
+                {
+                  "method": "COD",
+                  "status": "paid",
+                  "currensy": "USD",
+                  "amount": 1
+                }
+              ],
               "ship_address": {
                 "country": "Singapore",
                 "state": "Singapore",

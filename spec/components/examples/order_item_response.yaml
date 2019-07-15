@@ -5,10 +5,12 @@ value:
     total_price: 2.00
     total_quantity: 1
     status: "canceled"
-    payment:
-      method: "COD"
-      status: "paid"
-      amount: 2.00
+    payments:
+      -
+        method: "COD"
+        status: "paid"
+        currensy: "USD"
+        amount: 2.00
     ship_address:
       country: "Singapore"
       state: "Singapore"

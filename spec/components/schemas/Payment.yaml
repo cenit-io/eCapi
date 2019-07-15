@@ -1,0 +1,17 @@
+type: object
+description: Payment
+readOnly: true
+properties:
+  method:
+    description: The payment method
+    type: string
+  amount:
+    description: Total amount
+    type: number
+  currency:
+    description: |
+      The three-letter code ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format) for the shop currency
+    type: string
+  status:
+    description: The payment status
+    type: string

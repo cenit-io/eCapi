@@ -606,6 +606,19 @@ paths:
       responses:
         '303':
           $ref: '#/components/responses/sign_in'
+  /start_up:
+    get:
+      tags:
+        - Users
+      operationId: start_up_tenant
+      summary: START UP
+      description: |
+        Start up OMNA Commerce in the authenticated tenant.
+
+        > It is not necessary to call this service when the tenant has been created with the application or api of OMAN.
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item_start_up'
   /tasks:
     parameters:
       - $ref: '#/components/parameters/query_filter_term_for_tasks'
@@ -1430,6 +1443,18 @@ components:
             $ref: '#/components/schemas/Success'
           example:
             success: true
+    task_item_start_up:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Task'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/task_item_start_up_response'
     task_item:
       description: Success
       content:
@@ -2132,6 +2157,19 @@ components:
               - Apr
               - Jul
               - Oct
+    task_item_start_up_response:
+      value:
+        data:
+          id: 5cfe690b25d9854b3b02241b
+          status: completed
+          progress: 100
+          description: 'Start up the OMNA Commerce for the tenant: t1 / f8sf8f8f78dsf8v8fd87ff86'
+          created_at: '2019-06-10T14:28:27+00:00'
+          updated_at: '2019-06-10T14:28:43+00:00'
+          executions:
+            - status: completed
+              started_at: '2019-06-10T14:28:27+00:00'
+              completed_at: '2019-06-10T14:28:43+00:00'
     task_items_response:
       value:
         data:

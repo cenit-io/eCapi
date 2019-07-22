@@ -75,6 +75,9 @@
             "$ref": "#/components/parameters/query_filter_flow_type"
           },
           {
+            "$ref": "#/components/parameters/query_with_relations"
+          },
+          {
             "$ref": "#/components/parameters/query_offset"
           },
           {
@@ -643,6 +646,9 @@
           "$ref": "#/components/parameters/query_filter_integration"
         },
         {
+          "$ref": "#/components/parameters/query_with_relations"
+        },
+        {
           "$ref": "#/components/parameters/query_offset"
         },
         {
@@ -705,7 +711,7 @@
           "$ref": "#/components/parameters/query_filter_term_for_tasks"
         },
         {
-          "$ref": "#/components/parameters/query_task_status"
+          "$ref": "#/components/parameters/query_filter_task_status"
         },
         {
           "$ref": "#/components/parameters/query_offset"
@@ -937,6 +943,9 @@
           },
           {
             "$ref": "#/components/parameters/query_filter_integration"
+          },
+          {
+            "$ref": "#/components/parameters/query_with_relations"
           },
           {
             "$ref": "#/components/parameters/query_offset"
@@ -2223,6 +2232,15 @@
           "example": "shop_01"
         }
       },
+      "query_filter_task_status": {
+        "name": "status",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the tasks by ***status***.",
+          "type": "string",
+          "example": "5d029d6625d985755e02202c"
+        }
+      },
       "query_filter_term_for_flows": {
         "name": "term",
         "in": "query",
@@ -2314,13 +2332,13 @@
           "example": "http://my.example.com/home"
         }
       },
-      "query_task_status": {
-        "name": "status",
+      "query_with_relations": {
+        "name": "with_relations",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the tasks by ***status***.",
-          "type": "string",
-          "example": "5d029d6625d985755e02202c"
+          "description": "It allows to determine if the information of other related entities is included in the answer or not.",
+          "type": "boolean",
+          "example": true
         }
       }
     },

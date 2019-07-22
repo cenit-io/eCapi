@@ -1,0 +1,6 @@
+name: with_relations
+in: query
+schema:
+  description: It allows to determine if the information of other related entities is included in the answer or not.
+  type: boolean
+  example: true

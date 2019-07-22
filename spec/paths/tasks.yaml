@@ -1,6 +1,6 @@
 parameters:
   - $ref: '#/components/parameters/query_filter_term_for_tasks'
-  - $ref: '#/components/parameters/query_task_status'
+  - $ref: '#/components/parameters/query_filter_task_status'
   - $ref: '#/components/parameters/query_offset'
   - $ref: '#/components/parameters/query_limit'
 

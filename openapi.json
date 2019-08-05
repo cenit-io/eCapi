@@ -1426,17 +1426,17 @@
             "readOnly": true
           },
           "start_date": {
-            "description": "Date from which the task will begin executing",
+            "description": "Date from which the task will begin executing.\n\n**Format:** YYYY-MM-DD\n",
             "type": "string",
             "format": "date"
           },
           "end_date": {
-            "description": "Date from which the task will be stopped executing",
+            "description": "Date from which the task will be stopped executing\n\n**Format:** YYYY-MM-DD\n",
             "type": "string",
             "format": "date"
           },
           "time": {
-            "description": "Hour and minute in which the task will be executed",
+            "description": "Hour and minute in which the task will be executed\n\n**Format:** HH:MM\n",
             "type": "string",
             "format": "time"
           },

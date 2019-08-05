@@ -1120,15 +1120,24 @@ components:
           type: boolean
           readOnly: true
         start_date:
-          description: Date from which the task will begin executing
+          description: |
+            Date from which the task will begin executing.
+
+            **Format:** YYYY-MM-DD
           type: string
           format: date
         end_date:
-          description: Date from which the task will be stopped executing
+          description: |
+            Date from which the task will be stopped executing
+
+            **Format:** YYYY-MM-DD
           type: string
           format: date
         time:
-          description: Hour and minute in which the task will be executed
+          description: |
+            Hour and minute in which the task will be executed
+
+            **Format:** HH:MM
           type: string
           format: time
         days_of_week:

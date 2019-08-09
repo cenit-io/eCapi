@@ -2,6 +2,7 @@ parameters:
   - $ref: '#/components/parameters/path_task_id'
 
 get:
+  deprecated: true
   tags:
     - Tasks
   operationId: destroy_task

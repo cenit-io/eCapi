@@ -2,6 +2,7 @@ parameters:
   - $ref: '#/components/parameters/path_tenant_id'
 
 get:
+  deprecated: true
   tags:
     - Users
   operationId: destroy_tenant

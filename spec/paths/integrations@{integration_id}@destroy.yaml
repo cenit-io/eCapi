@@ -1,6 +1,7 @@
 parameters:
   - $ref: '#/components/parameters/path_integration_id'
 get:
+  deprecated: true
   tags:
     - Integrations
   operationId: destroy_integration

@@ -1,16 +1,13 @@
-/*
- See current_tenant, base_url and sign_params
- in 'LIST ALL INTEGRATIONS' service.
-*/
+// See Authentication section to sign any request.
+let integration_id = 'shop_01';
 
-const delete_integration = (id) => {
-  const path = 'integrations/' + id;
-  // Call to service using jQuery
-  return $.ajax({ url: base_url + path, type: 'DELETE', data: sign_params(path) });
-};
+let request = axios({
+  method: 'DELETE',
+  url: 'integrations/' + integration_id
+});
 
-delete_integration('shop_01').done((response) => {
-  console.log(response)
-}).fail((response) => {
-  console.error(response)
+request.then((response) => {
+  console.log(response.data);
+}).catch((error) => {
+  console.log(error.response ? error.response.data : error.message);
 });

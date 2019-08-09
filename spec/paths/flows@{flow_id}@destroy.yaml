@@ -1,6 +1,7 @@
 parameters:
   - $ref: '#/components/parameters/path_flow_id'
 get:
+  deprecated: true
   tags:
     - Flows
   operationId: destroy_flow

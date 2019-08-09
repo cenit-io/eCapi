@@ -1,23 +1,13 @@
-/*
- See current_tenant, base_url and sign_params
- in 'LIST ALL INTEGRATIONS' service.
-*/
+// See Authentication section to sign any request.
 
-const create_integration = (params) => {
-  const path = 'integrations';
-  // Call to service using jQuery
-  return $.post({
-    url: base_url + path,
-    data: JSON.stringify(sign_params(path, params)),
-    dataType: 'json',
-    contentType: 'application/json'
-  })
-};
-
-create_integration({
+let request = axios({
+  method: 'POST',
+  url: 'integrations',
   data: { name: "Shop-01", channel: "LazadaSG" }
-}).done((response) => {
-  console.log(response)
-}).fail((response) => {
-  console.error(response)
+});
+
+request.then((response) => {
+  console.log(response.data);
+}).catch((error) => {
+  console.log(error.response ? error.response.data : error.message);
 });

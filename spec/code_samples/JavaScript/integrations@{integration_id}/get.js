@@ -1,16 +1,14 @@
-/*
- See current_tenant, base_url and sign_params
- in 'LIST ALL INTEGRATIONS' service.
-*/
+// See Authentication section to sign any request.
 
-const get_integration = (id) => {
-  const path = 'integrations/' + id;
-  // Call to service using jQuery
-  return $.getJSON({ url: base_url + path, data: sign_params(path) });
-};
+let integration_id = 'shop_01';
 
-get_integration('shop_01').done((response) => {
-  console.log(response)
-}).fail((response) => {
-  console.error(response)
+let request = axios({
+  method: 'GET',
+  url: 'integrations/' + integration_id
+});
+
+request.then((response) => {
+  console.log(response.data);
+}).catch((error) => {
+  console.log(error.response ? error.response.data : error.message);
 });

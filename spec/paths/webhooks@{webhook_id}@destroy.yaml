@@ -2,6 +2,7 @@ parameters:
   - $ref: '#/components/parameters/path_webhook_id'
 
 get:
+  deprecated: true
   tags:
     - Webhooks
   operationId: destroy_webhook

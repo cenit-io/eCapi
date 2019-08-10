@@ -175,6 +175,7 @@
         }
       ],
       "get": {
+        "deprecated": true,
         "tags": [
           "Flows"
         ],
@@ -267,7 +268,7 @@
         "x-code-samples": [
           {
             "lang": "JavaScript",
-            "source": "const\n  current_tenant = { token: '....', secret: '...' },\n  base_url = 'http://cenit.io/app/ecapi-v1/',\n\n  sign_params = (path, params) => {\n    params = params || {};\n\n    // Add token and timestamp parameters.\n    params.token = current_tenant.token;\n    params.timestamp = Date.now();\n\n    // Join the service path and the ordered sequence of characters, excluding the quotes,\n    // corresponding to the JSON of the parameters that will be sent.\n    msg = path + JSON.stringify(params).replace(/[\"']/g, '').split('').sort().join('');\n\n    // Generate the corresponding hmac using the js-sha256 or similar library.\n    params.hmac = sha256.hmac.update(current_tenant.secret, msg).hex();\n\n    return params;\n  },\n\n  get_integrations = (params) => {\n    const path = 'integrations';\n    // Call to service using jQuery\n    return $.getJSON({ url: base_url + path, data: sign_params(path, params) });\n  };\n\nget_integrations({ limit: 10, offset: 0, channel: 'LazadaSG' }).done((response) => {\n  console.log(response)\n}).fail((response) => {\n  console.error(response)\n});\n\n"
+            "source": "// See Authentication section to sign any request.\n\nlet request = axios({\n  method: 'GET',\n  url: 'integrations',\n  params: { limit: 10, offset: 0, channel: 'LazadaSG' }\n});\n\nrequest.then((response) => {\n  console.log(response.data);\n}).catch((error) => {\n  console.log(error.response ? error.response.data : error.message);\n});\n\n"
           }
         ]
       },
@@ -292,7 +293,7 @@
         "x-code-samples": [
           {
             "lang": "JavaScript",
-            "source": "/*\n See current_tenant, base_url and sign_params\n in 'LIST ALL INTEGRATIONS' service.\n*/\n\nconst create_integration = (params) => {\n  const path = 'integrations';\n  // Call to service using jQuery\n  return $.post({\n    url: base_url + path,\n    data: JSON.stringify(sign_params(path, params)),\n    dataType: 'json',\n    contentType: 'application/json'\n  })\n};\n\ncreate_integration({\n  data: { name: \"Shop-01\", channel: \"LazadaSG\" }\n}).done((response) => {\n  console.log(response)\n}).fail((response) => {\n  console.error(response)\n});"
+            "source": "// See Authentication section to sign any request.\n\nlet request = axios({\n  method: 'POST',\n  url: 'integrations',\n  data: { name: \"Shop-01\", channel: \"LazadaSG\" }\n});\n\nrequest.then((response) => {\n  console.log(response.data);\n}).catch((error) => {\n  console.log(error.response ? error.response.data : error.message);\n});"
           }
         ]
       }
@@ -321,7 +322,7 @@
         "x-code-samples": [
           {
             "lang": "JavaScript",
-            "source": "/*\n See current_tenant, base_url and sign_params\n in 'LIST ALL INTEGRATIONS' service.\n*/\n\nconst get_integration = (id) => {\n  const path = 'integrations/' + id;\n  // Call to service using jQuery\n  return $.getJSON({ url: base_url + path, data: sign_params(path) });\n};\n\nget_integration('shop_01').done((response) => {\n  console.log(response)\n}).fail((response) => {\n  console.error(response)\n});"
+            "source": "// See Authentication section to sign any request.\n\nlet integration_id = 'shop_01';\n\nlet request = axios({\n  method: 'GET',\n  url: 'integrations/' + integration_id\n});\n\nrequest.then((response) => {\n  console.log(response.data);\n}).catch((error) => {\n  console.log(error.response ? error.response.data : error.message);\n});"
           }
         ]
       },
@@ -343,7 +344,7 @@
         "x-code-samples": [
           {
             "lang": "JavaScript",
-            "source": "/*\n See current_tenant, base_url and sign_params\n in 'LIST ALL INTEGRATIONS' service.\n*/\n\nconst delete_integration = (id) => {\n  const path = 'integrations/' + id;\n  // Call to service using jQuery\n  return $.ajax({ url: base_url + path, type: 'DELETE', data: sign_params(path) });\n};\n\ndelete_integration('shop_01').done((response) => {\n  console.log(response)\n}).fail((response) => {\n  console.error(response)\n});"
+            "source": "// See Authentication section to sign any request.\nlet integration_id = 'shop_01';\n\nlet request = axios({\n  method: 'DELETE',\n  url: 'integrations/' + integration_id\n});\n\nrequest.then((response) => {\n  console.log(response.data);\n}).catch((error) => {\n  console.log(error.response ? error.response.data : error.message);\n});"
           }
         ]
       }
@@ -393,6 +394,7 @@
         }
       ],
       "get": {
+        "deprecated": true,
         "tags": [
           "Integrations"
         ],
@@ -406,13 +408,7 @@
           "404": {
             "$ref": "#/components/responses/integration_not_found"
           }
-        },
-        "x-code-samples": [
-          {
-            "lang": "JavaScript",
-            "source": "/*\n See current_tenant, base_url and sign_params\n in 'LIST ALL INTEGRATIONS' service.\n*/\n\nconst destroy_integration = (id) => {\n  const path = 'integrations/' + id + '/destroy';\n  // Call to service using jQuery\n  return $.getJSON({ url: base_url + path, data: sign_params(path) });\n};\n\ndestroy_integration('shop_01').done((response) => {\n  console.log(response)\n}).fail((response) => {\n  console.error(response)\n});"
-          }
-        ]
+        }
       }
     },
     "/integrations/{integration_id}/flows": {
@@ -780,6 +776,7 @@
         }
       ],
       "get": {
+        "deprecated": true,
         "tags": [
           "Tasks"
         ],
@@ -910,6 +907,7 @@
         }
       ],
       "get": {
+        "deprecated": true,
         "tags": [
           "Users"
         ],
@@ -1042,6 +1040,7 @@
         }
       ],
       "get": {
+        "deprecated": true,
         "tags": [
           "Webhooks"
         ],
@@ -2473,48 +2472,13 @@
               "integration": {
                 "id": "shop_01",
                 "name": "Shop-01",
-                "channel": "LazadaSG",
-                "authorized": true,
-                "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-                "created_at": "2019-06-07T00:06:52+00:00",
-                "updated_at": "2019-06-07T20:47:32+00:00"
+                "channel": "LazadaSG"
               },
               "task": {
                 "id": "5cfe690b25d9854b3b02241b",
                 "status": "completed",
                 "progress": 100,
                 "description": "Importing last updated orders from 'Shop-01' integration.",
-                "created_at": "2019-06-10T14:28:27+00:00",
-                "updated_at": "2019-06-10T14:28:43+00:00",
-                "executions": [
-                  {
-                    "status": "completed",
-                    "started_at": "2019-06-10T14:28:27+00:00",
-                    "completed_at": "2019-06-10T14:28:43+00:00"
-                  }
-                ],
-                "notifications": [
-                  {
-                    "type": "info",
-                    "message": "Imported order 17851977370457 from Shop-01 integration."
-                  },
-                  {
-                    "type": "info",
-                    "message": "Imported order 8834309804556 from Shop-01 integration."
-                  },
-                  {
-                    "type": "info",
-                    "message": "Imported order 16159781406633 from Shop-01 integration."
-                  },
-                  {
-                    "type": "info",
-                    "message": "Importing form 1 to 3."
-                  },
-                  {
-                    "type": "info",
-                    "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
-                  }
-                ],
                 "scheduler": {
                   "active": true,
                   "start_date": "2019-06-20",
@@ -2784,11 +2748,7 @@
               "integration": {
                 "id": "shop_01",
                 "name": "Shop-01",
-                "channel": "LazadaSG",
-                "authorized": false,
-                "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-                "created_at": "2019-06-07T00:06:52+00:00",
-                "updated_at": "2019-06-07T20:47:32+00:00"
+                "channel": "LazadaSG"
               }
             },
             {
@@ -2950,35 +2910,6 @@
               "description": "Importing last updated orders from 'Shop-01' integration.",
               "created_at": "2019-06-10T13:35:27+00:00",
               "updated_at": "2019-06-10T13:35:43+00:00",
-              "executions": [
-                {
-                  "status": "completed",
-                  "started_at": "2019-06-10T13:35:27+00:00",
-                  "completed_at": "2019-06-10T13:35:43+00:00"
-                }
-              ],
-              "notifications": [
-                {
-                  "type": "info",
-                  "message": "Imported order 17851977370457 from Shop-01 integration."
-                },
-                {
-                  "type": "info",
-                  "message": "Imported order 8834309804556 from Shop-01 integration."
-                },
-                {
-                  "type": "info",
-                  "message": "Imported order 16159781406633 from Shop-01 integration."
-                },
-                {
-                  "type": "info",
-                  "message": "Importing form 1 to 3."
-                },
-                {
-                  "type": "info",
-                  "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
-                }
-              ],
               "scheduler": {
                 "active": true,
                 "start_date": "2019-06-20",
@@ -3008,36 +2939,7 @@
               "progress": 100,
               "description": "Importing last updated orders from 'Shop-01' integration.",
               "created_at": "2019-06-10T13:35:27+00:00",
-              "updated_at": "2019-06-10T13:35:43+00:00",
-              "executions": [
-                {
-                  "status": "completed",
-                  "started_at": "2019-06-10T13:35:27+00:00",
-                  "completed_at": "2019-06-10T13:35:43+00:00"
-                }
-              ],
-              "notifications": [
-                {
-                  "type": "info",
-                  "message": "Imported order 37851977370457 from Shop-01 integration."
-                },
-                {
-                  "type": "info",
-                  "message": "Imported order 2834309804556 from Shop-01 integration."
-                },
-                {
-                  "type": "info",
-                  "message": "Imported order 36159781406633 from Shop-01 integration."
-                },
-                {
-                  "type": "info",
-                  "message": "Importing form 1 to 3."
-                },
-                {
-                  "type": "info",
-                  "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
-                }
-              ]
+              "updated_at": "2019-06-10T13:35:43+00:00"
             }
           ],
           "pagination": {
@@ -3056,7 +2958,12 @@
             "secret": "42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38",
             "deactivation": "2019-07-03T15:48:57+00:00",
             "created_at": "2019-05-02T18:16:34+00:00",
-            "updated_at": "2019-06-03T15:48:57+00:00"
+            "updated_at": "2019-06-03T15:48:57+00:00",
+            "user": {
+              "name": "Alejandro Pérez Pérez",
+              "email": "alepp@example.com",
+              "picture": "http://example.com/users/pictures/alepp.png"
+            }
           }
         }
       },
@@ -3065,19 +2972,21 @@
           "data": [
             {
               "id": "f8sf8f8f78dsf8v8fd87ff86",
-              "name": "main_omna",
+              "name": "tenant_01",
               "token": "rXfNJmFUpsyv3zocVolI",
               "secret": "42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38",
               "deactivation": "2019-07-03T15:48:57+00:00",
+              "is_ready_to_omna": true,
               "created_at": "2019-05-02T18:16:34+00:00",
               "updated_at": "2019-06-03T15:48:57+00:00"
             },
             {
               "id": "7d78jdudsdsd997dskds89d8",
-              "name": "omna-develop@omna-ii",
+              "name": "tenant_02",
               "token": "DG8W9yz6hXJjpP9SVoXv",
               "secret": "e11875f2a1611d98ca87e867d9898f045b72ef09e0b3ac737477e897c6972cce",
               "deactivation": "2019-06-06T20:55:24+00:00",
+              "is_ready_to_omna": false,
               "created_at": "2019-05-07T15:11:16+00:00",
               "updated_at": "2019-05-13T19:58:28+00:00"
             }
@@ -3086,24 +2995,6 @@
             "offset": 0,
             "limit": 10,
             "total": 2
-          }
-        }
-      },
-      "user_item_response": {
-        "value": {
-          "data": {
-            "name": "Alejandro Pérez Pérez",
-            "email": "alepp@example.com",
-            "picture": "http://example.com/users/pictures/alepp.png",
-            "tenant": {
-              "id": "f8sf8f8f78dsf8v8fd87ff86",
-              "name": "main_omna",
-              "token": "rXfNJmFUpsyv3zocVolI",
-              "secret": "42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38",
-              "deactivation": "2019-07-03T15:48:57+00:00",
-              "created_at": "2019-05-02T18:16:34+00:00",
-              "updated_at": "2019-06-03T15:48:57+00:00"
-            }
           }
         }
       },
@@ -3157,11 +3048,7 @@
               "integration": {
                 "id": "shop_01",
                 "name": "Shop-01",
-                "channel": "LazadaSG",
-                "authorized": true,
-                "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-                "created_at": "2019-06-07T00:06:52+00:00",
-                "updated_at": "2019-06-07T20:47:32+00:00"
+                "channel": "LazadaSG"
               },
               "created_at": "2019-06-07T00:06:52+00:00",
               "updated_at": "2019-06-07T20:47:32+00:00"
@@ -3332,7 +3219,7 @@
         "type": "apiKey",
         "name": "hmac",
         "in": "query",
-        "description": "Keyed-Hash message authentication code.\n\n> Each service request must includes an hmac parameter, which is generated using the tenant's\n  secret along with service path and the data sent in the request.\n\n### Examples:\n\n#### JavaScript\n```JavaScript\n  // Add token and timestamp parameters.\n  params.token = current_tenant.token;\n  params.timestamp = Date.now();\n\n  // Join the service path and the ordered sequence of characters, excluding the quotes,\n  // corresponding to the JSON of the parameters that will be sent.\n  msg = path + JSON.stringify(params).replace(/[\"']/g, '').split('').sort().join('')\n\n  // Generate the corresponding hmac using the js-sha256 or similar library.\n  params.hmac = sha256.hmac.update(current_tenant.secret, msg).hex()\n```\n"
+        "description": "Keyed-Hash message authentication code.\n\n> Each service request must includes an hmac parameter, which is generated using the tenant's\n  secret along with service path and the data sent in the request.\n\n### Examples:\n\n#### JavaScript\n```JavaScript\n  const current_tenant = { token: '....', secret: '...' };\n\n  axios.defaults.baseURL = 'https://cenit.io/app/ecapi-v1/';\n  axios.defaults.headers.post['Content-Type'] = 'application/json';\n  axios.defaults.headers.put['Content-Type'] = 'application/json';\n\n  // Interceptors to sign any request.\n  axios.interceptors.request.use((config) => {\n    // Add token and timestamp to URL parameters.\n    config.params = Object.assign({}, config.params, { token: current_tenant.token, timestamp: Date.now() });\n\n    // Merge all URL parameters and body data to be sent with the request.\n    let data = Object.assign({}, config.params, config.data);\n\n    // Join the service path and the ordered sequence of characters, excluding the quotes,\n    // corresponding to the JSON of the parameters that will be sent.\n    let msg = config.url + JSON.stringify(data).replace(/[\"']/g, '').split('').sort().join('');\n\n    // Generate the corresponding hmac parameter using the js-sha256 or similar library.\n    config.params.hmac = sha256.hmac.update(current_tenant.secret, msg).hex();\n\n    return config;\n  });\n```\n"
       },
       "Timestamp": {
         "description": "The timestamp of the request with less than 7200 secounds difference from UTC time.\n",

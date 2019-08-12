@@ -610,6 +610,8 @@ paths:
       summary: UNPUBLISH A PRODUCT
       description: |
         Unpublish a product in the given integrations.
+
+        > The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
       requestBody:
         $ref: '#/components/requestBodies/product_unpublish'
       responses:
@@ -2678,7 +2680,12 @@ components:
                     type: array
                     items:
                       type: string
-                  destroy:
+                  delete_from_integration:
+                    description: |
+                      Sets whether the product should be removed from the remote integration source.
+                    type: boolean
+                    default: false
+                  delete_from_omna:
                     description: |
                       Sets whether the product should be removed from OMNA if it is not published in at least one integration
                     type: boolean

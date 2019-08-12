@@ -767,7 +767,7 @@
         ],
         "operationId": "delete_product_beta",
         "summary": "UNPUBLISH A PRODUCT",
-        "description": "Unpublish a product in the given integrations.\n",
+        "description": "Unpublish a product in the given integrations.\n\n> The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/product_unpublish"
         },
@@ -3698,7 +3698,12 @@
                         "type": "string"
                       }
                     },
-                    "destroy": {
+                    "delete_from_integration": {
+                      "description": "Sets whether the product should be removed from the remote integration source.\n",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "delete_from_omna": {
                       "description": "Sets whether the product should be removed from OMNA if it is not published in at least one integration\n",
                       "type": "boolean",
                       "default": false

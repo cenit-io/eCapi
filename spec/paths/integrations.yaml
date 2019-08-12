@@ -22,7 +22,7 @@ post:
   description: |
     Creates a new integration object from a given name and channel.
   requestBody:
-    $ref: '#/components/requestBodies/create_integration'
+    $ref: '#/components/requestBodies/integration_create'
   responses:
     '200':
       $ref: '#/components/responses/integration_item'

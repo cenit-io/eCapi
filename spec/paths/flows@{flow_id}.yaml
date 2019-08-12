@@ -22,7 +22,7 @@ post:
   description: |
     Find flow by given id and update it scheduler.
   requestBody:
-    $ref: '#/components/requestBodies/update_flow'
+    $ref: '#/components/requestBodies/flow_update'
   responses:
     '200':
       $ref: '#/components/responses/flow_item'

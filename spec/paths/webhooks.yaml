@@ -24,7 +24,7 @@ post:
   description: |
     Create a new webhook subscription for an integration by specifying an address and a subject.
   requestBody:
-    $ref: '#/components/requestBodies/create_webhook'
+    $ref: '#/components/requestBodies/webhook_create'
   responses:
     '200':
       $ref: '#/components/responses/webhook_item'

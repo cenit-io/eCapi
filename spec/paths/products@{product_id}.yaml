@@ -22,7 +22,7 @@ post:
   description: |
     Update the common properties of a product.
   requestBody:
-    $ref: '#/components/requestBodies/update_product'
+    $ref: '#/components/requestBodies/product_update'
   responses:
     '200':
       $ref: '#/components/responses/product_item'
@@ -37,7 +37,7 @@ put:
   description: |
     Publish a product in the given integrations.
   requestBody:
-    $ref: '#/components/requestBodies/publish_product'
+    $ref: '#/components/requestBodies/product_publish'
   responses:
     '200':
       $ref: '#/components/responses/task_item'
@@ -52,7 +52,7 @@ delete:
   description: |
     Unpublish a product in the given integrations.
   requestBody:
-    $ref: '#/components/requestBodies/unpublish_product'
+    $ref: '#/components/requestBodies/product_unpublish'
   responses:
     '200':
       $ref: '#/components/responses/task_item'

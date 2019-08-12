@@ -21,7 +21,7 @@ post:
   description: |
     Create a new tenant.
   requestBody:
-    $ref: '#/components/requestBodies/create_tenant'
+    $ref: '#/components/requestBodies/tenant_create'
   responses:
     '200':
       $ref: '#/components/responses/tenant_item'

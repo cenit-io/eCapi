@@ -24,7 +24,7 @@ post:
   description: |
     Create flow settings from a given name and channel.
   requestBody:
-    $ref: '#/components/requestBodies/create_flow'
+    $ref: '#/components/requestBodies/flow_create'
   responses:
     '200':
       $ref: '#/components/responses/flow_item'

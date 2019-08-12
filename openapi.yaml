@@ -32,6 +32,10 @@ tags:
     description: |
       Operations about flows.
       The flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be executed manually or automated through the configuration and activation of their schedulers. For example, the user can want to receive products form an integration 1 and orders form another integration.
+  - name: Tasks
+    description: |
+      Each of the actions that make up the api generate one or more tasks when are process. In the details of the task
+      we can find information about the processing triggered by the action like status, fulfillment %, notifications, etc.
   - name: Webhooks
     description: |
       A webhook is a hook through which a notification is sent to a URL of user choice when a certain event occurs.
@@ -79,10 +83,6 @@ tags:
 
         raise 'The request is not valid...' if hmac1 != hmac2
       ```
-  - name: Tasks
-    description: |
-      Each of the actions that make up the api generate one or more tasks when are process. In the details of the task
-      we can find information about the processing triggered by the action like status, fulfillment %, notifications, etc.
   - name: Users
     description: |
       User represent a person or a company, it is a user in Cenit System.
@@ -105,7 +105,7 @@ paths:
         - $ref: '#/components/parameters/query_filter_term_for_flows'
         - $ref: '#/components/parameters/query_filter_integration'
         - $ref: '#/components/parameters/query_filter_flow_type'
-        - $ref: '#/components/parameters/query_with_relations'
+        - $ref: '#/components/parameters/query_with_details'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
       responses:
@@ -527,7 +527,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/query_filter_term_for_orders'
       - $ref: '#/components/parameters/query_filter_integration'
-      - $ref: '#/components/parameters/query_with_relations'
+      - $ref: '#/components/parameters/query_with_details'
       - $ref: '#/components/parameters/query_offset'
       - $ref: '#/components/parameters/query_limit'
     get:
@@ -734,7 +734,7 @@ paths:
         - $ref: '#/components/parameters/query_filter_term_for_webhooks'
         - $ref: '#/components/parameters/query_filter_webhook_topic'
         - $ref: '#/components/parameters/query_filter_integration'
-        - $ref: '#/components/parameters/query_with_relations'
+        - $ref: '#/components/parameters/query_with_details'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
       responses:
@@ -1710,11 +1710,12 @@ components:
         description: URI to back after do sign_in or authorization
         type: string
         example: 'http://my.example.com/home'
-    query_with_relations:
-      name: with_relations
+    query_with_details:
+      name: with_details
       in: query
       schema:
-        description: It allows to determine if the information of other related entities is included in the answer or not.
+        description: |
+          It allows to determine if the detailed information of other related entities is included in the answer or not.
         type: boolean
         example: true
   examples:
@@ -2053,10 +2054,6 @@ components:
               id: shop_01
               name: Shop-01
               channel: LazadaSG
-              authorized: false
-              last_import_orders_date: '2019-06-07T20:47:14+00:00'
-              created_at: '2019-06-07T00:06:52+00:00'
-              updated_at: '2019-06-07T20:47:32+00:00'
         pagination:
           offset: 0
           limit: 10

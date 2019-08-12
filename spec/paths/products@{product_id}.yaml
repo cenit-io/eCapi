@@ -51,6 +51,8 @@ delete:
   summary: UNPUBLISH A PRODUCT
   description: |
     Unpublish a product in the given integrations.
+
+    > The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
   requestBody:
     $ref: '#/components/requestBodies/product_unpublish'
   responses:

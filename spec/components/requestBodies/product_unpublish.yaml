@@ -13,7 +13,12 @@ content:
               type: array
               items:
                 type: string
-            destroy:
+            delete_from_integration:
+              description: |
+                Sets whether the product should be removed from the remote integration source.
+              type: boolean
+              default: false
+            delete_from_omna:
               description: |
                 Sets whether the product should be removed from OMNA if it is not published in at least one integration
               type: boolean

@@ -27,6 +27,10 @@
       "description": "Operations about orders\n"
     },
     {
+      "name": "Products",
+      "description": "Operations about products and their variants.\n"
+    },
+    {
       "name": "Flows",
       "description": "Operations about flows.\nThe flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be executed manually or automated through the configuration and activation of their schedulers. For example, the user can want to receive products form an integration 1 and orders form another integration.\n"
     },
@@ -98,7 +102,7 @@
         "summary": "CREATE A FLOW",
         "description": "Create flow settings from a given name and channel.\n",
         "requestBody": {
-          "$ref": "#/components/requestBodies/create_flow"
+          "$ref": "#/components/requestBodies/flow_create"
         },
         "responses": {
           "200": {
@@ -140,7 +144,7 @@
         "summary": "UPDATE A FLOW SCHEDULER",
         "description": "Find flow by given id and update it scheduler.\n",
         "requestBody": {
-          "$ref": "#/components/requestBodies/update_flow"
+          "$ref": "#/components/requestBodies/flow_update"
         },
         "responses": {
           "200": {
@@ -280,7 +284,7 @@
         "summary": "CREATE AN INTEGRATION",
         "description": "Creates a new integration object from a given name and channel.\n",
         "requestBody": {
-          "$ref": "#/components/requestBodies/create_integration"
+          "$ref": "#/components/requestBodies/integration_create"
         },
         "responses": {
           "200": {
@@ -665,6 +669,118 @@
         }
       }
     },
+    "/products": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_products"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_integration"
+        },
+        {
+          "$ref": "#/components/parameters/query_with_details"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "get_products_beta",
+        "summary": "LIST ALL PRODUCTS",
+        "description": "Retrieves a list of products.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_items"
+          }
+        }
+      }
+    },
+    "/products/{product_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_product_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "get_product_beta",
+        "summary": "RETRIEVE A PRODUCT",
+        "description": "Retrieves a single product by given id.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "update_product_beta",
+        "summary": "UPDATE A PRODUCT",
+        "description": "Update the common properties of a product.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/product_update"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "publish_product_beta",
+        "summary": "PUBLISH A PRODUCT",
+        "description": "Publish a product in the given integrations.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/product_publish"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "delete_product_beta",
+        "summary": "UNPUBLISH A PRODUCT",
+        "description": "Unpublish a product in the given integrations.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/product_unpublish"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      }
+    },
     "/sign_in": {
       "parameters": [
         {
@@ -849,7 +965,7 @@
         "summary": "CREATE A TENANT",
         "description": "Create a new tenant.\n",
         "requestBody": {
-          "$ref": "#/components/requestBodies/create_tenant"
+          "$ref": "#/components/requestBodies/tenant_create"
         },
         "responses": {
           "200": {
@@ -966,7 +1082,7 @@
         "summary": "CREATE A WEBHOOK",
         "description": "Create a new webhook subscription for an integration by specifying an address and a subject.\n",
         "requestBody": {
-          "$ref": "#/components/requestBodies/create_webhook"
+          "$ref": "#/components/requestBodies/webhook_create"
         },
         "responses": {
           "200": {
@@ -1193,7 +1309,7 @@
             "type": "string"
           },
           "channel": {
-            "description": "Channel identifier",
+            "description": "Integration channel identifier",
             "type": "string"
           },
           "authorized": {
@@ -1411,6 +1527,107 @@
           },
           "status": {
             "description": "The payment status",
+            "type": "string"
+          }
+        }
+      },
+      "Product": {
+        "description": "Product representation in OMNA",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Product identifier",
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "description": "Product name",
+            "type": "string"
+          },
+          "description": {
+            "description": "Product description",
+            "type": "string"
+          },
+          "price": {
+            "description": "Product price",
+            "type": "number",
+            "minimum": 0
+          },
+          "integrations": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/ProductIntegration"
+            }
+          }
+        }
+      },
+      "ProductIntegration": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Integration identifier",
+            "type": "string"
+          },
+          "name": {
+            "description": "Integration name",
+            "type": "string"
+          },
+          "channel": {
+            "description": "Integration channel identifier",
+            "type": "string"
+          },
+          "product": {
+            "description": "Details of the remote product of the integration",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identifier of the remote product of the integration",
+                "type": "string"
+              },
+              "name": {
+                "description": "Name of the remote product of the integration",
+                "type": "string"
+              },
+              "category_id": {
+                "description": "Category identifier of the remote product of the integration",
+                "type": "string"
+              },
+              "properties": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ProductProperty"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ProductProperty": {
+        "type": "object",
+        "properties": {
+          "property_id": {
+            "description": "Property identifier",
+            "type": "string"
+          },
+          "name": {
+            "description": "Property name",
+            "type": "string"
+          },
+          "label": {
+            "description": "Property label",
+            "type": "string"
+          },
+          "required": {
+            "description": "Property name",
+            "type": "boolean"
+          },
+          "input_type": {
+            "description": "Property input component type",
+            "type": "string"
+          },
+          "value": {
+            "description": "Value of the property in the product instance",
             "type": "string"
           }
         }
@@ -1886,6 +2103,67 @@
           }
         }
       },
+      "product_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_item_response"
+              }
+            }
+          }
+        }
+      },
+      "product_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "Product representations in OMNA",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_items_response"
+              }
+            }
+          }
+        }
+      },
+      "product_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found product with id: 5d04051125d9852c71016793"
+            }
+          }
+        }
+      },
       "sign_in": {
         "description": "Redirect to given URI.\n\n> Redirect to given URI passing the token and the secret of the tenant of the authenticated user.\n\n### Example redirect to:\n```\nhttp://my.example.com/home?token=rXfNJmFUpsyv3zocVolI&secret=42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38\n```\n"
       },
@@ -2174,6 +2452,16 @@
           "example": 9170283050978
         }
       },
+      "path_product_id": {
+        "name": "product_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Product identifier",
+          "type": "string",
+          "example": "5d04051125d9852c71016793"
+        }
+      },
       "path_task_id": {
         "name": "task_id",
         "in": "path",
@@ -2263,6 +2551,15 @@
         "in": "query",
         "schema": {
           "description": "Allow to filter the orders that contain the value of the term in their ***number*** or ***status***.",
+          "type": "string",
+          "example": "pending"
+        }
+      },
+      "query_filter_term_for_products": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the products that contain the value of the term in their ***name***.",
           "type": "string",
           "example": "pending"
         }
@@ -2814,6 +3111,190 @@
           }
         }
       },
+      "product_item_response": {
+        "value": {
+          "data": {
+            "id": "5d48c54125d9852031005fc3",
+            "name": "IPod Nano - 8GB",
+            "description": "It's the small iPod with one very big idea: Video...",
+            "price": 199,
+            "variants": 1,
+            "integrations": [
+              {
+                "id": "shop_01",
+                "name": "Shop-01",
+                "channel": "LazadaSG",
+                "product": {
+                  "id": "5d48c54125d98520240061b9",
+                  "api_id": "289247362",
+                  "category_id": "10001946",
+                  "properties": [
+                    {
+                      "property_id": "warranty_type",
+                      "name": "warranty_type",
+                      "label": "Warranty Type",
+                      "required": false,
+                      "input_type": "single_select",
+                      "options": [
+                        "International Manufacturer Warranty",
+                        "International Seller Warranty",
+                        "Local (Singapore) manufacturer warranty",
+                        "Local seller warranty",
+                        "No Warranty",
+                        "Non-local warranty"
+                      ],
+                      "value": "International Manufacturer Warranty"
+                    },
+                    {
+                      "property_id": "warranty",
+                      "name": "warranty",
+                      "label": "Warranty Period",
+                      "required": false,
+                      "input_type": "single_select",
+                      "options": [
+                        "1 Month",
+                        "1 Year",
+                        "10 Months",
+                        "10 Years",
+                        "11 Months",
+                        "12 Years",
+                        "15 Years",
+                        "18 Months",
+                        "2 Months",
+                        "2 Years",
+                        "25 Years",
+                        "3 Months",
+                        "3 Years",
+                        "30 Years",
+                        "4 Months",
+                        "4 Years",
+                        "5 Months",
+                        "5 Years",
+                        "6 Months",
+                        "6 Years",
+                        "7 Months",
+                        "7 Years",
+                        "8 Months",
+                        "8 Years",
+                        "9 Months",
+                        "Life Time Warranty"
+                      ],
+                      "value": "1 Month"
+                    },
+                    {
+                      "property_id": "brand",
+                      "name": "brand",
+                      "label": "Brand",
+                      "required": true,
+                      "input_type": "single_select",
+                      "value": "No Brand"
+                    },
+                    {
+                      "property_id": "delivery_option_economy",
+                      "name": "delivery_option_economy",
+                      "label": "Delivery Option Economy",
+                      "required": false,
+                      "input_type": "single_select",
+                      "options": [
+                        "No",
+                        "Yes"
+                      ],
+                      "value": "Yes"
+                    },
+                    {
+                      "property_id": "short_description",
+                      "name": "short_description",
+                      "label": "Highlights",
+                      "required": true,
+                      "input_type": "rich_text",
+                      "value": "It's the small iPod with one very big idea"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "product_items_response": {
+        "value": {
+          "data": [
+            {
+              "id": "5d48c54125d9852031005fc3",
+              "name": "IPod Nano - 8GB",
+              "description": "It's the small iPod with one very big idea: Video...",
+              "price": 199,
+              "last_import_date": "2019-08-06T00:09:37+00:00",
+              "integrations": [
+                {
+                  "id": "shop_01",
+                  "name": "Shop-01",
+                  "channel": "LazadaSG",
+                  "product": {
+                    "id": "5d48c54125d98520240061b9",
+                    "api_id": "289247362",
+                    "category_id": "10001946"
+                  }
+                }
+              ],
+              "variants": 1
+            },
+            {
+              "id": "5d48c54025d9852031005fb7",
+              "name": "IPod Touch 8GB",
+              "description": "The iPod Touch has the iPhone's multi-touch interface...",
+              "price": 199,
+              "last_import_date": "2019-08-06T00:09:35+00:00",
+              "integrations": [
+                {
+                  "id": "shop_01",
+                  "name": "Shop-01",
+                  "channel": "LazadaSG",
+                  "product": {
+                    "id": "5d48c53f25d985201200aa79",
+                    "api_id": "339382531",
+                    "category_id": "10001946"
+                  }
+                }
+              ],
+              "variants": 1
+            }
+          ],
+          "pagination": {
+            "offset": 0,
+            "limit": 10,
+            "total": 2
+          }
+        }
+      },
+      "product_publish_request": {
+        "value": {
+          "data": {
+            "integration_ids": [
+              "shop_01",
+              "shop_02",
+              "shop_05"
+            ]
+          }
+        }
+      },
+      "product_update_request_1": {
+        "summary": "Update price",
+        "value": {
+          "data": {
+            "price": 159
+          }
+        }
+      },
+      "product_update_request_2": {
+        "summary": "Update name and price",
+        "value": {
+          "data": {
+            "name": "IPod Nano - 4GB",
+            "price": 159
+          }
+        }
+      },
       "task_item_response": {
         "value": {
           "data": {
@@ -3059,7 +3540,7 @@
       }
     },
     "requestBodies": {
-      "create_flow": {
+      "flow_create": {
         "description": "Flow that will be added to the system",
         "required": true,
         "content": {
@@ -3085,7 +3566,35 @@
           }
         }
       },
-      "create_integration": {
+      "flow_update": {
+        "description": "Flow scheduler that will be updated",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "scheduler": {
+                      "$ref": "#/components/schemas/Scheduler"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/flow_update_request"
+              }
+            }
+          }
+        }
+      },
+      "integration_create": {
         "description": "Integration that will be added to the system",
         "required": true,
         "content": {
@@ -3137,7 +3646,102 @@
           }
         }
       },
-      "create_tenant": {
+      "product_publish": {
+        "description": "Product properties that will be updated",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "integration_ids": {
+                      "description": "Integrations IDs",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_publish_request"
+              }
+            }
+          }
+        }
+      },
+      "product_unpublish": {
+        "description": "Product properties that will be updated",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "integration_ids": {
+                      "description": "Integrations IDs",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "destroy": {
+                      "description": "Sets whether the product should be removed from OMNA if it is not published in at least one integration\n",
+                      "type": "boolean",
+                      "default": false
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_publish_request"
+              }
+            }
+          }
+        }
+      },
+      "product_update": {
+        "description": "Product properties that will be updated",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_update_request_1"
+              },
+              "Ex2": {
+                "$ref": "#/components/examples/product_update_request_2"
+              }
+            }
+          }
+        }
+      },
+      "tenant_create": {
         "description": "Tenant that will be added to the system",
         "required": true,
         "content": {
@@ -3155,7 +3759,7 @@
           }
         }
       },
-      "create_webhook": {
+      "webhook_create": {
         "description": "Webhook that will be added to the system",
         "required": true,
         "content": {
@@ -3176,34 +3780,6 @@
               },
               "Ex2": {
                 "$ref": "#/components/examples/webhook_create_request_2"
-              }
-            }
-          }
-        }
-      },
-      "update_flow": {
-        "description": "Flow scheduler that will be updated",
-        "required": true,
-        "content": {
-          "application/json": {
-            "schema": {
-              "required": [
-                "data"
-              ],
-              "properties": {
-                "data": {
-                  "type": "object",
-                  "properties": {
-                    "scheduler": {
-                      "$ref": "#/components/schemas/Scheduler"
-                    }
-                  }
-                }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/flow_update_request"
               }
             }
           }

@@ -1,0 +1,7 @@
+name: with_details
+in: query
+schema:
+  description: |
+    It allows to determine if the detailed information of other related entities is included in the answer or not.
+  type: boolean
+  example: true

@@ -1,0 +1,8 @@
+description: Not found
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/Success'
+    example:
+      success: false
+      message: "Not found product with id: 5d04051125d9852c71016793"

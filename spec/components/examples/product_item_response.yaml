@@ -1,0 +1,84 @@
+value:
+  data:
+    id: 5d48c54125d9852031005fc3
+    name: IPod Nano - 8GB
+    description: "It's the small iPod with one very big idea: Video..."
+    price: 199.0
+    variants: 1
+
+    integrations:
+    - id: shop_01
+      name: Shop-01
+      channel: LazadaSG
+      product:
+        id: 5d48c54125d98520240061b9
+        api_id: '289247362'
+        category_id: '10001946'
+        properties:
+        - property_id: warranty_type
+          name: warranty_type
+          label: Warranty Type
+          required: false
+          input_type: single_select
+          options:
+          - International Manufacturer Warranty
+          - International Seller Warranty
+          - Local (Singapore) manufacturer warranty
+          - Local seller warranty
+          - No Warranty
+          - Non-local warranty
+          value: International Manufacturer Warranty
+        - property_id: warranty
+          name: warranty
+          label: Warranty Period
+          required: false
+          input_type: single_select
+          options:
+          - 1 Month
+          - 1 Year
+          - 10 Months
+          - 10 Years
+          - 11 Months
+          - 12 Years
+          - 15 Years
+          - 18 Months
+          - 2 Months
+          - 2 Years
+          - 25 Years
+          - 3 Months
+          - 3 Years
+          - 30 Years
+          - 4 Months
+          - 4 Years
+          - 5 Months
+          - 5 Years
+          - 6 Months
+          - 6 Years
+          - 7 Months
+          - 7 Years
+          - 8 Months
+          - 8 Years
+          - 9 Months
+          - Life Time Warranty
+          value: 1 Month
+        - property_id: brand
+          name: brand
+          label: Brand
+          required: true
+          input_type: single_select
+          value: No Brand
+        - property_id: delivery_option_economy
+          name: delivery_option_economy
+          label: Delivery Option Economy
+          required: false
+          input_type: single_select
+          options:
+          - 'No'
+          - 'Yes'
+          value: Yes
+        - property_id: short_description
+          name: short_description
+          label: Highlights
+          required: true
+          input_type: rich_text
+          value: It's the small iPod with one very big idea

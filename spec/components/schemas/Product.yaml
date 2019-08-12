@@ -1,0 +1,23 @@
+description: Product representation in OMNA
+type: object
+properties:
+  id:
+    description: Product identifier
+    type: string
+    readOnly: true
+  name:
+    description: Product name
+    type: string
+  description:
+    description: Product description
+    type: string
+  price:
+    description: Product price
+    type: number
+    minimum: 0
+
+  integrations:
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/components/schemas/ProductIntegration"

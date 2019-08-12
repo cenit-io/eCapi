@@ -1,0 +1,17 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        data:
+          description: Product representations in OMNA
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        pagination:
+            $ref: '#/components/schemas/Pagination'
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/product_items_response'

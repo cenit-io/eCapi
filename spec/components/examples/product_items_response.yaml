@@ -1,0 +1,36 @@
+value:
+  data:
+    - id: 5d48c54125d9852031005fc3
+      name: IPod Nano - 8GB
+      description: "It's the small iPod with one very big idea: Video..."
+      price: 199.0
+      last_import_date: '2019-08-06T00:09:37+00:00'
+      integrations:
+      - id: shop_01
+        name: Shop-01
+        channel: LazadaSG
+        product:
+          id: 5d48c54125d98520240061b9
+          api_id: '289247362'
+          category_id: '10001946'
+      variants: 1
+
+    - id: 5d48c54025d9852031005fb7
+      name: IPod Touch 8GB
+      description: "The iPod Touch has the iPhone's multi-touch interface..."
+      price: 199.00
+      last_import_date: '2019-08-06T00:09:35+00:00'
+      integrations:
+      - id: shop_01
+        name: Shop-01
+        channel: LazadaSG
+        product:
+          id: 5d48c53f25d985201200aa79
+          api_id: '339382531'
+          category_id: '10001946'
+      variants: 1
+
+  pagination:
+    offset: 0
+    limit: 10
+    total: 2

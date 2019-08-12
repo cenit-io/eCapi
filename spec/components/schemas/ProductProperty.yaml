@@ -1,0 +1,20 @@
+type: object
+properties:
+  property_id:
+    description: Property identifier
+    type: string
+  name:
+    description: Property name
+    type: string
+  label:
+    description: Property label
+    type: string
+  required:
+    description: Property name
+    type: boolean
+  input_type:
+    description: Property input component type
+    type: string
+  value:
+    description: Value of the property in the product instance
+    type: string

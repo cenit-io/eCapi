@@ -1,0 +1,60 @@
+parameters:
+  - $ref: '#/components/parameters/path_product_id'
+
+get:
+  tags:
+    - Products
+  operationId: get_product_beta
+  summary: RETRIEVE A PRODUCT
+  description: |
+    Retrieves a single product by given id.
+  responses:
+    '200':
+      $ref: '#/components/responses/product_item'
+    '404':
+      $ref: '#/components/responses/product_not_found'
+
+post:
+  tags:
+    - Products
+  operationId: update_product_beta
+  summary: UPDATE A PRODUCT
+  description: |
+    Update the common properties of a product.
+  requestBody:
+    $ref: '#/components/requestBodies/update_product'
+  responses:
+    '200':
+      $ref: '#/components/responses/product_item'
+    '404':
+      $ref: '#/components/responses/product_not_found'
+
+put:
+  tags:
+    - Products
+  operationId: publish_product_beta
+  summary: PUBLISH A PRODUCT
+  description: |
+    Publish a product in the given integrations.
+  requestBody:
+    $ref: '#/components/requestBodies/publish_product'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/product_not_found'
+      
+delete:
+  tags:
+    - Products
+  operationId: delete_product_beta
+  summary: UNPUBLISH A PRODUCT
+  description: |
+    Unpublish a product in the given integrations.
+  requestBody:
+    $ref: '#/components/requestBodies/unpublish_product'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/product_not_found'

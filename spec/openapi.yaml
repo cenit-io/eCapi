@@ -37,6 +37,10 @@ tags:
     description: |
       Operations about orders
 
+  - name: Products
+    description: |
+      Operations about products and their variants.
+
   - name: Flows
     description: >
       Operations about flows.

@@ -1,0 +1,24 @@
+description: Product properties that will be updated
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          type: object
+          properties:
+            integration_ids:
+              description: Integrations IDs
+              type: array
+              items:
+                type: string
+            destroy:
+              description: |
+                Sets whether the product should be removed from OMNA if it is not published in at least one integration
+              type: boolean
+              default: false
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/product_publish_request'

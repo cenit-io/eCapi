@@ -10,7 +10,7 @@ properties:
     description: Integration name
     type: string
   channel:
-    description: Channel identifier
+    description: Integration channel identifier
     type: string
   authorized:
     description: If integration is authorized or not

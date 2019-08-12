@@ -1,0 +1,15 @@
+description: Product properties that will be updated
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          $ref: "#/components/schemas/Product"
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/product_update_request_1'
+      Ex2:
+        $ref: '#/components/examples/product_update_request_2'

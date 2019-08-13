@@ -8,7 +8,6 @@ parameters:
 get:
   tags:
     - Flows
-    - Integrations
   operationId: get_integration_flows
   summary: LIST ALL FLOWS FROM AN INTEGRATION
   description: |

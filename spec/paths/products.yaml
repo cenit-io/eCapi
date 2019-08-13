@@ -9,7 +9,7 @@ get:
   tags:
     - Products
   operationId: get_products_beta
-  summary: LIST ALL PRODUCTS
+  summary: List all Products
   description: |
     Retrieves a list of products.
   responses:

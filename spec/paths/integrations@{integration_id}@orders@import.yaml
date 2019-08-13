@@ -4,7 +4,7 @@ get:
   tags:
     - Orders
   operationId: import_orders
-  summary: IMPORT UPDATED ORDERS FROM INTEGRATION
+  summary: Import updated Orders from an Integration
   description: |
     Import the last updated orders from an integration
   responses:

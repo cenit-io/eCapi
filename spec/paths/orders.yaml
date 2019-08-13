@@ -9,7 +9,7 @@ get:
   tags:
     - Orders
   operationId: get_orders
-  summary: LIST ALL ORDERS
+  summary: List all Orders
   description: |
     Returns the list of orders.
   responses:

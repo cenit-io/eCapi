@@ -6,7 +6,7 @@ get:
   tags:
     - Tasks
   operationId: destroy_task
-  summary: DESTROY A TASK
+  summary: Destroy a Task
   description: |
     Find task by given id and destroy it.
 

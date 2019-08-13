@@ -2,7 +2,7 @@ get:
   tags:
     - Flows
   operationId: get_flows
-  summary: LIST ALL FLOWS
+  summary: List all Flows
   description: |
     Returns the list of flows settings.
   parameters:
@@ -20,7 +20,7 @@ post:
   tags:
     - Flows
   operationId: create_flow
-  summary: CREATE A FLOW
+  summary: Create a Flow
   description: |
     Create flow settings from a given name and channel.
   requestBody:

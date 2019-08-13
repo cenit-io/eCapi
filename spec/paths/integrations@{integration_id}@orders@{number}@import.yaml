@@ -5,7 +5,7 @@ get:
   tags:
     - Orders
   operationId: import_order
-  summary: IMPORT A SINGLE ORDER FROM AN INTEGRATION
+  summary: Import a single Order from an Integration
   description: |
     Import a specific order from an integration
   responses:

@@ -4,7 +4,7 @@ get:
   tags:
     - Flows
   operationId: toggle_flow_scheduler_status
-  summary: TOGGLE A SCHEDULER STATUS
+  summary: Toggle a Scheduler status
   description: |
     Find flow by given id and activate or deactivate its scheduler.
   responses:

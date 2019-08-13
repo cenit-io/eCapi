@@ -5,7 +5,7 @@ get:
   tags:
     - Integrations
   operationId: authorize_integration
-  summary: RETRIEVE AN INTEGRATION AUTHORIATION
+  summary: Retrieve the Authorization
   description: >
     Find integration by given id and redirect navigation to authorization uri.
   parameters:
@@ -18,7 +18,7 @@ delete:
   tags:
     - Integrations
   operationId: deauthorize_integration
-  summary: CANCEL AN INTEGRATION AUTHORIATION
+  summary: Cancel the Authorization
   description: |
     Find integration by given id and disallow their connection.
 

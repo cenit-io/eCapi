@@ -5,7 +5,7 @@ get:
   tags:
     - Products
   operationId: get_product_beta
-  summary: RETRIVE AN PRODUCT FROM AN INTEGRATION
+  summary: Retrive an Product from an Integration
   description: |
     Find product by given id and returns it.
   responses:

@@ -5,7 +5,7 @@ get:
   tags:
     - Flows
   operationId: destroy_flow
-  summary: DESTROY A FLOW
+  summary: Destroy a Flow
   description: |
     Find flow by given id and destroy it.
   responses:

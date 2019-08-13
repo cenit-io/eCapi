@@ -5,7 +5,7 @@ get:
   tags:
     - Flows
   operationId: get_flow
-  summary: RETRIEVE A FLOW
+  summary: Retrieve a Flow
   description: |
     Find flow by given id and returns it.
   responses:
@@ -18,7 +18,7 @@ post:
   tags:
     - Flows
   operationId: update_flow
-  summary: UPDATE A FLOW SCHEDULER
+  summary: Update a Flow Scheduler
   description: |
     Find flow by given id and update it scheduler.
   requestBody:
@@ -33,7 +33,7 @@ delete:
   tags:
     - Flows
   operationId: delete_flow
-  summary: DELETE A FLOW
+  summary: Delete a Flow
   description: |
     Find flow by given id and destroy it.
   responses:

@@ -5,7 +5,7 @@ get:
   tags:
     - Products
   operationId: get_product_beta
-  summary: RETRIEVE A PRODUCT
+  summary: Retrieve a Product
   description: |
     Retrieves a single product by given id.
   responses:
@@ -18,7 +18,7 @@ post:
   tags:
     - Products
   operationId: update_product_beta
-  summary: UPDATE A PRODUCT
+  summary: Update a Product
   description: |
     Update the common properties of a product.
   requestBody:
@@ -33,7 +33,7 @@ put:
   tags:
     - Products
   operationId: publish_product_beta
-  summary: PUBLISH A PRODUCT
+  summary: Publish a Product
   description: |
     Publish a product in the given integrations.
   requestBody:
@@ -48,7 +48,7 @@ delete:
   tags:
     - Products
   operationId: delete_product_beta
-  summary: UNPUBLISH A PRODUCT
+  summary: Unpublish a Product
   description: |
     Unpublish a product in the given integrations.
 

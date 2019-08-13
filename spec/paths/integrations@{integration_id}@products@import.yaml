@@ -4,7 +4,7 @@ get:
   tags:
     - Products
   operationId: import_products
-  summary: IMPORT UPDATED PRODUCTS FROM INTEGRATION
+  summary: Import updated Products from an Integration
   description: |
     Import the last updated products from an integration
   responses:

@@ -6,7 +6,7 @@ get:
   tags:
     - Webhooks
   operationId: destroy_webhook
-  summary: DESTROY A WEBHOOK
+  summary: Destroy a Webhook
   description: |
     Find webhook by given id and destroy it.
   responses:

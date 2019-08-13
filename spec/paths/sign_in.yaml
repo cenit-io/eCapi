@@ -5,7 +5,7 @@ get:
   tags:
     - Users
   operationId: sign_in
-  summary: SIGN IN
+  summary: Sign in
   security: []
   description: |
     Authenticate in OMNA to obtain the token and the secret of the tenant of the authenticated user.

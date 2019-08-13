@@ -5,7 +5,7 @@ get:
   tags:
     - Tasks
   operationId: get_task
-  summary: RETRIEVE A TASK
+  summary: Retrieve a Task
   description: |
     Find task by given id and returns it.
   responses:
@@ -18,7 +18,7 @@ delete:
   tags:
     - Tasks
   operationId: delete_task
-  summary: DELETE A TASK
+  summary: Delete a Task
   description: |
     Find task by given id and delete it.
 

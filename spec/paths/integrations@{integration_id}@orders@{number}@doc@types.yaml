@@ -6,7 +6,7 @@ get:
   tags:
     - Orders
   operationId: get_order_doc_types
-  summary: LIST ALL DOCUMENT TYPES FROM AN ORDER
+  summary: List all Document Types from an Order
   description: |
     Return the list of types of order documents
   responses:

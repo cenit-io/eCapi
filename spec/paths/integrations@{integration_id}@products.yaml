@@ -8,7 +8,7 @@ get:
   tags:
     - Products
   operationId: get_integration_products_beta
-  summary: LIST ALL PRODUCTS FROM AN INTEGRATION
+  summary: List all Products from an Integration
   description: |
     Returns the product list of a specific integration.
   responses:

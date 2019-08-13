@@ -4,7 +4,7 @@ get:
   tags:
     - Flows
   operationId: start_flow
-  summary: START A FLOW
+  summary: Start a Flow
   description: >
     Find flow by given id and start its processing.
 

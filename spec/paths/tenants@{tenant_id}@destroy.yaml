@@ -6,7 +6,7 @@ get:
   tags:
     - Users
   operationId: destroy_tenant
-  summary: DESTROY A TENANT
+  summary: Destroy a Tenant
   description: |
     Find tenant by given id and destroy it.
   responses:

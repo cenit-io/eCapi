@@ -2,7 +2,7 @@ get:
   tags:
     - Webhooks
   operationId: get_webhooks
-  summary: LIST ALL WEBHOOKS
+  summary: List all Webhooks
   description: |
     Returns the list of webhooks settings.
   parameters:
@@ -20,7 +20,7 @@ post:
   tags:
     - Webhooks
   operationId: create_webhook
-  summary: CREATE A WEBHOOK
+  summary: Create a Webhook
   description: |
     Create a new webhook subscription for an integration by specifying an address and a subject.
   requestBody:

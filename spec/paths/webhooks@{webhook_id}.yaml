@@ -5,7 +5,7 @@ get:
   tags:
     - Webhooks
   operationId: get_webhook
-  summary: RETRIEVE A WEBHOOK
+  summary: Retrieve a Webhook
   description: |
     Find webhook by given id and returns it.
   responses:
@@ -18,7 +18,7 @@ delete:
   tags:
     - Webhooks
   operationId: delete_webhook
-  summary: DELETE A WEBHOOK
+  summary: Delete a Webhook
   description: |
     Find webhook by given id and delete it.
   responses:
@@ -31,7 +31,7 @@ post:
   tags:
     - Webhooks
   operationId: update_webhook
-  summary: UPDATE A WEBHOOK
+  summary: Update a Webhook
   description: |
     Find webhook by given id and update it.
   responses:

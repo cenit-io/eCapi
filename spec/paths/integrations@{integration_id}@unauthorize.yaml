@@ -6,7 +6,7 @@ get:
   tags:
     - Integrations
   operationId: unauthorize_integration
-  summary: CANCEL AN INTEGRATION AUTHORIZATION
+  summary: Cancel the Authorization
   description: |
     Find integration by given id and disallow their connection.
 

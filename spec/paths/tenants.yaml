@@ -2,7 +2,7 @@ get:
   tags:
     - Users
   operationId: get_tenants
-  summary: LIST ALL TENANT
+  summary: List all Tenant
   description: |
     Returns the list of tenants of authenticated user.
   parameters:
@@ -17,7 +17,7 @@ post:
   tags:
     - Users
   operationId: create_tenant
-  summary: CREATE A TENANT
+  summary: Create a Tenant
   description: |
     Create a new tenant.
   requestBody:

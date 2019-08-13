@@ -5,7 +5,7 @@ get:
   tags:
     - Tasks
   operationId: retry_task
-  summary: RETRY A TASK
+  summary: Retry a Task
   description: |
     Find a task for the given id and retry its execution.
 

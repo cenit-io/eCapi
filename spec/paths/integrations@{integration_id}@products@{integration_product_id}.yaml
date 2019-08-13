@@ -1,0 +1,15 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+  - $ref: '#/components/parameters/path_integration_product_id'
+get:
+  tags:
+    - Products
+  operationId: get_product_beta
+  summary: RETRIVE AN PRODUCT FROM AN INTEGRATION
+  description: |
+    Find product by given id and returns it.
+  responses:
+    '200':
+      $ref: '#/components/responses/product_item'
+    '404':
+      $ref: '#/components/responses/product_not_found'

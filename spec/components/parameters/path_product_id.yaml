@@ -2,6 +2,6 @@ name: product_id
 in: path
 required: true
 schema:
-  description: Product identifier
+  description: Product identifier in OMNA
   type: string
   example: 5d04051125d9852c71016793

@@ -1,0 +1,15 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+  - $ref: '#/components/parameters/path_integration_product_id'
+get:
+  tags:
+    - Products
+  operationId: import_product
+  summary: IMPORT A SINGLE PRODUCT FROM AN INTEGRATION
+  description: |
+    Import a specific product from an integration
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/integration_not_found'

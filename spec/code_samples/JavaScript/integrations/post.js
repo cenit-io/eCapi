@@ -1,4 +1,4 @@
-// See Authentication section to sign any request.
+// See the authentication section to learn how to sign any request.
 
 let request = axios({
   method: 'POST',
@@ -7,7 +7,7 @@ let request = axios({
 });
 
 request.then((response) => {
-  console.log(response.data);
+  // Do something with the response
 }).catch((error) => {
-  console.log(error.response ? error.response.data : error.message);
+  // Do something with the error
 });

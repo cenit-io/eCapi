@@ -1,5 +1,19 @@
 # OMNA API OpenAPI Specification
 [![Build Status](https://travis-ci.com/cenit-io/eCapi.svg?branch=master)](https://travis-ci.com/cenit-io/eCapi)
+
+## Introduction
+
+The OMNA Commerce API is simple connection point to integrate multiple sales channels, such us 
+marketplaces and integration platforms.
+
+An easy way to get orders, synchronize inventory and list product information to commerce solutions around the globe.
+
+We are starting for marketplaces in Southeast Asia (Shopee, Lazada) but we will continue to make it global.
+
+It is built on top of an integration platform https://cenit.io
+
+This API is for individual retailers, SaaS services, or any business that needs to handle multiples commerce integrations.
+
 ## Steps to finish
 
 1. Enable [Travis](https://docs.travis-ci.com/user/getting-started/#To-get-started-with-Travis-CI%3A) for your repository (**note**: you already have `.travis.yml` file)

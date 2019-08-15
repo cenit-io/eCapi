@@ -101,7 +101,7 @@ paths:
       tags:
         - Flows
       operationId: get_flows
-      summary: LIST ALL FLOWS
+      summary: List all Flows
       description: |
         Returns the list of flows settings.
       parameters:
@@ -118,7 +118,7 @@ paths:
       tags:
         - Flows
       operationId: create_flow
-      summary: CREATE A FLOW
+      summary: Create a Flow
       description: |
         Create flow settings from a given name and channel.
       requestBody:
@@ -135,7 +135,7 @@ paths:
       tags:
         - Flows
       operationId: get_flow
-      summary: RETRIEVE A FLOW
+      summary: Retrieve a Flow
       description: |
         Find flow by given id and returns it.
       responses:
@@ -147,7 +147,7 @@ paths:
       tags:
         - Flows
       operationId: update_flow
-      summary: UPDATE A FLOW SCHEDULER
+      summary: Update a Flow Scheduler
       description: |
         Find flow by given id and update it scheduler.
       requestBody:
@@ -161,7 +161,7 @@ paths:
       tags:
         - Flows
       operationId: delete_flow
-      summary: DELETE A FLOW
+      summary: Delete a Flow
       description: |
         Find flow by given id and destroy it.
       responses:
@@ -177,7 +177,7 @@ paths:
       tags:
         - Flows
       operationId: destroy_flow
-      summary: DESTROY A FLOW
+      summary: Destroy a Flow
       description: |
         Find flow by given id and destroy it.
       responses:
@@ -192,7 +192,7 @@ paths:
       tags:
         - Flows
       operationId: start_flow
-      summary: START A FLOW
+      summary: Start a Flow
       description: |
         Find flow by given id and start its processing.
 
@@ -209,7 +209,7 @@ paths:
       tags:
         - Flows
       operationId: toggle_flow_scheduler_status
-      summary: TOGGLE A SCHEDULER STATUS
+      summary: Toggle a Scheduler status
       description: |
         Find flow by given id and activate or deactivate its scheduler.
       responses:
@@ -222,7 +222,7 @@ paths:
       tags:
         - Integrations
       operationId: get_integrations
-      summary: LIST ALL INTEGRATIONS
+      summary: List all IntegrationS
       description: |
         Returns the list of your integrations.
       parameters:
@@ -236,7 +236,7 @@ paths:
       x-code-samples:
         - lang: JavaScript
           source: |+
-            // See Authentication section to sign any request.
+            // See the authentication section to learn how to sign any request.
 
             let request = axios({
               method: 'GET',
@@ -245,16 +245,16 @@ paths:
             });
 
             request.then((response) => {
-              console.log(response.data);
+              // Do something with the response
             }).catch((error) => {
-              console.log(error.response ? error.response.data : error.message);
+              // Do something with the error
             });
 
     post:
       tags:
         - Integrations
       operationId: create_integration
-      summary: CREATE AN INTEGRATION
+      summary: Create an Integration
       description: |
         Creates a new integration object from a given name and channel.
       requestBody:
@@ -267,7 +267,7 @@ paths:
       x-code-samples:
         - lang: JavaScript
           source: |-
-            // See Authentication section to sign any request.
+            // See the authentication section to learn how to sign any request.
 
             let request = axios({
               method: 'POST',
@@ -276,9 +276,9 @@ paths:
             });
 
             request.then((response) => {
-              console.log(response.data);
+              // Do something with the response
             }).catch((error) => {
-              console.log(error.response ? error.response.data : error.message);
+              // Do something with the error
             });
   '/integrations/{integration_id}':
     parameters:
@@ -287,7 +287,7 @@ paths:
       tags:
         - Integrations
       operationId: get_integration_settings
-      summary: RETRIEVE AN INTEGRATION
+      summary: Retrieve an Integration
       description: |
         Find integration by given id and returns it.
       responses:
@@ -298,7 +298,7 @@ paths:
       x-code-samples:
         - lang: JavaScript
           source: |-
-            // See Authentication section to sign any request.
+            // See the authentication section to learn how to sign any request.
 
             let integration_id = 'shop_01';
 
@@ -308,15 +308,15 @@ paths:
             });
 
             request.then((response) => {
-              console.log(response.data);
+              // Do something with the response
             }).catch((error) => {
-              console.log(error.response ? error.response.data : error.message);
+              // Do something with the error
             });
     delete:
       tags:
         - Integrations
       operationId: delete_integration
-      summary: DELETE AN INTEGRATION
+      summary: Delete an Integration
       description: |
         Find integration by given id and destroy it.
 
@@ -329,7 +329,8 @@ paths:
       x-code-samples:
         - lang: JavaScript
           source: |-
-            // See Authentication section to sign any request.
+            // See the authentication section to learn how to sign any request.
+
             let integration_id = 'shop_01';
 
             let request = axios({
@@ -338,9 +339,9 @@ paths:
             });
 
             request.then((response) => {
-              console.log(response.data);
+              // Do something with the response
             }).catch((error) => {
-              console.log(error.response ? error.response.data : error.message);
+              // Do something with the error
             });
   '/integrations/{integration_id}/authorize':
     parameters:
@@ -349,7 +350,7 @@ paths:
       tags:
         - Integrations
       operationId: authorize_integration
-      summary: RETRIEVE AN INTEGRATION AUTHORIATION
+      summary: Retrieve the Authorization
       description: |
         Find integration by given id and redirect navigation to authorization uri.
       parameters:
@@ -361,7 +362,7 @@ paths:
       tags:
         - Integrations
       operationId: deauthorize_integration
-      summary: CANCEL AN INTEGRATION AUTHORIATION
+      summary: Cancel the Authorization
       description: |
         Find integration by given id and disallow their connection.
 
@@ -377,7 +378,7 @@ paths:
       tags:
         - Integrations
       operationId: destroy_integration
-      summary: DESTROY AN INTEGRATION
+      summary: Destroy an Integration
       description: |
         Find integration by given id and destroy it.
 
@@ -397,9 +398,8 @@ paths:
     get:
       tags:
         - Flows
-        - Integrations
       operationId: get_integration_flows
-      summary: LIST ALL FLOWS FROM AN INTEGRATION
+      summary: List all Flows from an Integration
       description: |
         Returns the flow list of a specific integration.
       responses:
@@ -414,9 +414,8 @@ paths:
     get:
       tags:
         - Orders
-        - Integrations
       operationId: get_integration_orders
-      summary: LIST ALL ORDERS FROM AN INTEGRATION
+      summary: List all Orders from an Integration
       description: |
         Returns the order list of a specific integration.
       responses:
@@ -430,7 +429,7 @@ paths:
       tags:
         - Orders
       operationId: get_order
-      summary: RETRIVE AN ORDER FROM AN INTEGRATION
+      summary: Retrive an Order from an Integration
       description: |
         Find order by given id and returns it.
       responses:
@@ -447,7 +446,7 @@ paths:
       tags:
         - Orders
       operationId: get_order_doc
-      summary: RETRIEVE A DOCUMENT FROM AN ORDER
+      summary: Retrieve a Document from an Order
       description: |
         Retrieve a specific document of the order.
 
@@ -463,7 +462,7 @@ paths:
       tags:
         - Orders
       operationId: get_order_doc_types
-      summary: LIST ALL DOCUMENT TYPES FROM AN ORDER
+      summary: List all Document Types from an Order
       description: |
         Return the list of types of order documents
       responses:
@@ -477,7 +476,7 @@ paths:
       tags:
         - Orders
       operationId: import_order
-      summary: IMPORT A SINGLE ORDER FROM AN INTEGRATION
+      summary: Import a single Order from an Integration
       description: |
         Import a specific order from an integration
       responses:
@@ -492,9 +491,72 @@ paths:
       tags:
         - Orders
       operationId: import_orders
-      summary: IMPORT UPDATED ORDERS FROM INTEGRATION
+      summary: Import updated Orders from an Integration
       description: |
         Import the last updated orders from an integration
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/integration_not_found'
+  '/integrations/{integration_id}/products':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+      - $ref: '#/components/parameters/query_filter_term_for_products'
+      - $ref: '#/components/parameters/query_offset'
+      - $ref: '#/components/parameters/query_limit'
+    get:
+      tags:
+        - Products
+      operationId: get_integration_products_beta
+      summary: List all Products from an Integration
+      description: |
+        Returns the product list of a specific integration.
+      responses:
+        '200':
+          $ref: '#/components/responses/product_items'
+  '/integrations/{integration_id}/products/{remote_product_id}':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+      - $ref: '#/components/parameters/path_remote_product_id'
+    get:
+      tags:
+        - Products
+      operationId: get_integration_product_beta
+      summary: Retrive an Product from an Integration
+      description: |
+        Find product by given id and returns it.
+      responses:
+        '200':
+          $ref: '#/components/responses/product_item'
+        '404':
+          $ref: '#/components/responses/product_not_found'
+  '/integrations/{integration_id}/products/{remote_product_id}/import':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+      - $ref: '#/components/parameters/path_remote_product_id'
+    get:
+      tags:
+        - Products
+      operationId: import_integration_product
+      summary: Import a single Product from an Integration
+      description: |
+        Import a specific product from an integration
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/integration_not_found'
+  '/integrations/{integration_id}/products/import':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+    get:
+      tags:
+        - Products
+      operationId: import_products
+      summary: Import updated Products from an Integration
+      description: |
+        Import the last updated products from an integration
       responses:
         '200':
           $ref: '#/components/responses/task_item'
@@ -504,10 +566,11 @@ paths:
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
     get:
+      deprecated: true
       tags:
         - Integrations
       operationId: unauthorize_integration
-      summary: CANCEL AN INTEGRATION AUTHORIZATION
+      summary: Cancel the Authorization
       description: |
         Find integration by given id and disallow their connection.
 
@@ -520,7 +583,7 @@ paths:
       tags:
         - Integrations
       operationId: get_integration_channels
-      summary: LIST ALL INTEGRATION CHANNELS
+      summary: List all Integration Channels
       description: |
         Returns the list of integration channels availables.
       responses:
@@ -537,7 +600,7 @@ paths:
       tags:
         - Orders
       operationId: get_orders
-      summary: LIST ALL ORDERS
+      summary: List all Orders
       description: |
         Returns the list of orders.
       responses:
@@ -554,7 +617,7 @@ paths:
       tags:
         - Products
       operationId: get_products_beta
-      summary: LIST ALL PRODUCTS
+      summary: List all Products
       description: |
         Retrieves a list of products.
       responses:
@@ -567,7 +630,7 @@ paths:
       tags:
         - Products
       operationId: get_product_beta
-      summary: RETRIEVE A PRODUCT
+      summary: Retrieve a Product
       description: |
         Retrieves a single product by given id.
       responses:
@@ -579,7 +642,7 @@ paths:
       tags:
         - Products
       operationId: update_product_beta
-      summary: UPDATE A PRODUCT
+      summary: Update a Product
       description: |
         Update the common properties of a product.
       requestBody:
@@ -593,7 +656,7 @@ paths:
       tags:
         - Products
       operationId: publish_product_beta
-      summary: PUBLISH A PRODUCT
+      summary: Publish a Product
       description: |
         Publish a product in the given integrations.
       requestBody:
@@ -607,7 +670,7 @@ paths:
       tags:
         - Products
       operationId: delete_product_beta
-      summary: UNPUBLISH A PRODUCT
+      summary: Unpublish a Product
       description: |
         Unpublish a product in the given integrations.
 
@@ -626,7 +689,7 @@ paths:
       tags:
         - Users
       operationId: sign_in
-      summary: SIGN IN
+      summary: Sign in
       security: []
       description: |
         Authenticate in OMNA to obtain the token and the secret of the tenant of the authenticated user.
@@ -641,7 +704,7 @@ paths:
       tags:
         - Users
       operationId: start_up_tenant
-      summary: START UP
+      summary: Startup
       description: |
         Start up OMNA Commerce in the authenticated tenant.
 
@@ -659,7 +722,7 @@ paths:
       tags:
         - Tasks
       operationId: get_tasks
-      summary: LIST ALL TASKS
+      summary: List all Tasks
       description: |
         Returns the list of tasks executions.
       responses:
@@ -672,7 +735,7 @@ paths:
       tags:
         - Tasks
       operationId: get_task
-      summary: RETRIEVE A TASK
+      summary: Retrieve a Task
       description: |
         Find task by given id and returns it.
       responses:
@@ -684,7 +747,7 @@ paths:
       tags:
         - Tasks
       operationId: delete_task
-      summary: DELETE A TASK
+      summary: Delete a Task
       description: |
         Find task by given id and delete it.
 
@@ -702,7 +765,7 @@ paths:
       tags:
         - Tasks
       operationId: destroy_task
-      summary: DESTROY A TASK
+      summary: Destroy a Task
       description: |
         Find task by given id and destroy it.
 
@@ -719,7 +782,7 @@ paths:
       tags:
         - Tasks
       operationId: retry_task
-      summary: RETRY A TASK
+      summary: Retry a Task
       description: |
         Find a task for the given id and retry its execution.
 
@@ -734,7 +797,7 @@ paths:
       tags:
         - Users
       operationId: get_tenants
-      summary: LIST ALL TENANT
+      summary: List all Tenant
       description: |
         Returns the list of tenants of authenticated user.
       parameters:
@@ -748,7 +811,7 @@ paths:
       tags:
         - Users
       operationId: create_tenant
-      summary: CREATE A TENANT
+      summary: Create a Tenant
       description: |
         Create a new tenant.
       requestBody:
@@ -765,7 +828,7 @@ paths:
       tags:
         - Users
       operationId: get_tenant
-      summary: RETRIEVE A TENANT
+      summary: Retrieve a Tenant
       description: |
         Find tenant by given id and returns it.
       responses:
@@ -777,7 +840,7 @@ paths:
       tags:
         - Users
       operationId: delete_tenant
-      summary: DELETE A TENANT
+      summary: Delete a Tenant
       description: |
         Find tenant by given id and delete it.
       responses:
@@ -793,7 +856,7 @@ paths:
       tags:
         - Users
       operationId: destroy_tenant
-      summary: DESTROY A TENANT
+      summary: Destroy a Tenant
       description: |
         Find tenant by given id and destroy it.
       responses:
@@ -806,7 +869,7 @@ paths:
       tags:
         - Webhooks
       operationId: get_webhooks
-      summary: LIST ALL WEBHOOKS
+      summary: List all Webhooks
       description: |
         Returns the list of webhooks settings.
       parameters:
@@ -823,7 +886,7 @@ paths:
       tags:
         - Webhooks
       operationId: create_webhook
-      summary: CREATE A WEBHOOK
+      summary: Create a Webhook
       description: |
         Create a new webhook subscription for an integration by specifying an address and a subject.
       requestBody:
@@ -840,7 +903,7 @@ paths:
       tags:
         - Webhooks
       operationId: get_webhook
-      summary: RETRIEVE A WEBHOOK
+      summary: Retrieve a Webhook
       description: |
         Find webhook by given id and returns it.
       responses:
@@ -852,7 +915,7 @@ paths:
       tags:
         - Webhooks
       operationId: delete_webhook
-      summary: DELETE A WEBHOOK
+      summary: Delete a Webhook
       description: |
         Find webhook by given id and delete it.
       responses:
@@ -864,7 +927,7 @@ paths:
       tags:
         - Webhooks
       operationId: update_webhook
-      summary: UPDATE A WEBHOOK
+      summary: Update a Webhook
       description: |
         Find webhook by given id and update it.
       responses:
@@ -880,7 +943,7 @@ paths:
       tags:
         - Webhooks
       operationId: destroy_webhook
-      summary: DESTROY A WEBHOOK
+      summary: Destroy a Webhook
       description: |
         Find webhook by given id and destroy it.
       responses:
@@ -1782,7 +1845,15 @@ components:
       in: path
       required: true
       schema:
-        description: Product identifier
+        description: Product identifier in OMNA
+        type: string
+        example: 5d04051125d9852c71016793
+    path_remote_product_id:
+      name: remote_product_id
+      in: path
+      required: true
+      schema:
+        description: Identifier of the remote product of the integration
         type: string
         example: 5d04051125d9852c71016793
     path_task_id:
@@ -2276,8 +2347,7 @@ components:
               name: Shop-01
               channel: LazadaSG
               product:
-                id: 5d48c54125d98520240061b9
-                api_id: '289247362'
+                remote_product_id: '289247362'
                 category_id: '10001946'
                 properties:
                   - property_id: warranty_type
@@ -2360,8 +2430,7 @@ components:
                 name: Shop-01
                 channel: LazadaSG
                 product:
-                  id: 5d48c54125d98520240061b9
-                  api_id: '289247362'
+                  remote_product_id: '289247362'
                   category_id: '10001946'
             variants: 1
           - id: 5d48c54025d9852031005fb7
@@ -2374,8 +2443,7 @@ components:
                 name: Shop-01
                 channel: LazadaSG
                 product:
-                  id: 5d48c53f25d985201200aa79
-                  api_id: '339382531'
+                  remote_product_id: '339382531'
                   category_id: '10001946'
             variants: 1
         pagination:

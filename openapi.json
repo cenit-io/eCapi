@@ -66,7 +66,7 @@
           "Flows"
         ],
         "operationId": "get_flows",
-        "summary": "LIST ALL FLOWS",
+        "summary": "List all Flows",
         "description": "Returns the list of flows settings.\n",
         "parameters": [
           {
@@ -99,7 +99,7 @@
           "Flows"
         ],
         "operationId": "create_flow",
-        "summary": "CREATE A FLOW",
+        "summary": "Create a Flow",
         "description": "Create flow settings from a given name and channel.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/flow_create"
@@ -125,7 +125,7 @@
           "Flows"
         ],
         "operationId": "get_flow",
-        "summary": "RETRIEVE A FLOW",
+        "summary": "Retrieve a Flow",
         "description": "Find flow by given id and returns it.\n",
         "responses": {
           "200": {
@@ -141,7 +141,7 @@
           "Flows"
         ],
         "operationId": "update_flow",
-        "summary": "UPDATE A FLOW SCHEDULER",
+        "summary": "Update a Flow Scheduler",
         "description": "Find flow by given id and update it scheduler.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/flow_update"
@@ -160,7 +160,7 @@
           "Flows"
         ],
         "operationId": "delete_flow",
-        "summary": "DELETE A FLOW",
+        "summary": "Delete a Flow",
         "description": "Find flow by given id and destroy it.\n",
         "responses": {
           "200": {
@@ -184,7 +184,7 @@
           "Flows"
         ],
         "operationId": "destroy_flow",
-        "summary": "DESTROY A FLOW",
+        "summary": "Destroy a Flow",
         "description": "Find flow by given id and destroy it.\n",
         "responses": {
           "200": {
@@ -207,7 +207,7 @@
           "Flows"
         ],
         "operationId": "start_flow",
-        "summary": "START A FLOW",
+        "summary": "Start a Flow",
         "description": "Find flow by given id and start its processing.\n\n> If exists any task of this flow in the execution or pending state, then the same task is returned, otherwise a new task is created.\n",
         "responses": {
           "200": {
@@ -230,7 +230,7 @@
           "Flows"
         ],
         "operationId": "toggle_flow_scheduler_status",
-        "summary": "TOGGLE A SCHEDULER STATUS",
+        "summary": "Toggle a Scheduler status",
         "description": "Find flow by given id and activate or deactivate its scheduler.\n",
         "responses": {
           "200": {
@@ -248,7 +248,7 @@
           "Integrations"
         ],
         "operationId": "get_integrations",
-        "summary": "LIST ALL INTEGRATIONS",
+        "summary": "List all IntegrationS",
         "description": "Returns the list of your integrations.\n",
         "parameters": [
           {
@@ -272,7 +272,7 @@
         "x-code-samples": [
           {
             "lang": "JavaScript",
-            "source": "// See Authentication section to sign any request.\n\nlet request = axios({\n  method: 'GET',\n  url: 'integrations',\n  params: { limit: 10, offset: 0, channel: 'LazadaSG' }\n});\n\nrequest.then((response) => {\n  console.log(response.data);\n}).catch((error) => {\n  console.log(error.response ? error.response.data : error.message);\n});\n\n"
+            "source": "// See the authentication section to learn how to sign any request.\n\nlet request = axios({\n  method: 'GET',\n  url: 'integrations',\n  params: { limit: 10, offset: 0, channel: 'LazadaSG' }\n});\n\nrequest.then((response) => {\n  // Do something with the response\n}).catch((error) => {\n  // Do something with the error\n});\n\n"
           }
         ]
       },
@@ -281,7 +281,7 @@
           "Integrations"
         ],
         "operationId": "create_integration",
-        "summary": "CREATE AN INTEGRATION",
+        "summary": "Create an Integration",
         "description": "Creates a new integration object from a given name and channel.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/integration_create"
@@ -297,7 +297,7 @@
         "x-code-samples": [
           {
             "lang": "JavaScript",
-            "source": "// See Authentication section to sign any request.\n\nlet request = axios({\n  method: 'POST',\n  url: 'integrations',\n  data: { name: \"Shop-01\", channel: \"LazadaSG\" }\n});\n\nrequest.then((response) => {\n  console.log(response.data);\n}).catch((error) => {\n  console.log(error.response ? error.response.data : error.message);\n});"
+            "source": "// See the authentication section to learn how to sign any request.\n\nlet request = axios({\n  method: 'POST',\n  url: 'integrations',\n  data: { name: \"Shop-01\", channel: \"LazadaSG\" }\n});\n\nrequest.then((response) => {\n  // Do something with the response\n}).catch((error) => {\n  // Do something with the error\n});"
           }
         ]
       }
@@ -313,7 +313,7 @@
           "Integrations"
         ],
         "operationId": "get_integration_settings",
-        "summary": "RETRIEVE AN INTEGRATION",
+        "summary": "Retrieve an Integration",
         "description": "Find integration by given id and returns it.\n",
         "responses": {
           "200": {
@@ -326,7 +326,7 @@
         "x-code-samples": [
           {
             "lang": "JavaScript",
-            "source": "// See Authentication section to sign any request.\n\nlet integration_id = 'shop_01';\n\nlet request = axios({\n  method: 'GET',\n  url: 'integrations/' + integration_id\n});\n\nrequest.then((response) => {\n  console.log(response.data);\n}).catch((error) => {\n  console.log(error.response ? error.response.data : error.message);\n});"
+            "source": "// See the authentication section to learn how to sign any request.\n\nlet integration_id = 'shop_01';\n\nlet request = axios({\n  method: 'GET',\n  url: 'integrations/' + integration_id\n});\n\nrequest.then((response) => {\n  // Do something with the response\n}).catch((error) => {\n  // Do something with the error\n});"
           }
         ]
       },
@@ -335,7 +335,7 @@
           "Integrations"
         ],
         "operationId": "delete_integration",
-        "summary": "DELETE AN INTEGRATION",
+        "summary": "Delete an Integration",
         "description": "Find integration by given id and destroy it.\n\n> Only unauthorize integrations can be destroyed.\n",
         "responses": {
           "200": {
@@ -348,7 +348,7 @@
         "x-code-samples": [
           {
             "lang": "JavaScript",
-            "source": "// See Authentication section to sign any request.\nlet integration_id = 'shop_01';\n\nlet request = axios({\n  method: 'DELETE',\n  url: 'integrations/' + integration_id\n});\n\nrequest.then((response) => {\n  console.log(response.data);\n}).catch((error) => {\n  console.log(error.response ? error.response.data : error.message);\n});"
+            "source": "// See the authentication section to learn how to sign any request.\n\nlet integration_id = 'shop_01';\n\nlet request = axios({\n  method: 'DELETE',\n  url: 'integrations/' + integration_id\n});\n\nrequest.then((response) => {\n  // Do something with the response\n}).catch((error) => {\n  // Do something with the error\n});"
           }
         ]
       }
@@ -364,7 +364,7 @@
           "Integrations"
         ],
         "operationId": "authorize_integration",
-        "summary": "RETRIEVE AN INTEGRATION AUTHORIATION",
+        "summary": "Retrieve the Authorization",
         "description": "Find integration by given id and redirect navigation to authorization uri.\n",
         "parameters": [
           {
@@ -382,7 +382,7 @@
           "Integrations"
         ],
         "operationId": "deauthorize_integration",
-        "summary": "CANCEL AN INTEGRATION AUTHORIATION",
+        "summary": "Cancel the Authorization",
         "description": "Find integration by given id and disallow their connection.\n\n> Only authorize integrations can be unauthorizes.\n",
         "responses": {
           "404": {
@@ -403,7 +403,7 @@
           "Integrations"
         ],
         "operationId": "destroy_integration",
-        "summary": "DESTROY AN INTEGRATION",
+        "summary": "Destroy an Integration",
         "description": "Find integration by given id and destroy it.\n\n> Only unauthorize integrations can be destroyed.\n",
         "responses": {
           "200": {
@@ -435,11 +435,10 @@
       ],
       "get": {
         "tags": [
-          "Flows",
-          "Integrations"
+          "Flows"
         ],
         "operationId": "get_integration_flows",
-        "summary": "LIST ALL FLOWS FROM AN INTEGRATION",
+        "summary": "List all Flows from an Integration",
         "description": "Returns the flow list of a specific integration.\n",
         "responses": {
           "200": {
@@ -465,11 +464,10 @@
       ],
       "get": {
         "tags": [
-          "Orders",
-          "Integrations"
+          "Orders"
         ],
         "operationId": "get_integration_orders",
-        "summary": "LIST ALL ORDERS FROM AN INTEGRATION",
+        "summary": "List all Orders from an Integration",
         "description": "Returns the order list of a specific integration.\n",
         "responses": {
           "200": {
@@ -492,7 +490,7 @@
           "Orders"
         ],
         "operationId": "get_order",
-        "summary": "RETRIVE AN ORDER FROM AN INTEGRATION",
+        "summary": "Retrive an Order from an Integration",
         "description": "Find order by given id and returns it.\n",
         "responses": {
           "200": {
@@ -521,7 +519,7 @@
           "Orders"
         ],
         "operationId": "get_order_doc",
-        "summary": "RETRIEVE A DOCUMENT FROM AN ORDER",
+        "summary": "Retrieve a Document from an Order",
         "description": "Retrieve a specific document of the order.\n\n> To reconstruct the file, the data from the node needs to be base64 decoded, and interpreted according to the mime_type.\n",
         "responses": {
           "200": {
@@ -544,7 +542,7 @@
           "Orders"
         ],
         "operationId": "get_order_doc_types",
-        "summary": "LIST ALL DOCUMENT TYPES FROM AN ORDER",
+        "summary": "List all Document Types from an Order",
         "description": "Return the list of types of order documents\n",
         "responses": {
           "200": {
@@ -567,7 +565,7 @@
           "Orders"
         ],
         "operationId": "import_order",
-        "summary": "IMPORT A SINGLE ORDER FROM AN INTEGRATION",
+        "summary": "Import a single Order from an Integration",
         "description": "Import a specific order from an integration\n",
         "responses": {
           "200": {
@@ -590,8 +588,112 @@
           "Orders"
         ],
         "operationId": "import_orders",
-        "summary": "IMPORT UPDATED ORDERS FROM INTEGRATION",
+        "summary": "Import updated Orders from an Integration",
         "description": "Import the last updated orders from an integration\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/products": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_products"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "get_integration_products_beta",
+        "summary": "List all Products from an Integration",
+        "description": "Returns the product list of a specific integration.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_items"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/products/{remote_product_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_remote_product_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "get_integration_product_beta",
+        "summary": "Retrive an Product from an Integration",
+        "description": "Find product by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/products/{remote_product_id}/import": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_remote_product_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "import_integration_product",
+        "summary": "Import a single Product from an Integration",
+        "description": "Import a specific product from an integration\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/products/import": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "import_products",
+        "summary": "Import updated Products from an Integration",
+        "description": "Import the last updated products from an integration\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -609,11 +711,12 @@
         }
       ],
       "get": {
+        "deprecated": true,
         "tags": [
           "Integrations"
         ],
         "operationId": "unauthorize_integration",
-        "summary": "CANCEL AN INTEGRATION AUTHORIZATION",
+        "summary": "Cancel the Authorization",
         "description": "Find integration by given id and disallow their connection.\n\n> Only authorize integrations can be unauthorizes.\n",
         "responses": {
           "404": {
@@ -628,7 +731,7 @@
           "Integrations"
         ],
         "operationId": "get_integration_channels",
-        "summary": "LIST ALL INTEGRATION CHANNELS",
+        "summary": "List all Integration Channels",
         "description": "Returns the list of integration channels availables.\n",
         "responses": {
           "200": {
@@ -660,7 +763,7 @@
           "Orders"
         ],
         "operationId": "get_orders",
-        "summary": "LIST ALL ORDERS",
+        "summary": "List all Orders",
         "description": "Returns the list of orders.\n",
         "responses": {
           "200": {
@@ -692,7 +795,7 @@
           "Products"
         ],
         "operationId": "get_products_beta",
-        "summary": "LIST ALL PRODUCTS",
+        "summary": "List all Products",
         "description": "Retrieves a list of products.\n",
         "responses": {
           "200": {
@@ -712,7 +815,7 @@
           "Products"
         ],
         "operationId": "get_product_beta",
-        "summary": "RETRIEVE A PRODUCT",
+        "summary": "Retrieve a Product",
         "description": "Retrieves a single product by given id.\n",
         "responses": {
           "200": {
@@ -728,7 +831,7 @@
           "Products"
         ],
         "operationId": "update_product_beta",
-        "summary": "UPDATE A PRODUCT",
+        "summary": "Update a Product",
         "description": "Update the common properties of a product.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/product_update"
@@ -747,7 +850,7 @@
           "Products"
         ],
         "operationId": "publish_product_beta",
-        "summary": "PUBLISH A PRODUCT",
+        "summary": "Publish a Product",
         "description": "Publish a product in the given integrations.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/product_publish"
@@ -766,7 +869,7 @@
           "Products"
         ],
         "operationId": "delete_product_beta",
-        "summary": "UNPUBLISH A PRODUCT",
+        "summary": "Unpublish a Product",
         "description": "Unpublish a product in the given integrations.\n\n> The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/product_unpublish"
@@ -792,7 +895,7 @@
           "Users"
         ],
         "operationId": "sign_in",
-        "summary": "SIGN IN",
+        "summary": "Sign in",
         "security": [],
         "description": "Authenticate in OMNA to obtain the token and the secret of the tenant of the authenticated user.\n\n> The token and the secret will be sent to the given uri for the redirect (redirect_uri).\n  You must save them for use in any other application to the OMNA API.\n",
         "responses": {
@@ -808,7 +911,7 @@
           "Users"
         ],
         "operationId": "start_up_tenant",
-        "summary": "START UP",
+        "summary": "Startup",
         "description": "Start up OMNA Commerce in the authenticated tenant.\n\n> It is not necessary to call this service when the tenant has been created with the application or api of OMAN.\n",
         "responses": {
           "200": {
@@ -837,7 +940,7 @@
           "Tasks"
         ],
         "operationId": "get_tasks",
-        "summary": "LIST ALL TASKS",
+        "summary": "List all Tasks",
         "description": "Returns the list of tasks executions.\n",
         "responses": {
           "200": {
@@ -857,7 +960,7 @@
           "Tasks"
         ],
         "operationId": "get_task",
-        "summary": "RETRIEVE A TASK",
+        "summary": "Retrieve a Task",
         "description": "Find task by given id and returns it.\n",
         "responses": {
           "200": {
@@ -873,7 +976,7 @@
           "Tasks"
         ],
         "operationId": "delete_task",
-        "summary": "DELETE A TASK",
+        "summary": "Delete a Task",
         "description": "Find task by given id and delete it.\n\n> The task in running status can not be deleted.\n",
         "responses": {
           "200": {
@@ -897,7 +1000,7 @@
           "Tasks"
         ],
         "operationId": "destroy_task",
-        "summary": "DESTROY A TASK",
+        "summary": "Destroy a Task",
         "description": "Find task by given id and destroy it.\n\n> The task in running status can not be destroyed.\n",
         "responses": {
           "200": {
@@ -920,7 +1023,7 @@
           "Tasks"
         ],
         "operationId": "retry_task",
-        "summary": "RETRY A TASK",
+        "summary": "Retry a Task",
         "description": "Find a task for the given id and retry its execution.\n\n> Only failed tasks can be retry.\n",
         "responses": {
           "200": {
@@ -938,7 +1041,7 @@
           "Users"
         ],
         "operationId": "get_tenants",
-        "summary": "LIST ALL TENANT",
+        "summary": "List all Tenant",
         "description": "Returns the list of tenants of authenticated user.\n",
         "parameters": [
           {
@@ -962,7 +1065,7 @@
           "Users"
         ],
         "operationId": "create_tenant",
-        "summary": "CREATE A TENANT",
+        "summary": "Create a Tenant",
         "description": "Create a new tenant.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/tenant_create"
@@ -988,7 +1091,7 @@
           "Users"
         ],
         "operationId": "get_tenant",
-        "summary": "RETRIEVE A TENANT",
+        "summary": "Retrieve a Tenant",
         "description": "Find tenant by given id and returns it.\n",
         "responses": {
           "200": {
@@ -1004,7 +1107,7 @@
           "Users"
         ],
         "operationId": "delete_tenant",
-        "summary": "DELETE A TENANT",
+        "summary": "Delete a Tenant",
         "description": "Find tenant by given id and delete it.\n",
         "responses": {
           "200": {
@@ -1028,7 +1131,7 @@
           "Users"
         ],
         "operationId": "destroy_tenant",
-        "summary": "DESTROY A TENANT",
+        "summary": "Destroy a Tenant",
         "description": "Find tenant by given id and destroy it.\n",
         "responses": {
           "200": {
@@ -1046,7 +1149,7 @@
           "Webhooks"
         ],
         "operationId": "get_webhooks",
-        "summary": "LIST ALL WEBHOOKS",
+        "summary": "List all Webhooks",
         "description": "Returns the list of webhooks settings.\n",
         "parameters": [
           {
@@ -1079,7 +1182,7 @@
           "Webhooks"
         ],
         "operationId": "create_webhook",
-        "summary": "CREATE A WEBHOOK",
+        "summary": "Create a Webhook",
         "description": "Create a new webhook subscription for an integration by specifying an address and a subject.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/webhook_create"
@@ -1105,7 +1208,7 @@
           "Webhooks"
         ],
         "operationId": "get_webhook",
-        "summary": "RETRIEVE A WEBHOOK",
+        "summary": "Retrieve a Webhook",
         "description": "Find webhook by given id and returns it.\n",
         "responses": {
           "200": {
@@ -1121,7 +1224,7 @@
           "Webhooks"
         ],
         "operationId": "delete_webhook",
-        "summary": "DELETE A WEBHOOK",
+        "summary": "Delete a Webhook",
         "description": "Find webhook by given id and delete it.\n",
         "responses": {
           "200": {
@@ -1137,7 +1240,7 @@
           "Webhooks"
         ],
         "operationId": "update_webhook",
-        "summary": "UPDATE A WEBHOOK",
+        "summary": "Update a Webhook",
         "description": "Find webhook by given id and update it.\n",
         "responses": {
           "200": {
@@ -1161,7 +1264,7 @@
           "Webhooks"
         ],
         "operationId": "destroy_webhook",
-        "summary": "DESTROY A WEBHOOK",
+        "summary": "Destroy a Webhook",
         "description": "Find webhook by given id and destroy it.\n",
         "responses": {
           "200": {
@@ -2457,7 +2560,17 @@
         "in": "path",
         "required": true,
         "schema": {
-          "description": "Product identifier",
+          "description": "Product identifier in OMNA",
+          "type": "string",
+          "example": "5d04051125d9852c71016793"
+        }
+      },
+      "path_remote_product_id": {
+        "name": "remote_product_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Identifier of the remote product of the integration",
           "type": "string",
           "example": "5d04051125d9852c71016793"
         }
@@ -3125,8 +3238,7 @@
                 "name": "Shop-01",
                 "channel": "LazadaSG",
                 "product": {
-                  "id": "5d48c54125d98520240061b9",
-                  "api_id": "289247362",
+                  "remote_product_id": "289247362",
                   "category_id": "10001946",
                   "properties": [
                     {
@@ -3231,8 +3343,7 @@
                   "name": "Shop-01",
                   "channel": "LazadaSG",
                   "product": {
-                    "id": "5d48c54125d98520240061b9",
-                    "api_id": "289247362",
+                    "remote_product_id": "289247362",
                     "category_id": "10001946"
                   }
                 }
@@ -3251,8 +3362,7 @@
                   "name": "Shop-01",
                   "channel": "LazadaSG",
                   "product": {
-                    "id": "5d48c53f25d985201200aa79",
-                    "api_id": "339382531",
+                    "remote_product_id": "339382531",
                     "category_id": "10001946"
                   }
                 }

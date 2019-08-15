@@ -13,7 +13,12 @@ info:
     url: omna_logo.png
   description: |
     # Introduction
-    * The OMNA Commerce API is built over REST services on HTTPS.
+    The OMNA Commerce API is simple connection point to integrate multiple sales channels, such us  marketplaces and integration platforms.
+    An easy way to get orders, synchronize inventory and list product information to commerce solutions around the globe.
+    We are starting for marketplaces in Southeast Asia (Shopee, Lazada) but we will continue to make it global.
+    It is built on top of an integration platform https://cenit.io
+    This API is for individual retailers, SaaS services, or any business that needs to handle multiples commerce integrations.
+    * is built over REST services on HTTPS.
     * It has predictable resource URLs.
     * It returns HTTP response codes to indicate errors.
     * It accepts and returns JSON in the HTTP body.

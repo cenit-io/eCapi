@@ -10,8 +10,7 @@ value:
         name: Shop-01
         channel: LazadaSG
         product:
-          id: 5d48c54125d98520240061b9
-          api_id: '289247362'
+          remote_product_id: '289247362'
           category_id: '10001946'
       variants: 1
 
@@ -25,8 +24,7 @@ value:
         name: Shop-01
         channel: LazadaSG
         product:
-          id: 5d48c53f25d985201200aa79
-          api_id: '339382531'
+          remote_product_id: '339382531'
           category_id: '10001946'
       variants: 1
 

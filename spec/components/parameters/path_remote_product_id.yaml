@@ -1,4 +1,4 @@
-name: integration_product_id
+name: remote_product_id
 in: path
 required: true
 schema:

@@ -1,10 +1,10 @@
 parameters:
   - $ref: '#/components/parameters/path_integration_id'
-  - $ref: '#/components/parameters/path_integration_product_id'
+  - $ref: '#/components/parameters/path_remote_product_id'
 get:
   tags:
     - Products
-  operationId: import_product
+  operationId: import_integration_product
   summary: Import a single Product from an Integration
   description: |
     Import a specific product from an integration

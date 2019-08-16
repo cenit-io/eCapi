@@ -50,7 +50,7 @@ delete:
   operationId: delete_product_beta
   summary: Unpublish a Product
   description: |
-    Unpublish a product in the given integrations.
+    Unpublish a product from the given integrations.
 
     > The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
   requestBody:

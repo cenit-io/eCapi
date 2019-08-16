@@ -1,0 +1,4 @@
+value:
+  data:
+    delete_from_integration: true
+    delete_from_omna: false

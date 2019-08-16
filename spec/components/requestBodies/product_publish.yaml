@@ -1,4 +1,3 @@
-description: Product properties that will be updated
 required: true
 content:
   application/json:
@@ -9,10 +8,11 @@ content:
           type: object
           properties:
             integration_ids:
-              description: Integrations IDs
+              description: Identifiers of the integrations where you want to publish the product.
               type: array
               items:
                 type: string
+          required: [integration_ids]
 
     examples:
       Ex1:

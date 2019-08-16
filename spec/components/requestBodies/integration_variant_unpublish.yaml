@@ -1,0 +1,25 @@
+description: |
+  Data to sets whether the variant should be removed from OMNA and/or the remote integration source.
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          type: object
+          properties:
+            delete_from_integration:
+              description: |
+                Sets whether the variant should be removed from the remote integration source.
+              type: boolean
+              default: false
+            delete_from_omna:
+              description: |
+                Sets whether the variant should be removed from OMNA if it is not published in at least one integration
+              type: boolean
+              default: false
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/integration_variant_unpublish_request'

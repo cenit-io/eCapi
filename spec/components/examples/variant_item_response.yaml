@@ -1,0 +1,26 @@
+value:
+  data:
+    id: "5d54835a25d985682d014e0e"
+    sku: "0018227994576"
+    price: 49.9
+    cost_price: 49.9
+    quantity: 0
+    product:
+      id: "5d54835825d985682d014e04"
+      name: "Actxa Swift - Test Do Not Buy"
+    integrations:
+      - id: "shopee"
+        name: "shopee"
+        channel: "ShopeeSG"
+        variant:
+          remote_variant_id: "5395303626"
+          properties:
+            - property_id: delivery_option_economy
+              name: delivery_option_economy
+              label: Delivery Option Economy
+              required: false
+              input_type: single_select
+              options:
+              - 'No'
+              - 'Yes'
+              value: Yes

@@ -1,0 +1,19 @@
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          type: object
+          properties:
+            integration_ids:
+              description: Identifiers of the integrations where you want to publish the variant.
+              type: array
+              items:
+                type: string
+          required: [integration_ids]
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/variant_publish_request'

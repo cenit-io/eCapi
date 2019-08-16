@@ -1,0 +1,34 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+  - $ref: '#/components/parameters/path_remote_variant_id'
+
+get:
+  tags:
+    - Variants Integrations
+  operationId: get_integration_variant_beta
+  summary: Retrieve an Variant from an Integration
+  description: |
+    Retrieve the variant that is published in the given integration and have as identify on its source platform
+    the given identifier of the remote variant.
+  responses:
+    '200':
+      $ref: '#/components/responses/variant_item'
+    '404':
+      $ref: '#/components/responses/variant_not_found'
+
+delete:
+  tags:
+    - Variants Integrations
+  operationId: delete_integration_variant_beta
+  summary: Unpublish a Variant from an Integration
+  description: |
+    Unpublish a variant from an Integration.
+
+    > The variant will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
+  requestBody:
+    $ref: '#/components/requestBodies/integration_variant_unpublish'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/variant_not_found'

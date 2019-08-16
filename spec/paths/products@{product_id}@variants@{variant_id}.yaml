@@ -1,0 +1,63 @@
+parameters:
+ - $ref: '#/components/parameters/path_product_id'
+ - $ref: '#/components/parameters/path_variant_id'
+
+get:
+  tags:
+    - Variants
+  operationId: get_variant_beta
+  summary: Retrieve a Variant
+  description: |
+    Retrieves a single variant by given id.
+  responses:
+    '200':
+      $ref: '#/components/responses/variant_item'
+    '404':
+      $ref: '#/components/responses/variant_not_found'
+
+post:
+  tags:
+    - Variants
+  operationId: update_variant_beta
+  summary: Update a Variant
+  description: |
+    Update the common properties of a variant.
+  requestBody:
+    $ref: '#/components/requestBodies/variant_update'
+  responses:
+    '200':
+      $ref: '#/components/responses/variant_item'
+    '404':
+      $ref: '#/components/responses/variant_not_found'
+
+put:
+  tags:
+    - Variants
+  operationId: publish_variant_beta
+  summary: Publish a Variant
+  description: |
+    Publish a variant in the given integrations.
+  requestBody:
+    $ref: '#/components/requestBodies/variant_publish'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/variant_not_found'
+      
+delete:
+  tags:
+    - Variants
+  operationId: delete_variant_beta
+  summary: Unpublish a Variant
+  description: |
+    Unpublish a variant from the given integrations.
+
+    > The variant will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
+  requestBody:
+    $ref: '#/components/requestBodies/variant_unpublish'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/variant_not_found'

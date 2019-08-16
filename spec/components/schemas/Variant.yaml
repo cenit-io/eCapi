@@ -1,0 +1,39 @@
+description: Variant representation in OMNA
+type: object
+properties:
+  id:
+    description: Variant identifier
+    type: string
+    readOnly: true
+  sku:
+    description: Variant name
+    type: string
+  price:
+    description: Variant price
+    type: number
+    minimum: 0
+  cost_price:
+    description: Variant cost price
+    type: number
+    minimum: 0
+  quantity:
+    description: Variant quantity
+    type: number
+    minimum: 0
+  product:
+    description: Variant product
+    type: object
+    properties:
+      id:
+        description: Prodruct identifier
+        type: string
+        readOnly: true
+      name:
+        description: Prodruct name
+        type: string
+
+  integrations:
+    type: array
+    readOnly: true
+    items:
+      $ref: "#/components/schemas/VariantIntegration"

@@ -1,0 +1,16 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+  - $ref: '#/components/parameters/query_filter_term_for_variants'
+  - $ref: '#/components/parameters/query_offset'
+  - $ref: '#/components/parameters/query_limit'
+
+get:
+  tags:
+    - Variants
+  operationId: get_integration_variants_beta
+  summary: List all Variants from an Integration
+  description: |
+    Returns the variant list of a specific integration.
+  responses:
+    '200':
+      $ref: '#/components/responses/variant_items'

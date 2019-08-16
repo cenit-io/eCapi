@@ -1,0 +1,17 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        data:
+          description: Variant representations in OMNA
+          type: array
+          items:
+            $ref: '#/components/schemas/Variant'
+        pagination:
+            $ref: '#/components/schemas/Pagination'
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/variant_items_response'

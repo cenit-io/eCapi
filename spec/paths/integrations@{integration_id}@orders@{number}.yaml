@@ -5,7 +5,7 @@ get:
   tags:
     - Orders
   operationId: get_order
-  summary: Retrive an Order from an Integration
+  summary: Retrieve an Order from an Integration
   description: |
     Find order by given id and returns it.
   responses:

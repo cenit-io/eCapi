@@ -4,11 +4,12 @@ parameters:
 
 get:
   tags:
-    - Products
+    - Products Integrations
   operationId: get_integration_product_beta
-  summary: Retrive an Product from an Integration
+  summary: Retrieve an Product from an Integration
   description: |
-    Find product by given id and returns it.
+    Retrieve the product that is published in the given integration and have as identify on its source platform
+    the given identifier of the remote product.
   responses:
     '200':
       $ref: '#/components/responses/product_item'
@@ -17,7 +18,7 @@ get:
 
 delete:
   tags:
-    - Products
+    - Products Integrations
   operationId: delete_integration_product_beta
   summary: Unpublish a Product from an Integration
   description: |

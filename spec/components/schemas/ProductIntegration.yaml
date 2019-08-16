@@ -14,11 +14,8 @@ properties:
     description: Details of the remote product of the integration
     type: object
     properties:
-      id:
+      remote_product_id:
         description: Identifier of the remote product of the integration
-        type: string
-      name:
-        description: Name of the remote product of the integration
         type: string
       category_id:
         description: Category identifier of the remote product of the integration
@@ -27,9 +24,3 @@ properties:
         type: array
         items:
           $ref: "#/components/schemas/ProductProperty"
-
-
-
-      
-    
-  

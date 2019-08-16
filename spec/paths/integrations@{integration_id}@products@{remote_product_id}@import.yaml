@@ -3,7 +3,7 @@ parameters:
   - $ref: '#/components/parameters/path_remote_product_id'
 get:
   tags:
-    - Products
+    - Products Integrations
   operationId: import_integration_product
   summary: Import a single Product from an Integration
   description: |

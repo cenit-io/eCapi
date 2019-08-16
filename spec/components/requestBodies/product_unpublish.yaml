@@ -28,4 +28,4 @@ content:
 
     examples:
       Ex1:
-        $ref: '#/components/examples/product_or_variant_unpublish_request'
+        $ref: '#/components/examples/product_unpublish_request'

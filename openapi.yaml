@@ -227,7 +227,7 @@ paths:
       tags:
         - Integrations
       operationId: get_integrations
-      summary: List all IntegrationS
+      summary: List all Integrations
       description: |
         Returns the list of your integrations.
       parameters:

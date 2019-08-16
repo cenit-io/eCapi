@@ -32,13 +32,22 @@ tags:
       The available integrations are Lazada, Shopee.
   - name: Orders
     description: |
-      Operations about orders
+      Operations about the orders
   - name: Products
     description: |
-      Operations about products and their variants.
+      Operations about the products.
+  - name: Products Integrations
+    description: |
+      Operations about the products of an Integration.
+  - name: Variants
+    description: |
+      Operations about the product variants.
+  - name: Variants Integrations
+    description: |
+      Operations about the product variants of an Integration.
   - name: Flows
     description: |
-      Operations about flows.
+      Operations about the flows.
       The flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be executed manually or automated through the configuration and activation of their schedulers. For example, the user can want to receive products form an integration 1 and orders form another integration.
   - name: Tasks
     description: |
@@ -472,7 +481,7 @@ paths:
       tags:
         - Orders
       operationId: get_order
-      summary: Retrive an Order from an Integration
+      summary: Retrieve an Order from an Integration
       description: |
         Find order by given id and returns it.
       responses:
@@ -550,7 +559,7 @@ paths:
       - $ref: '#/components/parameters/query_limit'
     get:
       tags:
-        - Products
+        - Products Integrations
       operationId: get_integration_products_beta
       summary: List all Products from an Integration
       description: |
@@ -564,14 +573,31 @@ paths:
       - $ref: '#/components/parameters/path_remote_product_id'
     get:
       tags:
-        - Products
+        - Products Integrations
       operationId: get_integration_product_beta
-      summary: Retrive an Product from an Integration
+      summary: Retrieve an Product from an Integration
       description: |
-        Find product by given id and returns it.
+        Retrieve the product that is published in the given integration and have as identify on its source platform
+        the given identifier of the remote product.
       responses:
         '200':
           $ref: '#/components/responses/product_item'
+        '404':
+          $ref: '#/components/responses/product_not_found'
+    delete:
+      tags:
+        - Products Integrations
+      operationId: delete_integration_product_beta
+      summary: Unpublish a Product from an Integration
+      description: |
+        Unpublish a product from an Integration.
+
+        > The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
+      requestBody:
+        $ref: '#/components/requestBodies/integration_product_unpublish'
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/product_not_found'
   '/integrations/{integration_id}/products/{remote_product_id}/import':
@@ -580,7 +606,7 @@ paths:
       - $ref: '#/components/parameters/path_remote_product_id'
     get:
       tags:
-        - Products
+        - Products Integrations
       operationId: import_integration_product
       summary: Import a single Product from an Integration
       description: |
@@ -590,12 +616,63 @@ paths:
           $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/integration_not_found'
+  '/integrations/{integration_id}/products/{remote_product_id}/variants':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+      - $ref: '#/components/parameters/path_remote_product_id'
+      - $ref: '#/components/parameters/query_filter_term_for_variants'
+      - $ref: '#/components/parameters/query_offset'
+      - $ref: '#/components/parameters/query_limit'
+    get:
+      tags:
+        - Variants Integrations
+      operationId: get_integration_variants_beta
+      summary: List all Variants from an Integration
+      description: |
+        Returns the variant list of a specific integration.
+      responses:
+        '200':
+          $ref: '#/components/responses/variant_items'
+  '/integrations/{integration_id}/products/{remote_product_id}/variants/{remote_variant_id}':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+      - $ref: '#/components/parameters/path_remote_product_id'
+      - $ref: '#/components/parameters/path_remote_variant_id'
+    get:
+      tags:
+        - Variants Integrations
+      operationId: get_integration_variant_beta
+      summary: Retrieve an Variant from an Integration
+      description: |
+        Retrieve the variant that is published in the given integration and have as identify on its source platform
+        the given identifier of the remote variant.
+      responses:
+        '200':
+          $ref: '#/components/responses/variant_item'
+        '404':
+          $ref: '#/components/responses/variant_not_found'
+    delete:
+      tags:
+        - Variants Integrations
+      operationId: delete_integration_variant_beta
+      summary: Unpublish a Variant from an Integration
+      description: |
+        Unpublish a variant from an Integration.
+
+        > The variant will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
+      requestBody:
+        $ref: '#/components/requestBodies/integration_variant_unpublish'
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/variant_not_found'
   '/integrations/{integration_id}/products/import':
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
     get:
       tags:
-        - Products
+        - Products Integrations
       operationId: import_products
       summary: Import updated Products from an Integration
       description: |
@@ -715,7 +792,7 @@ paths:
       operationId: delete_product_beta
       summary: Unpublish a Product
       description: |
-        Unpublish a product in the given integrations.
+        Unpublish a product from the given integrations.
 
         > The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
       requestBody:
@@ -725,6 +802,84 @@ paths:
           $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/product_not_found'
+  '/products/{product_id}/variants':
+    parameters:
+      - $ref: '#/components/parameters/path_product_id'
+      - $ref: '#/components/parameters/query_filter_term_for_variants'
+      - $ref: '#/components/parameters/query_filter_integration'
+      - $ref: '#/components/parameters/query_with_details'
+      - $ref: '#/components/parameters/query_offset'
+      - $ref: '#/components/parameters/query_limit'
+    get:
+      tags:
+        - Variants
+      operationId: get_variants_beta
+      summary: List all Variants
+      description: |
+        Retrieves a list of variants.
+      responses:
+        '200':
+          $ref: '#/components/responses/variant_items'
+  '/products/{product_id}/variants/{variant_id}':
+    parameters:
+      - $ref: '#/components/parameters/path_product_id'
+      - $ref: '#/components/parameters/path_variant_id'
+    get:
+      tags:
+        - Variants
+      operationId: get_variant_beta
+      summary: Retrieve a Variant
+      description: |
+        Retrieves a single variant by given id.
+      responses:
+        '200':
+          $ref: '#/components/responses/variant_item'
+        '404':
+          $ref: '#/components/responses/variant_not_found'
+    post:
+      tags:
+        - Variants
+      operationId: update_variant_beta
+      summary: Update a Variant
+      description: |
+        Update the common properties of a variant.
+      requestBody:
+        $ref: '#/components/requestBodies/variant_update'
+      responses:
+        '200':
+          $ref: '#/components/responses/variant_item'
+        '404':
+          $ref: '#/components/responses/variant_not_found'
+    put:
+      tags:
+        - Variants
+      operationId: publish_variant_beta
+      summary: Publish a Variant
+      description: |
+        Publish a variant in the given integrations.
+      requestBody:
+        $ref: '#/components/requestBodies/variant_publish'
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/variant_not_found'
+    delete:
+      tags:
+        - Variants
+      operationId: delete_variant_beta
+      summary: Unpublish a Variant
+      description: |
+        Unpublish a variant from the given integrations.
+
+        > The variant will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
+      requestBody:
+        $ref: '#/components/requestBodies/variant_unpublish'
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/variant_not_found'
   /sign_in:
     parameters:
       - $ref: '#/components/parameters/query_redirect_uri'
@@ -1287,11 +1442,8 @@ components:
           description: Details of the remote product of the integration
           type: object
           properties:
-            id:
+            remote_product_id:
               description: Identifier of the remote product of the integration
-              type: string
-            name:
-              description: Name of the remote product of the integration
               type: string
             category_id:
               description: Category identifier of the remote product of the integration
@@ -1462,6 +1614,70 @@ components:
         tenant:
           $ref: '#/components/schemas/Tenant'
           readOnly: true
+    Variant:
+      description: Variant representation in OMNA
+      type: object
+      properties:
+        id:
+          description: Variant identifier
+          type: string
+          readOnly: true
+        sku:
+          description: Variant name
+          type: string
+        price:
+          description: Variant price
+          type: number
+          minimum: 0
+        cost_price:
+          description: Variant cost price
+          type: number
+          minimum: 0
+        quantity:
+          description: Variant quantity
+          type: number
+          minimum: 0
+        product:
+          description: Variant product
+          type: object
+          properties:
+            id:
+              description: Prodruct identifier
+              type: string
+              readOnly: true
+            name:
+              description: Prodruct name
+              type: string
+        integrations:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/VariantIntegration'
+    VariantIntegration:
+      type: object
+      properties:
+        id:
+          description: Integration identifier
+          type: string
+        name:
+          description: Integration name
+          type: string
+        channel:
+          description: Integration channel identifier
+          type: string
+        variant:
+          description: Details of the remote variant of the integration
+          type: object
+          properties:
+            remote_variant_id:
+              description: Identifier of the remote variant of the integration
+              type: string
+            properties:
+              type: array
+              items:
+                $ref: '#/components/schemas/VariantProperty'
+    VariantProperty:
+      $ref: '#/components/schemas/ProductProperty'
     Webhook:
       type: object
       properties:
@@ -1789,6 +2005,44 @@ components:
           example:
             success: false
             message: 'Not found tenant with id: 1234567890'
+    variant_item:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Variant'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/variant_item_response'
+    variant_items:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                description: Variant representations in OMNA
+                type: array
+                items:
+                  $ref: '#/components/schemas/Variant'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/variant_items_response'
+    variant_not_found:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Success'
+          example:
+            success: false
+            message: 'Not found variant with id: 5d54835a25d985682d014e0e'
     webhook_item:
       description: Success
       content:
@@ -1899,6 +2153,14 @@ components:
         description: Identifier of the remote product of the integration
         type: string
         example: 5d04051125d9852c71016793
+    path_remote_variant_id:
+      name: remote_variant_id
+      in: path
+      required: true
+      schema:
+        description: Identifier of the remote variant of the integration
+        type: string
+        example: 5d04051125d9852c71016793
     path_task_id:
       name: task_id
       in: path
@@ -1915,6 +2177,14 @@ components:
         description: Tenant identifier
         type: string
         example: 5d029d6625d985755e02202c
+    path_variant_id:
+      name: variant_id
+      in: path
+      required: true
+      schema:
+        description: Variant identifier in OMNA
+        type: string
+        example: 5d04051125d9852c71016793
     path_webhook_id:
       name: webhook_id
       in: path
@@ -1978,7 +2248,6 @@ components:
       schema:
         description: Allow to filter the products that contain the value of the term in their ***name***.
         type: string
-        example: pending
     query_filter_term_for_tasks:
       name: term
       in: query
@@ -1993,6 +2262,12 @@ components:
         description: Allow to filter the tenants that contain the value of the term in their ***name***.
         type: string
         example: Shop-Lazada
+    query_filter_term_for_variants:
+      name: term
+      in: query
+      schema:
+        description: Allow to filter the variants that contain the value of the term in their ***sku***.
+        type: string
     query_filter_term_for_webhooks:
       name: term
       in: query
@@ -2225,6 +2500,13 @@ components:
           offset: 0
           limit: 10
           total: 2
+    integration_product_unpublish_request:
+      value:
+        data:
+          delete_from_integration: true
+          delete_from_omna: false
+    integration_variant_unpublish_request:
+      $ref: '#/components/examples/integration_product_unpublish_request'
     order_doc_response:
       value:
         data:
@@ -2500,6 +2782,15 @@ components:
             - shop_01
             - shop_02
             - shop_05
+    product_unpublish_request:
+      value:
+        data:
+          integration_ids:
+            - shop_01
+            - shop_02
+            - shop_05
+          delete_from_integration: true
+          delete_from_omna: false
     product_update_request_1:
       summary: Update price
       value:
@@ -2640,6 +2931,84 @@ components:
           offset: 0
           limit: 10
           total: 2
+    variant_item_response:
+      value:
+        data:
+          id: 5d54835a25d985682d014e0e
+          sku: 0018227994576
+          price: 49.9
+          cost_price: 49.9
+          quantity: 0
+          product:
+            id: 5d54835825d985682d014e04
+            name: Actxa Swift - Test Do Not Buy
+          integrations:
+            - id: shopee
+              name: shopee
+              channel: ShopeeSG
+              variant:
+                remote_variant_id: '5395303626'
+                properties:
+                  - property_id: delivery_option_economy
+                    name: delivery_option_economy
+                    label: Delivery Option Economy
+                    required: false
+                    input_type: single_select
+                    options:
+                      - 'No'
+                      - 'Yes'
+                    value: 'Yes'
+    variant_items_response:
+      value:
+        data:
+          - id: 5d54835a25d985682d014e0e
+            sku: 0018227994576
+            price: 49.9
+            cost_price: 49.9
+            quantity: 0
+            product:
+              id: 5d54835825d985682d014e04
+              name: Actxa Swift - Test Do Not Buy
+            integrations:
+              - id: shopee
+                name: shopee
+                channel: ShopeeSG
+                variant:
+                  remote_variant_id: '5395303626'
+          - id: 5d54835925d985457b01a2a8
+            sku: 0018227994590
+            price: 49.9
+            cost_price: 49.9
+            quantity: 0
+            product:
+              id: 5d54835825d985682d014e04
+              name: Actxa Swift - Test Do Not Buy
+            integrations:
+              - id: shopee
+                name: shopee
+                channel: ShopeeSG
+                variant:
+                  remote_variant_id: '5395303625'
+        pagination:
+          offset: 0
+          limit: 10
+          total: 2
+    variant_publish_request:
+      $ref: '#/components/examples/product_publish_request'
+    variant_unpublish_request:
+      $ref: '#/components/examples/product_unpublish_request'
+    variant_update_request_1:
+      summary: Update price
+      value:
+        data:
+          price: 159
+    variant_update_request_2:
+      summary: 'Update sku, quantity and price'
+      value:
+        data:
+          sku: 0018227994576
+          quantity: 2
+          price: 159
     webhook_create_request_1:
       summary: For when an order is registered
       value:
@@ -2754,8 +3123,59 @@ components:
                 data:
                   name: Shop-02
                   channel: ShopeeSG
+    integration_product_unpublish:
+      description: |
+        Data to sets whether the product should be removed from OMNA and/or the remote integration source.
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  delete_from_integration:
+                    description: |
+                      Sets whether the product should be removed from the remote integration source.
+                    type: boolean
+                    default: false
+                  delete_from_omna:
+                    description: |
+                      Sets whether the product should be removed from OMNA if it is not published in at least one integration
+                    type: boolean
+                    default: false
+          examples:
+            Ex1:
+              $ref: '#/components/examples/integration_product_unpublish_request'
+    integration_variant_unpublish:
+      description: |
+        Data to sets whether the variant should be removed from OMNA and/or the remote integration source.
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  delete_from_integration:
+                    description: |
+                      Sets whether the variant should be removed from the remote integration source.
+                    type: boolean
+                    default: false
+                  delete_from_omna:
+                    description: |
+                      Sets whether the variant should be removed from OMNA if it is not published in at least one integration
+                    type: boolean
+                    default: false
+          examples:
+            Ex1:
+              $ref: '#/components/examples/integration_variant_unpublish_request'
     product_publish:
-      description: Product properties that will be updated
       required: true
       content:
         application/json:
@@ -2767,15 +3187,18 @@ components:
                 type: object
                 properties:
                   integration_ids:
-                    description: Integrations IDs
+                    description: Identifiers of the integrations where you want to publish the product.
                     type: array
                     items:
                       type: string
+                required:
+                  - integration_ids
           examples:
             Ex1:
               $ref: '#/components/examples/product_publish_request'
     product_unpublish:
-      description: Product properties that will be updated
+      description: |
+        Integrations IDs and data to sets whether the product should be removed from OMNA and/or the remote integration source.
       required: true
       content:
         application/json:
@@ -2787,7 +3210,7 @@ components:
                 type: object
                 properties:
                   integration_ids:
-                    description: Integrations IDs
+                    description: Identifiers of the integrations where you want to unpublish the product.
                     type: array
                     items:
                       type: string
@@ -2801,9 +3224,11 @@ components:
                       Sets whether the product should be removed from OMNA if it is not published in at least one integration
                     type: boolean
                     default: false
+                required:
+                  - integration_ids
           examples:
             Ex1:
-              $ref: '#/components/examples/product_publish_request'
+              $ref: '#/components/examples/product_unpublish_request'
     product_update:
       description: Product properties that will be updated
       required: true
@@ -2831,6 +3256,76 @@ components:
             properties:
               data:
                 $ref: '#/components/schemas/Tenant'
+    variant_publish:
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  integration_ids:
+                    description: Identifiers of the integrations where you want to publish the variant.
+                    type: array
+                    items:
+                      type: string
+                required:
+                  - integration_ids
+          examples:
+            Ex1:
+              $ref: '#/components/examples/variant_publish_request'
+    variant_unpublish:
+      description: |
+        Integrations IDs and data to sets whether the variant should be removed from OMNA and/or the remote integration source.
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  integration_ids:
+                    description: Identifiers of the integrations where you want to unpublish the variant.
+                    type: array
+                    items:
+                      type: string
+                  delete_from_integration:
+                    description: |
+                      Sets whether the variant should be removed from the remote integration source.
+                    type: boolean
+                    default: false
+                  delete_from_omna:
+                    description: |
+                      Sets whether the variant should be removed from OMNA if it is not published in at least one integration
+                    type: boolean
+                    default: false
+                required:
+                  - integration_ids
+          examples:
+            Ex1:
+              $ref: '#/components/examples/variant_unpublish_request'
+    variant_update:
+      description: Variant properties that will be updated
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                $ref: '#/components/schemas/Variant'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/variant_update_request_1'
+            Ex2:
+              $ref: '#/components/examples/variant_update_request_2'
     webhook_create:
       description: Webhook that will be added to the system
       required: true

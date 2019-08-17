@@ -1257,7 +1257,7 @@
         "tags": [
           "Tasks"
         ],
-        "operationId": "retry_task",
+        "operationId": "retry_task_beta",
         "summary": "Retry a Task",
         "description": "Find a task for the given id and retry its execution.\n\n> Only failed tasks can be retry.\n",
         "responses": {

@@ -1940,12 +1940,8 @@
       "ProductProperty": {
         "type": "object",
         "properties": {
-          "property_id": {
+          "id": {
             "description": "Property identifier",
-            "type": "string"
-          },
-          "name": {
-            "description": "Property name",
             "type": "string"
           },
           "label": {
@@ -3660,8 +3656,7 @@
                   "category_id": "10001946",
                   "properties": [
                     {
-                      "property_id": "warranty_type",
-                      "name": "warranty_type",
+                      "id": "warranty_type",
                       "label": "Warranty Type",
                       "required": false,
                       "input_type": "single_select",
@@ -3676,7 +3671,7 @@
                       "value": "International Manufacturer Warranty"
                     },
                     {
-                      "property_id": "warranty",
+                      "id": "warranty",
                       "name": "warranty",
                       "label": "Warranty Period",
                       "required": false,
@@ -3686,33 +3681,12 @@
                         "1 Year",
                         "10 Months",
                         "10 Years",
-                        "11 Months",
-                        "12 Years",
-                        "15 Years",
-                        "18 Months",
-                        "2 Months",
-                        "2 Years",
-                        "25 Years",
-                        "3 Months",
-                        "3 Years",
-                        "30 Years",
-                        "4 Months",
-                        "4 Years",
-                        "5 Months",
-                        "5 Years",
-                        "6 Months",
-                        "6 Years",
-                        "7 Months",
-                        "7 Years",
-                        "8 Months",
-                        "8 Years",
-                        "9 Months",
                         "Life Time Warranty"
                       ],
                       "value": "1 Month"
                     },
                     {
-                      "property_id": "brand",
+                      "id": "brand",
                       "name": "brand",
                       "label": "Brand",
                       "required": true,
@@ -3720,7 +3694,7 @@
                       "value": "No Brand"
                     },
                     {
-                      "property_id": "delivery_option_economy",
+                      "id": "delivery_option_economy",
                       "name": "delivery_option_economy",
                       "label": "Delivery Option Economy",
                       "required": false,
@@ -3732,7 +3706,7 @@
                       "value": "Yes"
                     },
                     {
-                      "property_id": "short_description",
+                      "id": "short_description",
                       "name": "short_description",
                       "label": "Highlights",
                       "required": true,
@@ -4037,7 +4011,7 @@
                   "remote_variant_id": "5395303626",
                   "properties": [
                     {
-                      "property_id": "delivery_option_economy",
+                      "id": "delivery_option_economy",
                       "name": "delivery_option_economy",
                       "label": "Delivery Option Economy",
                       "required": false,

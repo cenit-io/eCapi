@@ -15,12 +15,12 @@ value:
         variant:
           remote_variant_id: "5395303626"
           properties:
-            - property_id: delivery_option_economy
+            - id: delivery_option_economy
               name: delivery_option_economy
               label: Delivery Option Economy
               required: false
               input_type: single_select
               options:
-              - 'No'
-              - 'Yes'
+                - 'No'
+                - 'Yes'
               value: Yes

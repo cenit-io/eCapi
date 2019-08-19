@@ -1,10 +1,7 @@
 type: object
 properties:
-  property_id:
+  id:
     description: Property identifier
-    type: string
-  name:
-    description: Property name
     type: string
   label:
     description: Property label

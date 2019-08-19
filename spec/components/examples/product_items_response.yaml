@@ -6,12 +6,12 @@ value:
       price: 199.0
       last_import_date: '2019-08-06T00:09:37+00:00'
       integrations:
-      - id: shop_01
-        name: Shop-01
-        channel: LazadaSG
-        product:
-          remote_product_id: '289247362'
-          category_id: '10001946'
+        - id: shop_01
+          name: Shop-01
+          channel: LazadaSG
+          product:
+            remote_product_id: '289247362'
+            category_id: '10001946'
       variants: 1
 
     - id: 5d48c54025d9852031005fb7
@@ -20,12 +20,12 @@ value:
       price: 199.00
       last_import_date: '2019-08-06T00:09:35+00:00'
       integrations:
-      - id: shop_01
-        name: Shop-01
-        channel: LazadaSG
-        product:
-          remote_product_id: '339382531'
-          category_id: '10001946'
+        - id: shop_01
+          name: Shop-01
+          channel: LazadaSG
+          product:
+            remote_product_id: '339382531'
+            category_id: '10001946'
       variants: 1
 
   pagination:

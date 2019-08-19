@@ -7,55 +7,55 @@ value:
     variants: 1
 
     integrations:
-    - id: shop_01
-      name: Shop-01
-      channel: LazadaSG
-      product:
-        remote_product_id: '289247362'
-        category_id: '10001946'
-        properties:
-        - id: warranty_type
-          label: Warranty Type
-          required: false
-          input_type: single_select
-          options:
-            - International Manufacturer Warranty
-            - International Seller Warranty
-            - Local (Singapore) manufacturer warranty
-            - Local seller warranty
-            - No Warranty
-            - Non-local warranty
-            value: International Manufacturer Warranty
-        - id: warranty
-          name: warranty
-          label: Warranty Period
-          required: false
-          input_type: single_select
-          options:
-            - 1 Month
-            - 1 Year
-            - 10 Months
-            - 10 Years
-            - Life Time Warranty
-          value: 1 Month
-        - id: brand
-          name: brand
-          label: Brand
-          required: true
-          input_type: single_select
-          value: No Brand
-        - id: delivery_option_economy
-          name: delivery_option_economy
-          label: Delivery Option Economy
-          required: false
-          input_type: single_select
-          options:
-            - 'No'
-            - 'Yes'
-          value: Yes
-        - id: short_description
-          name: short_description
-          label: Highlights
-          required: true
-          input_type: rich_text
-          value: It's the small iPod with one very big idea
+      - id: shop_01
+        name: Shop-01
+        channel: LazadaSG
+        product:
+          remote_product_id: '289247362'
+          category_id: '10001946'
+          properties:
+            - id: warranty_type
+              label: Warranty Type
+              required: false
+              input_type: single_select
+              options:
+                - International Manufacturer Warranty
+                - International Seller Warranty
+                - Local (Singapore) manufacturer warranty
+                - Local seller warranty
+                - No Warranty
+                - Non-local warranty
+              value: International Manufacturer Warranty
+            - id: warranty
+              name: warranty
+              label: Warranty Period
+              required: false
+              input_type: single_select
+              options:
+                - 1 Month
+                - 1 Year
+                - 10 Months
+                - 10 Years
+                - Life Time Warranty
+              value: 1 Month
+            - id: brand
+              name: brand
+              label: Brand
+              required: true
+              input_type: single_select
+              value: No Brand
+            - id: delivery_option_economy
+              name: delivery_option_economy
+              label: Delivery Option Economy
+              required: false
+              input_type: single_select
+              options:
+                - 'No'
+                - 'Yes'
+              value: Yes
+            - id: short_description
+              name: short_description
+              label: Highlights
+              required: true
+              input_type: rich_text
+              value: It's the small iPod with one very big idea

@@ -1,7 +1,7 @@
 get:
   tags:
     - Users
-  operationId: start_up_tenant
+  operationId: startup_tenant
   summary: Startup
   description: |
     Start up OMNA Commerce in the authenticated tenant.
@@ -9,4 +9,4 @@ get:
     > It is not necessary to call this service when the tenant has been created with the application or api of OMAN.
   responses:
     '200':
-      $ref: '#/components/responses/task_item_start_up'
+      $ref: '#/components/responses/task_item_startup'

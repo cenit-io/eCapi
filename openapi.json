@@ -1140,17 +1140,17 @@
         }
       }
     },
-    "/start_up": {
+    "/startup": {
       "get": {
         "tags": [
           "Users"
         ],
-        "operationId": "start_up_tenant",
+        "operationId": "startup_tenant",
         "summary": "Startup",
         "description": "Start up OMNA Commerce in the authenticated tenant.\n\n> It is not necessary to call this service when the tenant has been created with the application or api of OMAN.\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/task_item_start_up"
+            "$ref": "#/components/responses/task_item_startup"
           }
         }
       }
@@ -1942,19 +1942,23 @@
         "properties": {
           "id": {
             "description": "Property identifier",
-            "type": "string"
+            "type": "string",
+            "readOnly": true
           },
           "label": {
             "description": "Property label",
-            "type": "string"
+            "type": "string",
+            "readOnly": true
           },
           "required": {
             "description": "Property name",
-            "type": "boolean"
+            "type": "boolean",
+            "readOnly": true
           },
           "input_type": {
             "description": "Property input component type",
-            "type": "string"
+            "type": "string",
+            "readOnly": true
           },
           "value": {
             "description": "Value of the property in the product instance",
@@ -2598,7 +2602,7 @@
           }
         }
       },
-      "task_item_start_up": {
+      "task_item_startup": {
         "description": "Success",
         "content": {
           "application/json": {
@@ -2612,7 +2616,7 @@
             },
             "examples": {
               "Ex1": {
-                "$ref": "#/components/examples/task_item_start_up_response"
+                "$ref": "#/components/examples/task_item_startup_response"
               }
             }
           }
@@ -3873,7 +3877,7 @@
           }
         }
       },
-      "task_item_start_up_response": {
+      "task_item_startup_response": {
         "value": {
           "data": {
             "id": "5cfe690b25d9854b3b02241b",

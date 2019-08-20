@@ -3,15 +3,19 @@ properties:
   id:
     description: Property identifier
     type: string
+    readOnly: true
   label:
     description: Property label
     type: string
+    readOnly: true
   required:
     description: Property name
     type: boolean
+    readOnly: true
   input_type:
     description: Property input component type
     type: string
+    readOnly: true
   value:
     description: Value of the property in the product instance
     type: string

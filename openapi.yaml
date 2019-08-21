@@ -313,7 +313,7 @@ paths:
     delete:
       tags:
         - Integrations
-      operationId: delete_integration
+      operationId: delete_integration_async_
       summary: Delete an Integration
       description: |
         Generate an async task to delete an Integration and all its Orders, Variants and Product.
@@ -493,7 +493,7 @@ paths:
     get:
       tags:
         - Orders
-      operationId: import_order
+      operationId: import_order_async_
       summary: Import a single Order from an Integration
       description: |
         Generate an async task to import a specific order from an integration
@@ -508,7 +508,7 @@ paths:
     get:
       tags:
         - Orders
-      operationId: import_orders
+      operationId: import_orders_async_
       summary: Import updated Orders from an Integration
       description: |
         Generate an async task to import the last updated orders from an integration
@@ -526,7 +526,7 @@ paths:
     get:
       tags:
         - Products Integrations
-      operationId: get_integration_products_beta
+      operationId: get_integration_products_beta_
       summary: List all Products from an Integration
       description: |
         Returns the product list of a specific integration.
@@ -540,7 +540,7 @@ paths:
     get:
       tags:
         - Products Integrations
-      operationId: get_integration_product_beta
+      operationId: get_integration_product_beta_
       summary: Retrieve an Product from an Integration
       description: |
         Retrieve the product that is published in the given integration and have as identify on its source platform
@@ -553,7 +553,7 @@ paths:
     delete:
       tags:
         - Products Integrations
-      operationId: delete_integration_product_beta
+      operationId: delete_integration_product_beta_
       summary: Unpublish a Product from an Integration
       description: |
         Unpublish a product from an Integration.
@@ -573,7 +573,7 @@ paths:
     get:
       tags:
         - Products Integrations
-      operationId: import_integration_product
+      operationId: import_integration_product_async_
       summary: Import a single Product from an Integration
       description: |
         Generate an async task to import a specific product from an integration
@@ -592,7 +592,7 @@ paths:
     get:
       tags:
         - Variants Integrations
-      operationId: get_integration_variants_beta
+      operationId: get_integration_variants_beta_
       summary: List all Variants from an Integration
       description: |
         Returns the variant list of a specific integration.
@@ -607,7 +607,7 @@ paths:
     get:
       tags:
         - Variants Integrations
-      operationId: get_integration_variant_beta
+      operationId: get_integration_variant_beta_
       summary: Retrieve an Variant from an Integration
       description: |
         Retrieve the variant that is published in the given integration and have as identify on its source platform
@@ -620,7 +620,7 @@ paths:
     delete:
       tags:
         - Variants Integrations
-      operationId: delete_integration_variant_beta
+      operationId: delete_integration_variant_beta_
       summary: Unpublish a Variant from an Integration
       description: |
         Unpublish a variant from an Integration.
@@ -639,7 +639,7 @@ paths:
     get:
       tags:
         - Products Integrations
-      operationId: import_products
+      operationId: import_products_async_
       summary: Import updated Products from an Integration
       description: |
         Generate an async task to import the last updated products from an integration
@@ -686,7 +686,7 @@ paths:
     get:
       tags:
         - Products
-      operationId: get_products_beta
+      operationId: get_products_beta_
       summary: List all Products
       description: |
         Retrieves a list of products.
@@ -699,7 +699,7 @@ paths:
     get:
       tags:
         - Products
-      operationId: get_product_beta
+      operationId: get_product_beta_
       summary: Retrieve a Product
       description: |
         Retrieves a single product by given id.
@@ -711,7 +711,7 @@ paths:
     post:
       tags:
         - Products
-      operationId: update_product_beta
+      operationId: update_product_beta_
       summary: Update a Product
       description: |
         Update the common properties of a product.
@@ -725,7 +725,7 @@ paths:
     put:
       tags:
         - Products
-      operationId: publish_product_beta
+      operationId: publish_product_beta_
       summary: Publish a Product
       description: |
         Publish a product in the given integrations.
@@ -739,7 +739,7 @@ paths:
     delete:
       tags:
         - Products
-      operationId: delete_product_beta
+      operationId: delete_product_beta_
       summary: Unpublish a Product
       description: |
         Unpublish a product from the given integrations.
@@ -763,7 +763,7 @@ paths:
     get:
       tags:
         - Variants
-      operationId: get_variants_beta
+      operationId: get_variants_beta_
       summary: List all Variants
       description: |
         Retrieves a list of variants.
@@ -777,7 +777,7 @@ paths:
     get:
       tags:
         - Variants
-      operationId: get_variant_beta
+      operationId: get_variant_beta_
       summary: Retrieve a Variant
       description: |
         Retrieves a single variant by given id.
@@ -789,7 +789,7 @@ paths:
     post:
       tags:
         - Variants
-      operationId: update_variant_beta
+      operationId: update_variant_beta_
       summary: Update a Variant
       description: |
         Update the common properties of a variant.
@@ -803,7 +803,7 @@ paths:
     put:
       tags:
         - Variants
-      operationId: publish_variant_beta
+      operationId: publish_variant_beta_
       summary: Publish a Variant
       description: |
         Publish a variant in the given integrations.
@@ -817,7 +817,7 @@ paths:
     delete:
       tags:
         - Variants
-      operationId: delete_variant_beta
+      operationId: delete_variant_beta_
       summary: Unpublish a Variant
       description: |
         Unpublish a variant from the given integrations.
@@ -851,7 +851,7 @@ paths:
     get:
       tags:
         - Users
-      operationId: startup_tenant
+      operationId: startup_tenant_async_
       summary: Startup
       description: |
         Generate an async task to startup OMNA Commerce in the authenticated tenant.
@@ -911,7 +911,7 @@ paths:
     get:
       tags:
         - Tasks
-      operationId: retry_task_beta
+      operationId: retry_task_beta_
       summary: Retry a Task
       description: |
         Find a task for the given id and retry its execution.

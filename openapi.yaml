@@ -303,7 +303,7 @@ paths:
       operationId: get_integration_settings
       summary: Retrieve an Integration
       description: |
-        Find integration by given id and returns it.
+        Retrieves a single integration by given id.
       responses:
         '200':
           $ref: '#/components/responses/integration_item'
@@ -332,12 +332,12 @@ paths:
       operationId: delete_integration
       summary: Delete an Integration
       description: |
-        Find integration by given id and destroy it.
+        Generate an async task to delete an Integration and all its Orders, Variants and Product.
 
-        > Only unauthorize integrations can be destroyed.
+        > Authorized Integration or associated with workflows or webhooks cannot be deleted.
       responses:
         '200':
-          $ref: '#/components/responses/success'
+          $ref: '#/components/responses/integration_delete_task'
         '404':
           $ref: '#/components/responses/integration_not_found'
       x-code-samples:
@@ -530,10 +530,10 @@ paths:
       operationId: import_order
       summary: Import a single Order from an Integration
       description: |
-        Import a specific order from an integration
+        Generate an async task to import a specific order from an integration
       responses:
         '200':
-          $ref: '#/components/responses/task_item'
+          $ref: '#/components/responses/order_import_task'
         '404':
           $ref: '#/components/responses/integration_not_found'
   '/integrations/{integration_id}/orders/import':
@@ -545,10 +545,10 @@ paths:
       operationId: import_orders
       summary: Import updated Orders from an Integration
       description: |
-        Import the last updated orders from an integration
+        Generate an async task to import the last updated orders from an integration
       responses:
         '200':
-          $ref: '#/components/responses/task_item'
+          $ref: '#/components/responses/order_import_task'
         '404':
           $ref: '#/components/responses/integration_not_found'
   '/integrations/{integration_id}/products':
@@ -597,7 +597,7 @@ paths:
         $ref: '#/components/requestBodies/integration_product_unpublish'
       responses:
         '200':
-          $ref: '#/components/responses/task_item'
+          $ref: '#/components/responses/product_item'
         '404':
           $ref: '#/components/responses/product_not_found'
   '/integrations/{integration_id}/products/{remote_product_id}/import':
@@ -610,10 +610,10 @@ paths:
       operationId: import_integration_product
       summary: Import a single Product from an Integration
       description: |
-        Import a specific product from an integration
+        Generate an async task to import a specific product from an integration
       responses:
         '200':
-          $ref: '#/components/responses/task_item'
+          $ref: '#/components/responses/product_import_task'
         '404':
           $ref: '#/components/responses/integration_not_found'
   '/integrations/{integration_id}/products/{remote_product_id}/variants':
@@ -664,7 +664,7 @@ paths:
         $ref: '#/components/requestBodies/integration_variant_unpublish'
       responses:
         '200':
-          $ref: '#/components/responses/task_item'
+          $ref: '#/components/responses/variant_item'
         '404':
           $ref: '#/components/responses/variant_not_found'
   '/integrations/{integration_id}/products/import':
@@ -676,10 +676,10 @@ paths:
       operationId: import_products
       summary: Import updated Products from an Integration
       description: |
-        Import the last updated products from an integration
+        Generate an async task to import the last updated products from an integration
       responses:
         '200':
-          $ref: '#/components/responses/task_item'
+          $ref: '#/components/responses/product_import_task'
         '404':
           $ref: '#/components/responses/integration_not_found'
   '/integrations/{integration_id}/unauthorize':
@@ -783,7 +783,7 @@ paths:
         $ref: '#/components/requestBodies/product_publish'
       responses:
         '200':
-          $ref: '#/components/responses/task_item'
+          $ref: '#/components/responses/product_item'
         '404':
           $ref: '#/components/responses/product_not_found'
     delete:
@@ -799,7 +799,7 @@ paths:
         $ref: '#/components/requestBodies/product_unpublish'
       responses:
         '200':
-          $ref: '#/components/responses/task_item'
+          $ref: '#/components/responses/product_item'
         '404':
           $ref: '#/components/responses/product_not_found'
   '/products/{product_id}/variants':
@@ -861,7 +861,7 @@ paths:
         $ref: '#/components/requestBodies/variant_publish'
       responses:
         '200':
-          $ref: '#/components/responses/task_item'
+          $ref: '#/components/responses/product_item'
         '404':
           $ref: '#/components/responses/variant_not_found'
     delete:
@@ -877,7 +877,7 @@ paths:
         $ref: '#/components/requestBodies/variant_unpublish'
       responses:
         '200':
-          $ref: '#/components/responses/task_item'
+          $ref: '#/components/responses/variant_item'
         '404':
           $ref: '#/components/responses/variant_not_found'
   /sign_in:
@@ -904,12 +904,12 @@ paths:
       operationId: startup_tenant
       summary: Startup
       description: |
-        Start up OMNA Commerce in the authenticated tenant.
+        Generate an async task to startup OMNA Commerce in the authenticated tenant.
 
         > It is not necessary to call this service when the tenant has been created with the application or api of OMAN.
       responses:
         '200':
-          $ref: '#/components/responses/task_item_startup'
+          $ref: '#/components/responses/startup_task'
   /tasks:
     parameters:
       - $ref: '#/components/parameters/query_filter_term_for_tasks'
@@ -1764,6 +1764,18 @@ components:
           examples:
             Ex1:
               $ref: '#/components/examples/integration_channels_response'
+    integration_delete_task:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Task'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/integration_delete_response'
     integration_item:
       description: Success
       content:
@@ -1827,6 +1839,18 @@ components:
           examples:
             Ex1:
               $ref: '#/components/examples/order_doc_response'
+    order_import_task:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Task'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/order_import_response'
     order_item:
       description: Success
       content:
@@ -1864,6 +1888,18 @@ components:
           example:
             success: false
             message: 'Not found order with number: 9151224232846'
+    product_import_task:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Task'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/product_import_response'
     product_item:
       description: Success
       content:
@@ -1912,15 +1948,7 @@ components:
         ```
         http://my.example.com/home?token=rXfNJmFUpsyv3zocVolI&secret=42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38
         ```
-    success:
-      description: Success
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Success'
-          example:
-            success: true
-    task_item_startup:
+    startup_task:
       description: Success
       content:
         application/json:
@@ -1932,6 +1960,14 @@ components:
           examples:
             Ex1:
               $ref: '#/components/examples/task_item_startup_response'
+    success:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Success'
+          example:
+            success: true
     task_item:
       description: Success
       content:
@@ -2470,6 +2506,30 @@ components:
             title: Shopee Thailand
           - name: ShopeeVN
             title: Shopee Vietnam
+    integration_delete_response:
+      value:
+        data:
+          id: 5cfe690b25d9854b3b02241b
+          status: completed
+          progress: 100
+          description: Deleting the integration 'Shop-01' of 'LazadaSG' channel.
+          created_at: '2019-06-10T14:28:27+00:00'
+          updated_at: '2019-06-10T14:28:43+00:00'
+          executions:
+            - status: completed
+              started_at: '2019-06-10T14:28:27+00:00'
+              completed_at: '2019-06-10T14:28:43+00:00'
+          notifications:
+            - type: info
+              message: The integration 'Shop-01' of 'LazadaSG' channel has been eliminated.
+            - type: info
+              message: Deleting the records of its products.
+            - type: info
+              message: Deleting the records of its variants.
+            - type: info
+              message: Deleting the records of its orders.
+            - type: info
+              message: Deleting its authorization.
     integration_item_response:
       value:
         data:
@@ -2523,6 +2583,30 @@ components:
             title: Shipping Label
           - type: carrierManifest
             title: Carrier Manifest
+    order_import_response:
+      value:
+        data:
+          id: 5cfe690b25d9854b3b02241b
+          status: completed
+          progress: 100
+          description: Importing last updated orders from 'Shop-01' integration.
+          created_at: '2019-06-10T14:28:27+00:00'
+          updated_at: '2019-06-10T14:28:43+00:00'
+          executions:
+            - status: completed
+              started_at: '2019-06-10T14:28:27+00:00'
+              completed_at: '2019-06-10T14:28:43+00:00'
+          notifications:
+            - type: info
+              message: Imported order 17851977370457 from Shop-01 integration.
+            - type: info
+              message: Imported order 8834309804556 from Shop-01 integration.
+            - type: info
+              message: Imported order 16159781406633 from Shop-01 integration.
+            - type: info
+              message: Importing form 1 to 3.
+            - type: info
+              message: 'Importing orders updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 integration.'
     order_item_response:
       value:
         data:
@@ -2660,6 +2744,30 @@ components:
           offset: 0
           limit: 10
           total: 2
+    product_import_response:
+      value:
+        data:
+          id: 5cfe690b25d9854b3b02241b
+          status: completed
+          progress: 100
+          description: Importing last updated products from 'Shop-01' integration.
+          created_at: '2019-06-10T14:28:27+00:00'
+          updated_at: '2019-06-10T14:28:43+00:00'
+          executions:
+            - status: completed
+              started_at: '2019-06-10T14:28:27+00:00'
+              completed_at: '2019-06-10T14:28:43+00:00'
+          notifications:
+            - type: info
+              message: Imported product 17851977370457 from Shop-01 integration.
+            - type: info
+              message: Imported product 8834309804556 from Shop-01 integration.
+            - type: info
+              message: Imported product 16159781406633 from Shop-01 integration.
+            - type: info
+              message: Importing form 1 to 3.
+            - type: info
+              message: 'Importing products updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 integration.'
     product_item_response:
       value:
         data:

@@ -9,6 +9,6 @@ get:
     Import the last updated products from an integration
   responses:
     '200':
-      $ref: '#/components/responses/task_item'
+      $ref: '#/components/responses/product_import_task'
     '404':
       $ref: '#/components/responses/integration_not_found'

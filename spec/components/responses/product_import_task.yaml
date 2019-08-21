@@ -1,0 +1,12 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Task'
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/product_import_response'

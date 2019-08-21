@@ -40,7 +40,7 @@ put:
     $ref: '#/components/requestBodies/product_publish'
   responses:
     '200':
-      $ref: '#/components/responses/task_item'
+      $ref: '#/components/responses/product_item'
     '404':
       $ref: '#/components/responses/product_not_found'
       
@@ -57,6 +57,6 @@ delete:
     $ref: '#/components/requestBodies/product_unpublish'
   responses:
     '200':
-      $ref: '#/components/responses/task_item'
+      $ref: '#/components/responses/product_item'
     '404':
       $ref: '#/components/responses/product_not_found'

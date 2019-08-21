@@ -7,7 +7,7 @@ get:
   operationId: get_integration_settings
   summary: Retrieve an Integration
   description: |
-    Find integration by given id and returns it.
+    Retrieves a single integration by given id.
   responses:
     '200':
       $ref: '#/components/responses/integration_item'
@@ -20,11 +20,11 @@ delete:
   operationId: delete_integration
   summary: Delete an Integration
   description: |
-    Find integration by given id and destroy it.
+    Generate an async task to deleted an Integration and all its Orders, Variants and Product.
 
-    > Only unauthorize integrations can be destroyed.
+    > Authorized Integration or associated with workflows or webhooks cannot be deleted.
   responses:
     '200':
-      $ref: '#/components/responses/success'
+      $ref: '#/components/responses/integration_delete_task'
     '404':
       $ref: '#/components/responses/integration_not_found'

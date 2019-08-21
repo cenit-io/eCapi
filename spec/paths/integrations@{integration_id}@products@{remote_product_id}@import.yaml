@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Products Integrations
-  operationId: import_integration_product
+  operationId: import_integration_product_async_
   summary: Import a single Product from an Integration
   description: |
     Generate an async task to import a specific product from an integration

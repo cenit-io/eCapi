@@ -8,7 +8,7 @@ parameters:
 get:
   tags:
     - Products
-  operationId: get_products_beta
+  operationId: get_products_beta_
   summary: List all Products
   description: |
     Retrieves a list of products.

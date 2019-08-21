@@ -8,7 +8,7 @@ parameters:
 get:
   tags:
     - Variants Integrations
-  operationId: get_integration_variants_beta
+  operationId: get_integration_variants_beta_
   summary: List all Variants from an Integration
   description: |
     Returns the variant list of a specific integration.

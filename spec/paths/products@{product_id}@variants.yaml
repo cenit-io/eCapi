@@ -9,7 +9,7 @@ parameters:
 get:
   tags:
     - Variants
-  operationId: get_variants_beta
+  operationId: get_variants_beta_
   summary: List all Variants
   description: |
     Retrieves a list of variants.

@@ -28,10 +28,15 @@
     text-transform: uppercase;
   }
 
-  .sc-ifAKCX.hiuczA[data-section-id$=beta] .sc-dnqmqq.ioYTqA:after,
-  .sc-hrWEMg.bbViyS[data-item-id$=beta] .sc-gwVKww.SmuWE:after,
+  .sc-ifAKCX.hiuczA[data-section-id$=_beta] .sc-dnqmqq.ioYTqA:after,
+  .sc-ifAKCX.hiuczA[data-section-id*=_beta_] .sc-dnqmqq.ioYTqA:after,
+  .sc-hrWEMg.bbViyS[data-item-id$=_beta] .sc-gwVKww.SmuWE:after,
+  .sc-hrWEMg.bbViyS[data-item-id*=_beta_] .sc-gwVKww.SmuWE:after,
+  .sc-ifAKCX.hiuczA[data-section-id$=_async] .sc-dnqmqq.ioYTqA:after,
+  .sc-ifAKCX.hiuczA[data-section-id*=_async_] .sc-dnqmqq.ioYTqA:after,
+  .sc-hrWEMg.bbViyS[data-item-id$=_async] .sc-gwVKww.SmuWE:after,
+  .sc-hrWEMg.bbViyS[data-item-id*=_async_] .sc-gwVKww.SmuWE:after,
   .sc-ifAKCX.hiuczA [type=warning] {
-    content: "BETA";
     background-color: rgb(212, 173, 3);
     color: red;
     line-height: 1.5em;
@@ -42,7 +47,23 @@
     top: -10px;
   }
 
-  .sc-hrWEMg.bbViyS[data-item-id$=beta] .sc-gwVKww.SmuWE:after {
+  .sc-ifAKCX.hiuczA[data-section-id*=_async_] .sc-dnqmqq.ioYTqA:after,
+  .sc-hrWEMg.bbViyS[data-item-id*=_async_] .sc-gwVKww.SmuWE:after {
+    content: "ASYNC";
+  }
+  
+  .sc-ifAKCX.hiuczA[data-section-id*=_beta_] .sc-dnqmqq.ioYTqA:after,
+  .sc-hrWEMg.bbViyS[data-item-id*=_beta_] .sc-gwVKww.SmuWE:after {
+    content: "BETA";
+  }
+
+  .sc-ifAKCX.hiuczA[data-section-id*=_async_].sc-ifAKCX.hiuczA[data-section-id*=_beta_] .sc-dnqmqq.ioYTqA:after,
+  .sc-hrWEMg.bbViyS[data-item-id*=_async_].sc-hrWEMg.bbViyS[data-item-id*=_bata_] .sc-gwVKww.SmuWE:after {
+    content: "ASYNC-BETA";
+  }
+
+  .sc-hrWEMg.bbViyS[data-item-id*=_beta_] .sc-gwVKww.SmuWE:after,
+  .sc-hrWEMg.bbViyS[data-item-id*=_async_] .sc-gwVKww.SmuWE:after {
     border-radius: 5px;
     padding: 2px 5px;
     font-size: 50%;

@@ -5,7 +5,7 @@ parameters:
 get:
   tags:
     - Products Integrations
-  operationId: get_integration_product_beta
+  operationId: get_integration_product_beta_
   summary: Retrieve an Product from an Integration
   description: |
     Retrieve the product that is published in the given integration and have as identify on its source platform
@@ -19,7 +19,7 @@ get:
 delete:
   tags:
     - Products Integrations
-  operationId: delete_integration_product_beta
+  operationId: delete_integration_product_beta_
   summary: Unpublish a Product from an Integration
   description: |
     Unpublish a product from an Integration.

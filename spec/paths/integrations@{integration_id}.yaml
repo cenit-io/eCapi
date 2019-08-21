@@ -17,7 +17,7 @@ get:
 delete:
   tags:
     - Integrations
-  operationId: delete_integration
+  operationId: delete_integration_async_
   summary: Delete an Integration
   description: |
     Generate an async task to delete an Integration and all its Orders, Variants and Product.

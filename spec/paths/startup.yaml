@@ -1,7 +1,7 @@
 get:
   tags:
     - Users
-  operationId: startup_tenant
+  operationId: startup_tenant_async_
   summary: Startup
   description: |
     Generate an async task to startup OMNA Commerce in the authenticated tenant.

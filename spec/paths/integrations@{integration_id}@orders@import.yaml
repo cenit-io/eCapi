@@ -3,7 +3,7 @@ parameters:
 get:
   tags:
     - Orders
-  operationId: import_orders
+  operationId: import_orders_async_
   summary: Import updated Orders from an Integration
   description: |
     Generate an async task to import the last updated orders from an integration

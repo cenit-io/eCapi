@@ -3,7 +3,7 @@ parameters:
 get:
   tags:
     - Products Integrations
-  operationId: import_products
+  operationId: import_products_async_
   summary: Import updated Products from an Integration
   description: |
     Generate an async task to import the last updated products from an integration

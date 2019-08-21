@@ -4,7 +4,7 @@ get:
   operationId: startup_tenant
   summary: Startup
   description: |
-    Start up OMNA Commerce in the authenticated tenant.
+    Generate an async task to startup OMNA Commerce in the authenticated tenant.
 
     > It is not necessary to call this service when the tenant has been created with the application or api of OMAN.
   responses:

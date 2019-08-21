@@ -6,7 +6,7 @@ get:
   operationId: import_products
   summary: Import updated Products from an Integration
   description: |
-    Import the last updated products from an integration
+    Generate an async task to import the last updated products from an integration
   responses:
     '200':
       $ref: '#/components/responses/product_import_task'

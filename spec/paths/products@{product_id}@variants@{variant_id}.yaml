@@ -41,7 +41,7 @@ put:
     $ref: '#/components/requestBodies/variant_publish'
   responses:
     '200':
-      $ref: '#/components/responses/task_item'
+      $ref: '#/components/responses/product_item'
     '404':
       $ref: '#/components/responses/variant_not_found'
       
@@ -58,6 +58,6 @@ delete:
     $ref: '#/components/requestBodies/variant_unpublish'
   responses:
     '200':
-      $ref: '#/components/responses/task_item'
+      $ref: '#/components/responses/variant_item'
     '404':
       $ref: '#/components/responses/variant_not_found'

@@ -30,6 +30,6 @@ delete:
     $ref: '#/components/requestBodies/integration_variant_unpublish'
   responses:
     '200':
-      $ref: '#/components/responses/task_item'
+      $ref: '#/components/responses/variant_item'
     '404':
       $ref: '#/components/responses/variant_not_found'

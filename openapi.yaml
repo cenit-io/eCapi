@@ -1526,9 +1526,6 @@ components:
           description: URI of user picture
           type: string
           readOnly: true
-        tenant:
-          $ref: '#/components/schemas/Tenant'
-          readOnly: true
     Variant:
       description: Variant representation in OMNA
       type: object
@@ -1930,7 +1927,12 @@ components:
             type: object
             properties:
               data:
-                $ref: '#/components/schemas/Tenant'
+                allOf:
+                  - $ref: '#/components/schemas/Tenant'
+                  - type: object
+                    properties:
+                      user:
+                        $ref: '#/components/schemas/User'
           examples:
             Ex1:
               $ref: '#/components/examples/tenant_item_response'

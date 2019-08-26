@@ -2018,10 +2018,6 @@
             "description": "URI of user picture",
             "type": "string",
             "readOnly": true
-          },
-          "tenant": {
-            "$ref": "#/components/schemas/Tenant",
-            "readOnly": true
           }
         }
       },
@@ -2633,7 +2629,19 @@
               "type": "object",
               "properties": {
                 "data": {
-                  "$ref": "#/components/schemas/Tenant"
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Tenant"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "user": {
+                          "$ref": "#/components/schemas/User"
+                        }
+                      }
+                    }
+                  ]
                 }
               }
             },

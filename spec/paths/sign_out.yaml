@@ -1,0 +1,14 @@
+parameters:
+  - $ref: '#/components/parameters/query_redirect_uri'
+
+get:
+  tags:
+    - Users
+  operationId: sign_out
+  summary: Sign out
+  security: []
+  description: |
+    Close session of the authenticated user.
+  responses:
+    '303':
+      $ref: '#/components/responses/sign_out'

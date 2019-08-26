@@ -5,7 +5,12 @@ content:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/Tenant'
+          allOf:
+            - $ref: '#/components/schemas/Tenant'
+            - type: object
+              properties:
+                user:
+                  $ref: '#/components/schemas/User'
 
     examples:
       Ex1:

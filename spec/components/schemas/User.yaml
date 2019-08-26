@@ -12,6 +12,3 @@ properties:
     description: URI of user picture
     type: string
     readOnly: true
-  tenant:
-    $ref: "#/components/schemas/Tenant"
-    readOnly: true

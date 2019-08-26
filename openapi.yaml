@@ -2130,7 +2130,7 @@ components:
       in: path
       required: true
       schema:
-        description: Tenant identifier
+        description: Identifier or token of the tenant
         type: string
         example: 5d029d6625d985755e02202c
     path_variant_id:

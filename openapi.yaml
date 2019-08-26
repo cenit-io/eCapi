@@ -847,6 +847,20 @@ paths:
       responses:
         '303':
           $ref: '#/components/responses/sign_in'
+  /sign_out:
+    parameters:
+      - $ref: '#/components/parameters/query_redirect_uri'
+    get:
+      tags:
+        - Users
+      operationId: sign_out
+      summary: Sign out
+      security: []
+      description: |
+        Close session of the authenticated user.
+      responses:
+        '303':
+          $ref: '#/components/responses/sign_out'
   /startup:
     get:
       tags:
@@ -1848,6 +1862,9 @@ components:
         ```
         http://my.example.com/home?token=rXfNJmFUpsyv3zocVolI&secret=42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38
         ```
+    sign_out:
+      description: |
+        Redirect to given URI.
     startup_task:
       description: Success
       content:

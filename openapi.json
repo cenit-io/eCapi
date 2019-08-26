@@ -1071,6 +1071,27 @@
         }
       }
     },
+    "/sign_out": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/query_redirect_uri"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "sign_out",
+        "summary": "Sign out",
+        "security": [],
+        "description": "Close session of the authenticated user.\n",
+        "responses": {
+          "303": {
+            "$ref": "#/components/responses/sign_out"
+          }
+        }
+      }
+    },
     "/startup": {
       "get": {
         "tags": [
@@ -2507,6 +2528,9 @@
       },
       "sign_in": {
         "description": "Redirect to given URI.\n\n> Redirect to given URI passing the token and the secret of the tenant of the authenticated user.\n\n### Example redirect to:\n```\nhttp://my.example.com/home?token=rXfNJmFUpsyv3zocVolI&secret=42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38\n```\n"
+      },
+      "sign_out": {
+        "description": "Redirect to given URI.\n"
       },
       "startup_task": {
         "description": "Success",

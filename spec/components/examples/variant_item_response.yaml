@@ -8,6 +8,9 @@ value:
     product:
       id: "5d54835825d985682d014e04"
       name: "Actxa Swift - Test Do Not Buy"
+    images:
+      - https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000
+      - https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001
     integrations:
       - id: "shopee"
         name: "shopee"

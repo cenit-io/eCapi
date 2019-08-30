@@ -13,6 +13,9 @@ value:
             remote_product_id: '289247362'
             category_id: '10001946'
       variants: 1
+      images:
+        - https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000
+        - https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001
 
     - id: 5d48c54025d9852031005fb7
       name: IPod Touch 8GB
@@ -27,6 +30,9 @@ value:
             remote_product_id: '339382531'
             category_id: '10001946'
       variants: 1
+      images:
+        - https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000
+        - https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001
 
   pagination:
     offset: 0

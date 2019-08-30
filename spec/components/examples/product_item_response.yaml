@@ -5,6 +5,9 @@ value:
     description: "It's the small iPod with one very big idea: Video..."
     price: 199.0
     variants: 1
+    images:
+      - https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000
+      - https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001
 
     integrations:
       - id: shop_01

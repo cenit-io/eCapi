@@ -15,7 +15,17 @@ properties:
     description: Product price
     type: number
     minimum: 0
-
+  variants:
+    description: Number of the product variants
+    type: number
+    readOnly: true
+    minimum: 0
+  images:
+    description: Product images
+    type: array
+    readOnly: true
+    items:
+      type: string
   integrations:
     type: array
     readOnly: true

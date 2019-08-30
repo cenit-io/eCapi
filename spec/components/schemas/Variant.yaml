@@ -31,7 +31,12 @@ properties:
       name:
         description: Prodruct name
         type: string
-
+  images:
+    description: Veriant images
+    type: array
+    readOnly: true
+    items:
+      type: string
   integrations:
     type: array
     readOnly: true

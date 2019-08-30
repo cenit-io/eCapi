@@ -1335,6 +1335,17 @@ components:
           description: Product price
           type: number
           minimum: 0
+        variants:
+          description: Number of the product variants
+          type: number
+          readOnly: true
+          minimum: 0
+        images:
+          description: Product images
+          type: array
+          readOnly: true
+          items:
+            type: string
         integrations:
           type: array
           readOnly: true
@@ -1560,6 +1571,12 @@ components:
             name:
               description: Prodruct name
               type: string
+        images:
+          description: Veriant images
+          type: array
+          readOnly: true
+          items:
+            type: string
         integrations:
           type: array
           readOnly: true
@@ -2695,6 +2712,9 @@ components:
           description: 'It''s the small iPod with one very big idea: Video...'
           price: 199
           variants: 1
+          images:
+            - 'https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000'
+            - 'https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001'
           integrations:
             - id: shop_01
               name: Shop-01
@@ -2764,6 +2784,9 @@ components:
                   remote_product_id: '289247362'
                   category_id: '10001946'
             variants: 1
+            images:
+              - 'https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000'
+              - 'https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001'
           - id: 5d48c54025d9852031005fb7
             name: IPod Touch 8GB
             description: The iPod Touch has the iPhone's multi-touch interface...
@@ -2777,6 +2800,9 @@ components:
                   remote_product_id: '339382531'
                   category_id: '10001946'
             variants: 1
+            images:
+              - 'https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000'
+              - 'https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001'
         pagination:
           offset: 0
           limit: 10
@@ -2948,6 +2974,9 @@ components:
           product:
             id: 5d54835825d985682d014e04
             name: Actxa Swift - Test Do Not Buy
+          images:
+            - 'https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000'
+            - 'https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001'
           integrations:
             - id: shopee
               name: shopee
@@ -2975,6 +3004,9 @@ components:
             product:
               id: 5d54835825d985682d014e04
               name: Actxa Swift - Test Do Not Buy
+            images:
+              - 'https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000'
+              - 'https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001'
             integrations:
               - id: shopee
                 name: shopee
@@ -2989,6 +3021,9 @@ components:
             product:
               id: 5d54835825d985682d014e04
               name: Actxa Swift - Test Do Not Buy
+            images:
+              - 'https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000'
+              - 'https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001'
             integrations:
               - id: shopee
                 name: shopee

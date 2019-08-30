@@ -1771,6 +1771,20 @@
             "type": "number",
             "minimum": 0
           },
+          "variants": {
+            "description": "Number of the product variants",
+            "type": "number",
+            "readOnly": true,
+            "minimum": 0
+          },
+          "images": {
+            "description": "Product images",
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "type": "string"
+            }
+          },
           "integrations": {
             "type": "array",
             "readOnly": true,
@@ -2062,6 +2076,14 @@
                 "description": "Prodruct name",
                 "type": "string"
               }
+            }
+          },
+          "images": {
+            "description": "Veriant images",
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "type": "string"
             }
           },
           "integrations": {
@@ -3724,6 +3746,10 @@
             "description": "It's the small iPod with one very big idea: Video...",
             "price": 199,
             "variants": 1,
+            "images": [
+              "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
+              "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
+            ],
             "integrations": [
               {
                 "id": "shop_01",
@@ -3818,7 +3844,11 @@
                   }
                 }
               ],
-              "variants": 1
+              "variants": 1,
+              "images": [
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
+              ]
             },
             {
               "id": "5d48c54025d9852031005fb7",
@@ -3837,7 +3867,11 @@
                   }
                 }
               ],
-              "variants": 1
+              "variants": 1,
+              "images": [
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
+              ]
             }
           ],
           "pagination": {
@@ -4080,6 +4114,10 @@
               "id": "5d54835825d985682d014e04",
               "name": "Actxa Swift - Test Do Not Buy"
             },
+            "images": [
+              "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
+              "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
+            ],
             "integrations": [
               {
                 "id": "shopee",
@@ -4120,6 +4158,10 @@
                 "id": "5d54835825d985682d014e04",
                 "name": "Actxa Swift - Test Do Not Buy"
               },
+              "images": [
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
+              ],
               "integrations": [
                 {
                   "id": "shopee",
@@ -4141,6 +4183,10 @@
                 "id": "5d54835825d985682d014e04",
                 "name": "Actxa Swift - Test Do Not Buy"
               },
+              "images": [
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
+              ],
               "integrations": [
                 {
                   "id": "shopee",

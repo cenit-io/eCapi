@@ -1217,7 +1217,7 @@ components:
     Order:
       type: object
       properties:
-        order_id:
+        id:
           description: Order identifier
           type: string
         number:
@@ -2546,7 +2546,7 @@ components:
     order_item_response:
       value:
         data:
-          order_id: '9151224232845'
+          id: '9151224232845'
           number: '9151224232845'
           total_price: 2
           total_quantity: 1
@@ -2594,7 +2594,7 @@ components:
     order_items_response:
       value:
         data:
-          - order_id: '9151224232845'
+          - id: '9151224232845'
             number: '9151224232845'
             total_price: 2
             total_quantity: 1
@@ -2635,7 +2635,7 @@ components:
               id: shop_01
               name: Shop-01
               channel: LazadaSG
-          - order_id: '9170283050978'
+          - id: '9170283050978'
             number: '9170283050978'
             total_price: 1
             total_quantity: 1

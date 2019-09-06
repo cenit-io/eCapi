@@ -1,6 +1,6 @@
 type: "object"
 properties:
-  order_id:
+  id:
     description: Order identifier
     type: string
   number:

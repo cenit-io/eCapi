@@ -1,7 +1,7 @@
 value:
   data:
     -
-      order_id: "9151224232845"
+      id: "9151224232845"
       number: "9151224232845"
       total_price: 2.00
       total_quantity: 1
@@ -46,7 +46,7 @@ value:
         channel: "LazadaSG"
 
     -
-      order_id: "9170283050978"
+      id: "9170283050978"
       number: "9170283050978"
       total_price: 1.00
       total_quantity: 1

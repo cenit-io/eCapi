@@ -25,7 +25,7 @@ info:
 
     This API is for individual retailers, SaaS services, or any business that needs to handle multiples commerce integrations.
 
-    * is built over REST services on HTTPS.
+    * Is built over REST services on HTTPS.
 
     * It has predictable resource URLs.
 

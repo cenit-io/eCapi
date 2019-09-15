@@ -3,8 +3,8 @@
 
 ## Introduction
 
-The OMNA Commerce API is simple connection point to integrate multiple sales channels, such us 
-marketplaces and integration platforms.
+The OMNA Commerce API is simple connector API to integrate ecommerce sale channels, such us 
+marketplaces and ecommerce platforms.
 
 An easy way to get orders, synchronize inventory and list product information to commerce solutions around the globe.
 

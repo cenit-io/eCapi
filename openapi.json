@@ -230,6 +230,24 @@
         }
       }
     },
+    "/get_access_token": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "get_access_token_async_",
+        "summary": "Get Access Token",
+        "description": "Recover the authenticated tenant profile with your token and secret.\n\n> These must be used in the construction of each request to the API and its [authentication signature](#section/Authentication).\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/get_access_token"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/tenant_item"
+          }
+        }
+      }
+    },
     "/integrations": {
       "get": {
         "tags": [
@@ -1063,7 +1081,7 @@
         "operationId": "sign_in",
         "summary": "Sign in",
         "security": [],
-        "description": "Authenticate in OMNA to obtain the token and the secret of the tenant of the authenticated user.\n\n> The token and the secret will be sent to the given uri for the redirect (redirect_uri).\n  You must save them for use in any other application to the OMNA API.\n",
+        "description": "Authenticate in OMNA to obtain the **authentication code** with which you can obtain\nthe token and the tenant's secret from the authenticated user.\n\n> The **authentication code** will be sent to the given uri for the redirect (redirect_uri).\n>\n> This **authentication code** will only be valid once and will expire in 10 minutes.\n>\n> Use this **authentication code** to obtain the tenant's token and secret through the\n  '[Get Access Token](#operation/get_access_token_async_)' service.\n",
         "responses": {
           "303": {
             "$ref": "#/components/responses/sign_in"
@@ -2545,7 +2563,7 @@
         }
       },
       "sign_in": {
-        "description": "Redirect to given URI.\n\n> Redirect to given URI passing the token and the secret of the tenant of the authenticated user.\n\n### Example redirect to:\n```\nhttp://my.example.com/home?token=rXfNJmFUpsyv3zocVolI&secret=42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38\n```\n"
+        "description": "Redirect to given URI.\n\n> Redirect to given URI passing the **authentication code**.\n\n### Example redirect to:\n```\nhttp://my.example.com/home?code=rxfnjmfupsyv3zocvoli\n```\n"
       },
       "sign_out": {
         "description": "Redirect to given URI.\n"
@@ -4344,6 +4362,24 @@
             "examples": {
               "Ex1": {
                 "$ref": "#/components/examples/flow_update_request"
+              }
+            }
+          }
+        }
+      },
+      "get_access_token": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "code"
+              ],
+              "properties": {
+                "code": {
+                  "description": "The **authentication code**.\n\n> It is obtained as a result of the authentication service ( [Sign in](#operation/sign_in) ).\n",
+                  "type": "string"
+                }
               }
             }
           }

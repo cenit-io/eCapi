@@ -215,6 +215,21 @@ paths:
           $ref: '#/components/responses/flow_item'
         '404':
           $ref: '#/components/responses/flow_not_found'
+  /get_access_token:
+    post:
+      tags:
+        - Users
+      operationId: get_access_token_async_
+      summary: Get Access Token
+      description: |
+        Recover the authenticated tenant profile with your token and secret.
+
+        > These must be used in the construction of each request to the API and its [authentication signature](#section/Authentication).
+      requestBody:
+        $ref: '#/components/requestBodies/get_access_token'
+      responses:
+        '200':
+          $ref: '#/components/responses/tenant_item'
   /integrations:
     get:
       tags:
@@ -840,10 +855,15 @@ paths:
       summary: Sign in
       security: []
       description: |
-        Authenticate in OMNA to obtain the token and the secret of the tenant of the authenticated user.
+        Authenticate in OMNA to obtain the **authentication code** with which you can obtain
+        the token and the tenant's secret from the authenticated user.
 
-        > The token and the secret will be sent to the given uri for the redirect (redirect_uri).
-          You must save them for use in any other application to the OMNA API.
+        > The **authentication code** will be sent to the given uri for the redirect (redirect_uri).
+        >
+        > This **authentication code** will only be valid once and will expire in 10 minutes.
+        >
+        > Use this **authentication code** to obtain the tenant's token and secret through the
+          '[Get Access Token](#operation/get_access_token_async_)' service.
       responses:
         '303':
           $ref: '#/components/responses/sign_in'
@@ -1870,11 +1890,11 @@ components:
       description: |
         Redirect to given URI.
 
-        > Redirect to given URI passing the token and the secret of the tenant of the authenticated user.
+        > Redirect to given URI passing the **authentication code**.
 
         ### Example redirect to:
         ```
-        http://my.example.com/home?token=rXfNJmFUpsyv3zocVolI&secret=42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38
+        http://my.example.com/home?code=rxfnjmfupsyv3zocvoli
         ```
     sign_out:
       description: |
@@ -3130,6 +3150,20 @@ components:
           examples:
             Ex1:
               $ref: '#/components/examples/flow_update_request'
+    get_access_token:
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - code
+            properties:
+              code:
+                description: |
+                  The **authentication code**.
+
+                  > It is obtained as a result of the authentication service ( [Sign in](#operation/sign_in) ).
+                type: string
     integration_create:
       description: Integration that will be added to the system
       required: true

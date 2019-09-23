@@ -1,0 +1,14 @@
+post:
+  tags:
+    - Users
+  operationId: get_access_token_async_
+  summary: Get Access Token
+  description: |
+    Recover the authenticated tenant profile with your token and secret.
+
+    > These must be used in the construction of each request to the API and its [authentication signature](#section/Authentication).
+  requestBody:
+    $ref: '#/components/requestBodies/get_access_token'
+  responses:
+    '200':
+      $ref: '#/components/responses/tenant_item'

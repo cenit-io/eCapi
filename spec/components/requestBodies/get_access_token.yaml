@@ -1,0 +1,12 @@
+required: true
+content:
+  application/json:
+    schema:
+      required: [code]
+      properties:
+        code:
+          description: |
+            The **authentication code**.
+
+            > It is obtained as a result of the authentication service ( [Sign in](#operation/sign_in) ).
+          type: string

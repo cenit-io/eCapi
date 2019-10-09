@@ -678,6 +678,8 @@ paths:
     parameters:
       - $ref: '#/components/parameters/query_filter_term_for_orders'
       - $ref: '#/components/parameters/query_filter_integration'
+      - $ref: '#/components/parameters/query_filter_order_number'
+      - $ref: '#/components/parameters/query_filter_order_status'
       - $ref: '#/components/parameters/query_with_details'
       - $ref: '#/components/parameters/query_offset'
       - $ref: '#/components/parameters/query_limit'
@@ -898,6 +900,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/query_filter_term_for_tasks'
       - $ref: '#/components/parameters/query_filter_task_status'
+      - $ref: '#/components/parameters/query_filter_task_description'
       - $ref: '#/components/parameters/query_offset'
       - $ref: '#/components/parameters/query_limit'
     get:
@@ -1207,7 +1210,10 @@ components:
           description: Channel identifier
           type: string
         title:
-          description: Channel identifier
+          description: Channel title
+          type: string
+        group:
+          description: Channel group
           type: string
     LineItem:
       title: LineItem
@@ -1449,17 +1455,35 @@ components:
           type: string
           format: time
         days_of_week:
-          description: Days of the week in which the task will be executed
+          description: |
+            Days of the week in which the task will be executed.
+
+            Values supported:
+            ```
+            ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+            ```
           type: array
           items:
             type: string
         weeks_of_month:
-          description: Weeks of the month in which the task will be executed
+          description: |
+            Weeks of the month in which the task will be executed
+
+            Values supported:
+            ```
+            ['First', 'Second', 'Third', 'Fourth', 'Last']
+            ```
           type: array
           items:
             type: string
         months_of_year:
-          description: Months of the year in which the task will be executed
+          description: |
+            Months of the year in which the task will be executed.
+
+            Values supported:
+            ```
+            ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            ```
           type: array
           items:
             type: string
@@ -2207,11 +2231,32 @@ components:
         description: Allow to filter the items by integration.
         type: string
         example: shop_01
+    query_filter_order_number:
+      name: number
+      in: query
+      schema:
+        description: Allow to filter the orders by number.
+        type: string
+        example: 19090015390WTXC
+    query_filter_order_status:
+      name: status
+      in: query
+      schema:
+        description: Allow to filter the orders by status.
+        type: string
+        example: canceled
+    query_filter_task_description:
+      name: description
+      in: query
+      schema:
+        description: Allow to filter the tasks by description.
+        type: string
+        example: mapping product
     query_filter_task_status:
       name: status
       in: query
       schema:
-        description: Allow to filter the tasks by ***status***.
+        description: Allow to filter the tasks by status.
         type: string
         example: 5d029d6625d985755e02202c
     query_filter_term_for_flows:
@@ -2225,7 +2270,7 @@ components:
       name: term
       in: query
       schema:
-        description: Allow to filter the integrations settings that contain the value of the term in their ***name***.
+        description: Allow to filter the integrations settings that contain the value of the term in their ***id*** or ***name***.
         type: string
         example: Shop-Lazada
     query_filter_term_for_orders:
@@ -2245,7 +2290,7 @@ components:
       name: term
       in: query
       schema:
-        description: Allow to filter the tasks that contain the value of the term in their ***status*** or ***description***.
+        description: Allow to filter the tasks that contain the value of the term in their ***description***.
         type: string
         example: Shop-Lazada
     query_filter_term_for_tenants:
@@ -2265,7 +2310,7 @@ components:
       name: term
       in: query
       schema:
-        description: Allow to filter the webhooks that contain the value of the term in their ***topic***.
+        description: Allow to filter the webhooks that contain the value of the term in their ***topic*** or ***address***.
         type: string
         example: orders
     query_filter_webhook_topic:
@@ -2456,12 +2501,16 @@ components:
         data:
           - name: LazadaID
             title: Lazada Indonesia
+            group: Lazada
           - name: LazadaMY
             title: Lazada Malaysia
+            group: Lazada
           - name: ShopeeTH
             title: Shopee Thailand
+            group: Shopee
           - name: ShopeeVN
             title: Shopee Vietnam
+            group: Shopee
     integration_delete_response:
       value:
         data:

@@ -4,5 +4,8 @@ properties:
     description: Channel identifier
     type: string
   title:
-    description: Channel identifier
+    description: Channel title
+    type: string
+  group:
+    description: Channel group
     type: string

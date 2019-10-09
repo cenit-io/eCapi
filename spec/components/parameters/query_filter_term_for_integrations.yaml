@@ -1,6 +1,6 @@
 name: term
 in: query
 schema:
-  description: Allow to filter the integrations settings that contain the value of the term in their ***name***.
+  description: Allow to filter the integrations settings that contain the value of the term in their ***id*** or ***name***.
   type: string
   example: Shop-Lazada

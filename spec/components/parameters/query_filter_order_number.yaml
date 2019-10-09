@@ -3,4 +3,4 @@ in: query
 schema:
   description: Allow to filter the orders by number.
   type: string
-  example: canceled
+  example: 19090015390WTXC

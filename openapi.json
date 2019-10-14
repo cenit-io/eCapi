@@ -230,6 +230,21 @@
         }
       }
     },
+    "/flows/types": {
+      "get": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "get_flow_types",
+        "summary": "List all Flow Types",
+        "description": "Returns the list of flow types availables.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_types"
+          }
+        }
+      }
+    },
     "/get_access_token": {
       "post": {
         "tags": [
@@ -1417,6 +1432,21 @@
           }
         }
       }
+    },
+    "/webhooks/topics": {
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "get_webhook_topics",
+        "summary": "List all Webhook Topics",
+        "description": "Returns the list of webhook topics availables.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/webhook_topics"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1511,8 +1541,8 @@
             "readOnly": true
           },
           "type": {
-            "description": "Flow type name",
-            "type": "string"
+            "type": "string",
+            "description": "Flow type name\n\n> You can see the available values by consulting the [flows/types](#operation/get_flow_types) service.\n"
           },
           "title": {
             "description": "The human-readable flow type name",
@@ -1523,26 +1553,37 @@
             "$ref": "#/components/schemas/Task"
           },
           "integration": {
-            "$ref": "#/components/schemas/Integration"
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Integration"
+              }
+            ]
           },
           "integration_id": {
-            "description": "Integration identifier",
-            "type": "string",
-            "writeOnly": true
+            "$ref": "#/components/schemas/IntegrationId"
           },
           "scheduler": {
             "$ref": "#/components/schemas/Scheduler"
           }
-        },
-        "required": [
-          "type",
-          "integration_id"
-        ]
+        }
+      },
+      "FlowType": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Flow type identifier",
+            "type": "string"
+          },
+          "title": {
+            "description": "Flow type title",
+            "type": "string"
+          }
+        }
       },
       "Integration": {
         "type": "object",
         "description": "Integration",
-        "readOnly": true,
         "properties": {
           "id": {
             "description": "Integration identifier",
@@ -1574,11 +1615,7 @@
           "updated_at": {
             "$ref": "#/components/schemas/UpdatedAt"
           }
-        },
-        "required": [
-          "name",
-          "channel"
-        ]
+        }
       },
       "IntegrationChannel": {
         "type": "object",
@@ -1596,6 +1633,11 @@
             "type": "string"
           }
         }
+      },
+      "IntegrationId": {
+        "type": "string",
+        "writeOnly": true,
+        "description": "Integration identifier\n\n> You can see the available values by consulting the [integrations](#operation/get_integrations) service.\n"
       },
       "LineItem": {
         "title": "LineItem",
@@ -1706,7 +1748,12 @@
             "$ref": "#/components/schemas/Customer"
           },
           "integration": {
-            "$ref": "#/components/schemas/Integration"
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Integration"
+              }
+            ]
           }
         }
       },
@@ -1936,12 +1983,7 @@
               "type": "string"
             }
           }
-        },
-        "required": [
-          "start_date",
-          "end_date",
-          "time"
-        ]
+        }
       },
       "Success": {
         "type": "object",
@@ -2035,10 +2077,7 @@
           "updated_at": {
             "$ref": "#/components/schemas/UpdatedAt"
           }
-        },
-        "required": [
-          "name"
-        ]
+        }
       },
       "UpdatedAt": {
         "description": "Date in iso8601 when the record was updated",
@@ -2166,26 +2205,47 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "Webhook identifier",
             "type": "string",
-            "readOnly": true
+            "readOnly": true,
+            "description": "Webhook identifier"
           },
           "topic": {
-            "description": "Event that triggers the webhook.\n\n**Valid values are:** order/registered, order/updated\n",
-            "type": "string"
+            "type": "string",
+            "description": "Event that triggers the webhook.\n\n> You can see the available values by consulting the [webhooks/topics](#operation/get_webhook_topics) service.\n"
           },
           "address": {
-            "description": "URl destination of information",
-            "type": "string"
+            "type": "string",
+            "description": "URl destination of information"
           },
           "integration": {
-            "$ref": "#/components/schemas/Integration"
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Integration"
+              }
+            ]
+          },
+          "integration_id": {
+            "$ref": "#/components/schemas/IntegrationId"
           },
           "created_at": {
             "$ref": "#/components/schemas/CreatedAt"
           },
           "updated_at": {
             "$ref": "#/components/schemas/UpdatedAt"
+          }
+        }
+      },
+      "WebhookTopic": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "description": "Webhook topic identifier",
+            "type": "string"
+          },
+          "title": {
+            "description": "Webhook topic title",
+            "type": "string"
           }
         }
       }
@@ -2265,6 +2325,29 @@
           }
         }
       },
+      "flow_types": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FlowType"
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/flow_type_response"
+              }
+            }
+          }
+        }
+      },
       "integration_channels": {
         "description": "Success",
         "content": {
@@ -2277,9 +2360,6 @@
                   "items": {
                     "$ref": "#/components/schemas/IntegrationChannel"
                   }
-                },
-                "pagination": {
-                  "$ref": "#/components/schemas/Pagination"
                 }
               }
             },
@@ -2866,6 +2946,29 @@
             }
           }
         }
+      },
+      "webhook_topics": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebhookTopic"
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/webhook_topics_response"
+              }
+            }
+          }
+        }
       }
     },
     "parameters": {
@@ -3357,6 +3460,20 @@
             "limit": 10,
             "total": 1
           }
+        }
+      },
+      "flow_type_response": {
+        "value": {
+          "data": [
+            {
+              "type": "import_orders",
+              "title": "Import orders from integration"
+            },
+            {
+              "type": "import_products",
+              "title": "Import products from integration"
+            }
+          ]
         }
       },
       "flow_update_request": {
@@ -4354,6 +4471,20 @@
             "total": 1
           }
         }
+      },
+      "webhook_topics_response": {
+        "value": {
+          "data": [
+            {
+              "topic": "order/registered",
+              "title": "When an order is registered for the first time"
+            },
+            {
+              "topic": "order/updated",
+              "title": "When an order is updated"
+            }
+          ]
+        }
       }
     },
     "requestBodies": {
@@ -4368,7 +4499,17 @@
               ],
               "properties": {
                 "data": {
-                  "$ref": "#/components/schemas/Flow"
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Flow"
+                    },
+                    {
+                      "required": [
+                        "type",
+                        "integration_id"
+                      ]
+                    }
+                  ]
                 }
               }
             },
@@ -4397,7 +4538,18 @@
                   "type": "object",
                   "properties": {
                     "scheduler": {
-                      "$ref": "#/components/schemas/Scheduler"
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Scheduler"
+                        },
+                        {
+                          "required": [
+                            "start_date",
+                            "end_date",
+                            "time"
+                          ]
+                        }
+                      ]
                     }
                   }
                 }
@@ -4440,21 +4592,17 @@
               ],
               "properties": {
                 "data": {
-                  "type": "object",
-                  "required": [
-                    "name",
-                    "channel"
-                  ],
-                  "properties": {
-                    "name": {
-                      "description": "Integration name",
-                      "type": "string"
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Integration"
                     },
-                    "channel": {
-                      "description": "Channel identifier",
-                      "type": "string"
+                    {
+                      "required": [
+                        "name",
+                        "channel"
+                      ]
                     }
-                  }
+                  ]
                 }
               }
             },
@@ -4667,7 +4815,16 @@
               ],
               "properties": {
                 "data": {
-                  "$ref": "#/components/schemas/Tenant"
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Tenant"
+                    },
+                    {
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  ]
                 }
               }
             }
@@ -4790,7 +4947,18 @@
               ],
               "properties": {
                 "data": {
-                  "$ref": "#/components/schemas/Webhook"
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Webhook"
+                    },
+                    {
+                      "required": [
+                        "topic",
+                        "address",
+                        "integration_id"
+                      ]
+                    }
+                  ]
                 }
               }
             },

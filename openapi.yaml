@@ -215,6 +215,17 @@ paths:
           $ref: '#/components/responses/flow_item'
         '404':
           $ref: '#/components/responses/flow_not_found'
+  /flows/types:
+    get:
+      tags:
+        - Flows
+      operationId: get_flow_types
+      summary: List all Flow Types
+      description: |
+        Returns the list of flow types availables.
+      responses:
+        '200':
+          $ref: '#/components/responses/flow_types'
   /get_access_token:
     post:
       tags:
@@ -1086,6 +1097,17 @@ paths:
           $ref: '#/components/responses/webhook_item'
         '404':
           $ref: '#/components/responses/webhook_not_found'
+  /webhooks/topics:
+    get:
+      tags:
+        - Webhooks
+      operationId: get_webhook_topics
+      summary: List all Webhook Topics
+      description: |
+        Returns the list of webhook topics availables.
+      responses:
+        '200':
+          $ref: '#/components/responses/webhook_topics'
 components:
   schemas:
     Address:
@@ -1153,8 +1175,11 @@ components:
           type: string
           readOnly: true
         type:
-          description: Flow type name
           type: string
+          description: |
+            Flow type name
+
+            > You can see the available values by consulting the [flows/types](#operation/get_flow_types) service.
         title:
           description: The human-readable flow type name
           type: string
@@ -1162,20 +1187,25 @@ components:
         task:
           $ref: '#/components/schemas/Task'
         integration:
-          $ref: '#/components/schemas/Integration'
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/Integration'
         integration_id:
-          description: Integration identifier
-          type: string
-          writeOnly: true
+          $ref: '#/components/schemas/IntegrationId'
         scheduler:
           $ref: '#/components/schemas/Scheduler'
-      required:
-        - type
-        - integration_id
+    FlowType:
+      type: object
+      properties:
+        type:
+          description: Flow type identifier
+          type: string
+        title:
+          description: Flow type title
+          type: string
     Integration:
       type: object
       description: Integration
-      readOnly: true
       properties:
         id:
           description: Integration identifier
@@ -1200,9 +1230,6 @@ components:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
           $ref: '#/components/schemas/UpdatedAt'
-      required:
-        - name
-        - channel
     IntegrationChannel:
       type: object
       properties:
@@ -1215,6 +1242,13 @@ components:
         group:
           description: Channel group
           type: string
+    IntegrationId:
+      type: string
+      writeOnly: true
+      description: |
+        Integration identifier
+
+        > You can see the available values by consulting the [integrations](#operation/get_integrations) service.
     LineItem:
       title: LineItem
       type: object
@@ -1291,7 +1325,9 @@ components:
         customer:
           $ref: '#/components/schemas/Customer'
         integration:
-          $ref: '#/components/schemas/Integration'
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/Integration'
     OrderDocument:
       type: object
       properties:
@@ -1487,10 +1523,6 @@ components:
           type: array
           items:
             type: string
-      required:
-        - start_date
-        - end_date
-        - time
     Success:
       type: object
       properties:
@@ -1559,8 +1591,6 @@ components:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
           $ref: '#/components/schemas/UpdatedAt'
-      required:
-        - name
     UpdatedAt:
       description: Date in iso8601 when the record was updated
       type: string
@@ -1655,24 +1685,37 @@ components:
       type: object
       properties:
         id:
-          description: Webhook identifier
           type: string
           readOnly: true
+          description: Webhook identifier
         topic:
+          type: string
           description: |
             Event that triggers the webhook.
 
-            **Valid values are:** order/registered, order/updated
-          type: string
+            > You can see the available values by consulting the [webhooks/topics](#operation/get_webhook_topics) service.
         address:
-          description: URl destination of information
           type: string
+          description: URl destination of information
         integration:
-          $ref: '#/components/schemas/Integration'
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/Integration'
+        integration_id:
+          $ref: '#/components/schemas/IntegrationId'
         created_at:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
           $ref: '#/components/schemas/UpdatedAt'
+    WebhookTopic:
+      type: object
+      properties:
+        topic:
+          description: Webhook topic identifier
+          type: string
+        title:
+          description: Webhook topic title
+          type: string
   responses:
     already_exists:
       description: Already exist
@@ -1720,6 +1763,20 @@ components:
           example:
             success: false
             message: 'Not found flow with id: 5d04051125d9852c71016793'
+    flow_types:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FlowType'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/flow_type_response'
     integration_channels:
       description: Success
       content:
@@ -1731,8 +1788,6 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/IntegrationChannel'
-              pagination:
-                $ref: '#/components/schemas/Pagination'
           examples:
             Ex1:
               $ref: '#/components/examples/integration_channels_response'
@@ -2097,6 +2152,20 @@ components:
           example:
             success: false
             message: 'Not found webhook with id: 5d04051125d9852c71016793'
+    webhook_topics:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WebhookTopic'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/webhook_topics_response'
   parameters:
     auth_hmac:
       name: hmac
@@ -2475,6 +2544,13 @@ components:
           offset: 0
           limit: 10
           total: 1
+    flow_type_response:
+      value:
+        data:
+          - type: import_orders
+            title: Import orders from integration
+          - type: import_products
+            title: Import products from integration
     flow_update_request:
       summary: With scheduler
       value:
@@ -3165,6 +3241,13 @@ components:
           offset: 0
           limit: 5
           total: 1
+    webhook_topics_response:
+      value:
+        data:
+          - topic: order/registered
+            title: When an order is registered for the first time
+          - topic: order/updated
+            title: When an order is updated
   requestBodies:
     flow_create:
       description: Flow that will be added to the system
@@ -3176,7 +3259,11 @@ components:
               - data
             properties:
               data:
-                $ref: '#/components/schemas/Flow'
+                allOf:
+                  - $ref: '#/components/schemas/Flow'
+                  - required:
+                      - type
+                      - integration_id
           examples:
             Ex1:
               $ref: '#/components/examples/flow_create_request_1'
@@ -3195,7 +3282,12 @@ components:
                 type: object
                 properties:
                   scheduler:
-                    $ref: '#/components/schemas/Scheduler'
+                    allOf:
+                      - $ref: '#/components/schemas/Scheduler'
+                      - required:
+                          - start_date
+                          - end_date
+                          - time
           examples:
             Ex1:
               $ref: '#/components/examples/flow_update_request'
@@ -3223,17 +3315,11 @@ components:
               - data
             properties:
               data:
-                type: object
-                required:
-                  - name
-                  - channel
-                properties:
-                  name:
-                    description: Integration name
-                    type: string
-                  channel:
-                    description: Channel identifier
-                    type: string
+                allOf:
+                  - $ref: '#/components/schemas/Integration'
+                  - required:
+                      - name
+                      - channel
           examples:
             e1:
               summary: To Lazada integration
@@ -3379,7 +3465,10 @@ components:
               - data
             properties:
               data:
-                $ref: '#/components/schemas/Tenant'
+                allOf:
+                  - $ref: '#/components/schemas/Tenant'
+                  - required:
+                      - name
     variant_publish:
       required: true
       content:
@@ -3460,7 +3549,12 @@ components:
               - data
             properties:
               data:
-                $ref: '#/components/schemas/Webhook'
+                allOf:
+                  - $ref: '#/components/schemas/Webhook'
+                  - required:
+                      - topic
+                      - address
+                      - integration_id
           examples:
             Ex1:
               $ref: '#/components/examples/webhook_create_request_1'

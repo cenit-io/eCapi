@@ -1,20 +1,24 @@
 type: "object"
 properties:
   id:
-    description: Webhook identifier
     type: string
     readOnly: true
+    description: Webhook identifier
   topic:
+    type: string
     description: |
       Event that triggers the webhook.
 
-      **Valid values are:** order/registered, order/updated
-    type: string
+      > Get the available values ​​by consulting the [webhooks/topics](#operation/get_webhook_topics) service.
   address:
-    description: URl destination of information
     type: string
+    description: URl destination of information
   integration:
-    $ref: "#/components/schemas/Integration"
+    readOnly: true
+    allOf:
+      - $ref: "#/components/schemas/Integration"
+  integration_id:
+    $ref: "#/components/schemas/IntegrationId"
   created_at:
     $ref: "#/components/schemas/CreatedAt"
   updated_at:

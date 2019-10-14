@@ -1,0 +1,8 @@
+type: object
+properties:
+  topic:
+    description: Webhook topic identifier
+    type: string
+  title:
+    description: Webhook topic title
+    type: string

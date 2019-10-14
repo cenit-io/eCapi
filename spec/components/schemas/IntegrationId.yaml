@@ -1,0 +1,6 @@
+type: string
+writeOnly: true
+description: |
+  Integration identifier
+
+  > Get the available values ​​by consulting the [integrations](#operation/get_integrations) service.

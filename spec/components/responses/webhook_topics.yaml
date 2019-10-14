@@ -1,0 +1,14 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookTopic'
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/webhook_topics_response'

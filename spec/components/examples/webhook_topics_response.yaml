@@ -1,0 +1,8 @@
+value:
+  data:
+    -
+      topic: "order/registered"
+      title: "When an order is registered for the first time"
+    -
+      topic: "order/updated"
+      title: "When an order is updated"

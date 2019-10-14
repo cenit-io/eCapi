@@ -59,5 +59,3 @@ properties:
     type: array
     items:
       type: string
-
-required: [start_date, end_date, time]

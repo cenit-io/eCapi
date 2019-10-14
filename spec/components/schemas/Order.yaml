@@ -48,5 +48,6 @@ properties:
   customer:
     $ref: "#/components/schemas/Customer"
   integration:
-    $ref: "#/components/schemas/Integration"
-
+    readOnly: true
+    allOf:
+      - $ref: "#/components/schemas/Integration"

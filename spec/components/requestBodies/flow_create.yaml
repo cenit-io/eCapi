@@ -6,7 +6,9 @@ content:
       required: [data]
       properties:
         data:
-          $ref: '#/components/schemas/Flow'
+          allOf:
+            - $ref: '#/components/schemas/Flow'
+            - required: [type, integration_id]
 
     examples:
       Ex1:

@@ -6,7 +6,9 @@ content:
       required: [data]
       properties:
         data:
-          $ref: '#/components/schemas/Webhook'
+          allOf:
+            - $ref: '#/components/schemas/Webhook'
+            - required: [topic, address, integration_id]
 
     examples:
       Ex1:

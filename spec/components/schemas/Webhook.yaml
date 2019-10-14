@@ -9,7 +9,7 @@ properties:
     description: |
       Event that triggers the webhook.
 
-      > Get the available values ​​by consulting the [webhooks/topics](#operation/get_webhook_topics) service.
+      > You can see the available values by consulting the [webhooks/topics](#operation/get_webhook_topics) service.
   address:
     type: string
     description: URl destination of information

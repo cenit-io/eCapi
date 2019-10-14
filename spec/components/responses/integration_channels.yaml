@@ -8,8 +8,6 @@ content:
           type: array
           items:
             $ref: '#/components/schemas/IntegrationChannel'
-        pagination:
-            $ref: '#/components/schemas/Pagination'
 
     examples:
       Ex1:

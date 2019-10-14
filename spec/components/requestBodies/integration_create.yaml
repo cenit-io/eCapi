@@ -6,15 +6,9 @@ content:
       required: [data]
       properties:
         data:
-          type: object
-          required: [name, channel]
-          properties:
-            name:
-              description: Integration name
-              type: string
-            channel:
-              description: Channel identifier
-              type: string
+          allOf:
+            - $ref: "#/components/schemas/Integration"
+            - required: [name, channel]
 
     examples:
       e1:

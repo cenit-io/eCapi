@@ -5,8 +5,11 @@ properties:
     type: string
     readOnly: true
   type:
-    description: Flow type name
     type: string
+    description: |
+      Flow type name
+
+      > You can see the available values by consulting the [flows/types](#operation/get_flow_types) service.
   title:
     description: The human-readable flow type name
     type: string
@@ -14,12 +17,10 @@ properties:
   task:
     $ref: "#/components/schemas/Task"
   integration:
-    $ref: "#/components/schemas/Integration"
+    readOnly: true
+    allOf:
+      - $ref: "#/components/schemas/Integration"
   integration_id:
-    description: Integration identifier
-    type: string
-    writeOnly: true
+    $ref: "#/components/schemas/IntegrationId"
   scheduler:
     $ref: "#/components/schemas/Scheduler"
-
-required: [type, integration_id]

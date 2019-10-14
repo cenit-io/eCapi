@@ -6,7 +6,9 @@ content:
       required: [data]
       properties:
         data:
-          $ref: '#/components/schemas/Tenant'
+          allOf:
+            - $ref: '#/components/schemas/Tenant'
+            - required: [name]
 
 #    examples:
 #      Ex1:

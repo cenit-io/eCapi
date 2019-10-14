@@ -1,6 +1,5 @@
 type: object
 description: Integration
-readOnly: true
 properties:
   id:
     description: Integration identifier
@@ -25,5 +24,3 @@ properties:
     $ref: "#/components/schemas/CreatedAt"
   updated_at:
     $ref: "#/components/schemas/UpdatedAt"
-
-required: [name, channel]

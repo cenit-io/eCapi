@@ -9,7 +9,9 @@ content:
           type: object
           properties:
             scheduler:
-              $ref: "#/components/schemas/Scheduler"
+              allOf:
+                - $ref: "#/components/schemas/Scheduler"
+                - required: [start_date, end_date, time]
 
     examples:
       Ex1:

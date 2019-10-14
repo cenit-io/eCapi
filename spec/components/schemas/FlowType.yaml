@@ -1,0 +1,8 @@
+type: object
+properties:
+  type:
+    description: Flow type identifier
+    type: string
+  title:
+    description: Flow type title
+    type: string

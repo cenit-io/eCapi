@@ -1,0 +1,8 @@
+value:
+  data:
+    -
+      type: "import_orders"
+      title: "Import orders from integration"
+    -
+      type: "import_products"
+      title: "Import products from integration"

@@ -3,7 +3,7 @@
 
 ## Introduction
 
-This repo has oficial reference of the OMNA Commerce API. The spec is OpenAPI 3.0.0 (aka swagger).
+This repo has official reference of the OMNA Commerce API. The spec is OpenAPI 3.0.0 (aka swagger).
 
 The **OMNA Commerce API** is simple connector API to integrate ecommerce sale channels, such us 
 marketplaces and ecommerce platforms.
@@ -16,9 +16,17 @@ It is built on top of an integration platform https://cenit.io
 
 This API is for individual retailers, SaaS services, or any business that needs to handle multiples commerce integrations.
 
-The next diagram show the  principals operations available on OMNA Commerce API. Some of these operations generate and returns asynchronous task, that you can track through task management services.
+The next diagram shows the main operations available on OMNA Commerce API. Some of these operations generate and return asynchronous tasks, that you can track through task management services.
 
 ![OMNAv2 en](https://user-images.githubusercontent.com/4213488/64925350-c176a300-d7de-11e9-9a79-3fb0ccace204.png)
+
+Supported Integrations:
+
+* Shopify
+* Shopee
+* Lazada
+* Qoo10
+* MercadoLibre
 
 ## Steps to finish
 

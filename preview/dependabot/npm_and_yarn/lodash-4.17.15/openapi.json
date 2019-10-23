@@ -1,0 +1,4998 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "v1",
+    "title": "OMNA Commerce API",
+    "termsOfService": "https://cenit.io/terms",
+    "contact": {
+      "email": "hello@omna.io",
+      "url": "https://cenitio.slack.com/messages/support"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "x-logo": {
+      "url": "omna_logo.png"
+    },
+    "description": "# Introduction\nThe OMNA Commerce API is simple connector API to integrate ecommerce sale channels, such us  marketplaces and ecommerce platforms.\nAn easy way to get orders, synchronize inventory and list product information to commerce solutions around the globe.\nWe are starting for marketplaces in Southeast Asia (Shopee, Lazada) but we will continue to make it global.\nIt is built on top of an integration platform https://cenit.io\nThis API is for individual retailers, SaaS services, or any business that needs to handle multiples commerce integrations.\n* Is built over REST services on HTTPS.\n* It has predictable resource URLs.\n* It returns HTTP response codes to indicate errors.\n* It accepts and returns JSON in the HTTP body.\n* You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API.\n"
+  },
+  "tags": [
+    {
+      "name": "Integrations",
+      "description": "The term integration refers to resource set on which is possible operate, updated with the latest information,\nand consolidating information into a single processing workflow.\n\nThe available integrations are Lazada, Shopee.\n"
+    },
+    {
+      "name": "Orders",
+      "description": "Operations about the orders\n"
+    },
+    {
+      "name": "Products",
+      "description": "Operations about the products.\n"
+    },
+    {
+      "name": "Products Integrations",
+      "description": "Operations about the products of an Integration.\n"
+    },
+    {
+      "name": "Variants",
+      "description": "Operations about the product variants.\n"
+    },
+    {
+      "name": "Variants Integrations",
+      "description": "Operations about the product variants of an Integration.\n"
+    },
+    {
+      "name": "Flows",
+      "description": "Operations about the flows.\nThe flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be executed manually or automated through the configuration and activation of their schedulers. For example, the user can want to receive products form an integration 1 and orders form another integration.\n"
+    },
+    {
+      "name": "Tasks",
+      "description": "Each of the actions that make up the api generate one or more tasks when are process. In the details of the task\nwe can find information about the processing triggered by the action like status, fulfillment %, notifications, etc.\n"
+    },
+    {
+      "name": "Webhooks",
+      "description": "A webhook is a hook through which a notification is sent to a URL of user choice when a certain event occurs.\nThey allow to receive real-time HTTP notifications of changes to specific objects. Webhooks facilitate syncing\nand relaying data between two endpoints.\n\n### Anatomy of a webhook\n\nAfter you configure a webhook subscription, the events that you specified will trigger a webhook notification\neach time they occur. This notification contains a JSON payload and and HTTP headers that provide context.\nFor example, the order/updated webhook includes the following headers:\n\n- **X-Tenant-Token**: 5cfe690b25d9854b3b02241b,\n- **X-Topic**: order/updated,\n- **X-API-Version**: v1\n- **X-HMac-Sha256**: d24c9128362b0518f9ca2bf767b4a60a59aefe0f63ebeb7d47ec594442fc7a8f\n\nSome HTTP headers are particularly useful for your app:\n\n- **X-Topic** represents the type of object and the event that occurred.\n- **X-HMac-Sha256** and **X-Tenant-Token** are used to verify webhooks.\n- **X-API-Version** is used to confirm what version of the API used to serialize the webhook event payload.\n\n### Verifying webhooks\n\nWebhooks created through the API are verified by calculating a digital signature. Each webhook request includes\n**X-HMac-Sha256** header, which is generated using the tenant shared secret along with the data sent in the request.\n\nTo verify that the request came from OMNA, compute the **HMAC** digest according to the following algorithm and\ncompare it to the value in the **X-HMac-Sha256** header. If they match, then you can be sure that the webhook was\nsent from OMNA.\n\n**The following Ruby example apply to Sinatra or RoR web frameworks to verify a webhook request:**\n\n```Ruby\n  require 'openssl'\n\n  request.body.rewind\n  body = request.body.read\n\n  secret = '...' # Get this from tenant with equal to **X-Tenant-Token** header.\n\n  hmac1 = request.headers['X-HMac-Sha256']\n  hmac2 = OpenSSL::HMAC.hexdigest('sha256', secret, body)\n\n  raise 'The request is not valid...' if hmac1 != hmac2\n```\n"
+    },
+    {
+      "name": "Users",
+      "description": "User represent a person or a company, it is a user in Cenit System.\n"
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://cenit.io/app/ecapi-v1"
+    }
+  ],
+  "security": [
+    {
+      "Token": [],
+      "Timestamp": [],
+      "HMac": []
+    }
+  ],
+  "paths": {
+    "/flows": {
+      "get": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "get_flows",
+        "summary": "List all Flows",
+        "description": "Returns the list of flows settings.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_flows"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_integration"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_flow_type"
+          },
+          {
+            "$ref": "#/components/parameters/query_with_details"
+          },
+          {
+            "$ref": "#/components/parameters/query_offset"
+          },
+          {
+            "$ref": "#/components/parameters/query_limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_items"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "create_flow",
+        "summary": "Create a Flow",
+        "description": "Create flow settings from a given name and channel.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/flow_create"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_item"
+          },
+          "400": {
+            "$ref": "#/components/responses/already_exists"
+          }
+        }
+      }
+    },
+    "/flows/{flow_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_flow_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "get_flow",
+        "summary": "Retrieve a Flow",
+        "description": "Find flow by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/flow_not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "update_flow",
+        "summary": "Update a Flow Scheduler",
+        "description": "Find flow by given id and update it scheduler.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/flow_update"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/flow_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "delete_flow",
+        "summary": "Delete a Flow",
+        "description": "Find flow by given id and destroy it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/flow_not_found"
+          }
+        }
+      }
+    },
+    "/flows/{flow_id}/start": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_flow_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "start_flow",
+        "summary": "Start a Flow",
+        "description": "Find flow by given id and start its processing.\n\n> If exists any task of this flow in the execution or pending state, then the same task is returned, otherwise a new task is created.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/flow_not_found"
+          }
+        }
+      }
+    },
+    "/flows/{flow_id}/toggle/scheduler/status": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_flow_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "toggle_flow_scheduler_status",
+        "summary": "Toggle a Scheduler status",
+        "description": "Find flow by given id and activate or deactivate its scheduler.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/flow_not_found"
+          }
+        }
+      }
+    },
+    "/flows/types": {
+      "get": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "get_flow_types",
+        "summary": "List all Flow Types",
+        "description": "Returns the list of flow types availables.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_types"
+          }
+        }
+      }
+    },
+    "/get_access_token": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "get_access_token_async_",
+        "summary": "Get Access Token",
+        "description": "Recover the authenticated tenant profile with your token and secret.\n\n> These must be used in the construction of each request to the API and its [authentication signature](#section/Authentication).\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/get_access_token"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/tenant_item"
+          }
+        }
+      }
+    },
+    "/integrations": {
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "get_integrations",
+        "summary": "List all Integrations",
+        "description": "Returns the list of your integrations.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_integrations"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_integration_channel"
+          },
+          {
+            "$ref": "#/components/parameters/query_offset"
+          },
+          {
+            "$ref": "#/components/parameters/query_limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/integration_items"
+          }
+        },
+        "x-code-samples": [
+          {
+            "lang": "JavaScript",
+            "source": "// See the authentication section to learn how to sign any request.\n\nlet request = axios({\n  method: 'GET',\n  url: 'integrations',\n  params: { limit: 10, offset: 0, channel: 'LazadaSG' }\n});\n\nrequest.then((response) => {\n  // Do something with the response\n}).catch((error) => {\n  // Do something with the error\n});\n\n"
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "create_integration",
+        "summary": "Create an Integration",
+        "description": "Creates a new integration object from a given name and channel.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/integration_create"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/integration_item"
+          },
+          "400": {
+            "$ref": "#/components/responses/already_exists"
+          }
+        },
+        "x-code-samples": [
+          {
+            "lang": "JavaScript",
+            "source": "// See the authentication section to learn how to sign any request.\n\nlet request = axios({\n  method: 'POST',\n  url: 'integrations',\n  data: { name: \"Shop-01\", channel: \"LazadaSG\" }\n});\n\nrequest.then((response) => {\n  // Do something with the response\n}).catch((error) => {\n  // Do something with the error\n});"
+          }
+        ]
+      }
+    },
+    "/integrations/{integration_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "get_integration_settings",
+        "summary": "Retrieve an Integration",
+        "description": "Retrieves a single integration by given id.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/integration_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        },
+        "x-code-samples": [
+          {
+            "lang": "JavaScript",
+            "source": "// See the authentication section to learn how to sign any request.\n\nlet integration_id = 'shop_01';\n\nlet request = axios({\n  method: 'GET',\n  url: 'integrations/' + integration_id\n});\n\nrequest.then((response) => {\n  // Do something with the response\n}).catch((error) => {\n  // Do something with the error\n});"
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "delete_integration_async_",
+        "summary": "Delete an Integration",
+        "description": "Generate an async task to delete an Integration and all its Orders, Variants and Product.\n\n> Authorized Integration or associated with workflows or webhooks cannot be deleted.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/integration_delete_task"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        },
+        "x-code-samples": [
+          {
+            "lang": "JavaScript",
+            "source": "// See the authentication section to learn how to sign any request.\n\nlet integration_id = 'shop_01';\n\nlet request = axios({\n  method: 'DELETE',\n  url: 'integrations/' + integration_id\n});\n\nrequest.then((response) => {\n  // Do something with the response\n}).catch((error) => {\n  // Do something with the error\n});"
+          }
+        ]
+      }
+    },
+    "/integrations/{integration_id}/authorize": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "authorize_integration",
+        "summary": "Retrieve the Authorization",
+        "description": "Find integration by given id and redirect navigation to authorization uri.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_redirect_uri"
+          }
+        ],
+        "responses": {
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        },
+        "x-code-samples": [
+          {
+            "lang": "JavaScript",
+            "source": "const baseURL = 'https://cenit.io/app/ecapi-v1/';\n\nconst current_tenant = { token: '...', secret: '...' };\n\n/**\n * Returns URI to page to authorize an Integration.\n *\n * @param integration_id {string} Identifier of the Integration\n * @returns {string} URI to authorization page\n */\nconst authorizationURI = (integration_id) => {\n  let path = 'integrations/' + integration_id + '/authorize';\n\n  // Prepare the request data with the token, timestamp and redirect_uri parameters\n  let data = {\n    token: current_tenant.token,\n    timestamp: Date.now(),\n    redirect_uri: 'http://127.0.0.1:8080'\n  };\n\n  // Join the service path and the ordered sequence of characters, excluding the quotes,\n  // corresponding to the JSON of the parameters that will be sent.\n  let msg = path + JSON.stringify(data).replace(/[\"']/g, '').split('').sort().join('');\n\n  // Generate the corresponding hmac parameter using the js-sha256 or similar library.\n  data.hmac = sha256.hmac.update(current_tenant.secret, msg).hex();\n\n  // Generate query string with all parameters simple-query-string or similar library\n  let queryString = simpleQueryString.stringify(data);\n\n  return `${baseURL}${path}?${queryString}`;\n};\n\n// Redirect the navigation to the authorization page\nwindow.location = authorizationURI('shop_01');"
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "deauthorize_integration",
+        "summary": "Cancel the Authorization",
+        "description": "Find integration by given id and disallow their connection.\n\n> Only authorize integrations can be unauthorizes.\n",
+        "responses": {
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/flows": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_flows"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_flow_type"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "get_integration_flows",
+        "summary": "List all Flows from an Integration",
+        "description": "Returns the flow list of a specific integration.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/flow_items"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/orders": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_orders"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "get_integration_orders",
+        "summary": "List all Orders from an Integration",
+        "description": "Returns the order list of a specific integration.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_items"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/orders/{number}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_order_number"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "get_order",
+        "summary": "Retrieve an Order from an Integration",
+        "description": "Find order by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/order_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/orders/{number}/doc/{doc_type}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_order_number"
+        },
+        {
+          "$ref": "#/components/parameters/path_doc_type"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "get_order_doc",
+        "summary": "Retrieve a Document from an Order",
+        "description": "Retrieve a specific document of the order.\n\n> To reconstruct the file, the data from the node needs to be base64 decoded, and interpreted according to the mime_type.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_doc"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/orders/{number}/doc/types": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_order_number"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "get_order_doc_types",
+        "summary": "List all Document Types from an Order",
+        "description": "Return the list of types of order documents\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_doc_types"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/orders/{number}/import": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_order_number"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "import_order_async_",
+        "summary": "Import a single Order from an Integration",
+        "description": "Generate an async task to import a specific order from an integration\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_import_task"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/orders/import": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "import_orders_async_",
+        "summary": "Import updated Orders from an Integration",
+        "description": "Generate an async task to import the last updated orders from an integration\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_import_task"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/products": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_products"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products Integrations"
+        ],
+        "operationId": "get_integration_products_beta_",
+        "summary": "List all Products from an Integration",
+        "description": "Returns the product list of a specific integration.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_items"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/products/{remote_product_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_remote_product_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products Integrations"
+        ],
+        "operationId": "get_integration_product_beta_",
+        "summary": "Retrieve an Product from an Integration",
+        "description": "Retrieve the product that is published in the given integration and have as identify on its source platform\nthe given identifier of the remote product.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Products Integrations"
+        ],
+        "operationId": "delete_integration_product_beta_",
+        "summary": "Unpublish a Product from an Integration",
+        "description": "Unpublish a product from an Integration.\n\n> The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/integration_product_unpublish"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/products/{remote_product_id}/import": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_remote_product_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products Integrations"
+        ],
+        "operationId": "import_integration_product_async_",
+        "summary": "Import a single Product from an Integration",
+        "description": "Generate an async task to import a specific product from an integration\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_import_task"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/products/{remote_product_id}/variants": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_remote_product_id"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_variants"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Variants Integrations"
+        ],
+        "operationId": "get_integration_variants_beta_",
+        "summary": "List all Variants from an Integration",
+        "description": "Returns the variant list of a specific integration.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/variant_items"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/products/{remote_product_id}/variants/{remote_variant_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_remote_product_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_remote_variant_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Variants Integrations"
+        ],
+        "operationId": "get_integration_variant_beta_",
+        "summary": "Retrieve an Variant from an Integration",
+        "description": "Retrieve the variant that is published in the given integration and have as identify on its source platform\nthe given identifier of the remote variant.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/variant_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/variant_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Variants Integrations"
+        ],
+        "operationId": "delete_integration_variant_beta_",
+        "summary": "Unpublish a Variant from an Integration",
+        "description": "Unpublish a variant from an Integration.\n\n> The variant will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/integration_variant_unpublish"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/variant_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/variant_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/products/import": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products Integrations"
+        ],
+        "operationId": "import_products_async_",
+        "summary": "Import updated Products from an Integration",
+        "description": "Generate an async task to import the last updated products from an integration\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_import_task"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/channels": {
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "get_integration_channels",
+        "summary": "List all Integration Channels",
+        "description": "Returns the list of integration channels availables.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/integration_channels"
+          }
+        }
+      }
+    },
+    "/orders": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_orders"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_integration"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_order_number"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_order_status"
+        },
+        {
+          "$ref": "#/components/parameters/query_with_details"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "get_orders",
+        "summary": "List all Orders",
+        "description": "Returns the list of orders.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_items"
+          }
+        }
+      }
+    },
+    "/products": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_products"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_integration"
+        },
+        {
+          "$ref": "#/components/parameters/query_with_details"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "get_products_beta_",
+        "summary": "List all Products",
+        "description": "Retrieves a list of products.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_items"
+          }
+        }
+      }
+    },
+    "/products/{product_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_product_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "get_product_beta_",
+        "summary": "Retrieve a Product",
+        "description": "Retrieves a single product by given id.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "update_product_beta_",
+        "summary": "Update a Product",
+        "description": "Update the common properties of a product.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/product_update"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "publish_product_beta_",
+        "summary": "Publish a Product",
+        "description": "Publish a product in the given integrations.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/product_publish"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "delete_product_beta_",
+        "summary": "Unpublish a Product",
+        "description": "Unpublish a product from the given integrations.\n\n> The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/product_unpublish"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      }
+    },
+    "/products/{product_id}/variants": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_product_id"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_variants"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_integration"
+        },
+        {
+          "$ref": "#/components/parameters/query_with_details"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Variants"
+        ],
+        "operationId": "get_variants_beta_",
+        "summary": "List all Variants",
+        "description": "Retrieves a list of variants.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/variant_items"
+          }
+        }
+      }
+    },
+    "/products/{product_id}/variants/{variant_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_product_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_variant_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Variants"
+        ],
+        "operationId": "get_variant_beta_",
+        "summary": "Retrieve a Variant",
+        "description": "Retrieves a single variant by given id.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/variant_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/variant_not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Variants"
+        ],
+        "operationId": "update_variant_beta_",
+        "summary": "Update a Variant",
+        "description": "Update the common properties of a variant.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/variant_update"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/variant_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/variant_not_found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Variants"
+        ],
+        "operationId": "publish_variant_beta_",
+        "summary": "Publish a Variant",
+        "description": "Publish a variant in the given integrations.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/variant_publish"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/variant_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Variants"
+        ],
+        "operationId": "delete_variant_beta_",
+        "summary": "Unpublish a Variant",
+        "description": "Unpublish a variant from the given integrations.\n\n> The variant will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/variant_unpublish"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/variant_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/variant_not_found"
+          }
+        }
+      }
+    },
+    "/sign_in": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/query_redirect_uri"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "sign_in",
+        "summary": "Sign in",
+        "security": [],
+        "description": "Authenticate in OMNA to obtain the **authentication code** with which you can obtain\nthe token and the tenant's secret from the authenticated user.\n\n> The **authentication code** will be sent to the given uri for the redirect (redirect_uri).\n>\n> This **authentication code** will only be valid once and will expire in 10 minutes.\n>\n> Use this **authentication code** to obtain the tenant's token and secret through the\n  '[Get Access Token](#operation/get_access_token_async_)' service.\n",
+        "responses": {
+          "303": {
+            "$ref": "#/components/responses/sign_in"
+          }
+        }
+      }
+    },
+    "/sign_out": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/query_redirect_uri"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "sign_out",
+        "summary": "Sign out",
+        "security": [],
+        "description": "Close session of the authenticated user.\n",
+        "responses": {
+          "303": {
+            "$ref": "#/components/responses/sign_out"
+          }
+        }
+      }
+    },
+    "/startup": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "startup_tenant_async_",
+        "summary": "Startup",
+        "description": "Generate an async task to startup OMNA Commerce in the authenticated tenant.\n\n> It is not necessary to call this service when the tenant has been created with the application or api of OMAN.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/startup_task"
+          }
+        }
+      }
+    },
+    "/tasks": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/query_filter_term_for_tasks"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_task_status"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_task_description"
+        },
+        {
+          "$ref": "#/components/parameters/query_offset"
+        },
+        {
+          "$ref": "#/components/parameters/query_limit"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "operationId": "get_tasks",
+        "summary": "List all Tasks",
+        "description": "Returns the list of tasks executions.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_items"
+          }
+        }
+      }
+    },
+    "/tasks/{task_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_task_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "operationId": "get_task",
+        "summary": "Retrieve a Task",
+        "description": "Find task by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tasks"
+        ],
+        "operationId": "delete_task",
+        "summary": "Delete a Task",
+        "description": "Find task by given id and delete it.\n\n> The task in running status can not be deleted.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_not_found"
+          }
+        }
+      }
+    },
+    "/tasks/{task_id}/retry": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_task_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "operationId": "retry_task_beta_",
+        "summary": "Retry a Task",
+        "description": "Find a task for the given id and retry its execution.\n\n> Only failed tasks can be retry.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_not_found"
+          }
+        }
+      }
+    },
+    "/tenants": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "get_tenants",
+        "summary": "List all Tenant",
+        "description": "Returns the list of tenants of authenticated user.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_tenants"
+          },
+          {
+            "$ref": "#/components/parameters/query_offset"
+          },
+          {
+            "$ref": "#/components/parameters/query_limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/tenant_items"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "create_tenant",
+        "summary": "Create a Tenant",
+        "description": "Create a new tenant.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/tenant_create"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/tenant_item"
+          },
+          "400": {
+            "$ref": "#/components/responses/already_exists"
+          }
+        }
+      }
+    },
+    "/tenants/{tenant_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_tenant_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "get_tenant",
+        "summary": "Retrieve a Tenant",
+        "description": "Find tenant by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/tenant_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/tenant_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "delete_tenant",
+        "summary": "Delete a Tenant",
+        "description": "Find tenant by given id and delete it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/tenant_not_found"
+          }
+        }
+      }
+    },
+    "/webhooks": {
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "get_webhooks",
+        "summary": "List all Webhooks",
+        "description": "Returns the list of webhooks settings.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_webhooks"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_webhook_topic"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_integration"
+          },
+          {
+            "$ref": "#/components/parameters/query_with_details"
+          },
+          {
+            "$ref": "#/components/parameters/query_offset"
+          },
+          {
+            "$ref": "#/components/parameters/query_limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/webhook_items"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "create_webhook",
+        "summary": "Create a Webhook",
+        "description": "Create a new webhook subscription for an integration by specifying an address and a subject.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/webhook_create"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/webhook_item"
+          },
+          "400": {
+            "$ref": "#/components/responses/already_exists"
+          }
+        }
+      }
+    },
+    "/webhooks/{webhook_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_webhook_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "get_webhook",
+        "summary": "Retrieve a Webhook",
+        "description": "Find webhook by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/webhook_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/webhook_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "delete_webhook",
+        "summary": "Delete a Webhook",
+        "description": "Find webhook by given id and delete it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/webhook_not_found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "update_webhook",
+        "summary": "Update a Webhook",
+        "description": "Find webhook by given id and update it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/webhook_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/webhook_not_found"
+          }
+        }
+      }
+    },
+    "/webhooks/topics": {
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "get_webhook_topics",
+        "summary": "List all Webhook Topics",
+        "description": "Returns the list of webhook topics availables.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/webhook_topics"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Address": {
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "type": "string"
+          },
+          "last_name": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "town": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "zip_code": {
+            "type": "string"
+          },
+          "address": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "CreatedAt": {
+        "description": "Date in iso8601 when the record was created",
+        "type": "string",
+        "format": "date-time",
+        "readOnly": true
+      },
+      "Customer": {
+        "type": "object",
+        "description": "Customer",
+        "properties": {
+          "customer_id": {
+            "type": "string",
+            "description": "Unique identifier for the customer"
+          },
+          "first_name": {
+            "type": "string",
+            "description": "Customers first name"
+          },
+          "last_name": {
+            "type": "string",
+            "description": "Customers last name"
+          }
+        }
+      },
+      "Execution": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "description": "Status of task execution",
+            "type": "string"
+          },
+          "started_at": {
+            "description": "Date in iso8601 when the task was started",
+            "type": "string",
+            "format": "date-time"
+          },
+          "completed_at": {
+            "description": "Date in iso8601 when the task was completed",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Flow": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Flow identifier",
+            "type": "string",
+            "readOnly": true
+          },
+          "type": {
+            "type": "string",
+            "description": "Flow type name\n\n> You can see the available values by consulting the [flows/types](#operation/get_flow_types) service.\n"
+          },
+          "title": {
+            "description": "The human-readable flow type name",
+            "type": "string",
+            "readOnly": true
+          },
+          "task": {
+            "$ref": "#/components/schemas/Task"
+          },
+          "integration": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Integration"
+              }
+            ]
+          },
+          "integration_id": {
+            "$ref": "#/components/schemas/IntegrationId"
+          },
+          "scheduler": {
+            "$ref": "#/components/schemas/Scheduler"
+          }
+        }
+      },
+      "FlowType": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Flow type identifier",
+            "type": "string"
+          },
+          "title": {
+            "description": "Flow type title",
+            "type": "string"
+          }
+        }
+      },
+      "Integration": {
+        "type": "object",
+        "description": "Integration",
+        "properties": {
+          "id": {
+            "description": "Integration identifier",
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "description": "Integration name",
+            "type": "string"
+          },
+          "channel": {
+            "description": "Integration channel identifier",
+            "type": "string"
+          },
+          "authorized": {
+            "description": "If integration is authorized or not",
+            "type": "boolean",
+            "readOnly": true
+          },
+          "last_import_orders_date": {
+            "description": "The last import orders date",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/UpdatedAt"
+          }
+        }
+      },
+      "IntegrationChannel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Channel identifier",
+            "type": "string"
+          },
+          "title": {
+            "description": "Channel title",
+            "type": "string"
+          },
+          "group": {
+            "description": "Channel group",
+            "type": "string"
+          }
+        }
+      },
+      "IntegrationId": {
+        "type": "string",
+        "writeOnly": true,
+        "description": "Integration identifier\n\n> You can see the available values by consulting the [integrations](#operation/get_integrations) service.\n"
+      },
+      "LineItem": {
+        "title": "LineItem",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer"
+          },
+          "price": {
+            "type": "number"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "product_id": {
+            "type": "string"
+          }
+        }
+      },
+      "Notification": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Notification type [info, notice, warning or error]",
+            "type": "string"
+          },
+          "message": {
+            "description": "Notification message",
+            "type": "string"
+          }
+        }
+      },
+      "Order": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Order identifier",
+            "type": "string"
+          },
+          "number": {
+            "description": "The human-readable order number",
+            "type": "string"
+          },
+          "total_price": {
+            "description": "Total amount for this order",
+            "type": "number"
+          },
+          "total_quantity": {
+            "description": "Number of items in this order",
+            "type": "integer"
+          },
+          "status": {
+            "description": "Order status",
+            "type": "string"
+          },
+          "payments": {
+            "description": "The information of the payments",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Payment"
+            }
+          },
+          "ship_address": {
+            "description": "Shipping address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ]
+          },
+          "bill_address": {
+            "description": "Billing address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ]
+          },
+          "line_items": {
+            "description": "Order items",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineItem"
+            }
+          },
+          "created_date": {
+            "description": "Date in iso8601 when the order was created",
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_date": {
+            "description": "Date in iso8601 when the order was updated",
+            "type": "string",
+            "format": "date-time"
+          },
+          "last_import_date": {
+            "description": "Date in iso8601 when the order was imported",
+            "type": "string",
+            "format": "date-time"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/Customer"
+          },
+          "integration": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Integration"
+              }
+            ]
+          }
+        }
+      },
+      "OrderDocument": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "description": "File content in base64 encoded",
+            "type": "string"
+          },
+          "mime_type": {
+            "description": "Mime type",
+            "type": "string"
+          },
+          "document_type": {
+            "description": "Type of document",
+            "type": "string"
+          }
+        }
+      },
+      "OrderDocumentType": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Document type identifier",
+            "type": "string"
+          },
+          "name": {
+            "description": "Nombre legible del tipo de documento",
+            "type": "string"
+          }
+        }
+      },
+      "Pagination": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "description": "Offset",
+            "type": "integer"
+          },
+          "limit": {
+            "description": "Limit",
+            "type": "integer"
+          },
+          "total": {
+            "description": "Limit",
+            "type": "integer"
+          }
+        }
+      },
+      "Payment": {
+        "type": "object",
+        "description": "Payment",
+        "readOnly": true,
+        "properties": {
+          "method": {
+            "description": "The payment method",
+            "type": "string"
+          },
+          "amount": {
+            "description": "Total amount",
+            "type": "number"
+          },
+          "currency": {
+            "description": "The three-letter code ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format) for the shop currency\n",
+            "type": "string"
+          },
+          "status": {
+            "description": "The payment status",
+            "type": "string"
+          }
+        }
+      },
+      "Product": {
+        "description": "Product representation in OMNA",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Product identifier",
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "description": "Product name",
+            "type": "string"
+          },
+          "description": {
+            "description": "Product description",
+            "type": "string"
+          },
+          "price": {
+            "description": "Product price",
+            "type": "number",
+            "minimum": 0
+          },
+          "variants": {
+            "description": "Number of the product variants",
+            "type": "number",
+            "readOnly": true,
+            "minimum": 0
+          },
+          "images": {
+            "description": "Product images",
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "integrations": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/ProductIntegration"
+            }
+          }
+        }
+      },
+      "ProductIntegration": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Integration identifier",
+            "type": "string"
+          },
+          "name": {
+            "description": "Integration name",
+            "type": "string"
+          },
+          "channel": {
+            "description": "Integration channel identifier",
+            "type": "string"
+          },
+          "product": {
+            "description": "Details of the remote product of the integration",
+            "type": "object",
+            "properties": {
+              "remote_product_id": {
+                "description": "Identifier of the remote product of the integration",
+                "type": "string"
+              },
+              "category_id": {
+                "description": "Category identifier of the remote product of the integration",
+                "type": "string"
+              },
+              "properties": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ProductProperty"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ProductProperty": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Property identifier",
+            "type": "string",
+            "readOnly": true
+          },
+          "label": {
+            "description": "Property label",
+            "type": "string",
+            "readOnly": true
+          },
+          "required": {
+            "description": "Property name",
+            "type": "boolean",
+            "readOnly": true
+          },
+          "input_type": {
+            "description": "Property input component type",
+            "type": "string",
+            "readOnly": true
+          },
+          "value": {
+            "description": "Value of the property in the product instance",
+            "type": "string"
+          }
+        }
+      },
+      "Scheduler": {
+        "type": "object",
+        "description": "Scheduler settings",
+        "properties": {
+          "active": {
+            "description": "Scheduler status",
+            "type": "boolean",
+            "readOnly": true
+          },
+          "start_date": {
+            "description": "Date from which the task will begin executing.\n\n**Format:** YYYY-MM-DD\n",
+            "type": "string",
+            "format": "date"
+          },
+          "end_date": {
+            "description": "Date from which the task will be stopped executing\n\n**Format:** YYYY-MM-DD\n",
+            "type": "string",
+            "format": "date"
+          },
+          "time": {
+            "description": "Hour and minute in which the task will be executed\n\n**Format:** HH:MM\n",
+            "type": "string",
+            "format": "time"
+          },
+          "days_of_week": {
+            "description": "Days of the week in which the task will be executed.\n\nValues supported:\n```\n['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']\n```\n",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "weeks_of_month": {
+            "description": "Weeks of the month in which the task will be executed\n\nValues supported:\n```\n['First', 'Second', 'Third', 'Fourth', 'Last']\n```\n",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "months_of_year": {
+            "description": "Months of the year in which the task will be executed.\n\nValues supported:\n```\n['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']\n```\n",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Success": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "description": "Success status",
+            "type": "boolean"
+          },
+          "message": {
+            "description": "Error or Success message",
+            "type": "string"
+          }
+        }
+      },
+      "Task": {
+        "type": "object",
+        "readOnly": true,
+        "properties": {
+          "id": {
+            "description": "Task identifier",
+            "type": "string"
+          },
+          "status": {
+            "description": "Task execution status",
+            "type": "string"
+          },
+          "progress": {
+            "description": "Task execution progress",
+            "type": "integer"
+          },
+          "description": {
+            "description": "Task execution description",
+            "type": "string"
+          },
+          "executions": {
+            "description": "Dates that started and completed each instance of execution of the task",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Execution"
+            }
+          },
+          "notifications": {
+            "description": "Notifications of tasks",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Notification"
+            }
+          },
+          "scheduler": {
+            "$ref": "#/components/schemas/Scheduler"
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/UpdatedAt"
+          }
+        }
+      },
+      "Tenant": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Tenant identifier",
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "description": "Tenant unique name",
+            "type": "string"
+          },
+          "token": {
+            "description": "Authentication token",
+            "type": "string",
+            "readOnly": true
+          },
+          "secret": {
+            "description": "Secret key to sign each request",
+            "type": "string",
+            "readOnly": true
+          },
+          "deactivation": {
+            "description": "Deactivation date",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/UpdatedAt"
+          }
+        }
+      },
+      "UpdatedAt": {
+        "description": "Date in iso8601 when the record was updated",
+        "type": "string",
+        "format": "date-time",
+        "readOnly": true
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Fullname of user",
+            "type": "string",
+            "readOnly": true
+          },
+          "email": {
+            "description": "eMail address",
+            "type": "string",
+            "readOnly": true
+          },
+          "picture": {
+            "description": "URI of user picture",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Variant": {
+        "description": "Variant representation in OMNA",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Variant identifier",
+            "type": "string",
+            "readOnly": true
+          },
+          "sku": {
+            "description": "Variant name",
+            "type": "string"
+          },
+          "price": {
+            "description": "Variant price",
+            "type": "number",
+            "minimum": 0
+          },
+          "cost_price": {
+            "description": "Variant cost price",
+            "type": "number",
+            "minimum": 0
+          },
+          "quantity": {
+            "description": "Variant quantity",
+            "type": "number",
+            "minimum": 0
+          },
+          "product": {
+            "description": "Variant product",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Prodruct identifier",
+                "type": "string",
+                "readOnly": true
+              },
+              "name": {
+                "description": "Prodruct name",
+                "type": "string"
+              }
+            }
+          },
+          "images": {
+            "description": "Veriant images",
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "integrations": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/VariantIntegration"
+            }
+          }
+        }
+      },
+      "VariantIntegration": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Integration identifier",
+            "type": "string"
+          },
+          "name": {
+            "description": "Integration name",
+            "type": "string"
+          },
+          "channel": {
+            "description": "Integration channel identifier",
+            "type": "string"
+          },
+          "variant": {
+            "description": "Details of the remote variant of the integration",
+            "type": "object",
+            "properties": {
+              "remote_variant_id": {
+                "description": "Identifier of the remote variant of the integration",
+                "type": "string"
+              },
+              "properties": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/VariantProperty"
+                }
+              }
+            }
+          }
+        }
+      },
+      "VariantProperty": {
+        "$ref": "#/components/schemas/ProductProperty"
+      },
+      "Webhook": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Webhook identifier"
+          },
+          "topic": {
+            "type": "string",
+            "description": "Event that triggers the webhook.\n\n> You can see the available values by consulting the [webhooks/topics](#operation/get_webhook_topics) service.\n"
+          },
+          "address": {
+            "type": "string",
+            "description": "URl destination of information"
+          },
+          "integration": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Integration"
+              }
+            ]
+          },
+          "integration_id": {
+            "$ref": "#/components/schemas/IntegrationId"
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/UpdatedAt"
+          }
+        }
+      },
+      "WebhookTopic": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "description": "Webhook topic identifier",
+            "type": "string"
+          },
+          "title": {
+            "description": "Webhook topic title",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "responses": {
+      "already_exists": {
+        "description": "Already exist",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Already exist"
+            }
+          }
+        }
+      },
+      "flow_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Flow"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/flow_item_response"
+              }
+            }
+          }
+        }
+      },
+      "flow_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Flow"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/flow_items_response"
+              }
+            }
+          }
+        }
+      },
+      "flow_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found flow with id: 5d04051125d9852c71016793"
+            }
+          }
+        }
+      },
+      "flow_types": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FlowType"
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/flow_type_response"
+              }
+            }
+          }
+        }
+      },
+      "integration_channels": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IntegrationChannel"
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/integration_channels_response"
+              }
+            }
+          }
+        }
+      },
+      "integration_delete_task": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Task"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/integration_delete_response"
+              }
+            }
+          }
+        }
+      },
+      "integration_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Integration"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/integration_item_response"
+              }
+            }
+          }
+        }
+      },
+      "integration_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Integration"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/integration_items_response"
+              }
+            }
+          }
+        }
+      },
+      "integration_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found integration with id: shop_20"
+            }
+          }
+        }
+      },
+      "order_doc_types": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderDocumentType"
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/order_doc_types_response"
+              }
+            }
+          }
+        }
+      },
+      "order_doc": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/OrderDocument"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/order_doc_response"
+              }
+            }
+          }
+        }
+      },
+      "order_import_task": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Task"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/order_import_response"
+              }
+            }
+          }
+        }
+      },
+      "order_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/order_item_response"
+              }
+            }
+          }
+        }
+      },
+      "order_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Order"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/order_items_response"
+              }
+            }
+          }
+        }
+      },
+      "order_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found order with number: 9151224232846"
+            }
+          }
+        }
+      },
+      "product_import_task": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Task"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_import_response"
+              }
+            }
+          }
+        }
+      },
+      "product_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_item_response"
+              }
+            }
+          }
+        }
+      },
+      "product_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "Product representations in OMNA",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_items_response"
+              }
+            }
+          }
+        }
+      },
+      "product_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found product with id: 5d04051125d9852c71016793"
+            }
+          }
+        }
+      },
+      "sign_in": {
+        "description": "Redirect to given URI.\n\n> Redirect to given URI passing the **authentication code**.\n\n### Example redirect to:\n```\nhttp://my.example.com/home?code=rxfnjmfupsyv3zocvoli\n```\n"
+      },
+      "sign_out": {
+        "description": "Redirect to given URI.\n"
+      },
+      "startup_task": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Task"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/task_item_startup_response"
+              }
+            }
+          }
+        }
+      },
+      "success": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": true
+            }
+          }
+        }
+      },
+      "task_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Task"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/task_item_response"
+              }
+            }
+          }
+        }
+      },
+      "task_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Task"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/task_items_response"
+              }
+            }
+          }
+        }
+      },
+      "task_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found task with id: 1234567890"
+            }
+          }
+        }
+      },
+      "tenant_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Tenant"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "user": {
+                          "$ref": "#/components/schemas/User"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/tenant_item_response"
+              }
+            }
+          }
+        }
+      },
+      "tenant_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tenant"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/tenant_items_response"
+              }
+            }
+          }
+        }
+      },
+      "tenant_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found tenant with id: 1234567890"
+            }
+          }
+        }
+      },
+      "variant_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Variant"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/variant_item_response"
+              }
+            }
+          }
+        }
+      },
+      "variant_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "Variant representations in OMNA",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Variant"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/variant_items_response"
+              }
+            }
+          }
+        }
+      },
+      "variant_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found variant with id: 5d54835a25d985682d014e0e"
+            }
+          }
+        }
+      },
+      "webhook_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Webhook"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/webhook_item_response"
+              }
+            }
+          }
+        }
+      },
+      "webhook_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Webhook"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/webhook_items_response"
+              }
+            }
+          }
+        }
+      },
+      "webhook_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found webhook with id: 5d04051125d9852c71016793"
+            }
+          }
+        }
+      },
+      "webhook_topics": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebhookTopic"
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/webhook_topics_response"
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "auth_hmac": {
+        "name": "hmac",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "description": "Keyed-Hash message authentication code.",
+          "type": "string",
+          "example": "d24c9128362b0518f9ca2bf767b4a60a59aefe0f63ebeb7d47ec594442fc7a8f"
+        }
+      },
+      "auth_timestamp": {
+        "name": "timestamp",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "description": "The timestamp of the request with less than 7200 secounds difference from UTC time.",
+          "type": "integer",
+          "example": 1517820392000
+        }
+      },
+      "auth_token": {
+        "name": "token",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "description": "Tenant authentication token.",
+          "type": "string",
+          "example": "Ds3sBBSnyFnOqSjCARmX"
+        }
+      },
+      "path_doc_type": {
+        "name": "doc_type",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Document type",
+          "type": "string",
+          "example": "invoice"
+        }
+      },
+      "path_flow_id": {
+        "name": "flow_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Flow identifier",
+          "type": "string",
+          "example": "5d04051125d9852c71016793"
+        }
+      },
+      "path_integration_id": {
+        "name": "integration_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Integration identifier",
+          "type": "string",
+          "example": "shop_01"
+        }
+      },
+      "path_order_number": {
+        "name": "number",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Order number",
+          "type": "string",
+          "example": 9170283050978
+        }
+      },
+      "path_product_id": {
+        "name": "product_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Product identifier in OMNA",
+          "type": "string",
+          "example": "5d04051125d9852c71016793"
+        }
+      },
+      "path_remote_product_id": {
+        "name": "remote_product_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Identifier of the remote product of the integration",
+          "type": "string",
+          "example": "5d04051125d9852c71016793"
+        }
+      },
+      "path_remote_variant_id": {
+        "name": "remote_variant_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Identifier of the remote variant of the integration",
+          "type": "string",
+          "example": "5d04051125d9852c71016793"
+        }
+      },
+      "path_task_id": {
+        "name": "task_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Task identifier",
+          "type": "string",
+          "example": "5d029d6625d985755e02202c"
+        }
+      },
+      "path_tenant_id": {
+        "name": "tenant_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Identifier or token of the tenant",
+          "type": "string",
+          "example": "5d029d6625d985755e02202c"
+        }
+      },
+      "path_variant_id": {
+        "name": "variant_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Variant identifier in OMNA",
+          "type": "string",
+          "example": "5d04051125d9852c71016793"
+        }
+      },
+      "path_webhook_id": {
+        "name": "webhook_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Webhook identifier",
+          "type": "string",
+          "example": "5d13be7025d9853de90012b6"
+        }
+      },
+      "query_filter_flow_type": {
+        "name": "type",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the items by flow type.",
+          "type": "string",
+          "example": "import_orders"
+        }
+      },
+      "query_filter_integration_channel": {
+        "name": "channel",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the items by integration channel.",
+          "type": "string",
+          "example": "LazadaSG"
+        }
+      },
+      "query_filter_integration": {
+        "name": "integration_id",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the items by integration.",
+          "type": "string",
+          "example": "shop_01"
+        }
+      },
+      "query_filter_order_number": {
+        "name": "number",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the orders by number.",
+          "type": "string",
+          "example": "19090015390WTXC"
+        }
+      },
+      "query_filter_order_status": {
+        "name": "status",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the orders by status.",
+          "type": "string",
+          "example": "canceled"
+        }
+      },
+      "query_filter_task_description": {
+        "name": "description",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the tasks by description.",
+          "type": "string",
+          "example": "mapping product"
+        }
+      },
+      "query_filter_task_status": {
+        "name": "status",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the tasks by status.",
+          "type": "string",
+          "example": "5d029d6625d985755e02202c"
+        }
+      },
+      "query_filter_term_for_flows": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the flows that contain the value of the term in their ***type***.",
+          "type": "string",
+          "example": "Shop-Lazada"
+        }
+      },
+      "query_filter_term_for_integrations": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the integrations settings that contain the value of the term in their ***id*** or ***name***.",
+          "type": "string",
+          "example": "Shop-Lazada"
+        }
+      },
+      "query_filter_term_for_orders": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the orders that contain the value of the term in their ***number*** or ***status***.",
+          "type": "string",
+          "example": "pending"
+        }
+      },
+      "query_filter_term_for_products": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the products that contain the value of the term in their ***name***.",
+          "type": "string"
+        }
+      },
+      "query_filter_term_for_tasks": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the tasks that contain the value of the term in their ***description***.",
+          "type": "string",
+          "example": "Shop-Lazada"
+        }
+      },
+      "query_filter_term_for_tenants": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the tenants that contain the value of the term in their ***name***.",
+          "type": "string",
+          "example": "Shop-Lazada"
+        }
+      },
+      "query_filter_term_for_variants": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the variants that contain the value of the term in their ***sku***.",
+          "type": "string"
+        }
+      },
+      "query_filter_term_for_webhooks": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the webhooks that contain the value of the term in their ***topic*** or ***address***.",
+          "type": "string",
+          "example": "orders"
+        }
+      },
+      "query_filter_webhook_topic": {
+        "name": "topic",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the items by webhook topic.",
+          "type": "string",
+          "example": "order/registered"
+        }
+      },
+      "query_limit": {
+        "name": "limit",
+        "in": "query",
+        "schema": {
+          "description": "The maximum number of items that can be returned. The supported values ​​are between 10 and 100.",
+          "type": "integer",
+          "example": 10
+        }
+      },
+      "query_offset": {
+        "name": "offset",
+        "in": "query",
+        "schema": {
+          "description": "Number of items to skip at the beginning of the list.",
+          "type": "integer",
+          "example": 10
+        }
+      },
+      "query_redirect_uri": {
+        "name": "redirect_uri",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "description": "URI to back after do sign_in or authorization",
+          "type": "string",
+          "example": "http://my.example.com/home"
+        }
+      },
+      "query_with_details": {
+        "name": "with_details",
+        "in": "query",
+        "schema": {
+          "description": "It allows to determine if the detailed information of other related entities is included in the answer or not.\n",
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    "examples": {
+      "flow_create_request_1": {
+        "summary": "With scheduler",
+        "value": {
+          "data": {
+            "integration_id": "shop_01",
+            "type": "import_orders",
+            "scheduler": {
+              "start_date": "2019-06-20",
+              "end_date": "2019-06-21",
+              "time": "12:0",
+              "days_of_week": [
+                "Mon",
+                "Wed",
+                "Fri"
+              ],
+              "weeks_of_month": [
+                "First",
+                "Third",
+                "Last"
+              ],
+              "months_of_year": [
+                "Jan",
+                "Apr",
+                "Jul",
+                "Oct"
+              ]
+            }
+          }
+        }
+      },
+      "flow_create_request_2": {
+        "summary": "Without scheduler",
+        "value": {
+          "data": {
+            "integration_id": "shop_01",
+            "type": "import_orders"
+          }
+        }
+      },
+      "flow_item_response": {
+        "value": {
+          "data": {
+            "id": "5d04051125d9852c71016793",
+            "type": "import_orders",
+            "title": "Import orders from integration",
+            "created_at": "2019-06-07T00:06:52+00:00",
+            "updated_at": "2019-06-07T20:47:32+00:00",
+            "integration": {
+              "id": "shop_01",
+              "name": "Shop-01",
+              "channel": "LazadaSG",
+              "authorized": true,
+              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+              "created_at": "2019-06-07T00:06:52+00:00",
+              "updated_at": "2019-06-07T20:47:32+00:00"
+            },
+            "task": {
+              "id": "5cfe690b25d9854b3b02241b",
+              "status": "completed",
+              "progress": 100,
+              "description": "Importing last updated orders from 'Shop-01' integration.",
+              "created_at": "2019-06-10T14:28:27+00:00",
+              "updated_at": "2019-06-10T14:28:43+00:00",
+              "executions": [
+                {
+                  "status": "completed",
+                  "started_at": "2019-06-10T14:28:27+00:00",
+                  "completed_at": "2019-06-10T14:28:43+00:00"
+                }
+              ],
+              "notifications": [
+                {
+                  "type": "info",
+                  "message": "Imported order 17851977370457 from Shop-01 integration."
+                },
+                {
+                  "type": "info",
+                  "message": "Imported order 8834309804556 from Shop-01 integration."
+                },
+                {
+                  "type": "info",
+                  "message": "Imported order 16159781406633 from Shop-01 integration."
+                },
+                {
+                  "type": "info",
+                  "message": "Importing form 1 to 3."
+                },
+                {
+                  "type": "info",
+                  "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
+                }
+              ],
+              "scheduler": {
+                "active": true,
+                "start_date": "2019-06-20",
+                "end_date": "2019-06-21",
+                "time": "12:0",
+                "days_of_week": [
+                  "Mon",
+                  "Wed",
+                  "Fri"
+                ],
+                "weeks_of_month": [
+                  "First",
+                  "Third",
+                  "Last"
+                ],
+                "months_of_year": [
+                  "Jan",
+                  "Apr",
+                  "Jul",
+                  "Oct"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "flow_items_response": {
+        "value": {
+          "data": [
+            {
+              "id": "5d04051125d9852c71016793",
+              "type": "import_orders",
+              "title": "Import orders from integration",
+              "created_at": "2019-06-07T00:06:52+00:00",
+              "updated_at": "2019-06-07T20:47:32+00:00",
+              "integration": {
+                "id": "shop_01",
+                "name": "Shop-01",
+                "channel": "LazadaSG"
+              },
+              "task": {
+                "id": "5cfe690b25d9854b3b02241b",
+                "status": "completed",
+                "progress": 100,
+                "description": "Importing last updated orders from 'Shop-01' integration.",
+                "scheduler": {
+                  "active": true,
+                  "start_date": "2019-06-20",
+                  "end_date": "2019-06-21",
+                  "time": "12:0",
+                  "days_of_week": [
+                    "Mon",
+                    "Wed",
+                    "Fri"
+                  ],
+                  "weeks_of_month": [
+                    "First",
+                    "Third",
+                    "Last"
+                  ],
+                  "months_of_year": [
+                    "Jan",
+                    "Apr",
+                    "Jul",
+                    "Oct"
+                  ]
+                }
+              }
+            }
+          ],
+          "pagination": {
+            "offset": 0,
+            "limit": 10,
+            "total": 1
+          }
+        }
+      },
+      "flow_type_response": {
+        "value": {
+          "data": [
+            {
+              "type": "import_orders",
+              "title": "Import orders from integration"
+            },
+            {
+              "type": "import_products",
+              "title": "Import products from integration"
+            }
+          ]
+        }
+      },
+      "flow_update_request": {
+        "summary": "With scheduler",
+        "value": {
+          "data": {
+            "scheduler": {
+              "start_date": "2019-06-20",
+              "end_date": "2019-06-21",
+              "time": "12:0",
+              "days_of_week": [
+                "Mon",
+                "Wed",
+                "Fri"
+              ],
+              "weeks_of_month": [
+                "First",
+                "Third",
+                "Last"
+              ],
+              "months_of_year": [
+                "Jan",
+                "Apr",
+                "Jul",
+                "Oct"
+              ]
+            }
+          }
+        }
+      },
+      "integration_channels_response": {
+        "value": {
+          "data": [
+            {
+              "name": "LazadaID",
+              "title": "Lazada Indonesia",
+              "group": "Lazada"
+            },
+            {
+              "name": "LazadaMY",
+              "title": "Lazada Malaysia",
+              "group": "Lazada"
+            },
+            {
+              "name": "ShopeeTH",
+              "title": "Shopee Thailand",
+              "group": "Shopee"
+            },
+            {
+              "name": "ShopeeVN",
+              "title": "Shopee Vietnam",
+              "group": "Shopee"
+            }
+          ]
+        }
+      },
+      "integration_delete_response": {
+        "value": {
+          "data": {
+            "id": "5cfe690b25d9854b3b02241b",
+            "status": "completed",
+            "progress": 100,
+            "description": "Deleting the integration 'Shop-01' of 'LazadaSG' channel.",
+            "created_at": "2019-06-10T14:28:27+00:00",
+            "updated_at": "2019-06-10T14:28:43+00:00",
+            "executions": [
+              {
+                "status": "completed",
+                "started_at": "2019-06-10T14:28:27+00:00",
+                "completed_at": "2019-06-10T14:28:43+00:00"
+              }
+            ],
+            "notifications": [
+              {
+                "type": "info",
+                "message": "The integration 'Shop-01' of 'LazadaSG' channel has been eliminated."
+              },
+              {
+                "type": "info",
+                "message": "Deleting the records of its products."
+              },
+              {
+                "type": "info",
+                "message": "Deleting the records of its variants."
+              },
+              {
+                "type": "info",
+                "message": "Deleting the records of its orders."
+              },
+              {
+                "type": "info",
+                "message": "Deleting its authorization."
+              }
+            ]
+          }
+        }
+      },
+      "integration_item_response": {
+        "value": {
+          "data": {
+            "id": "shop_01",
+            "name": "Shop-01",
+            "channel": "LazadaSG",
+            "authorized": true,
+            "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+            "created_at": "2019-06-07T00:06:52+00:00",
+            "updated_at": "2019-06-07T20:47:32+00:00"
+          }
+        }
+      },
+      "integration_items_response": {
+        "value": {
+          "data": [
+            {
+              "id": "shop_01",
+              "name": "Shop-01",
+              "channel": "LazadaSG",
+              "authorized": true,
+              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+              "created_at": "2019-06-07T00:06:52+00:00",
+              "updated_at": "2019-06-07T20:47:32+00:00"
+            },
+            {
+              "id": "shop_02",
+              "name": "Shop-02",
+              "channel": "LazadaMY",
+              "authorized": true,
+              "last_import_orders_date": "2019-07-07T20:47:14+00:00",
+              "created_at": "2019-07-07T00:06:52+00:00",
+              "updated_at": "2019-07-07T20:47:32+00:00"
+            }
+          ],
+          "pagination": {
+            "offset": 0,
+            "limit": 10,
+            "total": 2
+          }
+        }
+      },
+      "integration_product_unpublish_request": {
+        "value": {
+          "data": {
+            "delete_from_integration": true,
+            "delete_from_omna": false
+          }
+        }
+      },
+      "integration_variant_unpublish_request": {
+        "$ref": "#/components/examples/integration_product_unpublish_request"
+      },
+      "order_doc_response": {
+        "value": {
+          "data": {
+            "file": "T3JkZXIgZG9jdWVtbnQgZXhhbXBsZS4uLgo=",
+            "mime_type": "text/html",
+            "document_type": "invoice"
+          }
+        }
+      },
+      "order_doc_types_response": {
+        "value": {
+          "data": [
+            {
+              "type": "invoice",
+              "title": "Invoice"
+            },
+            {
+              "type": "shippingLabel",
+              "title": "Shipping Label"
+            },
+            {
+              "type": "carrierManifest",
+              "title": "Carrier Manifest"
+            }
+          ]
+        }
+      },
+      "order_import_response": {
+        "value": {
+          "data": {
+            "id": "5cfe690b25d9854b3b02241b",
+            "status": "completed",
+            "progress": 100,
+            "description": "Importing last updated orders from 'Shop-01' integration.",
+            "created_at": "2019-06-10T14:28:27+00:00",
+            "updated_at": "2019-06-10T14:28:43+00:00",
+            "executions": [
+              {
+                "status": "completed",
+                "started_at": "2019-06-10T14:28:27+00:00",
+                "completed_at": "2019-06-10T14:28:43+00:00"
+              }
+            ],
+            "notifications": [
+              {
+                "type": "info",
+                "message": "Imported order 17851977370457 from Shop-01 integration."
+              },
+              {
+                "type": "info",
+                "message": "Imported order 8834309804556 from Shop-01 integration."
+              },
+              {
+                "type": "info",
+                "message": "Imported order 16159781406633 from Shop-01 integration."
+              },
+              {
+                "type": "info",
+                "message": "Importing form 1 to 3."
+              },
+              {
+                "type": "info",
+                "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
+              }
+            ]
+          }
+        }
+      },
+      "order_item_response": {
+        "value": {
+          "data": {
+            "id": "9151224232845",
+            "number": "9151224232845",
+            "total_price": 2,
+            "total_quantity": 1,
+            "status": "canceled",
+            "payments": [
+              {
+                "method": "COD",
+                "status": "paid",
+                "currensy": "USD",
+                "amount": 2
+              }
+            ],
+            "ship_address": {
+              "country": "Singapore",
+              "state": "Singapore",
+              "city": "Singapore, Singapore",
+              "phone": "6590547759, 6590547759",
+              "zip_code": "549751",
+              "address": [
+                "21 DA SILVA LANE,",
+                "549751"
+              ]
+            },
+            "bill_address": {
+              "country": "Singapore",
+              "state": "Singapore",
+              "city": "Singapore, Singapore",
+              "phone": "6590547759, 6590547759",
+              "zip_code": "549751",
+              "address": [
+                "21 DA SILVA LANE,",
+                "549751"
+              ]
+            },
+            "last_import_date": "2019-06-07T20:47:26+00:00",
+            "customer": {
+              "firstname": "Christy Lee"
+            },
+            "line_items": [
+              {
+                "id": "9151224432845",
+                "name": "Short sleeve t-shirt",
+                "quantity": 1,
+                "price": 1.51,
+                "sku": "2468"
+              }
+            ],
+            "integration": {
+              "id": "shop_01",
+              "name": "Shop-01",
+              "channel": "LazadaSG",
+              "authorized": false,
+              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+              "created_at": "2019-06-07T00:06:52+00:00",
+              "updated_at": "2019-06-07T20:47:32+00:00"
+            }
+          }
+        }
+      },
+      "order_items_response": {
+        "value": {
+          "data": [
+            {
+              "id": "9151224232845",
+              "number": "9151224232845",
+              "total_price": 2,
+              "total_quantity": 1,
+              "status": "canceled",
+              "payments": [
+                {
+                  "method": "COD",
+                  "status": "paid",
+                  "currensy": "USD",
+                  "amount": 2
+                }
+              ],
+              "ship_address": {
+                "country": "Singapore",
+                "state": "Singapore",
+                "city": "Singapore, Singapore",
+                "phone": "6590547759, 6590547759",
+                "zip_code": "549751",
+                "address": [
+                  "21 DA SILVA LANE,",
+                  "549751"
+                ]
+              },
+              "bill_address": {
+                "country": "Singapore",
+                "state": "Singapore",
+                "city": "Singapore, Singapore",
+                "phone": "6590547759, 6590547759",
+                "zip_code": "549751",
+                "address": [
+                  "21 DA SILVA LANE,",
+                  "549751"
+                ]
+              },
+              "last_import_date": "2019-06-07T20:47:26+00:00",
+              "customer": {
+                "firstname": "Christy Lee"
+              },
+              "line_items": [
+                {
+                  "id": "9151224432845",
+                  "name": "Short sleeve t-shirt",
+                  "quantity": 1,
+                  "price": 1.51,
+                  "sku": "2468"
+                }
+              ],
+              "integration": {
+                "id": "shop_01",
+                "name": "Shop-01",
+                "channel": "LazadaSG"
+              }
+            },
+            {
+              "id": "9170283050978",
+              "number": "9170283050978",
+              "total_price": 1,
+              "total_quantity": 1,
+              "status": "canceled",
+              "payments": [
+                {
+                  "method": "COD",
+                  "status": "paid",
+                  "currensy": "USD",
+                  "amount": 1
+                }
+              ],
+              "ship_address": {
+                "country": "Singapore",
+                "state": "Singapore",
+                "city": "Singapore, Singapore",
+                "phone": "6583221206, 6583221206",
+                "zip_code": "637665",
+                "address": [
+                  "98 NANYANG CRESCENT,#06-06",
+                  "637665"
+                ]
+              },
+              "bill_address": {
+                "country": "Singapore",
+                "state": "Singapore",
+                "city": "Singapore, Singapore",
+                "phone": "6583221206, 6583221206",
+                "zip_code": "637665",
+                "address": [
+                  "98 NANYANG CRESCENT,#06-06",
+                  "637665"
+                ]
+              },
+              "last_import_date": "2019-06-07T20:47:27+00:00",
+              "customer": {
+                "firstname": "Aravind Dasari"
+              },
+              "line_items": [
+                {
+                  "id": "9170283250978",
+                  "name": "Actxa Swift / Swift+ Charging Cradle",
+                  "quantity": 1,
+                  "price": 1,
+                  "sku": "0018227994491"
+                }
+              ],
+              "integration": {
+                "id": "shop_01",
+                "name": "Shop-01",
+                "channel": "LazadaSG"
+              }
+            }
+          ],
+          "pagination": {
+            "offset": 0,
+            "limit": 10,
+            "total": 2
+          }
+        }
+      },
+      "product_import_response": {
+        "value": {
+          "data": {
+            "id": "5cfe690b25d9854b3b02241b",
+            "status": "completed",
+            "progress": 100,
+            "description": "Importing last updated products from 'Shop-01' integration.",
+            "created_at": "2019-06-10T14:28:27+00:00",
+            "updated_at": "2019-06-10T14:28:43+00:00",
+            "executions": [
+              {
+                "status": "completed",
+                "started_at": "2019-06-10T14:28:27+00:00",
+                "completed_at": "2019-06-10T14:28:43+00:00"
+              }
+            ],
+            "notifications": [
+              {
+                "type": "info",
+                "message": "Imported product 17851977370457 from Shop-01 integration."
+              },
+              {
+                "type": "info",
+                "message": "Imported product 8834309804556 from Shop-01 integration."
+              },
+              {
+                "type": "info",
+                "message": "Imported product 16159781406633 from Shop-01 integration."
+              },
+              {
+                "type": "info",
+                "message": "Importing form 1 to 3."
+              },
+              {
+                "type": "info",
+                "message": "Importing products updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
+              }
+            ]
+          }
+        }
+      },
+      "product_item_response": {
+        "value": {
+          "data": {
+            "id": "5d48c54125d9852031005fc3",
+            "name": "IPod Nano - 8GB",
+            "description": "It's the small iPod with one very big idea: Video...",
+            "price": 199,
+            "variants": 1,
+            "images": [
+              "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
+              "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
+            ],
+            "integrations": [
+              {
+                "id": "shop_01",
+                "name": "Shop-01",
+                "channel": "LazadaSG",
+                "product": {
+                  "remote_product_id": "289247362",
+                  "category_id": "10001946",
+                  "properties": [
+                    {
+                      "id": "warranty_type",
+                      "label": "Warranty Type",
+                      "required": false,
+                      "input_type": "single_select",
+                      "options": [
+                        "International Manufacturer Warranty",
+                        "International Seller Warranty",
+                        "Local (Singapore) manufacturer warranty",
+                        "Local seller warranty",
+                        "No Warranty",
+                        "Non-local warranty"
+                      ],
+                      "value": "International Manufacturer Warranty"
+                    },
+                    {
+                      "id": "warranty",
+                      "name": "warranty",
+                      "label": "Warranty Period",
+                      "required": false,
+                      "input_type": "single_select",
+                      "options": [
+                        "1 Month",
+                        "1 Year",
+                        "10 Months",
+                        "10 Years",
+                        "Life Time Warranty"
+                      ],
+                      "value": "1 Month"
+                    },
+                    {
+                      "id": "brand",
+                      "name": "brand",
+                      "label": "Brand",
+                      "required": true,
+                      "input_type": "single_select",
+                      "value": "No Brand"
+                    },
+                    {
+                      "id": "delivery_option_economy",
+                      "name": "delivery_option_economy",
+                      "label": "Delivery Option Economy",
+                      "required": false,
+                      "input_type": "single_select",
+                      "options": [
+                        "No",
+                        "Yes"
+                      ],
+                      "value": "Yes"
+                    },
+                    {
+                      "id": "short_description",
+                      "name": "short_description",
+                      "label": "Highlights",
+                      "required": true,
+                      "input_type": "rich_text",
+                      "value": "It's the small iPod with one very big idea"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "product_items_response": {
+        "value": {
+          "data": [
+            {
+              "id": "5d48c54125d9852031005fc3",
+              "name": "IPod Nano - 8GB",
+              "description": "It's the small iPod with one very big idea: Video...",
+              "price": 199,
+              "last_import_date": "2019-08-06T00:09:37+00:00",
+              "integrations": [
+                {
+                  "id": "shop_01",
+                  "name": "Shop-01",
+                  "channel": "LazadaSG",
+                  "product": {
+                    "remote_product_id": "289247362",
+                    "category_id": "10001946"
+                  }
+                }
+              ],
+              "variants": 1,
+              "images": [
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
+              ]
+            },
+            {
+              "id": "5d48c54025d9852031005fb7",
+              "name": "IPod Touch 8GB",
+              "description": "The iPod Touch has the iPhone's multi-touch interface...",
+              "price": 199,
+              "last_import_date": "2019-08-06T00:09:35+00:00",
+              "integrations": [
+                {
+                  "id": "shop_01",
+                  "name": "Shop-01",
+                  "channel": "LazadaSG",
+                  "product": {
+                    "remote_product_id": "339382531",
+                    "category_id": "10001946"
+                  }
+                }
+              ],
+              "variants": 1,
+              "images": [
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
+              ]
+            }
+          ],
+          "pagination": {
+            "offset": 0,
+            "limit": 10,
+            "total": 2
+          }
+        }
+      },
+      "product_publish_request": {
+        "value": {
+          "data": {
+            "integration_ids": [
+              "shop_01",
+              "shop_02",
+              "shop_05"
+            ]
+          }
+        }
+      },
+      "product_unpublish_request": {
+        "value": {
+          "data": {
+            "integration_ids": [
+              "shop_01",
+              "shop_02",
+              "shop_05"
+            ],
+            "delete_from_integration": true,
+            "delete_from_omna": false
+          }
+        }
+      },
+      "product_update_request_1": {
+        "summary": "Update price",
+        "value": {
+          "data": {
+            "price": 159
+          }
+        }
+      },
+      "product_update_request_2": {
+        "summary": "Update name and price",
+        "value": {
+          "data": {
+            "name": "IPod Nano - 4GB",
+            "price": 159
+          }
+        }
+      },
+      "task_item_response": {
+        "value": {
+          "data": {
+            "id": "5cfe690b25d9854b3b02241b",
+            "status": "completed",
+            "progress": 100,
+            "description": "Importing last updated orders from 'Shop-01' integration.",
+            "created_at": "2019-06-10T14:28:27+00:00",
+            "updated_at": "2019-06-10T14:28:43+00:00",
+            "executions": [
+              {
+                "status": "completed",
+                "started_at": "2019-06-10T14:28:27+00:00",
+                "completed_at": "2019-06-10T14:28:43+00:00"
+              }
+            ],
+            "notifications": [
+              {
+                "type": "info",
+                "message": "Imported order 17851977370457 from Shop-01 integration."
+              },
+              {
+                "type": "info",
+                "message": "Imported order 8834309804556 from Shop-01 integration."
+              },
+              {
+                "type": "info",
+                "message": "Imported order 16159781406633 from Shop-01 integration."
+              },
+              {
+                "type": "info",
+                "message": "Importing form 1 to 3."
+              },
+              {
+                "type": "info",
+                "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
+              }
+            ],
+            "scheduler": {
+              "active": true,
+              "start_date": "2019-06-20",
+              "end_date": "2019-06-21",
+              "time": "12:0",
+              "days_of_week": [
+                "Mon",
+                "Wed",
+                "Fri"
+              ],
+              "weeks_of_month": [
+                "First",
+                "Third",
+                "Last"
+              ],
+              "months_of_year": [
+                "Jan",
+                "Apr",
+                "Jul",
+                "Oct"
+              ]
+            }
+          }
+        }
+      },
+      "task_item_startup_response": {
+        "value": {
+          "data": {
+            "id": "5cfe690b25d9854b3b02241b",
+            "status": "completed",
+            "progress": 100,
+            "description": "Start up the OMNA Commerce for the tenant: t1 / f8sf8f8f78dsf8v8fd87ff86",
+            "created_at": "2019-06-10T14:28:27+00:00",
+            "updated_at": "2019-06-10T14:28:43+00:00",
+            "executions": [
+              {
+                "status": "completed",
+                "started_at": "2019-06-10T14:28:27+00:00",
+                "completed_at": "2019-06-10T14:28:43+00:00"
+              }
+            ]
+          }
+        }
+      },
+      "task_items_response": {
+        "value": {
+          "data": [
+            {
+              "id": "5cfe690b25d9854b3b02241b",
+              "status": "completed",
+              "progress": 100,
+              "description": "Importing last updated orders from 'Shop-01' integration.",
+              "created_at": "2019-06-10T13:35:27+00:00",
+              "updated_at": "2019-06-10T13:35:43+00:00",
+              "scheduler": {
+                "active": true,
+                "start_date": "2019-06-20",
+                "end_date": "2019-06-21",
+                "time": "12:0",
+                "days_of_week": [
+                  "Mon",
+                  "Wed",
+                  "Fri"
+                ],
+                "weeks_of_month": [
+                  "First",
+                  "Third",
+                  "Last"
+                ],
+                "months_of_year": [
+                  "Jan",
+                  "Apr",
+                  "Jul",
+                  "Oct"
+                ]
+              }
+            },
+            {
+              "id": "5cfe5ca825d9854aff021043",
+              "status": "completed",
+              "progress": 100,
+              "description": "Importing last updated orders from 'Shop-01' integration.",
+              "created_at": "2019-06-10T13:35:27+00:00",
+              "updated_at": "2019-06-10T13:35:43+00:00"
+            }
+          ],
+          "pagination": {
+            "offset": 0,
+            "limit": 10,
+            "total": 2
+          }
+        }
+      },
+      "tenant_item_response": {
+        "value": {
+          "data": {
+            "id": "f8sf8f8f78dsf8v8fd87ff86",
+            "name": "main_omna",
+            "token": "rXfNJmFUpsyv3zocVolI",
+            "secret": "42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38",
+            "deactivation": "2019-07-03T15:48:57+00:00",
+            "created_at": "2019-05-02T18:16:34+00:00",
+            "updated_at": "2019-06-03T15:48:57+00:00",
+            "user": {
+              "name": "Alejandro Pérez Pérez",
+              "email": "alepp@example.com",
+              "picture": "http://example.com/users/pictures/alepp.png"
+            }
+          }
+        }
+      },
+      "tenant_items_response": {
+        "value": {
+          "data": [
+            {
+              "id": "f8sf8f8f78dsf8v8fd87ff86",
+              "name": "tenant_01",
+              "token": "rXfNJmFUpsyv3zocVolI",
+              "secret": "42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38",
+              "deactivation": "2019-07-03T15:48:57+00:00",
+              "is_ready_to_omna": true,
+              "created_at": "2019-05-02T18:16:34+00:00",
+              "updated_at": "2019-06-03T15:48:57+00:00"
+            },
+            {
+              "id": "7d78jdudsdsd997dskds89d8",
+              "name": "tenant_02",
+              "token": "DG8W9yz6hXJjpP9SVoXv",
+              "secret": "e11875f2a1611d98ca87e867d9898f045b72ef09e0b3ac737477e897c6972cce",
+              "deactivation": "2019-06-06T20:55:24+00:00",
+              "is_ready_to_omna": false,
+              "created_at": "2019-05-07T15:11:16+00:00",
+              "updated_at": "2019-05-13T19:58:28+00:00"
+            }
+          ],
+          "pagination": {
+            "offset": 0,
+            "limit": 10,
+            "total": 2
+          }
+        }
+      },
+      "variant_item_response": {
+        "value": {
+          "data": {
+            "id": "5d54835a25d985682d014e0e",
+            "sku": "0018227994576",
+            "price": 49.9,
+            "cost_price": 49.9,
+            "quantity": 0,
+            "product": {
+              "id": "5d54835825d985682d014e04",
+              "name": "Actxa Swift - Test Do Not Buy"
+            },
+            "images": [
+              "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
+              "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
+            ],
+            "integrations": [
+              {
+                "id": "shopee",
+                "name": "shopee",
+                "channel": "ShopeeSG",
+                "variant": {
+                  "remote_variant_id": "5395303626",
+                  "properties": [
+                    {
+                      "id": "delivery_option_economy",
+                      "name": "delivery_option_economy",
+                      "label": "Delivery Option Economy",
+                      "required": false,
+                      "input_type": "single_select",
+                      "options": [
+                        "No",
+                        "Yes"
+                      ],
+                      "value": "Yes"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "variant_items_response": {
+        "value": {
+          "data": [
+            {
+              "id": "5d54835a25d985682d014e0e",
+              "sku": "0018227994576",
+              "price": 49.9,
+              "cost_price": 49.9,
+              "quantity": 0,
+              "product": {
+                "id": "5d54835825d985682d014e04",
+                "name": "Actxa Swift - Test Do Not Buy"
+              },
+              "images": [
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
+              ],
+              "integrations": [
+                {
+                  "id": "shopee",
+                  "name": "shopee",
+                  "channel": "ShopeeSG",
+                  "variant": {
+                    "remote_variant_id": "5395303626"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "5d54835925d985457b01a2a8",
+              "sku": "0018227994590",
+              "price": 49.9,
+              "cost_price": 49.9,
+              "quantity": 0,
+              "product": {
+                "id": "5d54835825d985682d014e04",
+                "name": "Actxa Swift - Test Do Not Buy"
+              },
+              "images": [
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
+                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
+              ],
+              "integrations": [
+                {
+                  "id": "shopee",
+                  "name": "shopee",
+                  "channel": "ShopeeSG",
+                  "variant": {
+                    "remote_variant_id": "5395303625"
+                  }
+                }
+              ]
+            }
+          ],
+          "pagination": {
+            "offset": 0,
+            "limit": 10,
+            "total": 2
+          }
+        }
+      },
+      "variant_publish_request": {
+        "$ref": "#/components/examples/product_publish_request"
+      },
+      "variant_unpublish_request": {
+        "$ref": "#/components/examples/product_unpublish_request"
+      },
+      "variant_update_request_1": {
+        "summary": "Update price",
+        "value": {
+          "data": {
+            "price": 159
+          }
+        }
+      },
+      "variant_update_request_2": {
+        "summary": "Update sku, quantity and price",
+        "value": {
+          "data": {
+            "sku": "0018227994576",
+            "quantity": 2,
+            "price": 159
+          }
+        }
+      },
+      "webhook_create_request_1": {
+        "summary": "For when an order is registered",
+        "value": {
+          "data": {
+            "integration_id": "shop_01",
+            "topic": "order/registered",
+            "address": "http://myintegration.com/catch/order/registered"
+          }
+        }
+      },
+      "webhook_create_request_2": {
+        "summary": "For when an order is updated",
+        "value": {
+          "data": {
+            "integration_id": "shop_01",
+            "topic": "order/updated",
+            "address": "http://myintegration.com/catch/order/updated"
+          }
+        }
+      },
+      "webhook_item_response": {
+        "value": {
+          "data": {
+            "id": "5d13be7025d9853de90012b6",
+            "topic": "order/registered",
+            "address": "http://myintegration.com/catch/order/registered",
+            "integration": {
+              "id": "shop_01",
+              "name": "Shop-01",
+              "channel": "LazadaSG",
+              "authorized": true,
+              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+              "created_at": "2019-06-07T00:06:52+00:00",
+              "updated_at": "2019-06-07T20:47:32+00:00"
+            },
+            "created_at": "2019-06-07T00:06:52+00:00",
+            "updated_at": "2019-06-07T20:47:32+00:00"
+          }
+        }
+      },
+      "webhook_items_response": {
+        "value": {
+          "data": [
+            {
+              "id": "5d13be7025d9853de90012b6",
+              "topic": "order/registered",
+              "address": "http://myintegration.com",
+              "integration": {
+                "id": "shop_01",
+                "name": "Shop-01",
+                "channel": "LazadaSG"
+              },
+              "created_at": "2019-06-07T00:06:52+00:00",
+              "updated_at": "2019-06-07T20:47:32+00:00"
+            }
+          ],
+          "pagination": {
+            "offset": 0,
+            "limit": 5,
+            "total": 1
+          }
+        }
+      },
+      "webhook_topics_response": {
+        "value": {
+          "data": [
+            {
+              "topic": "order/registered",
+              "title": "When an order is registered for the first time"
+            },
+            {
+              "topic": "order/updated",
+              "title": "When an order is updated"
+            }
+          ]
+        }
+      }
+    },
+    "requestBodies": {
+      "flow_create": {
+        "description": "Flow that will be added to the system",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Flow"
+                    },
+                    {
+                      "required": [
+                        "type",
+                        "integration_id"
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/flow_create_request_1"
+              },
+              "Ex2": {
+                "$ref": "#/components/examples/flow_create_request_2"
+              }
+            }
+          }
+        }
+      },
+      "flow_update": {
+        "description": "Flow scheduler that will be updated",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "scheduler": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Scheduler"
+                        },
+                        {
+                          "required": [
+                            "start_date",
+                            "end_date",
+                            "time"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/flow_update_request"
+              }
+            }
+          }
+        }
+      },
+      "get_access_token": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "code"
+              ],
+              "properties": {
+                "code": {
+                  "description": "The **authentication code**.\n\n> It is obtained as a result of the authentication service ( [Sign in](#operation/sign_in) ).\n",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "integration_create": {
+        "description": "Integration that will be added to the system",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Integration"
+                    },
+                    {
+                      "required": [
+                        "name",
+                        "channel"
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "e1": {
+                "summary": "To Lazada integration",
+                "value": {
+                  "data": {
+                    "name": "Shop-01",
+                    "channel": "LazadaSG"
+                  }
+                }
+              },
+              "e2": {
+                "summary": "To Shopee integration",
+                "value": {
+                  "data": {
+                    "name": "Shop-02",
+                    "channel": "ShopeeSG"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "integration_product_unpublish": {
+        "description": "Data to sets whether the product should be removed from OMNA and/or the remote integration source.\n",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "delete_from_integration": {
+                      "description": "Sets whether the product should be removed from the remote integration source.\n",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "delete_from_omna": {
+                      "description": "Sets whether the product should be removed from OMNA if it is not published in at least one integration\n",
+                      "type": "boolean",
+                      "default": false
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/integration_product_unpublish_request"
+              }
+            }
+          }
+        }
+      },
+      "integration_variant_unpublish": {
+        "description": "Data to sets whether the variant should be removed from OMNA and/or the remote integration source.\n",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "delete_from_integration": {
+                      "description": "Sets whether the variant should be removed from the remote integration source.\n",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "delete_from_omna": {
+                      "description": "Sets whether the variant should be removed from OMNA if it is not published in at least one integration\n",
+                      "type": "boolean",
+                      "default": false
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/integration_variant_unpublish_request"
+              }
+            }
+          }
+        }
+      },
+      "product_publish": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "integration_ids": {
+                      "description": "Identifiers of the integrations where you want to publish the product.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "integration_ids"
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_publish_request"
+              }
+            }
+          }
+        }
+      },
+      "product_unpublish": {
+        "description": "Integrations IDs and data to sets whether the product should be removed from OMNA and/or the remote integration source.\n",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "integration_ids": {
+                      "description": "Identifiers of the integrations where you want to unpublish the product.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "delete_from_integration": {
+                      "description": "Sets whether the product should be removed from the remote integration source.\n",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "delete_from_omna": {
+                      "description": "Sets whether the product should be removed from OMNA if it is not published in at least one integration\n",
+                      "type": "boolean",
+                      "default": false
+                    }
+                  },
+                  "required": [
+                    "integration_ids"
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_unpublish_request"
+              }
+            }
+          }
+        }
+      },
+      "product_update": {
+        "description": "Product properties that will be updated",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_update_request_1"
+              },
+              "Ex2": {
+                "$ref": "#/components/examples/product_update_request_2"
+              }
+            }
+          }
+        }
+      },
+      "tenant_create": {
+        "description": "Tenant that will be added to the system",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Tenant"
+                    },
+                    {
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "variant_publish": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "integration_ids": {
+                      "description": "Identifiers of the integrations where you want to publish the variant.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "integration_ids"
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/variant_publish_request"
+              }
+            }
+          }
+        }
+      },
+      "variant_unpublish": {
+        "description": "Integrations IDs and data to sets whether the variant should be removed from OMNA and/or the remote integration source.\n",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "integration_ids": {
+                      "description": "Identifiers of the integrations where you want to unpublish the variant.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "delete_from_integration": {
+                      "description": "Sets whether the variant should be removed from the remote integration source.\n",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "delete_from_omna": {
+                      "description": "Sets whether the variant should be removed from OMNA if it is not published in at least one integration\n",
+                      "type": "boolean",
+                      "default": false
+                    }
+                  },
+                  "required": [
+                    "integration_ids"
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/variant_unpublish_request"
+              }
+            }
+          }
+        }
+      },
+      "variant_update": {
+        "description": "Variant properties that will be updated",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Variant"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/variant_update_request_1"
+              },
+              "Ex2": {
+                "$ref": "#/components/examples/variant_update_request_2"
+              }
+            }
+          }
+        }
+      },
+      "webhook_create": {
+        "description": "Webhook that will be added to the system",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Webhook"
+                    },
+                    {
+                      "required": [
+                        "topic",
+                        "address",
+                        "integration_id"
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/webhook_create_request_1"
+              },
+              "Ex2": {
+                "$ref": "#/components/examples/webhook_create_request_2"
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "HMac": {
+        "type": "apiKey",
+        "name": "hmac",
+        "in": "query",
+        "description": "Keyed-Hash message authentication code.\n\n> Each service request must includes an hmac parameter, which is generated using the tenant's\n  secret along with service path and the data sent in the request.\n\n### Examples:\n\n#### JavaScript\n```JavaScript\n  const current_tenant = { token: '....', secret: '...' };\n\n  axios.defaults.baseURL = 'https://cenit.io/app/ecapi-v1/';\n  axios.defaults.headers.post['Content-Type'] = 'application/json';\n  axios.defaults.headers.put['Content-Type'] = 'application/json';\n\n  // Interceptors to sign any request.\n  axios.interceptors.request.use((config) => {\n    // Add token and timestamp to URL parameters.\n    config.params = Object.assign({}, config.params, { token: current_tenant.token, timestamp: Date.now() });\n\n    // Merge all URL parameters and body data to be sent with the request.\n    let data = Object.assign({}, config.params, config.data);\n\n    // Join the service path and the ordered sequence of characters, excluding the quotes,\n    // corresponding to the JSON of the parameters that will be sent.\n    let msg = config.url + JSON.stringify(data).replace(/[\"']/g, '').split('').sort().join('');\n\n    // Generate the corresponding hmac parameter using the js-sha256 or similar library.\n    config.params.hmac = sha256.hmac.update(current_tenant.secret, msg).hex();\n\n    return config;\n  });\n```\n"
+      },
+      "Timestamp": {
+        "description": "The timestamp of the request with less than 7200 secounds difference from UTC time.\n",
+        "type": "apiKey",
+        "name": "timestamp",
+        "in": "query"
+      },
+      "Token": {
+        "description": "Tenant authentication token. The token of the tenant is obtained from the ***sign_in***. When the user registers through the ***sign_in*** action, as a result of the request, the information about the token is returned.\n",
+        "type": "apiKey",
+        "name": "token",
+        "in": "query"
+      }
+    }
+  }
+}

@@ -475,7 +475,7 @@ paths:
       operationId: get_order
       summary: Retrieve an Order from an Integration
       description: |
-        Find order by given id and returns it.
+        Retrieve an order by its number.
       responses:
         '200':
           $ref: '#/components/responses/order_item'
@@ -704,6 +704,21 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/order_items'
+  '/orders/{order_id}':
+    parameters:
+      - $ref: '#/components/parameters/path_order_id'
+    get:
+      tags:
+        - Orders
+      operationId: get_order_by_id
+      summary: Retrieve an Order
+      description: |
+        Retrieve an order by its identifier.
+      responses:
+        '200':
+          $ref: '#/components/responses/order_item'
+        '404':
+          $ref: '#/components/responses/order_not_found'
   /products:
     parameters:
       - $ref: '#/components/parameters/query_filter_term_for_products'
@@ -2215,6 +2230,14 @@ components:
         description: Integration identifier
         type: string
         example: shop_01
+    path_order_id:
+      name: order_id
+      in: path
+      required: true
+      schema:
+        description: Order identifier
+        type: string
+        example: 5d04051125d9852c71016794
     path_order_number:
       name: number
       in: path

@@ -1,0 +1,14 @@
+parameters:
+  - $ref: '#/components/parameters/path_order_id'
+get:
+  tags:
+    - Orders
+  operationId: get_order_by_id
+  summary: Retrieve an Order
+  description: |
+    Retrieve an order by its identifier.
+  responses:
+    '200':
+      $ref: '#/components/responses/order_item'
+    '404':
+      $ref: '#/components/responses/order_not_found'

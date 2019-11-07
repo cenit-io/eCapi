@@ -1,0 +1,7 @@
+name: order_id
+in: path
+required: true
+schema:
+  description: Order identifier
+  type: string
+  example: 5d04051125d9852c71016794

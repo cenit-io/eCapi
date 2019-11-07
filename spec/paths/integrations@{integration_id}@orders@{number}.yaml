@@ -7,7 +7,7 @@ get:
   operationId: get_order
   summary: Retrieve an Order from an Integration
   description: |
-    Find order by given id and returns it.
+    Retrieve an order by its number.
   responses:
     '200':
       $ref: '#/components/responses/order_item'

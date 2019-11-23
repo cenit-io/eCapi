@@ -7,9 +7,8 @@ get:
     - Orders
   operationId: get_order_doc
   summary: Retrieve a Document from an Order
-  description: >
+  description: |
     Retrieve a specific document of the order.
-
 
     > To reconstruct the file, the data from the node needs to be base64
     decoded, and interpreted according to the mime_type.

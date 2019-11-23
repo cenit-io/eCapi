@@ -3,7 +3,7 @@ value:
     id: "5cfe690b25d9854b3b02241b"
     status: "completed"
     progress: 100
-    description: "Importing last updated orders from 'Shop-01' integration."
+    description: "Description of the task to be executed ..."
     created_at: "2019-06-10T14:28:27+00:00"
     updated_at: "2019-06-10T14:28:43+00:00"
     executions:
@@ -14,19 +14,16 @@ value:
     notifications:
       -
         type: "info"
-        message: "Imported order 17851977370457 from Shop-01 integration."
+        message: "Last notification during task execution..."
       -
         type: "info"
-        message: "Imported order 8834309804556 from Shop-01 integration."
+        message: "..."
       -
         type: "info"
-        message: "Imported order 16159781406633 from Shop-01 integration."
+        message: "Second notification during task execution.."
       -
         type: "info"
-        message: "Importing form 1 to 3."
-      -
-        type: "info"
-        message: "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
+        message: "First notification during task execution..."
     scheduler:
       active: true
       start_date: "2019-06-20"

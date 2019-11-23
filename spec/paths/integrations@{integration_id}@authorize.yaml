@@ -6,7 +6,7 @@ get:
     - Integrations
   operationId: authorize_integration
   summary: Retrieve the Authorization
-  description: >
+  description: |
     Find integration by given id and redirect navigation to authorization uri.
   parameters:
     - $ref: '#/components/parameters/query_redirect_uri'

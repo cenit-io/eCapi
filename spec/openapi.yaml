@@ -11,7 +11,7 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
     url: omna_logo.png
-  description: >
+  description: |
     # Introduction
 
     The OMNA Commerce API is simple connector API to integrate ecommerce sale channels, such us 
@@ -65,7 +65,7 @@ tags:
       Operations about the product variants of an Integration.
 
   - name: Flows
-    description: >
+    description: |
       Operations about the flows.
 
       The flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be

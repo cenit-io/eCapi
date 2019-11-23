@@ -3,11 +3,10 @@ parameters:
 get:
   tags:
     - Flows
-  operationId: start_flow
+  operationId: start_flow_async_
   summary: Start a Flow
-  description: >
+  description: |
     Find flow by given id and start its processing.
-
 
     > If exists any task of this flow in the execution or pending state, then
     the same task is returned, otherwise a new task is created.

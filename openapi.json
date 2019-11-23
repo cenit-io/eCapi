@@ -15,7 +15,7 @@
     "x-logo": {
       "url": "omna_logo.png"
     },
-    "description": "# Introduction\nThe OMNA Commerce API is simple connector API to integrate ecommerce sale channels, such us  marketplaces and ecommerce platforms.\nAn easy way to get orders, synchronize inventory and list product information to commerce solutions around the globe.\nWe are starting for marketplaces in Southeast Asia (Shopee, Lazada) but we will continue to make it global.\nIt is built on top of an integration platform https://cenit.io\nThis API is for individual retailers, SaaS services, or any business that needs to handle multiples commerce integrations.\n* Is built over REST services on HTTPS.\n* It has predictable resource URLs.\n* It returns HTTP response codes to indicate errors.\n* It accepts and returns JSON in the HTTP body.\n* You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API.\n"
+    "description": "# Introduction\n\nThe OMNA Commerce API is simple connector API to integrate ecommerce sale channels, such us \nmarketplaces and ecommerce platforms.\n\nAn easy way to get orders, synchronize inventory and list product information to commerce solutions around the globe.\n\nWe are starting for marketplaces in Southeast Asia (Shopee, Lazada) but we will continue to make it global.\n\nIt is built on top of an integration platform https://cenit.io\n\nThis API is for individual retailers, SaaS services, or any business that needs to handle multiples commerce integrations.\n\n* Is built over REST services on HTTPS.\n\n* It has predictable resource URLs.\n\n* It returns HTTP response codes to indicate errors.\n\n* It accepts and returns JSON in the HTTP body.\n\n* You can use your favorite HTTP/REST library for your programming language\nto use OMNA Commerce API.\n"
   },
   "tags": [
     {
@@ -44,7 +44,7 @@
     },
     {
       "name": "Flows",
-      "description": "Operations about the flows.\nThe flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be executed manually or automated through the configuration and activation of their schedulers. For example, the user can want to receive products form an integration 1 and orders form another integration.\n"
+      "description": "Operations about the flows.\n\nThe flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be\nexecuted manually or automated through the configuration and activation of their schedulers. For example,\nthe user can want to receive products form an integration 1 and orders form another integration.\n"
     },
     {
       "name": "Tasks",
@@ -194,9 +194,9 @@
         "tags": [
           "Flows"
         ],
-        "operationId": "start_flow",
+        "operationId": "start_flow_async_",
         "summary": "Start a Flow",
-        "description": "Find flow by given id and start its processing.\n\n> If exists any task of this flow in the execution or pending state, then the same task is returned, otherwise a new task is created.\n",
+        "description": "Find flow by given id and start its processing.\n\n> If exists any task of this flow in the execution or pending state, then\nthe same task is returned, otherwise a new task is created.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -503,6 +503,22 @@
             "$ref": "#/components/responses/order_not_found"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "cancel_order_async_beta_",
+        "summary": "Cancel an Order from an Integration",
+        "description": "Set order status to cancled",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/order_not_found"
+          }
+        }
       }
     },
     "/integrations/{integration_id}/orders/{number}/doc/{doc_type}": {
@@ -523,7 +539,7 @@
         ],
         "operationId": "get_order_doc",
         "summary": "Retrieve a Document from an Order",
-        "description": "Retrieve a specific document of the order.\n\n> To reconstruct the file, the data from the node needs to be base64 decoded, and interpreted according to the mime_type.\n",
+        "description": "Retrieve a specific document of the order.\n\n> To reconstruct the file, the data from the node needs to be base64\ndecoded, and interpreted according to the mime_type.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/order_doc"
@@ -875,6 +891,22 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/order_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/order_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "cancel_order_by_id_async_beta_",
+        "summary": "Cancel an Order",
+        "description": "Set the status as canceled to the order with a given identifier.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
           },
           "404": {
             "$ref": "#/components/responses/order_not_found"
@@ -4140,7 +4172,7 @@
             "id": "5cfe690b25d9854b3b02241b",
             "status": "completed",
             "progress": 100,
-            "description": "Importing last updated orders from 'Shop-01' integration.",
+            "description": "Description of the task to be executed ...",
             "created_at": "2019-06-10T14:28:27+00:00",
             "updated_at": "2019-06-10T14:28:43+00:00",
             "executions": [
@@ -4153,23 +4185,19 @@
             "notifications": [
               {
                 "type": "info",
-                "message": "Imported order 17851977370457 from Shop-01 integration."
+                "message": "Last notification during task execution..."
               },
               {
                 "type": "info",
-                "message": "Imported order 8834309804556 from Shop-01 integration."
+                "message": "..."
               },
               {
                 "type": "info",
-                "message": "Imported order 16159781406633 from Shop-01 integration."
+                "message": "Second notification during task execution.."
               },
               {
                 "type": "info",
-                "message": "Importing form 1 to 3."
-              },
-              {
-                "type": "info",
-                "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
+                "message": "First notification during task execution..."
               }
             ],
             "scheduler": {

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spec Reference | OMNA Commerce API</title>
+  <meta name="description" content="simple connector API to integrate ecommerce sale channels">
+  <meta name="keywords" content="Channel,Connector,Integration,eCommerce">
+  <!-- needed for adaptive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!--
+  ReDoc uses font options from the parent element
+  So override default browser styles
+  -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  
+</head>
+<body>
+<style>
+  img {
+    background-color: transparent !important;
+  }
+
+  .sc-dnqmqq.ioYTqA {
+    text-transform: uppercase;
+  }
+
+  .sc-ifAKCX.hiuczA[data-section-id$=_beta] .sc-dnqmqq.ioYTqA:after,
+  .sc-ifAKCX.hiuczA[data-section-id*=_beta_] .sc-dnqmqq.ioYTqA:after,
+  .sc-hrWEMg.bbViyS[data-item-id$=_beta] .sc-gwVKww.SmuWE:after,
+  .sc-hrWEMg.bbViyS[data-item-id*=_beta_] .sc-gwVKww.SmuWE:after,
+  .sc-ifAKCX.hiuczA[data-section-id$=_async] .sc-dnqmqq.ioYTqA:after,
+  .sc-ifAKCX.hiuczA[data-section-id*=_async_] .sc-dnqmqq.ioYTqA:after,
+  .sc-hrWEMg.bbViyS[data-item-id$=_async] .sc-gwVKww.SmuWE:after,
+  .sc-hrWEMg.bbViyS[data-item-id*=_async_] .sc-gwVKww.SmuWE:after,
+  .sc-ifAKCX.hiuczA [type=warning] {
+    background-color: rgb(212, 173, 3);
+    color: red;
+    line-height: 1.5em;
+    border-radius: 10px;
+    padding: 2px 10px;
+    font-size: 60%;
+    position: relative;
+    top: -10px;
+  }
+
+  .sc-ifAKCX.hiuczA[data-section-id*=_async_] .sc-dnqmqq.ioYTqA:after,
+  .sc-hrWEMg.bbViyS[data-item-id*=_async_] .sc-gwVKww.SmuWE:after {
+    content: "ASYNC";
+  }
+  
+  .sc-ifAKCX.hiuczA[data-section-id*=_beta_] .sc-dnqmqq.ioYTqA:after,
+  .sc-hrWEMg.bbViyS[data-item-id*=_beta_] .sc-gwVKww.SmuWE:after {
+    content: "BETA";
+  }
+
+  .sc-ifAKCX.hiuczA[data-section-id*=_async_].sc-ifAKCX.hiuczA[data-section-id*=_beta_] .sc-dnqmqq.ioYTqA:after,
+  .sc-hrWEMg.bbViyS[data-item-id*=_async_].sc-hrWEMg.bbViyS[data-item-id*=_beta_] .sc-gwVKww.SmuWE:after {
+    content: "ASYNC-BETA";
+  }
+
+  .sc-hrWEMg.bbViyS[data-item-id*=_beta_] .sc-gwVKww.SmuWE:after,
+  .sc-hrWEMg.bbViyS[data-item-id*=_async_] .sc-gwVKww.SmuWE:after {
+    border-radius: 5px;
+    padding: 2px 5px;
+    font-size: 50%;
+    top: -5px;
+  }
+</style>
+<div id="redoc_container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/redoc/bundles/redoc.standalone.js"></script>
+    <script>
+      Redoc.init(
+        './openapi.json',
+        {"theme":{"logo":{"gutter":"20px 30px 14px 30px"},"colors":{"text":{"primary":"#333333"}},"rightPanel":{"backgroundColor":"#263238"},"links":{"color":"#6CC496"}}},
+        document.getElementById("redoc_container")
+      );
+    </script>
+</body>
+</html>

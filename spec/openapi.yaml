@@ -17,9 +17,11 @@ info:
     The OMNA Commerce API is simple connector API to integrate ecommerce sale channels, such us 
     marketplaces and ecommerce platforms.
     
-    An easy way to get orders, synchronize inventory and list product information to commerce solutions around the globe.
+    An easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.
 
-    We are starting for marketplaces in Southeast Asia (Shopee, Lazada) but we will continue to make it global.
+    The list of available integrations include: Amazon Marketplace, Backmarket, Mercado Libre, Lazada, Qoo10, Shopee, Shopify.
+
+    These integrations are related with 34 Countries: Argentina, Australia, Bolivia, Brasil, Canada, Chile, Colombia, Costa Rica, Dominicana, Ecuador, France, Germany, Guatemala, Honduras, India, Indonesia, Indonesia, Japan, Malaysia, Mexico, Nicaragua, Panama, Paraguay, Peru, Philippines, Salvador, Singapore, Spain, Thailand, Turkey, United Kingdom, Unit Arab Emirates, Uruguay, United States, Venezuela, Vietnam.
 
     It is built on top of an integration platform https://cenit.io
 

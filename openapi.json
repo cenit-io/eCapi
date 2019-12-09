@@ -485,14 +485,14 @@
           "Orders"
         ],
         "operationId": "export_orders_async_beta_",
-        "summary": "Export an Order",
-        "description": "Generate an async task to export a single order to all integrations that meet the following conditions:\n\n- Has defined the order export workflow.\n- The workflow has the scheduler disabled.\n",
+        "summary": "Export an Orders",
+        "description": "Generate an async task to export the updated orders to an integration.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
           },
           "404": {
-            "$ref": "#/components/responses/order_not_found"
+            "$ref": "#/components/responses/integration_not_found"
           }
         }
       }
@@ -527,8 +527,8 @@
           "Orders"
         ],
         "operationId": "export_order_async_beta_",
-        "summary": "Export an Order",
-        "description": "Generate an async task to export a single order to all integrations that meet the following conditions:\n\n- Has defined the order export workflow.\n- The workflow has the scheduler disabled.\n",
+        "summary": "Export an Order from an Integration",
+        "description": "Generate an async task to export a specific order to all integrations that meet the following conditions:\n\n- Has defined the order export workflow.\n- The workflow has the scheduler disabled.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -937,7 +937,7 @@
         ],
         "operationId": "export_order_by_id_async_beta_",
         "summary": "Export an Order",
-        "description": "Generate an async task to export a single order to all integrations that meet the following conditions:\n\n- Has defined the order export workflow.\n- The workflow has the scheduler disabled.\n",
+        "description": "Generate an async task to export a specific order to all integrations that meet the following conditions:\n\n- Has defined the order export workflow.\n- The workflow has the scheduler disabled.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"

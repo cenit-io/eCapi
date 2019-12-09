@@ -11,14 +11,14 @@ properties:
     type: string
 
   product:
-    description: Details of the remote product of the integration
+    description: Details of the remote product of the integration.
     type: object
     properties:
       remote_product_id:
-        description: Identifier of the remote product of the integration
+        description: Identifier of the remote product of the integration.
         type: string
       category_id:
-        description: Category identifier of the remote product of the integration
+        description: Category identifier of the remote product of the integration.
         type: string
       properties:
         type: array

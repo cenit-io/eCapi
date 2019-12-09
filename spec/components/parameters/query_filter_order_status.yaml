@@ -3,4 +3,4 @@ in: query
 schema:
   description: Allow to filter the orders by status.
   type: string
-  example: canceled
+  example: cancelled

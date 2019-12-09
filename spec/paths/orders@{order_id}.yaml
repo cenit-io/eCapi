@@ -19,7 +19,7 @@ delete:
   operationId: cancel_order_by_id_async_beta_
   summary: Cancel an Order
   description: |
-    Set the status as canceled to the order with a given identifier.
+    Generate an async task to set the status as cancelled to the order with a given identifier.
   responses:
     '200':
       $ref: '#/components/responses/task_item'

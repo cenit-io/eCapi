@@ -8,7 +8,7 @@ get:
   operationId: get_order_doc_types
   summary: List all Document Types from an Order
   description: |
-    Return the list of types of order documents
+    Return the list of types of order documents.
   responses:
     '200':
       $ref: '#/components/responses/order_doc_types'

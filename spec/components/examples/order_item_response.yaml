@@ -4,7 +4,7 @@ value:
     number: "9151224232845"
     total_price: 2.00
     total_quantity: 1
-    status: "canceled"
+    status: "cancelled"
     payments:
       -
         method: "COD"

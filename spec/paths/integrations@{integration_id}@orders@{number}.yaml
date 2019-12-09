@@ -20,7 +20,8 @@ delete:
     - Orders
   operationId: cancel_order_async_beta_
   summary: Cancel an Order from an Integration
-  description: Set order status to cancled
+  description: |
+    Generate an async task to set order status as cancelled.
   responses:
     '200':
       $ref: '#/components/responses/task_item'

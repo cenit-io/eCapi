@@ -7,7 +7,7 @@ get:
   operationId: import_order_async_
   summary: Import a single Order from an Integration
   description: |
-    Generate an async task to import a specific order from an integration
+    Generate an async task to import a specific order from an integration.
   responses:
     '200':
       $ref: '#/components/responses/order_import_task'

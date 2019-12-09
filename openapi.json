@@ -335,7 +335,7 @@
         ],
         "operationId": "get_integration_settings",
         "summary": "Retrieve an Integration",
-        "description": "Retrieves a single integration by given id.\n",
+        "description": "Retrieves a single integration by its identifier.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/integration_item"
@@ -485,7 +485,7 @@
           "Orders"
         ],
         "operationId": "export_orders_async_beta_",
-        "summary": "Export an Orders",
+        "summary": "Export updated Orders to an integration",
         "description": "Generate an async task to export the updated orders to an integration.\n",
         "responses": {
           "200": {
@@ -527,8 +527,8 @@
           "Orders"
         ],
         "operationId": "export_order_async_beta_",
-        "summary": "Export an Order from an Integration",
-        "description": "Generate an async task to export a specific order to all integrations that meet the following conditions:\n\n- Has defined the order export workflow.\n- The workflow has the scheduler disabled.\n",
+        "summary": "Export an Order of an Integration",
+        "description": "Generate an async task to export a specific order of an integration to all integrations that meet the following conditions:\n\n- Has defined the order export workflow.\n- The workflow has the scheduler disabled.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -618,7 +618,7 @@
           "Orders"
         ],
         "operationId": "import_order_async_",
-        "summary": "Import a single Order from an Integration",
+        "summary": "Import an Order from an Integration",
         "description": "Generate an async task to import a specific order from an integration.\n",
         "responses": {
           "200": {
@@ -741,7 +741,7 @@
           "Products Integrations"
         ],
         "operationId": "import_integration_product_async_",
-        "summary": "Import a single Product from an Integration",
+        "summary": "Import a Product from an Integration",
         "description": "Generate an async task to import a specific product from an integration.\n",
         "responses": {
           "200": {
@@ -921,7 +921,7 @@
         ],
         "operationId": "get_order_by_id",
         "summary": "Retrieve an Order",
-        "description": "Retrieve an order by its identifier.\n",
+        "description": "Retrieve a specific order by its identifier.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/order_item"
@@ -952,7 +952,7 @@
           "Orders"
         ],
         "operationId": "import_order_by_id_async_",
-        "summary": "Reimport a specific Order from its Integration.",
+        "summary": "Reimport an Order",
         "description": "Generate an async task to reimport a specific order from its integration.\n",
         "responses": {
           "200": {
@@ -969,7 +969,7 @@
         ],
         "operationId": "cancel_order_by_id_async_beta_",
         "summary": "Cancel an Order",
-        "description": "Generate an async task to set the status as cancelled to the order with a given identifier.\n",
+        "description": "Generate an async task to cancel a specific order in its integration.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -1024,7 +1024,7 @@
         ],
         "operationId": "get_product_beta_",
         "summary": "Retrieve a Product",
-        "description": "Retrieves a single product by given id.\n",
+        "description": "Retrieves a single product by its identifier.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/product_item"
@@ -1142,7 +1142,7 @@
         ],
         "operationId": "get_variant_beta_",
         "summary": "Retrieve a Variant",
-        "description": "Retrieves a single variant by given id.\n",
+        "description": "Retrieves a single variant by its identifier.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/variant_item"

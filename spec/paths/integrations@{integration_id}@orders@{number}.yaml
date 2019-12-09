@@ -15,6 +15,23 @@ get:
     '404':
       $ref: '#/components/responses/order_not_found'
 
+put:
+  tags:
+    - Orders
+  operationId: export_order_async_beta_
+  summary: Export an Order
+  description: |
+    Generate an async task to export a single order to all integrations that meet the following conditions:
+
+    - Has defined the order export workflow.
+    - The workflow has the scheduler disabled.
+
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/order_not_found'
+
 delete:
   tags:
     - Orders

@@ -468,9 +468,6 @@ paths:
   '/integrations/{integration_id}/orders':
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
-      - $ref: '#/components/parameters/query_filter_term_for_orders'
-      - $ref: '#/components/parameters/query_offset'
-      - $ref: '#/components/parameters/query_limit'
     get:
       tags:
         - Orders
@@ -478,9 +475,28 @@ paths:
       summary: List all Orders from an Integration
       description: |
         Returns the order list of a specific integration.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_orders'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
       responses:
         '200':
           $ref: '#/components/responses/order_items'
+    put:
+      tags:
+        - Orders
+      operationId: export_orders_async_beta_
+      summary: Export an Order
+      description: |
+        Generate an async task to export a single order to all integrations that meet the following conditions:
+
+        - Has defined the order export workflow.
+        - The workflow has the scheduler disabled.
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/order_not_found'
   '/integrations/{integration_id}/orders/{number}':
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
@@ -497,12 +513,28 @@ paths:
           $ref: '#/components/responses/order_item'
         '404':
           $ref: '#/components/responses/order_not_found'
+    put:
+      tags:
+        - Orders
+      operationId: export_order_async_beta_
+      summary: Export an Order
+      description: |
+        Generate an async task to export a single order to all integrations that meet the following conditions:
+
+        - Has defined the order export workflow.
+        - The workflow has the scheduler disabled.
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/order_not_found'
     delete:
       tags:
         - Orders
       operationId: cancel_order_async_beta_
       summary: Cancel an Order from an Integration
-      description: Set order status to cancled
+      description: |
+        Generate an async task to set order status as cancelled.
       responses:
         '200':
           $ref: '#/components/responses/task_item'
@@ -536,7 +568,7 @@ paths:
       operationId: get_order_doc_types
       summary: List all Document Types from an Order
       description: |
-        Return the list of types of order documents
+        Return the list of types of order documents.
       responses:
         '200':
           $ref: '#/components/responses/order_doc_types'
@@ -550,7 +582,7 @@ paths:
       operationId: import_order_async_
       summary: Import a single Order from an Integration
       description: |
-        Generate an async task to import a specific order from an integration
+        Generate an async task to import a specific order from an integration.
       responses:
         '200':
           $ref: '#/components/responses/order_import_task'
@@ -565,7 +597,7 @@ paths:
       operationId: import_orders_async_
       summary: Import updated Orders from an Integration
       description: |
-        Generate an async task to import the last updated orders from an integration
+        Generate an async task to import the last updated orders from an integration.
       responses:
         '200':
           $ref: '#/components/responses/order_import_task'
@@ -630,7 +662,7 @@ paths:
       operationId: import_integration_product_async_
       summary: Import a single Product from an Integration
       description: |
-        Generate an async task to import a specific product from an integration
+        Generate an async task to import a specific product from an integration.
       responses:
         '200':
           $ref: '#/components/responses/product_import_task'
@@ -696,7 +728,7 @@ paths:
       operationId: import_products_async_
       summary: Import updated Products from an Integration
       description: |
-        Generate an async task to import the last updated products from an integration
+        Generate an async task to import the last updated products from an integration.
       responses:
         '200':
           $ref: '#/components/responses/product_import_task'
@@ -747,13 +779,40 @@ paths:
           $ref: '#/components/responses/order_item'
         '404':
           $ref: '#/components/responses/order_not_found'
+    put:
+      tags:
+        - Orders
+      operationId: export_order_by_id_async_beta_
+      summary: Export an Order
+      description: |
+        Generate an async task to export a single order to all integrations that meet the following conditions:
+
+        - Has defined the order export workflow.
+        - The workflow has the scheduler disabled.
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/order_not_found'
+    patch:
+      tags:
+        - Orders
+      operationId: import_order_by_id_async_
+      summary: Reimport a specific Order from its Integration.
+      description: |
+        Generate an async task to reimport a specific order from its integration.
+      responses:
+        '200':
+          $ref: '#/components/responses/order_import_task'
+        '404':
+          $ref: '#/components/responses/order_not_found'
     delete:
       tags:
         - Orders
       operationId: cancel_order_by_id_async_beta_
       summary: Cancel an Order
       description: |
-        Set the status as canceled to the order with a given identifier.
+        Generate an async task to set the status as cancelled to the order with a given identifier.
       responses:
         '200':
           $ref: '#/components/responses/task_item'
@@ -1481,14 +1540,14 @@ components:
           description: Integration channel identifier
           type: string
         product:
-          description: Details of the remote product of the integration
+          description: Details of the remote product of the integration.
           type: object
           properties:
             remote_product_id:
-              description: Identifier of the remote product of the integration
+              description: Identifier of the remote product of the integration.
               type: string
             category_id:
-              description: Category identifier of the remote product of the integration
+              description: Category identifier of the remote product of the integration.
               type: string
             properties:
               type: array
@@ -2299,7 +2358,7 @@ components:
       in: path
       required: true
       schema:
-        description: Identifier of the remote product of the integration
+        description: Identifier of the remote product of the integration.
         type: string
         example: 5d04051125d9852c71016793
     path_remote_variant_id:
@@ -2307,7 +2366,7 @@ components:
       in: path
       required: true
       schema:
-        description: Identifier of the remote variant of the integration
+        description: Identifier of the remote variant of the integration.
         type: string
         example: 5d04051125d9852c71016793
     path_task_id:
@@ -2376,7 +2435,7 @@ components:
       schema:
         description: Allow to filter the orders by status.
         type: string
-        example: canceled
+        example: cancelled
     query_filter_task_description:
       name: description
       in: query
@@ -2758,7 +2817,7 @@ components:
           number: '9151224232845'
           total_price: 2
           total_quantity: 1
-          status: canceled
+          status: cancelled
           payments:
             - method: COD
               status: paid
@@ -2806,7 +2865,7 @@ components:
             number: '9151224232845'
             total_price: 2
             total_quantity: 1
-            status: canceled
+            status: cancelled
             payments:
               - method: COD
                 status: paid
@@ -2847,7 +2906,7 @@ components:
             number: '9170283050978'
             total_price: 1
             total_quantity: 1
-            status: canceled
+            status: cancelled
             payments:
               - method: COD
                 status: paid
@@ -3414,7 +3473,7 @@ components:
                     default: false
                   delete_from_omna:
                     description: |
-                      Sets whether the product should be removed from OMNA if it is not published in at least one integration
+                      Sets whether the product should be removed from OMNA if it is not published in at least one integration.
                     type: boolean
                     default: false
           examples:
@@ -3440,7 +3499,7 @@ components:
                     default: false
                   delete_from_omna:
                     description: |
-                      Sets whether the variant should be removed from OMNA if it is not published in at least one integration
+                      Sets whether the variant should be removed from OMNA if it is not published in at least one integration.
                     type: boolean
                     default: false
           examples:
@@ -3492,7 +3551,7 @@ components:
                     default: false
                   delete_from_omna:
                     description: |
-                      Sets whether the product should be removed from OMNA if it is not published in at least one integration
+                      Sets whether the product should be removed from OMNA if it is not published in at least one integration.
                     type: boolean
                     default: false
                 required:
@@ -3576,7 +3635,7 @@ components:
                     default: false
                   delete_from_omna:
                     description: |
-                      Sets whether the variant should be removed from OMNA if it is not published in at least one integration
+                      Sets whether the variant should be removed from OMNA if it is not published in at least one integration.
                     type: boolean
                     default: false
                 required:

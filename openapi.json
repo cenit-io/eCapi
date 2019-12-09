@@ -454,15 +454,6 @@
       "parameters": [
         {
           "$ref": "#/components/parameters/path_integration_id"
-        },
-        {
-          "$ref": "#/components/parameters/query_filter_term_for_orders"
-        },
-        {
-          "$ref": "#/components/parameters/query_offset"
-        },
-        {
-          "$ref": "#/components/parameters/query_limit"
         }
       ],
       "get": {
@@ -472,9 +463,36 @@
         "operationId": "get_integration_orders",
         "summary": "List all Orders from an Integration",
         "description": "Returns the order list of a specific integration.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_orders"
+          },
+          {
+            "$ref": "#/components/parameters/query_offset"
+          },
+          {
+            "$ref": "#/components/parameters/query_limit"
+          }
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/order_items"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "export_orders_async_beta_",
+        "summary": "Export an Order",
+        "description": "Generate an async task to export a single order to all integrations that meet the following conditions:\n\n- Has defined the order export workflow.\n- The workflow has the scheduler disabled.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/order_not_found"
           }
         }
       }
@@ -504,13 +522,29 @@
           }
         }
       },
+      "put": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "export_order_async_beta_",
+        "summary": "Export an Order",
+        "description": "Generate an async task to export a single order to all integrations that meet the following conditions:\n\n- Has defined the order export workflow.\n- The workflow has the scheduler disabled.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/order_not_found"
+          }
+        }
+      },
       "delete": {
         "tags": [
           "Orders"
         ],
         "operationId": "cancel_order_async_beta_",
         "summary": "Cancel an Order from an Integration",
-        "description": "Set order status to cancled",
+        "description": "Generate an async task to set order status as cancelled.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -562,7 +596,7 @@
         ],
         "operationId": "get_order_doc_types",
         "summary": "List all Document Types from an Order",
-        "description": "Return the list of types of order documents\n",
+        "description": "Return the list of types of order documents.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/order_doc_types"
@@ -585,7 +619,7 @@
         ],
         "operationId": "import_order_async_",
         "summary": "Import a single Order from an Integration",
-        "description": "Generate an async task to import a specific order from an integration\n",
+        "description": "Generate an async task to import a specific order from an integration.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/order_import_task"
@@ -608,7 +642,7 @@
         ],
         "operationId": "import_orders_async_",
         "summary": "Import updated Orders from an Integration",
-        "description": "Generate an async task to import the last updated orders from an integration\n",
+        "description": "Generate an async task to import the last updated orders from an integration.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/order_import_task"
@@ -708,7 +742,7 @@
         ],
         "operationId": "import_integration_product_async_",
         "summary": "Import a single Product from an Integration",
-        "description": "Generate an async task to import a specific product from an integration\n",
+        "description": "Generate an async task to import a specific product from an integration.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/product_import_task"
@@ -811,7 +845,7 @@
         ],
         "operationId": "import_products_async_",
         "summary": "Import updated Products from an Integration",
-        "description": "Generate an async task to import the last updated products from an integration\n",
+        "description": "Generate an async task to import the last updated products from an integration.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/product_import_task"
@@ -897,13 +931,45 @@
           }
         }
       },
+      "put": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "export_order_by_id_async_beta_",
+        "summary": "Export an Order",
+        "description": "Generate an async task to export a single order to all integrations that meet the following conditions:\n\n- Has defined the order export workflow.\n- The workflow has the scheduler disabled.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/order_not_found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "import_order_by_id_async_",
+        "summary": "Reimport a specific Order from its Integration.",
+        "description": "Generate an async task to reimport a specific order from its integration.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_import_task"
+          },
+          "404": {
+            "$ref": "#/components/responses/order_not_found"
+          }
+        }
+      },
       "delete": {
         "tags": [
           "Orders"
         ],
         "operationId": "cancel_order_by_id_async_beta_",
         "summary": "Cancel an Order",
-        "description": "Set the status as canceled to the order with a given identifier.\n",
+        "description": "Generate an async task to set the status as cancelled to the order with a given identifier.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -1943,15 +2009,15 @@
             "type": "string"
           },
           "product": {
-            "description": "Details of the remote product of the integration",
+            "description": "Details of the remote product of the integration.",
             "type": "object",
             "properties": {
               "remote_product_id": {
-                "description": "Identifier of the remote product of the integration",
+                "description": "Identifier of the remote product of the integration.",
                 "type": "string"
               },
               "category_id": {
-                "description": "Category identifier of the remote product of the integration",
+                "description": "Category identifier of the remote product of the integration.",
                 "type": "string"
               },
               "properties": {
@@ -3122,7 +3188,7 @@
         "in": "path",
         "required": true,
         "schema": {
-          "description": "Identifier of the remote product of the integration",
+          "description": "Identifier of the remote product of the integration.",
           "type": "string",
           "example": "5d04051125d9852c71016793"
         }
@@ -3132,7 +3198,7 @@
         "in": "path",
         "required": true,
         "schema": {
-          "description": "Identifier of the remote variant of the integration",
+          "description": "Identifier of the remote variant of the integration.",
           "type": "string",
           "example": "5d04051125d9852c71016793"
         }
@@ -3219,7 +3285,7 @@
         "schema": {
           "description": "Allow to filter the orders by status.",
           "type": "string",
-          "example": "canceled"
+          "example": "cancelled"
         }
       },
       "query_filter_task_description": {
@@ -3764,7 +3830,7 @@
             "number": "9151224232845",
             "total_price": 2,
             "total_quantity": 1,
-            "status": "canceled",
+            "status": "cancelled",
             "payments": [
               {
                 "method": "COD",
@@ -3828,7 +3894,7 @@
               "number": "9151224232845",
               "total_price": 2,
               "total_quantity": 1,
-              "status": "canceled",
+              "status": "cancelled",
               "payments": [
                 {
                   "method": "COD",
@@ -3883,7 +3949,7 @@
               "number": "9170283050978",
               "total_price": 1,
               "total_quantity": 1,
-              "status": "canceled",
+              "status": "cancelled",
               "payments": [
                 {
                   "method": "COD",
@@ -4709,7 +4775,7 @@
                       "default": false
                     },
                     "delete_from_omna": {
-                      "description": "Sets whether the product should be removed from OMNA if it is not published in at least one integration\n",
+                      "description": "Sets whether the product should be removed from OMNA if it is not published in at least one integration.\n",
                       "type": "boolean",
                       "default": false
                     }
@@ -4744,7 +4810,7 @@
                       "default": false
                     },
                     "delete_from_omna": {
-                      "description": "Sets whether the variant should be removed from OMNA if it is not published in at least one integration\n",
+                      "description": "Sets whether the variant should be removed from OMNA if it is not published in at least one integration.\n",
                       "type": "boolean",
                       "default": false
                     }
@@ -4820,7 +4886,7 @@
                       "default": false
                     },
                     "delete_from_omna": {
-                      "description": "Sets whether the product should be removed from OMNA if it is not published in at least one integration\n",
+                      "description": "Sets whether the product should be removed from OMNA if it is not published in at least one integration.\n",
                       "type": "boolean",
                       "default": false
                     }
@@ -4952,7 +5018,7 @@
                       "default": false
                     },
                     "delete_from_omna": {
-                      "description": "Sets whether the variant should be removed from OMNA if it is not published in at least one integration\n",
+                      "description": "Sets whether the variant should be removed from OMNA if it is not published in at least one integration.\n",
                       "type": "boolean",
                       "default": false
                     }

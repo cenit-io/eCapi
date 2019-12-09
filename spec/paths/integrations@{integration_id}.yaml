@@ -7,7 +7,7 @@ get:
   operationId: get_integration_settings
   summary: Retrieve an Integration
   description: |
-    Retrieves a single integration by given id.
+    Retrieves a single integration by its identifier.
   responses:
     '200':
       $ref: '#/components/responses/integration_item'

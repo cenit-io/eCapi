@@ -19,9 +19,9 @@ put:
   tags:
     - Orders
   operationId: export_order_async_beta_
-  summary: Export an Order from an Integration
+  summary: Export an Order of an Integration
   description: |
-    Generate an async task to export a specific order to all integrations that meet the following conditions:
+    Generate an async task to export a specific order of an integration to all integrations that meet the following conditions:
 
     - Has defined the order export workflow.
     - The workflow has the scheduler disabled.

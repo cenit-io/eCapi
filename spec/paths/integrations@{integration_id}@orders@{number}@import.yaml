@@ -5,7 +5,7 @@ get:
   tags:
     - Orders
   operationId: import_order_async_
-  summary: Import a single Order from an Integration
+  summary: Import an Order from an Integration
   description: |
     Generate an async task to import a specific order from an integration.
   responses:

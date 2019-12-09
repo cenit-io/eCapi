@@ -7,7 +7,7 @@ get:
   operationId: get_product_beta_
   summary: Retrieve a Product
   description: |
-    Retrieves a single product by given id.
+    Retrieves a single product by its identifier.
   responses:
     '200':
       $ref: '#/components/responses/product_item'

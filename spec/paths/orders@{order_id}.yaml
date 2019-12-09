@@ -6,7 +6,7 @@ get:
   operationId: get_order_by_id
   summary: Retrieve an Order
   description: |
-    Retrieve an order by its identifier.
+    Retrieve a specific order by its identifier.
   responses:
     '200':
       $ref: '#/components/responses/order_item'
@@ -34,7 +34,7 @@ patch:
   tags:
     - Orders
   operationId: import_order_by_id_async_
-  summary: Reimport a specific Order from its Integration.
+  summary: Reimport an Order
   description: |
     Generate an async task to reimport a specific order from its integration.
   responses:
@@ -49,7 +49,7 @@ delete:
   operationId: cancel_order_by_id_async_beta_
   summary: Cancel an Order
   description: |
-    Generate an async task to set the status as cancelled to the order with a given identifier.
+    Generate an async task to cancel a specific order in its integration.
   responses:
     '200':
       $ref: '#/components/responses/task_item'

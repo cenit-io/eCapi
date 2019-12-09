@@ -20,7 +20,7 @@ put:
   tags:
     - Orders
   operationId: export_orders_async_beta_
-  summary: Export an Orders
+  summary: Export updated Orders to an integration
   description: |
     Generate an async task to export the updated orders to an integration.
   responses:

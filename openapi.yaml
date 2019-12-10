@@ -516,7 +516,10 @@ paths:
       operationId: export_order_async_beta_
       summary: Export an Order of an Integration
       description: |
-        Generate an asynchronous task to export a specific order to its same integration.
+        Generate an async task to export a specific order to all integrations that meet the following conditions:
+
+        - Has defined the order export workflow.
+        - The workflow has the scheduler disabled.
       responses:
         '200':
           $ref: '#/components/responses/task_item'

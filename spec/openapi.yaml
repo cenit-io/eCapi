@@ -48,6 +48,10 @@ tags:
     description: |
       Operations about the orders
 
+  - name: Orders Integrations
+    description: |
+      Operations about the orders of an Integration.
+
   - name: Products
     description: |
       Operations about the products.

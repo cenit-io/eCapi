@@ -27,6 +27,10 @@
       "description": "Operations about the orders\n"
     },
     {
+      "name": "Orders Integrations",
+      "description": "Operations about the orders of an Integration.\n"
+    },
+    {
       "name": "Products",
       "description": "Operations about the products.\n"
     },
@@ -458,7 +462,7 @@
       ],
       "get": {
         "tags": [
-          "Orders"
+          "Orders Integrations"
         ],
         "operationId": "get_integration_orders",
         "summary": "List all Orders from an Integration",
@@ -482,11 +486,14 @@
       },
       "put": {
         "tags": [
-          "Orders"
+          "Orders Integrations"
         ],
         "operationId": "export_orders_async_beta_",
-        "summary": "Export updated Orders to an integration",
-        "description": "Generate an async task to export the updated orders to an integration.\n",
+        "summary": "Export updated Orders of an integration",
+        "description": "Generate an async task to export the updated orders to to one or more target integrations.\n\n> If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the\norder export workflow defined with its has the scheduler disabled.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/export_orders_to_integration"
+        },
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -508,7 +515,7 @@
       ],
       "get": {
         "tags": [
-          "Orders"
+          "Orders Integrations"
         ],
         "operationId": "get_order",
         "summary": "Retrieve an Order from an Integration",
@@ -524,11 +531,14 @@
       },
       "put": {
         "tags": [
-          "Orders"
+          "Orders Integrations"
         ],
         "operationId": "export_order_async_beta_",
         "summary": "Export an Order of an Integration",
-        "description": "Generate an async task to export a specific order to all integrations that meet the following conditions:\n\n- Has defined the order export workflow.\n- The workflow has the scheduler disabled.\n",
+        "description": "Generate an async task to start the export flows of a specific order to one or more target integrations.\n\n> If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the\norder export workflow defined with its has the scheduler disabled.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/export_order_to_integration"
+        },
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -540,7 +550,7 @@
       },
       "delete": {
         "tags": [
-          "Orders"
+          "Orders Integrations"
         ],
         "operationId": "cancel_order_async_beta_",
         "summary": "Cancel an Order from an Integration",
@@ -569,7 +579,7 @@
       ],
       "get": {
         "tags": [
-          "Orders"
+          "Orders Integrations"
         ],
         "operationId": "get_order_doc",
         "summary": "Retrieve a Document from an Order",
@@ -592,11 +602,11 @@
       ],
       "get": {
         "tags": [
-          "Orders"
+          "Orders Integrations"
         ],
         "operationId": "get_order_doc_types",
-        "summary": "List all Document Types from an Order",
-        "description": "Return the list of types of order documents.\n",
+        "summary": "List all Types of Order Documents",
+        "description": "Retrieve the list of types of order documents.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/order_doc_types"
@@ -615,7 +625,7 @@
       ],
       "get": {
         "tags": [
-          "Orders"
+          "Orders Integrations"
         ],
         "operationId": "import_order_async_",
         "summary": "Import an Order from an Integration",
@@ -638,7 +648,7 @@
       ],
       "get": {
         "tags": [
-          "Orders"
+          "Orders Integrations"
         ],
         "operationId": "import_orders_async_",
         "summary": "Import updated Orders from an Integration",
@@ -937,7 +947,10 @@
         ],
         "operationId": "export_order_by_id_async_beta_",
         "summary": "Export an Order",
-        "description": "Generate an async task to export a specific order to all integrations that meet the following conditions:\n\n- Has defined the order export workflow.\n- The workflow has the scheduler disabled.\n",
+        "description": "Generate an async task to start the export flows of a specific order to one or more target integrations.\n\n> If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the\norder export workflow defined with its has the scheduler disabled.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/export_order_to_integration"
+        },
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -976,6 +989,49 @@
           },
           "404": {
             "$ref": "#/components/responses/order_not_found"
+          }
+        }
+      }
+    },
+    "/orders/{order_id}/doc/{doc_type}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_order_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_doc_type"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "get_order_doc_by_id",
+        "summary": "Retrieve a Document from an Order",
+        "description": "Retrieve a specific document of the order.\n\n> To reconstruct the file, the data from the node needs to be base64\ndecoded, and interpreted according to the mime_type.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_doc"
+          }
+        }
+      }
+    },
+    "/orders/{order_id}/doc/types": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_order_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "get_order_doc_types_by_id",
+        "summary": "List all Types of Order Documents",
+        "description": "Retrieve the list of types of order documents.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/order_doc_types"
           }
         }
       }
@@ -4619,6 +4675,46 @@
       }
     },
     "requestBodies": {
+      "export_order_to_integration": {
+        "required": false,
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "target_integration_id": {
+                      "description": "Target integration identify.\n",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "export_orders_to_integration": {
+        "required": false,
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "target_integration_id": {
+                      "description": "Target integration identify.\n",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "flow_create": {
         "description": "Flow that will be added to the system",
         "required": true,

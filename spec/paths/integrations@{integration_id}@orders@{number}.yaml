@@ -21,10 +21,13 @@ put:
   operationId: export_order_async_beta_
   summary: Export an Order of an Integration
   description: |
-    Generate an async task to export a specific order to all integrations that meet the following conditions:
+    Generate an async task to start the export flows of a specific order to one or more target integrations.
 
-    - Has defined the order export workflow.
-    - The workflow has the scheduler disabled.
+    > If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the
+    order export workflow defined with its has the scheduler disabled.
+
+  requestBody:
+    $ref: '#/components/requestBodies/export_order_to_integration'
 
   responses:
     '200':

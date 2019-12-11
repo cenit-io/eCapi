@@ -1,0 +1,12 @@
+required: false
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          type: object
+          properties:
+            target_integration_id:
+              description: |
+                Target integration identify.
+              type: string

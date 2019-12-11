@@ -20,9 +20,15 @@ put:
   tags:
     - Orders
   operationId: export_orders_async_beta_
-  summary: Export updated Orders to an integration
+  summary: Export updated  Orders to an integration
   description: |
-    Generate an async task to export the updated orders to an integration.
+    Generate an async task to export the updated orders to to one or more target integrations.
+
+    > If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the
+    order export workflow defined with its has the scheduler disabled.
+
+  requestBody:
+    $ref: '#/components/requestBodies/export_orders_to_integration'
   responses:
     '200':
       $ref: '#/components/responses/task_item'

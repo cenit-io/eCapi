@@ -9,7 +9,7 @@ value:
       -
         method: "COD"
         status: "paid"
-        currensy: "USD"
+        currency: "USD"
         amount: 2.00
     ship_address:
       country: "Singapore"

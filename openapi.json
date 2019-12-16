@@ -3895,7 +3895,7 @@
               {
                 "method": "COD",
                 "status": "paid",
-                "currensy": "USD",
+                "currency": "USD",
                 "amount": 2
               }
             ],
@@ -3959,7 +3959,7 @@
                 {
                   "method": "COD",
                   "status": "paid",
-                  "currensy": "USD",
+                  "currency": "USD",
                   "amount": 2
                 }
               ],
@@ -4014,7 +4014,7 @@
                 {
                   "method": "COD",
                   "status": "paid",
-                  "currensy": "USD",
+                  "currency": "USD",
                   "amount": 1
                 }
               ],

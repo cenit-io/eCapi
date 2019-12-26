@@ -16,6 +16,21 @@ get:
     '404':
       $ref: '#/components/responses/product_not_found'
 
+post:
+  tags:
+    - Products Integrations
+  operationId: update_integration_product_beta_
+  summary: Update a Product
+  description: |
+    Update the specific properties of a product in an integration.
+  requestBody:
+    $ref: '#/components/requestBodies/product_properties_update'
+  responses:
+    '200':
+      $ref: '#/components/responses/product_item'
+    '404':
+      $ref: '#/components/responses/product_not_found'
+
 delete:
   tags:
     - Products Integrations

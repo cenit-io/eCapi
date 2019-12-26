@@ -3,13 +3,12 @@ properties:
   id:
     description: Property identifier
     type: string
-    readOnly: true
   label:
     description: Property label
     type: string
     readOnly: true
   required:
-    description: Property name
+    description: Define if the property is mandatory
     type: boolean
     readOnly: true
   input_type:

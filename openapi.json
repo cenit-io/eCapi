@@ -27,7 +27,7 @@
       "description": "Operations about the orders\n"
     },
     {
-      "name": "Orders Integrations",
+      "name": "Orders of an Integration",
       "description": "Operations about the orders of an Integration.\n"
     },
     {
@@ -35,7 +35,7 @@
       "description": "Operations about the products.\n"
     },
     {
-      "name": "Products Integrations",
+      "name": "Products of an Integration",
       "description": "Operations about the products of an Integration.\n"
     },
     {
@@ -43,7 +43,7 @@
       "description": "Operations about the product variants.\n"
     },
     {
-      "name": "Variants Integrations",
+      "name": "Variants of an Integration",
       "description": "Operations about the product variants of an Integration.\n"
     },
     {
@@ -462,7 +462,7 @@
       ],
       "get": {
         "tags": [
-          "Orders Integrations"
+          "Orders of an Integration"
         ],
         "operationId": "get_integration_orders",
         "summary": "List all Orders from an Integration",
@@ -486,7 +486,7 @@
       },
       "put": {
         "tags": [
-          "Orders Integrations"
+          "Orders of an Integration"
         ],
         "operationId": "export_orders_async_beta_",
         "summary": "Export updated Orders of an integration",
@@ -515,7 +515,7 @@
       ],
       "get": {
         "tags": [
-          "Orders Integrations"
+          "Orders of an Integration"
         ],
         "operationId": "get_order",
         "summary": "Retrieve an Order from an Integration",
@@ -531,7 +531,7 @@
       },
       "put": {
         "tags": [
-          "Orders Integrations"
+          "Orders of an Integration"
         ],
         "operationId": "export_order_async_beta_",
         "summary": "Export an Order of an Integration",
@@ -550,7 +550,7 @@
       },
       "delete": {
         "tags": [
-          "Orders Integrations"
+          "Orders of an Integration"
         ],
         "operationId": "cancel_order_async_beta_",
         "summary": "Cancel an Order from an Integration",
@@ -579,7 +579,7 @@
       ],
       "get": {
         "tags": [
-          "Orders Integrations"
+          "Orders of an Integration"
         ],
         "operationId": "get_order_doc",
         "summary": "Retrieve a Document from an Order",
@@ -602,7 +602,7 @@
       ],
       "get": {
         "tags": [
-          "Orders Integrations"
+          "Orders of an Integration"
         ],
         "operationId": "get_order_doc_types",
         "summary": "List all Types of Order Documents",
@@ -625,7 +625,7 @@
       ],
       "get": {
         "tags": [
-          "Orders Integrations"
+          "Orders of an Integration"
         ],
         "operationId": "import_order_async_",
         "summary": "Import an Order from an Integration",
@@ -648,7 +648,7 @@
       ],
       "get": {
         "tags": [
-          "Orders Integrations"
+          "Orders of an Integration"
         ],
         "operationId": "import_orders_async_",
         "summary": "Import updated Orders from an Integration",
@@ -680,7 +680,7 @@
       ],
       "get": {
         "tags": [
-          "Products Integrations"
+          "Products of an Integration"
         ],
         "operationId": "get_integration_products_beta_",
         "summary": "List all Products from an Integration",
@@ -703,7 +703,7 @@
       ],
       "get": {
         "tags": [
-          "Products Integrations"
+          "Products of an Integration"
         ],
         "operationId": "get_integration_product_beta_",
         "summary": "Retrieve an Product from an Integration",
@@ -717,9 +717,28 @@
           }
         }
       },
+      "post": {
+        "tags": [
+          "Products of an Integration"
+        ],
+        "operationId": "update_integration_product_beta_",
+        "summary": "Update a Product",
+        "description": "Update the specific properties of a product in an integration.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/product_properties_update"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      },
       "delete": {
         "tags": [
-          "Products Integrations"
+          "Products of an Integration"
         ],
         "operationId": "delete_integration_product_beta_",
         "summary": "Unpublish a Product from an Integration",
@@ -748,7 +767,7 @@
       ],
       "get": {
         "tags": [
-          "Products Integrations"
+          "Products of an Integration"
         ],
         "operationId": "import_integration_product_async_",
         "summary": "Import a Product from an Integration",
@@ -783,7 +802,7 @@
       ],
       "get": {
         "tags": [
-          "Variants Integrations"
+          "Variants of an Integration"
         ],
         "operationId": "get_integration_variants_beta_",
         "summary": "List all Variants from an Integration",
@@ -809,7 +828,7 @@
       ],
       "get": {
         "tags": [
-          "Variants Integrations"
+          "Variants of an Integration"
         ],
         "operationId": "get_integration_variant_beta_",
         "summary": "Retrieve an Variant from an Integration",
@@ -825,7 +844,7 @@
       },
       "delete": {
         "tags": [
-          "Variants Integrations"
+          "Variants of an Integration"
         ],
         "operationId": "delete_integration_variant_beta_",
         "summary": "Unpublish a Variant from an Integration",
@@ -851,7 +870,7 @@
       ],
       "get": {
         "tags": [
-          "Products Integrations"
+          "Products of an Integration"
         ],
         "operationId": "import_products_async_",
         "summary": "Import updated Products from an Integration",
@@ -2072,10 +2091,6 @@
                 "description": "Identifier of the remote product of the integration.",
                 "type": "string"
               },
-              "category_id": {
-                "description": "Category identifier of the remote product of the integration.",
-                "type": "string"
-              },
               "properties": {
                 "type": "array",
                 "items": {
@@ -2091,8 +2106,7 @@
         "properties": {
           "id": {
             "description": "Property identifier",
-            "type": "string",
-            "readOnly": true
+            "type": "string"
           },
           "label": {
             "description": "Property label",
@@ -2100,7 +2114,7 @@
             "readOnly": true
           },
           "required": {
-            "description": "Property name",
+            "description": "Define if the property is mandatory",
             "type": "boolean",
             "readOnly": true
           },
@@ -4921,6 +4935,32 @@
             "examples": {
               "Ex1": {
                 "$ref": "#/components/examples/integration_variant_unpublish_request"
+              }
+            }
+          }
+        }
+      },
+      "product_properties_update": {
+        "description": "Product properties that will be updated",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "properties": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ProductProperty"
+                      }
+                    }
+                  }
+                }
               }
             }
           }

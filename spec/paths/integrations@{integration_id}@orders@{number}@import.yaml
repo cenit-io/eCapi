@@ -3,7 +3,7 @@ parameters:
   - $ref: '#/components/parameters/path_order_number'
 get:
   tags:
-    - Orders Integrations
+    - Orders of an Integration
   operationId: import_order_async_
   summary: Import an Order from an Integration
   description: |

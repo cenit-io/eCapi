@@ -48,7 +48,7 @@ tags:
     description: |
       Operations about the orders
 
-  - name: Orders Integrations
+  - name: Orders of an Integration
     description: |
       Operations about the orders of an Integration.
 
@@ -56,7 +56,7 @@ tags:
     description: |
       Operations about the products.
 
-  - name: Products Integrations
+  - name: Products of an Integration
     description: |
       Operations about the products of an Integration.
 
@@ -64,7 +64,7 @@ tags:
     description: |
       Operations about the product variants.
 
-  - name: Variants Integrations
+  - name: Variants of an Integration
     description: |
       Operations about the product variants of an Integration.
 

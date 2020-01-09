@@ -3,7 +3,7 @@ parameters:
 
 get:
   tags:
-    - Orders Integrations
+    - Orders of an Integration
   operationId: get_integration_orders
   summary: List all Orders from an Integration
   description: |
@@ -18,7 +18,7 @@ get:
 
 put:
   tags:
-    - Orders Integrations
+    - Orders of an Integration
   operationId: export_orders_async_beta_
   summary: Export updated Orders of an integration
   description: |

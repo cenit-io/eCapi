@@ -4,7 +4,7 @@ parameters:
 
 get:
   tags:
-    - Orders Integrations
+    - Orders of an Integration
   operationId: get_order_doc_types
   summary: List all Types of Order Documents
   description: |

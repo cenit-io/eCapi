@@ -4,7 +4,7 @@ parameters:
 
 get:
   tags:
-    - Products Integrations
+    - Products of an Integration
   operationId: get_integration_product_beta_
   summary: Retrieve an Product from an Integration
   description: |
@@ -18,7 +18,7 @@ get:
 
 post:
   tags:
-    - Products Integrations
+    - Products of an Integration
   operationId: update_integration_product_beta_
   summary: Update a Product
   description: |
@@ -33,7 +33,7 @@ post:
 
 delete:
   tags:
-    - Products Integrations
+    - Products of an Integration
   operationId: delete_integration_product_beta_
   summary: Unpublish a Product from an Integration
   description: |

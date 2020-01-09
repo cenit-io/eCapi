@@ -4,7 +4,7 @@ parameters:
   - $ref: '#/components/parameters/path_doc_type'
 get:
   tags:
-    - Orders Integrations
+    - Orders of an Integration
   operationId: get_order_doc
   summary: Retrieve a Document from an Order
   description: |

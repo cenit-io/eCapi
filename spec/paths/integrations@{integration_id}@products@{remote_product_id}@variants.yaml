@@ -7,7 +7,7 @@ parameters:
 
 get:
   tags:
-    - Variants Integrations
+    - Variants of an Integration
   operationId: get_integration_variants_beta_
   summary: List all Variants from an Integration
   description: |

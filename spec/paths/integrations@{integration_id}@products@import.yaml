@@ -2,7 +2,7 @@ parameters:
   - $ref: '#/components/parameters/path_integration_id'
 get:
   tags:
-    - Products Integrations
+    - Products of an Integration
   operationId: import_products_async_
   summary: Import updated Products from an Integration
   description: |

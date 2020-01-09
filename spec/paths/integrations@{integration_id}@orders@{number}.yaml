@@ -4,7 +4,7 @@ parameters:
 
 get:
   tags:
-    - Orders Integrations
+    - Orders of an Integration
   operationId: get_order
   summary: Retrieve an Order from an Integration
   description: |
@@ -17,7 +17,7 @@ get:
 
 put:
   tags:
-    - Orders Integrations
+    - Orders of an Integration
   operationId: export_order_async_beta_
   summary: Export an Order of an Integration
   description: |
@@ -37,7 +37,7 @@ put:
 
 delete:
   tags:
-    - Orders Integrations
+    - Orders of an Integration
   operationId: cancel_order_async_beta_
   summary: Cancel an Order from an Integration
   description: |

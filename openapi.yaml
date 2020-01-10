@@ -872,12 +872,6 @@ paths:
         '200':
           $ref: '#/components/responses/order_doc_types'
   /products:
-    parameters:
-      - $ref: '#/components/parameters/query_filter_term_for_products'
-      - $ref: '#/components/parameters/query_filter_integration'
-      - $ref: '#/components/parameters/query_with_details'
-      - $ref: '#/components/parameters/query_offset'
-      - $ref: '#/components/parameters/query_limit'
     get:
       tags:
         - Products
@@ -885,9 +879,29 @@ paths:
       summary: List all Products
       description: |
         Retrieves a list of products.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_products'
+        - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_with_details'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
       responses:
         '200':
           $ref: '#/components/responses/product_items'
+    post:
+      tags:
+        - Products
+      operationId: create_product_beta_
+      summary: Create a Product
+      description: |
+        Create a new product.
+      requestBody:
+        $ref: '#/components/requestBodies/product_create'
+      responses:
+        '200':
+          $ref: '#/components/responses/product_item'
+        '404':
+          $ref: '#/components/responses/product_not_found'
   '/products/{product_id}':
     parameters:
       - $ref: '#/components/parameters/path_product_id'
@@ -931,10 +945,10 @@ paths:
           $ref: '#/components/responses/product_item'
         '404':
           $ref: '#/components/responses/product_not_found'
-    delete:
+    patch:
       tags:
         - Products
-      operationId: delete_product_beta_
+      operationId: unpublish_product_beta_
       summary: Unpublish a Product
       description: |
         Unpublish a product from the given integrations.
@@ -945,6 +959,20 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/product_item'
+        '404':
+          $ref: '#/components/responses/product_not_found'
+    delete:
+      tags:
+        - Products
+      operationId: delete_product_beta_
+      summary: Delete a Product
+      description: |
+        Delete a product without integrations.
+
+        > The product will be permanently removed if and only if it has no associated integrations.
+      responses:
+        '200':
+          $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/product_not_found'
   '/products/{product_id}/variants':
@@ -2998,6 +3026,13 @@ components:
           offset: 0
           limit: 10
           total: 2
+    product_create_request:
+      summary: Create a product
+      value:
+        data:
+          name: IPod Nano - 4GB
+          desciption: IPod Nano - 4GB ...
+          price: 159
     product_import_response:
       value:
         data:
@@ -3582,6 +3617,25 @@ components:
           examples:
             Ex1:
               $ref: '#/components/examples/integration_variant_unpublish_request'
+    product_create:
+      description: Product that will be added to the system
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                allOf:
+                  - $ref: '#/components/schemas/Product'
+                  - required:
+                      - name
+                      - description
+                      - price
+          examples:
+            Ex1:
+              $ref: '#/components/examples/product_create_request'
     product_properties_update:
       description: Product properties that will be updated
       required: true
@@ -3662,7 +3716,8 @@ components:
               - data
             properties:
               data:
-                $ref: '#/components/schemas/Product'
+                allOf:
+                  - $ref: '#/components/schemas/Product'
           examples:
             Ex1:
               $ref: '#/components/examples/product_update_request_1'

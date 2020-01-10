@@ -44,10 +44,10 @@ put:
     '404':
       $ref: '#/components/responses/product_not_found'
       
-delete:
+patch:
   tags:
     - Products
-  operationId: delete_product_beta_
+  operationId: unpublish_product_beta_
   summary: Unpublish a Product
   description: |
     Unpublish a product from the given integrations.
@@ -58,5 +58,20 @@ delete:
   responses:
     '200':
       $ref: '#/components/responses/product_item'
+    '404':
+      $ref: '#/components/responses/product_not_found'
+
+delete:
+  tags:
+    - Products
+  operationId: delete_product_beta_
+  summary: Delete a Product
+  description: |
+    Delete a product without integrations.
+
+    > The product will be permanently removed if and only if it has no associated integrations.
+  responses:
+    '200':
+      $ref: '#/components/responses/success'
     '404':
       $ref: '#/components/responses/product_not_found'

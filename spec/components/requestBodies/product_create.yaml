@@ -1,4 +1,4 @@
-description: Product properties that will be updated
+description: Product that will be added to the system
 required: true
 content:
   application/json:
@@ -8,9 +8,8 @@ content:
         data:
           allOf:
             - $ref: "#/components/schemas/Product"
+            - required: [name, description, price]
 
     examples:
       Ex1:
-        $ref: '#/components/examples/product_update_request_1'
-      Ex2:
-        $ref: '#/components/examples/product_update_request_2'
+        $ref: '#/components/examples/product_create_request'

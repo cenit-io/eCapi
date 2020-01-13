@@ -17,19 +17,19 @@ get:
     '404':
       $ref: '#/components/responses/variant_not_found'
 
-delete:
+patch:
   tags:
     - Variants of an Integration
-  operationId: delete_integration_variant_beta_
+  operationId: unpublish_integration_variant_async_beta_
   summary: Unpublish a Variant from an Integration
   description: |
-    Unpublish a variant from an Integration.
+    Generate an async task to unpublish a variant in an Integration.
 
     > The variant will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
   requestBody:
     $ref: '#/components/requestBodies/integration_variant_unpublish'
   responses:
     '200':
-      $ref: '#/components/responses/variant_item'
+      $ref: '#/components/responses/task_item'
     '404':
       $ref: '#/components/responses/variant_not_found'

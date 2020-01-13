@@ -657,20 +657,20 @@ paths:
           $ref: '#/components/responses/product_item'
         '404':
           $ref: '#/components/responses/product_not_found'
-    delete:
+    patch:
       tags:
         - Products of an Integration
-      operationId: delete_integration_product_beta_
+      operationId: unpublish_integration_product_async_beta_
       summary: Unpublish a Product from an Integration
       description: |
-        Unpublish a product from an Integration.
+        Generate an async task to unpublish a product in an Integration.
 
         > The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
       requestBody:
         $ref: '#/components/requestBodies/integration_product_unpublish'
       responses:
         '200':
-          $ref: '#/components/responses/product_item'
+          $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/product_not_found'
   '/integrations/{integration_id}/products/{remote_product_id}/import':
@@ -724,20 +724,20 @@ paths:
           $ref: '#/components/responses/variant_item'
         '404':
           $ref: '#/components/responses/variant_not_found'
-    delete:
+    patch:
       tags:
         - Variants of an Integration
-      operationId: delete_integration_variant_beta_
+      operationId: unpublish_integration_variant_async_beta_
       summary: Unpublish a Variant from an Integration
       description: |
-        Unpublish a variant from an Integration.
+        Generate an async task to unpublish a variant in an Integration.
 
         > The variant will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
       requestBody:
         $ref: '#/components/requestBodies/integration_variant_unpublish'
       responses:
         '200':
-          $ref: '#/components/responses/variant_item'
+          $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/variant_not_found'
   '/integrations/{integration_id}/products/import':
@@ -948,17 +948,17 @@ paths:
     patch:
       tags:
         - Products
-      operationId: unpublish_product_beta_
+      operationId: unpublish_product_async_beta_
       summary: Unpublish a Product
       description: |
-        Unpublish a product from the given integrations.
+        Generate an async task to unpublish a product in some integrations.
 
         > The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
       requestBody:
         $ref: '#/components/requestBodies/product_unpublish'
       responses:
         '200':
-          $ref: '#/components/responses/product_item'
+          $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/product_not_found'
     delete:
@@ -1037,20 +1037,20 @@ paths:
           $ref: '#/components/responses/product_item'
         '404':
           $ref: '#/components/responses/variant_not_found'
-    delete:
+    patch:
       tags:
         - Variants
-      operationId: delete_variant_beta_
+      operationId: unpublish_variant_async_beta_
       summary: Unpublish a Variant
       description: |
-        Unpublish a variant from the given integrations.
+        Generate an async task to unpublish a variant in some integrations.
 
         > The variant will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
       requestBody:
         $ref: '#/components/requestBodies/variant_unpublish'
       responses:
         '200':
-          $ref: '#/components/responses/variant_item'
+          $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/variant_not_found'
   /sign_in:

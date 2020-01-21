@@ -1,0 +1,25 @@
+type: "object"
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: Collection identifier
+  name:
+    type: string
+    description: Unique name of the collection
+  title:
+    type: string
+    description: Title of the collection
+  version:
+    type: string
+    description: Version of the collection
+  summary:
+    type: string
+    description: Summary of the collection
+  status:
+    type: string
+    description: Status of the collection
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
+  updated_at:
+    $ref: "#/components/schemas/UpdatedAt"

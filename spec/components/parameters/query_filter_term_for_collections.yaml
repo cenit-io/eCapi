@@ -1,0 +1,6 @@
+name: term
+in: query
+schema:
+  description: Allow to filter the collections that contain the value of the term in their ***name*** or ***title***.
+  type: string
+  example: orders

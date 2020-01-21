@@ -1,0 +1,12 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Collection'
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/collection_item_response'

@@ -76,6 +76,87 @@
     }
   ],
   "paths": {
+    "/collections": {
+      "get": {
+        "tags": [
+          "Collections"
+        ],
+        "operationId": "get_collections",
+        "summary": "List all Collections",
+        "description": "Returns the list of collections that can be installed or uninstalled.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_collections"
+          },
+          {
+            "$ref": "#/components/parameters/query_offset"
+          },
+          {
+            "$ref": "#/components/parameters/query_limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/collection_items"
+          }
+        }
+      }
+    },
+    "/collections/{collection_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_collection_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Collections"
+        ],
+        "operationId": "get_collection",
+        "summary": "Retrieve a Collection",
+        "description": "Find collection by given id and returns it.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/collection_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/collection_not_found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Collections"
+        ],
+        "operationId": "install_collection_async_",
+        "summary": "Install a Collection",
+        "description": "Generate an async task to install o reinstall a collection in the current tenant.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/collection_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_item"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Collections"
+        ],
+        "operationId": "unistall_collection_async_beta_",
+        "summary": "Uninstall a Collection",
+        "description": "Generate an async task to uninstall a collection from the current tenant.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_item"
+          }
+        }
+      }
+    },
     "/flows": {
       "get": {
         "tags": [
@@ -1720,6 +1801,42 @@
           }
         }
       },
+      "Collection": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Collection identifier"
+          },
+          "name": {
+            "type": "string",
+            "description": "Unique name of the collection"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the collection"
+          },
+          "version": {
+            "type": "string",
+            "description": "Version of the collection"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Summary of the collection"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the collection"
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/UpdatedAt"
+          }
+        }
+      },
       "CreatedAt": {
         "description": "Date in iso8601 when the record was created",
         "type": "string",
@@ -2491,6 +2608,66 @@
           }
         }
       },
+      "collection_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/Collection"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/collection_item_response"
+              }
+            }
+          }
+        }
+      },
+      "collection_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Collection"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/collection_items_response"
+              }
+            }
+          }
+        }
+      },
+      "collection_not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Success"
+            },
+            "example": {
+              "success": false,
+              "message": "Not found collection with id: 5d04051125d9852c71016793"
+            }
+          }
+        }
+      },
       "flow_item": {
         "description": "Success",
         "content": {
@@ -3228,6 +3405,16 @@
           "example": "Ds3sBBSnyFnOqSjCARmX"
         }
       },
+      "path_collection_id": {
+        "name": "collection_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Collection identifier",
+          "type": "string",
+          "example": "5d04051125d9852c71016793"
+        }
+      },
       "path_doc_type": {
         "name": "doc_type",
         "in": "path",
@@ -3411,6 +3598,15 @@
           "example": "5d029d6625d985755e02202c"
         }
       },
+      "query_filter_term_for_collections": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the collections that contain the value of the term in their ***name*** or ***title***.",
+          "type": "string",
+          "example": "orders"
+        }
+      },
       "query_filter_term_for_flows": {
         "name": "term",
         "in": "query",
@@ -3529,6 +3725,41 @@
       }
     },
     "examples": {
+      "collection_item_response": {
+        "value": {
+          "data": {
+            "id": "5dc99ad825d985238605db73",
+            "name": "omna_v2",
+            "title": "OMNAv2",
+            "shared_version": "0.0.1",
+            "summary": "OMNA Commerce LTD",
+            "status": "outdated",
+            "updated_at": "2020-01-20T20:02:47+00:00",
+            "installed_at": "2020-01-20T20:01:06+00:00"
+          }
+        }
+      },
+      "collection_items_response": {
+        "value": {
+          "data": [
+            {
+              "id": "5dc99ad825d985238605db73",
+              "name": "omna_v2",
+              "title": "OMNAv2",
+              "shared_version": "0.0.1",
+              "summary": "OMNA Commerce LTD",
+              "status": "outdated",
+              "updated_at": "2020-01-20T20:02:47+00:00",
+              "installed_at": "2020-01-20T20:01:06+00:00"
+            }
+          ],
+          "pagination": {
+            "offset": 0,
+            "limit": 5,
+            "total": 1
+          }
+        }
+      },
       "flow_create_request_1": {
         "summary": "With scheduler",
         "value": {

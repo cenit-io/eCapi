@@ -19,6 +19,10 @@
   },
   "tags": [
     {
+      "name": "Collections",
+      "description": "The term collection refers to the set of resources and services that can be included in OMNA for the expansion of\nits scope and integration with other platforms.\n\n### Available collections:\n\n- **OMNAv2**: It is the main collection and the basis for working at OMNA Commerce LTD.\n- **OMNAv2-Lazada**: It includes support for the integration of OMNA with Lazada's marketplaces.\n- **OMNAv2-Shopee**: It includes support for the integration of OMNA with Shopee's marketplaces.\n- **OMNAv2-Shopify**: It includes support for the integration of OMNA with Shopee's marketplaces.\n\n### Future collections:\n\n- **OMNAv2-Qoo10**: It includes support for the integration of OMNA with Lazada's marketplaces.\n- **OMNAv2-AmazonMWS**: It includes support for the integration of OMNA with AmazonMWS's marketplaces.\n- **OMNAv2-MercadoLible**: It includes support for the integration of OMNA with MercadoLible's marketplaces.\n- **OMNAv2-Backmarket**: It includes support for the integration of OMNA with Backmarket's marketplaces.\n- **OMNAv2-Shipstation**: It includes support for the integration of OMNA with Shipstation's shipping platform for ecommerce fulfillment.\n"
+    },
+    {
       "name": "Integrations",
       "description": "The term integration refers to resource set on which is possible operate, updated with the latest information,\nand consolidating information into a single processing workflow.\n\nThe available integrations are Lazada, Shopee.\n"
     },

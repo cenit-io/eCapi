@@ -1453,6 +1453,7 @@
           "Users"
         ],
         "operationId": "startup_tenant_async_",
+        "deprecated": true,
         "summary": "Startup",
         "description": "Generate an async task to startup OMNA Commerce in the authenticated tenant.\n\n> It is not necessary to call this service when the tenant has been created with the application or api of OMAN.\n",
         "responses": {

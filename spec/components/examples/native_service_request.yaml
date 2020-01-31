@@ -1,0 +1,6 @@
+summary: Get shop metadata from Lazada integration
+value:
+  data:
+    path: /seller/get
+    method: GET
+    params: {}

@@ -1,0 +1,23 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        type:
+          type: string
+          description: native_service_response
+        data:
+          type: object
+          description: Response of the request to the native API service
+
+    example:
+      type: native_service_response
+      data:
+        name_company: OMNA PTE LTD
+        name: OMNA.IO
+        location: Singapore
+        seller_id: 100038428
+        email: lazada@example.omna.io
+        short_code: SG11D8C
+        cb: false

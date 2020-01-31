@@ -1,0 +1,23 @@
+description: Native API service parameters
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          type: "object"
+          properties:
+            path:
+              description: Path to native service
+              type: string
+            method:
+              description: HTTP request method (GET|POST|PUT|PUSH|DELETE)
+              type: string
+            params:
+              description: Parameters to be send in the request
+              type: object
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/native_service_request'

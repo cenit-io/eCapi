@@ -1,0 +1,17 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+
+post:
+  tags:
+    - Integrations
+  operationId: call_integration_native_service_beta_
+  summary: Call a Native API Service
+  description: |
+    Send a request to a native api service of an integration.
+  requestBody:
+    $ref: '#/components/requestBodies/native_service'
+  responses:
+    '200':
+      $ref: '#/components/responses/native_service'
+    '404':
+      $ref: '#/components/responses/integration_not_found'

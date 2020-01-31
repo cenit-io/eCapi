@@ -407,7 +407,7 @@
         "x-code-samples": [
           {
             "lang": "JavaScript",
-            "source": "// See the authentication section to learn how to sign any request.\n\nlet request = axios({\n  method: 'POST',\n  url: 'integrations',\n  data: { name: \"Shop-01\", channel: \"LazadaSG\" }\n});\n\nrequest.then((response) => {\n  // Do something with the response\n}).catch((error) => {\n  // Do something with the error\n});"
+            "source": "// See the authentication section to learn how to sign any request.\n\nlet request = axios({\n  method: 'POST',\n  url: 'integrations',\n  data: { name: \"Shop-01\", channel: \"Ov2LazadaSG\" }\n});\n\nrequest.then((response) => {\n  // Do something with the response\n}).catch((error) => {\n  // Do something with the error\n});"
           }
         ]
       }
@@ -1976,6 +1976,11 @@
           "channel": {
             "description": "Integration channel identifier",
             "type": "string"
+          },
+          "channel_title": {
+            "description": "Integration channel title",
+            "type": "string",
+            "readOnly": true
           },
           "authorized": {
             "description": "If integration is authorized or not",
@@ -3883,7 +3888,7 @@
             "integration": {
               "id": "shop_01",
               "name": "Shop-01",
-              "channel": "LazadaSG",
+              "channel": "Ov2LazadaSG",
               "authorized": true,
               "last_import_orders_date": "2019-06-07T20:47:14+00:00",
               "created_at": "2019-06-07T00:06:52+00:00",
@@ -3963,7 +3968,7 @@
               "integration": {
                 "id": "shop_01",
                 "name": "Shop-01",
-                "channel": "LazadaSG"
+                "channel": "Ov2LazadaSG"
               },
               "task": {
                 "id": "5cfe690b25d9854b3b02241b",
@@ -4120,7 +4125,8 @@
           "data": {
             "id": "shop_01",
             "name": "Shop-01",
-            "channel": "LazadaSG",
+            "channel": "Ov2LazadaSG",
+            "channel_title": "Lazada SG",
             "authorized": true,
             "last_import_orders_date": "2019-06-07T20:47:14+00:00",
             "last_import_products_date": "2020-01-13T04:11:23.000+00:00",
@@ -4144,7 +4150,8 @@
             {
               "id": "shop_01",
               "name": "Shop-01",
-              "channel": "LazadaSG",
+              "channel": "Ov2LazadaSG",
+              "channel_title": "Lazada SG",
               "authorized": true,
               "last_import_orders_date": "2019-06-07T20:47:14+00:00",
               "last_import_products_date": "2019-06-07T20:47:14+00:00",
@@ -4154,7 +4161,8 @@
             {
               "id": "shop_02",
               "name": "Shop-02",
-              "channel": "LazadaMY",
+              "channel": "Ov2LazadaMY",
+              "channel_title": "Lazada MY",
               "authorized": true,
               "last_import_orders_date": "2019-07-07T20:47:14+00:00",
               "last_import_products_date": "2019-07-07T20:47:14+00:00",
@@ -4312,7 +4320,7 @@
             "integration": {
               "id": "shop_01",
               "name": "Shop-01",
-              "channel": "LazadaSG",
+              "channel": "Ov2LazadaSG",
               "authorized": false,
               "last_import_orders_date": "2019-06-07T20:47:14+00:00",
               "created_at": "2019-06-07T00:06:52+00:00",
@@ -4376,7 +4384,7 @@
               "integration": {
                 "id": "shop_01",
                 "name": "Shop-01",
-                "channel": "LazadaSG"
+                "channel": "Ov2LazadaSG"
               }
             },
             {
@@ -4431,7 +4439,7 @@
               "integration": {
                 "id": "shop_01",
                 "name": "Shop-01",
-                "channel": "LazadaSG"
+                "channel": "Ov2LazadaSG"
               }
             }
           ],
@@ -4873,7 +4881,7 @@
               {
                 "id": "shopee",
                 "name": "shopee",
-                "channel": "ShopeeSG",
+                "channel": "Ov2ShopeeSG",
                 "variant": {
                   "remote_variant_id": "5395303626",
                   "properties": [
@@ -4917,7 +4925,7 @@
                 {
                   "id": "shopee",
                   "name": "shopee",
-                  "channel": "ShopeeSG",
+                  "channel": "Ov2ShopeeSG",
                   "variant": {
                     "remote_variant_id": "5395303626"
                   }
@@ -4942,7 +4950,7 @@
                 {
                   "id": "shopee",
                   "name": "shopee",
-                  "channel": "ShopeeSG",
+                  "channel": "Ov2ShopeeSG",
                   "variant": {
                     "remote_variant_id": "5395303625"
                   }
@@ -5010,7 +5018,7 @@
             "integration": {
               "id": "shop_01",
               "name": "Shop-01",
-              "channel": "LazadaSG",
+              "channel": "Ov2LazadaSG",
               "authorized": true,
               "last_import_orders_date": "2019-06-07T20:47:14+00:00",
               "created_at": "2019-06-07T00:06:52+00:00",
@@ -5031,7 +5039,7 @@
               "integration": {
                 "id": "shop_01",
                 "name": "Shop-01",
-                "channel": "LazadaSG"
+                "channel": "Ov2LazadaSG"
               },
               "created_at": "2019-06-07T00:06:52+00:00",
               "updated_at": "2019-06-07T20:47:32+00:00"

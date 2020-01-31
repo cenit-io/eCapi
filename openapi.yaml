@@ -388,7 +388,7 @@ paths:
             let request = axios({
               method: 'POST',
               url: 'integrations',
-              data: { name: "Shop-01", channel: "LazadaSG" }
+              data: { name: "Shop-01", channel: "Ov2LazadaSG" }
             });
 
             request.then((response) => {
@@ -1529,6 +1529,10 @@ components:
         channel:
           description: Integration channel identifier
           type: string
+        channel_title:
+          description: Integration channel title
+          type: string
+          readOnly: true
         authorized:
           description: If integration is authorized or not
           type: boolean
@@ -2885,7 +2889,7 @@ components:
           integration:
             id: shop_01
             name: Shop-01
-            channel: LazadaSG
+            channel: Ov2LazadaSG
             authorized: true
             last_import_orders_date: '2019-06-07T20:47:14+00:00'
             created_at: '2019-06-07T00:06:52+00:00'
@@ -2941,7 +2945,7 @@ components:
             integration:
               id: shop_01
               name: Shop-01
-              channel: LazadaSG
+              channel: Ov2LazadaSG
             task:
               id: 5cfe690b25d9854b3b02241b
               status: completed
@@ -3043,7 +3047,8 @@ components:
         data:
           id: shop_01
           name: Shop-01
-          channel: LazadaSG
+          channel: Ov2LazadaSG
+          channel_title: Lazada SG
           authorized: true
           last_import_orders_date: '2019-06-07T20:47:14+00:00'
           last_import_products_date: '2020-01-13T04:11:23.000+00:00'
@@ -3062,7 +3067,8 @@ components:
         data:
           - id: shop_01
             name: Shop-01
-            channel: LazadaSG
+            channel: Ov2LazadaSG
+            channel_title: Lazada SG
             authorized: true
             last_import_orders_date: '2019-06-07T20:47:14+00:00'
             last_import_products_date: '2019-06-07T20:47:14+00:00'
@@ -3070,7 +3076,8 @@ components:
             updated_at: '2019-06-07T20:47:32+00:00'
           - id: shop_02
             name: Shop-02
-            channel: LazadaMY
+            channel: Ov2LazadaMY
+            channel_title: Lazada MY
             authorized: true
             last_import_orders_date: '2019-07-07T20:47:14+00:00'
             last_import_products_date: '2019-07-07T20:47:14+00:00'
@@ -3176,7 +3183,7 @@ components:
           integration:
             id: shop_01
             name: Shop-01
-            channel: LazadaSG
+            channel: Ov2LazadaSG
             authorized: false
             last_import_orders_date: '2019-06-07T20:47:14+00:00'
             created_at: '2019-06-07T00:06:52+00:00'
@@ -3224,7 +3231,7 @@ components:
             integration:
               id: shop_01
               name: Shop-01
-              channel: LazadaSG
+              channel: Ov2LazadaSG
           - id: '9170283050978'
             number: '9170283050978'
             total_price: 1
@@ -3265,7 +3272,7 @@ components:
             integration:
               id: shop_01
               name: Shop-01
-              channel: LazadaSG
+              channel: Ov2LazadaSG
         pagination:
           offset: 0
           limit: 10
@@ -3575,7 +3582,7 @@ components:
           integrations:
             - id: shopee
               name: shopee
-              channel: ShopeeSG
+              channel: Ov2ShopeeSG
               variant:
                 remote_variant_id: '5395303626'
                 properties:
@@ -3605,7 +3612,7 @@ components:
             integrations:
               - id: shopee
                 name: shopee
-                channel: ShopeeSG
+                channel: Ov2ShopeeSG
                 variant:
                   remote_variant_id: '5395303626'
           - id: 5d54835925d985457b01a2a8
@@ -3622,7 +3629,7 @@ components:
             integrations:
               - id: shopee
                 name: shopee
-                channel: ShopeeSG
+                channel: Ov2ShopeeSG
                 variant:
                   remote_variant_id: '5395303625'
         pagination:
@@ -3668,7 +3675,7 @@ components:
           integration:
             id: shop_01
             name: Shop-01
-            channel: LazadaSG
+            channel: Ov2LazadaSG
             authorized: true
             last_import_orders_date: '2019-06-07T20:47:14+00:00'
             created_at: '2019-06-07T00:06:52+00:00'
@@ -3684,7 +3691,7 @@ components:
             integration:
               id: shop_01
               name: Shop-01
-              channel: LazadaSG
+              channel: Ov2LazadaSG
             created_at: '2019-06-07T00:06:52+00:00'
             updated_at: '2019-06-07T20:47:32+00:00'
         pagination:

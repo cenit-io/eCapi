@@ -14,7 +14,7 @@ value:
     integrations:
       - id: "shopee"
         name: "shopee"
-        channel: "ShopeeSG"
+        channel: "Ov2ShopeeSG"
         variant:
           remote_variant_id: "5395303626"
           properties:

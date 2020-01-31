@@ -3,7 +3,7 @@
 let request = axios({
   method: 'POST',
   url: 'integrations',
-  data: { name: "Shop-01", channel: "LazadaSG" }
+  data: { name: "Shop-01", channel: "Ov2LazadaSG" }
 });
 
 request.then((response) => {

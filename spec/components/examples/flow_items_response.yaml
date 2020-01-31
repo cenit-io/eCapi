@@ -10,7 +10,7 @@ value:
       integration:
         id: "shop_01"
         name: "Shop-01"
-        channel: "LazadaSG"
+        channel: "Ov2LazadaSG"
 
       task:
         id: "5cfe690b25d9854b3b02241b"

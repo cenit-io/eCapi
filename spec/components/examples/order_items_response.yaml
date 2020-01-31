@@ -43,7 +43,7 @@ value:
       integration:
         id: "shop_01"
         name: "Shop-01"
-        channel: "LazadaSG"
+        channel: "Ov2LazadaSG"
 
     -
       id: "9170283050978"
@@ -88,7 +88,7 @@ value:
       integration:
         id: "shop_01"
         name: "Shop-01"
-        channel: "LazadaSG"
+        channel: "Ov2LazadaSG"
 
   pagination:
     offset: 0

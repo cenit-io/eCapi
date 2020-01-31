@@ -3,7 +3,8 @@ value:
     -
       id: "shop_01"
       name: "Shop-01"
-      channel: "LazadaSG"
+      channel: "Ov2LazadaSG"
+      channel_title: "Lazada SG"
       authorized: true
       last_import_orders_date: "2019-06-07T20:47:14+00:00"
       last_import_products_date: "2019-06-07T20:47:14+00:00"
@@ -12,7 +13,8 @@ value:
     -
       id: "shop_02"
       name: "Shop-02"
-      channel: "LazadaMY"
+      channel: "Ov2LazadaMY"
+      channel_title: "Lazada MY"
       authorized: true
       last_import_orders_date: "2019-07-07T20:47:14+00:00"
       last_import_products_date: "2019-07-07T20:47:14+00:00"

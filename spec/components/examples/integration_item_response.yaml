@@ -2,7 +2,8 @@ value:
   data:
     id: "shop_01"
     name: "Shop-01"
-    channel: "LazadaSG"
+    channel: "Ov2LazadaSG"
+    channel_title: "Lazada SG"
     authorized: true
     last_import_orders_date: "2019-06-07T20:47:14+00:00"
     last_import_products_date: "2020-01-13T04:11:23.000+00:00"

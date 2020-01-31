@@ -507,6 +507,32 @@
         }
       }
     },
+    "/integrations/{integration_id}/call/native/service": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "call_integration_native_service_beta_",
+        "summary": "Call a Native API Service",
+        "description": "Send a request to a native api service of an integration.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/native_service"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/native_service"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
     "/integrations/{integration_id}/flows": {
       "parameters": [
         {
@@ -1962,6 +1988,16 @@
             "format": "date-time",
             "readOnly": true
           },
+          "last_import_products_date": {
+            "description": "The last import orders date",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "metadata": {
+            "description": "Metadata of the authorized integration",
+            "type": "object"
+          },
           "created_at": {
             "$ref": "#/components/schemas/CreatedAt"
           },
@@ -2855,6 +2891,38 @@
             "example": {
               "success": false,
               "message": "Not found integration with id: shop_20"
+            }
+          }
+        }
+      },
+      "native_service": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "description": "native_service_response"
+                },
+                "data": {
+                  "type": "object",
+                  "description": "Response of the request to the native API service"
+                }
+              }
+            },
+            "example": {
+              "type": "native_service_response",
+              "data": {
+                "name_company": "OMNA PTE LTD",
+                "name": "OMNA.IO",
+                "location": "Singapore",
+                "seller_id": 100038428,
+                "email": "lazada@example.omna.io",
+                "short_code": "SG11D8C",
+                "cb": false
+              }
             }
           }
         }
@@ -4055,6 +4123,16 @@
             "channel": "LazadaSG",
             "authorized": true,
             "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+            "last_import_products_date": "2020-01-13T04:11:23.000+00:00",
+            "metadata": {
+              "name_company": "OMNA PTE LTD",
+              "name": "OMNA.IO",
+              "location": "Singapore",
+              "seller_id": "100038428,",
+              "email": "lazada@omna.io",
+              "short_code": "SG11D8C",
+              "cb": false
+            },
             "created_at": "2019-06-07T00:06:52+00:00",
             "updated_at": "2019-06-07T20:47:32+00:00"
           }
@@ -4069,6 +4147,7 @@
               "channel": "LazadaSG",
               "authorized": true,
               "last_import_orders_date": "2019-06-07T20:47:14+00:00",
+              "last_import_products_date": "2019-06-07T20:47:14+00:00",
               "created_at": "2019-06-07T00:06:52+00:00",
               "updated_at": "2019-06-07T20:47:32+00:00"
             },
@@ -4078,6 +4157,7 @@
               "channel": "LazadaMY",
               "authorized": true,
               "last_import_orders_date": "2019-07-07T20:47:14+00:00",
+              "last_import_products_date": "2019-07-07T20:47:14+00:00",
               "created_at": "2019-07-07T00:06:52+00:00",
               "updated_at": "2019-07-07T20:47:32+00:00"
             }
@@ -4099,6 +4179,16 @@
       },
       "integration_variant_unpublish_request": {
         "$ref": "#/components/examples/integration_product_unpublish_request"
+      },
+      "native_service_request": {
+        "summary": "Get shop metadata from Lazada integration",
+        "value": {
+          "data": {
+            "path": "/seller/get",
+            "method": "GET",
+            "params": {}
+          }
+        }
       },
       "order_doc_response": {
         "value": {
@@ -5216,6 +5306,43 @@
             "examples": {
               "Ex1": {
                 "$ref": "#/components/examples/integration_variant_unpublish_request"
+              }
+            }
+          }
+        }
+      },
+      "native_service": {
+        "description": "Native API service parameters",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "description": "Path to native service",
+                      "type": "string"
+                    },
+                    "method": {
+                      "description": "HTTP request method (GET|POST|PUT|PUSH|DELETE)",
+                      "type": "string"
+                    },
+                    "params": {
+                      "description": "Parameters to be send in the request",
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/native_service_request"
               }
             }
           }

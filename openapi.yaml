@@ -461,6 +461,22 @@ paths:
             }).catch((error) => {
               // Do something with the error
             });
+  '/integrations/{integration_id}/{resource_type}/import':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+      - $ref: '#/components/parameters/path_resource_type'
+    get:
+      tags:
+        - Integrations
+      operationId: import_resources_async_
+      summary: Import resources from an Integration
+      description: |
+        Generate an async task to import the last updated records of a resource type from an integration.
+      responses:
+        '200':
+          $ref: '#/components/responses/product_import_task'
+        '404':
+          $ref: '#/components/responses/integration_not_found'
   '/integrations/{integration_id}/authorize':
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
@@ -2663,6 +2679,21 @@ components:
         description: Identifier of the remote variant of the integration.
         type: string
         example: 5d04051125d9852c71016793
+    path_resource_type:
+      name: resource_type
+      in: path
+      required: true
+      schema:
+        description: |
+          Type of resource to be imported.
+
+          **Available values:**
+
+          - **products**: To import last updated products.
+          - **orders**: To import last updated orders.
+          - **categories**: To import the last product categories updates.
+        type: string
+        example: products
     path_task_id:
       name: task_id
       in: path

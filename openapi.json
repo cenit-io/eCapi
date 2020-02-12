@@ -469,6 +469,32 @@
         ]
       }
     },
+    "/integrations/{integration_id}/{resource_type}/import": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_resource_type"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "import_resources_async_",
+        "summary": "Import resources from an Integration",
+        "description": "Generate an async task to import the last updated records of a resource type from an integration.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_import_task"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
     "/integrations/{integration_id}/authorize": {
       "parameters": [
         {
@@ -3621,6 +3647,16 @@
           "description": "Identifier of the remote variant of the integration.",
           "type": "string",
           "example": "5d04051125d9852c71016793"
+        }
+      },
+      "path_resource_type": {
+        "name": "resource_type",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Type of resource to be imported.\n\n**Available values:**\n\n- **products**: To import last updated products.\n- **orders**: To import last updated orders.\n- **categories**: To import the last product categories updates.\n",
+          "type": "string",
+          "example": "products"
         }
       },
       "path_task_id": {

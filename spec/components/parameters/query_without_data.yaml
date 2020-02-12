@@ -4,8 +4,9 @@ schema:
   description: |
     It allows to determine whether or not the information is included in the response records.
 
-    > If its value is true, only the pagination session is returned with the information of the number of records found.
+    If its value is **true**:
 
-    > If its value is true, the **with_details, limit and offset** parameters will be ignored.
+    - Only the pagination session is returned with the information of the number of records found.
+    - Parameters such as **with_details**, **limit** or **offset** will be ignored.
   type: boolean
   example: true

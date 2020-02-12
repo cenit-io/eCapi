@@ -1,6 +1,9 @@
 name: offset
 in: query
 schema:
-  description: Number of items to skip at the beginning of the list.
+  description: |
+    Number of items to skip at the beginning of the list.
+
+    > This parameter will be ignored if value of **without_data** parameter is **true**.
   type: integer
   example: 10

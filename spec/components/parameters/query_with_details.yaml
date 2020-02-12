@@ -3,5 +3,7 @@ in: query
 schema:
   description: |
     It allows to determine if the detailed information of other related entities is included in the answer or not.
+
+    > This parameter will be ignored if value of **without_data** parameter is **true**.
   type: boolean
   example: true

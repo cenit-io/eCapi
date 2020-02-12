@@ -7,6 +7,7 @@ get:
     Returns the list of tenants of authenticated user.
   parameters:
     - $ref: '#/components/parameters/query_filter_term_for_tenants'
+    - $ref: '#/components/parameters/query_without_data'
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
   responses:

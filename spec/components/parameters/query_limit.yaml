@@ -1,6 +1,9 @@
 name: limit
 in: query
 schema:
-  description: The maximum number of items that can be returned. The supported values ​​are between 10 and 100.
+  description: |
+    The maximum number of items that can be returned. The supported values ​​are between 10 and 100.
+
+    > This parameter will be ignored if value of **without_data** parameter is **true**.
   type: integer
   example: 10

@@ -10,6 +10,7 @@ get:
     Returns the order list of a specific integration.
   parameters:
     - $ref: '#/components/parameters/query_filter_term_for_orders'
+    - $ref: '#/components/parameters/query_without_data'
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
   responses:

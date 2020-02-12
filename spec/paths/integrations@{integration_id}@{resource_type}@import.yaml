@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Integrations
-  operationId: import_products_async_
+  operationId: import_resources_async_
   summary: Import resources from an Integration
   description: |
     Generate an async task to import the last updated records of a resource type from an integration.

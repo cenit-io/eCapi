@@ -371,6 +371,9 @@
             "$ref": "#/components/parameters/query_filter_integration_channel"
           },
           {
+            "$ref": "#/components/parameters/query_without_data"
+          },
+          {
             "$ref": "#/components/parameters/query_offset"
           },
           {
@@ -548,6 +551,12 @@
           "$ref": "#/components/parameters/query_filter_flow_type"
         },
         {
+          "$ref": "#/components/parameters/query_with_details"
+        },
+        {
+          "$ref": "#/components/parameters/query_without_data"
+        },
+        {
           "$ref": "#/components/parameters/query_offset"
         },
         {
@@ -584,6 +593,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/query_filter_term_for_orders"
+          },
+          {
+            "$ref": "#/components/parameters/query_without_data"
           },
           {
             "$ref": "#/components/parameters/query_offset"
@@ -786,6 +798,12 @@
           "$ref": "#/components/parameters/query_filter_term_for_products"
         },
         {
+          "$ref": "#/components/parameters/query_with_details"
+        },
+        {
+          "$ref": "#/components/parameters/query_without_data"
+        },
+        {
           "$ref": "#/components/parameters/query_offset"
         },
         {
@@ -908,6 +926,12 @@
           "$ref": "#/components/parameters/query_filter_term_for_variants"
         },
         {
+          "$ref": "#/components/parameters/query_with_details"
+        },
+        {
+          "$ref": "#/components/parameters/query_without_data"
+        },
+        {
           "$ref": "#/components/parameters/query_offset"
         },
         {
@@ -1027,9 +1051,6 @@
         },
         {
           "$ref": "#/components/parameters/query_filter_order_status"
-        },
-        {
-          "$ref": "#/components/parameters/query_with_details"
         },
         {
           "$ref": "#/components/parameters/query_without_data"
@@ -1513,6 +1534,12 @@
           "$ref": "#/components/parameters/query_filter_task_description"
         },
         {
+          "$ref": "#/components/parameters/query_with_details"
+        },
+        {
+          "$ref": "#/components/parameters/query_without_data"
+        },
+        {
           "$ref": "#/components/parameters/query_offset"
         },
         {
@@ -1608,6 +1635,9 @@
             "$ref": "#/components/parameters/query_filter_term_for_tenants"
           },
           {
+            "$ref": "#/components/parameters/query_without_data"
+          },
+          {
             "$ref": "#/components/parameters/query_offset"
           },
           {
@@ -1696,9 +1726,6 @@
           },
           {
             "$ref": "#/components/parameters/query_filter_integration"
-          },
-          {
-            "$ref": "#/components/parameters/query_with_details"
           },
           {
             "$ref": "#/components/parameters/query_without_data"
@@ -3783,7 +3810,7 @@
         "name": "limit",
         "in": "query",
         "schema": {
-          "description": "The maximum number of items that can be returned. The supported values ​​are between 10 and 100.",
+          "description": "The maximum number of items that can be returned. The supported values ​​are between 10 and 100.\n\n> This parameter will be ignored if value of **without_data** parameter is **true**.\n",
           "type": "integer",
           "example": 10
         }
@@ -3792,7 +3819,7 @@
         "name": "offset",
         "in": "query",
         "schema": {
-          "description": "Number of items to skip at the beginning of the list.",
+          "description": "Number of items to skip at the beginning of the list.\n\n> This parameter will be ignored if value of **without_data** parameter is **true**.\n",
           "type": "integer",
           "example": 10
         }
@@ -3811,7 +3838,7 @@
         "name": "with_details",
         "in": "query",
         "schema": {
-          "description": "It allows to determine if the detailed information of other related entities is included in the answer or not.\n",
+          "description": "It allows to determine if the detailed information of other related entities is included in the answer or not.\n\n> This parameter will be ignored if value of **without_data** parameter is **true**.\n",
           "type": "boolean",
           "example": true
         }
@@ -3820,7 +3847,7 @@
         "name": "without_data",
         "in": "query",
         "schema": {
-          "description": "It allows to determine whether or not the information is included in the response records.\n\n> If its value is true, only the pagination session is returned with the information of the number of records found.\n\n> If its value is true, the **with_details, limit and offset** parameters will be ignored.\n",
+          "description": "It allows to determine whether or not the information is included in the response records.\n\nIf its value is **true**:\n\n- Only the pagination session is returned with the information of the number of records found.\n- Parameters such as **with_details**, **limit** or **offset** will be ignored.\n",
           "type": "boolean",
           "example": true
         }

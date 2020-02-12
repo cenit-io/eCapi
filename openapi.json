@@ -183,6 +183,9 @@
             "$ref": "#/components/parameters/query_with_details"
           },
           {
+            "$ref": "#/components/parameters/query_without_data"
+          },
+          {
             "$ref": "#/components/parameters/query_offset"
           },
           {
@@ -1029,6 +1032,9 @@
           "$ref": "#/components/parameters/query_with_details"
         },
         {
+          "$ref": "#/components/parameters/query_without_data"
+        },
+        {
           "$ref": "#/components/parameters/query_offset"
         },
         {
@@ -1185,6 +1191,9 @@
             "$ref": "#/components/parameters/query_with_details"
           },
           {
+            "$ref": "#/components/parameters/query_without_data"
+          },
+          {
             "$ref": "#/components/parameters/query_offset"
           },
           {
@@ -1326,6 +1335,9 @@
         },
         {
           "$ref": "#/components/parameters/query_with_details"
+        },
+        {
+          "$ref": "#/components/parameters/query_without_data"
         },
         {
           "$ref": "#/components/parameters/query_offset"
@@ -1687,6 +1699,9 @@
           },
           {
             "$ref": "#/components/parameters/query_with_details"
+          },
+          {
+            "$ref": "#/components/parameters/query_without_data"
           },
           {
             "$ref": "#/components/parameters/query_offset"
@@ -3797,6 +3812,15 @@
         "in": "query",
         "schema": {
           "description": "It allows to determine if the detailed information of other related entities is included in the answer or not.\n",
+          "type": "boolean",
+          "example": true
+        }
+      },
+      "query_without_data": {
+        "name": "without_data",
+        "in": "query",
+        "schema": {
+          "description": "It allows to determine whether or not the information is included in the response records.\n\n> If its value is true, only the pagination session is returned with the information of the number of records found.\n\n> If its value is true, the **with_details, limit and offset** parameters will be ignored.\n",
           "type": "boolean",
           "example": true
         }

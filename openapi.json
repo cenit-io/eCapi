@@ -2363,6 +2363,14 @@
             "type": "string",
             "readOnly": true
           },
+          "options": {
+            "description": "Options for inputs of selection types",
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "type": "string"
+            }
+          },
           "value": {
             "description": "Value of the property in the product instance",
             "type": "string"

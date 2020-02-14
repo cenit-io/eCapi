@@ -1,4 +1,4 @@
 description: Date in iso8601 when the record was updated
 type: string
-format: date-time
+format: date-time-iso8601
 readOnly: true

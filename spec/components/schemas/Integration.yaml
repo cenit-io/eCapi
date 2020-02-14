@@ -22,12 +22,12 @@ properties:
   last_import_orders_date:
     description: The last import orders date
     type: string
-    format: date-time
+    format: date-time-iso8601
     readOnly: true
   last_import_products_date:
     description: The last import orders date
     type: string
-    format: date-time
+    format: date-time-iso8601
     readOnly: true
   metadata:
     description: Metadata of the authorized integration

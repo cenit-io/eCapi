@@ -36,15 +36,15 @@ properties:
   created_date:
     description: Date in iso8601 when the order was created
     type: string
-    format: date-time
+    format: date-time-iso8601
   updated_date:
     description: Date in iso8601 when the order was updated
     type: string
-    format: date-time
+    format: date-time-iso8601
   last_import_date:
     description: Date in iso8601 when the order was imported
     type: string
-    format: date-time
+    format: date-time-iso8601
   customer:
     $ref: "#/components/schemas/Customer"
   integration:

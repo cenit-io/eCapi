@@ -18,7 +18,7 @@ properties:
   deactivation:
     description: Deactivation date
     type: string
-    format: date-time
+    format: date-time-iso8601
     readOnly: true
   created_at:
     $ref: "#/components/schemas/CreatedAt"

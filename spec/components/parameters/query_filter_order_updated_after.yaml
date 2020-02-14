@@ -1,0 +1,7 @@
+name: updated_after
+in: query
+schema:
+  description: Allow filtering orders by update date greater than a given date.
+  type: string
+  format: date-time-iso8601
+  example: 2018-01-15T00:00:00+00:00

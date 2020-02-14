@@ -1079,6 +1079,18 @@
           "$ref": "#/components/parameters/query_filter_order_status"
         },
         {
+          "$ref": "#/components/parameters/query_filter_order_created_after"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_order_created_before"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_order_updated_after"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_order_updated_before"
+        },
+        {
           "$ref": "#/components/parameters/query_without_data"
         },
         {
@@ -1939,7 +1951,7 @@
       "CreatedAt": {
         "description": "Date in iso8601 when the record was created",
         "type": "string",
-        "format": "date-time",
+        "format": "date-time-iso8601",
         "readOnly": true
       },
       "Customer": {
@@ -1970,12 +1982,12 @@
           "started_at": {
             "description": "Date in iso8601 when the task was started",
             "type": "string",
-            "format": "date-time"
+            "format": "date-time-iso8601"
           },
           "completed_at": {
             "description": "Date in iso8601 when the task was completed",
             "type": "string",
-            "format": "date-time"
+            "format": "date-time-iso8601"
           }
         }
       },
@@ -2058,13 +2070,13 @@
           "last_import_orders_date": {
             "description": "The last import orders date",
             "type": "string",
-            "format": "date-time",
+            "format": "date-time-iso8601",
             "readOnly": true
           },
           "last_import_products_date": {
             "description": "The last import orders date",
             "type": "string",
-            "format": "date-time",
+            "format": "date-time-iso8601",
             "readOnly": true
           },
           "metadata": {
@@ -2194,17 +2206,17 @@
           "created_date": {
             "description": "Date in iso8601 when the order was created",
             "type": "string",
-            "format": "date-time"
+            "format": "date-time-iso8601"
           },
           "updated_date": {
             "description": "Date in iso8601 when the order was updated",
             "type": "string",
-            "format": "date-time"
+            "format": "date-time-iso8601"
           },
           "last_import_date": {
             "description": "Date in iso8601 when the order was imported",
             "type": "string",
-            "format": "date-time"
+            "format": "date-time-iso8601"
           },
           "customer": {
             "$ref": "#/components/schemas/Customer"
@@ -2533,7 +2545,7 @@
           "deactivation": {
             "description": "Deactivation date",
             "type": "string",
-            "format": "date-time",
+            "format": "date-time-iso8601",
             "readOnly": true
           },
           "created_at": {
@@ -2547,7 +2559,7 @@
       "UpdatedAt": {
         "description": "Date in iso8601 when the record was updated",
         "type": "string",
-        "format": "date-time",
+        "format": "date-time-iso8601",
         "readOnly": true
       },
       "User": {
@@ -3726,6 +3738,26 @@
           "example": "shop_01"
         }
       },
+      "query_filter_order_created_after": {
+        "name": "created_after",
+        "in": "query",
+        "schema": {
+          "description": "Allow filtering orders by create date less than a given date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-15T00:00:00.000Z"
+        }
+      },
+      "query_filter_order_created_before": {
+        "name": "created_before",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the orders by created date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-30T00:00:00.000Z"
+        }
+      },
       "query_filter_order_number": {
         "name": "number",
         "in": "query",
@@ -3742,6 +3774,26 @@
           "description": "Allow to filter the orders by status.",
           "type": "string",
           "example": "cancelled"
+        }
+      },
+      "query_filter_order_updated_after": {
+        "name": "updated_after",
+        "in": "query",
+        "schema": {
+          "description": "Allow filtering orders by update date greater than a given date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-15T00:00:00.000Z"
+        }
+      },
+      "query_filter_order_updated_before": {
+        "name": "updated_before",
+        "in": "query",
+        "schema": {
+          "description": "Allow filtering orders by update date less than a given date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-30T00:00:00.000Z"
         }
       },
       "query_filter_task_description": {

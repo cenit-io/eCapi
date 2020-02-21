@@ -21,6 +21,10 @@ properties:
     readOnly: true
     items:
       type: string
+  options_service_path:
+    description: Relative path of the web service to retrieve the options in the selection field.
+    type: string
+    readOnly: true
   value:
     description: Value of the property in the product instance
     type: string

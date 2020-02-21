@@ -17,6 +17,15 @@ value:
           remote_product_id: '289247362'
           category_id: '10001946'
           properties:
+            - id: category_id
+              label: Category
+              required: true
+              input_type: single_select_with_remote_options
+              options:
+                - id: 7540
+                  value: Smart Devices > Smart Trackers
+              options_service_path: /integrations/lazada_sg/categories
+              value: 7540
             - id: warranty_type
               label: Warranty Type
               required: false

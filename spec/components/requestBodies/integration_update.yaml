@@ -1,0 +1,31 @@
+description: Integration that will be updated
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          type: "object"
+          properties:
+            name:
+              description: Integration name
+              type: string
+            keys_to_import_brands:
+              description: Keys to define the brands to import
+              type: string
+
+
+    examples:
+      e1:
+        summary: To Lazada integration
+        value:
+          data:
+            name: Shop-01
+            keys_to_import_brands: A
+      e2:
+        summary: To Shopee integration
+        value:
+          data:
+            name: Shop-01
+            keys_to_import_brands: A

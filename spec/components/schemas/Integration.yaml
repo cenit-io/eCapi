@@ -25,13 +25,17 @@ properties:
     format: date-time-iso8601
     readOnly: true
   last_import_products_date:
-    description: The last import orders date
+    description: The last import orders daten
     type: string
     format: date-time-iso8601
     readOnly: true
+  keys_to_import_brands:
+    description: Keys to define the brands to import
+    type: string
   metadata:
     description: Metadata of the authorized integration
     type: object
+    readOnly: true
   created_at:
     $ref: "#/components/schemas/CreatedAt"
   updated_at:

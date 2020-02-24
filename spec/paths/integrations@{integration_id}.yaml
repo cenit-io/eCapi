@@ -14,6 +14,22 @@ get:
     '404':
       $ref: '#/components/responses/integration_not_found'
 
+post:
+  tags:
+    - Integrations
+  operationId: update_integration
+  summary: Update an Integration
+  description: |
+    Find integration by given id and update it.
+  requestBody:
+    $ref: '#/components/requestBodies/integration_update'
+  responses:
+    '200':
+      $ref: '#/components/responses/integration_item'
+    '404':
+      $ref: '#/components/responses/integration_not_found'
+
+
 delete:
   tags:
     - Integrations

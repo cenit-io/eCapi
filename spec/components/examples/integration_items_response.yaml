@@ -8,6 +8,7 @@ value:
       authorized: true
       last_import_orders_date: "2019-06-07T20:47:14+00:00"
       last_import_products_date: "2019-06-07T20:47:14+00:00"
+      keys_to_import_brands: "A"
       created_at: "2019-06-07T00:06:52+00:00"
       updated_at: "2019-06-07T20:47:32+00:00"
     -

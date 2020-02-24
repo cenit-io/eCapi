@@ -430,6 +430,20 @@ paths:
             }).catch((error) => {
               // Do something with the error
             });
+    post:
+      tags:
+        - Integrations
+      operationId: update_integration
+      summary: Update an Integration
+      description: |
+        Find integration by given id and update it.
+      requestBody:
+        $ref: '#/components/requestBodies/integration_update'
+      responses:
+        '200':
+          $ref: '#/components/responses/integration_item'
+        '404':
+          $ref: '#/components/responses/integration_not_found'
     delete:
       tags:
         - Integrations
@@ -1577,13 +1591,17 @@ components:
           format: date-time-iso8601
           readOnly: true
         last_import_products_date:
-          description: The last import orders date
+          description: The last import orders daten
           type: string
           format: date-time-iso8601
           readOnly: true
+        keys_to_import_brands:
+          description: Keys to define the brands to import
+          type: string
         metadata:
           description: Metadata of the authorized integration
           type: object
+          readOnly: true
         created_at:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
@@ -2236,7 +2254,7 @@ components:
             $ref: '#/components/schemas/Success'
           example:
             success: false
-            message: 'Not found integration with id: shop_20'
+            message: 'Not found integration with id: shop_01'
     native_service:
       description: Success
       content:
@@ -3160,6 +3178,7 @@ components:
           authorized: true
           last_import_orders_date: '2019-06-07T20:47:14+00:00'
           last_import_products_date: '2020-01-13T04:11:23.000+00:00'
+          keys_to_import_brands: A
           metadata:
             name_company: OMNA PTE LTD
             name: OMNA.IO
@@ -3180,6 +3199,7 @@ components:
             authorized: true
             last_import_orders_date: '2019-06-07T20:47:14+00:00'
             last_import_products_date: '2019-06-07T20:47:14+00:00'
+            keys_to_import_brands: A
             created_at: '2019-06-07T00:06:52+00:00'
             updated_at: '2019-06-07T20:47:32+00:00'
           - id: shop_02
@@ -3950,6 +3970,37 @@ components:
           examples:
             Ex1:
               $ref: '#/components/examples/integration_product_unpublish_request'
+    integration_update:
+      description: Integration that will be updated
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  name:
+                    description: Integration name
+                    type: string
+                  keys_to_import_brands:
+                    description: Keys to define the brands to import
+                    type: string
+          examples:
+            e1:
+              summary: To Lazada integration
+              value:
+                data:
+                  name: Shop-01
+                  keys_to_import_brands: A
+            e2:
+              summary: To Shopee integration
+              value:
+                data:
+                  name: Shop-01
+                  keys_to_import_brands: A
     integration_variant_unpublish:
       description: |
         Data to sets whether the variant should be removed from OMNA and/or the remote integration source.

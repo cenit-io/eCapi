@@ -2,7 +2,7 @@ description: Already exist
 content:
   application/json:
     schema:
-      $ref: '#/components/schemas/Success'
+      $ref: '#/components/schemas/Exception'
     example:
-      success: false
+      type: 'exception'
       message: "Already exist"

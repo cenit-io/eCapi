@@ -5,6 +5,7 @@ get:
   tags:
     - Collections
   operationId: get_collection
+  deprecated: true
   summary: Retrieve a Collection
   description: |
     Find collection by given id and returns it.
@@ -18,6 +19,7 @@ patch:
   tags:
     - Collections
   operationId: install_collection_async_
+  deprecated: true
   summary: Install a Collection
   description: |
     Generate an async task to install o reinstall a collection in the current tenant.

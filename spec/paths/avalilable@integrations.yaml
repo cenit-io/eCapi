@@ -1,11 +1,10 @@
 get:
   tags:
-    - Collections
-  operationId: get_collections
-  deprecated: true
-  summary: List all Collections
+    - Available Integrations
+  operationId: get_available_integrations
+  summary: List all available integrations
   description: |
-    Returns the list of collections that can be installed or uninstalled.
+    Returns the collections that contain the resources and logic of the different available integrations.
   parameters:
     - $ref: '#/components/parameters/query_filter_term_for_collections'
     - $ref: '#/components/parameters/query_offset'

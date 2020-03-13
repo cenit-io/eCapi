@@ -1,0 +1,8 @@
+type: object
+properties:
+  type:
+    description: Response resource type
+    type: string
+  message:
+    description: Error message
+    type: string

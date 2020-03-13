@@ -2,7 +2,7 @@ description: Not found
 content:
   application/json:
     schema:
-      $ref: '#/components/schemas/Success'
+      $ref: '#/components/schemas/Exception'
     example:
-      success: false
+      type: 'exception'
       message: "Not found variant with id: 5d54835a25d985682d014e0e"

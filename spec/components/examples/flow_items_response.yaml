@@ -1,4 +1,5 @@
 value:
+  type: "flow"
   data:
     -
       id: "5d04051125d9852c71016793"

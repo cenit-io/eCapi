@@ -1,4 +1,5 @@
 value:
+  type: "integration-channel"
   data:
     -
       name: "LazadaID"

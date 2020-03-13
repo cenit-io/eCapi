@@ -5,14 +5,13 @@ content:
       type: object
       properties:
         type:
-          type: string
-          description: native_service_response
+          $ref: '#/components/schemas/ResponseResourceType'
         data:
           type: object
           description: Response of the request to the native API service
 
     example:
-      type: native_service_response
+      type: native-service-response
       data:
         name_company: OMNA PTE LTD
         name: OMNA.IO

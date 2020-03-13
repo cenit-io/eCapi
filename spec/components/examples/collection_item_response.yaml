@@ -1,4 +1,5 @@
 value:
+  type: "collection"
   data:
     id: "5dc99ad825d985238605db73"
     name: "omna_v2"

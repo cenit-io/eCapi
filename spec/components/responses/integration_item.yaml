@@ -4,6 +4,8 @@ content:
     schema:
       type: object
       properties:
+        type:
+          $ref: '#/components/schemas/ResponseResourceType'
         data:
           $ref: '#/components/schemas/Integration'
 

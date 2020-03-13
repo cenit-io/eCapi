@@ -33,6 +33,7 @@ delete:
   tags:
     - Collections
   operationId: unistall_collection_async_beta_
+  deprecated: true
   summary: Uninstall a Collection
   description: |
     Generate an async task to uninstall a collection from the current tenant.

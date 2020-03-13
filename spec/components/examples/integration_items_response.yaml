@@ -1,4 +1,5 @@
 value:
+  type: "integration"
   data:
     -
       id: "shop_01"

@@ -1,4 +1,5 @@
 value:
+  type: "product"
   data:
     - id: 5d48c54125d9852031005fc3
       name: IPod Nano - 8GB

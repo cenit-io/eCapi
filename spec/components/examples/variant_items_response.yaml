@@ -1,4 +1,5 @@
 value:
+  type: "variant"
   data:
     - id: "5d54835a25d985682d014e0e"
       sku: "0018227994576"

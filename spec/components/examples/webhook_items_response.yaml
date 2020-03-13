@@ -1,4 +1,5 @@
 value:
+  type: "webhook"
   data:
     -
       id: "5d13be7025d9853de90012b6"

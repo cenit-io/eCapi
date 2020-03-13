@@ -4,6 +4,8 @@ content:
     schema:
       type: object
       properties:
+        type:
+          $ref: '#/components/schemas/ResponseResourceType'
         data:
           description: Product representations in OMNA
           type: array

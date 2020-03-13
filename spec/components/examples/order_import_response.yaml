@@ -1,4 +1,5 @@
 value:
+  type: "task"
   data:
     id: "5cfe690b25d9854b3b02241b"
     status: "completed"

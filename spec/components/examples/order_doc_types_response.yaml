@@ -1,4 +1,5 @@
 value:
+  type: "order-document-type"
   data:
     -
       type: invoice

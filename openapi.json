@@ -259,6 +259,7 @@
           "Collections"
         ],
         "operationId": "unistall_collection_async_beta_",
+        "deprecated": true,
         "summary": "Uninstall a Collection",
         "description": "Generate an async task to uninstall a collection from the current tenant.\n",
         "responses": {
@@ -2113,6 +2114,19 @@
           }
         }
       },
+      "Exception": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Response resource type",
+            "type": "string"
+          },
+          "message": {
+            "description": "Error message",
+            "type": "string"
+          }
+        }
+      },
       "Execution": {
         "type": "object",
         "properties": {
@@ -2566,6 +2580,11 @@
           }
         }
       },
+      "ResponseResourceType": {
+        "description": "Response resource type",
+        "type": "string",
+        "readOnly": true
+      },
       "Scheduler": {
         "type": "object",
         "description": "Scheduler settings",
@@ -2884,10 +2903,10 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Success"
+              "$ref": "#/components/schemas/Exception"
             },
             "example": {
-              "success": false,
+              "type": "exception",
               "message": "Already exist"
             }
           }
@@ -2900,6 +2919,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "$ref": "#/components/schemas/Collection"
                 }
@@ -2920,6 +2942,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "type": "array",
                   "items": {
@@ -2944,10 +2969,10 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Success"
+              "$ref": "#/components/schemas/Exception"
             },
             "example": {
-              "success": false,
+              "type": "exception",
               "message": "Not found collection with id: 5d04051125d9852c71016793"
             }
           }
@@ -2960,6 +2985,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "$ref": "#/components/schemas/Flow"
                 }
@@ -2980,6 +3008,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "type": "array",
                   "items": {
@@ -3004,10 +3035,10 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Success"
+              "$ref": "#/components/schemas/Exception"
             },
             "example": {
-              "success": false,
+              "type": "exception",
               "message": "Not found flow with id: 5d04051125d9852c71016793"
             }
           }
@@ -3020,6 +3051,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "type": "array",
                   "items": {
@@ -3043,6 +3077,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "type": "array",
                   "items": {
@@ -3066,6 +3103,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "$ref": "#/components/schemas/Task"
                 }
@@ -3086,6 +3126,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "$ref": "#/components/schemas/Integration"
                 }
@@ -3106,6 +3149,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "type": "array",
                   "items": {
@@ -3130,10 +3176,10 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Success"
+              "$ref": "#/components/schemas/Exception"
             },
             "example": {
-              "success": false,
+              "type": "exception",
               "message": "Not found integration with id: shop_01"
             }
           }
@@ -3147,8 +3193,7 @@
               "type": "object",
               "properties": {
                 "type": {
-                  "type": "string",
-                  "description": "native_service_response"
+                  "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
                   "type": "object",
@@ -3157,7 +3202,7 @@
               }
             },
             "example": {
-              "type": "native_service_response",
+              "type": "native-service-response",
               "data": {
                 "name_company": "OMNA PTE LTD",
                 "name": "OMNA.IO",
@@ -3178,6 +3223,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "type": "array",
                   "items": {
@@ -3201,6 +3249,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "$ref": "#/components/schemas/OrderDocument"
                 }
@@ -3221,6 +3272,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "$ref": "#/components/schemas/Task"
                 }
@@ -3241,6 +3295,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "$ref": "#/components/schemas/Order"
                 }
@@ -3261,6 +3318,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "type": "array",
                   "items": {
@@ -3285,10 +3345,10 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Success"
+              "$ref": "#/components/schemas/Exception"
             },
             "example": {
-              "success": false,
+              "type": "exception",
               "message": "Not found order with number: 9151224232846"
             }
           }
@@ -3301,6 +3361,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "$ref": "#/components/schemas/Task"
                 }
@@ -3321,6 +3384,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "$ref": "#/components/schemas/Product"
                 }
@@ -3341,6 +3407,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "description": "Product representations in OMNA",
                   "type": "array",
@@ -3366,10 +3435,10 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Success"
+              "$ref": "#/components/schemas/Exception"
             },
             "example": {
-              "success": false,
+              "type": "exception",
               "message": "Not found product with id: 5d04051125d9852c71016793"
             }
           }
@@ -3388,6 +3457,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "$ref": "#/components/schemas/Task"
                 }
@@ -3421,6 +3493,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "$ref": "#/components/schemas/Task"
                 }
@@ -3441,6 +3516,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "type": "array",
                   "items": {
@@ -3465,10 +3543,10 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Success"
+              "$ref": "#/components/schemas/Exception"
             },
             "example": {
-              "success": false,
+              "type": "exception",
               "message": "Not found task with id: 1234567890"
             }
           }
@@ -3481,6 +3559,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "allOf": [
                     {
@@ -3513,6 +3594,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "type": "array",
                   "items": {
@@ -3537,10 +3621,10 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Success"
+              "$ref": "#/components/schemas/Exception"
             },
             "example": {
-              "success": false,
+              "type": "exception",
               "message": "Not found tenant with id: 1234567890"
             }
           }
@@ -3553,6 +3637,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "$ref": "#/components/schemas/Variant"
                 }
@@ -3573,6 +3660,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "description": "Variant representations in OMNA",
                   "type": "array",
@@ -3598,10 +3688,10 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Success"
+              "$ref": "#/components/schemas/Exception"
             },
             "example": {
-              "success": false,
+              "type": "exception",
               "message": "Not found variant with id: 5d54835a25d985682d014e0e"
             }
           }
@@ -3614,6 +3704,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "$ref": "#/components/schemas/Webhook"
                 }
@@ -3634,6 +3727,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "type": "array",
                   "items": {
@@ -3658,10 +3754,10 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Success"
+              "$ref": "#/components/schemas/Exception"
             },
             "example": {
-              "success": false,
+              "type": "exception",
               "message": "Not found webhook with id: 5d04051125d9852c71016793"
             }
           }
@@ -3674,6 +3770,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
                 "data": {
                   "type": "array",
                   "items": {
@@ -4130,6 +4229,7 @@
     "examples": {
       "collection_item_response": {
         "value": {
+          "type": "collection",
           "data": {
             "id": "5dc99ad825d985238605db73",
             "name": "omna_v2",
@@ -4144,6 +4244,7 @@
       },
       "collection_items_response": {
         "value": {
+          "type": "collection",
           "data": [
             {
               "id": "5dc99ad825d985238605db73",
@@ -4204,6 +4305,7 @@
       },
       "flow_item_response": {
         "value": {
+          "type": "flow",
           "data": {
             "id": "5d04051125d9852c71016793",
             "type": "import_orders",
@@ -4283,6 +4385,7 @@
       },
       "flow_items_response": {
         "value": {
+          "type": "flow",
           "data": [
             {
               "id": "5d04051125d9852c71016793",
@@ -4334,6 +4437,7 @@
       },
       "flow_type_response": {
         "value": {
+          "type": "flow-type",
           "data": [
             {
               "type": "import_orders",
@@ -4380,6 +4484,7 @@
       },
       "integration_channels_response": {
         "value": {
+          "type": "integration-channel",
           "data": [
             {
               "name": "LazadaID",
@@ -4406,6 +4511,7 @@
       },
       "integration_delete_response": {
         "value": {
+          "type": "task",
           "data": {
             "id": "5cfe690b25d9854b3b02241b",
             "status": "completed",
@@ -4447,6 +4553,7 @@
       },
       "integration_item_response": {
         "value": {
+          "type": "integration",
           "data": {
             "id": "shop_01",
             "name": "Shop-01",
@@ -4472,6 +4579,7 @@
       },
       "integration_items_response": {
         "value": {
+          "type": "integration",
           "data": [
             {
               "id": "shop_01",
@@ -4527,6 +4635,7 @@
       },
       "order_doc_response": {
         "value": {
+          "type": "order-document",
           "data": {
             "file": "T3JkZXIgZG9jdWVtbnQgZXhhbXBsZS4uLgo=",
             "mime_type": "text/html",
@@ -4536,6 +4645,7 @@
       },
       "order_doc_types_response": {
         "value": {
+          "type": "order-document-type",
           "data": [
             {
               "type": "invoice",
@@ -4554,6 +4664,7 @@
       },
       "order_import_response": {
         "value": {
+          "type": "task",
           "data": {
             "id": "5cfe690b25d9854b3b02241b",
             "status": "completed",
@@ -4595,6 +4706,7 @@
       },
       "order_item_response": {
         "value": {
+          "type": "order",
           "data": {
             "id": "9151224232845",
             "number": "9151224232845",
@@ -4658,6 +4770,7 @@
       },
       "order_items_response": {
         "value": {
+          "type": "order",
           "data": [
             {
               "id": "9151224232845",
@@ -4789,6 +4902,7 @@
       },
       "product_import_response": {
         "value": {
+          "type": "task",
           "data": {
             "id": "5cfe690b25d9854b3b02241b",
             "status": "completed",
@@ -4830,6 +4944,7 @@
       },
       "product_item_response": {
         "value": {
+          "type": "product",
           "data": {
             "id": "5d48c54125d9852031005fc3",
             "name": "IPod Nano - 8GB",
@@ -4930,6 +5045,7 @@
       },
       "product_items_response": {
         "value": {
+          "type": "product",
           "data": [
             {
               "id": "5d48c54125d9852031005fc3",
@@ -5028,6 +5144,7 @@
       },
       "task_item_response": {
         "value": {
+          "type": "task",
           "data": {
             "id": "5cfe690b25d9854b3b02241b",
             "status": "completed",
@@ -5087,6 +5204,7 @@
       },
       "task_item_startup_response": {
         "value": {
+          "type": "task",
           "data": {
             "id": "5cfe690b25d9854b3b02241b",
             "status": "completed",
@@ -5106,6 +5224,7 @@
       },
       "task_items_response": {
         "value": {
+          "type": "task",
           "data": [
             {
               "id": "5cfe690b25d9854b3b02241b",
@@ -5155,6 +5274,7 @@
       },
       "tenant_item_response": {
         "value": {
+          "type": "tenent",
           "data": {
             "id": "f8sf8f8f78dsf8v8fd87ff86",
             "name": "main_omna",
@@ -5173,6 +5293,7 @@
       },
       "tenant_items_response": {
         "value": {
+          "type": "tenant",
           "data": [
             {
               "id": "f8sf8f8f78dsf8v8fd87ff86",
@@ -5204,6 +5325,7 @@
       },
       "variant_item_response": {
         "value": {
+          "type": "variant",
           "data": {
             "id": "5d54835a25d985682d014e0e",
             "sku": "0018227994576",
@@ -5247,6 +5369,7 @@
       },
       "variant_items_response": {
         "value": {
+          "type": "variant",
           "data": [
             {
               "id": "5d54835a25d985682d014e0e",
@@ -5352,6 +5475,7 @@
       },
       "webhook_item_response": {
         "value": {
+          "type": "webhook",
           "data": {
             "id": "5d13be7025d9853de90012b6",
             "topic": "order/registered",
@@ -5372,6 +5496,7 @@
       },
       "webhook_items_response": {
         "value": {
+          "type": "webhook",
           "data": [
             {
               "id": "5d13be7025d9853de90012b6",
@@ -5395,6 +5520,7 @@
       },
       "webhook_topics_response": {
         "value": {
+          "type": "webhook-topic",
           "data": [
             {
               "topic": "order/registered",

@@ -269,6 +269,7 @@ paths:
       tags:
         - Collections
       operationId: unistall_collection_async_beta_
+      deprecated: true
       summary: Uninstall a Collection
       description: |
         Generate an async task to uninstall a collection from the current tenant.
@@ -1597,6 +1598,15 @@ components:
         last_name:
           type: string
           description: Customers last name
+    Exception:
+      type: object
+      properties:
+        type:
+          description: Response resource type
+          type: string
+        message:
+          description: Error message
+          type: string
     Execution:
       type: object
       properties:
@@ -1927,6 +1937,10 @@ components:
         value:
           description: Value of the property in the product instance
           type: string
+    ResponseResourceType:
+      description: Response resource type
+      type: string
+      readOnly: true
     Scheduler:
       type: object
       description: Scheduler settings
@@ -2188,9 +2202,9 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Success'
+            $ref: '#/components/schemas/Exception'
           example:
-            success: false
+            type: exception
             message: Already exist
     collection_item:
       description: Success
@@ -2199,6 +2213,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/Collection'
           examples:
@@ -2211,6 +2227,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 type: array
                 items:
@@ -2225,9 +2243,9 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Success'
+            $ref: '#/components/schemas/Exception'
           example:
-            success: false
+            type: exception
             message: 'Not found collection with id: 5d04051125d9852c71016793'
     flow_item:
       description: Success
@@ -2236,6 +2254,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/Flow'
           examples:
@@ -2248,6 +2268,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 type: array
                 items:
@@ -2262,9 +2284,9 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Success'
+            $ref: '#/components/schemas/Exception'
           example:
-            success: false
+            type: exception
             message: 'Not found flow with id: 5d04051125d9852c71016793'
     flow_types:
       description: Success
@@ -2273,6 +2295,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 type: array
                 items:
@@ -2287,6 +2311,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 type: array
                 items:
@@ -2301,6 +2327,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/Task'
           examples:
@@ -2313,6 +2341,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/Integration'
           examples:
@@ -2325,6 +2355,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 type: array
                 items:
@@ -2339,9 +2371,9 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Success'
+            $ref: '#/components/schemas/Exception'
           example:
-            success: false
+            type: exception
             message: 'Not found integration with id: shop_01'
     native_service:
       description: Success
@@ -2351,13 +2383,12 @@ components:
             type: object
             properties:
               type:
-                type: string
-                description: native_service_response
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 type: object
                 description: Response of the request to the native API service
           example:
-            type: native_service_response
+            type: native-service-response
             data:
               name_company: OMNA PTE LTD
               name: OMNA.IO
@@ -2373,6 +2404,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 type: array
                 items:
@@ -2387,6 +2420,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/OrderDocument'
           examples:
@@ -2399,6 +2434,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/Task'
           examples:
@@ -2411,6 +2448,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/Order'
           examples:
@@ -2423,6 +2462,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 type: array
                 items:
@@ -2437,9 +2478,9 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Success'
+            $ref: '#/components/schemas/Exception'
           example:
-            success: false
+            type: exception
             message: 'Not found order with number: 9151224232846'
     product_import_task:
       description: Success
@@ -2448,6 +2489,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/Task'
           examples:
@@ -2460,6 +2503,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/Product'
           examples:
@@ -2472,6 +2517,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 description: Product representations in OMNA
                 type: array
@@ -2487,9 +2534,9 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Success'
+            $ref: '#/components/schemas/Exception'
           example:
-            success: false
+            type: exception
             message: 'Not found product with id: 5d04051125d9852c71016793'
     sign_in:
       description: |
@@ -2511,6 +2558,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/Task'
           examples:
@@ -2531,6 +2580,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/Task'
           examples:
@@ -2543,6 +2594,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 type: array
                 items:
@@ -2557,9 +2610,9 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Success'
+            $ref: '#/components/schemas/Exception'
           example:
-            success: false
+            type: exception
             message: 'Not found task with id: 1234567890'
     tenant_item:
       description: Success
@@ -2568,6 +2621,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 allOf:
                   - $ref: '#/components/schemas/Tenant'
@@ -2585,6 +2640,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 type: array
                 items:
@@ -2599,9 +2656,9 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Success'
+            $ref: '#/components/schemas/Exception'
           example:
-            success: false
+            type: exception
             message: 'Not found tenant with id: 1234567890'
     variant_item:
       description: Success
@@ -2610,6 +2667,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/Variant'
           examples:
@@ -2622,6 +2681,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 description: Variant representations in OMNA
                 type: array
@@ -2637,9 +2698,9 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Success'
+            $ref: '#/components/schemas/Exception'
           example:
-            success: false
+            type: exception
             message: 'Not found variant with id: 5d54835a25d985682d014e0e'
     webhook_item:
       description: Success
@@ -2648,6 +2709,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/Webhook'
           examples:
@@ -2660,6 +2723,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 type: array
                 items:
@@ -2674,9 +2739,9 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Success'
+            $ref: '#/components/schemas/Exception'
           example:
-            success: false
+            type: exception
             message: 'Not found webhook with id: 5d04051125d9852c71016793'
     webhook_topics:
       description: Success
@@ -2685,6 +2750,8 @@ components:
           schema:
             type: object
             properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
               data:
                 type: array
                 items:
@@ -3062,6 +3129,7 @@ components:
   examples:
     collection_item_response:
       value:
+        type: collection
         data:
           id: 5dc99ad825d985238605db73
           name: omna_v2
@@ -3073,6 +3141,7 @@ components:
           installed_at: '2020-01-20T20:01:06+00:00'
     collection_items_response:
       value:
+        type: collection
         data:
           - id: 5dc99ad825d985238605db73
             name: omna_v2
@@ -3117,6 +3186,7 @@ components:
           type: import_orders
     flow_item_response:
       value:
+        type: flow
         data:
           id: 5d04051125d9852c71016793
           type: import_orders
@@ -3173,6 +3243,7 @@ components:
                 - Oct
     flow_items_response:
       value:
+        type: flow
         data:
           - id: 5d04051125d9852c71016793
             type: import_orders
@@ -3212,6 +3283,7 @@ components:
           total: 1
     flow_type_response:
       value:
+        type: flow-type
         data:
           - type: import_orders
             title: Import orders from integration
@@ -3242,6 +3314,7 @@ components:
               - Oct
     integration_channels_response:
       value:
+        type: integration-channel
         data:
           - name: LazadaID
             title: Lazada Indonesia
@@ -3257,6 +3330,7 @@ components:
             group: Shopee
     integration_delete_response:
       value:
+        type: task
         data:
           id: 5cfe690b25d9854b3b02241b
           status: completed
@@ -3281,6 +3355,7 @@ components:
               message: Deleting its authorization.
     integration_item_response:
       value:
+        type: integration
         data:
           id: shop_01
           name: Shop-01
@@ -3302,6 +3377,7 @@ components:
           updated_at: '2019-06-07T20:47:32+00:00'
     integration_items_response:
       value:
+        type: integration
         data:
           - id: shop_01
             name: Shop-01
@@ -3342,12 +3418,14 @@ components:
           params: {}
     order_doc_response:
       value:
+        type: order-document
         data:
           file: T3JkZXIgZG9jdWVtbnQgZXhhbXBsZS4uLgo=
           mime_type: text/html
           document_type: invoice
     order_doc_types_response:
       value:
+        type: order-document-type
         data:
           - type: invoice
             title: Invoice
@@ -3357,6 +3435,7 @@ components:
             title: Carrier Manifest
     order_import_response:
       value:
+        type: task
         data:
           id: 5cfe690b25d9854b3b02241b
           status: completed
@@ -3381,6 +3460,7 @@ components:
               message: 'Importing orders updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 integration.'
     order_item_response:
       value:
+        type: order
         data:
           id: '9151224232845'
           number: '9151224232845'
@@ -3429,6 +3509,7 @@ components:
             updated_at: '2019-06-07T20:47:32+00:00'
     order_items_response:
       value:
+        type: order
         data:
           - id: '9151224232845'
             number: '9151224232845'
@@ -3525,6 +3606,7 @@ components:
           price: 159
     product_import_response:
       value:
+        type: task
         data:
           id: 5cfe690b25d9854b3b02241b
           status: completed
@@ -3549,6 +3631,7 @@ components:
               message: 'Importing products updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 integration.'
     product_item_response:
       value:
+        type: product
         data:
           id: 5d48c54125d9852031005fc3
           name: IPod Nano - 8GB
@@ -3622,6 +3705,7 @@ components:
                     value: It's the small iPod with one very big idea
     product_items_response:
       value:
+        type: product
         data:
           - id: 5d48c54125d9852031005fc3
             name: IPod Nano - 8GB
@@ -3688,6 +3772,7 @@ components:
           price: 159
     task_item_response:
       value:
+        type: task
         data:
           id: 5cfe690b25d9854b3b02241b
           status: completed
@@ -3728,6 +3813,7 @@ components:
               - Oct
     task_item_startup_response:
       value:
+        type: task
         data:
           id: 5cfe690b25d9854b3b02241b
           status: completed
@@ -3741,6 +3827,7 @@ components:
               completed_at: '2019-06-10T14:28:43+00:00'
     task_items_response:
       value:
+        type: task
         data:
           - id: 5cfe690b25d9854b3b02241b
             status: completed
@@ -3778,6 +3865,7 @@ components:
           total: 2
     tenant_item_response:
       value:
+        type: tenent
         data:
           id: f8sf8f8f78dsf8v8fd87ff86
           name: main_omna
@@ -3792,6 +3880,7 @@ components:
             picture: 'http://example.com/users/pictures/alepp.png'
     tenant_items_response:
       value:
+        type: tenant
         data:
           - id: f8sf8f8f78dsf8v8fd87ff86
             name: tenant_01
@@ -3815,6 +3904,7 @@ components:
           total: 2
     variant_item_response:
       value:
+        type: variant
         data:
           id: 5d54835a25d985682d014e0e
           sku: 0018227994576
@@ -3845,6 +3935,7 @@ components:
                     value: 'Yes'
     variant_items_response:
       value:
+        type: variant
         data:
           - id: 5d54835a25d985682d014e0e
             sku: 0018227994576
@@ -3916,6 +4007,7 @@ components:
           address: 'http://myintegration.com/catch/order/updated'
     webhook_item_response:
       value:
+        type: webhook
         data:
           id: 5d13be7025d9853de90012b6
           topic: order/registered
@@ -3932,6 +4024,7 @@ components:
           updated_at: '2019-06-07T20:47:32+00:00'
     webhook_items_response:
       value:
+        type: webhook
         data:
           - id: 5d13be7025d9853de90012b6
             topic: order/registered
@@ -3948,6 +4041,7 @@ components:
           total: 1
     webhook_topics_response:
       value:
+        type: webhook-topic
         data:
           - topic: order/registered
             title: When an order is registered for the first time

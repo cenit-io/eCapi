@@ -80,12 +80,120 @@
     }
   ],
   "paths": {
+    "/available/integrations/{collection_id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_collection_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Available Integrations"
+        ],
+        "operationId": "get_available_integration",
+        "summary": "Retrieve a available integration",
+        "description": "Finds and returns the collection containing the resources and logic of an integration type available from its ID.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/collection_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/collection_not_found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Available Integrations"
+        ],
+        "operationId": "install_available_integration_async_",
+        "summary": "Install a available integration",
+        "description": "Generate an async task to install o reinstall an available integration in the current tenant.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/collection_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_item"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Available Integrations"
+        ],
+        "operationId": "unistall_available_integration_async_beta_",
+        "summary": "Uninstall a Collection",
+        "description": "Generate an async task to uninstall an available integration from the current tenant.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_item"
+          }
+        }
+      }
+    },
+    "/available/integrations/channels": {
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "operationId": "get_integration_channels",
+        "summary": "List all Integration Channels",
+        "description": "Returns the list of available integration channels.\n\n* Integration channels represent the connection route with foreign service platforms.\n* These can be different versions or API hosts of the same integration platform.\n* Its availability depends on the installation of the different integrations available.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_channels"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_channel_name"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_channel_group"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/integration_channels"
+          }
+        }
+      }
+    },
+    "/avalilable/integrations": {
+      "get": {
+        "tags": [
+          "Available Integrations"
+        ],
+        "operationId": "get_available_integrations",
+        "summary": "List all available integrations",
+        "description": "Returns the collections that contain the resources and logic of the different available integrations.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_collections"
+          },
+          {
+            "$ref": "#/components/parameters/query_offset"
+          },
+          {
+            "$ref": "#/components/parameters/query_limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/collection_items"
+          }
+        }
+      }
+    },
     "/collections": {
       "get": {
         "tags": [
           "Collections"
         ],
         "operationId": "get_collections",
+        "deprecated": true,
         "summary": "List all Collections",
         "description": "Returns the list of collections that can be installed or uninstalled.\n",
         "parameters": [
@@ -117,6 +225,7 @@
           "Collections"
         ],
         "operationId": "get_collection",
+        "deprecated": true,
         "summary": "Retrieve a Collection",
         "description": "Find collection by given id and returns it.\n",
         "responses": {
@@ -133,6 +242,7 @@
           "Collections"
         ],
         "operationId": "install_collection_async_",
+        "deprecated": true,
         "summary": "Install a Collection",
         "description": "Generate an async task to install o reinstall a collection in the current tenant.\n",
         "responses": {
@@ -1073,9 +1183,21 @@
         "tags": [
           "Integrations"
         ],
-        "operationId": "get_integration_channels",
+        "operationId": "get_integration_channels_dreprecate",
+        "deprecated": true,
         "summary": "List all Integration Channels",
-        "description": "Returns the list of integration channels availables.\n",
+        "description": "Returns the list of available integration channels.\n\n>Integration channels represent the connection route with foreign service platforms.\n>These can be different versions or API hosts of the same integration platform.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_channels"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_channel_name"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_channel_group"
+          }
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/integration_channels"
@@ -3740,6 +3862,24 @@
           "example": "5d13be7025d9853de90012b6"
         }
       },
+      "query_filter_channel_group": {
+        "name": "group",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the items by channel group.",
+          "type": "string",
+          "example": "Lazada"
+        }
+      },
+      "query_filter_channel_name": {
+        "name": "name",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the items by channel name.",
+          "type": "string",
+          "example": "Ov2LazadaSG"
+        }
+      },
       "query_filter_flow_type": {
         "name": "type",
         "in": "query",
@@ -3841,6 +3981,15 @@
           "description": "Allow to filter the tasks by status.",
           "type": "string",
           "example": "5d029d6625d985755e02202c"
+        }
+      },
+      "query_filter_term_for_channels": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "Allow to filter the avalable integrations channels that contain the value of the term\nin their ***name***, ***title*** or ***group***.\n",
+          "type": "string",
+          "example": "Lazada"
         }
       },
       "query_filter_term_for_collections": {

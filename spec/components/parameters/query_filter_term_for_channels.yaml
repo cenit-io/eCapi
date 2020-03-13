@@ -1,0 +1,8 @@
+name: term
+in: query
+schema:
+  description: |
+    Allow to filter the avalable integrations channels that contain the value of the term
+    in their ***name***, ***title*** or ***group***.
+  type: string
+  example: Lazada

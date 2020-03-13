@@ -1,14 +1,14 @@
 get:
   tags:
     - Integrations
-  operationId: get_integration_channels_dreprecate
-  deprecated: true
+  operationId: get_integration_channels
   summary: List all Integration Channels
   description: |
     Returns the list of available integration channels.
 
-    >Integration channels represent the connection route with foreign service platforms.
-    >These can be different versions or API hosts of the same integration platform.
+    * Integration channels represent the connection route with foreign service platforms.
+    * These can be different versions or API hosts of the same integration platform.
+    * Its availability depends on the installation of the different integrations available.
   parameters:
     - $ref: '#/components/parameters/query_filter_term_for_channels'
     - $ref: '#/components/parameters/query_filter_channel_name'

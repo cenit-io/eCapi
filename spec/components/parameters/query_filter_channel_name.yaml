@@ -1,0 +1,6 @@
+name: name
+in: query
+schema:
+  description: Allow to filter the items by channel name.
+  type: string
+  example: Ov2LazadaSG

@@ -147,6 +147,21 @@ security:
     Timestamp: []
     HMac: []
 paths:
+  /available/integrations:
+    get:
+      tags:
+        - Available Integrations
+      operationId: get_available_integrations
+      summary: List all available integrations
+      description: |
+        Returns the collections that contain the resources and logic of the different available integrations.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_collections'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
+      responses:
+        '200':
+          $ref: '#/components/responses/collection_items'
   '/available/integrations/{collection_id}':
     parameters:
       - $ref: '#/components/parameters/path_collection_id'
@@ -205,21 +220,6 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/integration_channels'
-  /avalilable/integrations:
-    get:
-      tags:
-        - Available Integrations
-      operationId: get_available_integrations
-      summary: List all available integrations
-      description: |
-        Returns the collections that contain the resources and logic of the different available integrations.
-      parameters:
-        - $ref: '#/components/parameters/query_filter_term_for_collections'
-        - $ref: '#/components/parameters/query_offset'
-        - $ref: '#/components/parameters/query_limit'
-      responses:
-        '200':
-          $ref: '#/components/responses/collection_items'
   /collections:
     get:
       tags:

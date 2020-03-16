@@ -37,19 +37,19 @@ info:
     to use OMNA Commerce API.
 
 tags:
-  - name: Collections
+  - name: Available Integrations
     description: |
-      The term collection refers to the set of resources and services that can be included in OMNA for the expansion of
+      This term refers to the set of resources and services that can be included in OMNA for the expansion of
       its scope and integration with other platforms.
 
-      ### Available collections:
+      ### Available Integrations:
 
       - **OMNAv2**: It is the main collection and the basis for working at OMNA Commerce LTD.
       - **OMNAv2-Lazada**: It includes support for the integration of OMNA with Lazada's marketplaces.
       - **OMNAv2-Shopee**: It includes support for the integration of OMNA with Shopee's marketplaces.
       - **OMNAv2-Shopify**: It includes support for the integration of OMNA with Shopee's marketplaces.
 
-      ### Future collections:
+      ### Future Integrations:
 
       - **OMNAv2-Qoo10**: It includes support for the integration of OMNA with Lazada's marketplaces.
       - **OMNAv2-AmazonMWS**: It includes support for the integration of OMNA with AmazonMWS's marketplaces.

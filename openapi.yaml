@@ -36,19 +36,19 @@ info:
     * You can use your favorite HTTP/REST library for your programming language
     to use OMNA Commerce API.
 tags:
-  - name: Collections
+  - name: Available Integrations
     description: |
-      The term collection refers to the set of resources and services that can be included in OMNA for the expansion of
+      This term refers to the set of resources and services that can be included in OMNA for the expansion of
       its scope and integration with other platforms.
 
-      ### Available collections:
+      ### Available Integrations:
 
       - **OMNAv2**: It is the main collection and the basis for working at OMNA Commerce LTD.
       - **OMNAv2-Lazada**: It includes support for the integration of OMNA with Lazada's marketplaces.
       - **OMNAv2-Shopee**: It includes support for the integration of OMNA with Shopee's marketplaces.
       - **OMNAv2-Shopify**: It includes support for the integration of OMNA with Shopee's marketplaces.
 
-      ### Future collections:
+      ### Future Integrations:
 
       - **OMNAv2-Qoo10**: It includes support for the integration of OMNA with Lazada's marketplaces.
       - **OMNAv2-AmazonMWS**: It includes support for the integration of OMNA with AmazonMWS's marketplaces.
@@ -220,64 +220,6 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/integration_channels'
-  /collections:
-    get:
-      tags:
-        - Collections
-      operationId: get_collections
-      deprecated: true
-      summary: List all Collections
-      description: |
-        Returns the list of collections that can be installed or uninstalled.
-      parameters:
-        - $ref: '#/components/parameters/query_filter_term_for_collections'
-        - $ref: '#/components/parameters/query_offset'
-        - $ref: '#/components/parameters/query_limit'
-      responses:
-        '200':
-          $ref: '#/components/responses/collection_items'
-  '/collections/{collection_id}':
-    parameters:
-      - $ref: '#/components/parameters/path_collection_id'
-    get:
-      tags:
-        - Collections
-      operationId: get_collection
-      deprecated: true
-      summary: Retrieve a Collection
-      description: |
-        Find collection by given id and returns it.
-      responses:
-        '200':
-          $ref: '#/components/responses/collection_item'
-        '404':
-          $ref: '#/components/responses/collection_not_found'
-    patch:
-      tags:
-        - Collections
-      operationId: install_collection_async_
-      deprecated: true
-      summary: Install a Collection
-      description: |
-        Generate an async task to install o reinstall a collection in the current tenant.
-      responses:
-        '200':
-          $ref: '#/components/responses/collection_item'
-        '404':
-          $ref: '#/components/responses/task_item'
-    delete:
-      tags:
-        - Collections
-      operationId: unistall_collection_async_beta_
-      deprecated: true
-      summary: Uninstall a Collection
-      description: |
-        Generate an async task to uninstall a collection from the current tenant.
-      responses:
-        '200':
-          $ref: '#/components/responses/success'
-        '404':
-          $ref: '#/components/responses/task_item'
   /flows:
     get:
       tags:
@@ -961,25 +903,6 @@ paths:
           $ref: '#/components/responses/product_import_task'
         '404':
           $ref: '#/components/responses/integration_not_found'
-  /integrations/channels:
-    get:
-      tags:
-        - Integrations
-      operationId: get_integration_channels_dreprecate
-      deprecated: true
-      summary: List all Integration Channels
-      description: |
-        Returns the list of available integration channels.
-
-        >Integration channels represent the connection route with foreign service platforms.
-        >These can be different versions or API hosts of the same integration platform.
-      parameters:
-        - $ref: '#/components/parameters/query_filter_term_for_channels'
-        - $ref: '#/components/parameters/query_filter_channel_name'
-        - $ref: '#/components/parameters/query_filter_channel_group'
-      responses:
-        '200':
-          $ref: '#/components/responses/integration_channels'
   /orders:
     parameters:
       - $ref: '#/components/parameters/query_filter_term_for_orders'
@@ -1314,7 +1237,6 @@ paths:
       tags:
         - Users
       operationId: startup_tenant_async_
-      deprecated: true
       summary: Startup
       description: |
         Generate an async task to startup OMNA Commerce in the authenticated tenant.

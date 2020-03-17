@@ -19,8 +19,8 @@
   },
   "tags": [
     {
-      "name": "Collections",
-      "description": "The term collection refers to the set of resources and services that can be included in OMNA for the expansion of\nits scope and integration with other platforms.\n\n### Available collections:\n\n- **OMNAv2**: It is the main collection and the basis for working at OMNA Commerce LTD.\n- **OMNAv2-Lazada**: It includes support for the integration of OMNA with Lazada's marketplaces.\n- **OMNAv2-Shopee**: It includes support for the integration of OMNA with Shopee's marketplaces.\n- **OMNAv2-Shopify**: It includes support for the integration of OMNA with Shopee's marketplaces.\n\n### Future collections:\n\n- **OMNAv2-Qoo10**: It includes support for the integration of OMNA with Lazada's marketplaces.\n- **OMNAv2-AmazonMWS**: It includes support for the integration of OMNA with AmazonMWS's marketplaces.\n- **OMNAv2-MercadoLible**: It includes support for the integration of OMNA with MercadoLible's marketplaces.\n- **OMNAv2-Backmarket**: It includes support for the integration of OMNA with Backmarket's marketplaces.\n- **OMNAv2-Shipstation**: It includes support for the integration of OMNA with Shipstation's shipping platform for ecommerce fulfillment.\n"
+      "name": "Available Integrations",
+      "description": "This term refers to the set of resources and services that can be included in OMNA for the expansion of\nits scope and integration with other platforms.\n\n### Available Integrations:\n\n- **OMNAv2**: It is the main collection and the basis for working at OMNA Commerce LTD.\n- **OMNAv2-Lazada**: It includes support for the integration of OMNA with Lazada's marketplaces.\n- **OMNAv2-Shopee**: It includes support for the integration of OMNA with Shopee's marketplaces.\n- **OMNAv2-Shopify**: It includes support for the integration of OMNA with Shopee's marketplaces.\n\n### Future Integrations:\n\n- **OMNAv2-Qoo10**: It includes support for the integration of OMNA with Lazada's marketplaces.\n- **OMNAv2-AmazonMWS**: It includes support for the integration of OMNA with AmazonMWS's marketplaces.\n- **OMNAv2-MercadoLible**: It includes support for the integration of OMNA with MercadoLible's marketplaces.\n- **OMNAv2-Backmarket**: It includes support for the integration of OMNA with Backmarket's marketplaces.\n- **OMNAv2-Shipstation**: It includes support for the integration of OMNA with Shipstation's shipping platform for ecommerce fulfillment.\n"
     },
     {
       "name": "Integrations",
@@ -183,91 +183,6 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/integration_channels"
-          }
-        }
-      }
-    },
-    "/collections": {
-      "get": {
-        "tags": [
-          "Collections"
-        ],
-        "operationId": "get_collections",
-        "deprecated": true,
-        "summary": "List all Collections",
-        "description": "Returns the list of collections that can be installed or uninstalled.\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/query_filter_term_for_collections"
-          },
-          {
-            "$ref": "#/components/parameters/query_offset"
-          },
-          {
-            "$ref": "#/components/parameters/query_limit"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/collection_items"
-          }
-        }
-      }
-    },
-    "/collections/{collection_id}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_collection_id"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Collections"
-        ],
-        "operationId": "get_collection",
-        "deprecated": true,
-        "summary": "Retrieve a Collection",
-        "description": "Find collection by given id and returns it.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/collection_item"
-          },
-          "404": {
-            "$ref": "#/components/responses/collection_not_found"
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "Collections"
-        ],
-        "operationId": "install_collection_async_",
-        "deprecated": true,
-        "summary": "Install a Collection",
-        "description": "Generate an async task to install o reinstall a collection in the current tenant.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/collection_item"
-          },
-          "404": {
-            "$ref": "#/components/responses/task_item"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Collections"
-        ],
-        "operationId": "unistall_collection_async_beta_",
-        "deprecated": true,
-        "summary": "Uninstall a Collection",
-        "description": "Generate an async task to uninstall a collection from the current tenant.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/success"
-          },
-          "404": {
-            "$ref": "#/components/responses/task_item"
           }
         }
       }
@@ -1179,33 +1094,6 @@
         }
       }
     },
-    "/integrations/channels": {
-      "get": {
-        "tags": [
-          "Integrations"
-        ],
-        "operationId": "get_integration_channels_dreprecate",
-        "deprecated": true,
-        "summary": "List all Integration Channels",
-        "description": "Returns the list of available integration channels.\n\n>Integration channels represent the connection route with foreign service platforms.\n>These can be different versions or API hosts of the same integration platform.\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/query_filter_term_for_channels"
-          },
-          {
-            "$ref": "#/components/parameters/query_filter_channel_name"
-          },
-          {
-            "$ref": "#/components/parameters/query_filter_channel_group"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/integration_channels"
-          }
-        }
-      }
-    },
     "/orders": {
       "parameters": [
         {
@@ -1692,7 +1580,6 @@
           "Users"
         ],
         "operationId": "startup_tenant_async_",
-        "deprecated": true,
         "summary": "Startup",
         "description": "Generate an async task to startup OMNA Commerce in the authenticated tenant.\n\n> It is not necessary to call this service when the tenant has been created with the application or api of OMAN.\n",
         "responses": {

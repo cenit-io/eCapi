@@ -3,7 +3,7 @@ parameters:
 
 get:
   tags:
-    - Integrations
+    - Connecred Integrations
   operationId: get_integration_settings
   summary: Retrieve an Integration
   description: |
@@ -16,7 +16,7 @@ get:
 
 post:
   tags:
-    - Integrations
+    - Connecred Integrations
   operationId: update_integration
   summary: Update an Integration
   description: |
@@ -32,7 +32,7 @@ post:
 
 delete:
   tags:
-    - Integrations
+    - Connecred Integrations
   operationId: delete_integration_async_
   summary: Delete an Integration
   description: |

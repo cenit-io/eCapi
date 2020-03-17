@@ -2,6 +2,7 @@ get:
   tags:
     - Flows
   operationId: get_flows
+  x-menu-position: 0
   summary: List all Flows
   description: |
     Returns the list of flows settings.

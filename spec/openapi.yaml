@@ -57,7 +57,7 @@ tags:
       - **OMNAv2-Backmarket**: It includes support for the integration of OMNA with Backmarket's marketplaces.
       - **OMNAv2-Shipstation**: It includes support for the integration of OMNA with Shipstation's shipping platform for ecommerce fulfillment.
 
-  - name: Integrations
+  - name: Connected Integrations
     description: |
       The term integration refers to resource set on which is possible operate, updated with the latest information,
       and consolidating information into a single processing workflow.
@@ -160,3 +160,31 @@ security:
   - Token: []
     Timestamp: []
     HMac: []
+
+x-tagGroups:
+  - name: Integrations
+    tags:
+      - Available Integrations
+      - Connected Integrations
+
+  - name: Orders
+    tags:
+      - Orders
+      - Orders of an Integration
+
+  - name: Products
+    tags:
+      - Products
+      - Products of an Integration
+      - Variants
+      - Variants of an Integration
+
+  - name: Workflows
+    tags:
+      - Flows
+      - Tasks
+      - Webhooks
+
+  - name: Security
+    tags:
+      - Users

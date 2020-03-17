@@ -3,7 +3,7 @@ parameters:
 
 get:
   tags:
-    - Integrations
+    - Connecred Integrations
   operationId: authorize_integration
   summary: Retrieve the Authorization
   description: |
@@ -16,7 +16,7 @@ get:
 
 delete:
   tags:
-    - Integrations
+    - Connecred Integrations
   operationId: deauthorize_integration
   summary: Cancel the Authorization
   description: |

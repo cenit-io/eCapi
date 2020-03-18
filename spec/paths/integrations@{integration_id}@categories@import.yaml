@@ -1,0 +1,15 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+  - $ref: '#/components/parameters/path_resource_type'
+get:
+  tags:
+    - Categories of an Integration
+  operationId: import_categories_async_
+  summary: Import categories from an Integration
+  description: |
+    Generate an async task to import the last updated product categories from an integration.
+  responses:
+    '200':
+      $ref: '#/components/responses/category_import_task'
+    '404':
+      $ref: '#/components/responses/integration_not_found'

@@ -1,0 +1,18 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+
+get:
+  tags:
+    - Categories of an Integration
+  operationId: get_integration_categories
+  summary: List all categories from an Integration
+  description: |
+    Returns the product category list of a specific integration.
+  parameters:
+    - $ref: '#/components/parameters/query_filter_term_for_categories'
+    - $ref: '#/components/parameters/query_without_data'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
+  responses:
+    '200':
+      $ref: '#/components/responses/category_items'

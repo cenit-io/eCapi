@@ -1,0 +1,16 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ResponseResourceType'
+        data:
+          $ref: '#/components/schemas/Task'
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/product_import_response'
+      Ex2:
+        $ref: '#/components/examples/category_import_response'

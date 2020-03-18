@@ -1,0 +1,18 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ResponseResourceType'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+        pagination:
+            $ref: '#/components/schemas/Pagination'
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/category_items_response'

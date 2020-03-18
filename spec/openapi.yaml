@@ -86,6 +86,10 @@ tags:
     description: |
       Operations about the product variants of an Integration.
 
+  - name: Categories of an Integration
+    description: |
+      Operations about the product categories of an Integration.
+
   - name: Flows
     description: |
       Operations about the flows.
@@ -176,6 +180,7 @@ x-tagGroups:
       - Products of an Integration
       - Variants
       - Variants of an Integration
+      - Categories of an Integration
 
   - name: Workflows
     tags:

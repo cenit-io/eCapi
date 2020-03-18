@@ -1,0 +1,7 @@
+name: category_id
+in: path
+required: true
+schema:
+  description: Category identifier
+  type: string
+  example: 4801

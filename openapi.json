@@ -23,8 +23,8 @@
       "description": "This term refers to the set of resources and services that can be included in OMNA for the expansion of\nits scope and integration with other platforms.\n\n### Available Integrations:\n\n- **OMNAv2**: It is the main collection and the basis for working at OMNA Commerce LTD.\n- **OMNAv2-Lazada**: It includes support for the integration of OMNA with Lazada's marketplaces.\n- **OMNAv2-Shopee**: It includes support for the integration of OMNA with Shopee's marketplaces.\n- **OMNAv2-Shopify**: It includes support for the integration of OMNA with Shopee's marketplaces.\n\n### Future Integrations:\n\n- **OMNAv2-Qoo10**: It includes support for the integration of OMNA with Lazada's marketplaces.\n- **OMNAv2-AmazonMWS**: It includes support for the integration of OMNA with AmazonMWS's marketplaces.\n- **OMNAv2-MercadoLible**: It includes support for the integration of OMNA with MercadoLible's marketplaces.\n- **OMNAv2-Backmarket**: It includes support for the integration of OMNA with Backmarket's marketplaces.\n- **OMNAv2-Shipstation**: It includes support for the integration of OMNA with Shipstation's shipping platform for ecommerce fulfillment.\n"
     },
     {
-      "name": "Integrations",
-      "description": "The term integration refers to resource set on which is possible operate, updated with the latest information,\nand consolidating information into a single processing workflow.\n\nThe available integrations are Lazada, Shopee.\n"
+      "name": "Connected Integrations",
+      "description": "This term refers to the configuration of a connection that will allow access to the set of resources and services\nthrough integration with other foreign platforms.\n"
     },
     {
       "name": "Orders",
@@ -79,6 +79,45 @@
       "HMac": []
     }
   ],
+  "x-tagGroups": [
+    {
+      "name": "Integrations",
+      "tags": [
+        "Available Integrations",
+        "Connected Integrations"
+      ]
+    },
+    {
+      "name": "Orders",
+      "tags": [
+        "Orders",
+        "Orders of an Integration"
+      ]
+    },
+    {
+      "name": "Products",
+      "tags": [
+        "Products",
+        "Products of an Integration",
+        "Variants",
+        "Variants of an Integration"
+      ]
+    },
+    {
+      "name": "Workflows",
+      "tags": [
+        "Flows",
+        "Tasks",
+        "Webhooks"
+      ]
+    },
+    {
+      "name": "Security",
+      "tags": [
+        "Users"
+      ]
+    }
+  ],
   "paths": {
     "/available/integrations": {
       "get": {
@@ -117,7 +156,7 @@
           "Available Integrations"
         ],
         "operationId": "get_available_integration",
-        "summary": "Retrieve a available integration",
+        "summary": "Retrieve an available integration",
         "description": "Finds and returns the collection containing the resources and logic of an integration type available from its ID.\n",
         "responses": {
           "200": {
@@ -133,7 +172,7 @@
           "Available Integrations"
         ],
         "operationId": "install_available_integration_async_",
-        "summary": "Install a available integration",
+        "summary": "Install an available integration",
         "description": "Generate an async task to install o reinstall an available integration in the current tenant.\n",
         "responses": {
           "200": {
@@ -149,7 +188,7 @@
           "Available Integrations"
         ],
         "operationId": "unistall_available_integration_async_beta_",
-        "summary": "Uninstall a Collection",
+        "summary": "Uninstall an available integration",
         "description": "Generate an async task to uninstall an available integration from the current tenant.\n",
         "responses": {
           "200": {
@@ -164,7 +203,7 @@
     "/available/integrations/channels": {
       "get": {
         "tags": [
-          "Integrations"
+          "Connected Integrations"
         ],
         "operationId": "get_integration_channels",
         "summary": "List all Integration Channels",
@@ -193,6 +232,7 @@
           "Flows"
         ],
         "operationId": "get_flows",
+        "x-menu-position": 0,
         "summary": "List all Flows",
         "description": "Returns the list of flows settings.\n",
         "parameters": [
@@ -384,7 +424,7 @@
     "/integrations": {
       "get": {
         "tags": [
-          "Integrations"
+          "Connected Integrations"
         ],
         "operationId": "get_integrations",
         "summary": "List all Integrations",
@@ -420,7 +460,7 @@
       },
       "post": {
         "tags": [
-          "Integrations"
+          "Connected Integrations"
         ],
         "operationId": "create_integration",
         "summary": "Create an Integration",
@@ -452,7 +492,7 @@
       ],
       "get": {
         "tags": [
-          "Integrations"
+          "Connected Integrations"
         ],
         "operationId": "get_integration_settings",
         "summary": "Retrieve an Integration",
@@ -474,7 +514,7 @@
       },
       "post": {
         "tags": [
-          "Integrations"
+          "Connected Integrations"
         ],
         "operationId": "update_integration",
         "summary": "Update an Integration",
@@ -493,7 +533,7 @@
       },
       "delete": {
         "tags": [
-          "Integrations"
+          "Connected Integrations"
         ],
         "operationId": "delete_integration_async_",
         "summary": "Delete an Integration",
@@ -525,7 +565,7 @@
       ],
       "get": {
         "tags": [
-          "Integrations"
+          "Connected Integrations"
         ],
         "operationId": "import_resources_async_",
         "summary": "Import resources from an Integration",
@@ -548,7 +588,7 @@
       ],
       "get": {
         "tags": [
-          "Integrations"
+          "Connected Integrations"
         ],
         "operationId": "authorize_integration",
         "summary": "Retrieve the Authorization",
@@ -572,7 +612,7 @@
       },
       "delete": {
         "tags": [
-          "Integrations"
+          "Connected Integrations"
         ],
         "operationId": "deauthorize_integration",
         "summary": "Cancel the Authorization",
@@ -592,7 +632,7 @@
       ],
       "post": {
         "tags": [
-          "Integrations"
+          "Connected Integrations"
         ],
         "operationId": "call_integration_native_service_beta_",
         "summary": "Call a Native API Service",

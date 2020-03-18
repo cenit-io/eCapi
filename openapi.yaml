@@ -55,12 +55,10 @@ tags:
       - **OMNAv2-MercadoLible**: It includes support for the integration of OMNA with MercadoLible's marketplaces.
       - **OMNAv2-Backmarket**: It includes support for the integration of OMNA with Backmarket's marketplaces.
       - **OMNAv2-Shipstation**: It includes support for the integration of OMNA with Shipstation's shipping platform for ecommerce fulfillment.
-  - name: Integrations
+  - name: Connected Integrations
     description: |
-      The term integration refers to resource set on which is possible operate, updated with the latest information,
-      and consolidating information into a single processing workflow.
-
-      The available integrations are Lazada, Shopee.
+      This term refers to the configuration of a connection that will allow access to the set of resources and services
+      through integration with other foreign platforms.
   - name: Orders
     description: |
       Operations about the orders
@@ -146,6 +144,29 @@ security:
   - Token: []
     Timestamp: []
     HMac: []
+x-tagGroups:
+  - name: Integrations
+    tags:
+      - Available Integrations
+      - Connected Integrations
+  - name: Orders
+    tags:
+      - Orders
+      - Orders of an Integration
+  - name: Products
+    tags:
+      - Products
+      - Products of an Integration
+      - Variants
+      - Variants of an Integration
+  - name: Workflows
+    tags:
+      - Flows
+      - Tasks
+      - Webhooks
+  - name: Security
+    tags:
+      - Users
 paths:
   /available/integrations:
     get:
@@ -169,7 +190,7 @@ paths:
       tags:
         - Available Integrations
       operationId: get_available_integration
-      summary: Retrieve a available integration
+      summary: Retrieve an available integration
       description: |
         Finds and returns the collection containing the resources and logic of an integration type available from its ID.
       responses:
@@ -181,7 +202,7 @@ paths:
       tags:
         - Available Integrations
       operationId: install_available_integration_async_
-      summary: Install a available integration
+      summary: Install an available integration
       description: |
         Generate an async task to install o reinstall an available integration in the current tenant.
       responses:
@@ -193,7 +214,7 @@ paths:
       tags:
         - Available Integrations
       operationId: unistall_available_integration_async_beta_
-      summary: Uninstall a Collection
+      summary: Uninstall an available integration
       description: |
         Generate an async task to uninstall an available integration from the current tenant.
       responses:
@@ -204,7 +225,7 @@ paths:
   /available/integrations/channels:
     get:
       tags:
-        - Integrations
+        - Connected Integrations
       operationId: get_integration_channels
       summary: List all Integration Channels
       description: |
@@ -225,6 +246,7 @@ paths:
       tags:
         - Flows
       operationId: get_flows
+      x-menu-position: 0
       summary: List all Flows
       description: |
         Returns the list of flows settings.
@@ -356,7 +378,7 @@ paths:
   /integrations:
     get:
       tags:
-        - Integrations
+        - Connected Integrations
       operationId: get_integrations
       summary: List all Integrations
       description: |
@@ -389,7 +411,7 @@ paths:
 
     post:
       tags:
-        - Integrations
+        - Connected Integrations
       operationId: create_integration
       summary: Create an Integration
       description: |
@@ -422,7 +444,7 @@ paths:
       - $ref: '#/components/parameters/path_integration_id'
     get:
       tags:
-        - Integrations
+        - Connected Integrations
       operationId: get_integration_settings
       summary: Retrieve an Integration
       description: |
@@ -451,7 +473,7 @@ paths:
             });
     post:
       tags:
-        - Integrations
+        - Connected Integrations
       operationId: update_integration
       summary: Update an Integration
       description: |
@@ -465,7 +487,7 @@ paths:
           $ref: '#/components/responses/integration_not_found'
     delete:
       tags:
-        - Integrations
+        - Connected Integrations
       operationId: delete_integration_async_
       summary: Delete an Integration
       description: |
@@ -500,7 +522,7 @@ paths:
       - $ref: '#/components/parameters/path_resource_type'
     get:
       tags:
-        - Integrations
+        - Connected Integrations
       operationId: import_resources_async_
       summary: Import resources from an Integration
       description: |
@@ -515,7 +537,7 @@ paths:
       - $ref: '#/components/parameters/path_integration_id'
     get:
       tags:
-        - Integrations
+        - Connected Integrations
       operationId: authorize_integration
       summary: Retrieve the Authorization
       description: |
@@ -565,7 +587,7 @@ paths:
             window.location = authorizationURI('shop_01');
     delete:
       tags:
-        - Integrations
+        - Connected Integrations
       operationId: deauthorize_integration
       summary: Cancel the Authorization
       description: |
@@ -580,7 +602,7 @@ paths:
       - $ref: '#/components/parameters/path_integration_id'
     post:
       tags:
-        - Integrations
+        - Connected Integrations
       operationId: call_integration_native_service_beta_
       summary: Call a Native API Service
       description: |

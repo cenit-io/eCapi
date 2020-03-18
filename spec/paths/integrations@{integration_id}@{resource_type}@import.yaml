@@ -3,7 +3,7 @@ parameters:
   - $ref: '#/components/parameters/path_resource_type'
 get:
   tags:
-    - Connecred Integrations
+    - Connected Integrations
   operationId: import_resources_async_
   summary: Import resources from an Integration
   description: |

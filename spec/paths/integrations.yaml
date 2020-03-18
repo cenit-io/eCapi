@@ -1,6 +1,6 @@
 get:
   tags:
-    - Connecred Integrations
+    - Connected Integrations
   operationId: get_integrations
   summary: List all Integrations
   description: |
@@ -17,7 +17,7 @@ get:
 
 post:
   tags:
-    - Connecred Integrations
+    - Connected Integrations
   operationId: create_integration
   summary: Create an Integration
   description: |

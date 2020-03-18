@@ -5,7 +5,7 @@ get:
   tags:
     - Available Integrations
   operationId: get_available_integration
-  summary: Retrieve a available integration
+  summary: Retrieve an available integration
   description: |
     Finds and returns the collection containing the resources and logic of an integration type available from its ID.
   responses:
@@ -18,7 +18,7 @@ patch:
   tags:
     - Available Integrations
   operationId: install_available_integration_async_
-  summary: Install a available integration
+  summary: Install an available integration
   description: |
     Generate an async task to install o reinstall an available integration in the current tenant.
   responses:
@@ -31,7 +31,7 @@ delete:
   tags:
     - Available Integrations
   operationId: unistall_available_integration_async_beta_
-  summary: Uninstall a Collection
+  summary: Uninstall an available integration
   description: |
     Generate an async task to uninstall an available integration from the current tenant.
   responses:

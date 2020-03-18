@@ -59,10 +59,8 @@ tags:
 
   - name: Connected Integrations
     description: |
-      The term integration refers to resource set on which is possible operate, updated with the latest information,
-      and consolidating information into a single processing workflow.
-
-      The available integrations are Lazada, Shopee.
+      This term refers to the configuration of a connection that will allow access to the set of resources and services
+      through integration with other foreign platforms.
 
   - name: Orders
     description: |

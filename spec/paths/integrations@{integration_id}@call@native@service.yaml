@@ -3,7 +3,7 @@ parameters:
 
 post:
   tags:
-    - Connecred Integrations
+    - Connected Integrations
   operationId: call_integration_native_service_beta_
   summary: Call a Native API Service
   description: |

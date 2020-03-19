@@ -1,6 +1,6 @@
 parameters:
   - $ref: '#/components/parameters/path_integration_id'
-  - $ref: '#/components/parameters/path_resource_type'
+
 get:
   tags:
     - Categories of an Integration

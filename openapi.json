@@ -683,7 +683,7 @@
         ],
         "operationId": "get_brand",
         "summary": "Retrieve a brand from an Integration",
-        "description": "Retrieve an product brand by its identify.\n",
+        "description": "Retrieve an product brand by its name or identify.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/brand_item"
@@ -2167,7 +2167,11 @@
           },
           "name": {
             "type": "string",
-            "description": "Product brand name"
+            "description": "Product brand name in the language of the integration platform"
+          },
+          "name_en": {
+            "type": "string",
+            "description": "Product brand name in english"
           },
           "created_at": {
             "$ref": "#/components/schemas/CreatedAt"
@@ -4173,7 +4177,7 @@
         "in": "path",
         "required": true,
         "schema": {
-          "description": "Brand identifier",
+          "description": "Brand name or identifier",
           "type": "string",
           "example": 4801
         }
@@ -4453,7 +4457,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the ***brands*** that contain the value of the term in their ***name***.\n",
+          "description": "Allow to filter the ***brands*** that contain the value of the term in their ***name*** or ***name_en***.\n",
           "type": "string",
           "example": "Adida"
         }

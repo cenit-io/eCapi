@@ -633,7 +633,7 @@ paths:
       operationId: get_brand
       summary: Retrieve a brand from an Integration
       description: |
-        Retrieve an product brand by its identify.
+        Retrieve an product brand by its name or identify.
       responses:
         '200':
           $ref: '#/components/responses/brand_item'
@@ -1613,7 +1613,10 @@ components:
           description: Product brand identifier
         name:
           type: string
-          description: Product brand name
+          description: Product brand name in the language of the integration platform
+        name_en:
+          type: string
+          description: Product brand name in english
         created_at:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
@@ -2993,7 +2996,7 @@ components:
       in: path
       required: true
       schema:
-        description: Brand identifier
+        description: Brand name or identifier
         type: string
         example: 4801
     path_category_id:
@@ -3224,7 +3227,7 @@ components:
       in: query
       schema:
         description: |
-          Allow to filter the ***brands*** that contain the value of the term in their ***name***.
+          Allow to filter the ***brands*** that contain the value of the term in their ***name*** or ***name_en***.
         type: string
         example: Adida
     query_filter_term_for_categories:

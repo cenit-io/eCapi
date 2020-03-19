@@ -376,7 +376,7 @@
           "$ref": "#/components/parameters/path_flow_id"
         }
       ],
-      "get": {
+      "post": {
         "tags": [
           "Flows"
         ],

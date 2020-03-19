@@ -341,7 +341,7 @@ paths:
   '/flows/{flow_id}/toggle/scheduler/status':
     parameters:
       - $ref: '#/components/parameters/path_flow_id'
-    get:
+    post:
       tags:
         - Flows
       operationId: toggle_flow_scheduler_status

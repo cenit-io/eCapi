@@ -61,28 +61,31 @@ tags:
       through integration with other foreign platforms.
   - name: Orders
     description: |
-      Operations about the orders
+      Operations on the orders
   - name: Orders of an Integration
     description: |
-      Operations about the orders of an Integration.
+      Operations on the orders of an Integration.
   - name: Products
     description: |
-      Operations about the products.
+      Operations on the products.
   - name: Products of an Integration
     description: |
-      Operations about the products of an Integration.
+      Operations on the products of an Integration.
   - name: Variants
     description: |
-      Operations about the product variants.
+      Operations on the product variants.
   - name: Variants of an Integration
     description: |
-      Operations about the product variants of an Integration.
-  - name: Categories of an Integration
+      Operations on the product variants of an Integration.
+  - name: Categories
     description: |
-      Operations about the product categories of an Integration.
+      Operations on the product categories of an Integration.
+  - name: Brands
+    description: |
+      Operations on the product brands of an Integration.
   - name: Flows
     description: |
-      Operations about the flows.
+      Operations on the flows.
 
       The flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be
       executed manually or automated through the configuration and activation of their schedulers. For example,
@@ -162,7 +165,8 @@ x-tagGroups:
       - Products of an Integration
       - Variants
       - Variants of an Integration
-      - Categories of an Integration
+      - Categories
+      - Brands
   - name: Workflows
     tags:
       - Flows
@@ -601,6 +605,55 @@ paths:
       responses:
         '404':
           $ref: '#/components/responses/integration_not_found'
+  '/integrations/{integration_id}/brands':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+    get:
+      tags:
+        - Brands
+      operationId: get_integration_brands
+      summary: List all brands from an Integration
+      description: |
+        Returns the list of product brands for a specific integration.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_brands'
+        - $ref: '#/components/parameters/query_without_data'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
+      responses:
+        '200':
+          $ref: '#/components/responses/brand_items'
+  '/integrations/{integration_id}/brands/{brand_id}':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+      - $ref: '#/components/parameters/path_brand_id'
+    get:
+      tags:
+        - Brands
+      operationId: get_brand
+      summary: Retrieve a brand from an Integration
+      description: |
+        Retrieve an product brand by its identify.
+      responses:
+        '200':
+          $ref: '#/components/responses/brand_item'
+        '404':
+          $ref: '#/components/responses/brand_not_found'
+  '/integrations/{integration_id}/brands/import':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+    get:
+      tags:
+        - Brands
+      operationId: import_brands_async_
+      summary: Import brands from an Integration
+      description: |
+        Generate an async task to import the last updated product brands from an integration.
+      responses:
+        '200':
+          $ref: '#/components/responses/brand_import_task'
+        '404':
+          $ref: '#/components/responses/integration_not_found'
   '/integrations/{integration_id}/call/native/service':
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
@@ -623,11 +676,11 @@ paths:
       - $ref: '#/components/parameters/path_integration_id'
     get:
       tags:
-        - Categories of an Integration
+        - Categories
       operationId: get_integration_categories
       summary: List all categories from an Integration
       description: |
-        Returns the product category list of a specific integration.
+        Returns the list of product categories for a specific integration.
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_categories'
         - $ref: '#/components/parameters/query_without_data'
@@ -642,7 +695,7 @@ paths:
       - $ref: '#/components/parameters/path_category_id'
     get:
       tags:
-        - Categories of an Integration
+        - Categories
       operationId: get_category
       summary: Retrieve a category from an Integration
       description: |
@@ -657,7 +710,7 @@ paths:
       - $ref: '#/components/parameters/path_integration_id'
     get:
       tags:
-        - Categories of an Integration
+        - Categories
       operationId: import_categories_async_
       summary: Import categories from an Integration
       description: |
@@ -1551,6 +1604,20 @@ components:
           type: array
           items:
             type: string
+    Brand:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Product brand identifier
+        name:
+          type: string
+          description: Product brand name
+        created_at:
+          $ref: '#/components/schemas/CreatedAt'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAt'
     Category:
       type: object
       properties:
@@ -2217,6 +2284,61 @@ components:
           example:
             type: exception
             message: Already exist
+    brand_import_task:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                $ref: '#/components/schemas/Task'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/brand_import_response'
+    brand_item:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                $ref: '#/components/schemas/Brand'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/brand_item_response'
+    brand_items:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Brand'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/brand_items_response'
+    brand_not_found:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Exception'
+          example:
+            type: exception
+            message: 'Not found brand with id: 4801'
     category_import_task:
       description: Success
       content:
@@ -2866,6 +2988,14 @@ components:
         description: Tenant authentication token.
         type: string
         example: Ds3sBBSnyFnOqSjCARmX
+    path_brand_id:
+      name: brand_id
+      in: path
+      required: true
+      schema:
+        description: Brand identifier
+        type: string
+        example: 4801
     path_category_id:
       name: category_id
       in: path
@@ -3089,6 +3219,14 @@ components:
         description: Allow to filter the tasks by status.
         type: string
         example: 5d029d6625d985755e02202c
+    query_filter_term_for_brands:
+      name: term
+      in: query
+      schema:
+        description: |
+          Allow to filter the ***brands*** that contain the value of the term in their ***name***.
+        type: string
+        example: Adida
     query_filter_term_for_categories:
       name: term
       in: query
@@ -3226,6 +3364,55 @@ components:
         type: boolean
         example: true
   examples:
+    brand_import_response:
+      value:
+        type: task
+        data:
+          id: 5cfe690b25d9854b3b02241b
+          status: completed
+          progress: 100
+          description: Importing last updated brands from 'Shop-01' integration.
+          created_at: '2019-06-10T14:28:27+00:00'
+          updated_at: '2019-06-10T14:28:43+00:00'
+          executions:
+            - status: completed
+              started_at: '2019-06-10T14:28:27+00:00'
+              completed_at: '2019-06-10T14:28:43+00:00'
+          notifications:
+            - type: info
+              message: Imported brand 1785 from Shop-01 integration.
+            - type: info
+              message: Imported brand 8834 from Shop-01 integration.
+            - type: info
+              message: Imported brand 1615 from Shop-01 integration.
+            - type: info
+              message: Importing form 1 to 3.
+            - type: info
+              message: 'Importing brands updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 integration.'
+    brand_item_response:
+      value:
+        type: category
+        data:
+          id: '147528'
+          name: Royal Chair
+          updated_at: '2020-01-20T20:02:47+00:00'
+          installed_at: '2020-01-20T20:01:06+00:00'
+    brand_items_response:
+      value:
+        type: brand
+        data:
+          - id: '147528'
+            name: Royal Chair
+            updated_at: '2020-01-20T20:02:47+00:00'
+            installed_at: '2020-01-20T20:01:06+00:00'
+          - id: '147527'
+            name: niYung
+            updated_at: '2020-01-20T20:02:47+00:00'
+            installed_at: '2020-01-20T20:01:06+00:00'
+        pagination:
+          offset: 0
+          limit: 5
+          total: 2
     category_import_response:
       value:
         type: task
@@ -3242,11 +3429,11 @@ components:
               completed_at: '2019-06-10T14:28:43+00:00'
           notifications:
             - type: info
-              message: Imported category 17851977370457 from Shop-01 integration.
+              message: Imported category 1785 from Shop-01 integration.
             - type: info
-              message: Imported category 8834309804556 from Shop-01 integration.
+              message: Imported category 8834 from Shop-01 integration.
             - type: info
-              message: Imported category 16159781406633 from Shop-01 integration.
+              message: Imported category 1615 from Shop-01 integration.
             - type: info
               message: Importing form 1 to 3.
             - type: info

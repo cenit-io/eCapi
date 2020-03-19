@@ -1,0 +1,13 @@
+type: "object"
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: Product brand identifier
+  name:
+    type: string
+    description: Product brand name
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
+  updated_at:
+    $ref: "#/components/schemas/UpdatedAt"

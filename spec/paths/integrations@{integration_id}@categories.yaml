@@ -7,7 +7,7 @@ get:
   operationId: get_integration_categories
   summary: List all categories from an Integration
   description: |
-    Returns the product category list of a specific integration.
+    Returns the list of product categories for a specific integration.
   parameters:
     - $ref: '#/components/parameters/query_filter_term_for_categories'
     - $ref: '#/components/parameters/query_without_data'

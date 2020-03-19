@@ -1,0 +1,18 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+
+get:
+  tags:
+    - Brands
+  operationId: get_integration_brands
+  summary: List all brands from an Integration
+  description: |
+    Returns the list of product brands for a specific integration.
+  parameters:
+    - $ref: '#/components/parameters/query_filter_term_for_brands'
+    - $ref: '#/components/parameters/query_without_data'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
+  responses:
+    '200':
+      $ref: '#/components/responses/brand_items'

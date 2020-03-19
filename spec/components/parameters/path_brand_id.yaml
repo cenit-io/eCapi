@@ -1,0 +1,7 @@
+name: brand_id
+in: path
+required: true
+schema:
+  description: Brand identifier
+  type: string
+  example: 4801

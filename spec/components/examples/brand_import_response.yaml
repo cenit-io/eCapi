@@ -4,7 +4,7 @@ value:
     id: "5cfe690b25d9854b3b02241b"
     status: "completed"
     progress: 100
-    description: "Importing last updated categories from 'Shop-01' integration."
+    description: "Importing last updated brands from 'Shop-01' integration."
     created_at: "2019-06-10T14:28:27+00:00"
     updated_at: "2019-06-10T14:28:43+00:00"
     executions:
@@ -15,16 +15,16 @@ value:
     notifications:
       -
         type: "info"
-        message: "Imported category 1785 from Shop-01 integration."
+        message: "Imported brand 1785 from Shop-01 integration."
       -
         type: "info"
-        message: "Imported category 8834 from Shop-01 integration."
+        message: "Imported brand 8834 from Shop-01 integration."
       -
         type: "info"
-        message: "Imported category 1615 from Shop-01 integration."
+        message: "Imported brand 1615 from Shop-01 integration."
       -
         type: "info"
         message: "Importing form 1 to 3."
       -
         type: "info"
-        message: "Importing categories updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
+        message: "Importing brands updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."

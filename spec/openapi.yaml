@@ -64,35 +64,39 @@ tags:
 
   - name: Orders
     description: |
-      Operations about the orders
+      Operations on the orders
 
   - name: Orders of an Integration
     description: |
-      Operations about the orders of an Integration.
+      Operations on the orders of an Integration.
 
   - name: Products
     description: |
-      Operations about the products.
+      Operations on the products.
 
   - name: Products of an Integration
     description: |
-      Operations about the products of an Integration.
+      Operations on the products of an Integration.
 
   - name: Variants
     description: |
-      Operations about the product variants.
+      Operations on the product variants.
 
   - name: Variants of an Integration
     description: |
-      Operations about the product variants of an Integration.
+      Operations on the product variants of an Integration.
 
   - name: Categories
     description: |
-      Operations about the product categories of an Integration.
+      Operations on the product categories of an Integration.
+
+  - name: Brands
+    description: |
+      Operations on the product brands of an Integration.
 
   - name: Flows
     description: |
-      Operations about the flows.
+      Operations on the flows.
 
       The flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be
       executed manually or automated through the configuration and activation of their schedulers. For example,
@@ -181,6 +185,7 @@ x-tagGroups:
       - Variants
       - Variants of an Integration
       - Categories
+      - Brands
 
   - name: Workflows
     tags:

@@ -77,6 +77,9 @@ tags:
   - name: Variants of an Integration
     description: |
       Operations about the product variants of an Integration.
+  - name: Categories of an Integration
+    description: |
+      Operations about the product categories of an Integration.
   - name: Flows
     description: |
       Operations about the flows.
@@ -159,6 +162,7 @@ x-tagGroups:
       - Products of an Integration
       - Variants
       - Variants of an Integration
+      - Categories of an Integration
   - name: Workflows
     tags:
       - Flows
@@ -529,7 +533,7 @@ paths:
         Generate an async task to import the last updated records of a resource type from an integration.
       responses:
         '200':
-          $ref: '#/components/responses/product_import_task'
+          $ref: '#/components/responses/resource_import_task'
         '404':
           $ref: '#/components/responses/integration_not_found'
   '/integrations/{integration_id}/authorize':
@@ -612,6 +616,55 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/native_service'
+        '404':
+          $ref: '#/components/responses/integration_not_found'
+  '/integrations/{integration_id}/categories':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+    get:
+      tags:
+        - Categories of an Integration
+      operationId: get_integration_categories
+      summary: List all categories from an Integration
+      description: |
+        Returns the product category list of a specific integration.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_categories'
+        - $ref: '#/components/parameters/query_without_data'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
+      responses:
+        '200':
+          $ref: '#/components/responses/category_items'
+  '/integrations/{integration_id}/categories/{category_id}':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+      - $ref: '#/components/parameters/path_category_id'
+    get:
+      tags:
+        - Categories of an Integration
+      operationId: get_category
+      summary: Retrieve a category from an Integration
+      description: |
+        Retrieve an product category by its identify.
+      responses:
+        '200':
+          $ref: '#/components/responses/category_item'
+        '404':
+          $ref: '#/components/responses/category_not_found'
+  '/integrations/{integration_id}/categories/import':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+    get:
+      tags:
+        - Categories of an Integration
+      operationId: import_categories_async_
+      summary: Import categories from an Integration
+      description: |
+        Generate an async task to import the last updated product categories from an integration.
+      responses:
+        '200':
+          $ref: '#/components/responses/category_import_task'
         '404':
           $ref: '#/components/responses/integration_not_found'
   '/integrations/{integration_id}/flows':
@@ -1498,6 +1551,20 @@ components:
           type: array
           items:
             type: string
+    Category:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Product category identifier
+        name:
+          type: string
+          description: Product category name
+        created_at:
+          $ref: '#/components/schemas/CreatedAt'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAt'
     Collection:
       type: object
       properties:
@@ -2150,6 +2217,61 @@ components:
           example:
             type: exception
             message: Already exist
+    category_import_task:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                $ref: '#/components/schemas/Task'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/category_import_response'
+    category_item:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                $ref: '#/components/schemas/Category'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/category_item_response'
+    category_items:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/category_items_response'
+    category_not_found:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Exception'
+          example:
+            type: exception
+            message: 'Not found category with id: 4801'
     collection_item:
       description: Success
       content:
@@ -2482,6 +2604,22 @@ components:
           example:
             type: exception
             message: 'Not found product with id: 5d04051125d9852c71016793'
+    resource_import_task:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                $ref: '#/components/schemas/Task'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/product_import_response'
+            Ex2:
+              $ref: '#/components/examples/category_import_response'
     sign_in:
       description: |
         Redirect to given URI.
@@ -2728,6 +2866,14 @@ components:
         description: Tenant authentication token.
         type: string
         example: Ds3sBBSnyFnOqSjCARmX
+    path_category_id:
+      name: category_id
+      in: path
+      required: true
+      schema:
+        description: Category identifier
+        type: string
+        example: 4801
     path_collection_id:
       name: collection_id
       in: path
@@ -2813,6 +2959,7 @@ components:
           - **products**: To import last updated products.
           - **orders**: To import last updated orders.
           - **categories**: To import the last product categories updates.
+          - **brands**: To import the last product categories updates.
         type: string
         example: products
     path_task_id:
@@ -2942,6 +3089,14 @@ components:
         description: Allow to filter the tasks by status.
         type: string
         example: 5d029d6625d985755e02202c
+    query_filter_term_for_categories:
+      name: term
+      in: query
+      schema:
+        description: |
+          Allow to filter the ***categories*** that contain the value of the term in their ***name***.
+        type: string
+        example: digital
     query_filter_term_for_channels:
       name: term
       in: query
@@ -3071,6 +3226,55 @@ components:
         type: boolean
         example: true
   examples:
+    category_import_response:
+      value:
+        type: task
+        data:
+          id: 5cfe690b25d9854b3b02241b
+          status: completed
+          progress: 100
+          description: Importing last updated categories from 'Shop-01' integration.
+          created_at: '2019-06-10T14:28:27+00:00'
+          updated_at: '2019-06-10T14:28:43+00:00'
+          executions:
+            - status: completed
+              started_at: '2019-06-10T14:28:27+00:00'
+              completed_at: '2019-06-10T14:28:43+00:00'
+          notifications:
+            - type: info
+              message: Imported category 17851977370457 from Shop-01 integration.
+            - type: info
+              message: Imported category 8834309804556 from Shop-01 integration.
+            - type: info
+              message: Imported category 16159781406633 from Shop-01 integration.
+            - type: info
+              message: Importing form 1 to 3.
+            - type: info
+              message: 'Importing categories updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 integration.'
+    category_item_response:
+      value:
+        type: category
+        data:
+          id: '4180'
+          name: Women's Shoes and Clothing > Women Shoes > Wedges > Wedge Sandals
+          updated_at: '2020-01-20T20:02:47+00:00'
+          installed_at: '2020-01-20T20:01:06+00:00'
+    category_items_response:
+      value:
+        type: category
+        data:
+          - id: '4180'
+            name: Women's Shoes and Clothing > Women Shoes > Wedges > Wedge Sandals
+            updated_at: '2020-01-20T20:02:47+00:00'
+            installed_at: '2020-01-20T20:01:06+00:00'
+          - id: '4183'
+            name: Women's Shoes and Clothing > Women Shoes > Wedges > Slides & Mules
+            updated_at: '2020-01-20T20:02:47+00:00'
+            installed_at: '2020-01-20T20:01:06+00:00'
+        pagination:
+          offset: 0
+          limit: 5
+          total: 2
     collection_item_response:
       value:
         type: collection

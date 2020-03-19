@@ -4,7 +4,7 @@ parameters:
 
 get:
   tags:
-    - Categories of an Integration
+    - Categories
   operationId: get_category
   summary: Retrieve a category from an Integration
   description: |

@@ -3,7 +3,7 @@ parameters:
 
 get:
   tags:
-    - Categories of an Integration
+    - Categories
   operationId: get_integration_categories
   summary: List all categories from an Integration
   description: |

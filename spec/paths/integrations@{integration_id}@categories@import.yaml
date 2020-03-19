@@ -3,7 +3,7 @@ parameters:
 
 get:
   tags:
-    - Categories of an Integration
+    - Categories
   operationId: import_categories_async_
   summary: Import categories from an Integration
   description: |

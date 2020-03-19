@@ -2,6 +2,6 @@ name: brand_id
 in: path
 required: true
 schema:
-  description: Brand identifier
+  description: Brand name or identifier
   type: string
   example: 4801

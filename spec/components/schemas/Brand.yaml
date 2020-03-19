@@ -6,7 +6,10 @@ properties:
     description: Product brand identifier
   name:
     type: string
-    description: Product brand name
+    description: Product brand name in the language of the integration platform
+  name_en:
+    type: string
+    description: Product brand name in english
   created_at:
     $ref: "#/components/schemas/CreatedAt"
   updated_at:

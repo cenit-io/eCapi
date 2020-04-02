@@ -5,4 +5,3 @@ value:
       - shop_02
       - shop_05
     delete_from_integration: true
-    delete_from_omna: false

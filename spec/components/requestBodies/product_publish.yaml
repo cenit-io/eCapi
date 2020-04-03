@@ -8,10 +8,23 @@ content:
           type: object
           properties:
             integration_ids:
-              description: Identifiers of the integrations where you want to publish the product.
+              description: Identifiers of the integrations with which you want to link the product.
               type: array
               items:
                 type: string
+            link_with_its_variants:
+              description: |
+                Establishes how the product integrations should be linked or not with its variants.
+                * **NONE**: Do not link with any of its variants.
+                * **SELECTED**: Link only selected product integrations with all its variants.
+                * **NEW**: Link only new product integrations with all its variants.
+                * **ALL**: Link all product integrations with all its variants.
+              type: string
+              enum:
+                - NONE
+                - SELECTED
+                - NEW
+                - ALL
           required: [integration_ids]
 
     examples:

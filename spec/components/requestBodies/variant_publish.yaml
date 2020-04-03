@@ -8,7 +8,7 @@ content:
           type: object
           properties:
             integration_ids:
-              description: Identifiers of the integrations where you want to publish the variant.
+              description: Identifiers of the integrations with which you want to link the variant.
               type: array
               items:
                 type: string

@@ -33,12 +33,14 @@ post:
 put:
   tags:
     - Variants
-  operationId: publish_variant_beta_
-  summary: Publish a Variant
+  operationId: link_variant_beta_
+  summary: Link a Variant
   description: |
-    Publish a variant in the given integrations.
+    Generate an async task to link a product variant with some integrations.
+
+    > If the process is successful, tasks will be added to create or update the product variant on the remote platforms of each linked integration.
   requestBody:
-    $ref: '#/components/requestBodies/variant_publish'
+    $ref: '#/components/requestBodies/variant_link'
   responses:
     '200':
       $ref: '#/components/responses/product_item'

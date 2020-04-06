@@ -16,4 +16,4 @@ content:
 
     examples:
       Ex1:
-        $ref: '#/components/examples/variant_publish_request'
+        $ref: '#/components/examples/variant_link_request'

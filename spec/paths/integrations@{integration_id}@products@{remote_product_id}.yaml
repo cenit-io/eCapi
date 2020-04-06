@@ -8,7 +8,7 @@ get:
   operationId: get_integration_product_beta_
   summary: Retrieve an Product from an Integration
   description: |
-    Retrieve the product that is published in the given integration and have as identify on its source platform
+    Retrieve the product that is linked with the given integration and have as identify on its source platform
     the given identifier of the remote product.
   responses:
     '200':

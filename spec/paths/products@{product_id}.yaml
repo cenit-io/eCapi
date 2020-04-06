@@ -32,12 +32,14 @@ post:
 put:
   tags:
     - Products
-  operationId: publish_product_beta_
-  summary: Publish a Product
+  operationId: link_product_async_beta_
+  summary: Link a Product
   description: |
-    Publish a product in the given integrations.
+    Generate an async task to link a product with some integrations.
+
+    > If the process is successful, tasks will be added to create or update the product on the remote platforms of each linked integration.
   requestBody:
-    $ref: '#/components/requestBodies/product_publish'
+    $ref: '#/components/requestBodies/product_link'
   responses:
     '200':
       $ref: '#/components/responses/product_item'

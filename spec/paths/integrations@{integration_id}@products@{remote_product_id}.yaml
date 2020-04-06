@@ -34,14 +34,14 @@ post:
 patch:
   tags:
     - Products of an Integration
-  operationId: unpublish_integration_product_async_beta_
-  summary: Unpublish a Product from an Integration
+  operationId: unlink_integration_product_async_beta_
+  summary: Unlink a Product with an Integration
   description: |
-    Generate an async task to unpublish a product in an Integration.
+    Generate an async task to unlink a product with an integration.
 
-    > The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
+    > If it is established that the product should be removed from the remote integration source, then a task is also created to achieve this goal.
   requestBody:
-    $ref: '#/components/requestBodies/integration_product_unpublish'
+    $ref: '#/components/requestBodies/integration_product_unlink'
   responses:
     '200':
       $ref: '#/components/responses/task_item'

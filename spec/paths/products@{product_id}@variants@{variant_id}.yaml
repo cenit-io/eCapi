@@ -48,14 +48,14 @@ put:
 patch:
   tags:
     - Variants
-  operationId: unpublish_variant_async_beta_
-  summary: Unpublish a Variant
+  operationId: unlink_variant_async_beta_
+  summary: Unlink a Variant
   description: |
-    Generate an async task to unpublish a variant in some integrations.
+    Generate an async task to unlink a product variant with some integrations.
 
-    > The variant will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
+    > If it is established that the product variant should be removed from the remote integration source, then a task is also created to achieve this goal.
   requestBody:
-    $ref: '#/components/requestBodies/variant_unpublish'
+    $ref: '#/components/requestBodies/variant_unlink'
   responses:
     '200':
       $ref: '#/components/responses/task_item'

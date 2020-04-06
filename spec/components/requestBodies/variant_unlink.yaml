@@ -23,4 +23,4 @@ content:
 
     examples:
       Ex1:
-        $ref: '#/components/examples/variant_unpublish_request'
+        $ref: '#/components/examples/variant_unlink_request'

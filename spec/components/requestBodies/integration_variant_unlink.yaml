@@ -17,4 +17,4 @@ content:
 
     examples:
       Ex1:
-        $ref: '#/components/examples/integration_variant_unpublish_request'
+        $ref: '#/components/examples/integration_variant_unlink_request'

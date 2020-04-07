@@ -4336,7 +4336,7 @@
         "name": "group",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the items by channel group.",
+          "description": "It allows to filter items by channel group.",
           "type": "string",
           "example": "Lazada"
         }
@@ -4345,7 +4345,7 @@
         "name": "name",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the items by channel name.",
+          "description": "It allows to filter items by channel name.",
           "type": "string",
           "example": "Ov2LazadaSG"
         }
@@ -4354,7 +4354,7 @@
         "name": "type",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the items by flow type.",
+          "description": "It allows to filter items by flow type.",
           "type": "string",
           "example": "import_orders"
         }
@@ -4363,7 +4363,7 @@
         "name": "channel",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the items by integration channel.",
+          "description": "It allows to filter items by integration channel.",
           "type": "string",
           "example": "LazadaSG"
         }
@@ -4372,7 +4372,7 @@
         "name": "integration_id",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the items by integration.",
+          "description": "It allows to filter items by integration.",
           "type": "string",
           "example": "shop_01"
         }
@@ -4391,7 +4391,7 @@
         "name": "created_before",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the orders by created date.",
+          "description": "It allows to filter orders by created date.",
           "type": "string",
           "format": "date-time-iso8601",
           "example": "2018-01-30T00:00:00.000Z"
@@ -4401,7 +4401,7 @@
         "name": "number",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the orders by number.",
+          "description": "It allows to filter orders by number.",
           "type": "string",
           "example": "19090015390WTXC"
         }
@@ -4410,7 +4410,7 @@
         "name": "status",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the orders by status.",
+          "description": "It allows to filter orders by status.",
           "type": "string",
           "example": "cancelled"
         }
@@ -4419,7 +4419,7 @@
         "name": "updated_after",
         "in": "query",
         "schema": {
-          "description": "Allow filtering orders by update date greater than a given date.",
+          "description": "It allows to filter orders by update date greater than a given date.",
           "type": "string",
           "format": "date-time-iso8601",
           "example": "2018-01-15T00:00:00.000Z"
@@ -4439,7 +4439,7 @@
         "name": "description",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the tasks by description.",
+          "description": "It allows to filter tasks by description.",
           "type": "string",
           "example": "mapping product"
         }
@@ -4448,7 +4448,7 @@
         "name": "status",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the tasks by status.",
+          "description": "It allows to filter tasks by status.",
           "type": "string",
           "example": "5d029d6625d985755e02202c"
         }
@@ -4457,7 +4457,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the ***brands*** that contain the value of the term in their ***name*** or ***name_en***.\n",
+          "description": "It allows to filter ***brands*** that contain the value of the term in their ***name*** or ***name_en***.\n",
           "type": "string",
           "example": "Adida"
         }
@@ -4466,7 +4466,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the ***categories*** that contain the value of the term in their ***name***.\n",
+          "description": "It allows to filter ***categories*** that contain the value of the term in their ***name***.\n",
           "type": "string",
           "example": "digital"
         }
@@ -4475,7 +4475,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the available integrations channels that contain the value of the term\nin their ***name***, ***title*** or ***group***.\n",
+          "description": "It allows to filter available integrations channels that contain the value of the term\nin their ***name***, ***title*** or ***group***.\n",
           "type": "string",
           "example": "Lazada"
         }
@@ -4484,7 +4484,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the collections that contain the value of the term in their ***name*** or ***title***.",
+          "description": "It allows to filter collections that contain the value of the term in their ***name*** or ***title***.",
           "type": "string",
           "example": "orders"
         }
@@ -4493,7 +4493,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the flows that contain the value of the term in their ***type***.",
+          "description": "It allows to filter flows that contain the value of the term in their ***type***.",
           "type": "string",
           "example": "Shop-Lazada"
         }
@@ -4502,7 +4502,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the integrations settings that contain the value of the term in their ***id*** or ***name***.",
+          "description": "It allows to filter integrations settings that contain the value of the term in their ***id*** or ***name***.",
           "type": "string",
           "example": "Shop-Lazada"
         }
@@ -4511,7 +4511,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the orders that contain the value of the term in their ***number*** or ***status***.",
+          "description": "It allows to filter orders that contain the value of the term in their ***number*** or ***status***.",
           "type": "string",
           "example": "pending"
         }
@@ -4520,7 +4520,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the products that contain the value of the term in their ***name***.",
+          "description": "It allows to filter products that contain the value of the term in their ***name***.",
           "type": "string"
         }
       },
@@ -4528,7 +4528,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the tasks that contain the value of the term in their ***description***.",
+          "description": "It allows to filter tasks that contain the value of the term in their ***description***.",
           "type": "string",
           "example": "Shop-Lazada"
         }
@@ -4537,7 +4537,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the tenants that contain the value of the term in their ***name***.",
+          "description": "It allows to filter tenants that contain the value of the term in their ***name***.",
           "type": "string",
           "example": "Shop-Lazada"
         }
@@ -4546,7 +4546,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the variants that contain the value of the term in their ***sku***.",
+          "description": "It allows to filter variants that contain the value of the term in their ***sku***.",
           "type": "string"
         }
       },
@@ -4554,7 +4554,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the webhooks that contain the value of the term in their ***topic*** or ***address***.",
+          "description": "It allows to filter webhooks that contain the value of the term in their ***topic*** or ***address***.",
           "type": "string",
           "example": "orders"
         }
@@ -4563,7 +4563,7 @@
         "name": "topic",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the items by webhook topic.",
+          "description": "It allows to filter items by webhook topic.",
           "type": "string",
           "example": "order/registered"
         }

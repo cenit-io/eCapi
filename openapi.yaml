@@ -3135,35 +3135,35 @@ components:
       name: group
       in: query
       schema:
-        description: Allow to filter the items by channel group.
+        description: It allows to filter items by channel group.
         type: string
         example: Lazada
     query_filter_channel_name:
       name: name
       in: query
       schema:
-        description: Allow to filter the items by channel name.
+        description: It allows to filter items by channel name.
         type: string
         example: Ov2LazadaSG
     query_filter_flow_type:
       name: type
       in: query
       schema:
-        description: Allow to filter the items by flow type.
+        description: It allows to filter items by flow type.
         type: string
         example: import_orders
     query_filter_integration_channel:
       name: channel
       in: query
       schema:
-        description: Allow to filter the items by integration channel.
+        description: It allows to filter items by integration channel.
         type: string
         example: LazadaSG
     query_filter_integration:
       name: integration_id
       in: query
       schema:
-        description: Allow to filter the items by integration.
+        description: It allows to filter items by integration.
         type: string
         example: shop_01
     query_filter_order_created_after:
@@ -3178,7 +3178,7 @@ components:
       name: created_before
       in: query
       schema:
-        description: Allow to filter the orders by created date.
+        description: It allows to filter orders by created date.
         type: string
         format: date-time-iso8601
         example: 2018-01-30T00:00:00.000Z
@@ -3186,21 +3186,21 @@ components:
       name: number
       in: query
       schema:
-        description: Allow to filter the orders by number.
+        description: It allows to filter orders by number.
         type: string
         example: 19090015390WTXC
     query_filter_order_status:
       name: status
       in: query
       schema:
-        description: Allow to filter the orders by status.
+        description: It allows to filter orders by status.
         type: string
         example: cancelled
     query_filter_order_updated_after:
       name: updated_after
       in: query
       schema:
-        description: Allow filtering orders by update date greater than a given date.
+        description: It allows to filter orders by update date greater than a given date.
         type: string
         format: date-time-iso8601
         example: 2018-01-15T00:00:00.000Z
@@ -3216,14 +3216,14 @@ components:
       name: description
       in: query
       schema:
-        description: Allow to filter the tasks by description.
+        description: It allows to filter tasks by description.
         type: string
         example: mapping product
     query_filter_task_status:
       name: status
       in: query
       schema:
-        description: Allow to filter the tasks by status.
+        description: It allows to filter tasks by status.
         type: string
         example: 5d029d6625d985755e02202c
     query_filter_term_for_brands:
@@ -3231,7 +3231,7 @@ components:
       in: query
       schema:
         description: |
-          Allow to filter the ***brands*** that contain the value of the term in their ***name*** or ***name_en***.
+          It allows to filter ***brands*** that contain the value of the term in their ***name*** or ***name_en***.
         type: string
         example: Adida
     query_filter_term_for_categories:
@@ -3239,7 +3239,7 @@ components:
       in: query
       schema:
         description: |
-          Allow to filter the ***categories*** that contain the value of the term in their ***name***.
+          It allows to filter ***categories*** that contain the value of the term in their ***name***.
         type: string
         example: digital
     query_filter_term_for_channels:
@@ -3247,7 +3247,7 @@ components:
       in: query
       schema:
         description: |
-          Allow to filter the available integrations channels that contain the value of the term
+          It allows to filter available integrations channels that contain the value of the term
           in their ***name***, ***title*** or ***group***.
         type: string
         example: Lazada
@@ -3255,68 +3255,68 @@ components:
       name: term
       in: query
       schema:
-        description: Allow to filter the collections that contain the value of the term in their ***name*** or ***title***.
+        description: It allows to filter collections that contain the value of the term in their ***name*** or ***title***.
         type: string
         example: orders
     query_filter_term_for_flows:
       name: term
       in: query
       schema:
-        description: Allow to filter the flows that contain the value of the term in their ***type***.
+        description: It allows to filter flows that contain the value of the term in their ***type***.
         type: string
         example: Shop-Lazada
     query_filter_term_for_integrations:
       name: term
       in: query
       schema:
-        description: Allow to filter the integrations settings that contain the value of the term in their ***id*** or ***name***.
+        description: It allows to filter integrations settings that contain the value of the term in their ***id*** or ***name***.
         type: string
         example: Shop-Lazada
     query_filter_term_for_orders:
       name: term
       in: query
       schema:
-        description: Allow to filter the orders that contain the value of the term in their ***number*** or ***status***.
+        description: It allows to filter orders that contain the value of the term in their ***number*** or ***status***.
         type: string
         example: pending
     query_filter_term_for_products:
       name: term
       in: query
       schema:
-        description: Allow to filter the products that contain the value of the term in their ***name***.
+        description: It allows to filter products that contain the value of the term in their ***name***.
         type: string
     query_filter_term_for_tasks:
       name: term
       in: query
       schema:
-        description: Allow to filter the tasks that contain the value of the term in their ***description***.
+        description: It allows to filter tasks that contain the value of the term in their ***description***.
         type: string
         example: Shop-Lazada
     query_filter_term_for_tenants:
       name: term
       in: query
       schema:
-        description: Allow to filter the tenants that contain the value of the term in their ***name***.
+        description: It allows to filter tenants that contain the value of the term in their ***name***.
         type: string
         example: Shop-Lazada
     query_filter_term_for_variants:
       name: term
       in: query
       schema:
-        description: Allow to filter the variants that contain the value of the term in their ***sku***.
+        description: It allows to filter variants that contain the value of the term in their ***sku***.
         type: string
     query_filter_term_for_webhooks:
       name: term
       in: query
       schema:
-        description: Allow to filter the webhooks that contain the value of the term in their ***topic*** or ***address***.
+        description: It allows to filter webhooks that contain the value of the term in their ***topic*** or ***address***.
         type: string
         example: orders
     query_filter_webhook_topic:
       name: topic
       in: query
       schema:
-        description: Allow to filter the items by webhook topic.
+        description: It allows to filter items by webhook topic.
         type: string
         example: order/registered
     query_limit:

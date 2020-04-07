@@ -10,7 +10,7 @@ schema:
     - **products**: To import last updated products.
     - **orders**: To import last updated orders.
     - **categories**: To import the last product categories updates.
-    - **brands**: To import the last product categories updates.
+    - **brands**: To import the last product brands updates.
 
   type: string
   example: products

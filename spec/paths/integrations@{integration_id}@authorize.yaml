@@ -22,7 +22,7 @@ delete:
   description: |
     Find integration by given id and disallow their connection.
 
-    > Only authorize integrations can be unauthorizes.
+    > Only authorized integrations can be unauthorizes.
   responses:
     '404':
       $ref: '#/components/responses/integration_not_found'

@@ -14,18 +14,18 @@ info:
   description: |
     # Introduction
 
-    The OMNA Commerce API is simple connector API to integrate ecommerce sale channels, such us 
+    The OMNA Commerce API is a simple connector API to integrate ecommerce sales channels, such us
     marketplaces and ecommerce platforms.
     
-    An easy way to get orders, synchronize inventory and list product information to commerce solutions around the globe.
+    An easy way to get orders, synchronize inventories and list product's information to commerce solutions around the globe.
 
-    We are starting for marketplaces in Southeast Asia (Shopee, Lazada) but we will continue to make it global.
+    We are starting in marketplaces in Southeast Asia (Shopee, Lazada) but we will continue to make it global.
 
     It is built on top of an integration platform https://cenit.io
 
-    This API is for individual retailers, SaaS services, or any business that needs to handle multiples commerce integrations.
+    This API is for individual retailers, SaaS services, or any business that needs to handle multiple commerce integrations.
 
-    * Is built over REST services on HTTPS.
+    * It is built over REST services on HTTPS.
 
     * It has predictable resource URLs.
 
@@ -47,11 +47,11 @@ tags:
       - **OMNAv2**: It is the main collection and the basis for working at OMNA Commerce LTD.
       - **OMNAv2-Lazada**: It includes support for the integration of OMNA with Lazada's marketplaces.
       - **OMNAv2-Shopee**: It includes support for the integration of OMNA with Shopee's marketplaces.
-      - **OMNAv2-Shopify**: It includes support for the integration of OMNA with Shopee's marketplaces.
+      - **OMNAv2-Shopify**: It includes support for the integration of OMNA with Shopify's marketplaces.
 
       ### Future Integrations:
 
-      - **OMNAv2-Qoo10**: It includes support for the integration of OMNA with Lazada's marketplaces.
+      - **OMNAv2-Qoo10**: It includes support for the integration of OMNA with Qoo10's marketplaces.
       - **OMNAv2-AmazonMWS**: It includes support for the integration of OMNA with AmazonMWS's marketplaces.
       - **OMNAv2-MercadoLible**: It includes support for the integration of OMNA with MercadoLible's marketplaces.
       - **OMNAv2-Backmarket**: It includes support for the integration of OMNA with Backmarket's marketplaces.

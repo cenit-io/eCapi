@@ -4,7 +4,7 @@ in: query
 description: |
   Keyed-Hash message authentication code.
 
-  > Each service request must includes an hmac parameter, which is generated using the tenant's
+  > Each service request must include an hmac parameter, which is generated using the tenant's
     secret along with service path and the data sent in the request.
 
   ### Examples:

@@ -36,7 +36,7 @@ delete:
   operationId: delete_integration_async_
   summary: Delete an Integration
   description: |
-    Generate an async task to delete an Integration and all its Orders, Variants and Product.
+    Generate an async task to delete an Integration and all its Orders, Variants and Products.
 
     > Authorized Integration or associated with workflows or webhooks cannot be deleted.
   responses:

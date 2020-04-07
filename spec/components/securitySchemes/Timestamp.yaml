@@ -1,5 +1,5 @@
 description: |
-  The timestamp of the request with less than 7200 secounds difference from UTC time.
+  The timestamp of the request with less than 7200 seconds difference from UTC time.
 type: apiKey
 name: timestamp
 in: query

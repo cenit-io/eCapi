@@ -15,12 +15,12 @@
     "x-logo": {
       "url": "omna_logo.png"
     },
-    "description": "# Introduction\n\nThe OMNA Commerce API is simple connector API to integrate ecommerce sale channels, such us \nmarketplaces and ecommerce platforms.\n\nAn easy way to get orders, synchronize inventory and list product information to commerce solutions around the globe.\n\nWe are starting for marketplaces in Southeast Asia (Shopee, Lazada) but we will continue to make it global.\n\nIt is built on top of an integration platform https://cenit.io\n\nThis API is for individual retailers, SaaS services, or any business that needs to handle multiples commerce integrations.\n\n* Is built over REST services on HTTPS.\n\n* It has predictable resource URLs.\n\n* It returns HTTP response codes to indicate errors.\n\n* It accepts and returns JSON in the HTTP body.\n\n* You can use your favorite HTTP/REST library for your programming language\nto use OMNA Commerce API.\n"
+    "description": "# Introduction\n\nThe OMNA Commerce API is a simple connector API to integrate ecommerce sales channels, such us\nmarketplaces and ecommerce platforms.\n\nAn easy way to get orders, synchronize inventories and list product's information to commerce solutions around the globe.\n\nWe are starting in marketplaces in Southeast Asia (Shopee, Lazada) but we will continue to make it global.\n\nIt is built on top of an integration platform https://cenit.io\n\nThis API is for individual retailers, SaaS services, or any business that needs to handle multiple commerce integrations.\n\n* It is built over REST services on HTTPS.\n\n* It has predictable resource URLs.\n\n* It returns HTTP response codes to indicate errors.\n\n* It accepts and returns JSON in the HTTP body.\n\n* You can use your favorite HTTP/REST library for your programming language\nto use OMNA Commerce API.\n"
   },
   "tags": [
     {
       "name": "Available Integrations",
-      "description": "This term refers to the set of resources and services that can be included in OMNA for the expansion of\nits scope and integration with other platforms.\n\n### Available Integrations:\n\n- **OMNAv2**: It is the main collection and the basis for working at OMNA Commerce LTD.\n- **OMNAv2-Lazada**: It includes support for the integration of OMNA with Lazada's marketplaces.\n- **OMNAv2-Shopee**: It includes support for the integration of OMNA with Shopee's marketplaces.\n- **OMNAv2-Shopify**: It includes support for the integration of OMNA with Shopee's marketplaces.\n\n### Future Integrations:\n\n- **OMNAv2-Qoo10**: It includes support for the integration of OMNA with Lazada's marketplaces.\n- **OMNAv2-AmazonMWS**: It includes support for the integration of OMNA with AmazonMWS's marketplaces.\n- **OMNAv2-MercadoLible**: It includes support for the integration of OMNA with MercadoLible's marketplaces.\n- **OMNAv2-Backmarket**: It includes support for the integration of OMNA with Backmarket's marketplaces.\n- **OMNAv2-Shipstation**: It includes support for the integration of OMNA with Shipstation's shipping platform for ecommerce fulfillment.\n"
+      "description": "This term refers to the set of resources and services that can be included in OMNA for the expansion of\nits scope and integration with other platforms.\n\n### Available Integrations:\n\n- **OMNAv2**: It is the main collection and the basis for working at OMNA Commerce LTD.\n- **OMNAv2-Lazada**: It includes support for the integration of OMNA with Lazada's marketplaces.\n- **OMNAv2-Shopee**: It includes support for the integration of OMNA with Shopee's marketplaces.\n- **OMNAv2-Shopify**: It includes support for the integration of OMNA with Shopify's marketplaces.\n\n### Future Integrations:\n\n- **OMNAv2-Qoo10**: It includes support for the integration of OMNA with Qoo10's marketplaces.\n- **OMNAv2-AmazonMWS**: It includes support for the integration of OMNA with AmazonMWS's marketplaces.\n- **OMNAv2-MercadoLible**: It includes support for the integration of OMNA with MercadoLible's marketplaces.\n- **OMNAv2-Backmarket**: It includes support for the integration of OMNA with Backmarket's marketplaces.\n- **OMNAv2-Shipstation**: It includes support for the integration of OMNA with Shipstation's shipping platform for ecommerce fulfillment.\n"
     },
     {
       "name": "Connected Integrations",
@@ -547,7 +547,7 @@
         ],
         "operationId": "delete_integration_async_",
         "summary": "Delete an Integration",
-        "description": "Generate an async task to delete an Integration and all its Orders, Variants and Product.\n\n> Authorized Integration or associated with workflows or webhooks cannot be deleted.\n",
+        "description": "Generate an async task to delete an Integration and all its Orders, Variants and Products.\n\n> Authorized Integration or associated with workflows or webhooks cannot be deleted.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/integration_delete_task"
@@ -626,7 +626,7 @@
         ],
         "operationId": "deauthorize_integration",
         "summary": "Cancel the Authorization",
-        "description": "Find integration by given id and disallow their connection.\n\n> Only authorize integrations can be unauthorizes.\n",
+        "description": "Find integration by given id and disallow their connection.\n\n> Only authorized integrations can be unauthorizes.\n",
         "responses": {
           "404": {
             "$ref": "#/components/responses/integration_not_found"
@@ -4287,7 +4287,7 @@
         "in": "path",
         "required": true,
         "schema": {
-          "description": "Type of resource to be imported.\n\n**Available values:**\n\n- **products**: To import last updated products.\n- **orders**: To import last updated orders.\n- **categories**: To import the last product categories updates.\n- **brands**: To import the last product categories updates.\n",
+          "description": "Type of resource to be imported.\n\n**Available values:**\n\n- **products**: To import last updated products.\n- **orders**: To import last updated orders.\n- **categories**: To import the last product categories updates.\n- **brands**: To import the last product brands updates.\n",
           "type": "string",
           "example": "products"
         }
@@ -4381,7 +4381,7 @@
         "name": "created_after",
         "in": "query",
         "schema": {
-          "description": "Allow filtering orders by create date less than a given date.",
+          "description": "It allows to filter orders by create date less than a given date.",
           "type": "string",
           "format": "date-time-iso8601",
           "example": "2018-01-15T00:00:00.000Z"
@@ -4429,7 +4429,7 @@
         "name": "updated_before",
         "in": "query",
         "schema": {
-          "description": "Allow filtering orders by update date less than a given date.",
+          "description": "It allows to filter orders by update date less than a given date.",
           "type": "string",
           "format": "date-time-iso8601",
           "example": "2018-01-30T00:00:00.000Z"
@@ -4475,7 +4475,7 @@
         "name": "term",
         "in": "query",
         "schema": {
-          "description": "Allow to filter the avalable integrations channels that contain the value of the term\nin their ***name***, ***title*** or ***group***.\n",
+          "description": "Allow to filter the available integrations channels that contain the value of the term\nin their ***name***, ***title*** or ***group***.\n",
           "type": "string",
           "example": "Lazada"
         }
@@ -6758,10 +6758,10 @@
         "type": "apiKey",
         "name": "hmac",
         "in": "query",
-        "description": "Keyed-Hash message authentication code.\n\n> Each service request must includes an hmac parameter, which is generated using the tenant's\n  secret along with service path and the data sent in the request.\n\n### Examples:\n\n#### JavaScript\n```JavaScript\n  const current_tenant = { token: '....', secret: '...' };\n\n  axios.defaults.baseURL = 'https://cenit.io/app/ecapi-v1/';\n  axios.defaults.headers.post['Content-Type'] = 'application/json';\n  axios.defaults.headers.put['Content-Type'] = 'application/json';\n\n  // Interceptors to sign any request.\n  axios.interceptors.request.use((config) => {\n    // Add token and timestamp to URL parameters.\n    config.params = Object.assign({}, config.params, { token: current_tenant.token, timestamp: Date.now() });\n\n    // Merge all URL parameters and body data to be sent with the request.\n    let data = Object.assign({}, config.params, config.data);\n\n    // Join the service path and the ordered sequence of characters, excluding the quotes,\n    // corresponding to the JSON of the parameters that will be sent.\n    let msg = config.url + JSON.stringify(data).replace(/[\"']/g, '').split('').sort().join('');\n\n    // Generate the corresponding hmac parameter using the js-sha256 or similar library.\n    config.params.hmac = sha256.hmac.update(current_tenant.secret, msg).hex();\n\n    return config;\n  });\n```\n"
+        "description": "Keyed-Hash message authentication code.\n\n> Each service request must include an hmac parameter, which is generated using the tenant's\n  secret along with service path and the data sent in the request.\n\n### Examples:\n\n#### JavaScript\n```JavaScript\n  const current_tenant = { token: '....', secret: '...' };\n\n  axios.defaults.baseURL = 'https://cenit.io/app/ecapi-v1/';\n  axios.defaults.headers.post['Content-Type'] = 'application/json';\n  axios.defaults.headers.put['Content-Type'] = 'application/json';\n\n  // Interceptors to sign any request.\n  axios.interceptors.request.use((config) => {\n    // Add token and timestamp to URL parameters.\n    config.params = Object.assign({}, config.params, { token: current_tenant.token, timestamp: Date.now() });\n\n    // Merge all URL parameters and body data to be sent with the request.\n    let data = Object.assign({}, config.params, config.data);\n\n    // Join the service path and the ordered sequence of characters, excluding the quotes,\n    // corresponding to the JSON of the parameters that will be sent.\n    let msg = config.url + JSON.stringify(data).replace(/[\"']/g, '').split('').sort().join('');\n\n    // Generate the corresponding hmac parameter using the js-sha256 or similar library.\n    config.params.hmac = sha256.hmac.update(current_tenant.secret, msg).hex();\n\n    return config;\n  });\n```\n"
       },
       "Timestamp": {
-        "description": "The timestamp of the request with less than 7200 secounds difference from UTC time.\n",
+        "description": "The timestamp of the request with less than 7200 seconds difference from UTC time.\n",
         "type": "apiKey",
         "name": "timestamp",
         "in": "query"

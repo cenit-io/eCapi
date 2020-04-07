@@ -1,6 +1,6 @@
 name: number
 in: query
 schema:
-  description: Allow to filter the orders by number.
+  description: It allows to filter orders by number.
   type: string
   example: 19090015390WTXC

@@ -1,6 +1,6 @@
 name: type
 in: query
 schema:
-  description: Allow to filter the items by flow type.
+  description: It allows to filter items by flow type.
   type: string
   example: import_orders

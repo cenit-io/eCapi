@@ -2,7 +2,7 @@ name: term
 in: query
 schema:
   description: |
-    Allow to filter the available integrations channels that contain the value of the term
+    It allows to filter available integrations channels that contain the value of the term
     in their ***name***, ***title*** or ***group***.
   type: string
   example: Lazada

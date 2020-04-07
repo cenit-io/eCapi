@@ -1,6 +1,6 @@
 name: term
 in: query
 schema:
-  description: Allow to filter the orders that contain the value of the term in their ***number*** or ***status***.
+  description: It allows to filter orders that contain the value of the term in their ***number*** or ***status***.
   type: string
   example: pending

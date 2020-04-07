@@ -1,5 +1,5 @@
 name: term
 in: query
 schema:
-  description: Allow to filter the variants that contain the value of the term in their ***sku***.
+  description: It allows to filter variants that contain the value of the term in their ***sku***.
   type: string

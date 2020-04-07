@@ -1,6 +1,6 @@
 name: status
 in: query
 schema:
-  description: Allow to filter the tasks by status.
+  description: It allows to filter tasks by status.
   type: string
   example: 5d029d6625d985755e02202c

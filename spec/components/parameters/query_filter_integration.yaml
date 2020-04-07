@@ -1,6 +1,6 @@
 name: integration_id
 in: query
 schema:
-  description: Allow to filter the items by integration.
+  description: It allows to filter items by integration.
   type: string
   example: shop_01

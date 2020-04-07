@@ -1,6 +1,6 @@
 name: topic
 in: query
 schema:
-  description: Allow to filter the items by webhook topic.
+  description: It allows to filter items by webhook topic.
   type: string
   example: order/registered

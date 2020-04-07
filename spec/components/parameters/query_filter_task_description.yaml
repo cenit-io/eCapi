@@ -1,6 +1,6 @@
 name: description
 in: query
 schema:
-  description: Allow to filter the tasks by description.
+  description: It allows to filter tasks by description.
   type: string
   example: mapping product

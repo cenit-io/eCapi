@@ -2,6 +2,6 @@ name: term
 in: query
 schema:
   description: |
-    Allow to filter the ***brands*** that contain the value of the term in their ***name*** or ***name_en***.
+    It allows to filter ***brands*** that contain the value of the term in their ***name*** or ***name_en***.
   type: string
   example: Adida

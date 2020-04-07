@@ -1,6 +1,6 @@
 name: term
 in: query
 schema:
-  description: Allow to filter the flows that contain the value of the term in their ***type***.
+  description: It allows to filter flows that contain the value of the term in their ***type***.
   type: string
   example: Shop-Lazada

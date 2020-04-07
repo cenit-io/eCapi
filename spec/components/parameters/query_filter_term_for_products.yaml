@@ -1,5 +1,5 @@
 name: term
 in: query
 schema:
-  description: Allow to filter the products that contain the value of the term in their ***name***.
+  description: It allows to filter products that contain the value of the term in their ***name***.
   type: string

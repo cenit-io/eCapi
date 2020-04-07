@@ -1,6 +1,6 @@
 name: status
 in: query
 schema:
-  description: Allow to filter the orders by status.
+  description: It allows to filter orders by status.
   type: string
   example: cancelled

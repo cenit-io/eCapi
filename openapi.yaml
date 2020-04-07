@@ -910,7 +910,7 @@ paths:
       operationId: get_integration_product_beta_
       summary: Retrieve an Product from an Integration
       description: |
-        Retrieve the product that is published in the given integration and have as identify on its source platform
+        Retrieve the product that is linked with the given integration and have as identify on its source platform
         the given identifier of the remote product.
       responses:
         '200':
@@ -934,14 +934,14 @@ paths:
     patch:
       tags:
         - Products of an Integration
-      operationId: unpublish_integration_product_async_beta_
-      summary: Unpublish a Product from an Integration
+      operationId: unlink_integration_product_async_beta_
+      summary: Unlink a Product with an Integration
       description: |
-        Generate an async task to unpublish a product in an Integration.
+        Generate an async task to unlink a product with an integration.
 
-        > The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
+        > If it is established that the product should be removed from the remote integration source, then a task is also created to achieve this goal.
       requestBody:
-        $ref: '#/components/requestBodies/integration_product_unpublish'
+        $ref: '#/components/requestBodies/integration_product_unlink'
       responses:
         '200':
           $ref: '#/components/responses/task_item'
@@ -993,7 +993,7 @@ paths:
       operationId: get_integration_variant_beta_
       summary: Retrieve an Variant from an Integration
       description: |
-        Retrieve the variant that is published in the given integration and have as identify on its source platform
+        Retrieve the variant that is liked in the given integration and have as identify on its source platform
         the given identifier of the remote variant.
       responses:
         '200':
@@ -1003,14 +1003,14 @@ paths:
     patch:
       tags:
         - Variants of an Integration
-      operationId: unpublish_integration_variant_async_beta_
-      summary: Unpublish a Variant from an Integration
+      operationId: unlink_integration_variant_async_beta_
+      summary: Unlink a Variant with an Integration
       description: |
-        Generate an async task to unpublish a variant in an Integration.
+        Generate an async task to unlink a product variant with an integration.
 
-        > The variant will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
+        > If it is established that the product variant should be removed from the remote integration source, then a task is also created to achieve this goal.
       requestBody:
-        $ref: '#/components/requestBodies/integration_variant_unpublish'
+        $ref: '#/components/requestBodies/integration_variant_unlink'
       responses:
         '200':
           $ref: '#/components/responses/task_item'
@@ -1204,12 +1204,14 @@ paths:
     put:
       tags:
         - Products
-      operationId: publish_product_beta_
-      summary: Publish a Product
+      operationId: link_product_async_beta_
+      summary: Link a Product
       description: |
-        Publish a product in the given integrations.
+        Generate an async task to link a product with some integrations.
+
+        > If the process is successful, tasks will be added to create or update the product on the remote platforms of each linked integration.
       requestBody:
-        $ref: '#/components/requestBodies/product_publish'
+        $ref: '#/components/requestBodies/product_link'
       responses:
         '200':
           $ref: '#/components/responses/product_item'
@@ -1218,14 +1220,14 @@ paths:
     patch:
       tags:
         - Products
-      operationId: unpublish_product_async_beta_
-      summary: Unpublish a Product
+      operationId: unlink_product_async_beta_
+      summary: Unlink a Product
       description: |
-        Generate an async task to unpublish a product in some integrations.
+        Generate an async task to unlink a product with some integrations.
 
-        > The product will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
+        > If it is established that the product should be removed from the remote integration source, then a task is also created to achieve this goal.
       requestBody:
-        $ref: '#/components/requestBodies/product_unpublish'
+        $ref: '#/components/requestBodies/product_unlink'
       responses:
         '200':
           $ref: '#/components/responses/task_item'
@@ -1297,12 +1299,14 @@ paths:
     put:
       tags:
         - Variants
-      operationId: publish_variant_beta_
-      summary: Publish a Variant
+      operationId: link_variant_beta_
+      summary: Link a Variant
       description: |
-        Publish a variant in the given integrations.
+        Generate an async task to link a product variant with some integrations.
+
+        > If the process is successful, tasks will be added to create or update the product variant on the remote platforms of each linked integration.
       requestBody:
-        $ref: '#/components/requestBodies/variant_publish'
+        $ref: '#/components/requestBodies/variant_link'
       responses:
         '200':
           $ref: '#/components/responses/product_item'
@@ -1311,14 +1315,14 @@ paths:
     patch:
       tags:
         - Variants
-      operationId: unpublish_variant_async_beta_
-      summary: Unpublish a Variant
+      operationId: unlink_variant_async_beta_
+      summary: Unlink a Variant
       description: |
-        Generate an async task to unpublish a variant in some integrations.
+        Generate an async task to unlink a product variant with some integrations.
 
-        > The variant will be permanently removed if it is established that it must be removed from OMNA if it is not published in at least one integration.
+        > If it is established that the product variant should be removed from the remote integration source, then a task is also created to achieve this goal.
       requestBody:
-        $ref: '#/components/requestBodies/variant_unpublish'
+        $ref: '#/components/requestBodies/variant_unlink'
       responses:
         '200':
           $ref: '#/components/responses/task_item'
@@ -3740,13 +3744,12 @@ components:
           offset: 0
           limit: 10
           total: 2
-    integration_product_unpublish_request:
+    integration_product_unlink_request:
       value:
         data:
           delete_from_integration: true
-          delete_from_omna: false
-    integration_variant_unpublish_request:
-      $ref: '#/components/examples/integration_product_unpublish_request'
+    integration_variant_unlink_request:
+      $ref: '#/components/examples/integration_product_unlink_request'
     native_service_request:
       summary: Get shop metadata from Lazada integration
       value:
@@ -4081,14 +4084,15 @@ components:
           offset: 0
           limit: 10
           total: 2
-    product_publish_request:
+    product_link_request:
       value:
         data:
           integration_ids:
             - shop_01
             - shop_02
             - shop_05
-    product_unpublish_request:
+          link_with_its_variants: NONE
+    product_unlink_request:
       value:
         data:
           integration_ids:
@@ -4096,7 +4100,6 @@ components:
             - shop_02
             - shop_05
           delete_from_integration: true
-          delete_from_omna: false
     product_update_request_1:
       summary: Update price
       value:
@@ -4313,10 +4316,10 @@ components:
           offset: 0
           limit: 10
           total: 2
-    variant_publish_request:
-      $ref: '#/components/examples/product_publish_request'
-    variant_unpublish_request:
-      $ref: '#/components/examples/product_unpublish_request'
+    variant_link_request:
+      $ref: '#/components/examples/product_link_request'
+    variant_unlink_request:
+      $ref: '#/components/examples/product_unlink_request'
     variant_update_request_1:
       summary: Update price
       value:
@@ -4496,9 +4499,9 @@ components:
                 data:
                   name: Shop-02
                   channel: ShopeeSG
-    integration_product_unpublish:
+    integration_product_unlink:
       description: |
-        Data to sets whether the product should be removed from OMNA and/or the remote integration source.
+        Data to sets whether the product should be removed from the remote integration source.
       required: true
       content:
         application/json:
@@ -4514,14 +4517,9 @@ components:
                       Sets whether the product should be removed from the remote integration source.
                     type: boolean
                     default: false
-                  delete_from_omna:
-                    description: |
-                      Sets whether the product should be removed from OMNA if it is not published in at least one integration.
-                    type: boolean
-                    default: false
           examples:
             Ex1:
-              $ref: '#/components/examples/integration_product_unpublish_request'
+              $ref: '#/components/examples/integration_product_unlink_request'
     integration_update:
       description: Integration that will be updated
       required: true
@@ -4553,9 +4551,9 @@ components:
                 data:
                   name: Shop-01
                   keys_to_import_brands: A
-    integration_variant_unpublish:
+    integration_variant_unlink:
       description: |
-        Data to sets whether the variant should be removed from OMNA and/or the remote integration source.
+        Data to sets whether the variant should be removed from the remote integration source.
       required: true
       content:
         application/json:
@@ -4571,14 +4569,9 @@ components:
                       Sets whether the variant should be removed from the remote integration source.
                     type: boolean
                     default: false
-                  delete_from_omna:
-                    description: |
-                      Sets whether the variant should be removed from OMNA if it is not published in at least one integration.
-                    type: boolean
-                    default: false
           examples:
             Ex1:
-              $ref: '#/components/examples/integration_variant_unpublish_request'
+              $ref: '#/components/examples/integration_variant_unlink_request'
     native_service:
       description: Native API service parameters
       required: true
@@ -4622,6 +4615,40 @@ components:
           examples:
             Ex1:
               $ref: '#/components/examples/product_create_request'
+    product_link:
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  integration_ids:
+                    description: Identifiers of the integrations with which you want to link the product.
+                    type: array
+                    items:
+                      type: string
+                  link_with_its_variants:
+                    description: |
+                      Establishes how the product integrations should be linked or not with its variants.
+                      * **NONE**: Do not link with any of its variants.
+                      * **SELECTED**: Link only selected product integrations with all its variants.
+                      * **NEW**: Link only new product integrations with all its variants.
+                      * **ALL**: Link all product integrations with all its variants.
+                    type: string
+                    enum:
+                      - NONE
+                      - SELECTED
+                      - NEW
+                      - ALL
+                required:
+                  - integration_ids
+          examples:
+            Ex1:
+              $ref: '#/components/examples/product_link_request'
     product_properties_update:
       description: Product properties that will be updated
       required: true
@@ -4638,30 +4665,9 @@ components:
                     type: array
                     items:
                       $ref: '#/components/schemas/ProductProperty'
-    product_publish:
-      required: true
-      content:
-        application/json:
-          schema:
-            required:
-              - data
-            properties:
-              data:
-                type: object
-                properties:
-                  integration_ids:
-                    description: Identifiers of the integrations where you want to publish the product.
-                    type: array
-                    items:
-                      type: string
-                required:
-                  - integration_ids
-          examples:
-            Ex1:
-              $ref: '#/components/examples/product_publish_request'
-    product_unpublish:
+    product_unlink:
       description: |
-        Integrations IDs and data to sets whether the product should be removed from OMNA and/or the remote integration source.
+        Integrations IDs and data to sets whether the product should be removed from the remote integration source.
       required: true
       content:
         application/json:
@@ -4673,7 +4679,7 @@ components:
                 type: object
                 properties:
                   integration_ids:
-                    description: Identifiers of the integrations where you want to unpublish the product.
+                    description: Identifiers of the integrations with which you want to unlink the product.
                     type: array
                     items:
                       type: string
@@ -4682,16 +4688,11 @@ components:
                       Sets whether the product should be removed from the remote integration source.
                     type: boolean
                     default: false
-                  delete_from_omna:
-                    description: |
-                      Sets whether the product should be removed from OMNA if it is not published in at least one integration.
-                    type: boolean
-                    default: false
                 required:
                   - integration_ids
           examples:
             Ex1:
-              $ref: '#/components/examples/product_unpublish_request'
+              $ref: '#/components/examples/product_unlink_request'
     product_update:
       description: Product properties that will be updated
       required: true
@@ -4723,7 +4724,7 @@ components:
                   - $ref: '#/components/schemas/Tenant'
                   - required:
                       - name
-    variant_publish:
+    variant_link:
       required: true
       content:
         application/json:
@@ -4735,7 +4736,7 @@ components:
                 type: object
                 properties:
                   integration_ids:
-                    description: Identifiers of the integrations where you want to publish the variant.
+                    description: Identifiers of the integrations with which you want to link the variant.
                     type: array
                     items:
                       type: string
@@ -4743,10 +4744,10 @@ components:
                   - integration_ids
           examples:
             Ex1:
-              $ref: '#/components/examples/variant_publish_request'
-    variant_unpublish:
+              $ref: '#/components/examples/variant_link_request'
+    variant_unlink:
       description: |
-        Integrations IDs and data to sets whether the variant should be removed from OMNA and/or the remote integration source.
+        Integrations IDs and data to sets whether the variant should be removed from the remote integration source.
       required: true
       content:
         application/json:
@@ -4758,7 +4759,7 @@ components:
                 type: object
                 properties:
                   integration_ids:
-                    description: Identifiers of the integrations where you want to unpublish the variant.
+                    description: Identifiers of the integrations with which you want to unlink the variant.
                     type: array
                     items:
                       type: string
@@ -4767,16 +4768,11 @@ components:
                       Sets whether the variant should be removed from the remote integration source.
                     type: boolean
                     default: false
-                  delete_from_omna:
-                    description: |
-                      Sets whether the variant should be removed from OMNA if it is not published in at least one integration.
-                    type: boolean
-                    default: false
                 required:
                   - integration_ids
           examples:
             Ex1:
-              $ref: '#/components/examples/variant_unpublish_request'
+              $ref: '#/components/examples/variant_unlink_request'
     variant_update:
       description: Variant properties that will be updated
       required: true

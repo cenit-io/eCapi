@@ -11,6 +11,7 @@ get:
     - $ref: '#/components/parameters/query_without_data'
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
+    - $ref: '#/components/parameters/query_sort_for_integrations'
   responses:
     '200':
       $ref: '#/components/responses/integration_items'

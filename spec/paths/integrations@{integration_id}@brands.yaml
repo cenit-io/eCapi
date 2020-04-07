@@ -13,6 +13,7 @@ get:
     - $ref: '#/components/parameters/query_without_data'
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
+    - $ref: '#/components/parameters/query_sort_for_brands'
   responses:
     '200':
       $ref: '#/components/responses/brand_items'

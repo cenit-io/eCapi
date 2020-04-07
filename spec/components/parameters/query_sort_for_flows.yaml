@@ -1,0 +1,14 @@
+name: sort
+in: query
+schema:
+  description: It allows to sort ***flows*** list.
+  properties:
+    created_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    updated_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    type:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"

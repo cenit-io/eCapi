@@ -1,0 +1,17 @@
+name: sort
+in: query
+schema:
+  description: It allows to sort ***integrations*** list.
+  properties:
+    created_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    updated_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    name:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    channel:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"

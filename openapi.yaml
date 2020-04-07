@@ -266,6 +266,7 @@ paths:
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_flows'
       responses:
         '200':
           $ref: '#/components/responses/flow_items'
@@ -397,6 +398,7 @@ paths:
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_integrations'
       responses:
         '200':
           $ref: '#/components/responses/integration_items'
@@ -620,6 +622,7 @@ paths:
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_brands'
       responses:
         '200':
           $ref: '#/components/responses/brand_items'
@@ -2088,6 +2091,12 @@ components:
           type: array
           items:
             type: string
+    SortQueryParameter:
+      description: Sort criterial
+      type: string
+      enum:
+        - ASC
+        - DESC
     Success:
       type: object
       properties:
@@ -3347,6 +3356,57 @@ components:
         description: URI to back after do sign_in or authorization
         type: string
         example: 'http://my.example.com/home'
+    query_sort_for_brands:
+      name: sort
+      in: query
+      schema:
+        description: It allows to sort ***brands*** list.
+        properties:
+          created_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          updated_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          name:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          name_en:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+    query_sort_for_flows:
+      name: sort
+      in: query
+      schema:
+        description: It allows to sort ***flows*** list.
+        properties:
+          created_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          updated_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          type:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+    query_sort_for_integrations:
+      name: sort
+      in: query
+      schema:
+        description: It allows to sort ***integrations*** list.
+        properties:
+          created_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          updated_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          name:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          channel:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
     query_with_details:
       name: with_details
       in: query

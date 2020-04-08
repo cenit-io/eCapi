@@ -1,0 +1,27 @@
+name: sort
+in: query
+schema:
+  description: |
+    It allows to sort ***workflows*** list.
+    > If the sort parameter is omitted, the workflows list will be sorting by created_at descending.
+  properties:
+    created_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    updated_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    topic:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    address:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    api_version:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+
+
+
+
+

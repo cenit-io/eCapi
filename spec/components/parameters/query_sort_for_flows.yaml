@@ -1,7 +1,9 @@
 name: sort
 in: query
 schema:
-  description: It allows to sort ***flows*** list.
+  description: |
+    It allows to sort ***flows*** list.
+    > If the sort parameter is omitted, the flows list will be sorting by created_at descending.
   properties:
     created_at:
       allOf:

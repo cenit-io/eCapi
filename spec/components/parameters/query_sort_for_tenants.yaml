@@ -2,8 +2,8 @@ name: sort
 in: query
 schema:
   description: |
-    It allows to sort ***integrations*** list.
-    > If the sort parameter is omitted, the integrations list will be sorting by created_at descending.
+    It allows to sort ***tenants*** list.
+    > If the sort parameter is omitted, the tenants list will be sorting by created_at descending.
   properties:
     created_at:
       allOf:
@@ -14,6 +14,6 @@ schema:
     name:
       allOf:
         - $ref: "#/components/schemas/SortQueryParameter"
-    channel:
+    is_ready_to_omna:
       allOf:
         - $ref: "#/components/schemas/SortQueryParameter"

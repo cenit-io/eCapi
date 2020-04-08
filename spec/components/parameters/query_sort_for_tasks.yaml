@@ -2,8 +2,8 @@ name: sort
 in: query
 schema:
   description: |
-    It allows to sort ***integrations*** list.
-    > If the sort parameter is omitted, the integrations list will be sorting by created_at descending.
+    It allows to sort ***tasks*** list.
+    > If the sort parameter is omitted, the tasks list will be sorting by created_at descending.
   properties:
     created_at:
       allOf:
@@ -11,9 +11,11 @@ schema:
     updated_at:
       allOf:
         - $ref: "#/components/schemas/SortQueryParameter"
-    name:
+    progress:
       allOf:
         - $ref: "#/components/schemas/SortQueryParameter"
-    channel:
+    status:
       allOf:
         - $ref: "#/components/schemas/SortQueryParameter"
+
+

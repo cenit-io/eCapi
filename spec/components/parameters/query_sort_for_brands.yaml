@@ -1,7 +1,9 @@
 name: sort
 in: query
 schema:
-  description: It allows to sort ***brands*** list.
+  description: |
+    It allows to sort ***brands*** list.
+    > If the sort parameter is omitted, the brands list will be sorting by created_at descending.
   properties:
     created_at:
       allOf:

@@ -1836,6 +1836,9 @@
         },
         {
           "$ref": "#/components/parameters/query_limit"
+        },
+        {
+          "$ref": "#/components/parameters/query_sort_for_tasks"
         }
       ],
       "get": {
@@ -1934,6 +1937,9 @@
           },
           {
             "$ref": "#/components/parameters/query_limit"
+          },
+          {
+            "$ref": "#/components/parameters/query_sort_for_tenants"
           }
         ],
         "responses": {
@@ -2027,6 +2033,9 @@
           },
           {
             "$ref": "#/components/parameters/query_limit"
+          },
+          {
+            "$ref": "#/components/parameters/query_sort_for_webhooks"
           }
         ],
         "responses": {
@@ -4617,7 +4626,7 @@
         "name": "sort",
         "in": "query",
         "schema": {
-          "description": "It allows to sort ***brands*** list.",
+          "description": "It allows to sort ***brands*** list.\n> If the sort parameter is omitted, the brands list will be sorting by created_at descending.\n",
           "properties": {
             "created_at": {
               "allOf": [
@@ -4654,7 +4663,7 @@
         "name": "sort",
         "in": "query",
         "schema": {
-          "description": "It allows to sort ***flows*** list.",
+          "description": "It allows to sort ***flows*** list.\n> If the sort parameter is omitted, the flows list will be sorting by created_at descending.\n",
           "properties": {
             "created_at": {
               "allOf": [
@@ -4684,7 +4693,7 @@
         "name": "sort",
         "in": "query",
         "schema": {
-          "description": "It allows to sort ***integrations*** list.",
+          "description": "It allows to sort ***integrations*** list.\n> If the sort parameter is omitted, the integrations list will be sorting by created_at descending.\n",
           "properties": {
             "created_at": {
               "allOf": [
@@ -4708,6 +4717,124 @@
               ]
             },
             "channel": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "query_sort_for_tasks": {
+        "name": "sort",
+        "in": "query",
+        "schema": {
+          "description": "It allows to sort ***tasks*** list.\n> If the sort parameter is omitted, the tasks list will be sorting by created_at descending.\n",
+          "properties": {
+            "created_at": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "updated_at": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "progress": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "status": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "query_sort_for_tenants": {
+        "name": "sort",
+        "in": "query",
+        "schema": {
+          "description": "It allows to sort ***tenants*** list.\n> If the sort parameter is omitted, the tenants list will be sorting by created_at descending.\n",
+          "properties": {
+            "created_at": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "updated_at": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "name": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "is_ready_to_omna": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "query_sort_for_webhooks": {
+        "name": "sort",
+        "in": "query",
+        "schema": {
+          "description": "It allows to sort ***workflows*** list.\n> If the sort parameter is omitted, the workflows list will be sorting by created_at descending.\n",
+          "properties": {
+            "created_at": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "updated_at": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "topic": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "address": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "api_version": {
               "allOf": [
                 {
                   "$ref": "#/components/schemas/SortQueryParameter"

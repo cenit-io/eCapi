@@ -188,6 +188,7 @@ paths:
         - $ref: '#/components/parameters/query_filter_term_for_collections'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_collections'
       responses:
         '200':
           $ref: '#/components/responses/collection_items'
@@ -689,6 +690,7 @@ paths:
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_categories'
       responses:
         '200':
           $ref: '#/components/responses/category_items'
@@ -975,6 +977,7 @@ paths:
       - $ref: '#/components/parameters/query_without_data'
       - $ref: '#/components/parameters/query_offset'
       - $ref: '#/components/parameters/query_limit'
+      - $ref: '#/components/parameters/query_sort_for_variants'
     get:
       tags:
         - Variants of an Integration
@@ -1259,6 +1262,7 @@ paths:
       - $ref: '#/components/parameters/query_without_data'
       - $ref: '#/components/parameters/query_offset'
       - $ref: '#/components/parameters/query_limit'
+      - $ref: '#/components/parameters/query_sort_for_variants'
     get:
       tags:
         - Variants
@@ -3379,6 +3383,52 @@ components:
           name_en:
             allOf:
               - $ref: '#/components/schemas/SortQueryParameter'
+    query_sort_for_categories:
+      name: sort
+      in: query
+      schema:
+        description: |
+          It allows to sort ***categories*** list.
+          > If the sort parameter is omitted, the categories list will be sorting by created_at descending.
+        properties:
+          created_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          updated_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          name:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+    query_sort_for_collections:
+      name: sort
+      in: query
+      schema:
+        description: |
+          It allows to sort ***available integrations*** list.
+          > If the sort parameter is omitted, the available integrations list will be sorting by created_at descending.
+        properties:
+          created_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          updated_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          name:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          title:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          status:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          version:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          installed_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
     query_sort_for_flows:
       name: sort
       in: query
@@ -3454,6 +3504,32 @@ components:
             allOf:
               - $ref: '#/components/schemas/SortQueryParameter'
           is_ready_to_omna:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+    query_sort_for_variants:
+      name: sort
+      in: query
+      schema:
+        description: |
+          It allows to sort ***variants*** list.
+          > If the sort parameter is omitted, the variants list will be sorting by created_at descending.
+        properties:
+          created_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          updated_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          sku:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          price:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          quantity:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          last_import_date:
             allOf:
               - $ref: '#/components/schemas/SortQueryParameter'
     query_sort_for_webhooks:

@@ -1,0 +1,30 @@
+name: sort
+in: query
+schema:
+  description: |
+    It allows to sort ***available integrations*** list.
+    > If the sort parameter is omitted, the available integrations list will be sorting by created_at descending.
+  properties:
+    created_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    updated_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    name:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    title:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    status:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    version:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    installed_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+
+

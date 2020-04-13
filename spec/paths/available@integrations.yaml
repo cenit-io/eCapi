@@ -9,6 +9,7 @@ get:
     - $ref: '#/components/parameters/query_filter_term_for_collections'
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
+    - $ref: '#/components/parameters/query_sort_for_collections'
   responses:
     '200':
       $ref: '#/components/responses/collection_items'

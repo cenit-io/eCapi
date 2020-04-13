@@ -1,0 +1,25 @@
+name: sort
+in: query
+schema:
+  description: |
+    It allows to sort ***variants*** list.
+    > If the sort parameter is omitted, the variants list will be sorting by created_at descending.
+  properties:
+    created_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    updated_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    sku:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    price:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    quantity:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    last_import_date:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"

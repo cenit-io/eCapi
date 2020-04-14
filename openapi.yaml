@@ -759,6 +759,7 @@ paths:
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_orders'
       responses:
         '200':
           $ref: '#/components/responses/order_items'
@@ -771,7 +772,7 @@ paths:
         Generate an async task to export the updated orders to to one or more target integrations.
 
         > If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the
-        order export workflow defined with its has the scheduler disabled.
+        order export workflow defined with its scheduler disabled.
       requestBody:
         $ref: '#/components/requestBodies/export_orders_to_integration'
       responses:
@@ -1050,6 +1051,7 @@ paths:
       - $ref: '#/components/parameters/query_without_data'
       - $ref: '#/components/parameters/query_offset'
       - $ref: '#/components/parameters/query_limit'
+      - $ref: '#/components/parameters/query_sort_for_orders'
     get:
       tags:
         - Orders
@@ -1161,6 +1163,7 @@ paths:
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_products'
       responses:
         '200':
           $ref: '#/components/responses/product_items'
@@ -3464,6 +3467,52 @@ components:
             allOf:
               - $ref: '#/components/schemas/SortQueryParameter'
           channel:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+    query_sort_for_orders:
+      name: sort
+      in: query
+      schema:
+        description: |
+          It allows to sort ***orders*** list.
+          > If the sort parameter is omitted, the orders list will be sorting by created_at descending.
+        properties:
+          created_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          updated_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          number:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          total_price:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          status:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          total_quantity:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+    query_sort_for_products:
+      name: sort
+      in: query
+      schema:
+        description: |
+          It allows to sort ***products*** list.
+          > If the sort parameter is omitted, the products list will be sorting by created_at descending.
+        properties:
+          created_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          updated_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          name:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          price:
             allOf:
               - $ref: '#/components/schemas/SortQueryParameter'
     query_sort_for_tasks:

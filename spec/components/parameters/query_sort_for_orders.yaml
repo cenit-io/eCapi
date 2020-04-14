@@ -1,0 +1,25 @@
+name: sort
+in: query
+schema:
+  description: |
+    It allows to sort ***orders*** list.
+    > If the sort parameter is omitted, the orders list will be sorting by created_at descending.
+  properties:
+    created_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    updated_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    number:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    total_price:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    status:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    total_quantity:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"

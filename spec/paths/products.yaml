@@ -12,6 +12,7 @@ get:
     - $ref: '#/components/parameters/query_without_data'
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
+    - $ref: '#/components/parameters/query_sort_for_products'
   responses:
     '200':
       $ref: '#/components/responses/product_items'

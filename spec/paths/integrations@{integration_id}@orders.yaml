@@ -13,6 +13,7 @@ get:
     - $ref: '#/components/parameters/query_without_data'
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
+    - $ref: '#/components/parameters/query_sort_for_orders'
   responses:
     '200':
       $ref: '#/components/responses/order_items'
@@ -26,7 +27,7 @@ put:
     Generate an async task to export the updated orders to to one or more target integrations.
 
     > If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the
-    order export workflow defined with its has the scheduler disabled.
+    order export workflow defined with its scheduler disabled.
 
   requestBody:
     $ref: '#/components/requestBodies/export_orders_to_integration'

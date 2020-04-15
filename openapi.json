@@ -60,19 +60,19 @@
     },
     {
       "name": "Flows",
-      "description": "Operations on the flows.\n\nThe flows allow to user configure a set of predetermined tasks to run on an integration. These tasks can be\nexecuted manually or automated through the configuration and activation of their schedulers. For example,\nthe user can want to receive products form an integration 1 and orders form another integration.\n"
+      "description": "Operations on the flows.\n\nThe flows allow the user to configure a set of predetermined tasks to run on an integration. These tasks can be\nexecuted manually or automated through the configuration and activation of their schedulers. For example,\nthe user might want to receive products from an integration 1 and orders form another integration.\n"
     },
     {
       "name": "Tasks",
-      "description": "Each of the actions that make up the api generate one or more tasks when are process. In the details of the task\nwe can find information about the processing triggered by the action like status, fulfillment %, notifications, etc.\n"
+      "description": "Each of the actions that make up the api generate one or more tasks when they are process. In the details of the task\nwe can find information about the processing triggered by the action like status, fulfillment %, notifications, etc.\n"
     },
     {
       "name": "Webhooks",
-      "description": "A webhook is a hook through which a notification is sent to a URL of user choice when a certain event occurs.\nThey allow to receive real-time HTTP notifications of changes to specific objects. Webhooks facilitate syncing\nand relaying data between two endpoints.\n\n### Anatomy of a webhook\n\nAfter you configure a webhook subscription, the events that you specified will trigger a webhook notification\neach time they occur. This notification contains a JSON payload and and HTTP headers that provide context.\nFor example, the order/updated webhook includes the following headers:\n\n- **X-Tenant-Token**: 5cfe690b25d9854b3b02241b,\n- **X-Topic**: order/updated,\n- **X-API-Version**: v1\n- **X-HMac-Sha256**: d24c9128362b0518f9ca2bf767b4a60a59aefe0f63ebeb7d47ec594442fc7a8f\n\nSome HTTP headers are particularly useful for your app:\n\n- **X-Topic** represents the type of object and the event that occurred.\n- **X-HMac-Sha256** and **X-Tenant-Token** are used to verify webhooks.\n- **X-API-Version** is used to confirm what version of the API used to serialize the webhook event payload.\n\n### Verifying webhooks\n\nWebhooks created through the API are verified by calculating a digital signature. Each webhook request includes\n**X-HMac-Sha256** header, which is generated using the tenant shared secret along with the data sent in the request.\n\nTo verify that the request came from OMNA, compute the **HMAC** digest according to the following algorithm and\ncompare it to the value in the **X-HMac-Sha256** header. If they match, then you can be sure that the webhook was\nsent from OMNA.\n\n**The following Ruby example apply to Sinatra or RoR web frameworks to verify a webhook request:**\n\n```Ruby\n  require 'openssl'\n\n  request.body.rewind\n  body = request.body.read\n\n  secret = '...' # Get this from tenant with equal to **X-Tenant-Token** header.\n\n  hmac1 = request.headers['X-HMac-Sha256']\n  hmac2 = OpenSSL::HMAC.hexdigest('sha256', secret, body)\n\n  raise 'The request is not valid...' if hmac1 != hmac2\n```\n"
+      "description": "A webhook is a hook through which a notification is sent to a URL of the user's choice when a certain event occurs.\nThey allow to receive real-time HTTP notifications of changes to specific objects. Webhooks facilitate syncing\nand relaying data between two endpoints.\n\n### Anatomy of a webhook\n\nAfter you configure a webhook subscription, the events that you specified will trigger a webhook notification\neach time they occur. This notification contains a JSON payload and and HTTP headers that provide context.\nFor example, the order/updated webhook includes the following headers:\n\n- **X-Tenant-Token**: 5cfe690b25d9854b3b02241b,\n- **X-Topic**: order/updated,\n- **X-API-Version**: v1\n- **X-HMac-Sha256**: d24c9128362b0518f9ca2bf767b4a60a59aefe0f63ebeb7d47ec594442fc7a8f\n\nSome HTTP headers are particularly useful for your app:\n\n- **X-Topic** represents the type of object and the event that occurred.\n- **X-HMac-Sha256** and **X-Tenant-Token** are used to verify webhooks.\n- **X-API-Version** is used to confirm what version of the API used to serialize the webhook event payload.\n\n### Verifying webhooks\n\nWebhooks created through the API are verified by calculating a digital signature. Each webhook request includes\n**X-HMac-Sha256** header, which is generated using the tenant shared secret along with the data sent in the request.\n\nTo verify that the request came from OMNA, compute the **HMAC** digest according to the following algorithm and\ncompare it to the value in the **X-HMac-Sha256** header. If they match, then you can be sure that the webhook was\nsent from OMNA.\n\n**The following Ruby example apply to Sinatra or RoR web frameworks to verify a webhook request:**\n\n```Ruby\n  require 'openssl'\n\n  request.body.rewind\n  body = request.body.read\n\n  secret = '...' # Get this from tenant with equal to **X-Tenant-Token** header.\n\n  hmac1 = request.headers['X-HMac-Sha256']\n  hmac2 = OpenSSL::HMAC.hexdigest('sha256', secret, body)\n\n  raise 'The request is not valid...' if hmac1 != hmac2\n```\n"
     },
     {
       "name": "Users",
-      "description": "User represent a person or a company, it is a user in Cenit System.\n"
+      "description": "A user represents a person or a company, it is a user in Cenit System.\n"
     }
   ],
   "servers": [
@@ -695,7 +695,7 @@
         ],
         "operationId": "get_brand",
         "summary": "Retrieve a brand from an Integration",
-        "description": "Retrieve an product brand by its name or identify.\n",
+        "description": "Retrieve a product brand by its name or identify.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/brand_item"
@@ -807,7 +807,7 @@
         ],
         "operationId": "get_category",
         "summary": "Retrieve a category from an Integration",
-        "description": "Retrieve an product category by its identify.\n",
+        "description": "Retrieve a product category by its identify.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/category_item"
@@ -966,7 +966,7 @@
         ],
         "operationId": "export_order_async_beta_",
         "summary": "Export an Order of an Integration",
-        "description": "Generate an async task to start the export flows of a specific order to one or more target integrations.\n\n> If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the\norder export workflow defined with its has the scheduler disabled.\n",
+        "description": "Generate an async task to start the export flows of a specific order to one or more target integrations.\n\n> If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the\norder export workflow defined with its scheduler disabled.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/export_order_to_integration"
         },
@@ -1827,7 +1827,7 @@
         ],
         "operationId": "startup_tenant_async_",
         "summary": "Startup",
-        "description": "Generate an async task to startup OMNA Commerce in the authenticated tenant.\n\n> It is not necessary to call this service when the tenant has been created with the application or api of OMAN.\n",
+        "description": "Generate an async task to startup OMNA Commerce in the authenticated tenant.\n\n> It is not necessary to call this service when the tenant has been created with the application or api of OMNA.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/startup_task"
@@ -1888,7 +1888,7 @@
         ],
         "operationId": "get_task",
         "summary": "Retrieve a Task",
-        "description": "Find task by given id and returns it.\n",
+        "description": "Find a task by a given id and returns it.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -1904,7 +1904,7 @@
         ],
         "operationId": "delete_task",
         "summary": "Delete a Task",
-        "description": "Find task by given id and delete it.\n\n> The task in running status can not be deleted.\n",
+        "description": "Find a task by a given id and delete it.\n\n> The task in running status can not be deleted.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -1927,7 +1927,7 @@
         ],
         "operationId": "retry_task_beta_",
         "summary": "Retry a Task",
-        "description": "Find a task for the given id and retry its execution.\n\n> Only failed tasks can be retry.\n",
+        "description": "Find a task for the given id and retry its execution.\n\n> Only failed tasks can be retried.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -1945,7 +1945,7 @@
         ],
         "operationId": "get_tenants",
         "summary": "List all Tenant",
-        "description": "Returns the list of tenants of authenticated user.\n",
+        "description": "Returns the list of tenants of authenticated users.\n",
         "parameters": [
           {
             "$ref": "#/components/parameters/query_filter_term_for_tenants"
@@ -2001,7 +2001,7 @@
         ],
         "operationId": "get_tenant",
         "summary": "Retrieve a Tenant",
-        "description": "Find tenant by given id and returns it.\n",
+        "description": "Find a tenant by a given id and returns it.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/tenant_item"
@@ -2017,7 +2017,7 @@
         ],
         "operationId": "delete_tenant",
         "summary": "Delete a Tenant",
-        "description": "Find tenant by given id and delete it.\n",
+        "description": "Find a tenant by a given id and delete it.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"

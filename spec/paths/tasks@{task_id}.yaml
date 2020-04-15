@@ -7,7 +7,7 @@ get:
   operationId: get_task
   summary: Retrieve a Task
   description: |
-    Find task by given id and returns it.
+    Find a task by a given id and returns it.
   responses:
     '200':
       $ref: '#/components/responses/task_item'
@@ -20,7 +20,7 @@ delete:
   operationId: delete_task
   summary: Delete a Task
   description: |
-    Find task by given id and delete it.
+    Find a task by a given id and delete it.
 
     > The task in running status can not be deleted.
   responses:

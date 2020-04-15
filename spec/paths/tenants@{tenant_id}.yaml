@@ -7,7 +7,7 @@ get:
   operationId: get_tenant
   summary: Retrieve a Tenant
   description: |
-    Find tenant by given id and returns it.
+    Find a tenant by a given id and returns it.
   responses:
     '200':
       $ref: '#/components/responses/tenant_item'
@@ -20,7 +20,7 @@ delete:
   operationId: delete_tenant
   summary: Delete a Tenant
   description: |
-    Find tenant by given id and delete it.
+    Find a tenant by a given id and delete it.
   responses:
     '200':
       $ref: '#/components/responses/success'

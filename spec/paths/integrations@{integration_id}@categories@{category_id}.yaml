@@ -8,7 +8,7 @@ get:
   operationId: get_category
   summary: Retrieve a category from an Integration
   description: |
-    Retrieve an product category by its identify.
+    Retrieve a product category by its identify.
   responses:
     '200':
       $ref: '#/components/responses/category_item'

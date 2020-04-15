@@ -4,7 +4,7 @@ get:
   operationId: get_tenants
   summary: List all Tenant
   description: |
-    Returns the list of tenants of authenticated user.
+    Returns the list of tenants of authenticated users.
   parameters:
     - $ref: '#/components/parameters/query_filter_term_for_tenants'
     - $ref: '#/components/parameters/query_without_data'

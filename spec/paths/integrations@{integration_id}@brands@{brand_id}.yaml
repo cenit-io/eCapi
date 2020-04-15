@@ -8,7 +8,7 @@ get:
   operationId: get_brand
   summary: Retrieve a brand from an Integration
   description: |
-    Retrieve an product brand by its name or identify.
+    Retrieve a product brand by its name or identify.
   responses:
     '200':
       $ref: '#/components/responses/brand_item'

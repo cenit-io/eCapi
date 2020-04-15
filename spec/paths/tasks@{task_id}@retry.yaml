@@ -9,7 +9,7 @@ get:
   description: |
     Find a task for the given id and retry its execution.
 
-    > Only failed tasks can be retry.
+    > Only failed tasks can be retried.
   responses:
     '200':
       $ref: '#/components/responses/success'

@@ -7,7 +7,7 @@ get:
   operationId: get_flow
   summary: Retrieve a Flow
   description: |
-    Find a flow by a given id and returns it.
+    Find flow by given id and returns it.
   responses:
     '200':
       $ref: '#/components/responses/flow_item'

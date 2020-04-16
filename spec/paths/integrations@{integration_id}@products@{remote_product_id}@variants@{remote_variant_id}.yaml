@@ -7,10 +7,25 @@ get:
   tags:
     - Variants of an Integration
   operationId: get_integration_variant_beta_
-  summary: Retrieve a Variant from an Integration
+  summary: Retrieve an Variant from an Integration
   description: |
-    Retrieve the variant that is liked in the given integration and has the given identifier of the remote variant on its source platform.
+    Retrieve the product variant that is liked in the given integration and have as identify on its source platform
+    the given identifier of the remote variant.
+  responses:
+    '200':
+      $ref: '#/components/responses/variant_item'
+    '404':
+      $ref: '#/components/responses/variant_not_found'
 
+post:
+  tags:
+    - Variants of an Integration
+  operationId: update_integration_variant_beta_
+  summary: Update a Variant
+  description: |
+    Update the specific properties of a product variant in an integration.
+  requestBody:
+    $ref: '#/components/requestBodies/variant_properties_update'
   responses:
     '200':
       $ref: '#/components/responses/variant_item'

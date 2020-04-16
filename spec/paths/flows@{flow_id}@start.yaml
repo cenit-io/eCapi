@@ -8,7 +8,7 @@ get:
   description: |
     Find a flow by a given id and start its processing.
 
-    > If it exists any task of this flow in the execution or pending state, then
+    > If exists any task of this flow in the execution or pending state, then
     the same task is returned, otherwise a new task is created.
   responses:
     '200':

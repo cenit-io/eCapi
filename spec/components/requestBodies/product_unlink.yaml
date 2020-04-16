@@ -1,5 +1,5 @@
 description: |
-  Integrations IDs and data to sets whether the product should be removed from the remote integration source.
+  Integrations IDs and data to set whether the product should be removed from the remote integration source.
 required: true
 content:
   application/json:

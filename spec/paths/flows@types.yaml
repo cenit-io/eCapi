@@ -4,7 +4,7 @@ get:
   operationId: get_flow_types
   summary: List all Flow Types
   description: |
-    Returns the list of flow types availables.
+    Returns the list of flow types available.
   responses:
     '200':
       $ref: '#/components/responses/flow_types'

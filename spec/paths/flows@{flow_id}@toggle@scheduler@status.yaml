@@ -6,7 +6,7 @@ post:
   operationId: toggle_flow_scheduler_status
   summary: Toggle a Scheduler status
   description: |
-    Find flow by given id and activate or deactivate its scheduler.
+    Find a flow by a given id and activate or deactivate its scheduler.
   responses:
     '200':
       $ref: '#/components/responses/flow_item'

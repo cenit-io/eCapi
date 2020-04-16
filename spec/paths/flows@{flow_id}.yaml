@@ -7,7 +7,7 @@ get:
   operationId: get_flow
   summary: Retrieve a Flow
   description: |
-    Find flow by given id and returns it.
+    Find a flow by a given id and returns it.
   responses:
     '200':
       $ref: '#/components/responses/flow_item'
@@ -20,7 +20,7 @@ post:
   operationId: update_flow
   summary: Update a Flow Scheduler
   description: |
-    Find flow by given id and update it scheduler.
+    Find a flow by a given id and update it scheduler.
   requestBody:
     $ref: '#/components/requestBodies/flow_update'
   responses:
@@ -35,7 +35,7 @@ delete:
   operationId: delete_flow
   summary: Delete a Flow
   description: |
-    Find flow by given id and destroy it.
+    Find a flow by a given id and destroy it.
   responses:
     '200':
       $ref: '#/components/responses/success'

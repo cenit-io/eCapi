@@ -7,7 +7,7 @@ get:
   operationId: get_webhook
   summary: Retrieve a Webhook
   description: |
-    Find webhook by given id and returns it.
+    Find a webhook by a given id and returns it.
   responses:
     '200':
       $ref: '#/components/responses/webhook_item'
@@ -20,7 +20,7 @@ delete:
   operationId: delete_webhook
   summary: Delete a Webhook
   description: |
-    Find webhook by given id and delete it.
+    Find a webhook by a given id and delete it.
   responses:
     '200':
       $ref: '#/components/responses/success'
@@ -33,7 +33,7 @@ post:
   operationId: update_webhook
   summary: Update a Webhook
   description: |
-    Find webhook by given id and update it.
+    Find a webhook by a given id and update it.
   responses:
     '200':
       $ref: '#/components/responses/webhook_item'

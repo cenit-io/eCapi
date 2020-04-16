@@ -4,7 +4,7 @@ get:
   operationId: get_webhook_topics
   summary: List all Webhook Topics
   description: |
-    Returns the list of webhook topics availables.
+    Returns the list of webhook topics available.
   responses:
     '200':
       $ref: '#/components/responses/webhook_topics'

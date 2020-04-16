@@ -6029,21 +6029,51 @@
                       "id": "category_id",
                       "label": "Category",
                       "required": true,
+                      "read_only": true,
                       "input_type": "single_select_with_remote_options",
                       "options": [
                         {
-                          "id": 7540,
-                          "value": "Smart Devices > Smart Trackers"
+                          "id": "10100393",
+                          "name": "Audio > DJ Equipment > DJ Mixers"
                         }
                       ],
                       "options_service_path": "/integrations/lazada_sg/categories",
-                      "value": 7540
+                      "value": "10100393"
+                    },
+                    {
+                      "id": "video",
+                      "label": "Video URL",
+                      "required": false,
+                      "read_only": false,
+                      "input_type": "text",
+                      "options": [],
+                      "value": null
+                    },
+                    {
+                      "id": "brand",
+                      "label": "Brand",
+                      "required": true,
+                      "read_only": false,
+                      "input_type": "single_select_with_remote_options",
+                      "options": [],
+                      "value": null,
+                      "options_service_path": "/integrations/lazada_sg/brands"
+                    },
+                    {
+                      "id": "model",
+                      "label": "Model",
+                      "required": true,
+                      "read_only": false,
+                      "input_type": "text",
+                      "options": [],
+                      "value": "ABC"
                     },
                     {
                       "id": "warranty_type",
                       "label": "Warranty Type",
-                      "required": false,
-                      "input_type": "single_select",
+                      "required": true,
+                      "read_only": false,
+                      "input_type": "multi_enum_input",
                       "options": [
                         "International Manufacturer Warranty",
                         "International Seller Warranty",
@@ -6056,46 +6086,95 @@
                     },
                     {
                       "id": "warranty",
-                      "name": "warranty",
                       "label": "Warranty Period",
                       "required": false,
+                      "read_only": false,
                       "input_type": "single_select",
                       "options": [
                         "1 Month",
                         "1 Year",
                         "10 Months",
                         "10 Years",
+                        "11 Months",
+                        "12 Years",
+                        "15 Years",
+                        "18 Months",
+                        "2 Months",
+                        "2 Years",
+                        "25 Years",
+                        "3 Months",
+                        "3 Years",
+                        "30 Years",
+                        "4 Months",
+                        "4 Years",
+                        "5 Months",
+                        "5 Years",
+                        "6 Months",
+                        "6 Years",
+                        "7 Months",
+                        "7 Years",
+                        "8 Months",
+                        "8 Years",
+                        "9 Months",
                         "Life Time Warranty"
                       ],
                       "value": "1 Month"
                     },
                     {
-                      "id": "brand",
-                      "name": "brand",
-                      "label": "Brand",
-                      "required": true,
-                      "input_type": "single_select",
-                      "value": "No Brand"
+                      "id": "product_warranty",
+                      "label": "Warranty Policy",
+                      "required": false,
+                      "read_only": false,
+                      "input_type": "text",
+                      "options": [],
+                      "value": null
                     },
                     {
-                      "id": "delivery_option_economy",
-                      "name": "delivery_option_economy",
-                      "label": "Delivery Option Economy",
+                      "id": "short_description",
+                      "label": "Highlights",
+                      "required": true,
+                      "read_only": false,
+                      "input_type": "rich_text",
+                      "options": [],
+                      "value": "<p>...</p>"
+                    },
+                    {
+                      "id": "delivery_option_express",
+                      "label": "Delivery Option Express",
                       "required": false,
+                      "read_only": false,
                       "input_type": "single_select",
                       "options": [
                         "No",
                         "Yes"
                       ],
-                      "value": "Yes"
+                      "value": null
                     },
                     {
-                      "id": "short_description",
-                      "name": "short_description",
-                      "label": "Highlights",
-                      "required": true,
-                      "input_type": "rich_text",
-                      "value": "It's the small iPod with one very big idea"
+                      "id": "delivery_option_economy",
+                      "label": "Delivery Option Economy",
+                      "required": false,
+                      "read_only": false,
+                      "input_type": "single_select",
+                      "options": [
+                        "No",
+                        "Yes"
+                      ],
+                      "value": null
+                    },
+                    {
+                      "id": "Hazmat",
+                      "label": "Dangerous Goods",
+                      "required": false,
+                      "read_only": false,
+                      "input_type": "multi_select",
+                      "options": [
+                        "Battery",
+                        "Flammable",
+                        "Liquid",
+                        "None"
+                      ],
+                      "value": null
                     }
                   ]
                 }
@@ -6410,16 +6489,74 @@
                   "remote_variant_id": "5395303626",
                   "properties": [
                     {
-                      "id": "delivery_option_economy",
-                      "name": "delivery_option_economy",
-                      "label": "Delivery Option Economy",
+                      "id": "color_family",
+                      "label": "Color Family",
+                      "required": true,
+                      "read_only": false,
+                      "input_type": "multi_enum_input",
+                      "options": [
+                        "Black",
+                        "Blue",
+                        "Red",
+                        "White"
+                      ],
+                      "value": "Blue"
+                    },
+                    {
+                      "id": "package_content",
+                      "label": "What's in the box",
                       "required": false,
+                      "read_only": false,
+                      "input_type": "text",
+                      "options": [],
+                      "value": "..."
+                    },
+                    {
+                      "id": "package_weight",
+                      "label": "Package Weight (kg)",
+                      "required": true,
+                      "read_only": false,
+                      "input_type": "numeric",
+                      "options": [],
+                      "value": 1
+                    },
+                    {
+                      "id": "package_length",
+                      "label": "Package Length (cm)",
+                      "required": true,
+                      "read_only": false,
+                      "input_type": "numeric",
+                      "options": [],
+                      "value": 1
+                    },
+                    {
+                      "id": "package_width",
+                      "label": "Package Width (cm)",
+                      "required": true,
+                      "read_only": false,
+                      "input_type": "numeric",
+                      "options": [],
+                      "value": 1
+                    },
+                    {
+                      "id": "package_height",
+                      "label": "Package Height (cm)",
+                      "required": true,
+                      "read_only": false,
+                      "input_type": "numeric",
+                      "options": [],
+                      "value": 1
+                    },
+                    {
+                      "id": "tax_class",
+                      "label": "Taxes",
+                      "required": false,
+                      "read_only": false,
                       "input_type": "single_select",
                       "options": [
-                        "No",
-                        "Yes"
+                        "default"
                       ],
-                      "value": "Yes"
+                      "value": null
                     }
                   ]
                 }

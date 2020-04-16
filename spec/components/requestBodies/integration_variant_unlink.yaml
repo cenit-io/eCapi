@@ -11,7 +11,7 @@ content:
           properties:
             delete_from_integration:
               description: |
-                Sets whether the variant should be removed from the remote integration source.
+                Set whether the variant should be removed from the remote integration source.
               type: boolean
               default: false
 

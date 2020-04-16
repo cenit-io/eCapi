@@ -1000,8 +1000,22 @@ paths:
       operationId: get_integration_variant_beta_
       summary: Retrieve an Variant from an Integration
       description: |
-        Retrieve the variant that is liked in the given integration and have as identify on its source platform
+        Retrieve the product variant that is liked in the given integration and have as identify on its source platform
         the given identifier of the remote variant.
+      responses:
+        '200':
+          $ref: '#/components/responses/variant_item'
+        '404':
+          $ref: '#/components/responses/variant_not_found'
+    post:
+      tags:
+        - Variants of an Integration
+      operationId: update_integration_variant_beta_
+      summary: Update a Variant
+      description: |
+        Update the specific properties of a product variant in an integration.
+      requestBody:
+        $ref: '#/components/requestBodies/variant_properties_update'
       responses:
         '200':
           $ref: '#/components/responses/variant_item'
@@ -5002,6 +5016,22 @@ components:
           examples:
             Ex1:
               $ref: '#/components/examples/variant_link_request'
+    variant_properties_update:
+      description: Variant properties that will be updated
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  properties:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/VariantProperty'
     variant_unlink:
       description: |
         Integrations IDs and data to sets whether the variant should be removed from the remote integration source.
@@ -5040,7 +5070,8 @@ components:
               - data
             properties:
               data:
-                $ref: '#/components/schemas/Variant'
+                allOf:
+                  - $ref: '#/components/schemas/Variant'
           examples:
             Ex1:
               $ref: '#/components/examples/variant_update_request_1'

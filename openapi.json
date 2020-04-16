@@ -328,7 +328,7 @@
         ],
         "operationId": "update_flow",
         "summary": "Update a Flow Scheduler",
-        "description": "Find flow by given id and update it scheduler.\n",
+        "description": "Find a flow by a given id and update it scheduler.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/flow_update"
         },
@@ -347,7 +347,7 @@
         ],
         "operationId": "delete_flow",
         "summary": "Delete a Flow",
-        "description": "Find flow by given id and destroy it.\n",
+        "description": "Find a flow by a given id and destroy it.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -370,7 +370,7 @@
         ],
         "operationId": "start_flow_async_",
         "summary": "Start a Flow",
-        "description": "Find flow by given id and start its processing.\n\n> If exists any task of this flow in the execution or pending state, then\nthe same task is returned, otherwise a new task is created.\n",
+        "description": "Find a flow by a given id and start its processing.\n\n> If exists any task of this flow in the execution or pending state, then\nthe same task is returned, otherwise a new task is created.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -393,7 +393,7 @@
         ],
         "operationId": "toggle_flow_scheduler_status",
         "summary": "Toggle a Scheduler status",
-        "description": "Find flow by given id and activate or deactivate its scheduler.\n",
+        "description": "Find a flow by a given id and activate or deactivate its scheduler.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/flow_item"
@@ -411,7 +411,7 @@
         ],
         "operationId": "get_flow_types",
         "summary": "List all Flow Types",
-        "description": "Returns the list of flow types availables.\n",
+        "description": "Returns the list of flow types available.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/flow_types"
@@ -1143,7 +1143,7 @@
           "Products of an Integration"
         ],
         "operationId": "get_integration_product_beta_",
-        "summary": "Retrieve an Product from an Integration",
+        "summary": "Retrieve a Product from an Integration",
         "description": "Retrieve the product that is linked with the given integration and have as identify on its source platform\nthe given identifier of the remote product.\n",
         "responses": {
           "200": {
@@ -2116,7 +2116,7 @@
         ],
         "operationId": "get_webhook",
         "summary": "Retrieve a Webhook",
-        "description": "Find webhook by given id and returns it.\n",
+        "description": "Find a webhook by a given id and returns it.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/webhook_item"
@@ -2132,7 +2132,7 @@
         ],
         "operationId": "delete_webhook",
         "summary": "Delete a Webhook",
-        "description": "Find webhook by given id and delete it.\n",
+        "description": "Find a webhook by a given id and delete it.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
@@ -2148,7 +2148,7 @@
         ],
         "operationId": "update_webhook",
         "summary": "Update a Webhook",
-        "description": "Find webhook by given id and update it.\n",
+        "description": "Find a webhook by a given id and update it.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/webhook_item"
@@ -2166,7 +2166,7 @@
         ],
         "operationId": "get_webhook_topics",
         "summary": "List all Webhook Topics",
-        "description": "Returns the list of webhook topics availables.\n",
+        "description": "Returns the list of webhook topics available.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/webhook_topics"
@@ -6915,7 +6915,7 @@
         }
       },
       "integration_product_unlink": {
-        "description": "Data to sets whether the product should be removed from the remote integration source.\n",
+        "description": "Data to set whether the product should be removed from the remote integration source.\n",
         "required": true,
         "content": {
           "application/json": {
@@ -6928,7 +6928,7 @@
                   "type": "object",
                   "properties": {
                     "delete_from_integration": {
-                      "description": "Sets whether the product should be removed from the remote integration source.\n",
+                      "description": "Set whether the product should be removed from the remote integration source.\n",
                       "type": "boolean",
                       "default": false
                     }
@@ -6993,7 +6993,7 @@
         }
       },
       "integration_variant_unlink": {
-        "description": "Data to sets whether the variant should be removed from the remote integration source.\n",
+        "description": "Data to set whether the variant should be removed from the remote integration source.\n",
         "required": true,
         "content": {
           "application/json": {
@@ -7006,7 +7006,7 @@
                   "type": "object",
                   "properties": {
                     "delete_from_integration": {
-                      "description": "Sets whether the variant should be removed from the remote integration source.\n",
+                      "description": "Set whether the variant should be removed from the remote integration source.\n",
                       "type": "boolean",
                       "default": false
                     }
@@ -7164,7 +7164,7 @@
         }
       },
       "product_unlink": {
-        "description": "Integrations IDs and data to sets whether the product should be removed from the remote integration source.\n",
+        "description": "Integrations IDs and data to set whether the product should be removed from the remote integration source.\n",
         "required": true,
         "content": {
           "application/json": {
@@ -7184,7 +7184,7 @@
                       }
                     },
                     "delete_from_integration": {
-                      "description": "Sets whether the product should be removed from the remote integration source.\n",
+                      "description": "Set whether the product should be removed from the remote integration source.\n",
                       "type": "boolean",
                       "default": false
                     }
@@ -7321,7 +7321,7 @@
         }
       },
       "variant_unlink": {
-        "description": "Integrations IDs and data to sets whether the variant should be removed from the remote integration source.\n",
+        "description": "Integrations IDs and data to set whether the variant should be removed from the remote integration source.\n",
         "required": true,
         "content": {
           "application/json": {
@@ -7341,7 +7341,7 @@
                       }
                     },
                     "delete_from_integration": {
-                      "description": "Sets whether the variant should be removed from the remote integration source.\n",
+                      "description": "Set whether the variant should be removed from the remote integration source.\n",
                       "type": "boolean",
                       "default": false
                     }

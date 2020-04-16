@@ -306,7 +306,7 @@ paths:
       operationId: update_flow
       summary: Update a Flow Scheduler
       description: |
-        Find flow by given id and update it scheduler.
+        Find a flow by a given id and update it scheduler.
       requestBody:
         $ref: '#/components/requestBodies/flow_update'
       responses:
@@ -320,7 +320,7 @@ paths:
       operationId: delete_flow
       summary: Delete a Flow
       description: |
-        Find flow by given id and destroy it.
+        Find a flow by a given id and destroy it.
       responses:
         '200':
           $ref: '#/components/responses/success'
@@ -335,7 +335,7 @@ paths:
       operationId: start_flow_async_
       summary: Start a Flow
       description: |
-        Find flow by given id and start its processing.
+        Find a flow by a given id and start its processing.
 
         > If exists any task of this flow in the execution or pending state, then
         the same task is returned, otherwise a new task is created.
@@ -353,7 +353,7 @@ paths:
       operationId: toggle_flow_scheduler_status
       summary: Toggle a Scheduler status
       description: |
-        Find flow by given id and activate or deactivate its scheduler.
+        Find a flow by a given id and activate or deactivate its scheduler.
       responses:
         '200':
           $ref: '#/components/responses/flow_item'
@@ -366,7 +366,7 @@ paths:
       operationId: get_flow_types
       summary: List all Flow Types
       description: |
-        Returns the list of flow types availables.
+        Returns the list of flow types available.
       responses:
         '200':
           $ref: '#/components/responses/flow_types'
@@ -914,7 +914,7 @@ paths:
       tags:
         - Products of an Integration
       operationId: get_integration_product_beta_
-      summary: Retrieve an Product from an Integration
+      summary: Retrieve a Product from an Integration
       description: |
         Retrieve the product that is linked with the given integration and have as identify on its source platform
         the given identifier of the remote product.
@@ -1567,7 +1567,7 @@ paths:
       operationId: get_webhook
       summary: Retrieve a Webhook
       description: |
-        Find webhook by given id and returns it.
+        Find a webhook by a given id and returns it.
       responses:
         '200':
           $ref: '#/components/responses/webhook_item'
@@ -1579,7 +1579,7 @@ paths:
       operationId: delete_webhook
       summary: Delete a Webhook
       description: |
-        Find webhook by given id and delete it.
+        Find a webhook by a given id and delete it.
       responses:
         '200':
           $ref: '#/components/responses/success'
@@ -1591,7 +1591,7 @@ paths:
       operationId: update_webhook
       summary: Update a Webhook
       description: |
-        Find webhook by given id and update it.
+        Find a webhook by a given id and update it.
       responses:
         '200':
           $ref: '#/components/responses/webhook_item'
@@ -1604,7 +1604,7 @@ paths:
       operationId: get_webhook_topics
       summary: List all Webhook Topics
       description: |
-        Returns the list of webhook topics availables.
+        Returns the list of webhook topics available.
       responses:
         '200':
           $ref: '#/components/responses/webhook_topics'
@@ -4885,7 +4885,7 @@ components:
                   channel: ShopeeSG
     integration_product_unlink:
       description: |
-        Data to sets whether the product should be removed from the remote integration source.
+        Data to set whether the product should be removed from the remote integration source.
       required: true
       content:
         application/json:
@@ -4898,7 +4898,7 @@ components:
                 properties:
                   delete_from_integration:
                     description: |
-                      Sets whether the product should be removed from the remote integration source.
+                      Set whether the product should be removed from the remote integration source.
                     type: boolean
                     default: false
           examples:
@@ -4937,7 +4937,7 @@ components:
                   keys_to_import_brands: A
     integration_variant_unlink:
       description: |
-        Data to sets whether the variant should be removed from the remote integration source.
+        Data to set whether the variant should be removed from the remote integration source.
       required: true
       content:
         application/json:
@@ -4950,7 +4950,7 @@ components:
                 properties:
                   delete_from_integration:
                     description: |
-                      Sets whether the variant should be removed from the remote integration source.
+                      Set whether the variant should be removed from the remote integration source.
                     type: boolean
                     default: false
           examples:
@@ -5051,7 +5051,7 @@ components:
                       $ref: '#/components/schemas/ProductProperty'
     product_unlink:
       description: |
-        Integrations IDs and data to sets whether the product should be removed from the remote integration source.
+        Integrations IDs and data to set whether the product should be removed from the remote integration source.
       required: true
       content:
         application/json:
@@ -5069,7 +5069,7 @@ components:
                       type: string
                   delete_from_integration:
                     description: |
-                      Sets whether the product should be removed from the remote integration source.
+                      Set whether the product should be removed from the remote integration source.
                     type: boolean
                     default: false
                 required:
@@ -5147,7 +5147,7 @@ components:
                       $ref: '#/components/schemas/VariantProperty'
     variant_unlink:
       description: |
-        Integrations IDs and data to sets whether the variant should be removed from the remote integration source.
+        Integrations IDs and data to set whether the variant should be removed from the remote integration source.
       required: true
       content:
         application/json:
@@ -5165,7 +5165,7 @@ components:
                       type: string
                   delete_from_integration:
                     description: |
-                      Sets whether the variant should be removed from the remote integration source.
+                      Set whether the variant should be removed from the remote integration source.
                     type: boolean
                     default: false
                 required:

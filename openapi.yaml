@@ -2278,7 +2278,8 @@ components:
               items:
                 $ref: '#/components/schemas/VariantProperty'
     VariantProperty:
-      $ref: '#/components/schemas/ProductProperty'
+      allOf:
+        - $ref: '#/components/schemas/ProductProperty'
     Webhook:
       type: object
       properties:

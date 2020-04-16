@@ -6,7 +6,8 @@ content:
       required: [data]
       properties:
         data:
-          $ref: "#/components/schemas/Variant"
+          allOf:
+            - $ref: "#/components/schemas/Variant"
 
     examples:
       Ex1:

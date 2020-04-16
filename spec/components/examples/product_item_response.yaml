@@ -18,57 +18,124 @@ value:
           remote_product_id: '289247362'
           category_id: '10001946'
           properties:
-            - id: category_id
-              label: Category
+            - id: "category_id"
+              label: "Category"
               required: true
-              input_type: single_select_with_remote_options
+              read_only: true
+              input_type: "single_select_with_remote_options"
               options:
-                - id: 7540
-                  value: Smart Devices > Smart Trackers
-              options_service_path: /integrations/lazada_sg/categories
-              value: 7540
-            - id: warranty_type
-              label: Warranty Type
+                - id: "10100393"
+                  name: "Audio > DJ Equipment > DJ Mixers"
+              options_service_path: "/integrations/lazada_sg/categories"
+              value: "10100393"
+            - id: "video"
+              label: "Video URL"
               required: false
-              input_type: single_select
-              options:
-                - International Manufacturer Warranty
-                - International Seller Warranty
-                - Local (Singapore) manufacturer warranty
-                - Local seller warranty
-                - No Warranty
-                - Non-local warranty
-              value: International Manufacturer Warranty
-            - id: warranty
-              name: warranty
-              label: Warranty Period
-              required: false
-              input_type: single_select
-              options:
-                - 1 Month
-                - 1 Year
-                - 10 Months
-                - 10 Years
-                - Life Time Warranty
-              value: 1 Month
-            - id: brand
-              name: brand
-              label: Brand
+              read_only: false
+              input_type: "text"
+              options: []
+              value: null
+            - id: "brand"
+              label: "Brand"
               required: true
-              input_type: single_select
-              value: No Brand
-            - id: delivery_option_economy
-              name: delivery_option_economy
-              label: Delivery Option Economy
-              required: false
-              input_type: single_select
-              options:
-                - 'No'
-                - 'Yes'
-              value: Yes
-            - id: short_description
-              name: short_description
-              label: Highlights
+              read_only: false
+              input_type: "single_select_with_remote_options"
+              options: []
+              value: null
+              options_service_path: "/integrations/lazada_sg/brands"
+            - id: "model"
+              label: "Model"
               required: true
-              input_type: rich_text
-              value: It's the small iPod with one very big idea
+              read_only: false
+              input_type: "text"
+              options: []
+              value: "ABC"
+            - id: "warranty_type"
+              label: "Warranty Type"
+              required: true
+              read_only: false
+              input_type: "multi_enum_input"
+              options:
+                - "International Manufacturer Warranty"
+                - "International Seller Warranty"
+                - "Local (Singapore) manufacturer warranty"
+                - "Local seller warranty"
+                - "No Warranty"
+                - "Non-local warranty"
+              value: "International Manufacturer Warranty"
+            - id: "warranty"
+              label: "Warranty Period"
+              required: false
+              read_only: false
+              input_type: "single_select"
+              options:
+                - "1 Month"
+                - "1 Year"
+                - "10 Months"
+                - "10 Years"
+                - "11 Months"
+                - "12 Years"
+                - "15 Years"
+                - "18 Months"
+                - "2 Months"
+                - "2 Years"
+                - "25 Years"
+                - "3 Months"
+                - "3 Years"
+                - "30 Years"
+                - "4 Months"
+                - "4 Years"
+                - "5 Months"
+                - "5 Years"
+                - "6 Months"
+                - "6 Years"
+                - "7 Months"
+                - "7 Years"
+                - "8 Months"
+                - "8 Years"
+                - "9 Months"
+                - "Life Time Warranty"
+              value: "1 Month"
+            - id: "product_warranty"
+              label: "Warranty Policy"
+              required: false
+              read_only: false
+              input_type: "text"
+              options: []
+              value: null
+            - id: "short_description"
+              label: "Highlights"
+              required: true
+              read_only: false
+              input_type: "rich_text"
+              options: []
+              value: "<p>...</p>"
+            - id: "delivery_option_express"
+              label: "Delivery Option Express"
+              required: false
+              read_only: false
+              input_type: "single_select"
+              options:
+                - "No"
+                - "Yes"
+              value: null
+            - id: "delivery_option_economy"
+              label: "Delivery Option Economy"
+              required: false
+              read_only: false
+              input_type: "single_select"
+              options:
+                - "No"
+                - "Yes"
+              value: null
+            - id: "Hazmat"
+              label: "Dangerous Goods"
+              required: false
+              read_only: false
+              input_type: "multi_select"
+              options:
+                - "Battery"
+                - "Flammable"
+                - "Liquid"
+                - "None"
+              value: null

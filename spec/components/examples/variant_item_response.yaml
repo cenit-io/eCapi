@@ -19,12 +19,57 @@ value:
         variant:
           remote_variant_id: "5395303626"
           properties:
-            - id: delivery_option_economy
-              name: delivery_option_economy
-              label: Delivery Option Economy
-              required: false
-              input_type: single_select
+            - id: "color_family"
+              label: "Color Family"
+              required: true
+              read_only: false
+              input_type: "multi_enum_input"
               options:
-                - 'No'
-                - 'Yes'
-              value: Yes
+                - "Black"
+                - "Blue"
+                - "Red"
+                - "White"
+              value: "Blue"
+            - id: "package_content"
+              label: "What's in the box"
+              required: false
+              read_only: false
+              input_type: "text"
+              options: []
+              value: "..."
+            - id: "package_weight"
+              label: "Package Weight (kg)"
+              required: true
+              read_only: false
+              input_type: "numeric"
+              options: []
+              value: 1
+            - id: "package_length"
+              label: "Package Length (cm)"
+              required: true
+              read_only: false
+              input_type: "numeric"
+              options: []
+              value: 1
+            - id: "package_width"
+              label: "Package Width (cm)"
+              required: true
+              read_only: false
+              input_type: "numeric"
+              options: []
+              value: 1
+            - id: "package_height"
+              label: "Package Height (cm)"
+              required: true
+              read_only: false
+              input_type: "numeric"
+              options: []
+              value: 1
+            - id: "tax_class"
+              label: "Taxes"
+              required: false
+              read_only: false
+              input_type: "single_select"
+              options:
+                - "default"
+              value: null

@@ -1,12 +1,5 @@
 parameters:
   - $ref: '#/components/parameters/path_product_id'
-  - $ref: '#/components/parameters/query_filter_term_for_variants'
-  - $ref: '#/components/parameters/query_filter_integration'
-  - $ref: '#/components/parameters/query_with_details'
-  - $ref: '#/components/parameters/query_without_data'
-  - $ref: '#/components/parameters/query_offset'
-  - $ref: '#/components/parameters/query_limit'
-  - $ref: '#/components/parameters/query_sort_for_variants'
 
 get:
   tags:
@@ -14,7 +7,30 @@ get:
   operationId: get_variants_beta_
   summary: List all Variants
   description: |
-    Retrieves a list of variants.
+    Retrieves a list of product variants.
+  parameters:
+    - $ref: '#/components/parameters/query_filter_term_for_variants'
+    - $ref: '#/components/parameters/query_filter_integration'
+    - $ref: '#/components/parameters/query_with_details'
+    - $ref: '#/components/parameters/query_without_data'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
+    - $ref: '#/components/parameters/query_sort_for_variants'
   responses:
     '200':
       $ref: '#/components/responses/variant_items'
+
+post:
+  tags:
+    - Variants
+  operationId: create_variant_beta_
+  summary: Create a Variant
+  description: |
+    Create a new product variant.
+  requestBody:
+    $ref: '#/components/requestBodies/variant_update'
+  responses:
+    '200':
+      $ref: '#/components/responses/variant_item'
+    '404':
+      $ref: '#/components/responses/variant_not_found'

@@ -12,22 +12,25 @@ properties:
     description: Variant price
     type: number
     minimum: 0
-  cost_price:
-    description: Variant cost price
+  original_price:
+    description: Variant original price
     type: number
     minimum: 0
   quantity:
     description: Variant quantity
-    type: number
+    type: integer
     minimum: 0
+  package:
+    allOf:
+      - $ref: "#/components/schemas/ProductPackage"
   product:
     description: Variant product
     type: object
+    readOnly: true
     properties:
       id:
         description: Prodruct identifier
         type: string
-        readOnly: true
       name:
         description: Prodruct name
         type: string

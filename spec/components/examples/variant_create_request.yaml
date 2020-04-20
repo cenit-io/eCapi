@@ -1,4 +1,4 @@
-summary: Update all
+summary: Create a variant
 value:
   data:
     sku: 0018227994576
@@ -10,4 +10,4 @@ value:
       height: 1
       length: 1
       width: 1
-      content: null
+      content: '1 phone, 1 battery and 1 mSD of 32GB'

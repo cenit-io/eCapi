@@ -4,3 +4,9 @@ value:
     name: IPod Nano - 4GB
     desciption: IPod Nano - 4GB ...
     price: 159
+    package:
+      weight: 1
+      height: 1
+      length: 1
+      width: 1
+      content: null

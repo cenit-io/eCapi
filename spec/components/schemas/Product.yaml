@@ -20,6 +20,9 @@ properties:
     type: number
     readOnly: true
     minimum: 0
+  package:
+    allOf:
+      - $ref: "#/components/schemas/ProductPackage"
   images:
     description: Product images
     type: array

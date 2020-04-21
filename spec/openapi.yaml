@@ -196,3 +196,7 @@ x-tagGroups:
   - name: Security
     tags:
       - Users
+
+externalDocs:
+  description: Developer guide
+  url: https://github.com/cenit-io/eCapi/wiki

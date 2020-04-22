@@ -63,3 +63,18 @@ patch:
       $ref: '#/components/responses/task_item'
     '404':
       $ref: '#/components/responses/variant_not_found'
+
+delete:
+  tags:
+    - Variants
+  operationId: delete_variant_beta_
+  summary: Delete a variant
+  description: |
+    Delete a product variant without integrations.
+
+    > The variant will be permanently removed if and only if it has no associated integrations.
+  responses:
+    '200':
+      $ref: '#/components/responses/success'
+    '404':
+      $ref: '#/components/responses/variant_not_found'

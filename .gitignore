@@ -2,3 +2,4 @@
 .idea
 web_deploy
 node_modules
+*.sh

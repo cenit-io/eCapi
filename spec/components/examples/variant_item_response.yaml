@@ -1,71 +1,69 @@
 value:
   type: "variant"
   data:
-    id: "5d54835a25d985682d014e0e"
-    sku: "0018227994576"
-    price: 49.9
-    cost_price: 49.9
+    id: "5e98e0ec25d98532cd0d5426"
+    sku: "25"
+    price: 0
+    original_price: 10
     quantity: 0
+    package:
+      weight: 1
+      height: 1
+      length: 1
+      width: 1
+      content: null
     product:
-      id: "5d54835825d985682d014e04"
-      name: "Actxa Swift - Test Do Not Buy"
-    images:
-      - https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000
-      - https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001
+      id: "5e98e0eb25d98575bc04bad1"
+      name: "TESTING (DO NOT BUY)- Baby One Suit"
     integrations:
-      - id: "shopee"
-        name: "shopee"
-        channel: "Ov2ShopeeSG"
+      -
+        id: "lazada_sg"
+        name: "lazada-sg"
+        channel: "Ov2LazadaSG"
+        channel_title: "Lazada [SG]"
         variant:
-          remote_variant_id: "5395303626"
+          remote_variant_id: "1964880303"
           properties:
-            - id: "color_family"
+            -
+              id: "color_family"
               label: "Color Family"
               required: true
               read_only: false
               input_type: "multi_enum_input"
               options:
+                - "Antique White"
+                - "Apricot"
+                - "Aqua"
+                - "Army Green"
+                - "Avocado"
+                - "Beige"
                 - "Black"
                 - "Blue"
-                - "Red"
-                - "White"
-              value: "Blue"
-            - id: "package_content"
-              label: "What's in the box"
+                - "Blue Gray"
+                - "Blueberry"
+                - "Blush Pink"
+                - "Bronze"
+                - "Light blue"
+                - "…"
+              value: "Antique White"
+            -
+              id: "special_from_date"
+              label: "Start date of promotion"
               required: false
               read_only: false
-              input_type: "text"
+              input_type: "date"
               options: []
-              value: "..."
-            - id: "package_weight"
-              label: "Package Weight (kg)"
-              required: true
+              value: null
+            -
+              id: "special_to_date"
+              label: "End date of promotion"
+              required: false
               read_only: false
-              input_type: "numeric"
+              input_type: "date"
               options: []
-              value: 1
-            - id: "package_length"
-              label: "Package Length (cm)"
-              required: true
-              read_only: false
-              input_type: "numeric"
-              options: []
-              value: 1
-            - id: "package_width"
-              label: "Package Width (cm)"
-              required: true
-              read_only: false
-              input_type: "numeric"
-              options: []
-              value: 1
-            - id: "package_height"
-              label: "Package Height (cm)"
-              required: true
-              read_only: false
-              input_type: "numeric"
-              options: []
-              value: 1
-            - id: "tax_class"
+              value: null
+            -
+              id: "tax_class"
               label: "Taxes"
               required: false
               read_only: false
@@ -73,3 +71,9 @@ value:
               options:
                 - "default"
               value: null
+          last_sync_task:
+            task: "TODO: ..."
+    images:
+      - "https://sg-live.slatic.net/p/ea02ecadf6a0887347a00a00afbc5a4c.jpg"
+    created_at: "2020-04-16T22:49:16+00:00"
+    updated_at: "2020-04-20T22:22:33+00:00"

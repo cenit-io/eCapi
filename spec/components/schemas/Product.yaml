@@ -34,3 +34,7 @@ properties:
     readOnly: true
     items:
       $ref: "#/components/schemas/ProductIntegration"
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
+  updated_at:
+    $ref: "#/components/schemas/UpdatedAt"

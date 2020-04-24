@@ -24,3 +24,7 @@ properties:
     $ref: "#/components/schemas/IntegrationId"
   scheduler:
     $ref: "#/components/schemas/Scheduler"
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
+  updated_at:
+    $ref: "#/components/schemas/UpdatedAt"

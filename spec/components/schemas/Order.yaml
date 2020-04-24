@@ -51,3 +51,7 @@ properties:
     readOnly: true
     allOf:
       - $ref: "#/components/schemas/Integration"
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
+  updated_at:
+    $ref: "#/components/schemas/UpdatedAt"

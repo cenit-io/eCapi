@@ -45,3 +45,7 @@ properties:
     readOnly: true
     items:
       $ref: "#/components/schemas/VariantIntegration"
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
+  updated_at:
+    $ref: "#/components/schemas/UpdatedAt"

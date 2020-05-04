@@ -1820,6 +1820,22 @@
             "$ref": "#/components/responses/variant_not_found"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Variants"
+        ],
+        "operationId": "delete_variant_beta_",
+        "summary": "Delete a variant",
+        "description": "Delete a product variant without integrations.\n\n> The variant will be permanently removed if and only if it has no associated integrations.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/variant_not_found"
+          }
+        }
       }
     },
     "/sign_in": {
@@ -2409,6 +2425,12 @@
           },
           "scheduler": {
             "$ref": "#/components/schemas/Scheduler"
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/UpdatedAt"
           }
         }
       },
@@ -2618,6 +2640,12 @@
                 "$ref": "#/components/schemas/Integration"
               }
             ]
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/UpdatedAt"
           }
         }
       },
@@ -2740,6 +2768,12 @@
             "items": {
               "$ref": "#/components/schemas/ProductIntegration"
             }
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/UpdatedAt"
           }
         }
       },
@@ -3091,6 +3125,12 @@
             "items": {
               "$ref": "#/components/schemas/VariantIntegration"
             }
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/UpdatedAt"
           }
         }
       },
@@ -6083,23 +6123,25 @@
         "value": {
           "type": "product",
           "data": {
-            "id": "5d48c54125d9852031005fc3",
-            "name": "IPod Nano - 8GB",
-            "description": "It's the small iPod with one very big idea: Video...",
-            "price": 199,
-            "variants": 1,
-            "images": [
-              "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
-              "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
-            ],
+            "id": "5e98e0eb25d98575bc04bad1",
+            "name": "TESTING (DO NOT BUY)- Baby One Suit",
+            "description": "<p><strong>(TEST - DO NOT BUY)</strong></p> <p>...</p>",
+            "price": 10,
+            "package": {
+              "weight": 1,
+              "height": 1,
+              "length": 1,
+              "width": 1,
+              "content": null
+            },
             "integrations": [
               {
-                "id": "shop_01",
-                "name": "Shop-01",
-                "channel": "LazadaSG",
+                "id": "lazada_sg",
+                "name": "lazada-sg",
+                "channel": "Ov2LazadaSG",
+                "channel_title": "Lazada [SG]",
                 "product": {
-                  "remote_product_id": "289247362",
-                  "category_id": "10001946",
+                  "remote_product_id": "650628600",
                   "properties": [
                     {
                       "id": "category_id",
@@ -6109,12 +6151,12 @@
                       "input_type": "single_select_with_remote_options",
                       "options": [
                         {
-                          "id": "10100393",
-                          "name": "Audio > DJ Equipment > DJ Mixers"
+                          "id": "8911",
+                          "name": "Mother & Baby > Baby Gear > Playards & Playpens"
                         }
                       ],
                       "options_service_path": "/integrations/lazada_sg/categories",
-                      "value": "10100393"
+                      "value": "8911"
                     },
                     {
                       "id": "video",
@@ -6131,25 +6173,66 @@
                       "required": true,
                       "read_only": false,
                       "input_type": "single_select_with_remote_options",
-                      "options": [],
-                      "value": null,
+                      "options": [
+                        {
+                          "id": "23888",
+                          "name": "3M"
+                        }
+                      ],
+                      "value": "3M",
                       "options_service_path": "/integrations/lazada_sg/brands"
                     },
                     {
                       "id": "model",
                       "label": "Model",
-                      "required": true,
+                      "required": false,
                       "read_only": false,
                       "input_type": "text",
                       "options": [],
-                      "value": "ABC"
+                      "value": null
+                    },
+                    {
+                      "id": "Folded_dimension",
+                      "label": "Folded dimension",
+                      "required": false,
+                      "read_only": false,
+                      "input_type": "text",
+                      "options": [],
+                      "value": null
+                    },
+                    {
+                      "id": "Maxmium_child_weight",
+                      "label": "Maximum child weight",
+                      "required": false,
+                      "read_only": false,
+                      "input_type": "numeric",
+                      "options": [],
+                      "value": null
+                    },
+                    {
+                      "id": "No_of_pieces",
+                      "label": "No of Pieces",
+                      "required": false,
+                      "read_only": false,
+                      "input_type": "numeric",
+                      "options": [],
+                      "value": null
+                    },
+                    {
+                      "id": "Open_dimension",
+                      "label": "Open Dimension",
+                      "required": false,
+                      "read_only": false,
+                      "input_type": "text",
+                      "options": [],
+                      "value": null
                     },
                     {
                       "id": "warranty_type",
                       "label": "Warranty Type",
-                      "required": true,
+                      "required": false,
                       "read_only": false,
-                      "input_type": "multi_enum_input",
+                      "input_type": "single_select",
                       "options": [
                         "International Manufacturer Warranty",
                         "International Seller Warranty",
@@ -6159,6 +6242,18 @@
                         "Non-local warranty"
                       ],
                       "value": "International Manufacturer Warranty"
+                    },
+                    {
+                      "id": "wheels",
+                      "label": "Wheels",
+                      "required": false,
+                      "read_only": false,
+                      "input_type": "single_select",
+                      "options": [
+                        "No",
+                        "Yes"
+                      ],
+                      "value": "No"
                     },
                     {
                       "id": "warranty",
@@ -6212,7 +6307,7 @@
                       "read_only": false,
                       "input_type": "rich_text",
                       "options": [],
-                      "value": "<p>...</p>"
+                      "value": "<p>TEST - DO NOT BUY</p>"
                     },
                     {
                       "id": "delivery_option_express",
@@ -6255,7 +6350,13 @@
                   ]
                 }
               }
-            ]
+            ],
+            "images": [
+              "https://sg-live.slatic.net/p/ea02ecadf6a0887347a00a00afbc5a4c.jpg"
+            ],
+            "variants": 1,
+            "created_at": "2020-04-16T22:49:15+00:00",
+            "updated_at": "2020-04-16T22:49:15+00:00"
           }
         }
       },
@@ -6264,50 +6365,65 @@
           "type": "product",
           "data": [
             {
-              "id": "5d48c54125d9852031005fc3",
-              "name": "IPod Nano - 8GB",
-              "description": "It's the small iPod with one very big idea: Video...",
-              "price": 199,
-              "last_import_date": "2019-08-06T00:09:37+00:00",
+              "id": "5e98e0eb25d98575bc04bad1",
+              "name": "TESTING (DO NOT BUY)- Baby One Suit",
+              "description": "<p><strong>(TEST - DO NOT BUY)</strong></p> <p>...</p>",
+              "price": 10,
+              "package": {
+                "weight": 1,
+                "height": 1,
+                "length": 1,
+                "width": 1,
+                "content": null
+              },
               "integrations": [
                 {
-                  "id": "shop_01",
-                  "name": "Shop-01",
-                  "channel": "LazadaSG",
+                  "id": "lazada_sg",
+                  "name": "lazada-sg",
+                  "channel": "Ov2LazadaSG",
+                  "channel_title": "Lazada [SG]",
                   "product": {
-                    "remote_product_id": "289247362",
-                    "category_id": "10001946"
+                    "remote_product_id": "650628600"
                   }
                 }
               ],
-              "variants": 1,
               "images": [
-                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
-                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
-              ]
+                "https://sg-live.slatic.net/p/ea02ecadf6a0887347a00a00afbc5a4c.jpg"
+              ],
+              "variants": 1,
+              "created_at": "2020-04-16T22:49:15+00:00",
+              "updated_at": "2020-04-16T22:49:15+00:00"
             },
             {
-              "id": "5d48c54025d9852031005fb7",
-              "name": "IPod Touch 8GB",
-              "description": "The iPod Touch has the iPhone's multi-touch interface...",
-              "price": 199,
-              "last_import_date": "2019-08-06T00:09:35+00:00",
+              "id": "5e98e0e225d98532b50d6740",
+              "name": "Cherry Midi Dress (TESTING - DO NOT BUY)",
+              "description": "<p><strong>(TESTING - DO NOT BUY)</strong></p> <p>A stunner silhouette, ...</p>",
+              "price": 50,
+              "package": {
+                "weight": 1,
+                "height": 1,
+                "length": 1,
+                "width": 1,
+                "content": "..."
+              },
               "integrations": [
                 {
-                  "id": "shop_01",
-                  "name": "Shop-01",
-                  "channel": "LazadaSG",
+                  "id": "lazada_sg",
+                  "name": "lazada-sg",
+                  "channel": "Ov2LazadaSG",
+                  "channel_title": "Lazada [SG]",
                   "product": {
-                    "remote_product_id": "339382531",
-                    "category_id": "10001946"
+                    "remote_product_id": "628860213"
                   }
                 }
               ],
-              "variants": 1,
               "images": [
-                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
-                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
-              ]
+                "https://sg-live.slatic.net/p/30324db42e46aebd60ed9cef59880078.jpg",
+                "https://sg-live.slatic.net/p/16e6c249cb9b937749c3e48b6a4cf992.jpg"
+              ],
+              "variants": 4,
+              "created_at": "2020-04-16T22:49:06+00:00",
+              "updated_at": "2020-04-17T21:14:12+00:00"
             }
           ],
           "pagination": {
@@ -6570,26 +6686,30 @@
         "value": {
           "type": "variant",
           "data": {
-            "id": "5d54835a25d985682d014e0e",
-            "sku": "0018227994576",
-            "price": 49.9,
-            "cost_price": 49.9,
+            "id": "5e98e0ec25d98532cd0d5426",
+            "sku": "25",
+            "price": 0,
+            "original_price": 10,
             "quantity": 0,
-            "product": {
-              "id": "5d54835825d985682d014e04",
-              "name": "Actxa Swift - Test Do Not Buy"
+            "package": {
+              "weight": 1,
+              "height": 1,
+              "length": 1,
+              "width": 1,
+              "content": null
             },
-            "images": [
-              "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
-              "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
-            ],
+            "product": {
+              "id": "5e98e0eb25d98575bc04bad1",
+              "name": "TESTING (DO NOT BUY)- Baby One Suit"
+            },
             "integrations": [
               {
-                "id": "shopee",
-                "name": "shopee",
-                "channel": "Ov2ShopeeSG",
+                "id": "lazada_sg",
+                "name": "lazada-sg",
+                "channel": "Ov2LazadaSG",
+                "channel_title": "Lazada [SG]",
                 "variant": {
-                  "remote_variant_id": "5395303626",
+                  "remote_variant_id": "1964880303",
                   "properties": [
                     {
                       "id": "color_family",
@@ -6598,57 +6718,40 @@
                       "read_only": false,
                       "input_type": "multi_enum_input",
                       "options": [
+                        "Antique White",
+                        "Apricot",
+                        "Aqua",
+                        "Army Green",
+                        "Avocado",
+                        "Beige",
                         "Black",
                         "Blue",
-                        "Red",
-                        "White"
+                        "Blue Gray",
+                        "Blueberry",
+                        "Blush Pink",
+                        "Bronze",
+                        "Light blue",
+                        "…"
                       ],
-                      "value": "Blue"
+                      "value": "Antique White"
                     },
                     {
-                      "id": "package_content",
-                      "label": "What's in the box",
+                      "id": "special_from_date",
+                      "label": "Start date of promotion",
                       "required": false,
                       "read_only": false,
-                      "input_type": "text",
+                      "input_type": "date",
                       "options": [],
-                      "value": "..."
+                      "value": null
                     },
                     {
-                      "id": "package_weight",
-                      "label": "Package Weight (kg)",
-                      "required": true,
+                      "id": "special_to_date",
+                      "label": "End date of promotion",
+                      "required": false,
                       "read_only": false,
-                      "input_type": "numeric",
+                      "input_type": "date",
                       "options": [],
-                      "value": 1
-                    },
-                    {
-                      "id": "package_length",
-                      "label": "Package Length (cm)",
-                      "required": true,
-                      "read_only": false,
-                      "input_type": "numeric",
-                      "options": [],
-                      "value": 1
-                    },
-                    {
-                      "id": "package_width",
-                      "label": "Package Width (cm)",
-                      "required": true,
-                      "read_only": false,
-                      "input_type": "numeric",
-                      "options": [],
-                      "value": 1
-                    },
-                    {
-                      "id": "package_height",
-                      "label": "Package Height (cm)",
-                      "required": true,
-                      "read_only": false,
-                      "input_type": "numeric",
-                      "options": [],
-                      "value": 1
+                      "value": null
                     },
                     {
                       "id": "tax_class",
@@ -6661,10 +6764,18 @@
                       ],
                       "value": null
                     }
-                  ]
+                  ],
+                  "last_sync_task": {
+                    "task": "TODO: ..."
+                  }
                 }
               }
-            ]
+            ],
+            "images": [
+              "https://sg-live.slatic.net/p/ea02ecadf6a0887347a00a00afbc5a4c.jpg"
+            ],
+            "created_at": "2020-04-16T22:49:16+00:00",
+            "updated_at": "2020-04-20T22:22:33+00:00"
           }
         }
       },
@@ -6673,60 +6784,44 @@
           "type": "variant",
           "data": [
             {
-              "id": "5d54835a25d985682d014e0e",
-              "sku": "0018227994576",
-              "price": 49.9,
-              "cost_price": 49.9,
+              "id": "5e98e0ec25d98532cd0d5426",
+              "sku": "25",
+              "price": 0,
+              "original_price": 10,
               "quantity": 0,
-              "product": {
-                "id": "5d54835825d985682d014e04",
-                "name": "Actxa Swift - Test Do Not Buy"
+              "package": {
+                "weight": 1,
+                "height": 1,
+                "length": 1,
+                "width": 1,
+                "content": null
               },
-              "images": [
-                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
-                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
-              ],
+              "product": {
+                "id": "5e98e0eb25d98575bc04bad1",
+                "name": "TESTING (DO NOT BUY)- Baby One Suit"
+              },
               "integrations": [
                 {
-                  "id": "shopee",
-                  "name": "shopee",
-                  "channel": "Ov2ShopeeSG",
+                  "id": "lazada_sg",
+                  "name": "lazada-sg",
+                  "channel": "Ov2LazadaSG",
+                  "channel_title": "Lazada [SG]",
                   "variant": {
-                    "remote_variant_id": "5395303626"
+                    "remote_variant_id": "1964880303"
                   }
                 }
-              ]
-            },
-            {
-              "id": "5d54835925d985457b01a2a8",
-              "sku": "0018227994590",
-              "price": 49.9,
-              "cost_price": 49.9,
-              "quantity": 0,
-              "product": {
-                "id": "5d54835825d985682d014e04",
-                "name": "Actxa Swift - Test Do Not Buy"
-              },
-              "images": [
-                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf000",
-                "https://cf.lazada.sg/file/dfd9210dc1f3ec1b7432d5ac0cf001"
               ],
-              "integrations": [
-                {
-                  "id": "shopee",
-                  "name": "shopee",
-                  "channel": "Ov2ShopeeSG",
-                  "variant": {
-                    "remote_variant_id": "5395303625"
-                  }
-                }
-              ]
+              "images": [
+                "https://sg-live.slatic.net/p/ea02ecadf6a0887347a00a00afbc5a4c.jpg"
+              ],
+              "created_at": "2020-04-16T22:49:16+00:00",
+              "updated_at": "2020-04-20T22:22:33+00:00"
             }
           ],
           "pagination": {
             "offset": 0,
             "limit": 10,
-            "total": 2
+            "total": 1
           }
         }
       },

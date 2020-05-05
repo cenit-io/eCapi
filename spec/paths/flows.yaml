@@ -9,6 +9,10 @@ get:
   parameters:
     - $ref: '#/components/parameters/query_filter_term_for_flows'
     - $ref: '#/components/parameters/query_filter_integration'
+    - $ref: '#/components/parameters/query_filter_generic_created_after'
+    - $ref: '#/components/parameters/query_filter_generic_created_before'
+    - $ref: '#/components/parameters/query_filter_generic_updated_after'
+    - $ref: '#/components/parameters/query_filter_generic_updated_before'
     - $ref: '#/components/parameters/query_filter_flow_type'
     - $ref: '#/components/parameters/query_with_details'
     - $ref: '#/components/parameters/query_without_data'

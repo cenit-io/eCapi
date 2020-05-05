@@ -10,6 +10,10 @@ get:
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
     - $ref: '#/components/parameters/query_sort_for_collections'
+    - $ref: '#/components/parameters/query_filter_generic_created_after'
+    - $ref: '#/components/parameters/query_filter_generic_created_before'
+    - $ref: '#/components/parameters/query_filter_generic_updated_after'
+    - $ref: '#/components/parameters/query_filter_generic_updated_before'
   responses:
     '200':
       $ref: '#/components/responses/collection_items'

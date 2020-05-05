@@ -1,0 +1,7 @@
+name: updated_before
+in: query
+schema:
+  description: It allows to filter items by update date before a given date.
+  type: string
+  format: date-time-iso8601
+  example: 2018-01-30T00:00:00+00:00

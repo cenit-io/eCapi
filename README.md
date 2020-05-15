@@ -32,6 +32,7 @@ Supported Integrations:
 
 - [Reference Documentation (ReDoc)](https://cenit-io.github.io/eCapi/)
 - OpenAPI Raw Files: [JSON](https://cenit-io.github.io/eCapi/openapi.json) [YAML](https://cenit-io.github.io/eCapi/openapi.yaml)
+- [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)
 
 **Warning:** All above links are updated only after Travis CI finishes deployment
 

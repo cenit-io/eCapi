@@ -2,6 +2,7 @@
   "name": "omna-api",
   "version": "1.0.0",
   "dependencies": {
+    "docsify": "^4.11.3",
     "swagger-repo": "^2.0.0-rc.15"
   },
   "private": true,

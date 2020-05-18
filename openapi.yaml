@@ -194,6 +194,10 @@ paths:
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
         - $ref: '#/components/parameters/query_sort_for_collections'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
       responses:
         '200':
           $ref: '#/components/responses/collection_items'
@@ -267,6 +271,10 @@ paths:
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_flows'
         - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_filter_flow_type'
         - $ref: '#/components/parameters/query_with_details'
         - $ref: '#/components/parameters/query_without_data'
@@ -402,6 +410,10 @@ paths:
         - $ref: '#/components/parameters/query_filter_term_for_integrations'
         - $ref: '#/components/parameters/query_filter_integration_channel'
         - $ref: '#/components/parameters/query_without_data'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
         - $ref: '#/components/parameters/query_sort_for_integrations'
@@ -625,6 +637,10 @@ paths:
         Returns the list of product brands for a specific integration.
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_brands'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
@@ -692,6 +708,10 @@ paths:
         Returns the list of product categories for a specific integration.
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_categories'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
@@ -1178,6 +1198,10 @@ paths:
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_products'
         - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_product_created_after'
+        - $ref: '#/components/parameters/query_filter_product_created_before'
+        - $ref: '#/components/parameters/query_filter_product_updated_after'
+        - $ref: '#/components/parameters/query_filter_product_updated_before'
         - $ref: '#/components/parameters/query_with_details'
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
@@ -1288,6 +1312,10 @@ paths:
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_variants'
         - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_with_details'
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
@@ -1441,6 +1469,10 @@ paths:
       - $ref: '#/components/parameters/query_filter_task_status'
       - $ref: '#/components/parameters/query_filter_task_description'
       - $ref: '#/components/parameters/query_with_details'
+      - $ref: '#/components/parameters/query_filter_generic_created_after'
+      - $ref: '#/components/parameters/query_filter_generic_created_before'
+      - $ref: '#/components/parameters/query_filter_generic_updated_after'
+      - $ref: '#/components/parameters/query_filter_generic_updated_before'
       - $ref: '#/components/parameters/query_without_data'
       - $ref: '#/components/parameters/query_offset'
       - $ref: '#/components/parameters/query_limit'
@@ -1512,6 +1544,10 @@ paths:
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_tenants'
         - $ref: '#/components/parameters/query_without_data'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
         - $ref: '#/components/parameters/query_sort_for_tenants'
@@ -1571,6 +1607,10 @@ paths:
         - $ref: '#/components/parameters/query_filter_term_for_webhooks'
         - $ref: '#/components/parameters/query_filter_webhook_topic'
         - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
@@ -3265,6 +3305,38 @@ components:
         description: It allows to filter items by flow type.
         type: string
         example: import_orders
+    query_filter_generic_created_after:
+      name: created_after
+      in: query
+      schema:
+        description: It allows to filter items by create date after a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-15T00:00:00.000Z
+    query_filter_generic_created_before:
+      name: created_before
+      in: query
+      schema:
+        description: It allows to filter items by created date before a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-30T00:00:00.000Z
+    query_filter_generic_updated_after:
+      name: updated_after
+      in: query
+      schema:
+        description: It allows to filter items by update date after a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-15T00:00:00.000Z
+    query_filter_generic_updated_before:
+      name: updated_before
+      in: query
+      schema:
+        description: It allows to filter items by update date before a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-30T00:00:00.000Z
     query_filter_integration_channel:
       name: channel
       in: query
@@ -3322,6 +3394,38 @@ components:
       in: query
       schema:
         description: It allows to filter orders by update date less than a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-30T00:00:00.000Z
+    query_filter_product_created_after:
+      name: created_after
+      in: query
+      schema:
+        description: It allows to filter products by create date after a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-15T00:00:00.000Z
+    query_filter_product_created_before:
+      name: created_before
+      in: query
+      schema:
+        description: It allows to filter products by created date before a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-30T00:00:00.000Z
+    query_filter_product_updated_after:
+      name: updated_after
+      in: query
+      schema:
+        description: It allows to filter orders by update date after a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-15T00:00:00.000Z
+    query_filter_product_updated_before:
+      name: updated_before
+      in: query
+      schema:
+        description: It allows to filter orders by update date before a given date.
         type: string
         format: date-time-iso8601
         example: 2018-01-30T00:00:00.000Z

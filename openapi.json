@@ -3165,7 +3165,7 @@
         "type": "object",
         "properties": {
           "name": {
-            "description": "Fullname of user",
+            "description": "Fullname of user-guide",
             "type": "string",
             "readOnly": true
           },
@@ -3175,7 +3175,7 @@
             "readOnly": true
           },
           "picture": {
-            "description": "URI of user picture",
+            "description": "URI of user-guide picture",
             "type": "string",
             "readOnly": true
           }

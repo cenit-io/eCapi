@@ -69,7 +69,7 @@
               elm.disabled = true;
 
               // Fix for browsersync and alternate stylesheet updates. Will
-              // cause FOUC when switching stylesheets during development, but
+              // cause FOUC when switching stylesheets during developer-guide, but
               // required to properly apply style updates when alternate
               // stylesheets are enabled.
               if (window.browsersyncObserver) {

@@ -17,9 +17,11 @@ info:
     The OMNA Commerce API is a simple connector API to integrate ecommerce sales channels, such us
     marketplaces and ecommerce platforms.
 
-    An easy way to get orders, synchronize inventories and list product's information to commerce solutions around the globe.
+    An easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.
 
-    We are starting in marketplaces in Southeast Asia (Shopee, Lazada) but we will continue to make it global.
+    The list of available integrations include: Amazon Marketplace, Backmarket, Mercado Libre, Lazada, Qoo10, Shopee, Shopify.
+
+    These integrations are related with 34 Countries: Argentina, Australia, Bolivia, Brasil, Canada, Chile, Colombia, Costa Rica, Dominicana, Ecuador, France, Germany, Guatemala, Honduras, India, Indonesia, Indonesia, Japan, Malaysia, Mexico, Nicaragua, Panama, Paraguay, Peru, Philippines, Salvador, Singapore, Spain, Thailand, Turkey, United Kingdom, Unit Arab Emirates, Uruguay, United States, Venezuela, Vietnam.
 
     It is built on top of an integration platform https://cenit.io
 
@@ -192,6 +194,10 @@ paths:
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
         - $ref: '#/components/parameters/query_sort_for_collections'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
       responses:
         '200':
           $ref: '#/components/responses/collection_items'
@@ -265,6 +271,10 @@ paths:
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_flows'
         - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_filter_flow_type'
         - $ref: '#/components/parameters/query_with_details'
         - $ref: '#/components/parameters/query_without_data'
@@ -400,6 +410,10 @@ paths:
         - $ref: '#/components/parameters/query_filter_term_for_integrations'
         - $ref: '#/components/parameters/query_filter_integration_channel'
         - $ref: '#/components/parameters/query_without_data'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
         - $ref: '#/components/parameters/query_sort_for_integrations'
@@ -623,6 +637,10 @@ paths:
         Returns the list of product brands for a specific integration.
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_brands'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
@@ -690,6 +708,10 @@ paths:
         Returns the list of product categories for a specific integration.
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_categories'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
@@ -1176,6 +1198,10 @@ paths:
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_products'
         - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_product_created_after'
+        - $ref: '#/components/parameters/query_filter_product_created_before'
+        - $ref: '#/components/parameters/query_filter_product_updated_after'
+        - $ref: '#/components/parameters/query_filter_product_updated_before'
         - $ref: '#/components/parameters/query_with_details'
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
@@ -1286,6 +1312,10 @@ paths:
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_variants'
         - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_with_details'
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
@@ -1439,6 +1469,10 @@ paths:
       - $ref: '#/components/parameters/query_filter_task_status'
       - $ref: '#/components/parameters/query_filter_task_description'
       - $ref: '#/components/parameters/query_with_details'
+      - $ref: '#/components/parameters/query_filter_generic_created_after'
+      - $ref: '#/components/parameters/query_filter_generic_created_before'
+      - $ref: '#/components/parameters/query_filter_generic_updated_after'
+      - $ref: '#/components/parameters/query_filter_generic_updated_before'
       - $ref: '#/components/parameters/query_without_data'
       - $ref: '#/components/parameters/query_offset'
       - $ref: '#/components/parameters/query_limit'
@@ -1510,6 +1544,10 @@ paths:
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_tenants'
         - $ref: '#/components/parameters/query_without_data'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
         - $ref: '#/components/parameters/query_sort_for_tenants'
@@ -1569,6 +1607,10 @@ paths:
         - $ref: '#/components/parameters/query_filter_term_for_webhooks'
         - $ref: '#/components/parameters/query_filter_webhook_topic'
         - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
         - $ref: '#/components/parameters/query_without_data'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
@@ -3263,6 +3305,38 @@ components:
         description: It allows to filter items by flow type.
         type: string
         example: import_orders
+    query_filter_generic_created_after:
+      name: created_after
+      in: query
+      schema:
+        description: It allows to filter items by create date after a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-15T00:00:00.000Z
+    query_filter_generic_created_before:
+      name: created_before
+      in: query
+      schema:
+        description: It allows to filter items by created date before a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-30T00:00:00.000Z
+    query_filter_generic_updated_after:
+      name: updated_after
+      in: query
+      schema:
+        description: It allows to filter items by update date after a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-15T00:00:00.000Z
+    query_filter_generic_updated_before:
+      name: updated_before
+      in: query
+      schema:
+        description: It allows to filter items by update date before a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-30T00:00:00.000Z
     query_filter_integration_channel:
       name: channel
       in: query
@@ -3320,6 +3394,38 @@ components:
       in: query
       schema:
         description: It allows to filter orders by update date less than a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-30T00:00:00.000Z
+    query_filter_product_created_after:
+      name: created_after
+      in: query
+      schema:
+        description: It allows to filter products by create date after a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-15T00:00:00.000Z
+    query_filter_product_created_before:
+      name: created_before
+      in: query
+      schema:
+        description: It allows to filter products by created date before a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-30T00:00:00.000Z
+    query_filter_product_updated_after:
+      name: updated_after
+      in: query
+      schema:
+        description: It allows to filter orders by update date after a given date.
+        type: string
+        format: date-time-iso8601
+        example: 2018-01-15T00:00:00.000Z
+    query_filter_product_updated_before:
+      name: updated_before
+      in: query
+      schema:
+        description: It allows to filter orders by update date before a given date.
         type: string
         format: date-time-iso8601
         example: 2018-01-30T00:00:00.000Z

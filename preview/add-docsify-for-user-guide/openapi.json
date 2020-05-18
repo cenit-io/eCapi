@@ -15,7 +15,7 @@
     "x-logo": {
       "url": "omna_logo.png"
     },
-    "description": "# Introduction\n\nThe OMNA Commerce API is a simple connector API to integrate ecommerce sales channels, such us\nmarketplaces and ecommerce platforms.\n\nAn easy way to get orders, synchronize inventories and list product's information to commerce solutions around the globe.\n\nWe are starting in marketplaces in Southeast Asia (Shopee, Lazada) but we will continue to make it global.\n\nIt is built on top of an integration platform https://cenit.io\n\nThis API is for individual retailers, SaaS services, or any business that needs to handle multiple commerce integrations.\n\n* It is built over REST services on HTTPS.\n\n* It has predictable resource URLs.\n\n* It returns HTTP response codes to indicate errors.\n\n* It accepts and returns JSON in the HTTP body.\n\n* You can use your favorite HTTP/REST library for your programming language\nto use OMNA Commerce API.\n"
+    "description": "# Introduction\n\nThe OMNA Commerce API is a simple connector API to integrate ecommerce sales channels, such us\nmarketplaces and ecommerce platforms.\n\nAn easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.\n\nThe list of available integrations include: Amazon Marketplace, Backmarket, Mercado Libre, Lazada, Qoo10, Shopee, Shopify.\n\nThese integrations are related with 34 Countries: Argentina, Australia, Bolivia, Brasil, Canada, Chile, Colombia, Costa Rica, Dominicana, Ecuador, France, Germany, Guatemala, Honduras, India, Indonesia, Indonesia, Japan, Malaysia, Mexico, Nicaragua, Panama, Paraguay, Peru, Philippines, Salvador, Singapore, Spain, Thailand, Turkey, United Kingdom, Unit Arab Emirates, Uruguay, United States, Venezuela, Vietnam.\n\nIt is built on top of an integration platform https://cenit.io\n\nThis API is for individual retailers, SaaS services, or any business that needs to handle multiple commerce integrations.\n\n* It is built over REST services on HTTPS.\n\n* It has predictable resource URLs.\n\n* It returns HTTP response codes to indicate errors.\n\n* It accepts and returns JSON in the HTTP body.\n\n* You can use your favorite HTTP/REST library for your programming language\nto use OMNA Commerce API.\n"
   },
   "tags": [
     {
@@ -153,6 +153,18 @@
           },
           {
             "$ref": "#/components/parameters/query_sort_for_collections"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_before"
           }
         ],
         "responses": {
@@ -258,6 +270,18 @@
           },
           {
             "$ref": "#/components/parameters/query_filter_integration"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_before"
           },
           {
             "$ref": "#/components/parameters/query_filter_flow_type"
@@ -458,6 +482,18 @@
           },
           {
             "$ref": "#/components/parameters/query_without_data"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_before"
           },
           {
             "$ref": "#/components/parameters/query_offset"
@@ -665,6 +701,18 @@
             "$ref": "#/components/parameters/query_filter_term_for_brands"
           },
           {
+            "$ref": "#/components/parameters/query_filter_generic_created_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_before"
+          },
+          {
             "$ref": "#/components/parameters/query_without_data"
           },
           {
@@ -775,6 +823,18 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/query_filter_term_for_categories"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_before"
           },
           {
             "$ref": "#/components/parameters/query_without_data"
@@ -1540,6 +1600,18 @@
             "$ref": "#/components/parameters/query_filter_integration"
           },
           {
+            "$ref": "#/components/parameters/query_filter_product_created_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_product_created_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_product_updated_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_product_updated_before"
+          },
+          {
             "$ref": "#/components/parameters/query_with_details"
           },
           {
@@ -1696,6 +1768,18 @@
           },
           {
             "$ref": "#/components/parameters/query_filter_integration"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_before"
           },
           {
             "$ref": "#/components/parameters/query_with_details"
@@ -1910,6 +1994,18 @@
           "$ref": "#/components/parameters/query_with_details"
         },
         {
+          "$ref": "#/components/parameters/query_filter_generic_created_after"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_generic_created_before"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_generic_updated_after"
+        },
+        {
+          "$ref": "#/components/parameters/query_filter_generic_updated_before"
+        },
+        {
           "$ref": "#/components/parameters/query_without_data"
         },
         {
@@ -2014,6 +2110,18 @@
             "$ref": "#/components/parameters/query_without_data"
           },
           {
+            "$ref": "#/components/parameters/query_filter_generic_created_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_before"
+          },
+          {
             "$ref": "#/components/parameters/query_offset"
           },
           {
@@ -2105,6 +2213,18 @@
           },
           {
             "$ref": "#/components/parameters/query_filter_integration"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_before"
           },
           {
             "$ref": "#/components/parameters/query_without_data"
@@ -4538,6 +4658,46 @@
           "example": "import_orders"
         }
       },
+      "query_filter_generic_created_after": {
+        "name": "created_after",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter items by create date after a given date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-15T00:00:00.000Z"
+        }
+      },
+      "query_filter_generic_created_before": {
+        "name": "created_before",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter items by created date before a given date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-30T00:00:00.000Z"
+        }
+      },
+      "query_filter_generic_updated_after": {
+        "name": "updated_after",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter items by update date after a given date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-15T00:00:00.000Z"
+        }
+      },
+      "query_filter_generic_updated_before": {
+        "name": "updated_before",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter items by update date before a given date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-30T00:00:00.000Z"
+        }
+      },
       "query_filter_integration_channel": {
         "name": "channel",
         "in": "query",
@@ -4609,6 +4769,46 @@
         "in": "query",
         "schema": {
           "description": "It allows to filter orders by update date less than a given date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-30T00:00:00.000Z"
+        }
+      },
+      "query_filter_product_created_after": {
+        "name": "created_after",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter products by create date after a given date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-15T00:00:00.000Z"
+        }
+      },
+      "query_filter_product_created_before": {
+        "name": "created_before",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter products by created date before a given date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-30T00:00:00.000Z"
+        }
+      },
+      "query_filter_product_updated_after": {
+        "name": "updated_after",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter orders by update date after a given date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-15T00:00:00.000Z"
+        }
+      },
+      "query_filter_product_updated_before": {
+        "name": "updated_before",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter orders by update date before a given date.",
           "type": "string",
           "format": "date-time-iso8601",
           "example": "2018-01-30T00:00:00.000Z"

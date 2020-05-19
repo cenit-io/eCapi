@@ -1,3 +1,3 @@
-# Development Guide
+# Developer Guide
 
 > TODO: ...

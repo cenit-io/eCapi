@@ -45,14 +45,34 @@ Supported Integrations:
 
 ### Usage
 
-#### `npm start`
-Starts the development server.
+#### Starts the development server for API Specification:
 
-#### `npm run build`
-Bundles the spec and prepares web_deploy folder with static assets.
+```bash
+npm start
+```
 
-#### `npm test`
-Validates the spec.
+#### Starts the development server for Guides & Utilities:
 
-#### `npm run gh-pages`
+```
+  docsify serve docs
+```
+
+#### Build web_deploy folder with static assets:
+
+```bash
+npm run build
+```
+
+#### Validates the spec:
+
+```bash
+npm test
+```
+
+#### Deploys docs to GitHub Pages:
+
 Deploys docs to GitHub Pages. You don't need to run it manually if you have Travis CI configured.
+
+```bash
+npm run gh-pages
+```

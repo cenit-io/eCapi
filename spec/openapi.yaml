@@ -200,5 +200,5 @@ x-tagGroups:
       - Users
 
 externalDocs:
-  description: Developer guide
-  url: https://github.com/cenit-io/eCapi/wiki
+  description: Guides & Utilities
+  url: /

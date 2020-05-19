@@ -36,12 +36,12 @@
 
     .sc-ifAKCX.hiuczA[data-section-id$=_beta] .sc-dnqmqq.ioYTqA:after,
     .sc-ifAKCX.hiuczA[data-section-id*=_beta_] .sc-dnqmqq.ioYTqA:after,
-    .sc-hrWEMg.bbViyS[data-item-id$=_beta] .sc-gwVKww.SmuWE:after,
-    .sc-hrWEMg.bbViyS[data-item-id*=_beta_] .sc-gwVKww.SmuWE:after,
+    .sc-btzYZH.hndQyM[data-item-id$=_beta] .sc-bYSBpT.gpHEtH:after,
+    .sc-btzYZH.hndQyM[data-item-id*=_beta_] .sc-bYSBpT.gpHEtH:after,
     .sc-ifAKCX.hiuczA[data-section-id$=_async] .sc-dnqmqq.ioYTqA:after,
     .sc-ifAKCX.hiuczA[data-section-id*=_async_] .sc-dnqmqq.ioYTqA:after,
-    .sc-hrWEMg.bbViyS[data-item-id$=_async] .sc-gwVKww.SmuWE:after,
-    .sc-hrWEMg.bbViyS[data-item-id*=_async_] .sc-gwVKww.SmuWE:after,
+    .sc-btzYZH.hndQyM[data-item-id$=_async] .sc-bYSBpT.gpHEtH:after,
+    .sc-btzYZH.hndQyM[data-item-id*=_async_] .sc-bYSBpT.gpHEtH:after,
     .sc-ifAKCX.hiuczA [type=warning] {
       background-color: rgb(212, 173, 3);
       color: red;
@@ -54,22 +54,22 @@
     }
 
     .sc-ifAKCX.hiuczA[data-section-id*=_async_] .sc-dnqmqq.ioYTqA:after,
-    .sc-hrWEMg.bbViyS[data-item-id*=_async_] .sc-gwVKww.SmuWE:after {
+    .sc-btzYZH.hndQyM[data-item-id*=_async_] .sc-bYSBpT.gpHEtH:after {
       content: "ASYNC";
     }
 
     .sc-ifAKCX.hiuczA[data-section-id*=_beta_] .sc-dnqmqq.ioYTqA:after,
-    .sc-hrWEMg.bbViyS[data-item-id*=_beta_] .sc-gwVKww.SmuWE:after {
+    .sc-btzYZH.hndQyM[data-item-id*=_beta_] .sc-bYSBpT.gpHEtH:after {
       content: "BETA";
     }
 
     .sc-ifAKCX.hiuczA[data-section-id*=_async_].sc-ifAKCX.hiuczA[data-section-id*=_beta_] .sc-dnqmqq.ioYTqA:after,
-    .sc-hrWEMg.bbViyS[data-item-id*=_async_].sc-hrWEMg.bbViyS[data-item-id*=_beta_] .sc-gwVKww.SmuWE:after {
+    .sc-btzYZH.hndQyM[data-item-id*=_async_].sc-btzYZH.hndQyM[data-item-id*=_beta_] .sc-bYSBpT.gpHEtH:after {
       content: "ASYNC-BETA";
     }
 
-    .sc-hrWEMg.bbViyS[data-item-id*=_beta_] .sc-gwVKww.SmuWE:after,
-    .sc-hrWEMg.bbViyS[data-item-id*=_async_] .sc-gwVKww.SmuWE:after {
+    .sc-btzYZH.hndQyM[data-item-id*=_beta_] .sc-bYSBpT.gpHEtH:after,
+    .sc-btzYZH.hndQyM[data-item-id*=_async_] .sc-bYSBpT.gpHEtH:after {
       border-radius: 5px;
       padding: 2px 5px;
       font-size: 50%;
@@ -109,14 +109,13 @@
 
   <script type="text/javascript">
     $(document).ready(function () {
-      console.log(111);
       Redoc.init('./openapi.json', {
           menuToggle: true,
           theme: {
-            logo: { "gutter": "20px 30px 14px 30px" },
-            colors: { "text": { "primary": "#333333" } },
-            rightPanel: { "backgroundColor": "#263238" },
-            links: { "color": "#6CC496" }
+            logo: {"gutter": "20px 30px 14px 30px"},
+            colors: {"text": {"primary": "#333333"}},
+            rightPanel: {"backgroundColor": "#263238"},
+            links: {"color": "#6CC496"}
           }
         },
         document.getElementById("redoc_container"),

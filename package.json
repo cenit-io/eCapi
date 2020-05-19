@@ -1,5 +1,5 @@
 {
-  "name": "omna-api",
+  "name": "omna-v2-docs",
   "version": "1.0.0",
   "dependencies": {
     "docsify": "^4.11.3",
@@ -8,8 +8,8 @@
   "private": true,
   "scripts": {
     "start": "swagger-repo serve",
-    "build": "swagger-repo build -o web_deploy",
-    "test": "swagger-repo validate",
-    "gh-pages": "swagger-repo gh-pages"
+    "build": "node bin/cli build-docs && swagger-repo build -o web_deploy/api-spec",
+    "gh-pages": "swagger-repo gh-pages",
+    "test": "swagger-repo validate"
   }
 }

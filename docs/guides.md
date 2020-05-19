@@ -6,6 +6,6 @@
 
 > TODO: Section Overview ...
 
-## [Development Guide](/developer-guide/overview)
+## [Developer Guide](/developer-guide/overview)
 
 > TODO: Section Overview ...

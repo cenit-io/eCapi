@@ -32,8 +32,8 @@ Supported Integrations:
 
 ## Links
 
-- [Reference Documentation (ReDoc)](https://cenit-io.github.io/eCapi/)
-- OpenAPI Raw Files: [JSON](https://cenit-io.github.io/eCapi/openapi.json) [YAML](https://cenit-io.github.io/eCapi/openapi.yaml)
+- [Reference Documentation (ReDoc)](http://doc-api.omna.io)
+- OpenAPI Raw Files: [JSON](https://doc-api.omna.io/api-spec/openapi.json) [YAML](https://doc-api.omna.io/api-spec/openapi.yaml)
 - [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)
 
 **Warning:** All above links are updated only after Travis CI finishes deployment

@@ -452,7 +452,7 @@
         "tags": [
           "Users"
         ],
-        "operationId": "get_access_token_async_",
+        "operationId": "get_access_token_",
         "summary": "Get Access Token",
         "description": "Recover the authenticated tenant profile with your token and secret.\n\n> These must be used in the construction of each request to the API and its [authentication signature](#section/Authentication).\n",
         "requestBody": {

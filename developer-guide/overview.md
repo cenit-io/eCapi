@@ -1,3 +1,6 @@
-**Developer Guide:**
+# Guide to create a new available integration:
 
-> TODO: General Overview ...
+## Previous requirements:
+
+- **Integration name:** Anyone
+- **Integration chanels:** AnyoneID, AnyoneMY, AnyonePH, AnyoneSG, AnyoneTH,  AnyoneVN

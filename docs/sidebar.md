@@ -3,5 +3,5 @@
 - **Links**
 - [API-Specification](http://doc-api.omna.io/api-spec)
 - **Utils**
-- [Postman](#)
+- [Postman](http://doc-api.omna.io/api-spec/swagger-ui)
 - [Swagger-UI](http://doc-api.omna.io/api-spec/swagger-ui)

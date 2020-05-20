@@ -2,7 +2,13 @@
 
 ## Variant:
 
-Data structure to store the records of the product variants created or imported in OMNA.
+Data structure to store the imported records of product variants for each integration channel.
+
+Its records are completed from the information obtained or mapped in algorithms: 
+
+* [do_import_products](../action-algorithms/do_import_products.md).
+* [parse_from_api_response_2_integration_db_product](../parser-algorithms/parse_from_api_response_2_integration_db_variant.md).
+* [parse_from_omna_db_2_integration_db_product](../parser-algorithms/parse_from_omna_db_2_integration_db_variant.md).
     
 ### JSON SCHEMA:
 ```JSON

@@ -2,7 +2,15 @@
 
 ## Image:
 
-Data structure to store the records of the images of the products created or imported in OMNA.
+Data structure to store the imported records of product images for each integration channel.
+
+**Warning:** This structure is beta and is subject to change.
+
+Its records are completed from the information obtained or mapped in algorithms: 
+
+* [do_import_products](../action-algorithms/do_import_products.md).
+* [parse_from_api_response_2_integration_db_product_images](../parser-algorithms/parse_from_api_response_2_integration_db_product_images.md).
+* [parse_from_api_response_2_integration_db_variant_images](../parser-algorithms/parse_from_api_response_2_integration_db_variant_images.md).
     
 ### JSON SCHEMA:
 ```JSON

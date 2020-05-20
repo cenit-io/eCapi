@@ -1,6 +1,13 @@
 # Action algorithms:
 
-TODO: General description ...
+In these algorithms, the configuration and logic of information exchange is implement, to send or request the information
+to or from the platform to be integrate, consuming the [webhooks](../webhooks/overview.md) defined for this integration.
+
+It is very important that the algorithms described below be create with the exact same name assigned here.
+
+You can manage the algorithms by entering [here](https://cenit.io/algorithm).
+
+## algorithms that should be created:
 
 ## do_after_authorize:
 

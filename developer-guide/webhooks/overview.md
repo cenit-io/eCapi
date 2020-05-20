@@ -2,7 +2,7 @@
 
 The webhooks represent the web API services of the platform to be integrated.
 
-It is very important that the webhooks described below are created with the exact same name assigned here. This will 
+It is very important that the webhooks described below be create with the exact same name assigned here. This will 
 save you work later in creating the [action algorithms](../action-algorithms/overview.md).
 
 It is not necessary to define a webhook for each service provided by the API, only those described below must be defined.

@@ -4,6 +4,11 @@
   --link-text-decoration: none;
 }
 
+a.see-more {
+  position: relative;
+  left: calc(100% - 15ex);
+}
+
 .cover blockquote {
   text-align: justify;
 }

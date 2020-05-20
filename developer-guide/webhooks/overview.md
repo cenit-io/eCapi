@@ -15,55 +15,107 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 
 ### cancel_order: 
 
-  > Cancel an order
+> It consists of the configuration, relative route and parameters, to consume the **order cancellation** service on the
+  platform to be integrated.
+
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+  corresponding to the integration instance in process, will be the one received by parameter in the 
+  action algorithm [do_cancel_order](../action-algorithms/do_cancel_order.md).
 
 ### delete_product: 
 
-  > Delete a product
+> It consists of the configuration, relative route and parameters, to consume the **delete product** service on the
+  platform to be integrated.
+
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+  corresponding to the integration instance in process, will be the one received by parameter in the 
+  action algorithm [do_delete_remote_product](../action-algorithms/do_delete_remote_product.md).
 
 ### get_brands: 
 
-  > Returns the brands list
+> It consists of the configuration, relative route and parameters, to consume the service to **get all brands** 
+  on the platform to be integrated.
+
+> This webhook is only required when the platform to be integrated have predefined brands to the products.
+
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+  corresponding to the integration instance in process, will be the one received by parameter in the 
+  action algorithm [do_import_brands](../action-algorithms/do_import_brands.md).
 
 ### get_categories: 
 
-  > Returns the categories list
+> It consists of the configuration, relative route and parameters, to consume the service to **get all categories** 
+  on the platform to be integrated.
+
+> This webhook is only required when the platform to be integrated organizes the products by categories.
+
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+  corresponding to the integration instance in process, will be the one received by parameter in the 
+  action algorithm [do_import_categories](../action-algorithms/do_import_categories.md).
 
 ### get_category_attrs: 
 
-  > Returns the definition of attributes of a given product category
+> It consists of the configuration, relative route and parameters, to consume the service to
+  **get the attrs of a category** on the platform to be integrated.
+
+> This webhook is only required when the platform to be integrated organizes the products by categories and these have
+  custom attributes related to the associated category.
 
 ### get_integration_metadata: 
 
-  > Returns the shop metadata
+> It consists of the configuration, relative route and parameters, to consume the service to **get user or shop metadata** 
+  on the platform to be integrated.
+
+> This webhook is normally used in authorization validation in the action algorithm
+  [do_after_authorize](../action-algorithms/do_after_authorize.md).
 
 ### get_order: 
 
-  > Returns the order information
+> It consists of the configuration, relative route and parameters, to consume the service to **get an order** on the
+  platform to be integrated.
+
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+  corresponding to the integration instance in process, will be the one received by parameter in the 
+  action algorithm [do_import_order](../action-algorithms/do_import_order.md).
 
 ### get_order_document: 
 
-  > Returns the order-related documents
+> It consists of the configuration, relative route and parameters, to consume the service to **get an order document** 
+  on the platform to be integrated.
 
-### get_order_items: 
-
-  > Returns the order items list
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+  corresponding to the integration instance in process, will be the one received by parameter in the 
+  action algorithm [do_get_order_document](../action-algorithms/do_get_order_document.md).
 
 ### get_orders: 
 
-  > Returns the orders list
+> It consists of the configuration, relative route and parameters, to consume the service to **get orders** on the
+  platform to be integrated.
+
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+  corresponding to the integration instance in process, will be the one received by parameter in the 
+  action algorithm [do_import_orders](../action-algorithms/do_import_orders.md).
 
 ### get_product: 
 
-  > Returns the product information
+> It consists of the configuration, relative route and parameters, to consume the service to **get a product** on the
+  platform to be integrated.
+
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+  corresponding to the integration instance in process, will be the one received by parameter in the 
+  action algorithm [do_import_product](../action-algorithms/do_import_product.md).
 
 ### get_products: 
 
-  > Returns the products list
+> It consists of the configuration, relative route and parameters, to consume the service to **get products** on the
+  platform to be integrated.
+
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+  corresponding to the integration instance in process, will be the one received by parameter in the 
+  action algorithm [do_import_products](../action-algorithms/do_import_products.md).
 
 ### upload_image: 
 
-  > Migrate a single image from an external site to Lazada site.
-Allowed image formats are JPG and PNG.
-The maximum size of an image file is 1MB.
+> It consists of the configuration, relative route and parameters, to consume the **upload image** service on the
+  platform to be integrated.
 

@@ -3,6 +3,11 @@
   margin: 0;
 }
 
+.markdown-section a {
+    color: navy;
+    text-decoration: none;
+}
+
 figure.thumbnails img {
   margin: 0.75em 0;
   border-radius: 3px;

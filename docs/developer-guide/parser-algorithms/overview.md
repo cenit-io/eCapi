@@ -1,6 +1,11 @@
 # Parser algorithms:
 
-TODO: General description ...
+In these algorithms, are implemented the transformation logic of the information by mapping from source to destination.
+
+It is very important that the algorithms described below be create with the exact same name assigned here and as a rule 
+everyone has to have the prefix "**parse_**" in their name.
+
+You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 
 ## Parsers from omna-api request:
 

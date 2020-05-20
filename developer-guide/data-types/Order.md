@@ -2,7 +2,12 @@
 
 ## Order:
 
-Data structure to store the records of the orders registered in OMAN.
+Data structure to store the imported records of orders for each integration channel.
+
+Its records are completed from the information obtained or mapped in algorithms: 
+
+* [do_import_orders](../action-algorithms/do_import_orders.md).
+* [parse_from_api_response_2_integration_db_order](../parser-algorithms/parse_from_api_response_2_integration_db_order.md).
     
 ### JSON SCHEMA:
 ```JSON

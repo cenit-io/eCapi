@@ -1,9 +1,10 @@
 # Action algorithms:
 
-In these algorithms, the configuration and logic of information exchange is implement, to send or request the information
+In these algorithms, are implemented the configuration and logic of information exchange, to send or request the information
 to or from the platform to be integrate, consuming the [webhooks](../webhooks/overview.md) defined for this integration.
 
-It is very important that the algorithms described below be create with the exact same name assigned here.
+It is very important that the algorithms described below be create with the exact same name assigned here and as a rule 
+everyone has to have the prefix "**do_**" in their name.
 
 You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 

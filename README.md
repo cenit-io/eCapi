@@ -5,7 +5,7 @@
 
 This repo has official reference of the OMNA Commerce API. The spec is OpenAPI 3.0.0 (aka swagger).
 
-The **OMNA Commerce API** is simple connector API to integrate ecommerce sale channels, such us 
+The **OMNA Commerce API** is simple connector API to integrate eCommerce sale channels, such as 
 marketplaces and ecommerce platforms.
 
 An easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.

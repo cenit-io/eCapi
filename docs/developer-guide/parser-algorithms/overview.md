@@ -15,13 +15,15 @@ Note that all these algorithms have the prefix "**parse_from_api_request_2_**" i
 
 ### parse_from_api_request_2_integration_db_product: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_api_request_2_integration_db_product):
+> TODO: Description...
+>
+> [[see more details]](parse_from_api_request_2_integration_db_product ':class=see-more')
 
 ### parse_from_api_request_2_integration_db_variant: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_api_request_2_integration_db_variant):
+> TODO: Description...
+>
+> [[see more details]](parse_from_api_request_2_integration_db_variant ':class=see-more')
 
 
 ## Parsers from remote-api response:
@@ -33,43 +35,51 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 
 ### parse_from_api_response_2_integration_db_brand: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_api_response_2_integration_db_brand):
+> TODO: Description...
+>
+> [[see more details]](parse_from_api_response_2_integration_db_brand ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_category: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_api_response_2_integration_db_category):
+> TODO: Description...
+>
+> [[see more details]](parse_from_api_response_2_integration_db_category ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_order: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_api_response_2_integration_db_order):
+> TODO: Description...
+>
+> [[see more details]](parse_from_api_response_2_integration_db_order ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_product: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_api_response_2_integration_db_product):
+> TODO: Description...
+>
+> [[see more details]](parse_from_api_response_2_integration_db_product ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_product_images: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_api_response_2_integration_db_product_images):
+> TODO: Description...
+>
+> [[see more details]](parse_from_api_response_2_integration_db_product_images ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_property: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_api_response_2_integration_db_property):
+> TODO: Description...
+>
+> [[see more details]](parse_from_api_response_2_integration_db_property ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_variant_images: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_api_response_2_integration_db_variant_images):
+> TODO: Description...
+>
+> [[see more details]](parse_from_api_response_2_integration_db_variant_images ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_variants: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_api_response_2_integration_db_variants):
+> TODO: Description...
+>
+> [[see more details]](parse_from_api_response_2_integration_db_variants ':class=see-more')
 
 
 ## Parsers from integration db:
@@ -80,43 +90,51 @@ Note that all these algorithms have the prefix "**parse_from_integration_db_2_**
 
 ### parse_from_integration_db_2_ecapi_response_product_properties: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_integration_db_2_ecapi_response_product_properties):
+> TODO: Description...
+>
+> [[see more details]](parse_from_integration_db_2_ecapi_response_product_properties ':class=see-more')
 
 ### parse_from_integration_db_2_ecapi_response_variant_properties: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_integration_db_2_ecapi_response_variant_properties):
+> TODO: Description...
+>
+> [[see more details]](parse_from_integration_db_2_ecapi_response_variant_properties ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_base_authorization: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_integration_db_2_omna_db_base_authorization):
+> TODO: Description...
+>
+> [[see more details]](parse_from_integration_db_2_omna_db_base_authorization ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_order: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_integration_db_2_omna_db_order):
+> TODO: Description...
+>
+> [[see more details]](parse_from_integration_db_2_omna_db_order ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_order_address: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_integration_db_2_omna_db_order_address):
+> TODO: Description...
+>
+> [[see more details]](parse_from_integration_db_2_omna_db_order_address ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_order_line_items: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_integration_db_2_omna_db_order_line_items):
+> TODO: Description...
+>
+> [[see more details]](parse_from_integration_db_2_omna_db_order_line_items ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_product: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_integration_db_2_omna_db_product):
+> TODO: Description...
+>
+> [[see more details]](parse_from_integration_db_2_omna_db_product ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_variant: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_integration_db_2_omna_db_variant):
+> TODO: Description...
+>
+> [[see more details]](parse_from_integration_db_2_omna_db_variant ':class=see-more')
 
 
 ## Parsers from omna db:
@@ -128,26 +146,31 @@ Note that all these algorithms have the prefix "**parse_from_omna_db_2_**" in th
 
 ### parse_from_omna_db_2_api_request_order: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_omna_db_2_api_request_order):
+> TODO: Description...
+>
+> [[see more details]](parse_from_omna_db_2_api_request_order ':class=see-more')
 
 ### parse_from_omna_db_2_api_request_order_address: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_omna_db_2_api_request_order_address):
+> TODO: Description...
+>
+> [[see more details]](parse_from_omna_db_2_api_request_order_address ':class=see-more')
 
 ### parse_from_omna_db_2_api_request_order_line_items: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_omna_db_2_api_request_order_line_items):
+> TODO: Description...
+>
+> [[see more details]](parse_from_omna_db_2_api_request_order_line_items ':class=see-more')
 
 ### parse_from_omna_db_2_integration_db_product: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_omna_db_2_integration_db_product):
+> TODO: Description...
+>
+> [[see more details]](parse_from_omna_db_2_integration_db_product ':class=see-more')
 
 ### parse_from_omna_db_2_integration_db_variant: 
 
-  > TODO: Description...
-  > [[see more details]](parse_from_omna_db_2_integration_db_variant):
+> TODO: Description...
+>
+> [[see more details]](parse_from_omna_db_2_integration_db_variant ':class=see-more')
 

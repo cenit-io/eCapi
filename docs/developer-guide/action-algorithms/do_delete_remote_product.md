@@ -39,4 +39,4 @@ true
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_delete_remote_product)
+* [Others action algorithms](overview?id=do_delete_remote_product)

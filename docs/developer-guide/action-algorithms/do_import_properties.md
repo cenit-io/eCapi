@@ -38,4 +38,4 @@ properties
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_import_properties)
+* [Others action algorithms](overview?id=do_import_properties)

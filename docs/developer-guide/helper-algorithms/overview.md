@@ -5,7 +5,7 @@ development of an integration for a new platform.
 
 You can see this algorithms by entering [here](https://cenit.io/algorithm?f[name][40703][o]=starts_with&f[name][40703][v]=h_do_&f[namespace][40840][v]=OMNAv2).
 
-## Predefined algorithms that you can use:
+## Predefined algorithms that you can use: {docsify-ignore}
 
 ## h_do_generate_hmac:
 

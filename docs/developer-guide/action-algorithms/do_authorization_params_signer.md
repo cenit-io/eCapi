@@ -39,4 +39,4 @@ template_params[:body].gsub!(/^.*$/, data.to_json)
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_authorization_params_signer)
+* [Others action algorithms](overview?id=do_authorization_params_signer)

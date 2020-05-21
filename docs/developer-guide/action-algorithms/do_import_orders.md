@@ -72,4 +72,4 @@ orders
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_import_orders)
+* [Others action algorithms](overview?id=do_import_orders)

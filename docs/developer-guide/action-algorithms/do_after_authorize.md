@@ -69,4 +69,4 @@ end
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_after_authorize)
+* [Others action algorithms](overview?id=do_after_authorize)

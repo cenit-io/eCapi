@@ -40,4 +40,4 @@ product[:id]
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_export_product_create)
+* [Others action algorithms](overview?id=do_export_product_create)

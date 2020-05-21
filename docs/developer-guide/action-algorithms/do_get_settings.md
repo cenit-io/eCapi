@@ -27,4 +27,4 @@ Returns the available integration settings with its available channels.
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_get_settings)
+* [Others action algorithms](overview?id=do_get_settings)

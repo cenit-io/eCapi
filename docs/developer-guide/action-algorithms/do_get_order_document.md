@@ -40,4 +40,4 @@ Cenit.fail(response[:result][:errors][0][:error_description]) if response[:resul
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_get_order_document)
+* [Others action algorithms](overview?id=do_get_order_document)

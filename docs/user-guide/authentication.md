@@ -46,3 +46,40 @@ information will be used in other calls to api rest.
 			}
 	}
 ```
+
+## 3. Sign a request
+After the an access token is obtained, every request to OMNA must be signed in order to authorize the operation. The sign process of every request is described bellow:
+1. Add access token and current datetime as url request parameter.
+2. Take all params (url parameters and body parameters) in a json string representation.
+3. Remove all quotes
+4. Generate an sha256 hmac resume value with access token as key.
+5. Add hmac value as an URL parameter. 
+
+As an example code in axios javascript:
+
+```javascript
+const current_tenant = { token: '....', secret: '...' };
+
+  axios.defaults.baseURL = 'https://cenit.io/app/ecapi-v1/';
+  axios.defaults.headers.post['Content-Type'] = 'application/json';
+  axios.defaults.headers.put['Content-Type'] = 'application/json';
+
+  // Interceptors to sign any request.
+  axios.interceptors.request.use((config) => {
+    // Add token and timestamp to URL parameters.
+    config.params = Object.assign({}, config.params, { token: current_tenant.token, timestamp: Date.now() });
+
+    // Merge all URL parameters and body data to be sent with the request.
+    let data = Object.assign({}, config.params, config.data);
+
+    // Join the service path and the ordered sequence of characters, excluding the quotes,
+    // corresponding to the JSON of the parameters that will be sent.
+    let msg = config.url + JSON.stringify(data).replace(/["']/g, '').split('').sort().join('');
+
+    // Generate the corresponding hmac parameter using the js-sha256 or similar library.
+    config.params.hmac = sha256.hmac.update(current_tenant.secret, msg).hex();
+
+    return config;
+  });
+```
+

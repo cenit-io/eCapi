@@ -7,3 +7,4 @@
 - [Data types](/developer-guide/data-types/overview)
 - [Action algorithms](/developer-guide/action-algorithms/overview)
 - [Parser algorithms](/developer-guide/parser-algorithms/overview)
+- [Helper algorithms](/developer-guide/helper-algorithms/overview)

@@ -11,17 +11,17 @@ If the resource is not found an exception is thrown.
     
 ### Definition:
 
-**Name:** h_do_require_algorithm
-
-**Namespace:** OMNAv2
-
-**Parameters:**
-
-| Name | Required | Description |
-| --- | --- | --- |
-| channel | true | ... |
-| alg_name | true | ... |
-| throwing | false | ... |
+> **Name:** h_do_require_algorithm
+> 
+> **Namespace:** OMNAv2
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | channel | true | ... |
+> | alg_name | true | ... |
+> | throwing | false | ... |
 
 ### See also:
 * [Others helper algorithms](overview?id=h_do_require_algorithm)

@@ -11,16 +11,16 @@ If the resource is not found an exception is thrown.
     
 ### Definition:
 
-**Name:** h_do_require_connection
-
-**Namespace:** OMNAv2
-
-**Parameters:**
-
-| Name | Required | Description |
-| --- | --- | --- |
-| channel | true | ... |
-| name | false | ... |
+> **Name:** h_do_require_connection
+> 
+> **Namespace:** OMNAv2
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | channel | true | ... |
+> | name | false | ... |
 
 ### See also:
 * [Others helper algorithms](overview?id=h_do_require_connection)

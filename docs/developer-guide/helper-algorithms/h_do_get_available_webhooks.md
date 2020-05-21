@@ -6,14 +6,9 @@ Returns the list of all available webhook types.
     
 ### Definition:
 
-**Name:** h_do_get_available_webhooks
-
-**Namespace:** OMNAv2
-
-**Parameters:**
-
-| Name | Required | Description |
-| --- | --- | --- |
+> **Name:** h_do_get_available_webhooks
+> 
+> **Namespace:** OMNAv2
 
 ### See also:
 * [Others helper algorithms](overview?id=h_do_get_available_webhooks)

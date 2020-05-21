@@ -12,16 +12,16 @@ It is useful to avoid unnecessary execution of tasks that produce the same resul
     
 ### Definition:
 
-**Name:** h_do_get_already_active_task
-
-**Namespace:** OMNAv2
-
-**Parameters:**
-
-| Name | Required | Description |
-| --- | --- | --- |
-| algorithm | true | ... |
-| inputs | false | ... |
+> **Name:** h_do_get_already_active_task
+> 
+> **Namespace:** OMNAv2
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | algorithm | true | ... |
+> | inputs | false | ... |
 
 ### See also:
 * [Others helper algorithms](overview?id=h_do_get_already_active_task)

@@ -37,6 +37,8 @@ info:
 
     * You can use your favorite HTTP/REST library for your programming language
     to use OMNA Commerce API.
+
+    * [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)
 tags:
   - name: Available Integrations
     description: |
@@ -387,7 +389,7 @@ paths:
     post:
       tags:
         - Users
-      operationId: get_access_token_async_
+      operationId: get_access_token_
       summary: Get Access Token
       description: |
         Recover the authenticated tenant profile with your token and secret.

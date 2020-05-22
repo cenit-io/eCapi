@@ -41,4 +41,4 @@ nil
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_export_order_update)
+* [Others action algorithms](overview?id=do_export_order_update)

@@ -37,4 +37,4 @@ Cenit.fail(response[:error]) if response[:error]
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_cancel_order)
+* [Others action algorithms](overview?id=do_cancel_order)

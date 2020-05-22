@@ -36,4 +36,4 @@ categories
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_import_categories)
+* [Others action algorithms](overview?id=do_import_categories)

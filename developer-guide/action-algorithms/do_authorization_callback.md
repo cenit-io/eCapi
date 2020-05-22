@@ -28,4 +28,4 @@ template_parameters['tpN'] = callback_params[:cbpN]
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_authorization_callback)
+* [Others action algorithms](overview?id=do_authorization_callback)

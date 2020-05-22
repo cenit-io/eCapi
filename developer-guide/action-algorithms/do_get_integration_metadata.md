@@ -33,4 +33,4 @@ metadata
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_get_integration_metadata)
+* [Others action algorithms](overview?id=do_get_integration_metadata)

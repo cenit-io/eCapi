@@ -75,4 +75,4 @@ products
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_import_products)
+* [Others action algorithms](overview?id=do_import_products)

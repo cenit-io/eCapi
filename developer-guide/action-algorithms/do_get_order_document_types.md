@@ -19,4 +19,4 @@ Returns the possible types of order documents available.
 ```
 
 ### See also:
-* [Others actions algorithms](overview?id=do_get_order_document_types)
+* [Others action algorithms](overview?id=do_get_order_document_types)

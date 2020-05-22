@@ -1,6 +1,6 @@
-# Helper algorithm:
+# Helper algorithm
 
-## h_do_require_webhook:
+## h_do_require_webhook
 
 Search and returns an webhook by its name and integration channel.
 
@@ -11,7 +11,7 @@ The webhook found is assigned the connection and the authorization corresponding
 
 If the resource is not found an exception is thrown.
     
-### Definition:
+### Definition
 
 > **Name:** h_do_require_webhook
 > 
@@ -21,8 +21,8 @@ If the resource is not found an exception is thrown.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true | ... |
-> | name | true | ... |
+> | integration | true |  |
+> | name | true |  |
 
-### See also:
+### See also
 * [Others helper algorithms](overview?id=h_do_require_webhook)

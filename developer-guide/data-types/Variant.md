@@ -1,6 +1,6 @@
-# Data Type: 
+# Data Type
 
-## Variant:
+## Variant
 
 Data structure to store the imported records of product variants for each integration channel.
 
@@ -10,8 +10,8 @@ Its records are completed from the information obtained or mapped in algorithms:
 * [parse_from_api_response_2_integration_db_product](../parser-algorithms/parse_from_api_response_2_integration_db_variant.md).
 * [parse_from_omna_db_2_integration_db_product](../parser-algorithms/parse_from_omna_db_2_integration_db_variant.md).
     
-### JSON SCHEMA:
-```JSON
+### JSON SCHEMA
+```json
 {
   "type": "object",
   "properties": {
@@ -57,5 +57,5 @@ Its records are completed from the information obtained or mapped in algorithms:
 }
 ```
 
-### See also:
+### See also
 * [Others data types](overview?id=Variant)

@@ -1,10 +1,10 @@
-# Helper algorithm:
+# Helper algorithm
 
-## h_do_notify:
+## h_do_notify
 
 Create a system notification.
     
-### Definition:
+### Definition
 
 > **Name:** h_do_notify
 > 
@@ -14,10 +14,10 @@ Create a system notification.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | msg | true | ... |
-> | attachment | false | ... |
-> | type | false | ... |
-> | context | false | ... |
+> | msg | true |  |
+> | attachment | false |  |
+> | type | false |  |
+> | context | false |  |
 
-### See also:
+### See also
 * [Others helper algorithms](overview?id=h_do_notify)

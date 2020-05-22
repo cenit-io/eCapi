@@ -1,10 +1,13 @@
-# Action algorithm:
+# Action algorithm
 
-## do_after_authorize:
+## do_after_authorize
 
 Allows validate the authorization and start some processes after successful authorization.
+
+In this algorithm, if applicable for integration, the tasks for importing some resources such as categories and marks 
+should be started.
     
-### Definition:
+### Definition
 
 > **Name:** do_after_authorize
 > 
@@ -14,11 +17,11 @@ Allows validate the authorization and start some processes after successful auth
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration_id | true | ... |
-> | task | true | ... |
+> | integration_id | true | OMNAv2::Integration \| String |
+> | task | true | Setup::AlgorithmExecution |
 
-### Example:
-```RUBY
+### Example
+```ruby
 ns_omna = Cenit.namespace(:OMNAv2)
 
 do_notify = ns_omna.algorithm(:do_notify)
@@ -68,5 +71,5 @@ begin
 end
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_after_authorize)

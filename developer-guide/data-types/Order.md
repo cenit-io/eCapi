@@ -1,6 +1,6 @@
-# Data Type: 
+# Data Type
 
-## Order:
+## Order
 
 Data structure to store the imported records of orders for each integration channel.
 
@@ -9,8 +9,8 @@ Its records are completed from the information obtained or mapped in algorithms:
 * [do_import_orders](../action-algorithms/do_import_orders.md).
 * [parse_from_api_response_2_integration_db_order](../parser-algorithms/parse_from_api_response_2_integration_db_order.md).
     
-### JSON SCHEMA:
-```JSON
+### JSON SCHEMA
+```json
 {
   "type": "object",
   "properties": {
@@ -49,5 +49,5 @@ Its records are completed from the information obtained or mapped in algorithms:
 }
 ```
 
-### See also:
+### See also
 * [Others data types](overview?id=Order)

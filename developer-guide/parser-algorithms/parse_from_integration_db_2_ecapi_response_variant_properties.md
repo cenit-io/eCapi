@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_integration_db_2_ecapi_response_variant_properties:
+## parse_from_integration_db_2_ecapi_response_variant_properties
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_integration_db_2_ecapi_response_variant_properties
 > 
@@ -14,11 +14,11 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | variant | true | ... |
-> | properties_definition | true | ... |
+> | variant | true |  |
+> | properties_definition | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 variant.product.data[:options].map do |option|
   {
     id: option[:id],
@@ -32,5 +32,5 @@ variant.product.data[:options].map do |option|
 end
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_integration_db_2_ecapi_response_variant_properties)

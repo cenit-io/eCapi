@@ -1,10 +1,10 @@
-# Helper algorithm:
+# Helper algorithm
 
-## h_do_generate_hmac:
+## h_do_generate_hmac
 
 This algorithm allows calculating the hmac of a hash or a record of a data type.
     
-### Definition:
+### Definition
 
 > **Name:** h_do_generate_hmac
 > 
@@ -14,7 +14,7 @@ This algorithm allows calculating the hmac of a hash or a record of a data type.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | data | true | ... |
+> | data | true |  |
 
-### See also:
+### See also
 * [Others helper algorithms](overview?id=h_do_generate_hmac)

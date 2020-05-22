@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_omna_db_2_api_request_order:
+## parse_from_omna_db_2_api_request_order
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_omna_db_2_api_request_order
 > 
@@ -14,10 +14,10 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | source | true | ... |
+> | source | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Mapping of an record of order of OMNAv2 for to be use in an API request for an integration of this channel.
 
 ns_sopify = Cenit.namespace(:Ov2Anyone)
@@ -44,5 +44,5 @@ parse_line_items = ns_sopify.algorithm(:parse_from_omna_db_2_api_request_order_l
 }
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_omna_db_2_api_request_order)

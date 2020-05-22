@@ -1,4 +1,4 @@
-# Guide to create a new available integration:
+# Guide to create a new available integration
 
 An integration contains a collection of resources that allow the synchronization of the information between OMNA and a 
 remote platform that has an API that allows communication between the parties.
@@ -8,7 +8,7 @@ All these resources must be organized in [namespaces](namespaces) relative to th
 To guarantee communication between the parties, a [connection](connection) and the corresponding
 [authorization](authorization) must be created and configured.
 
-## Previous requirements:
+## Previous requirements
 
 Before beginning development, you should identify and have the following items on hand:
 

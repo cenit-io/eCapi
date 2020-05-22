@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_omna_db_2_integration_db_variant:
+## parse_from_omna_db_2_integration_db_variant
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_omna_db_2_integration_db_variant
 > 
@@ -14,11 +14,11 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | source | true | ... |
-> | target_sku | true | ... |
+> | source | true |  |
+> | target_sku | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Mapping variant from db record of OMNAv2.
 
 variant_in_omna = source
@@ -36,5 +36,5 @@ original_price = variant_in_omna[:original_price]
 }
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_omna_db_2_integration_db_variant)

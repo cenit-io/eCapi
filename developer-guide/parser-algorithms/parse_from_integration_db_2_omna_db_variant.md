@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_integration_db_2_omna_db_variant:
+## parse_from_integration_db_2_omna_db_variant
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_integration_db_2_omna_db_variant
 > 
@@ -14,10 +14,10 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | source | true | ... |
+> | source | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Mapping variant from db record of Shopify channel to OMNAv2.
 
 parse_package_weight = Cenit.namespace(:OMNAv2).algorithm(:parse_from_integration_db_2_omna_db_package_weight)
@@ -39,5 +39,5 @@ data = source[:data]
 }
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_integration_db_2_omna_db_variant)

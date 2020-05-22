@@ -1,12 +1,12 @@
-# Helper algorithm:
+# Helper algorithm
 
-## h_do_require_order:
+## h_do_require_order
 
 Search and returns an order by its id or by its number in an integration.
 
 If some of the resources are not found an exception is thrown.
     
-### Definition:
+### Definition
 
 > **Name:** h_do_require_order
 > 
@@ -16,8 +16,8 @@ If some of the resources are not found an exception is thrown.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | number_or_id | true | ... |
-> | integration_id | false | ... |
+> | number_or_id | true |  |
+> | integration_id | false |  |
 
-### See also:
+### See also
 * [Others helper algorithms](overview?id=h_do_require_order)

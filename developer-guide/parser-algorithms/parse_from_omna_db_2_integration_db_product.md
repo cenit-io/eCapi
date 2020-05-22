@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_omna_db_2_integration_db_product:
+## parse_from_omna_db_2_integration_db_product
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_omna_db_2_integration_db_product
 > 
@@ -14,10 +14,10 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | source | true | ... |
+> | source | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Mapping product from db record of OMNAv2.
 
 product_in_omna = source
@@ -27,5 +27,5 @@ product_in_omna = source
 }
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_omna_db_2_integration_db_product)

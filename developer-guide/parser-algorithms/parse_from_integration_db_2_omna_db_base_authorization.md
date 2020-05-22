@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_integration_db_2_omna_db_base_authorization:
+## parse_from_integration_db_2_omna_db_base_authorization
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_integration_db_2_omna_db_base_authorization
 > 
@@ -14,11 +14,11 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true | ... |
-> | base_authorization | true | ... |
+> | integration | true |  |
+> | base_authorization | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Mapping authorization from Shopify integration db record and authorization base of the integration channel.
 
 {
@@ -26,5 +26,5 @@ TODO: Description...
 }
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_integration_db_2_omna_db_base_authorization)

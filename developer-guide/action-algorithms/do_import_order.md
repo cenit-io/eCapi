@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_import_order:
+## do_import_order
 
 Allows submitting a request to the remote integration platform to get and import an order.
     
-### Definition:
+### Definition
 
 > **Name:** do_import_order
 > 
@@ -14,13 +14,13 @@ Allows submitting a request to the remote integration platform to get and import
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true | ... |
-> | number | true | ... |
-> | webhook | true | ... |
-> | task | true | ... |
+> | integration | true |  |
+> | number | true |  |
+> | webhook | true |  |
+> | task | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Get order from integration
 order = begin
   data = { ordersn_list: [number] }
@@ -35,5 +35,5 @@ end
 order
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_import_order)

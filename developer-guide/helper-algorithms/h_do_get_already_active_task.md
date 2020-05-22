@@ -1,6 +1,6 @@
-# Helper algorithm:
+# Helper algorithm
 
-## h_do_get_already_active_task:
+## h_do_get_already_active_task
 
 Returns, if it exists, the task that meets the following conditions:
 
@@ -10,7 +10,7 @@ Returns, if it exists, the task that meets the following conditions:
 
 It is useful to avoid unnecessary execution of tasks that produce the same result.
     
-### Definition:
+### Definition
 
 > **Name:** h_do_get_already_active_task
 > 
@@ -20,8 +20,8 @@ It is useful to avoid unnecessary execution of tasks that produce the same resul
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | algorithm | true | ... |
-> | inputs | false | ... |
+> | algorithm | true |  |
+> | inputs | false |  |
 
-### See also:
+### See also
 * [Others helper algorithms](overview?id=h_do_get_already_active_task)

@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_api_response_2_integration_db_order:
+## parse_from_api_response_2_integration_db_order
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_api_response_2_integration_db_order
 > 
@@ -14,10 +14,10 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | source | true | ... |
+> | source | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 state = begin
   if source[:cancelled_at].present?
     'cancelled'
@@ -34,5 +34,5 @@ end
 }
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_api_response_2_integration_db_order)

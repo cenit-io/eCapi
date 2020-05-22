@@ -1,14 +1,14 @@
-# Helper algorithm:
+# Helper algorithm
 
-## h_do_get_available_webhooks:
+## h_do_get_available_webhooks
 
 Returns the list of all available webhook types.
     
-### Definition:
+### Definition
 
 > **Name:** h_do_get_available_webhooks
 > 
 > **Namespace:** OMNAv2
 
-### See also:
+### See also
 * [Others helper algorithms](overview?id=h_do_get_available_webhooks)

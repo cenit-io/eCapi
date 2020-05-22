@@ -1,9 +1,9 @@
-# Integration namespaces:
+# Integration namespaces
 
 As a rule and to avoid conflicts, we recommend the use of the prefix **`Ov2`** in the name of each namespace and the use of 
 names in the UpperCamelCase format.
 
-## Main namespace:
+## Main namespace
 
 Create the **`main namespace`** of the integration, with **`Ov2`** as the prefix of the name, remaining as follows **`Ov2Anyone`**.
 
@@ -15,7 +15,7 @@ In this namespace you must define the general resources that represent the integ
 * [Action algorithms](action-algorithms/overview) 
 * [Parser algorithms](patser-algorithms/overview) 
 
-## Channels namespaces:
+## Channels namespaces
 
 Create the **`channels namespaces`** of the integration, with **`Ov2`** as the prefix of the name, remaining as follows 
 **`Ov2AnyoneID, Ov2AnyoneMY, … , Ov2AnyoneVN`**.

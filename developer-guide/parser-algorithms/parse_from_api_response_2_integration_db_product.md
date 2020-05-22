@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_api_response_2_integration_db_product:
+## parse_from_api_response_2_integration_db_product
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_api_response_2_integration_db_product
 > 
@@ -14,15 +14,15 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | source | true | ... |
+> | source | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 {
   remote_product_id: source[:id],
   category_id: source[:product_type],
 }
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_api_response_2_integration_db_product)

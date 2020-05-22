@@ -1,4 +1,4 @@
-# Data types:
+# Data types
 
 This data types represent the intermediate data structure where the information coming from or destined for the platform
 to be integrated will be stored.
@@ -7,9 +7,9 @@ It is very important that the data types described below be create with the exac
 
 You can manage the data types by entering [here](https://cenit.io/json_data_type).
 
-## Data types that should be created: {docsify-ignore}
+## Data types that should be created{docsify-ignore}
 
-### Brand: 
+### Brand 
 
 > Data structure to store the imported records of product brands for each integration channel.
 > 
@@ -20,7 +20,7 @@ You can manage the data types by entering [here](https://cenit.io/json_data_type
 >
 > [[see more details]](Brand ':class=see-more')
 
-### Category: 
+### Category 
 
 > Data structure to store the imported records of product categories for each integration channel.
 > 
@@ -31,7 +31,7 @@ You can manage the data types by entering [here](https://cenit.io/json_data_type
 >
 > [[see more details]](Category ':class=see-more')
 
-### Image: 
+### Image 
 
 > Data structure to store the imported records of product images for each integration channel.
 > 
@@ -45,7 +45,7 @@ You can manage the data types by entering [here](https://cenit.io/json_data_type
 >
 > [[see more details]](Image ':class=see-more')
 
-### Order: 
+### Order 
 
 > Data structure to store the imported records of orders for each integration channel.
 > 
@@ -56,7 +56,7 @@ You can manage the data types by entering [here](https://cenit.io/json_data_type
 >
 > [[see more details]](Order ':class=see-more')
 
-### Product: 
+### Product 
 
 > Data structure to store the imported records of products for each integration channel.
 > 
@@ -68,7 +68,7 @@ You can manage the data types by entering [here](https://cenit.io/json_data_type
 >
 > [[see more details]](Product ':class=see-more')
 
-### Property: 
+### Property 
 
 > Data structure to store the imported records of product properties definition for each product category and each
 > integration channel.
@@ -84,7 +84,7 @@ You can manage the data types by entering [here](https://cenit.io/json_data_type
 >
 > [[see more details]](Property ':class=see-more')
 
-### Variant: 
+### Variant 
 
 > Data structure to store the imported records of product variants for each integration channel.
 > 

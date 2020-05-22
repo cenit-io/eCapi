@@ -1,6 +1,6 @@
-# Helper algorithm:
+# Helper algorithm
 
-## h_do_require_integration:
+## h_do_require_integration
 
 Search and returns an integration by its id.
 
@@ -9,7 +9,7 @@ an exception is thrown.
 
 If the resource is not found an exception is thrown.
     
-### Definition:
+### Definition
 
 > **Name:** h_do_require_integration
 > 
@@ -19,8 +19,8 @@ If the resource is not found an exception is thrown.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true | ... |
-> | check_authorization | false | ... |
+> | integration | true |  |
+> | check_authorization | false |  |
 
-### See also:
+### See also
 * [Others helper algorithms](overview?id=h_do_require_integration)

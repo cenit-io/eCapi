@@ -1,6 +1,6 @@
-# Data Type: 
+# Data Type
 
-## Category:
+## Category
 
 Data structure to store the imported records of product categories for each integration channel.
 
@@ -9,8 +9,8 @@ This structure is required only when the platform to be integrated organizes the
 Its records are completed from the information obtained in [this action](../action-algorithms/do_import_categories.md) algorithm 
 and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integration_db_category.md) algorithm.
     
-### JSON SCHEMA:
-```JSON
+### JSON SCHEMA
+```json
 {
   "type": "object",
   "properties": {
@@ -28,5 +28,5 @@ and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integ
 }
 ```
 
-### See also:
+### See also
 * [Others data types](overview?id=Category)

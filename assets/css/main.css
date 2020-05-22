@@ -6,6 +6,13 @@
   --table-cell-padding: 5px 10px;
 }
 
+h1 span:after,
+h2 span:after,
+h3 span:after,
+h4 span:after {
+  content: ':';
+}
+
 a.see-more {
   position: relative;
   left: calc(100% - 15ex);

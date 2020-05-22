@@ -1,6 +1,6 @@
-# Data Type: 
+# Data Type
 
-## Brand:
+## Brand
 
 Data structure to store the imported records of product brands for each integration channel.
 
@@ -9,8 +9,8 @@ This structure is required only when the platform to be integrated have predefin
 Its records are completed from the information obtained in [this action](../action-algorithms/do_import_brands.md) algorithm 
 and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integration_db_brand.md) algorithm.
     
-### JSON SCHEMA:
-```JSON
+### JSON SCHEMA
+```json
 {
   "type": "object",
   "properties": {
@@ -27,5 +27,5 @@ and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integ
 }
 ```
 
-### See also:
+### See also
 * [Others data types](overview?id=Brand)

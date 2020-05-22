@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_api_response_2_integration_db_variants:
+## parse_from_api_response_2_integration_db_variants
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_api_response_2_integration_db_variants
 > 
@@ -14,10 +14,10 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | source | true | ... |
+> | source | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 source[:variants].map do |variant|
   {
     remote_variant_id: variant[:id],
@@ -27,5 +27,5 @@ source[:variants].map do |variant|
 end
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_api_response_2_integration_db_variants)

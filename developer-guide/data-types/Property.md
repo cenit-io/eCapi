@@ -1,6 +1,6 @@
-# Data Type: 
+# Data Type
 
-## Property:
+## Property
 
 Data structure to store the imported records of product properties definition for each product category and each
 integration channel.
@@ -14,8 +14,8 @@ Its records are completed from the information obtained or mapped in algorithms:
 * [parse_from_api_response_2_integration_db_property](../parser-algorithms/parse_from_api_response_2_integration_db_property.md).
 
     
-### JSON SCHEMA:
-```JSON
+### JSON SCHEMA
+```json
 {
   "title": "Property",
   "type": "object",
@@ -56,5 +56,5 @@ Its records are completed from the information obtained or mapped in algorithms:
 }
 ```
 
-### See also:
+### See also
 * [Others data types](overview?id=Property)

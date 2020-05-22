@@ -1,17 +1,17 @@
-# Action algorithm:
+# Action algorithm
 
-## do_get_settings:
+## do_get_settings
 
 Returns the available integration settings with its available channels.
     
-### Definition:
+### Definition
 
 > **Name:** do_get_settings
 > 
 > **Namespace:** Ov2Shopee
 
-### Example:
-```RUBY
+### Example
+```ruby
 {
   available_channels: [
     { name: 'Ov2AnyoneID', title: 'Anyone [ID]' },
@@ -25,5 +25,5 @@ Returns the available integration settings with its available channels.
 }
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_get_settings)

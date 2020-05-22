@@ -1,4 +1,4 @@
-# Connections:
+# Connections
 
 An connection named "**connection**" must be created.
 

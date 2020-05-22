@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_integration_db_2_omna_db_order:
+## parse_from_integration_db_2_omna_db_order
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_integration_db_2_omna_db_order
 > 
@@ -14,10 +14,10 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | source | true | ... |
+> | source | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Mapping order from db record of Shopify channel to OMNAv2.
 
 data = source[:data]
@@ -54,5 +54,5 @@ line_items = parse_line_items.run([data])
 }
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_integration_db_2_omna_db_order)

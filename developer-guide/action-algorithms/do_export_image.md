@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_export_image:
+## do_export_image
 
 Allows submitting a request a request to the remote integration platform to publish an image.
     
-### Definition:
+### Definition
 
 > **Name:** do_export_image
 > 
@@ -14,11 +14,11 @@ Allows submitting a request a request to the remote integration platform to publ
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | url | true | ... |
-> | integration_id | true | ... |
+> | url | true |  |
+> | integration_id | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 ns_omna = Cenit.namespace(:OMNAv2)
 ns_anyone = Cenit.namespace(:Ov2Anyone)
 
@@ -43,5 +43,5 @@ end
 url
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_export_image)

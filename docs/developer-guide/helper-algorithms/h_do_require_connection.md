@@ -2,7 +2,7 @@
 
 ## h_do_require_connection:
 
-Search and returns an connection by its name and integration channel.
+Search and returns a connection by its name and integration channel.
 
 The connection searches 1st in the namespace of the provided channel, if it is not found, it will search, 
 only if applicable, in the main namespace of the integration.

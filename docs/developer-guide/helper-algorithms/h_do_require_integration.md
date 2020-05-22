@@ -2,7 +2,12 @@
 
 ## h_do_require_integration:
 
-TODO: Description...
+Search and returns an integration by its id.
+
+If value of check_authorization parameter is true and the integration is not authorized then 
+an exception is thrown.
+
+If the resource is not found an exception is thrown.
     
 ### Definition:
 

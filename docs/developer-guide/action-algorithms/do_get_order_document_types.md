@@ -5,11 +5,10 @@
 Returns the possible types of order documents available.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_get_order_document_types
-    parameters:
-```
+
+> **Name:** do_get_order_document_types
+> 
+> **Namespace:** Ov2Shopee
 
 ### Example:
 ```RUBY

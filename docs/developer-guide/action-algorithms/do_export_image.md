@@ -5,17 +5,17 @@
 Allows submitting a request a request to the remote integration platform to publish an image.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_export_image
-    parameters:
-      - name: url
-        required: true
-        
-      - name: integration_id
-        required: true
-        
-```
+
+> **Name:** do_export_image
+> 
+> **Namespace:** Ov2Shopee
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | url | true | ... |
+> | integration_id | true | ... |
 
 ### Example:
 ```RUBY

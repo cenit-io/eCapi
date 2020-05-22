@@ -5,20 +5,18 @@
 Allows submitting a request to the remote integration platform to get and import the products.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_import_products
-    parameters:
-      - name: integration
-        required: true
-        
-      - name: webhook
-        required: true
-        
-      - name: task
-        required: true
-        
-```
+
+> **Name:** do_import_products
+> 
+> **Namespace:** Ov2Shopee
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | integration | true | ... |
+> | webhook | true | ... |
+> | task | true | ... |
 
 ### Example:
 ```RUBY

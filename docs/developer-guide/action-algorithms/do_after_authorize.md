@@ -5,17 +5,17 @@
 Allows validate the authorization and start some processes after successful authorization.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_after_authorize
-    parameters:
-      - name: integration_id
-        required: true
-        
-      - name: task
-        required: true
-        
-```
+
+> **Name:** do_after_authorize
+> 
+> **Namespace:** Ov2Shopee
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | integration_id | true | ... |
+> | task | true | ... |
 
 ### Example:
 ```RUBY

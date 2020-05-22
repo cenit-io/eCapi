@@ -5,17 +5,17 @@
 TODO: Description...
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: parse_from_integration_db_2_ecapi_response_variant_properties
-    parameters:
-      - name: variant
-        required: true
-        
-      - name: properties_definition
-        required: true
-        
-```
+
+> **Name:** parse_from_integration_db_2_ecapi_response_variant_properties
+> 
+> **Namespace:** Ov2Shopee
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | variant | true | ... |
+> | properties_definition | true | ... |
 
 ### Example:
 ```RUBY

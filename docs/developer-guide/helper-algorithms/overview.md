@@ -66,18 +66,6 @@ You can see this algorithms by entering [here](https://cenit.io/algorithm?f[name
 >
 > [[see more details]](h_do_require_algorithm ':class=see-more')
 
-## h_do_require_collection_installed:
-
-> TODO: Description...
->
-> [[see more details]](h_do_require_collection_installed ':class=see-more')
-
-## h_do_require_collection_shared:
-
-> TODO: Description...
->
-> [[see more details]](h_do_require_collection_shared ':class=see-more')
-
 ## h_do_require_connection:
 
 > Search and returns an connection by its name and integration channel.

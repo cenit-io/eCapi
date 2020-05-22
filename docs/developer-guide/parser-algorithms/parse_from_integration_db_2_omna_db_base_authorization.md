@@ -5,17 +5,17 @@
 TODO: Description...
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: parse_from_integration_db_2_omna_db_base_authorization
-    parameters:
-      - name: integration
-        required: true
-        
-      - name: base_authorization
-        required: true
-        
-```
+
+> **Name:** parse_from_integration_db_2_omna_db_base_authorization
+> 
+> **Namespace:** Ov2Shopify
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | integration | true | ... |
+> | base_authorization | true | ... |
 
 ### Example:
 ```RUBY

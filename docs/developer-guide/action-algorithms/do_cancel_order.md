@@ -5,20 +5,18 @@
 Allows submitting a request to the remote integration platform to cancel an order.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_cancel_order
-    parameters:
-      - name: order
-        required: true
-        
-      - name: webhook
-        required: true
-        
-      - name: task
-        required: true
-        
-```
+
+> **Name:** do_cancel_order
+> 
+> **Namespace:** Ov2Shopee
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | order | true | ... |
+> | webhook | true | ... |
+> | task | true | ... |
 
 ### Example:
 ```RUBY

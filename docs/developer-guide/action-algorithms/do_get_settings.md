@@ -5,11 +5,10 @@
 Returns the available integration settings with its available channels.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_get_settings
-    parameters:
-```
+
+> **Name:** do_get_settings
+> 
+> **Namespace:** Ov2Shopee
 
 ### Example:
 ```RUBY

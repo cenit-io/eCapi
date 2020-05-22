@@ -5,17 +5,17 @@
 Allows signing the parameters sent in the request for an authorization.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_authorization_params_signer
-    parameters:
-      - name: params
-        required: true
-        
-      - name: template_params
-        required: true
-        
-```
+
+> **Name:** do_authorization_params_signer
+> 
+> **Namespace:** Ov2Shopee
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | params | true | ... |
+> | template_params | true | ... |
 
 ### Example:
 ```RUBY

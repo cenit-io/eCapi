@@ -5,26 +5,20 @@
 Allows submitting a request to the remote integration platform to update an order.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_export_order_update
-    parameters:
-      - name: data
-        required: true
-        
-      - name: target_integration
-        required: true
-        
-      - name: webhook
-        required: true
-        
-      - name: order_exported
-        required: true
-        
-      - name: task
-        required: true
-        
-```
+
+> **Name:** do_export_order_update
+> 
+> **Namespace:** Ov2Shopify
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | data | true | ... |
+> | target_integration | true | ... |
+> | webhook | true | ... |
+> | order_exported | true | ... |
+> | task | true | ... |
 
 ### Example:
 ```RUBY

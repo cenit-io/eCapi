@@ -5,17 +5,17 @@
 TODO: Description...
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: parse_from_omna_db_2_integration_db_variant
-    parameters:
-      - name: source
-        required: true
-        
-      - name: target_sku
-        required: true
-        
-```
+
+> **Name:** parse_from_omna_db_2_integration_db_variant
+> 
+> **Namespace:** Ov2Shopee
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | source | true | ... |
+> | target_sku | true | ... |
 
 ### Example:
 ```RUBY

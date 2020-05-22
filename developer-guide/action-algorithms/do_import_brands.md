@@ -5,20 +5,18 @@
 Allows submitting a request to the remote integration platform to get and import the product brands.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_import_brands
-    parameters:
-      - name: integration
-        required: true
-        
-      - name: webhook
-        required: true
-        
-      - name: task
-        required: true
-        
-```
+
+> **Name:** do_import_brands
+> 
+> **Namespace:** Ov2Lazada
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | integration | true | ... |
+> | webhook | true | ... |
+> | task | true | ... |
 
 ### Example:
 ```RUBY

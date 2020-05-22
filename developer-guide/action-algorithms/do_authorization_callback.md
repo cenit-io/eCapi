@@ -5,17 +5,17 @@
 Allows set the template parameters of the authorization from the callback params in a callback authorization.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_authorization_callback
-    parameters:
-      - name: callback_params
-        required: true
-        
-      - name: template_parameters
-        required: true
-        
-```
+
+> **Name:** do_authorization_callback
+> 
+> **Namespace:** Ov2Shopee
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | callback_params | true | ... |
+> | template_parameters | true | ... |
 
 ### Example:
 ```RUBY

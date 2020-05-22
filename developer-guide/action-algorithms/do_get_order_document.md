@@ -5,20 +5,18 @@
 Allows submitting a request a request to the remote integration platform to get an order document.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_get_order_document
-    parameters:
-      - name: order
-        required: true
-        
-      - name: doc_type
-        required: true
-        
-      - name: webhook
-        required: true
-        
-```
+
+> **Name:** do_get_order_document
+> 
+> **Namespace:** Ov2Shopee
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | order | true | ... |
+> | doc_type | true | ... |
+> | webhook | true | ... |
 
 ### Example:
 ```RUBY

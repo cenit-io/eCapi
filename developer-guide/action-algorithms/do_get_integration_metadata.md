@@ -5,17 +5,17 @@
 Allows submitting a request to the remote integration platform to get its metadata.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_get_integration_metadata
-    parameters:
-      - name: integration
-        required: true
-        
-      - name: webhook
-        required: true
-        
-```
+
+> **Name:** do_get_integration_metadata
+> 
+> **Namespace:** Ov2Shopee
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | integration | true | ... |
+> | webhook | true | ... |
 
 ### Example:
 ```RUBY

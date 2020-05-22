@@ -5,23 +5,19 @@
 Allows submitting a request to the remote integration platform to create a product.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_export_product_create
-    parameters:
-      - name: data
-        required: true
-        
-      - name: target_integration
-        required: true
-        
-      - name: webhook
-        required: true
-        
-      - name: task
-        required: true
-        
-```
+
+> **Name:** do_export_product_create
+> 
+> **Namespace:** Ov2Shopify
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | data | true | ... |
+> | target_integration | true | ... |
+> | webhook | true | ... |
+> | task | true | ... |
 
 ### Example:
 ```RUBY

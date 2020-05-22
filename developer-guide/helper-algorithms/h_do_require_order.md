@@ -2,7 +2,9 @@
 
 ## h_do_require_order:
 
-TODO: Description...
+Search and returns an order by its id or by its number in an integration.
+
+If some of the resources are not found an exception is thrown.
     
 ### Definition:
 

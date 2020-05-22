@@ -5,20 +5,18 @@
 Allows submitting a request to the remote integration platform to remove a product.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_delete_remote_product
-    parameters:
-      - name: product
-        required: true
-        
-      - name: webhook
-        required: true
-        
-      - name: task
-        required: true
-        
-```
+
+> **Name:** do_delete_remote_product
+> 
+> **Namespace:** Ov2Shopee
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | product | true | ... |
+> | webhook | true | ... |
+> | task | true | ... |
 
 ### Example:
 ```RUBY

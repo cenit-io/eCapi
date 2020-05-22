@@ -5,20 +5,18 @@
 Allows submitting a request to the remote integration platform to get and import the product properties.
     
 ### Definition:
-```YAML
-    namespace: Ov2Anyone
-    name: do_import_properties
-    parameters:
-      - name: integration
-        required: true
-        
-      - name: category
-        required: true
-        
-      - name: webhook
-        required: true
-        
-```
+
+> **Name:** do_import_properties
+> 
+> **Namespace:** Ov2Shopee
+>
+> **Parameters:**
+> 
+> | Name | Required | Description |
+> | --- | --- | --- |
+> | integration | true | ... |
+> | category | true | ... |
+> | webhook | true | ... |
 
 ### Example:
 ```RUBY

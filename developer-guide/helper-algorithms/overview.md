@@ -66,21 +66,9 @@ You can see this algorithms by entering [here](https://cenit.io/algorithm?f[name
 >
 > [[see more details]](h_do_require_algorithm ':class=see-more')
 
-## h_do_require_collection_installed:
-
-> TODO: Description...
->
-> [[see more details]](h_do_require_collection_installed ':class=see-more')
-
-## h_do_require_collection_shared:
-
-> TODO: Description...
->
-> [[see more details]](h_do_require_collection_shared ':class=see-more')
-
 ## h_do_require_connection:
 
-> Search and returns an connection by its name and integration channel.
+> Search and returns a connection by its name and integration channel.
 > 
 > The connection searches 1st in the namespace of the provided channel, if it is not found, it will search, 
 > only if applicable, in the main namespace of the integration.
@@ -91,25 +79,50 @@ You can see this algorithms by entering [here](https://cenit.io/algorithm?f[name
 
 ## h_do_require_integration:
 
-> TODO: Description...
+> Search and returns an integration by its id.
+> 
+> If value of check_authorization parameter is true and the integration is not authorized then 
+> an exception is thrown.
+> 
+> If the resource is not found an exception is thrown.
 >
 > [[see more details]](h_do_require_integration ':class=see-more')
 
 ## h_do_require_order:
 
-> TODO: Description...
+> Search and returns an order by its id or by its number in an integration.
+> 
+> If some of the resources are not found an exception is thrown.
 >
 > [[see more details]](h_do_require_order ':class=see-more')
 
 ## h_do_require_product:
 
-> TODO: Description...
+> Search and returns a product by its id in omna or by its id in the remote platform to be integrate.
+> 
+> If only the product id (1st parameter) is provided, then the search is performed in the product registers of OMNA.
+> [ [See in Cenit-IO](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Product") ]
+> 
+> If the 2 parameters are provided, they are assumed to be (remote_product_id and integration_id) and the search is 
+> carried out in the product registers on the intermediate structure used for this purpose.
+> [ [See here](../data-types/Product.md) ]
+> 
+> If some of the resources are not found an exception is thrown.
 >
 > [[see more details]](h_do_require_product ':class=see-more')
 
 ## h_do_require_variant:
 
-> TODO: Description...
+> Search and returns a product variant by its id in omna or by its id in the remote platform to be integrate.
+> 
+> If only the product variant id (1st parameter) is provided, then the search is performed in the product variant registers of OMNA.
+> [ [See in Cenit-IO](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Variant") ]
+> 
+> If the 2 parameters are provided, they are assumed to be (remote_variant_id and integration_id) and the search is 
+> carried out in the product variant registers on the intermediate structure used for this purpose.
+> [ [See here](../data-types/Variant.md) ]
+> 
+> If some of the resources are not found an exception is thrown.
 >
 > [[see more details]](h_do_require_variant ':class=see-more')
 
@@ -128,7 +141,10 @@ You can see this algorithms by entering [here](https://cenit.io/algorithm?f[name
 
 ## h_do_set_asynchronous_task:
 
-> TODO: Description...
+> Create a task for the asynchronous execution of the given action (algorithm).
+> 
+> If the join_group parameter is provided, the task will be placed at the end of the execution queue of this group. 
+> Otherwise it will be put at the end of the execution queue created for task of the same action (algorithm).
 >
 > [[see more details]](h_do_set_asynchronous_task ':class=see-more')
 

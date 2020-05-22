@@ -18,7 +18,7 @@ It is useful to avoid unnecessary execution of tasks that produce the same resul
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | algorithm | true | ... |
 > | inputs | false | ... |

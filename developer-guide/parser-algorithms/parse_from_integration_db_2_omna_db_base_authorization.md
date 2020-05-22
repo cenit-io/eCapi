@@ -12,7 +12,7 @@ TODO: Description...
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | integration | true | ... |
 > | base_authorization | true | ... |

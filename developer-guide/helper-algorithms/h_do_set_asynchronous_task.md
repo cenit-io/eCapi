@@ -15,7 +15,7 @@ Otherwise it will be put at the end of the execution queue created for task of t
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | action | true | ... |
 > | message | true | ... |

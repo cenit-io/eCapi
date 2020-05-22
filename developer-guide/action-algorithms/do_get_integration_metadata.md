@@ -12,7 +12,7 @@ Allows submitting a request to the remote integration platform to get its metada
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | integration | true | ... |
 > | webhook | true | ... |

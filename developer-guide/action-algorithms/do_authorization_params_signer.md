@@ -12,7 +12,7 @@ Allows signing the parameters sent in the request for an authorization.
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | params | true | ... |
 > | template_params | true | ... |

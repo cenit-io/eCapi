@@ -12,7 +12,7 @@ Allows submitting a request to the remote integration platform to remove a produ
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | product | true | ... |
 > | webhook | true | ... |

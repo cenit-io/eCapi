@@ -12,7 +12,7 @@ Returns the definition of the properties for products or variants of a category 
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | integration | true | ... |
 > | category_id | true | ... |

@@ -12,7 +12,7 @@ TODO: Description...
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | product_record | true | ... |
 > | new_data | true | ... |

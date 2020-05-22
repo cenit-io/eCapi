@@ -21,7 +21,7 @@ If some of the resources are not found an exception is thrown.
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | variant_id | true | ... |
 > | product_id | false | ... |

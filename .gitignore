@@ -1,4 +1,5 @@
 # Dir for API portal deploy
+.env
 .idea
 web_deploy
 node_modules

@@ -12,7 +12,7 @@ Allows submitting a request to the remote integration platform to cancel an orde
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | order | true | ... |
 > | webhook | true | ... |

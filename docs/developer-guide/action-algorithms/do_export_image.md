@@ -12,7 +12,7 @@ Allows submitting a request a request to the remote integration platform to publ
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | url | true | ... |
 > | integration_id | true | ... |

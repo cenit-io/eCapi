@@ -12,7 +12,7 @@ Allows set the template parameters of the authorization from the callback params
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | callback_params | true | ... |
 > | template_parameters | true | ... |

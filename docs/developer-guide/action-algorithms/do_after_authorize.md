@@ -12,7 +12,7 @@ Allows validate the authorization and start some processes after successful auth
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | integration_id | true | ... |
 > | task | true | ... |

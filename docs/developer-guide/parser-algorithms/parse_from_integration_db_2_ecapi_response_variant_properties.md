@@ -12,7 +12,7 @@ TODO: Description...
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | variant | true | ... |
 > | properties_definition | true | ... |

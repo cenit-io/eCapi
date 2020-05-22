@@ -12,7 +12,7 @@ This algorithm allows calculating the hmac of a hash or a record of a data type.
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | data | true | ... |
 

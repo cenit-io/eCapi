@@ -12,7 +12,7 @@ Allows submitting a request to the remote integration platform to get and import
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | integration | true | ... |
 > | number | true | ... |

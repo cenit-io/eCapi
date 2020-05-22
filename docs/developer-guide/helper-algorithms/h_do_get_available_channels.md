@@ -12,7 +12,7 @@ Returns the list of all available integration channels.
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | is_development | false | ... |
 

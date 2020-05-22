@@ -12,7 +12,7 @@ Create a system notification.
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | msg | true | ... |
 > | attachment | false | ... |

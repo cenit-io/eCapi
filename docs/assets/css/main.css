@@ -2,6 +2,8 @@
   --cover-max-width: 45em;
   --link-color: navy;
   --link-text-decoration: none;
+  --table-head-background: lightgray;
+  --table-cell-padding: 5px 10px;
 }
 
 a.see-more {

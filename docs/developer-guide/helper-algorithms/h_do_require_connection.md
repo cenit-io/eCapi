@@ -17,7 +17,7 @@ If the resource is not found an exception is thrown.
 >
 > **Parameters:**
 > 
-> | Name | Required | Description |
+> | Name | Required | Type |
 > | --- | --- | --- |
 > | channel | true | ... |
 > | name | false | ... |

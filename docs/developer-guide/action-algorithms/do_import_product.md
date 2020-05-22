@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_import_product:
+## do_import_product
 
 Allows submitting a request to the remote integration platform to get and import an product.
     
-### Definition:
+### Definition
 
 > **Name:** do_import_product
 > 
@@ -14,13 +14,13 @@ Allows submitting a request to the remote integration platform to get and import
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true | ... |
-> | product_id | true | ... |
-> | webhook | true | ... |
-> | task | true | ... |
+> | integration | true |  |
+> | product_id | true |  |
+> | webhook | true |  |
+> | task | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Get product from integration
 data = { item_id: product_id.to_i }
 response = webhook.submit!(body: data.to_json)
@@ -31,5 +31,5 @@ Cenit.fail(response[:msg] || response[:error]) if response[:error]
 response[:item]
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_import_product)

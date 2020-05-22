@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_export_product_update:
+## do_export_product_update
 
 Allows submitting a request to the remote integration platform to update a product.
     
-### Definition:
+### Definition
 
 > **Name:** do_export_product_update
 > 
@@ -14,13 +14,13 @@ Allows submitting a request to the remote integration platform to update a produ
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | data | true | ... |
-> | target_integration | true | ... |
-> | webhook | true | ... |
-> | task | true | ... |
+> | data | true |  |
+> | target_integration | true |  |
+> | webhook | true |  |
+> | task | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Update a product in the remote integration
 data = { 'order' => data }
 tps = { 'order_id' => order_exported.exported_id }
@@ -33,5 +33,5 @@ Cenit.fail(response[:errors]) if response[:errors]
 nil
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_export_product_update)

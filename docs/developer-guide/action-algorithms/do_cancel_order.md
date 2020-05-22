@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_cancel_order:
+## do_cancel_order
 
 Allows submitting a request to the remote integration platform to cancel an order.
     
-### Definition:
+### Definition
 
 > **Name:** do_cancel_order
 > 
@@ -14,12 +14,12 @@ Allows submitting a request to the remote integration platform to cancel an orde
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | order | true | ... |
-> | webhook | true | ... |
-> | task | true | ... |
+> | order | true |  |
+> | webhook | true |  |
+> | task | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Cancel the order in the remote integration
 data = {
   ordersn: order.number,
@@ -34,5 +34,5 @@ response = JSON.parse(response, symbolize_names: true)
 Cenit.fail(response[:error]) if response[:error]
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_cancel_order)

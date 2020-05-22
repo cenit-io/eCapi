@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_get_order_document:
+## do_get_order_document
 
 Allows submitting a request a request to the remote integration platform to get an order document.
     
-### Definition:
+### Definition
 
 > **Name:** do_get_order_document
 > 
@@ -14,12 +14,12 @@ Allows submitting a request a request to the remote integration platform to get 
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | order | true | ... |
-> | doc_type | true | ... |
-> | webhook | true | ... |
+> | order | true |  |
+> | doc_type | true |  |
+> | webhook | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Get document from the remote integration
 
 data = { ordersn_list: [order.number], is_batch: false }
@@ -37,5 +37,5 @@ Cenit.fail(response[:result][:errors][0][:error_description]) if response[:resul
 
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_get_order_document)

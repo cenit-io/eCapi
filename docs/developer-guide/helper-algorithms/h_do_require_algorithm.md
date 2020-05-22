@@ -1,6 +1,6 @@
-# Helper algorithm:
+# Helper algorithm
 
-## h_do_require_algorithm:
+## h_do_require_algorithm
 
 Search and returns an algorithm by its name and integration channel.
 
@@ -9,7 +9,7 @@ only if applicable, in the main namespace of the integration.
 
 If the resource is not found an exception is thrown.
     
-### Definition:
+### Definition
 
 > **Name:** h_do_require_algorithm
 > 
@@ -19,9 +19,9 @@ If the resource is not found an exception is thrown.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | channel | true | ... |
-> | alg_name | true | ... |
-> | throwing | false | ... |
+> | channel | true |  |
+> | alg_name | true |  |
+> | throwing | false |  |
 
-### See also:
+### See also
 * [Others helper algorithms](overview?id=h_do_require_algorithm)

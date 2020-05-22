@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_delete_remote_product:
+## do_delete_remote_product
 
 Allows submitting a request to the remote integration platform to remove a product.
     
-### Definition:
+### Definition
 
 > **Name:** do_delete_remote_product
 > 
@@ -14,12 +14,12 @@ Allows submitting a request to the remote integration platform to remove a produ
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | product | true | ... |
-> | webhook | true | ... |
-> | task | true | ... |
+> | product | true |  |
+> | webhook | true |  |
+> | task | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 ns_omna = Cenit.namespace(:OMNAv2)
 
 integration = product.integration
@@ -36,5 +36,5 @@ Cenit.fail(response[:error]) if response[:error]
 true
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_delete_remote_product)

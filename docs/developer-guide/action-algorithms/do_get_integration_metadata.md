@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_get_integration_metadata:
+## do_get_integration_metadata
 
 Allows submitting a request to the remote integration platform to get its metadata.
     
-### Definition:
+### Definition
 
 > **Name:** do_get_integration_metadata
 > 
@@ -14,11 +14,11 @@ Allows submitting a request to the remote integration platform to get its metada
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true | ... |
-> | webhook | true | ... |
+> | integration | true |  |
+> | webhook | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Get metadata from the remote integration
 metadata = begin
   response = webhook.submit!(body: '{}')
@@ -32,5 +32,5 @@ end
 metadata
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_get_integration_metadata)

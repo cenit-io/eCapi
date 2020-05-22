@@ -1,6 +1,6 @@
-# Helper algorithm:
+# Helper algorithm
 
-## h_do_require_variant:
+## h_do_require_variant
 
 Search and returns a product variant by its id in omna or by its id in the remote platform to be integrate.
 
@@ -13,7 +13,7 @@ carried out in the product variant registers on the intermediate structure used 
 
 If some of the resources are not found an exception is thrown.
     
-### Definition:
+### Definition
 
 > **Name:** h_do_require_variant
 > 
@@ -23,9 +23,9 @@ If some of the resources are not found an exception is thrown.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | variant_id | true | ... |
-> | product_id | false | ... |
-> | integration_id | false | ... |
+> | variant_id | true |  |
+> | product_id | false |  |
+> | integration_id | false |  |
 
-### See also:
+### See also
 * [Others helper algorithms](overview?id=h_do_require_variant)

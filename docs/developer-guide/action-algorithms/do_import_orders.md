@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_import_orders:
+## do_import_orders
 
 Allows submitting a request to the remote integration platform to get and import the orders.
     
-### Definition:
+### Definition
 
 > **Name:** do_import_orders
 > 
@@ -14,12 +14,12 @@ Allows submitting a request to the remote integration platform to get and import
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true | ... |
-> | webhook | true | ... |
-> | task | true | ... |
+> | integration | true |  |
+> | webhook | true |  |
+> | task | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 limit = 50
 offset = task.state[:offset] ||= 0
 s_date = task.state[:start_date]
@@ -69,5 +69,5 @@ end
 orders
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_import_orders)

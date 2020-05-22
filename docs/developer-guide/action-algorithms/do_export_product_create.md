@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_export_product_create:
+## do_export_product_create
 
 Allows submitting a request to the remote integration platform to create a product.
     
-### Definition:
+### Definition
 
 > **Name:** do_export_product_create
 > 
@@ -14,13 +14,13 @@ Allows submitting a request to the remote integration platform to create a produ
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | data | true | ... |
-> | target_integration | true | ... |
-> | webhook | true | ... |
-> | task | true | ... |
+> | data | true |  |
+> | target_integration | true |  |
+> | webhook | true |  |
+> | task | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Create an product in the remote integration
 product = begin
             response = webhook.submit!(body: { 'product' => data }.to_json)
@@ -35,5 +35,5 @@ product = begin
 product[:id]
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_export_product_create)

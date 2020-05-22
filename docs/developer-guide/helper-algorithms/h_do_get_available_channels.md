@@ -1,10 +1,10 @@
-# Helper algorithm:
+# Helper algorithm
 
-## h_do_get_available_channels:
+## h_do_get_available_channels
 
 Returns the list of all available integration channels.
     
-### Definition:
+### Definition
 
 > **Name:** h_do_get_available_channels
 > 
@@ -14,7 +14,7 @@ Returns the list of all available integration channels.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | is_development | false | ... |
+> | is_development | false |  |
 
-### See also:
+### See also
 * [Others helper algorithms](overview?id=h_do_get_available_channels)

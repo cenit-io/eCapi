@@ -1,6 +1,6 @@
-# Data Type: 
+# Data Type
 
-## Product:
+## Product
 
 Data structure to store the imported records of products for each integration channel.
 
@@ -10,8 +10,8 @@ Its records are completed from the information obtained or mapped in algorithms:
 * [parse_from_api_response_2_integration_db_product](../parser-algorithms/parse_from_api_response_2_integration_db_product.md).
 * [parse_from_omna_db_2_integration_db_product](../parser-algorithms/parse_from_omna_db_2_integration_db_product.md).
     
-### JSON SCHEMA:
-```JSON
+### JSON SCHEMA
+```json
 {
   "type": "object",
   "properties": {
@@ -50,5 +50,5 @@ Its records are completed from the information obtained or mapped in algorithms:
 }
 ```
 
-### See also:
+### See also
 * [Others data types](overview?id=Product)

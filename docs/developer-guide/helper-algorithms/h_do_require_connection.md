@@ -1,6 +1,6 @@
-# Helper algorithm:
+# Helper algorithm
 
-## h_do_require_connection:
+## h_do_require_connection
 
 Search and returns a connection by its name and integration channel.
 
@@ -9,7 +9,7 @@ only if applicable, in the main namespace of the integration.
 
 If the resource is not found an exception is thrown.
     
-### Definition:
+### Definition
 
 > **Name:** h_do_require_connection
 > 
@@ -19,8 +19,8 @@ If the resource is not found an exception is thrown.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | channel | true | ... |
-> | name | false | ... |
+> | channel | true |  |
+> | name | false |  |
 
-### See also:
+### See also
 * [Others helper algorithms](overview?id=h_do_require_connection)

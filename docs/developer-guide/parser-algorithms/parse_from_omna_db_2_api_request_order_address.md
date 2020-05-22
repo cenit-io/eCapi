@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_omna_db_2_api_request_order_address:
+## parse_from_omna_db_2_api_request_order_address
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_omna_db_2_api_request_order_address
 > 
@@ -14,10 +14,10 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | source | true | ... |
+> | source | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 source ||= {}
 last = '-' if source[:last_name].nil? || source[:last_name] == ''
 {
@@ -32,5 +32,5 @@ last = '-' if source[:last_name].nil? || source[:last_name] == ''
 }
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_omna_db_2_api_request_order_address)

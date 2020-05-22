@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_integration_db_2_ecapi_response_product_properties:
+## parse_from_integration_db_2_ecapi_response_product_properties
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_integration_db_2_ecapi_response_product_properties
 > 
@@ -14,11 +14,11 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | product | true | ... |
-> | properties_definition | true | ... |
+> | product | true |  |
+> | properties_definition | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 properties = []
 
 # Set category property
@@ -68,5 +68,5 @@ end
 properties
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_integration_db_2_ecapi_response_product_properties)

@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_import_properties:
+## do_import_properties
 
 Allows submitting a request to the remote integration platform to get and import the product properties.
     
-### Definition:
+### Definition
 
 > **Name:** do_import_properties
 > 
@@ -14,12 +14,12 @@ Allows submitting a request to the remote integration platform to get and import
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true | ... |
-> | category | true | ... |
-> | webhook | true | ... |
+> | integration | true |  |
+> | category | true |  |
+> | webhook | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Get categories attrs from the remote integration
 properties = begin
   data = { 'category_id' => category.id }
@@ -35,5 +35,5 @@ end
 properties
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_import_properties)

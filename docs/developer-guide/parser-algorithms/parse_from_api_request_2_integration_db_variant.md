@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_api_request_2_integration_db_variant:
+## parse_from_api_request_2_integration_db_variant
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_api_request_2_integration_db_variant
 > 
@@ -14,11 +14,11 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | variant_record | true | ... |
-> | new_data | true | ... |
+> | variant_record | true |  |
+> | new_data | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Set the value of each property in the data structure of the variant record corresponding to the integration.
 new_data[:properties].each do |property|
   option = variant.product.data[:options].detect { |o| o[:id] == property[:id] }
@@ -26,5 +26,5 @@ new_data[:properties].each do |property|
 end
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_api_request_2_integration_db_variant)

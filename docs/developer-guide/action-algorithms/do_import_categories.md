@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_import_categories:
+## do_import_categories
 
 Allows submitting a request to the remote integration platform to get and import the product categories.
     
-### Definition:
+### Definition
 
 > **Name:** do_import_categories
 > 
@@ -14,12 +14,12 @@ Allows submitting a request to the remote integration platform to get and import
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true | ... |
-> | webhook | true | ... |
-> | task | true | ... |
+> | integration | true |  |
+> | webhook | true |  |
+> | task | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Get categories from the remote integration
 categories = begin
   response = webhook.submit!
@@ -33,5 +33,5 @@ end
 categories
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_import_categories)

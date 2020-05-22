@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_export_order_update:
+## do_export_order_update
 
 Allows submitting a request to the remote integration platform to update an order.
     
-### Definition:
+### Definition
 
 > **Name:** do_export_order_update
 > 
@@ -14,14 +14,14 @@ Allows submitting a request to the remote integration platform to update an orde
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | data | true | ... |
-> | target_integration | true | ... |
-> | webhook | true | ... |
-> | order_exported | true | ... |
-> | task | true | ... |
+> | data | true |  |
+> | target_integration | true |  |
+> | webhook | true |  |
+> | order_exported | true |  |
+> | task | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Update order in the remote integration
 data = { 'order' => data }
 tps = { 'order_id' => order_exported.exported_id }
@@ -34,5 +34,5 @@ Cenit.fail(response[:errors]) if response[:errors]
 nil
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_export_order_update)

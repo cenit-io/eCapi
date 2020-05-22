@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_import_brands:
+## do_import_brands
 
 Allows submitting a request to the remote integration platform to get and import the product brands.
     
-### Definition:
+### Definition
 
 > **Name:** do_import_brands
 > 
@@ -14,12 +14,12 @@ Allows submitting a request to the remote integration platform to get and import
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true | ... |
-> | webhook | true | ... |
-> | task | true | ... |
+> | integration | true |  |
+> | webhook | true |  |
+> | task | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 limit = 1000
 offset = task.state[:offset] ||= 0
 
@@ -43,5 +43,5 @@ end
 brands
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_import_brands)

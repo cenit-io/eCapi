@@ -1,14 +1,14 @@
-# Helper algorithm:
+# Helper algorithm
 
-## h_do_get_available_workflows:
+## h_do_get_available_workflows
 
 Returns the list of all available workflow types.
     
-### Definition:
+### Definition
 
 > **Name:** h_do_get_available_workflows
 > 
 > **Namespace:** OMNAv2
 
-### See also:
+### See also
 * [Others helper algorithms](overview?id=h_do_get_available_workflows)

@@ -1,6 +1,6 @@
-# Data Type: 
+# Data Type
 
-## Image:
+## Image
 
 Data structure to store the imported records of product images for each integration channel.
 
@@ -12,8 +12,8 @@ Its records are completed from the information obtained or mapped in algorithms:
 * [parse_from_api_response_2_integration_db_product_images](../parser-algorithms/parse_from_api_response_2_integration_db_product_images.md).
 * [parse_from_api_response_2_integration_db_variant_images](../parser-algorithms/parse_from_api_response_2_integration_db_variant_images.md).
     
-### JSON SCHEMA:
-```JSON
+### JSON SCHEMA
+```json
 {
   "type": "object",
   "properties": {
@@ -45,5 +45,5 @@ Its records are completed from the information obtained or mapped in algorithms:
 }
 ```
 
-### See also:
+### See also
 * [Others data types](overview?id=Image)

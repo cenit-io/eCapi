@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_authorization_params_signer:
+## do_authorization_params_signer
 
 Allows signing the parameters sent in the request for an authorization.
     
-### Definition:
+### Definition
 
 > **Name:** do_authorization_params_signer
 > 
@@ -14,11 +14,11 @@ Allows signing the parameters sent in the request for an authorization.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | params | true | ... |
-> | template_params | true | ... |
+> | params | true | Hash |
+> | template_params | true | Hash |
 
-### Example:
-```RUBY
+### Example
+```ruby
 secret = template_params[:secret]
 digest = OpenSSL::Digest.new_sign('sha256')
 
@@ -38,5 +38,5 @@ data[:hmac] = OpenSSL::HMAC.hexdigest(digest, secret, msg)
 template_params[:body].gsub!(/^.*$/, data.to_json)
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_authorization_params_signer)

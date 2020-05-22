@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_api_response_2_integration_db_property:
+## parse_from_api_response_2_integration_db_property
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_api_response_2_integration_db_property
 > 
@@ -14,10 +14,10 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | source | true | ... |
+> | source | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 {
   property_id: source[:attribute_id],
   name: source[:attribute_name],
@@ -29,5 +29,5 @@ TODO: Description...
 }
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_api_response_2_integration_db_property)

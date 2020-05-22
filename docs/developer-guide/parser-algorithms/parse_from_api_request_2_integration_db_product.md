@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_api_request_2_integration_db_product:
+## parse_from_api_request_2_integration_db_product
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_api_request_2_integration_db_product
 > 
@@ -14,11 +14,11 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | product_record | true | ... |
-> | new_data | true | ... |
+> | product_record | true |  |
+> | new_data | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Set the value of each property in the data structure of the product record corresponding to the integration.
 new_data[:properties].each do |property|
   key = property[:id]
@@ -33,5 +33,5 @@ new_data[:properties].each do |property|
 end
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_api_request_2_integration_db_product)

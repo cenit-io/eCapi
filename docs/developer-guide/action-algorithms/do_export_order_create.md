@@ -1,10 +1,10 @@
-# Action algorithm:
+# Action algorithm
 
-## do_export_order_create:
+## do_export_order_create
 
 Allows submitting a request to the remote integration platform to create an order.
     
-### Definition:
+### Definition
 
 > **Name:** do_export_order_create
 > 
@@ -14,13 +14,13 @@ Allows submitting a request to the remote integration platform to create an orde
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | data | true | ... |
-> | target_integration | true | ... |
-> | webhook | true | ... |
-> | task | true | ... |
+> | data | true |  |
+> | target_integration | true |  |
+> | webhook | true |  |
+> | task | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 # Put order to the remote integration
 order = begin
   response = webhook.submit!(body: { 'order' => data }.to_json)
@@ -35,5 +35,5 @@ end
 { exported_id: order[:id], exported_number: order[:order_number] }
 ```
 
-### See also:
+### See also
 * [Others action algorithms](overview?id=do_export_order_create)

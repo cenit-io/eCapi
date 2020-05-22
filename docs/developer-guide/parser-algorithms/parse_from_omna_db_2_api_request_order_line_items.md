@@ -1,10 +1,10 @@
-# Parser algorithm:
+# Parser algorithm
  
-## parse_from_omna_db_2_api_request_order_line_items:
+## parse_from_omna_db_2_api_request_order_line_items
 
 TODO: Description...
     
-### Definition:
+### Definition
 
 > **Name:** parse_from_omna_db_2_api_request_order_line_items
 > 
@@ -14,10 +14,10 @@ TODO: Description...
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | source | true | ... |
+> | source | true |  |
 
-### Example:
-```RUBY
+### Example
+```ruby
 source[:line_items].try(:map) do |item|
   {
     id: item[:id],
@@ -32,5 +32,5 @@ source[:line_items].try(:map) do |item|
 end
 ```
 
-### See also:
+### See also
 * [Others parser algorithms](overview?id=parse_from_omna_db_2_api_request_order_line_items)

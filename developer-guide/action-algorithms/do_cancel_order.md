@@ -8,15 +8,15 @@ Allows submitting a request to the remote integration platform to cancel an orde
 
 > **Name:** do_cancel_order
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 >
 > **Parameters:**
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
 > | order | true |  |
-> | webhook | true |  |
-> | task | true |  |
+> | webhook | true | Setup::PlainWebhook |
+> | task | true | Setup::AlgorithmExecution |
 
 ### Example
 ```ruby

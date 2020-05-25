@@ -11,7 +11,7 @@ should be started.
 
 > **Name:** do_after_authorize
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 >
 > **Parameters:**
 > 
@@ -52,7 +52,7 @@ begin
   join_group = "AFTER-AUTHORIZE-#{integration.id}"
 
   do_notify.run(["Add task to import brands from #{integration_name} integration.", :info, task])
-  action = do_require_algorithm.run([integration, :do_import_brands])
+  action = do_require_algorithm.run([integration, :do_get_brands])
   message = {
     description: "Importing product brands from #{integration_name} integration",
     join_group: join_group,
@@ -61,7 +61,7 @@ begin
   do_asynchronous_task.run([action, message, join_group])
 
   do_notify.run(["Add task to import categories from #{integration_name} integration.", :info, task])
-  action = do_require_algorithm.run([integration, :do_import_categories])
+  action = do_require_algorithm.run([integration, :do_get_categories])
   message = {
     description: "Importing product categories from #{integration_name} integration.",
     join_group: join_group,

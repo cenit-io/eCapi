@@ -16,8 +16,8 @@ Allows submitting a request to the remote integration platform to create an orde
 > | --- | --- | --- |
 > | data | true |  |
 > | target_integration | true |  |
-> | webhook | true |  |
-> | task | true |  |
+> | webhook | true | Setup::PlainWebhook |
+> | task | true | Setup::AlgorithmExecution |
 
 ### Example
 ```ruby

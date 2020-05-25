@@ -16,8 +16,8 @@ Allows submitting a request to the remote integration platform to update a produ
 > | --- | --- | --- |
 > | data | true |  |
 > | target_integration | true |  |
-> | webhook | true |  |
-> | task | true |  |
+> | webhook | true | Setup::PlainWebhook |
+> | task | true | Setup::AlgorithmExecution |
 
 ### Example
 ```ruby

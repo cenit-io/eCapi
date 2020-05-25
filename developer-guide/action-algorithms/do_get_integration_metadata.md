@@ -8,14 +8,14 @@ Allows submitting a request to the remote integration platform to get its metada
 
 > **Name:** do_get_integration_metadata
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 >
 > **Parameters:**
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true |  |
-> | webhook | true |  |
+> | integration | true | OMNAv2::Integration |
+> | webhook | true | Setup::PlainWebhook |
 
 ### Example
 ```ruby

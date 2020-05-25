@@ -8,7 +8,7 @@ Returns the possible types of order documents available.
 
 > **Name:** do_get_order_document_types
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 
 ### Example
 ```ruby

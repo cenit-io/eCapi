@@ -16,9 +16,9 @@ Allows submitting a request to the remote integration platform to update an orde
 > | --- | --- | --- |
 > | data | true |  |
 > | target_integration | true |  |
-> | webhook | true |  |
+> | webhook | true | Setup::PlainWebhook |
 > | order_exported | true |  |
-> | task | true |  |
+> | task | true | Setup::AlgorithmExecution |
 
 ### Example
 ```ruby

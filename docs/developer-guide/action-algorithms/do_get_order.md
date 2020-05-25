@@ -1,12 +1,12 @@
 # Action algorithm
 
-## do_import_order
+## do_get_order
 
 Allows submitting a request to the remote integration platform to get and import an order.
     
 ### Definition
 
-> **Name:** do_import_order
+> **Name:** do_get_order
 > 
 > **Namespace:** Ov2Shopee
 >
@@ -24,7 +24,7 @@ Allows submitting a request to the remote integration platform to get and import
 # Get order from integration
 order = begin
   data = { ordersn_list: [number] }
-  response = webhook.with(conn).and(auth).submit!(body: data.to_json)
+  response = webhook.submit!(body: data.to_json)
   response = JSON.parse(response, symbolize_names: true)
 
   Cenit.fail(response[:msg] || response[:error]) if response[:error]
@@ -36,4 +36,4 @@ order
 ```
 
 ### See also
-* [Others action algorithms](overview?id=do_import_order)
+* [Others action algorithms](overview?id=do_get_order)

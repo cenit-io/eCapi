@@ -1,12 +1,12 @@
 # Action algorithm
 
-## do_import_properties
+## do_get_properties
 
 Allows submitting a request to the remote integration platform to get and import the product properties.
     
 ### Definition
 
-> **Name:** do_import_properties
+> **Name:** do_get_properties
 > 
 > **Namespace:** Ov2Shopee
 >
@@ -36,4 +36,4 @@ properties
 ```
 
 ### See also
-* [Others action algorithms](overview?id=do_import_properties)
+* [Others action algorithms](overview?id=do_get_properties)

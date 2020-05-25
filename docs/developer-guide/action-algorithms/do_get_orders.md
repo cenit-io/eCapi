@@ -1,12 +1,12 @@
 # Action algorithm
 
-## do_import_products
+## do_get_orders
 
-Allows submitting a request to the remote integration platform to get and import the products.
+Allows submitting a request to the remote integration platform to get and import the orders.
     
 ### Definition
 
-> **Name:** do_import_products
+> **Name:** do_get_orders
 > 
 > **Namespace:** Ov2Shopee
 >
@@ -25,8 +25,8 @@ offset = task.state[:offset] ||= 0
 s_date = task.state[:start_date]
 e_date = [s_date + 15.days, task.state[:end_date]].min
 
-# Get products from integration
-products, more = begin
+# Get orders from integration
+orders, more = begin
   data = {
     update_time_from: s_date.to_i,
     update_time_to: e_date.to_i,
@@ -40,22 +40,19 @@ products, more = begin
   Cenit.fail(response[:msg] || response[:error]) if response[:error]
 
   more = response[:more]
-  id_list = response[:items].select { |i| i[:status] != 'DELETED' }.map { |m| m[:item_id] }
-  items = []
+  sn_list = response[:orders].map { |o| o[:ordersn] }
 
-  if id_list.any?
-    webhook = Cenit.namespace(:OMNAv2).algorithm(:do_require_webhook).run([integration, :get_product])
+  if sn_list.any?
+    webhook = ns_shopee.webhook(:get_order)
 
-    id_list.each do |item|
-      response = webhook.submit!(body: { item_id: item }.to_json)
-      response = JSON.parse(response, symbolize_names: true)
-      items << response[:item]
+    data = { ordersn_list: sn_list }
+    response = webhook.submit!(body: data.to_json)
+    response = JSON.parse(response, symbolize_names: true)
 
-      Cenit.fail(response[:msg] || response[:error]) if response[:error]
-    end
+    Cenit.fail(response[:msg] || response[:error]) if response[:error]
   end
 
-  [items, more]
+  [response[:orders], more]
 end
 
 if (more)
@@ -69,8 +66,8 @@ elsif e_date < task.state[:end_date]
   task.state[:import_next_block] = true
 end
 
-products
+orders
 ```
 
 ### See also
-* [Others action algorithms](overview?id=do_import_products)
+* [Others action algorithms](overview?id=do_get_orders)

@@ -1,12 +1,12 @@
 # Action algorithm
 
-## do_import_product
+## do_get_product
 
 Allows submitting a request to the remote integration platform to get and import an product.
     
 ### Definition
 
-> **Name:** do_import_product
+> **Name:** do_get_product
 > 
 > **Namespace:** Ov2Shopee
 >
@@ -32,4 +32,4 @@ response[:item]
 ```
 
 ### See also
-* [Others action algorithms](overview?id=do_import_product)
+* [Others action algorithms](overview?id=do_get_product)

@@ -73,11 +73,29 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 >
 > [[see more details]](do_export_product_update ':class=see-more')
 
+## do_import_brands
+
+> Allows submitting a request to the remote integration platform to get the product brands.
+>
+> [[see more details]](do_import_brands ':class=see-more')
+
+## do_import_categories
+
+> Allows submitting a request to the remote integration platform to get the product categories.
+>
+> [[see more details]](do_import_categories ':class=see-more')
+
 ## do_get_integration_metadata
 
 > Allows submitting a request to the remote integration platform to get its metadata.
 >
 > [[see more details]](do_get_integration_metadata ':class=see-more')
+
+## do_import_order
+
+> Allows submitting a request to the remote integration platform to get an order.
+>
+> [[see more details]](do_import_order ':class=see-more')
 
 ## do_get_order_document
 
@@ -91,51 +109,33 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 >
 > [[see more details]](do_get_order_document_types ':class=see-more')
 
-## do_get_settings
-
-> Returns the available integration settings with its available channels.
->
-> [[see more details]](do_get_settings ':class=see-more')
-
-## do_import_brands
-
-> Allows submitting a request to the remote integration platform to get and import the product brands.
->
-> [[see more details]](do_import_brands ':class=see-more')
-
-## do_import_categories
-
-> Allows submitting a request to the remote integration platform to get and import the product categories.
->
-> [[see more details]](do_import_categories ':class=see-more')
-
-## do_import_order
-
-> Allows submitting a request to the remote integration platform to get and import an order.
->
-> [[see more details]](do_import_order ':class=see-more')
-
 ## do_import_orders
 
-> Allows submitting a request to the remote integration platform to get and import the orders.
+> Allows submitting a request to the remote integration platform to get the orders.
 >
 > [[see more details]](do_import_orders ':class=see-more')
 
 ## do_import_product
 
-> Allows submitting a request to the remote integration platform to get and import an product.
+> Allows submitting a request to the remote integration platform to get an product.
 >
 > [[see more details]](do_import_product ':class=see-more')
 
 ## do_import_products
 
-> Allows submitting a request to the remote integration platform to get and import the products.
+> Allows submitting a request to the remote integration platform to get the products.
 >
 > [[see more details]](do_import_products ':class=see-more')
 
 ## do_import_properties
 
-> Allows submitting a request to the remote integration platform to get and import the product properties.
+> Allows submitting a request to the remote integration platform to get the product properties.
 >
 > [[see more details]](do_import_properties ':class=see-more')
+
+## do_get_settings
+
+> Returns the available integration settings with its available channels.
+>
+> [[see more details]](do_get_settings ':class=see-more')
 

@@ -1,12 +1,12 @@
 # Action algorithm
 
-## do_import_orders
+## do_get_products
 
-Allows submitting a request to the remote integration platform to get and import the orders.
+Allows submitting a request to the remote integration platform to get and import the products.
     
 ### Definition
 
-> **Name:** do_import_orders
+> **Name:** do_get_products
 > 
 > **Namespace:** Ov2Shopee
 >
@@ -25,8 +25,8 @@ offset = task.state[:offset] ||= 0
 s_date = task.state[:start_date]
 e_date = [s_date + 15.days, task.state[:end_date]].min
 
-# Get orders from integration
-orders, more = begin
+# Get products from integration
+products, more = begin
   data = {
     update_time_from: s_date.to_i,
     update_time_to: e_date.to_i,
@@ -40,19 +40,22 @@ orders, more = begin
   Cenit.fail(response[:msg] || response[:error]) if response[:error]
 
   more = response[:more]
-  sn_list = response[:orders].map { |o| o[:ordersn] }
+  id_list = response[:items].select { |i| i[:status] != 'DELETED' }.map { |m| m[:item_id] }
+  items = []
 
-  if sn_list.any?
-    webhook = ns_anyone.webhook(:get_order)
+  if id_list.any?
+    webhook = Cenit.namespace(:OMNAv2).algorithm(:h_do_require_webhook).run([integration, :get_product])
 
-    data = { ordersn_list: sn_list }
-    response = webhook.submit!(body: data.to_json)
-    response = JSON.parse(response, symbolize_names: true)
+    id_list.each do |item|
+      response = webhook.submit!(body: { item_id: item }.to_json)
+      response = JSON.parse(response, symbolize_names: true)
+      items << response[:item]
 
-    Cenit.fail(response[:msg] || response[:error]) if response[:error]
+      Cenit.fail(response[:msg] || response[:error]) if response[:error]
+    end
   end
 
-  [response[:orders], more]
+  [items, more]
 end
 
 if (more)
@@ -66,8 +69,8 @@ elsif e_date < task.state[:end_date]
   task.state[:import_next_block] = true
 end
 
-orders
+products
 ```
 
 ### See also
-* [Others action algorithms](overview?id=do_import_orders)
+* [Others action algorithms](overview?id=do_get_products)

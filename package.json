@@ -9,7 +9,7 @@
   "scripts": {
     "start": "swagger-repo serve",
     "build": "node bin/cli build-docs && swagger-repo build -o web_deploy/api-spec",
-    "gh-pages": "swagger-repo gh-pages",
+    "gh-pages": "swagger-repo gh-pages --clean",
     "test": "swagger-repo validate"
   }
 }

@@ -2,6 +2,7 @@
 - [Overview](overview)
 - [Quick Start](quick-start)
 - [Authentication](authentication) 
+- [Products](products) 
 - **Links**
 - [API-Specification](http://doc-api.omna.io/api-spec)
 - **Utils**

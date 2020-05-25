@@ -8,7 +8,7 @@ TODO: Description...
 
 > **Name:** parse_from_api_request_2_integration_db_product
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 >
 > **Parameters:**
 > 

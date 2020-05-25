@@ -8,7 +8,7 @@ TODO: Description...
 
 > **Name:** parse_from_integration_db_2_omna_db_order_address
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 >
 > **Parameters:**
 > 

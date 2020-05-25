@@ -8,7 +8,7 @@ Allows submitting a request a request to the remote integration platform to publ
 
 > **Name:** do_export_image
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 >
 > **Parameters:**
 > 

@@ -16,20 +16,20 @@ Allows submitting a request to the remote integration platform to create a produ
 > | --- | --- | --- |
 > | data | true |  |
 > | target_integration | true |  |
-> | webhook | true |  |
-> | task | true |  |
+> | webhook | true | Setup::PlainWebhook |
+> | task | true | Setup::AlgorithmExecution |
 
 ### Example
 ```ruby
 # Create an product in the remote integration
 product = begin
-            response = webhook.submit!(body: { 'product' => data }.to_json)
-            response = JSON.parse(response, symbolize_names: true)
+  response = webhook.submit!(body: { 'product' => data }.to_json)
+  response = JSON.parse(response, symbolize_names: true)
 
-            Cenit.fail(response[:errors]) if response[:errors]
+  Cenit.fail(response[:errors]) if response[:errors]
 
-            response[:product]
-          end
+  response[:product]
+end
 
 # Returns the remote_product_id.
 product[:id]

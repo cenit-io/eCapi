@@ -2,22 +2,22 @@
 
 ## do_get_product
 
-Allows submitting a request to the remote integration platform to get and import an product.
+Allows submitting a request to the remote integration platform to get an product.
     
 ### Definition
 
 > **Name:** do_get_product
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 >
 > **Parameters:**
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true |  |
+> | integration | true | OMNAv2::Integration |
 > | product_id | true |  |
-> | webhook | true |  |
-> | task | true |  |
+> | webhook | true | Setup::PlainWebhook |
+> | task | true | Setup::AlgorithmExecution |
 
 ### Example
 ```ruby

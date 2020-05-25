@@ -6,4 +6,4 @@
 > An easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.
 
 [Get Started](overview)
-[API-Specification](http://doc-api.omna.io/api-spec)
+[API-Specification](http://doc-api.omna.io/api-spec/index.html)

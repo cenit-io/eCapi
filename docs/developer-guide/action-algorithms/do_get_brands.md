@@ -1,12 +1,12 @@
 # Action algorithm
 
-## do_import_brands
+## do_get_brands
 
 Allows submitting a request to the remote integration platform to get the product brands.
     
 ### Definition
 
-> **Name:** do_import_brands
+> **Name:** do_get_brands
 > 
 > **Namespace:** Ov2Lazada
 >
@@ -14,9 +14,9 @@ Allows submitting a request to the remote integration platform to get the produc
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true |  |
-> | webhook | true |  |
-> | task | true |  |
+> | integration | true | OMNAv2::Integration |
+> | webhook | true | Setup::PlainWebhook |
+> | task | true | Setup::AlgorithmExecution |
 
 ### Example
 ```ruby
@@ -44,4 +44,4 @@ brands
 ```
 
 ### See also
-* [Others action algorithms](overview?id=do_import_brands)
+* [Others action algorithms](overview?id=do_get_brands)

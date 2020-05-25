@@ -2,21 +2,21 @@
 
 ## do_get_properties
 
-Allows submitting a request to the remote integration platform to get and import the product properties.
+Allows submitting a request to the remote integration platform to get the product properties.
     
 ### Definition
 
 > **Name:** do_get_properties
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 >
 > **Parameters:**
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true |  |
+> | integration | true | OMNAv2::Integration |
 > | category | true |  |
-> | webhook | true |  |
+> | webhook | true | Setup::PlainWebhook |
 
 ### Example
 ```ruby

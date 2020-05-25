@@ -8,7 +8,7 @@ Allows submitting a request a request to the remote integration platform to get 
 
 > **Name:** do_get_order_document
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 >
 > **Parameters:**
 > 
@@ -16,7 +16,7 @@ Allows submitting a request a request to the remote integration platform to get 
 > | --- | --- | --- |
 > | order | true |  |
 > | doc_type | true |  |
-> | webhook | true |  |
+> | webhook | true | Setup::PlainWebhook |
 
 ### Example
 ```ruby

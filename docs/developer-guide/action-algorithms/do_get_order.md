@@ -2,29 +2,29 @@
 
 ## do_get_order
 
-Allows submitting a request to the remote integration platform to get and import an order.
+Allows submitting a request to the remote integration platform to get an order.
     
 ### Definition
 
 > **Name:** do_get_order
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 >
 > **Parameters:**
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true |  |
+> | integration | true | OMNAv2::Integration |
 > | number | true |  |
-> | webhook | true |  |
-> | task | true |  |
+> | webhook | true | Setup::PlainWebhook |
+> | task | true | Setup::AlgorithmExecution |
 
 ### Example
 ```ruby
 # Get order from integration
 order = begin
   data = { ordersn_list: [number] }
-  response = webhook.submit!(body: data.to_json)
+  response = webhook.with(conn).and(auth).submit!(body: data.to_json)
   response = JSON.parse(response, symbolize_names: true)
 
   Cenit.fail(response[:msg] || response[:error]) if response[:error]

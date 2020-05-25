@@ -2,33 +2,32 @@
 
 ## do_get_categories
 
-Allows submitting a request to the remote integration platform to get and import the product categories.
+Allows submitting a request to the remote integration platform to get the product categories.
     
 ### Definition
 
 > **Name:** do_get_categories
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 >
 > **Parameters:**
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true |  |
-> | webhook | true |  |
-> | task | true |  |
+> | integration | true | OMNAv2::Integration |
+> | webhook | true | Setup::PlainWebhook |
+> | task | true | Setup::AlgorithmExecution |
 
 ### Example
 ```ruby
 # Get categories from the remote integration
 categories = begin
-  data = {}
-  response = webhook.submit!(body: data.to_json)
+  response = webhook.submit!
   response = JSON.parse(response, symbolize_names: true)
 
-  Cenit.fail(response[:msg] || response[:error]) if response[:error]
+  Cenit.fail(response[:message]) if response[:code].to_i != 0
 
-  response[:categories]
+  response[:data]
 end
 
 categories

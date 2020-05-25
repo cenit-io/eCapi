@@ -2,21 +2,21 @@
 
 ## do_get_orders
 
-Allows submitting a request to the remote integration platform to get and import the orders.
+Allows submitting a request to the remote integration platform to get the orders.
     
 ### Definition
 
 > **Name:** do_get_orders
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 >
 > **Parameters:**
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true |  |
-> | webhook | true |  |
-> | task | true |  |
+> | integration | true | OMNAv2::Integration |
+> | webhook | true | Setup::PlainWebhook |
+> | task | true | Setup::AlgorithmExecution |
 
 ### Example
 ```ruby
@@ -43,7 +43,7 @@ orders, more = begin
   sn_list = response[:orders].map { |o| o[:ordersn] }
 
   if sn_list.any?
-    webhook = ns_shopee.webhook(:get_order)
+    webhook = ns_anyone.webhook(:get_order)
 
     data = { ordersn_list: sn_list }
     response = webhook.submit!(body: data.to_json)

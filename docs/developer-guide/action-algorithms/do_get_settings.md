@@ -8,7 +8,7 @@ Returns the available integration settings with its available channels.
 
 > **Name:** do_get_settings
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 
 ### Example
 ```ruby

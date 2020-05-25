@@ -2,21 +2,21 @@
 
 ## do_get_products
 
-Allows submitting a request to the remote integration platform to get and import the products.
+Allows submitting a request to the remote integration platform to get the products.
     
 ### Definition
 
 > **Name:** do_get_products
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Lazada
 >
 > **Parameters:**
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true |  |
-> | webhook | true |  |
-> | task | true |  |
+> | integration | true | OMNAv2::Integration |
+> | webhook | true | Setup::PlainWebhook |
+> | task | true | Setup::AlgorithmExecution |
 
 ### Example
 ```ruby
@@ -44,7 +44,7 @@ products, more = begin
   items = []
 
   if id_list.any?
-    webhook = Cenit.namespace(:OMNAv2).algorithm(:h_do_require_webhook).run([integration, :get_product])
+    webhook = Cenit.namespace(:OMNAv2).algorithm(:do_require_webhook).run([integration, :get_product])
 
     id_list.each do |item|
       response = webhook.submit!(body: { item_id: item }.to_json)

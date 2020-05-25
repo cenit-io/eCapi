@@ -1,8 +1,0 @@
-
-apiTitle: eCommerce API
-splitSpec: true
-codeSamples: true
-swaggerUI: false
-travis: true
-repo: cenit-io/eCapi
-oasVersion: 3.0.0

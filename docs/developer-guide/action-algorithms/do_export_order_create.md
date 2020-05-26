@@ -3,6 +3,11 @@
 ## do_export_order_create
 
 Allows submitting a request to the remote integration platform to create an order.
+
+**You have to returns**: A hash with the order data created on the remote platform.
+
+The parameter **data** is obtained from the result of parsing the registration of the order with 
+this [parser](../parser-algorithms/parse_from_omna_db_2_api_request_order.md).
     
 ### Definition
 
@@ -14,8 +19,8 @@ Allows submitting a request to the remote integration platform to create an orde
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | data | true |  |
-> | target_integration | true |  |
+> | data | true | Hash |
+> | integration | true | OMNAv2::Integration |
 > | webhook | true | Setup::PlainWebhook |
 > | task | true | Setup::AlgorithmExecution |
 
@@ -31,8 +36,7 @@ order = begin
   response[:order]
 end
 
-# Returns data to create order exported record.
-{ exported_id: order[:id], exported_number: order[:order_number] }
+order
 ```
 
 ### See also

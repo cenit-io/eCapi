@@ -14,21 +14,13 @@ Allows submitting a request to the remote integration platform to remove a produ
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | product | true |  |
+> | product | true | Ov2Anyone::Product |
 > | webhook | true | Setup::PlainWebhook |
 > | task | true | Setup::AlgorithmExecution |
 
 ### Example
 ```ruby
-ns_omna = Cenit.namespace(:OMNAv2)
-
-integration = product.integration
-auth = integration.authorization
-conn = ns_omna.algorithm(:do_require_connection).run([integration.channel])
-
-webhook = Cenit.namespace(:Ov2Anyone).webhook(:delete_product)
-
-response = webhook.with(conn).and(auth).submit!(template_parameters: { 'item_id' => product.remote_product_id })
+response = webhook.submit!(template_parameters: { 'item_id' => product.remote_product_id })
 response = JSON.parse(response, symbolize_names: true)
 
 Cenit.fail(response[:error]) if response[:error]

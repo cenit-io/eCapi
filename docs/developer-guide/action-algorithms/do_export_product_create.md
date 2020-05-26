@@ -15,7 +15,7 @@ Allows submitting a request to the remote integration platform to create a produ
 > | Name | Required | Type |
 > | --- | --- | --- |
 > | data | true |  |
-> | target_integration | true |  |
+> | integration | true | OMNAv2::Integration |
 > | webhook | true | Setup::PlainWebhook |
 > | task | true | Setup::AlgorithmExecution |
 

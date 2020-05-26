@@ -14,24 +14,29 @@ Allows submitting a request to the remote integration platform to update an orde
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | data | true |  |
-> | target_integration | true |  |
+> | data | true | Hash |
+> | integration | true | OMNAv2::Integration |
 > | webhook | true | Setup::PlainWebhook |
-> | order_exported | true |  |
+> | order_exported | true | Hash |
 > | task | true | Setup::AlgorithmExecution |
 
 ### Example
 ```ruby
-# Update order in the remote integration
-data = { 'order' => data }
-tps = { 'order_id' => order_exported.exported_id }
+# Update an order in the remote integration
 
-response = webhook.submit!(body: data.to_json, template_parameters: tps)
-response = JSON.parse(response, symbolize_names: true)
+order = begin
+  data = { 'order' => data }
+  tps = { 'order_id' => order_exported[:id] }
 
-Cenit.fail(response[:errors]) if response[:errors]
+  response = webhook.submit!(body: data.to_json, template_parameters: tps)
+  response = JSON.parse(response, symbolize_names: true)
 
-nil
+  Cenit.fail(response[:errors]) if response[:errors]
+
+  response[:order]
+end
+
+order
 ```
 
 ### See also

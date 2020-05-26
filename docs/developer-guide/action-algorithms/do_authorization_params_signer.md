@@ -14,8 +14,8 @@ Allows signing the parameters sent in the request for an authorization.
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | params | true | Hash | - |
-> | template_params | true | Hash | - |
+> | params | true | Hash | Contains the parameters to be submit in the request |
+> | template_params | true | Hash | Contains the reference to all request settings, body and parameters |
 
 ### Example
 ```ruby

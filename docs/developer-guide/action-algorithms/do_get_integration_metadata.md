@@ -14,7 +14,7 @@ Allows submitting a request to the remote integration platform to get its metada
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | integration | true | OMNAv2::Integration | - |
+> | integration | true | OMNAv2::Integration | Contains integration record |
 > | webhook | true | Setup::PlainWebhook | Contains the [get_integration_metadata](../webhooks/overview?id=get_integration_metadata) webhook |
 
 ### Example

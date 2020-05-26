@@ -14,9 +14,9 @@ Allows submitting a request to the remote integration platform to cancel an orde
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | order | true | - | - |
+> | order | true | OMNAv2::Order | Contains the record of the order to be canceled |
 > | webhook | true | Setup::PlainWebhook | Contains the [cancel_order](../webhooks/overview?id=cancel_order) webhook |
-> | task | true | Setup::AlgorithmExecution | - |
+> | task | true | Setup::AlgorithmExecution | Contains a reference to the running task. |
 
 ### Example
 ```ruby

@@ -3,9 +3,6 @@
 ## do_after_authorize
 
 Allows validate the authorization and start some processes after successful authorization.
-
-In this algorithm, if applicable for integration, the tasks for importing some resources such as categories and marks 
-should be started.
     
 ### Definition
 
@@ -17,27 +14,21 @@ should be started.
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | integration_id | true | OMNAv2::Integration \| String | - |
-> | task | true | Setup::AlgorithmExecution | - |
+> | integration | true | OMNAv2::Integration \| String | Contains the integration record or id |
+> | webhook | true | Setup::PlainWebhook | Contains the [get_integration_metadata](../webhooks/overview?id=get_integration_metadata) webhook |
+> | task | true | Setup::AlgorithmExecution | Contains a reference to the running task. |
+>
+> **Returns:** List of the names of the resources that should be imported initially.
+For each of these names, except for categories and brands, 
+should be created a algorithm with the same name and the prefix **do_import_**.
+(Ex: [do_import_logistics](do_import_logistics.md))
 
 ### Example
 ```ruby
-ns_omna = Cenit.namespace(:OMNAv2)
-
-do_notify = ns_omna.algorithm(:do_notify)
-do_asynchronous_task = ns_omna.algorithm(:do_asynchronous_task)
-do_require_integration = ns_omna.algorithm(:do_require_integration)
-do_require_algorithm = ns_omna.algorithm(:do_require_algorithm)
-do_require_webhook = ns_omna.algorithm(:do_require_webhook)
-
-integration = do_require_integration.run([integration_id])
-integration_name = "#{integration.name}@#{integration.channel}"
-
-# Validate authorization (check country)
+# Validate authorization
 begin
   integration_country = integration.channel.gsub(/^Ov2Anyone/, '')
 
-  webhook = do_require_webhook.run([integration, :get_integration_metadata])
   response = webhook.submit! # (parameters: ..., body: ...)
   response = JSON.parse(response, symbolize_names: true)
 
@@ -47,28 +38,8 @@ begin
   end
 end
 
-# Add task to import the initial resources
-begin
-  join_group = "AFTER-AUTHORIZE-#{integration.id}"
-
-  do_notify.run(["Add task to import brands from #{integration_name} integration.", :info, task])
-  action = do_require_algorithm.run([integration, :do_get_brands])
-  message = {
-    description: "Importing product brands from #{integration_name} integration",
-    join_group: join_group,
-    input: [integration.id]
-  }
-  do_asynchronous_task.run([action, message, join_group])
-
-  do_notify.run(["Add task to import categories from #{integration_name} integration.", :info, task])
-  action = do_require_algorithm.run([integration, :do_get_categories])
-  message = {
-    description: "Importing product categories from #{integration_name} integration.",
-    join_group: join_group,
-    input: [integration.id]
-  }
-  do_asynchronous_task.run([action, message, join_group])
-end
+# Returns the names of the resources that should be imported initially
+%w(categories brands logistics)
 ```
 
 ### See also

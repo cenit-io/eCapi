@@ -14,8 +14,8 @@ Allows set the template parameters of the authorization from the callback params
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | callback_params | true | Hash | - |
-> | template_parameters | true | Hash | - |
+> | callback_params | true | Hash | Contains the parameters returned since authorization |
+> | template_parameters | true | Hash | Contains the reference to the authorization template parameters |
 
 ### Example
 ```ruby

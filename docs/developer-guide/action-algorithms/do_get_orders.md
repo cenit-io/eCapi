@@ -8,15 +8,15 @@ Allows submitting a request to the remote integration platform to get the orders
 
 > **Name:** do_get_orders
 > 
-> **Namespace:** Ov2Lazada
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | integration | true | OMNAv2::Integration |
-> | webhook | true | Setup::PlainWebhook |
-> | task | true | Setup::AlgorithmExecution |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | integration | true | OMNAv2::Integration | - |
+> | webhook | true | Setup::PlainWebhook | - |
+> | task | true | Setup::AlgorithmExecution | - |
 
 ### Example
 ```ruby

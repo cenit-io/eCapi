@@ -53,16 +53,16 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 
 > Allows submitting a request to the remote integration platform to create an order.
 > 
-> **You have to returns**: A hash with the order data created on the remote platform.
-> 
-> The parameter **data** is obtained from the result of parsing the registration of the order with 
-> this [parser](../parser-algorithms/parse_from_omna_db_2_api_request_order.md).
+> The parameter **data** is obtained from the result of parsing the registration of the order with this [parser](../parser-algorithms/parse_from_omna_db_2_api_request_order.md).
 >
 > [[see more details]](do_export_order_create ':class=see-more')
 
 ## do_export_order_update
 
 > Allows submitting a request to the remote integration platform to update an order.
+> 
+> The parameter **data** is obtained from the result of parsing the registration of the order with 
+> this [parser](../parser-algorithms/parse_from_omna_db_2_api_request_order.md).
 >
 > [[see more details]](do_export_order_update ':class=see-more')
 

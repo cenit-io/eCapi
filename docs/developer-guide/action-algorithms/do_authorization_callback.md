@@ -8,14 +8,14 @@ Allows set the template parameters of the authorization from the callback params
 
 > **Name:** do_authorization_callback
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | callback_params | true | Hash |
-> | template_parameters | true | Hash |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | callback_params | true | Hash | - |
+> | template_parameters | true | Hash | - |
 
 ### Example
 ```ruby

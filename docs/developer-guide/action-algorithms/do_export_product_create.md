@@ -8,16 +8,16 @@ Allows submitting a request to the remote integration platform to create a produ
 
 > **Name:** do_export_product_create
 > 
-> **Namespace:** Ov2Shopify
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | data | true |  |
-> | integration | true | OMNAv2::Integration |
-> | webhook | true | Setup::PlainWebhook |
-> | task | true | Setup::AlgorithmExecution |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | data | true | - | - |
+> | integration | true | OMNAv2::Integration | - |
+> | webhook | true | Setup::PlainWebhook | - |
+> | task | true | Setup::AlgorithmExecution | - |
 
 ### Example
 ```ruby

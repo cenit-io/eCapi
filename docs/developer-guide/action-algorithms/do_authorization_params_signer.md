@@ -8,14 +8,14 @@ Allows signing the parameters sent in the request for an authorization.
 
 > **Name:** do_authorization_params_signer
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | params | true | Hash |
-> | template_params | true | Hash |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | params | true | Hash | - |
+> | template_params | true | Hash | - |
 
 ### Example
 ```ruby

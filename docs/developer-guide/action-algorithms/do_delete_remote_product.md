@@ -8,15 +8,15 @@ Allows submitting a request to the remote integration platform to remove a produ
 
 > **Name:** do_delete_remote_product
 > 
-> **Namespace:** Ov2Lazada
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | product | true | Ov2Anyone::Product |
-> | webhook | true | Setup::PlainWebhook |
-> | task | true | Setup::AlgorithmExecution |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | product | true | Ov2Anyone::Product | - |
+> | webhook | true | Setup::PlainWebhook | - |
+> | task | true | Setup::AlgorithmExecution | - |
 
 ### Example
 ```ruby

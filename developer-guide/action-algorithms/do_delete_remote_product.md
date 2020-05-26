@@ -14,9 +14,9 @@ Allows submitting a request to the remote integration platform to remove a produ
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | product | true | Ov2Anyone::Product | - |
+> | product | true | Ov2Anyone::Product | Contains the record of product to be delete |
 > | webhook | true | Setup::PlainWebhook | Contains the [delete_product](../webhooks/overview?id=delete_product) webhook |
-> | task | true | Setup::AlgorithmExecution | - |
+> | task | true | Setup::AlgorithmExecution | Contains a reference to the running task. |
 
 ### Example
 ```ruby

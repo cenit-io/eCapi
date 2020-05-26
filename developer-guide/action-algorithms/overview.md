@@ -13,9 +13,6 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 ## do_after_authorize
 
 > Allows validate the authorization and start some processes after successful authorization.
-> 
-> In this algorithm, if applicable for integration, the tasks for importing some resources such as categories and marks 
-> should be started.
 >
 > [[see more details]](do_after_authorize ':class=see-more')
 
@@ -138,4 +135,10 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 > Returns the available integration settings with its available channels.
 >
 > [[see more details]](do_get_settings ':class=see-more')
+
+## do_import_logistics
+
+> Allows submitting a request to the remote integration platform to get and import the logistics.
+>
+> [[see more details]](do_import_logistics ':class=see-more')
 

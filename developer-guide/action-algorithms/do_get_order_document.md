@@ -14,8 +14,8 @@ Allows submitting a request a request to the remote integration platform to get 
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | order | true | - | - |
-> | doc_type | true | - | - |
+> | order | true | Ov2Anyone::Order | Contains the record of the order |
+> | doc_type | true | String | Contains the type of document to be obtain |
 > | webhook | true | Setup::PlainWebhook | Contains the [get_order_document](../webhooks/overview?id=get_order_document) webhook |
 
 ### Example

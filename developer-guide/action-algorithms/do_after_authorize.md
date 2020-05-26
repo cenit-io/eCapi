@@ -16,7 +16,7 @@ Allows validate the authorization and start some processes after successful auth
 > | ---- | -------- | ---- | ----------- |
 > | integration | true | OMNAv2::Integration \| String | Contains the integration record or id |
 > | webhook | true | Setup::PlainWebhook | Contains the [get_integration_metadata](../webhooks/overview?id=get_integration_metadata) webhook |
-> | task | true | Setup::AlgorithmExecution | Contains a reference to the running task. |
+> | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 >
 > **Returns:** List of the names of the resources that should be imported initially.
 For each of these names, except for categories and brands, 

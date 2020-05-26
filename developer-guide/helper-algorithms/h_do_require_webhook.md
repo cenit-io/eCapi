@@ -19,10 +19,12 @@ If the resource is not found an exception is thrown.
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | integration | true | - |
-> | name | true | - |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | integration | true | OMNAv2::Integration \| String | Contains the integration record o id |
+> | name | false | String \| Symbol | Contains the name of the webhook |
+>
+> **Returns:** The required webhook
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_require_webhook)

@@ -12,9 +12,11 @@ This algorithm allows calculating the hmac of a hash or a record of a data type.
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | data | true | - |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | data | true | Mongoff::Record \| Hash \| String | Data to be use to generate the HMAC |
+>
+> **Returns:** The HMAC string
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_generate_hmac)

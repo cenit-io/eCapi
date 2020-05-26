@@ -21,11 +21,13 @@ If some of the resources are not found an exception is thrown.
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | variant_id | true | - |
-> | product_id | false | - |
-> | integration_id | false | - |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | variant_id | true | String | Contains the variant id or remote id |
+> | product_id | true | String | Contains the product id or remote id |
+> | integration_id | false | OMNAv2::Integration \| String | Contains the integration record o id |
+>
+> **Returns:** The a record of OMNAv2::Variant or Ov2Anyone::Variant if the parameter integration_id is given.
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_require_variant)

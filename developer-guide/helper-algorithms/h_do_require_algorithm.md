@@ -17,11 +17,13 @@ If the resource is not found an exception is thrown.
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | channel | true | - |
-> | alg_name | true | - |
-> | throwing | false | - |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | channel | true | OMNAv2::Integration \| String | Contains the integration record o channel name |
+> | alg_name | true | String \| Symbol | Contains the name of the algorithm |
+> | throwing | false | Boolean | An exception is thrown when this parameter is true and the algorithm does not exist. |
+>
+> **Returns:** The required algorithm
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_require_algorithm)

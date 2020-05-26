@@ -17,7 +17,7 @@ Allows submitting a request to the remote integration platform to get an order.
 > | integration | true | OMNAv2::Integration | Contains integration record |
 > | number | true | String | Contains the number of the order to be obtain |
 > | webhook | true | Setup::PlainWebhook | Contains the [get_order](../webhooks/overview?id=get_order) webhook |
-> | task | true | Setup::AlgorithmExecution | Contains a reference to the running task. |
+> | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 
 ### Example
 ```ruby

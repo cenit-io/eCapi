@@ -15,11 +15,13 @@ Otherwise it will be put at the end of the execution queue created for task of t
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | action | true | - |
-> | message | true | - |
-> | join_group | false | - |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | action | true | Setup::Algorithm | Contains the algorithm to be executed |
+> | message | true | Hash | Contains message passed to the task |
+> | join_group | false | String | Contains the join group name |
+>
+> **Returns:** The task found or created.
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_set_asynchronous_task)

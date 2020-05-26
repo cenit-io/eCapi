@@ -15,7 +15,7 @@ Allows submitting a request to the remote integration platform to get and import
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
 > | integration_id | true | String | Contains the integration id |
-> | task | true | Setup::AlgorithmExecution | Contains a reference to the running task. |
+> | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 
 ### Example
 ```ruby

@@ -18,10 +18,10 @@ It is useful to avoid unnecessary execution of tasks that produce the same resul
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | algorithm | true | - |
-> | inputs | false | - |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | algorithm | true | Setup::Algorithm | Contains the algorithm to be executed |
+> | inputs | false | Array | Contains the parameters that will be passed to the algorithm |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_get_already_active_task)

@@ -12,12 +12,12 @@ Create a system notification.
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | msg | true | - |
-> | attachment | false | - |
-> | type | false | - |
-> | context | false | - |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | msg | true | String | Contains the message to be send |
+> | attachment | false | Hash | Contains the attachment file data |
+> | type | false | String \| Symbol | Contains notification type |
+> | context | false | Setup::Tenant \| Setup::AlgorithmExecution | Contains the context in which the notification will be sent |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_notify)

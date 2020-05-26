@@ -10,11 +10,7 @@ Returns the list of all available integration channels.
 > 
 > **Namespace:** OMNAv2
 >
-> **Parameters:**
-> 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | is_development | false | - |
+> **Returns:** The list of all available integration channels
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_get_available_channels)

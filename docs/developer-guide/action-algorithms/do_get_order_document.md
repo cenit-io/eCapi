@@ -16,7 +16,7 @@ Allows submitting a request a request to the remote integration platform to get 
 > | ---- | -------- | ---- | ----------- |
 > | order | true | - | - |
 > | doc_type | true | - | - |
-> | webhook | true | Setup::PlainWebhook | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [get_order_document](../webhooks/overview?id=get_order_document) webhook |
 
 ### Example
 ```ruby

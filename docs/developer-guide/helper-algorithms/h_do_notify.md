@@ -14,10 +14,10 @@ Create a system notification.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | msg | true |  |
-> | attachment | false |  |
-> | type | false |  |
-> | context | false |  |
+> | msg | true | - |
+> | attachment | false | - |
+> | type | false | - |
+> | context | false | - |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_notify)

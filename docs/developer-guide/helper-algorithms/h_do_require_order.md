@@ -16,8 +16,8 @@ If some of the resources are not found an exception is thrown.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | number_or_id | true |  |
-> | integration_id | false |  |
+> | number_or_id | true | - |
+> | integration_id | false | - |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_require_order)

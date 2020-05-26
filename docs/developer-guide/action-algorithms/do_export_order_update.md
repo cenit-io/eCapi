@@ -3,9 +3,6 @@
 ## do_export_order_update
 
 Allows submitting a request to the remote integration platform to update an order.
-
-The parameter **data** is obtained from the result of parsing the registration of the order with 
-this [parser](../parser-algorithms/parse_from_omna_db_2_api_request_order.md).
     
 ### Definition
 
@@ -19,11 +16,11 @@ this [parser](../parser-algorithms/parse_from_omna_db_2_api_request_order.md).
 > | ---- | -------- | ---- | ----------- |
 > | data | true | Hash | Is obtained from this [parser](../parser-algorithms/parse_from_omna_db_2_api_request_order.md). |
 > | integration | true | OMNAv2::Integration | - |
-> | webhook | true | Setup::PlainWebhook | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [update_order](../webhooks/overview?id=update_order) webhook |
 > | order_exported | true | Hash | - |
 > | task | true | Setup::AlgorithmExecution | - |
 >
-> **Returns:** A hash with the order data updated on the remote platform
+> **Returns:** A **Hash** with the order data updated on the remote platform.
 
 ### Example
 ```ruby

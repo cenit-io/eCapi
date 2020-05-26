@@ -14,9 +14,9 @@ Returns the definition of the properties for products or variants of a category 
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true |  |
-> | category_id | true |  |
-> | source | true |  |
+> | integration | true | - |
+> | category_id | true | - |
+> | source | true | - |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_get_properties_definition)

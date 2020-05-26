@@ -19,8 +19,8 @@ If the resource is not found an exception is thrown.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | channel | true |  |
-> | name | false |  |
+> | channel | true | - |
+> | name | false | - |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_require_connection)

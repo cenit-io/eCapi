@@ -14,7 +14,7 @@ Returns the list of all available integration channels.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | is_development | false |  |
+> | is_development | false | - |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_get_available_channels)

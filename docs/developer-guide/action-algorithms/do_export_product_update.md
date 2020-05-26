@@ -16,7 +16,7 @@ Allows submitting a request to the remote integration platform to update a produ
 > | ---- | -------- | ---- | ----------- |
 > | data | true | - | - |
 > | integration | true | OMNAv2::Integration | - |
-> | webhook | true | Setup::PlainWebhook | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [update_product](../webhooks/overview?id=update_product) webhook |
 > | task | true | Setup::AlgorithmExecution | - |
 
 ### Example

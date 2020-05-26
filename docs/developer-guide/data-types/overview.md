@@ -15,7 +15,7 @@ You can manage the data types by entering [here](https://cenit.io/json_data_type
 > 
 > This structure is required only when the platform to be integrated have predefined brands to the products.
 > 
-> Its records are completed from the information obtained in [this action](../action-algorithms/do_import_brands.md) algorithm 
+> Its records are completed from the information obtained in [this action](../action-algorithms/do_get_brands.md) algorithm 
 > and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integration_db_brand.md) algorithm.
 >
 > [[see more details]](Brand ':class=see-more')
@@ -26,7 +26,7 @@ You can manage the data types by entering [here](https://cenit.io/json_data_type
 > 
 > This structure is required only when the platform to be integrated organizes the products by categories.
 > 
-> Its records are completed from the information obtained in [this action](../action-algorithms/do_import_categories.md) algorithm 
+> Its records are completed from the information obtained in [this action](../action-algorithms/do_get_categories.md) algorithm 
 > and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integration_db_category.md) algorithm.
 >
 > [[see more details]](Category ':class=see-more')
@@ -39,7 +39,7 @@ You can manage the data types by entering [here](https://cenit.io/json_data_type
 > 
 > Its records are completed from the information obtained or mapped in algorithms: 
 > 
-> * [do_import_products](../action-algorithms/do_import_products.md).
+> * [do_get_products](../action-algorithms/do_get_products.md).
 > * [parse_from_api_response_2_integration_db_product_images](../parser-algorithms/parse_from_api_response_2_integration_db_product_images.md).
 > * [parse_from_api_response_2_integration_db_variant_images](../parser-algorithms/parse_from_api_response_2_integration_db_variant_images.md).
 >
@@ -51,7 +51,7 @@ You can manage the data types by entering [here](https://cenit.io/json_data_type
 > 
 > Its records are completed from the information obtained or mapped in algorithms: 
 > 
-> * [do_import_orders](../action-algorithms/do_import_orders.md).
+> * [do_get_orders](../action-algorithms/do_get_orders.md).
 > * [parse_from_api_response_2_integration_db_order](../parser-algorithms/parse_from_api_response_2_integration_db_order.md).
 >
 > [[see more details]](Order ':class=see-more')
@@ -62,7 +62,7 @@ You can manage the data types by entering [here](https://cenit.io/json_data_type
 > 
 > Its records are completed from the information obtained or mapped in algorithms: 
 > 
-> * [do_import_products](../action-algorithms/do_import_products.md).
+> * [do_get_products](../action-algorithms/do_get_products.md).
 > * [parse_from_api_response_2_integration_db_product](../parser-algorithms/parse_from_api_response_2_integration_db_product.md).
 > * [parse_from_omna_db_2_integration_db_product](../parser-algorithms/parse_from_omna_db_2_integration_db_product.md).
 >
@@ -78,7 +78,7 @@ You can manage the data types by entering [here](https://cenit.io/json_data_type
 > 
 > Its records are completed from the information obtained or mapped in algorithms: 
 > 
-> * [do_import_properties](../action-algorithms/do_import_properties.md).
+> * [do_get_properties](../action-algorithms/do_get_properties.md).
 > * [parse_from_api_response_2_integration_db_property](../parser-algorithms/parse_from_api_response_2_integration_db_property.md).
 > 
 >
@@ -90,7 +90,7 @@ You can manage the data types by entering [here](https://cenit.io/json_data_type
 > 
 > Its records are completed from the information obtained or mapped in algorithms: 
 > 
-> * [do_import_products](../action-algorithms/do_import_products.md).
+> * [do_get_products](../action-algorithms/do_get_products.md).
 > * [parse_from_api_response_2_integration_db_product](../parser-algorithms/parse_from_api_response_2_integration_db_variant.md).
 > * [parse_from_omna_db_2_integration_db_product](../parser-algorithms/parse_from_omna_db_2_integration_db_variant.md).
 >

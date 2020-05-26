@@ -19,8 +19,8 @@ If the resource is not found an exception is thrown.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true |  |
-> | check_authorization | false |  |
+> | integration | true | - |
+> | check_authorization | false | - |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_require_integration)

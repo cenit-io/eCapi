@@ -8,14 +8,14 @@ TODO: Description...
 
 > **Name:** parse_from_integration_db_2_omna_db_base_authorization
 > 
-> **Namespace:** Ov2Shopify
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | integration | true |  |
-> | base_authorization | true |  |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | integration | true | - | - |
+> | base_authorization | true | - | - |
 
 ### Example
 ```ruby

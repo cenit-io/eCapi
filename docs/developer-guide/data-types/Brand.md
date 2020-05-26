@@ -6,7 +6,7 @@ Data structure to store the imported records of product brands for each integrat
 
 This structure is required only when the platform to be integrated have predefined brands to the products.
 
-Its records are completed from the information obtained in [this action](../action-algorithms/do_import_brands.md) algorithm 
+Its records are completed from the information obtained in [this action](../action-algorithms/do_get_brands.md) algorithm 
 and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integration_db_brand.md) algorithm.
     
 ### JSON SCHEMA

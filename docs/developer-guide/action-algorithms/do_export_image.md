@@ -16,7 +16,7 @@ Allows submitting a request to the remote integration platform to publish an ima
 > | ---- | -------- | ---- | ----------- |
 > | url | true | String | - |
 > | integration | true | OMNAv2::Integration | - |
-> | webhook | true | Setup::PlainWebhook | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [upload_image](../webhooks/overview?id=upload_image) webhook |
 > | task | true | Setup::AlgorithmExecution | - |
 
 ### Example

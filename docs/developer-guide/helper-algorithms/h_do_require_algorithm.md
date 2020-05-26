@@ -19,9 +19,9 @@ If the resource is not found an exception is thrown.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | channel | true |  |
-> | alg_name | true |  |
-> | throwing | false |  |
+> | channel | true | - |
+> | alg_name | true | - |
+> | throwing | false | - |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_require_algorithm)

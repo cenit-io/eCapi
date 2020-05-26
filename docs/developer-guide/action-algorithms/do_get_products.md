@@ -15,7 +15,7 @@ Allows submitting a request to the remote integration platform to get the produc
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
 > | integration | true | OMNAv2::Integration | - |
-> | webhook | true | Setup::PlainWebhook | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [get_products](../webhooks/overview?id=get_products) webhook |
 > | task | true | Setup::AlgorithmExecution | - |
 
 ### Example

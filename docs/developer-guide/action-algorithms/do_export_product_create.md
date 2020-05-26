@@ -16,7 +16,7 @@ Allows submitting a request to the remote integration platform to create a produ
 > | ---- | -------- | ---- | ----------- |
 > | data | true | - | - |
 > | integration | true | OMNAv2::Integration | - |
-> | webhook | true | Setup::PlainWebhook | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [create_product](../webhooks/overview?id=create_product) webhook |
 > | task | true | Setup::AlgorithmExecution | - |
 
 ### Example

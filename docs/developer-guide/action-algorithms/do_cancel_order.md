@@ -15,7 +15,7 @@ Allows submitting a request to the remote integration platform to cancel an orde
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
 > | order | true | - | - |
-> | webhook | true | Setup::PlainWebhook | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [cancel_order](../webhooks/overview?id=cancel_order) webhook |
 > | task | true | Setup::AlgorithmExecution | - |
 
 ### Example

@@ -16,7 +16,7 @@ Allows submitting a request to the remote integration platform to get the produc
 > | ---- | -------- | ---- | ----------- |
 > | integration | true | OMNAv2::Integration | - |
 > | category | true | - | - |
-> | webhook | true | Setup::PlainWebhook | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [get_category_attrs](../webhooks/overview?id=get_category_attrs) webhook |
 
 ### Example
 ```ruby

@@ -8,14 +8,14 @@ TODO: Description...
 
 > **Name:** parse_from_omna_db_2_integration_db_variant
 > 
-> **Namespace:** Ov2Lazada
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | source | true |  |
-> | target_sku | true |  |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | source | true | - | - |
+> | target_sku | true | - | - |
 
 ### Example
 ```ruby

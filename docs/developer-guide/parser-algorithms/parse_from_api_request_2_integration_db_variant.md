@@ -8,14 +8,14 @@ TODO: Description...
 
 > **Name:** parse_from_api_request_2_integration_db_variant
 > 
-> **Namespace:** Ov2Lazada
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | variant_record | true |  |
-> | new_data | true |  |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | variant_record | true | - | - |
+> | new_data | true | - | - |
 
 ### Example
 ```ruby

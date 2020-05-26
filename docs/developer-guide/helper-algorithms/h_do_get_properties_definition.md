@@ -12,11 +12,13 @@ Returns the definition of the properties for products or variants of a category 
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | integration | true | - |
-> | category_id | true | - |
-> | source | true | - |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | integration | true | OMNAv2::Integration | Contains integration record |
+> | category_id | true | String | Contains de product category id |
+> | source | true | Hash | Contains the product or variant data |
+>
+> **Returns:** The definition of the properties for products or variants of a category in an integration.
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_get_properties_definition)

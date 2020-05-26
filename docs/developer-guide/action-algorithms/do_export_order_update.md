@@ -18,7 +18,7 @@ Allows submitting a request to the remote integration platform to update an orde
 > | integration | true | OMNAv2::Integration | Contains integration record |
 > | webhook | true | Setup::PlainWebhook | Contains the [update_order](../webhooks/overview?id=update_order) webhook |
 > | order_exported | true | Hash | Contains the data returned by the remote platform in the last export of the order |
-> | task | true | Setup::AlgorithmExecution | Contains a reference to the running task. |
+> | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 >
 > **Returns:** A **Hash** with the order data updated on the remote platform.
 

@@ -45,7 +45,7 @@ You can see this algorithms by entering [here](https://cenit.io/algorithm?f[name
 
 ## h_do_get_integrations_settings
 
-> TODO: Description...
+> Returns the list of all available integration settings.
 >
 > [[see more details]](h_do_get_integrations_settings ':class=see-more')
 

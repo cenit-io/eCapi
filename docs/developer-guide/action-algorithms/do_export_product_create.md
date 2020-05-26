@@ -17,7 +17,7 @@ Allows submitting a request to the remote integration platform to create a produ
 > | data | true | - | Contains the data to be export. This is obtained from this [parser](../parser-algorithms/parse_from_omna_db_2_api_request_product.md). |
 > | integration | true | OMNAv2::Integration | Contains integration record |
 > | webhook | true | Setup::PlainWebhook | Contains the [create_product](../webhooks/overview?id=create_product) webhook |
-> | task | true | Setup::AlgorithmExecution | Contains a reference to the running task. |
+> | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 
 ### Example
 ```ruby

@@ -17,10 +17,12 @@ If the resource is not found an exception is thrown.
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | channel | true | - |
-> | name | false | - |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | channel | true | OMNAv2::Integration \| String | Contains the integration record o channel name |
+> | name | false | String \| Symbol | Contains the name of the connection |
+>
+> **Returns:** The required connection
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_require_connection)

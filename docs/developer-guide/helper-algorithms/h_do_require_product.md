@@ -21,10 +21,12 @@ If some of the resources are not found an exception is thrown.
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | product_id | true | - |
-> | integration_id | true | - |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | product_id | true | String | Contains the product id or remote id |
+> | integration_id | false | OMNAv2::Integration \| String | Contains the integration record o id |
+>
+> **Returns:** The a record of OMNAv2::Product or Ov2Anyone::Product if the parameter integration_id is given.
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_require_product)

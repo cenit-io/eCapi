@@ -43,6 +43,12 @@ You can see this algorithms by entering [here](https://cenit.io/algorithm?f[name
 >
 > [[see more details]](h_do_get_available_workflows ':class=see-more')
 
+## h_do_get_integrations_settings
+
+> TODO: Description...
+>
+> [[see more details]](h_do_get_integrations_settings ':class=see-more')
+
 ## h_do_get_properties_definition
 
 > Returns the definition of the properties for products or variants of a category in an integration.

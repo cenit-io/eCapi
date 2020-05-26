@@ -45,7 +45,7 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 
 ## do_export_image
 
-> Allows submitting a request a request to the remote integration platform to publish an image.
+> Allows submitting a request to the remote integration platform to publish an image.
 >
 > [[see more details]](do_export_image ':class=see-more')
 

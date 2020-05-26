@@ -11,14 +11,14 @@ should be started.
 
 > **Name:** do_after_authorize
 > 
-> **Namespace:** Ov2Lazada
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | integration_id | true | OMNAv2::Integration \| String |
-> | task | true | Setup::AlgorithmExecution |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | integration_id | true | OMNAv2::Integration \| String | - |
+> | task | true | Setup::AlgorithmExecution | - |
 
 ### Example
 ```ruby

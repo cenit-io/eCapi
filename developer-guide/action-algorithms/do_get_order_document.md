@@ -8,15 +8,15 @@ Allows submitting a request a request to the remote integration platform to get 
 
 > **Name:** do_get_order_document
 > 
-> **Namespace:** Ov2Lazada
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | order | true |  |
-> | doc_type | true |  |
-> | webhook | true | Setup::PlainWebhook |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | order | true | - | - |
+> | doc_type | true | - | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [get_order_document](../webhooks/overview?id=get_order_document) webhook |
 
 ### Example
 ```ruby

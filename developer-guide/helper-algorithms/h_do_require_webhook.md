@@ -21,8 +21,8 @@ If the resource is not found an exception is thrown.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | integration | true |  |
-> | name | true |  |
+> | integration | true | - |
+> | name | true | - |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_require_webhook)

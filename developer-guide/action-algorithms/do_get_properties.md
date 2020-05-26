@@ -8,15 +8,15 @@ Allows submitting a request to the remote integration platform to get the produc
 
 > **Name:** do_get_properties
 > 
-> **Namespace:** Ov2Lazada
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | integration | true | OMNAv2::Integration |
-> | category | true |  |
-> | webhook | true | Setup::PlainWebhook |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | integration | true | OMNAv2::Integration | - |
+> | category | true | - | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [get_category_attrs](../webhooks/overview?id=get_category_attrs) webhook |
 
 ### Example
 ```ruby

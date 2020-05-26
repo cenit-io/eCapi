@@ -8,15 +8,15 @@ Allows submitting a request to the remote integration platform to get the produc
 
 > **Name:** do_get_brands
 > 
-> **Namespace:** Ov2Lazada
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | integration | true | OMNAv2::Integration |
-> | webhook | true | Setup::PlainWebhook |
-> | task | true | Setup::AlgorithmExecution |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | integration | true | OMNAv2::Integration | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [get_brands](../webhooks/overview?id=get_brands) webhook |
+> | task | true | Setup::AlgorithmExecution | - |
 
 ### Example
 ```ruby

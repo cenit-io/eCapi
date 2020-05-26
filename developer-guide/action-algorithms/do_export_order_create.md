@@ -8,16 +8,18 @@ Allows submitting a request to the remote integration platform to create an orde
 
 > **Name:** do_export_order_create
 > 
-> **Namespace:** Ov2Shopify
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | data | true |  |
-> | target_integration | true |  |
-> | webhook | true | Setup::PlainWebhook |
-> | task | true | Setup::AlgorithmExecution |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | data | true | Hash | Is obtained from this [parser](../parser-algorithms/parse_from_omna_db_2_api_request_order.md). |
+> | integration | true | OMNAv2::Integration | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [create_order](../webhooks/overview?id=create_order) webhook |
+> | task | true | Setup::AlgorithmExecution | - |
+>
+> **Returns:** A **Hash** with the order data created on the remote platform.
 
 ### Example
 ```ruby
@@ -31,8 +33,7 @@ order = begin
   response[:order]
 end
 
-# Returns data to create order exported record.
-{ exported_id: order[:id], exported_number: order[:order_number] }
+order
 ```
 
 ### See also

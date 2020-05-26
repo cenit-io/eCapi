@@ -6,7 +6,7 @@ Data structure to store the imported records of orders for each integration chan
 
 Its records are completed from the information obtained or mapped in algorithms: 
 
-* [do_import_orders](../action-algorithms/do_import_orders.md).
+* [do_get_orders](../action-algorithms/do_get_orders.md).
 * [parse_from_api_response_2_integration_db_order](../parser-algorithms/parse_from_api_response_2_integration_db_order.md).
     
 ### JSON SCHEMA

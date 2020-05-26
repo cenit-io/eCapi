@@ -8,14 +8,14 @@ TODO: Description...
 
 > **Name:** parse_from_integration_db_2_ecapi_response_product_properties
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | product | true |  |
-> | properties_definition | true |  |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | product | true | - | - |
+> | properties_definition | true | - | - |
 
 ### Example
 ```ruby

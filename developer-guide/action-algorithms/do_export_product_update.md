@@ -8,16 +8,16 @@ Allows submitting a request to the remote integration platform to update a produ
 
 > **Name:** do_export_product_update
 > 
-> **Namespace:** Ov2Shopify
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | data | true |  |
-> | target_integration | true |  |
-> | webhook | true | Setup::PlainWebhook |
-> | task | true | Setup::AlgorithmExecution |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | data | true | - | - |
+> | integration | true | OMNAv2::Integration | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [update_product](../webhooks/overview?id=update_product) webhook |
+> | task | true | Setup::AlgorithmExecution | - |
 
 ### Example
 ```ruby

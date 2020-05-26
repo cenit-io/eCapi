@@ -2,45 +2,38 @@
 
 ## do_export_image
 
-Allows submitting a request a request to the remote integration platform to publish an image.
+Allows submitting a request to the remote integration platform to publish an image.
     
 ### Definition
 
 > **Name:** do_export_image
 > 
-> **Namespace:** Ov2Lazada
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | url | true |  |
-> | integration_id | true |  |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | url | true | String | - |
+> | integration | true | OMNAv2::Integration | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [upload_image](../webhooks/overview?id=upload_image) webhook |
+> | task | true | Setup::AlgorithmExecution | - |
 
 ### Example
 ```ruby
-ns_omna = Cenit.namespace(:OMNAv2)
-ns_anyone = Cenit.namespace(:Ov2Anyone)
-
-integration = ns_omna.algorithm(:do_require_integration).run([integration_id])
-auth = integration.authorization
-conn = ns_omna.algorithm(:do_require_connection).run([integration.channel])
-
 # Upload image to the remote integration
-url = begin
-  webhook = ns_anyone.webhook(:upload_image)
+new_url = begin
+  data = { Image: { Url: url } }.to_xml(root: 'Request')
 
-  data = [url]
-
-  response = webhook.with(conn).and(auth).submit!(parameters: { 'images' => data })
+  response = webhook.submit!(parameters: { 'payload' => data })
   response = JSON.parse(response, symbolize_names: true)
 
-  Cenit.fail(response[:msg] || response[:error]) if response[:error]
+  Cenit.fail(response[:message]) if response[:code].to_i != 0
 
-  response[:images].first[:shopee_image_url]
+  response[:data][:image][:url]
 end
 
-url
+new_url
 ```
 
 ### See also

@@ -8,13 +8,13 @@ TODO: Description...
 
 > **Name:** parse_from_omna_db_2_api_request_order_line_items
 > 
-> **Namespace:** Ov2Shopify
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | source | true |  |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | source | true | - | - |
 
 ### Example
 ```ruby

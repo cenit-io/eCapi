@@ -8,16 +8,16 @@ Allows submitting a request to the remote integration platform to get an product
 
 > **Name:** do_get_product
 > 
-> **Namespace:** Ov2Lazada
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | integration | true | OMNAv2::Integration |
-> | product_id | true |  |
-> | webhook | true | Setup::PlainWebhook |
-> | task | true | Setup::AlgorithmExecution |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | integration | true | OMNAv2::Integration | - |
+> | product_id | true | - | - |
+> | webhook | true | Setup::PlainWebhook | Contains the [get_product](../webhooks/overview?id=get_product) webhook |
+> | task | true | Setup::AlgorithmExecution | - |
 
 ### Example
 ```ruby

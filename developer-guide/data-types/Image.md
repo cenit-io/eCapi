@@ -8,7 +8,7 @@ Data structure to store the imported records of product images for each integrat
 
 Its records are completed from the information obtained or mapped in algorithms: 
 
-* [do_import_products](../action-algorithms/do_import_products.md).
+* [do_get_products](../action-algorithms/do_get_products.md).
 * [parse_from_api_response_2_integration_db_product_images](../parser-algorithms/parse_from_api_response_2_integration_db_product_images.md).
 * [parse_from_api_response_2_integration_db_variant_images](../parser-algorithms/parse_from_api_response_2_integration_db_variant_images.md).
     

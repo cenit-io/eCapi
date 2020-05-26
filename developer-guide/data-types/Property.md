@@ -10,7 +10,7 @@ custom attributes related to the associated category.
 
 Its records are completed from the information obtained or mapped in algorithms: 
 
-* [do_import_properties](../action-algorithms/do_import_properties.md).
+* [do_get_properties](../action-algorithms/do_get_properties.md).
 * [parse_from_api_response_2_integration_db_property](../parser-algorithms/parse_from_api_response_2_integration_db_property.md).
 
     

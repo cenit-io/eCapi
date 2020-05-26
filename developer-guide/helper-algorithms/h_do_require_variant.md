@@ -23,9 +23,9 @@ If some of the resources are not found an exception is thrown.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | variant_id | true |  |
-> | product_id | false |  |
-> | integration_id | false |  |
+> | variant_id | true | - |
+> | product_id | false | - |
+> | integration_id | false | - |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_require_variant)

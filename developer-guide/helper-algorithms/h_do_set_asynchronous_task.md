@@ -17,9 +17,9 @@ Otherwise it will be put at the end of the execution queue created for task of t
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | action | true |  |
-> | message | true |  |
-> | join_group | false |  |
+> | action | true | - |
+> | message | true | - |
+> | join_group | false | - |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_set_asynchronous_task)

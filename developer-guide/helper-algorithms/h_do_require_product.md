@@ -23,8 +23,8 @@ If some of the resources are not found an exception is thrown.
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | product_id | true |  |
-> | integration_id | true |  |
+> | product_id | true | - |
+> | integration_id | true | - |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_require_product)

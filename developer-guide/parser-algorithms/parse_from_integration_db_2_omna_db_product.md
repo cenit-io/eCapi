@@ -8,13 +8,13 @@ TODO: Description...
 
 > **Name:** parse_from_integration_db_2_omna_db_product
 > 
-> **Namespace:** Ov2Shopee
+> **Namespace:** Ov2Anyone
 >
 > **Parameters:**
 > 
-> | Name | Required | Type |
-> | --- | --- | --- |
-> | source | true |  |
+> | Name | Required | Type | Description |
+> | ---- | -------- | ---- | ----------- |
+> | source | true | - | - |
 
 ### Example
 ```ruby

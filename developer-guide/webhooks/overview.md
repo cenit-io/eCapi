@@ -40,7 +40,7 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 > 
 > This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
 > corresponding to the integration instance in process, will be the one received by parameter in the 
-> action algorithm [do_import_brands](../action-algorithms/do_import_brands.md).
+> action algorithm [do_get_brands](../action-algorithms/do_get_brands.md).
 
 ### get_categories 
 
@@ -51,7 +51,7 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 > 
 > This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
 > corresponding to the integration instance in process, will be the one received by parameter in the 
-> action algorithm [do_import_categories](../action-algorithms/do_import_categories.md).
+> action algorithm [do_get_categories](../action-algorithms/do_get_categories.md).
 
 ### get_category_attrs 
 
@@ -76,7 +76,7 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 > 
 > This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
 > corresponding to the integration instance in process, will be the one received by parameter in the 
-> action algorithm [do_import_order](../action-algorithms/do_import_order.md).
+> action algorithm [do_get_order](../action-algorithms/do_get_order.md).
 
 ### get_order_document 
 
@@ -94,7 +94,7 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 > 
 > This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
 > corresponding to the integration instance in process, will be the one received by parameter in the 
-> action algorithm [do_import_orders](../action-algorithms/do_import_orders.md).
+> action algorithm [do_get_orders](../action-algorithms/do_get_orders.md).
 
 ### get_product 
 
@@ -103,7 +103,7 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 > 
 > This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
 > corresponding to the integration instance in process, will be the one received by parameter in the 
-> action algorithm [do_import_product](../action-algorithms/do_import_product.md).
+> action algorithm [do_get_product](../action-algorithms/do_get_product.md).
 
 ### get_products 
 
@@ -112,7 +112,7 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 > 
 > This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
 > corresponding to the integration instance in process, will be the one received by parameter in the 
-> action algorithm [do_import_products](../action-algorithms/do_import_products.md).
+> action algorithm [do_get_products](../action-algorithms/do_get_products.md).
 
 ### upload_image 
 

@@ -20,8 +20,8 @@ It is useful to avoid unnecessary execution of tasks that produce the same resul
 > 
 > | Name | Required | Type |
 > | --- | --- | --- |
-> | algorithm | true |  |
-> | inputs | false |  |
+> | algorithm | true | - |
+> | inputs | false | - |
 
 ### See also
 * [Others helper algorithms](overview?id=h_do_get_already_active_task)

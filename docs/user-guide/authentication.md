@@ -1,4 +1,8 @@
-> Authentication process is a common oauth process.  </br>
+
+> <b>Authentication</b> is a simple process where the system could verified the client is she claims to be.  Also this process is related with <b>authorization</b>, wich is the process to recognize wich actions or resources the user is allowed to do or manage. In order to use the apirest services, you must first create a user in the system and configure the right to access the OMNA API. After this you can access all OMNA API services.
+
+
+
   Apirest used: </br> </br>
   [sign_in](http://doc-api.omna.io/api-spec/#operation/sign_in) </br>
   [get_access_token](http://doc-api.omna.io/api-spec/#operation/get_access_token_async_)

@@ -227,9 +227,9 @@ paths:
         Generate an async task to install o reinstall an available integration in the current tenant.
       responses:
         '200':
-          $ref: '#/components/responses/collection_item'
-        '404':
           $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/collection_not_found'
     delete:
       tags:
         - Available Integrations
@@ -239,9 +239,9 @@ paths:
         Generate an async task to uninstall an available integration from the current tenant.
       responses:
         '200':
-          $ref: '#/components/responses/success'
-        '404':
           $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/collection_not_found'
   /available/integrations/channels:
     get:
       tags:

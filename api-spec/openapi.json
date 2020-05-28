@@ -205,10 +205,10 @@
         "description": "Generate an async task to install o reinstall an available integration in the current tenant.\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/collection_item"
+            "$ref": "#/components/responses/task_item"
           },
           "404": {
-            "$ref": "#/components/responses/task_item"
+            "$ref": "#/components/responses/collection_not_found"
           }
         }
       },
@@ -221,10 +221,10 @@
         "description": "Generate an async task to uninstall an available integration from the current tenant.\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/success"
+            "$ref": "#/components/responses/task_item"
           },
           "404": {
-            "$ref": "#/components/responses/task_item"
+            "$ref": "#/components/responses/collection_not_found"
           }
         }
       }

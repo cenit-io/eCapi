@@ -1,35 +1,25 @@
 
-> <b>Authentication</b> is a simple process where the system could verified the client is she claims to be.  Also this process is related with <b>authorization</b>, wich is the process to recognize wich actions or resources the user is allowed to do or manage. In order to use the apirest services, you must first create a user in the system and configure the right to access the OMNA API. After this you can access all OMNA API services.
+> <b>Authentication</b> is a simple process where the system could verified the client is she claims to be. All this services are available even if no [OMNAV2 is installed](user-setup) in the user tennant. After this you can access all OMNA API services.
 
-
-
-  Apirest used: </br> </br>
-  [sign_in](http://doc-api.omna.io/api-spec/#operation/sign_in) </br>
-  [get_access_token](http://doc-api.omna.io/api-spec/#operation/get_access_token_async_)
-	
 ## 1. Redirect to authentication page.
 
-Redirect to authentication page through [sign_in](http://http://doc-api.omna.io/api-spec/#operation/sign_in) api request.
-
->   GET https://cenit.io/users/sign_in?redirect_url=http://my.example.com/home
+>Redirect to authentication page through [sign_in](http://http://doc-api.omna.io/api-spec/#operation/sign_in) api request.
+><div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> https://cenit.io/users/sign_in?redirect_url=http://my.example.com/home
 	<div align=center>
-		<img width="200" src="/assets/images/user-guide/sign_in.jpg"/>
+		<img width="800" src="/assets/images/user-guide/sign_in.jpg"/>
 	</div>
+
+After authentication process is validated, and sucess authorized, the system send an authentication token to [redirect_uri](http://doc-api.omna.io/api-spec/#operation/sign_in) parameter value passed in [sign_in](http://doc-api.omna.io/api-spec/#operation/sign_in).
 	
-After authentication process is validated, and sucess authorized, the system send an authentication token to [redirect_uri]
-(http://doc-api.omna.io/api-spec/#operation/sign_in) parameter value passed in [sign_in](http://doc-api.omna.io/api-spec/#operation/sign_in).
-	
->	GET http://my.example.com/home?code=rxfnjmfupsyv3zocvoli </br></br>
+><div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> http://my.example.com/home?code=rxfnjmfupsyv3zocvoli </br></br>
 	
 This code (Authentication Token) should be readed and use it in the next step.
 	
 ## 2. Get the access token
-Get the access token through [get_access_token](http://doc-api.omna.io/api-spec/#operation/get_access_token_async_) api request 
-
-> POST https://cenit.io/users/get_access_token  </br>
-  "code" : "rxfnjmfupsyv3zocvoli" </br></br>
+>Get the access token through [get_access_token](http://doc-api.omna.io/api-spec/#operation/get_access_token_async_) api request 
+><div style="background-color:#248fB2; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> https://cenit.io/users/get_access_token</br></br> "code" : "rxfnjmfupsyv3zocvoli" </br></br>
    
-The result of this call is a json with the authentication token, the secret token, and information of the user authenticated. This 
+The result of this call is a json with the a token, the secret code, and information of the user authenticated. This 
 information will be used in other calls to api rest.
 ```json
 	{
@@ -52,11 +42,11 @@ information will be used in other calls to api rest.
 ```
 
 ## 3. Sign a request
-After the an access token is obtained, every request to OMNA must be signed in order to authorize the operation. The sign process of every request is described bellow:
-1. Add access token and current datetime as url request parameter.
+After the token is obtained, every request to OMNA must be signed in order to authorize the operation. The sign process of every request is described bellow:
+1. Add token and current datetime as url request parameter.
 2. Take all params (url parameters and body parameters) in a json string representation.
 3. Remove all quotes
-4. Generate an sha256 hmac resume value with access token as key.
+4. Generate an sha256 hmac resume value with secret code as key.
 5. Add hmac value as an URL parameter. 
 
 As an example code in axios javascript:
@@ -86,4 +76,8 @@ const current_tenant = { token: '....', secret: '...' };
     return config;
   });
 ```
+
+## 4. OMNA APP.
+   The three steps above explained is simplified if you use the OMNA APP. It offers a direct way to sign the request. First you must go to OMNA APP, login, go to the section of Developers, and in API keys subsection copy the two fields "Secret code" and "Token". After this you could use them in the third step described above without doing the previous two steps.
+
 

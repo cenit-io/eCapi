@@ -1,6 +1,8 @@
 - [Home](../overview)
 - [Overview](overview)
 - [Quick Start](quick-start)
+- [User setup](user-setup) 
+- [Task](Tasks)
 - [Authentication](authentication) 
 - [Products](products) 
 - **Links**

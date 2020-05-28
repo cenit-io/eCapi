@@ -1,5 +1,5 @@
 
-> Some OMNA API services takes to much time to complete, such task becomes in async such that a pattern is used in order to know when the operations completes. A services which is async uses this kind of pattern and all this method will return an identifier to a task entity that could be accessed later to check the task status. 
+> Some OMNA API services takes to much time to complete, such task becomes in <b>async</b> such that a pattern is used in order to know when the operations completes or to know the Z. A services which is async uses this kind of pattern and all this method will return an identifier to a task entity that could be accessed later to check the task status. 
 
 ## 1. Task stucture.
 The task structure brings a lot of information usefull to inform the user the status of certain task, or to use in the logic of the application to raise some event when certain task conditions are meet. Some of this fields are:
@@ -30,6 +30,6 @@ After this, a json like this will outcome:
 	}
 }
 ```
-Then use the <b>id</b> of this json to request the state of the task in further requests.
+Then use the <b>id</b> of this json to know the state of the task in further requests.
 
  >[Get task status](http://doc-api.omna.io/api-spec/#operation/get_task)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /tasks/<b>{task_id}</b> </br> </br> 

@@ -42,7 +42,7 @@ information will be used in other calls to api rest.
 ```
 
 ## 3. Sign a request
-After the token is obtained, every request to OMNA must be signed in order to authorize the operation. The sign process of every request is described bellow:
+After the token is obtained, every request to OMNA API services must be signed in order to authorize the operation. The sign process of every request is described bellow:
 1. Add token and current datetime as url request parameter.
 2. Take all params (url parameters and body parameters) in a json string representation.
 3. Remove all quotes
@@ -79,5 +79,7 @@ const current_tenant = { token: '....', secret: '...' };
 
 ## 4. OMNA APP.
    The three steps above explained is simplified if you use the OMNA APP. It offers a direct way to sign the request. First you must go to OMNA APP, login, go to the section of Developers, and in API keys subsection copy the two fields "Secret code" and "Token". After this you could use them in the third step described above without doing the previous two steps.
+   
+   TODO: Image of the OMNA APP with token and secret.
 
 

@@ -2,7 +2,7 @@
 - [Overview](overview)
 - [Quick Start](quick-start)
 - [User setup](user-setup) 
-- [Task](Tasks)
+- [Async services](async-services)
 - [Authentication](authentication) 
 - [Products](products) 
 - **Links**

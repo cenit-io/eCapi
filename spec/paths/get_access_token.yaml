@@ -1,7 +1,7 @@
 post:
   tags:
     - Users
-  operationId: get_access_token_async_
+  operationId: get_access_token_
   summary: Get Access Token
   description: |
     Recover the authenticated tenant profile with your token and secret.

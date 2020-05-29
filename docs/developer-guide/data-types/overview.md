@@ -3,9 +3,7 @@
 This data types represent the intermediate data structure where the information coming from or destined for the platform
 to be integrated will be stored.
 
-It is very important that the data types described below be create with the exact same name assigned here.
-
-You can manage the data types by entering [here](https://cenit.io/json_data_type).
+You can see their definitions [here](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=like&f[name][24160][v]=Integration).
 
 ## Data types that should be created{docsify-ignore}
 

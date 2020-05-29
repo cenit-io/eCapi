@@ -9,7 +9,7 @@ If only the product id (1st parameter) is provided, then the search is performed
 
 If the 2 parameters are provided, they are assumed to be (remote_product_id and integration_id) and the search is 
 carried out in the product registers on the intermediate structure used for this purpose.
-[ [See in Cenit-IO](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=IntegrationProduct) ]
+[ [See here](../data-types/IntegrationProduct.md) ]
 
 If some of the resources are not found an exception is thrown.
     

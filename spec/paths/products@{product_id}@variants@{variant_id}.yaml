@@ -43,7 +43,7 @@ put:
     $ref: '#/components/requestBodies/variant_link'
   responses:
     '200':
-      $ref: '#/components/responses/product_item'
+      $ref: '#/components/responses/variant_item'
     '404':
       $ref: '#/components/responses/variant_not_found'
       

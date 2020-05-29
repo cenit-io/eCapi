@@ -1383,7 +1383,7 @@ paths:
         $ref: '#/components/requestBodies/variant_link'
       responses:
         '200':
-          $ref: '#/components/responses/product_item'
+          $ref: '#/components/responses/variant_item'
         '404':
           $ref: '#/components/responses/variant_not_found'
     patch:
@@ -4963,7 +4963,12 @@ components:
           limit: 10
           total: 1
     variant_link_request:
-      $ref: '#/components/examples/product_link_request'
+      value:
+        data:
+          integration_ids:
+            - shop_01
+            - shop_02
+            - shop_05
     variant_unlink_request:
       $ref: '#/components/examples/product_unlink_request'
     variant_update_request_1:

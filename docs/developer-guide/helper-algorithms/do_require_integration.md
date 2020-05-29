@@ -1,6 +1,6 @@
 # Helper algorithm
 
-## h_do_require_integration
+## do_require_integration
 
 Search and returns an integration by its id.
 
@@ -11,7 +11,7 @@ If the resource is not found an exception is thrown.
     
 ### Definition
 
-> **Name:** h_do_require_integration
+> **Name:** do_require_integration
 > 
 > **Namespace:** OMNAv2
 >
@@ -19,10 +19,10 @@ If the resource is not found an exception is thrown.
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | integration | true | OMNAv2::Integration \| String | Contains the integration record o id |
+> | integration | true | OMNAv2::Integration \| String | Contains the integration record or id |
 > | check_authorization | false | Boolean | An exception occurs when this parameter is true and integration is not authorized |
 >
 > **Returns:** The required integration
 
 ### See also
-* [Others helper algorithms](overview?id=h_do_require_integration)
+* [Others helper algorithms](overview?id=do_require_integration)

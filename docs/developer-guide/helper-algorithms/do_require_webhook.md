@@ -1,6 +1,6 @@
 # Helper algorithm
 
-## h_do_require_webhook
+## do_require_webhook
 
 Search and returns an webhook by its name and integration channel.
 
@@ -13,7 +13,7 @@ If the resource is not found an exception is thrown.
     
 ### Definition
 
-> **Name:** h_do_require_webhook
+> **Name:** do_require_webhook
 > 
 > **Namespace:** OMNAv2
 >
@@ -21,10 +21,9 @@ If the resource is not found an exception is thrown.
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | integration | true | OMNAv2::Integration \| String | Contains the integration record o id |
-> | name | false | String \| Symbol | Contains the name of the webhook |
->
-> **Returns:** The required webhook
+> | integration | true | OMNAv2::Integration \| String | Contains the integration record or id |
+> | name | false | String \| Symbol | - |
+> | throwing | false | Boolean | An exception is thrown when this parameter is true and the algorithm does not exist. |
 
 ### See also
-* [Others helper algorithms](overview?id=h_do_require_webhook)
+* [Others helper algorithms](overview?id=do_require_webhook)

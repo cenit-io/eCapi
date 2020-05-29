@@ -1,6 +1,6 @@
 # Helper algorithm
 
-## h_do_set_asynchronous_task
+## do_set_asynchronous_task
 
 Create a task for the asynchronous execution of the given action (algorithm).
 
@@ -9,7 +9,7 @@ Otherwise it will be put at the end of the execution queue created for task of t
     
 ### Definition
 
-> **Name:** h_do_set_asynchronous_task
+> **Name:** do_set_asynchronous_task
 > 
 > **Namespace:** OMNAv2
 >
@@ -24,4 +24,4 @@ Otherwise it will be put at the end of the execution queue created for task of t
 > **Returns:** The task found or created.
 
 ### See also
-* [Others helper algorithms](overview?id=h_do_set_asynchronous_task)
+* [Others helper algorithms](overview?id=do_set_asynchronous_task)

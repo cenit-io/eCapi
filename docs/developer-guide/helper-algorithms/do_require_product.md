@@ -1,6 +1,6 @@
 # Helper algorithm
 
-## h_do_require_product
+## do_require_product
 
 Search and returns a product by its id in omna or by its id in the remote platform to be integrate.
 
@@ -15,7 +15,7 @@ If some of the resources are not found an exception is thrown.
     
 ### Definition
 
-> **Name:** h_do_require_product
+> **Name:** do_require_product
 > 
 > **Namespace:** OMNAv2
 >
@@ -29,4 +29,4 @@ If some of the resources are not found an exception is thrown.
 > **Returns:** The a record of OMNAv2::Product or Ov2Anyone::Product if the parameter integration_id is given.
 
 ### See also
-* [Others helper algorithms](overview?id=h_do_require_product)
+* [Others helper algorithms](overview?id=do_require_product)

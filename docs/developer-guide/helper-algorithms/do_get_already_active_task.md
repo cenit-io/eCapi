@@ -1,6 +1,6 @@
 # Helper algorithm
 
-## h_do_get_already_active_task
+## do_get_already_active_task
 
 Returns, if it exists, the task that meets the following conditions:
 
@@ -12,7 +12,7 @@ It is useful to avoid unnecessary execution of tasks that produce the same resul
     
 ### Definition
 
-> **Name:** h_do_get_already_active_task
+> **Name:** do_get_already_active_task
 > 
 > **Namespace:** OMNAv2
 >
@@ -24,4 +24,4 @@ It is useful to avoid unnecessary execution of tasks that produce the same resul
 > | inputs | false | Array | Contains the parameters that will be passed to the algorithm |
 
 ### See also
-* [Others helper algorithms](overview?id=h_do_get_already_active_task)
+* [Others helper algorithms](overview?id=do_get_already_active_task)

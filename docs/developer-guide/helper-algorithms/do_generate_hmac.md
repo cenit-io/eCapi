@@ -1,12 +1,12 @@
 # Helper algorithm
 
-## h_do_generate_hmac
+## do_generate_hmac
 
 This algorithm allows calculating the hmac of a hash or a record of a data type.
     
 ### Definition
 
-> **Name:** h_do_generate_hmac
+> **Name:** do_generate_hmac
 > 
 > **Namespace:** OMNAv2
 >
@@ -19,4 +19,4 @@ This algorithm allows calculating the hmac of a hash or a record of a data type.
 > **Returns:** The HMAC string
 
 ### See also
-* [Others helper algorithms](overview?id=h_do_generate_hmac)
+* [Others helper algorithms](overview?id=do_generate_hmac)

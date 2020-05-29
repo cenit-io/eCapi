@@ -1,6 +1,6 @@
 # Helper algorithm
 
-## h_do_require_variant
+## do_require_variant
 
 Search and returns a product variant by its id in omna or by its id in the remote platform to be integrate.
 
@@ -15,7 +15,7 @@ If some of the resources are not found an exception is thrown.
     
 ### Definition
 
-> **Name:** h_do_require_variant
+> **Name:** do_require_variant
 > 
 > **Namespace:** OMNAv2
 >
@@ -30,4 +30,4 @@ If some of the resources are not found an exception is thrown.
 > **Returns:** The a record of OMNAv2::Variant or Ov2Anyone::Variant if the parameter integration_id is given.
 
 ### See also
-* [Others helper algorithms](overview?id=h_do_require_variant)
+* [Others helper algorithms](overview?id=do_require_variant)

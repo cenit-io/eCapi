@@ -1,6 +1,6 @@
 # Helper algorithm
 
-## h_do_require_connection
+## do_require_connection
 
 Search and returns a connection by its name and integration channel.
 
@@ -11,7 +11,7 @@ If the resource is not found an exception is thrown.
     
 ### Definition
 
-> **Name:** h_do_require_connection
+> **Name:** do_require_connection
 > 
 > **Namespace:** OMNAv2
 >
@@ -19,10 +19,10 @@ If the resource is not found an exception is thrown.
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | channel | true | OMNAv2::Integration \| String | Contains the integration record o channel name |
+> | integration | true | OMNAv2::Integration \| String | Contains the integration record or id |
 > | name | false | String \| Symbol | Contains the name of the connection |
 >
 > **Returns:** The required connection
 
 ### See also
-* [Others helper algorithms](overview?id=h_do_require_connection)
+* [Others helper algorithms](overview?id=do_require_connection)

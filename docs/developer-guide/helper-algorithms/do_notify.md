@@ -1,12 +1,12 @@
 # Helper algorithm
 
-## h_do_notify
+## do_notify
 
 Create a system notification.
     
 ### Definition
 
-> **Name:** h_do_notify
+> **Name:** do_notify
 > 
 > **Namespace:** OMNAv2
 >
@@ -20,4 +20,4 @@ Create a system notification.
 > | context | false | Setup::Tenant \| Setup::AlgorithmExecution | Contains the context in which the notification will be sent |
 
 ### See also
-* [Others helper algorithms](overview?id=h_do_notify)
+* [Others helper algorithms](overview?id=do_notify)

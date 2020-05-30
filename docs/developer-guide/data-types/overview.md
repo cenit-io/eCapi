@@ -1,6 +1,6 @@
 # Data types
 
-These data types store intermediate data imported or exported from or to the remote platform, respectively.
+These data types store intermediate data imported or exported from or to the remote platform to be integrated, respectively.
 
 You can see their definitions in [Cenit-IO](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=like&f[name][24160][v]=ID).
 

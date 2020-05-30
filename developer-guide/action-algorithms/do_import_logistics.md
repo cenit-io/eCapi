@@ -20,10 +20,10 @@ Allows submitting a request to the remote integration platform to get and import
 ### Example
 ```ruby
 ns_omna = Cenit.namespace(:OMNAv2)
-do_notify = ns_omna.algorithm(:h_do_notify)
-do_require_webhook = ns_omna.algorithm(:h_do_require_webhook)
+do_notify = ns_omna.algorithm(:do_notify)
+do_require_webhook = ns_omna.algorithm(:do_require_webhook)
 
-integration = ns_omna.algorithm(:h_do_require_integration).run([integration_id])
+integration = ns_omna.algorithm(:do_require_integration).run([integration_id])
 integration_name = "#{integration.name}@#{integration.channel}"
 
 do_notify.run(["Importing logistics from '#{integration_name}' integration.", :info, task])

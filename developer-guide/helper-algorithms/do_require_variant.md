@@ -9,7 +9,7 @@ If only the product variant id (1st parameter) is provided, then the search is p
 
 If the 2 parameters are provided, they are assumed to be (remote_variant_id and integration_id) and the search is 
 carried out in the product variant registers on the intermediate structure used for this purpose.
-[ [See in Cenit-IO](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=IntegrationVariant") ]
+[ [See here](../data-types/IntegrationVariant.md) ]
 
 If some of the resources are not found an exception is thrown.
     

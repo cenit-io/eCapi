@@ -6,8 +6,11 @@ Data structure to store the imported records of product categories for each inte
 
 This structure is required only when the platform to be integrated organizes the products by categories.
 
-Its records are completed from the information obtained in [this action](../action-algorithms/do_get_categories.md) algorithm 
-and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integration_db_category.md) algorithm.
+**Algorithms related with this data type:**
+
+* Action algorithm [do_get_categories](../action-algorithms/do_get_categories.md)
+* Parser algorithm [parse_from_api_response_2_integration_db_category](../parser-algorithms/parse_from_api_response_2_integration_db_category.md)
+
     
 ### JSON SCHEMA
 ```json

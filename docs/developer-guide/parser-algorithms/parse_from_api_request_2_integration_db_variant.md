@@ -2,7 +2,7 @@
  
 ## parse_from_api_request_2_integration_db_variant
 
-TODO: Description...
+Set the value of each property in the data structure of the variant record corresponding to the integration.
     
 ### Definition
 
@@ -14,16 +14,15 @@ TODO: Description...
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | variant_record | true | - | - |
-> | new_data | true | - | - |
+> | di_variant | true | OMNAv2::DIVariant \| Ov2Anyone::DIVariant | Contains the record of [DIVariant](../data-types/DIVariant.md) that to be updated |
+> | request_data | true | Hash | Contains the data received in the request to the variant properties update [service](//doc-api.omna.io/api-spec/#operation/update_integration_variant_beta_) |
 
 ### Example
 ```ruby
 # Set the value of each property in the data structure of the variant record corresponding to the integration.
-new_data[:properties].each do |property|
-  option = variant.product.data[:options].detect { |o| o[:id] == property[:id] }
-  variant_record.data["option#{option[:position]}"] = property[:value]
-end
+
+di_variant.data[:attributes] ||= []
+request_data[:properties].each { |property| di_variant.data[:attributes][property[:id]] = property[:value] }
 ```
 
 ### See also

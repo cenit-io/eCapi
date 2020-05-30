@@ -4,11 +4,13 @@
 
 Data structure to store the imported records of products for each integration channel.
 
-Its records are completed from the information obtained or mapped in algorithms: 
+**Algorithms related with this data type:**
 
-* [do_get_products](../action-algorithms/do_get_products.md).
-* [parse_from_api_response_2_integration_db_product](../parser-algorithms/parse_from_api_response_2_integration_db_product.md).
-* [parse_from_omna_db_2_integration_db_product](../parser-algorithms/parse_from_omna_db_2_integration_db_product.md).
+* Action algorithm [do_get_products](../action-algorithms/do_get_products.md).
+* Parser algorithm [parse_from_api_response_2_integration_db_product](../parser-algorithms/parse_from_api_response_2_integration_db_product.md).
+* Parser algorithm [parse_from_api_request_2_integration_db_product](../parser-algorithms/parse_from_api_request_2_integration_db_product.md).
+* Parser algorithm [parse_from_omna_db_2_integration_db_product](../parser-algorithms/parse_from_omna_db_2_integration_db_product.md).
+
     
 ### JSON SCHEMA
 ```json

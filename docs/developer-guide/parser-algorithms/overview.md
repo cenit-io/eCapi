@@ -15,13 +15,13 @@ Note that all these algorithms have the prefix "**parse_from_api_request_2_**" i
 
 ### parse_from_api_request_2_integration_db_product 
 
-> TODO: Description...
+> Set the value of each property in the data structure of the product record corresponding to the integration.
 >
 > [[see more details]](parse_from_api_request_2_integration_db_product ':class=see-more')
 
 ### parse_from_api_request_2_integration_db_variant 
 
-> TODO: Description...
+> Set the value of each property in the data structure of the variant record corresponding to the integration.
 >
 > [[see more details]](parse_from_api_request_2_integration_db_variant ':class=see-more')
 

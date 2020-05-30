@@ -1,6 +1,6 @@
 # Data Type
 
-## Order
+## IDOrder
 
 Data structure to store the imported records of orders for each integration channel.
 
@@ -50,4 +50,4 @@ Its records are completed from the information obtained or mapped in algorithms:
 ```
 
 ### See also
-* [Others data types](overview?id=Order)
+* [Others data types](overview?id=IDOrder)

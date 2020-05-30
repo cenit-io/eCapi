@@ -1,6 +1,6 @@
 # Data Type
 
-## Image
+## IDImage
 
 Data structure to store the imported records of product images for each integration channel.
 
@@ -29,15 +29,15 @@ Its records are completed from the information obtained or mapped in algorithms:
     },
     "product": {
       "$ref": {
-        "namespace": "Ov2Shopify",
-        "name": "Product"
+        "namespace": "OMNAv2",
+        "name": "IDProduct"
       },
       "referenced": true
     },
     "variant": {
       "$ref": {
-        "namespace": "Ov2Shopify",
-        "name": "Variant"
+        "namespace": "OMNAv2",
+        "name": "IDVariant"
       },
       "referenced": true
     }
@@ -46,4 +46,4 @@ Its records are completed from the information obtained or mapped in algorithms:
 ```
 
 ### See also
-* [Others data types](overview?id=Image)
+* [Others data types](overview?id=IDImage)

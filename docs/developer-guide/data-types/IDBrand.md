@@ -1,6 +1,6 @@
 # Data Type
 
-## Brand
+## IDBrand
 
 Data structure to store the imported records of product brands for each integration channel.
 
@@ -14,7 +14,7 @@ and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integ
 {
   "type": "object",
   "properties": {
-    "id": {
+    "brand_id": {
       "type": "string"
     },
     "name": {
@@ -22,10 +22,17 @@ and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integ
     },
     "name_en": {
       "type": "string"
+    },
+    "integration": {
+      "$ref": {
+        "namespace": "OMNAv2",
+        "name": "Integration"
+      },
+      "referenced": true
     }
   }
 }
 ```
 
 ### See also
-* [Others data types](overview?id=Brand)
+* [Others data types](overview?id=IDBrand)

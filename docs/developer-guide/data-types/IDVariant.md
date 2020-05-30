@@ -1,6 +1,6 @@
 # Data Type
 
-## Variant
+## IDVariant
 
 Data structure to store the imported records of product variants for each integration channel.
 
@@ -34,8 +34,8 @@ Its records are completed from the information obtained or mapped in algorithms:
     },
     "product": {
       "$ref": {
-        "namespace": "Ov2Shopify",
-        "name": "Product"
+        "namespace": "OMNAv2",
+        "name": "IDProduct"
       },
       "referenced": true
     },
@@ -58,4 +58,4 @@ Its records are completed from the information obtained or mapped in algorithms:
 ```
 
 ### See also
-* [Others data types](overview?id=Variant)
+* [Others data types](overview?id=IDVariant)

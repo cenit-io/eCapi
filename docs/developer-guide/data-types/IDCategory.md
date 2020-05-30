@@ -1,6 +1,6 @@
 # Data Type
 
-## Category
+## IDCategory
 
 Data structure to store the imported records of product categories for each integration channel.
 
@@ -14,19 +14,31 @@ and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integ
 {
   "type": "object",
   "properties": {
-    "id": {
+    "category_id": {
       "type": "string"
     },
     "name": {
       "type": "string"
     },
-    "properties_imported": {
-      "type": "boolean",
-      "default": false
+    "integration": {
+      "$ref": {
+        "namespace": "OMNAv2",
+        "name": "Integration"
+      },
+      "referenced": true
+    },
+    "properties": {
+      "type": "array",
+      "items": {
+        "$ref": {
+          "namespace": "OMNAv2",
+          "name": "IDProperty"
+        }
+      }
     }
   }
 }
 ```
 
 ### See also
-* [Others data types](overview?id=Category)
+* [Others data types](overview?id=IDCategory)

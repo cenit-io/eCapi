@@ -1,6 +1,6 @@
 # Data Type
 
-## IDBrand
+## DIBrand
 
 Data structure to store the imported records of product brands for each integration channel.
 
@@ -35,4 +35,4 @@ and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integ
 ```
 
 ### See also
-* [Others data types](overview?id=IDBrand)
+* [Others data types](overview?id=DIBrand)

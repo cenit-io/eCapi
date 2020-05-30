@@ -9,7 +9,7 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 
 ## Data types descriptions{docsify-ignore}
 
-### IDBrand 
+### DIBrand 
 
 > Data structure to store the imported records of product brands for each integration channel.
 > 
@@ -18,9 +18,9 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > Its records are completed from the information obtained in [this action](../action-algorithms/do_get_brands.md) algorithm 
 > and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integration_db_brand.md) algorithm.
 >
-> [[see more details]](IDBrand ':class=see-more')
+> [[see more details]](DIBrand ':class=see-more')
 
-### IDCategory 
+### DICategory 
 
 > Data structure to store the imported records of product categories for each integration channel.
 > 
@@ -29,9 +29,9 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > Its records are completed from the information obtained in [this action](../action-algorithms/do_get_categories.md) algorithm 
 > and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integration_db_category.md) algorithm.
 >
-> [[see more details]](IDCategory ':class=see-more')
+> [[see more details]](DICategory ':class=see-more')
 
-### IDImage 
+### DIImage 
 
 > Data structure to store the imported records of product images for each integration channel.
 > 
@@ -43,9 +43,9 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > * [parse_from_api_response_2_integration_db_product_images](../parser-algorithms/parse_from_api_response_2_integration_db_product_images.md).
 > * [parse_from_api_response_2_integration_db_variant_images](../parser-algorithms/parse_from_api_response_2_integration_db_variant_images.md).
 >
-> [[see more details]](IDImage ':class=see-more')
+> [[see more details]](DIImage ':class=see-more')
 
-### IDOrder 
+### DIOrder 
 
 > Data structure to store the imported records of orders for each integration channel.
 > 
@@ -54,9 +54,9 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > * [do_get_orders](../action-algorithms/do_get_orders.md).
 > * [parse_from_api_response_2_integration_db_order](../parser-algorithms/parse_from_api_response_2_integration_db_order.md).
 >
-> [[see more details]](IDOrder ':class=see-more')
+> [[see more details]](DIOrder ':class=see-more')
 
-### IDProduct 
+### DIProduct 
 
 > Data structure to store the imported records of products for each integration channel.
 > 
@@ -66,9 +66,9 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > * [parse_from_api_response_2_integration_db_product](../parser-algorithms/parse_from_api_response_2_integration_db_product.md).
 > * [parse_from_omna_db_2_integration_db_product](../parser-algorithms/parse_from_omna_db_2_integration_db_product.md).
 >
-> [[see more details]](IDProduct ':class=see-more')
+> [[see more details]](DIProduct ':class=see-more')
 
-### IDProperty 
+### DIProperty 
 
 > Data structure to store the imported records of product properties definition for each product category and each
 > integration channel.
@@ -82,9 +82,9 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > * [parse_from_api_response_2_integration_db_property](../parser-algorithms/parse_from_api_response_2_integration_db_property.md).
 > 
 >
-> [[see more details]](IDProperty ':class=see-more')
+> [[see more details]](DIProperty ':class=see-more')
 
-### IDVariant 
+### DIVariant 
 
 > Data structure to store the imported records of product variants for each integration channel.
 > 
@@ -94,5 +94,5 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > * [parse_from_api_response_2_integration_db_product](../parser-algorithms/parse_from_api_response_2_integration_db_variant.md).
 > * [parse_from_omna_db_2_integration_db_product](../parser-algorithms/parse_from_omna_db_2_integration_db_variant.md).
 >
-> [[see more details]](IDVariant ':class=see-more')
+> [[see more details]](DIVariant ':class=see-more')
 

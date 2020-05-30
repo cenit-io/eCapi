@@ -1,6 +1,6 @@
 # Data Type
 
-## IDImage
+## DIImage
 
 Data structure to store the imported records of product images for each integration channel.
 
@@ -30,14 +30,14 @@ Its records are completed from the information obtained or mapped in algorithms:
     "product": {
       "$ref": {
         "namespace": "OMNAv2",
-        "name": "IDProduct"
+        "name": "DIProduct"
       },
       "referenced": true
     },
     "variant": {
       "$ref": {
         "namespace": "OMNAv2",
-        "name": "IDVariant"
+        "name": "DIVariant"
       },
       "referenced": true
     }
@@ -46,4 +46,4 @@ Its records are completed from the information obtained or mapped in algorithms:
 ```
 
 ### See also
-* [Others data types](overview?id=IDImage)
+* [Others data types](overview?id=DIImage)

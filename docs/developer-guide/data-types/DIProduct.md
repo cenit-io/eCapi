@@ -1,6 +1,6 @@
 # Data Type
 
-## IDProduct
+## DIProduct
 
 Data structure to store the imported records of products for each integration channel.
 
@@ -51,4 +51,4 @@ Its records are completed from the information obtained or mapped in algorithms:
 ```
 
 ### See also
-* [Others data types](overview?id=IDProduct)
+* [Others data types](overview?id=DIProduct)

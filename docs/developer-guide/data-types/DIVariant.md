@@ -1,6 +1,6 @@
 # Data Type
 
-## IDVariant
+## DIVariant
 
 Data structure to store the imported records of product variants for each integration channel.
 
@@ -35,7 +35,7 @@ Its records are completed from the information obtained or mapped in algorithms:
     "product": {
       "$ref": {
         "namespace": "OMNAv2",
-        "name": "IDProduct"
+        "name": "DIProduct"
       },
       "referenced": true
     },
@@ -58,4 +58,4 @@ Its records are completed from the information obtained or mapped in algorithms:
 ```
 
 ### See also
-* [Others data types](overview?id=IDVariant)
+* [Others data types](overview?id=DIVariant)

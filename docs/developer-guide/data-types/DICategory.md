@@ -1,6 +1,6 @@
 # Data Type
 
-## IDCategory
+## DICategory
 
 Data structure to store the imported records of product categories for each integration channel.
 
@@ -32,7 +32,7 @@ and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integ
       "items": {
         "$ref": {
           "namespace": "OMNAv2",
-          "name": "IDProperty"
+          "name": "DIProperty"
         }
       }
     }
@@ -41,4 +41,4 @@ and mapped in [this parser](../parser-algorithms/parse_from_api_response_2_integ
 ```
 
 ### See also
-* [Others data types](overview?id=IDCategory)
+* [Others data types](overview?id=DICategory)

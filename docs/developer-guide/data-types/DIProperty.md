@@ -1,6 +1,6 @@
 # Data Type
 
-## IDProperty
+## DIProperty
 
 Data structure to store the imported records of product properties definition for each product category and each
 integration channel.
@@ -53,4 +53,4 @@ Its records are completed from the information obtained or mapped in algorithms:
 ```
 
 ### See also
-* [Others data types](overview?id=IDProperty)
+* [Others data types](overview?id=DIProperty)

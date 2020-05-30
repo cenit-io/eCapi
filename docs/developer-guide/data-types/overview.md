@@ -7,7 +7,7 @@ You can see their definitions in [Cenit-IO](https://cenit.io/json_data_type?f[na
 These data types are the ones that will be used by default unless you decide to create an identical representation in 
 the [namespaces](../namespaces.md) corresponding to the integration.
 
-## Data types definitions{docsify-ignore}
+## Data types descriptions{docsify-ignore}
 
 ### IDBrand 
 

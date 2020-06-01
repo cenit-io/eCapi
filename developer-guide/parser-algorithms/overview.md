@@ -15,13 +15,25 @@ Note that all these algorithms have the prefix "**parse_from_api_request_2_**" i
 
 ### parse_from_api_request_2_integration_db_product 
 
-> Set the value of each property in the data structure of the product record corresponding to the integration.
+> It transforms and sets the data of the product properties, received from the **OMNA API service** be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * OMNA API service to update the specific properties of a product: [Update Product Properties](//doc-api.omna.io/api-spec/index.html#operation/update_integration_product_beta_).
+> * Data type where the transformed data will be stored: [DIProduct](../data-types/DIProduct.md).
 >
 > [[see more details]](parse_from_api_request_2_integration_db_product ':class=see-more')
 
 ### parse_from_api_request_2_integration_db_variant 
 
-> Set the value of each property in the data structure of the variant record corresponding to the integration.
+> It transforms and sets the data of the product variant properties, received from the **OMNA API service** be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * OMNA API service to update the specific properties of a product variant: [Update Variant Properties](//doc-api.omna.io/api-spec/index.html#operation/update_integration_variant_beta_).
+> * Data type where the transformed data will be stored: [DIVariant](../data-types/DIVariant.md).
 >
 > [[see more details]](parse_from_api_request_2_integration_db_variant ':class=see-more')
 
@@ -155,42 +167,84 @@ Note that all these algorithms have the prefix "**parse_from_integration_db_2_**
 ### parse_from_integration_db_2_ecapi_response_product_properties 
 
 > Build and returns the property lists to conform the details of a product in an integration.
+> 
+> **Resources related with this parser:**
+> 
+> * OMNA API service to get product details: [Retrieve a Product](//https://doc-api.omna.io/api-spec/index.html#operation/get_product_beta_).
+> * Data type that stores the product details for an integration: [DIProduct](../data-types/DIProduct.md).
+> * Data type that stores the product properties definition: [DICategory](../data-types/DICategory.md).
 >
 > [[see more details]](parse_from_integration_db_2_ecapi_response_product_properties ':class=see-more')
 
 ### parse_from_integration_db_2_ecapi_response_variant_properties 
 
 > Build and returns the property lists to conform the details of a product variant in an integration.
+> 
+> **Resources related with this parser:**
+> 
+> * OMNA API service to get product variant details: [Retrieve a Product Variant](//https://doc-api.omna.io/api-spec/index.html#operation/get_variant_beta_).
+> * Data type that stores the product variant details for an integration: [DIVariant](../data-types/DIVariant.md).
+> * Data type that stores the product variant properties definition: [DICategory](../data-types/DICategory.md).
 >
 > [[see more details]](parse_from_integration_db_2_ecapi_response_variant_properties ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_order 
 
-> Map the order data from record of [DIOrder](../data-types/DIOrder.md) to [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
+> Transforms and returns the data of an order from its intermediate data structure in OMNA to be stored 
+> in the general data structure of orders in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Data type corresponding to the source of the order to be transformed: [DIOrder](../data-types/DIOrder.md).
+> * Data type where the transformed data will be stored: [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
 >
 > [[see more details]](parse_from_integration_db_2_omna_db_order ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_order_address 
 
-> Map the order shipping and billing address data from record of [DIOrder](../data-types/DIOrder.md) to [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
+> Transforms and returns the data of shipping and billing address of an order from its intermediate data structure in OMNA to be stored 
+> in the general data structure of orders in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Data type corresponding to the source of the order to be transformed: [DIOrder](../data-types/DIOrder.md).
+> * Data type where the transformed data will be stored: [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
 >
 > [[see more details]](parse_from_integration_db_2_omna_db_order_address ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_order_line_items 
 
-> Map the order items data from record of [DIOrder](../data-types/DIOrder.md) to [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
+> Transforms and returns the data of the order items from its intermediate data structure in OMNA to be stored 
+> in the general data structure of orders in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Data type corresponding to the source of the order to be transformed: [DIOrder](../data-types/DIOrder.md).
+> * Data type where the transformed data will be stored: [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
 >
 > [[see more details]](parse_from_integration_db_2_omna_db_order_line_items ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_product 
 
-> Map the product data from record of [DIProduct](../data-types/DIProduct.md) to [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Product).
+> Transforms and returns the data of a product from its intermediate data structure in OMNA to be stored
+> in the general data structure of products in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Data type corresponding to the source of the product to be transformed: [DIProduct](../data-types/DIProduct.md).
+> * Data type where the transformed data will be stored: [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Product).
 >
 > [[see more details]](parse_from_integration_db_2_omna_db_product ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_variant 
 
-> Map the product variant data from record of [DIVariant](../data-types/DIVariant.md) to [OMNAv2::Variant](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Variant).
+> Transforms and returns the data of a product variant from its intermediate data structure in OMNA to be stored
+> in the general data structure of variants in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Data type corresponding to the source of the product variant to be transformed: [DIVariant](../data-types/DIVariant.md).
+> * Data type where the transformed data will be stored: [OMNAv2::Variant](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Variant).
 >
 > [[see more details]](parse_from_integration_db_2_omna_db_variant ':class=see-more')
 
@@ -204,13 +258,25 @@ Note that all these algorithms have the prefix "**parse_from_omna_db_2_**" in th
 
 ### parse_from_omna_db_2_integration_db_product 
 
-> Map the product data from record of [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Product) to [DIProduct](../data-types/DIProduct.md)
+> Transforms and returns the data of a product from its general data structure of products in OMNA to be stored 
+> in the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Data type corresponding to the source of the product to be transformed: [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Product).
+> * Data type where the transformed data will be stored: [DIProduct](../data-types/DIProduct.md).
 >
 > [[see more details]](parse_from_omna_db_2_integration_db_product ':class=see-more')
 
 ### parse_from_omna_db_2_integration_db_variant 
 
-> Map the product variant data from record of [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Variant) to [DIVariant](../data-types/DIVariant.md)
+> Transforms and returns the data of a product variant from its general data structure of variants in OMNA to be stored 
+> in the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Data type corresponding to the source of the product variant to be transformed: [OMNAv2::Variant](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Variant).
+> * Data type where the transformed data will be stored: [DIVariant](../data-types/DIVariant.md).
 >
 > [[see more details]](parse_from_omna_db_2_integration_db_variant ':class=see-more')
 

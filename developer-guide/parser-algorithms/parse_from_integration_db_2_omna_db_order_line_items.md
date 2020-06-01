@@ -2,7 +2,13 @@
  
 ## parse_from_integration_db_2_omna_db_order_line_items
 
-TODO: Description...
+Transforms and returns the data of the order items from its intermediate data structure in OMNA to be stored 
+in the general data structure of orders in OMNA.
+
+**Resources related with this parser:**
+
+* Data type corresponding to the source of the order to be transformed: [DIOrder](../data-types/DIOrder.md).
+* Data type where the transformed data will be stored: [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
     
 ### Definition
 
@@ -14,7 +20,7 @@ TODO: Description...
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | source | true | - | - |
+> | source | true | Hash | Contains the data of the order to be transformed |
 
 ### Example
 ```ruby

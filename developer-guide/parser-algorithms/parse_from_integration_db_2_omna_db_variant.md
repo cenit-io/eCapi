@@ -18,23 +18,23 @@ TODO: Description...
 
 ### Example
 ```ruby
-# Mapping variant from db record of Shopify channel to OMNAv2.
-
-parse_package_weight = Cenit.namespace(:OMNAv2).algorithm(:parse_from_integration_db_2_omna_db_package_weight)
+# Mapping variant from db record of LazadaXX channel to OMNAv2.
 
 data = source[:data]
+data[:Images] ||= []
 
 {
-  sku: data[:sku],
-  price: data[:price],
-  original_price: data[:compare_at_price] || data[:price],
-  quantity: data[:inventory_quantity],
+  sku: data[:SellerSku],
+  price: data[:special_price] || data[:price],
+  original_price: data[:price],
+  quantity: data[:quantity],
+  images: data[:Images].select { |img| !img.blank? },
   package: {
-    weight: parse_package_weight.run([data[:weight], data[:weight_unit]]),
-    # height:   WITHOUT-SUPPORT-IN-THIS-INTEGRATION,
-    # length:   WITHOUT-SUPPORT-IN-THIS-INTEGRATION,
-    # width:    WITHOUT-SUPPORT-IN-THIS-INTEGRATION,
-    # content:  WITHOUT-SUPPORT-IN-THIS-INTEGRATION
+    weight: data[:package_weight],
+    height: data[:package_height],
+    length: data[:package_length],
+    width: data[:package_width],
+    content: data[:package_content]
   }
 }
 ```

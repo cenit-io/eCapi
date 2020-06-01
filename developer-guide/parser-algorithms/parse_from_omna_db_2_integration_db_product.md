@@ -22,8 +22,10 @@ TODO: Description...
 
 product_in_omna = source
 {
-  title: product_in_omna[:name],
-  body_html: product_in_omna[:description]
+  attributes: {
+    name: product_in_omna[:name],
+    description: product_in_omna[:description]
+  }
 }
 ```
 

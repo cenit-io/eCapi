@@ -2,7 +2,15 @@
  
 ## parse_from_api_response_2_integration_db_category
 
-TODO: Description...
+It transforms and returns the data of each product category obtained from the platform to be integrated to be stored in 
+the intermediate data structure in OMNA.
+
+**Resources related with this parser:**
+
+* Webhook from which the data is obtained: [get_categories](../webhooks/overview.md?id=get_categories).
+* Action algorithm that makes the request to the api of the platform to integrate:
+  [do_get_categories](../action-algorithms/do_get_categories.md).
+* Data type where the transformed data will be stored: [DICategory](../data-types/DICategory.md).
     
 ### Definition
 
@@ -14,14 +22,24 @@ TODO: Description...
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | source | true | - | - |
+> | source | true | Hash | Contains the data of the product category to be transformed |
+>
+> **Returns:** A hash, with the same structure as the example shown below, with the data to be saved in a record of [DICategory](../data-types/DICategory.md).
 
 ### Example
 ```ruby
-{
-  id: source[:category_id],
-  name: source[:category_name]
-}
+items = [source]
+categories = []
+
+while item = items.shift
+  if item[:children].blank?
+    categories << { category_id: item[:category_id], name: item[:name] }
+  else
+    item[:children].each { |children| items << children.merge(name: "#{item[:name]} > #{children[:name]}") }
+  end
+end
+
+categories
 ```
 
 ### See also

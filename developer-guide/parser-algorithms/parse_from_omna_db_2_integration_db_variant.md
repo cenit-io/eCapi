@@ -27,12 +27,15 @@ price = variant_in_omna[:price]
 original_price = variant_in_omna[:original_price]
 
 {
-  sku: target_sku,
-  price: price,
-  compare_at_price: original_price == price ? nil : original_price,
-  weight: variant_in_omna[:weight],
-  weight_unit: 'kg',
-  inventory_quantity: variant_in_omna[:quantity],
+  SellerSku: target_sku,
+  price: variant_in_omna[:original_price],
+  special_price: original_price == price ? nil : price,
+  quantity: variant_in_omna[:quantity],
+  package_weight: variant_in_omna[:package][:weight],
+  package_height: variant_in_omna[:package][:height],
+  package_length: variant_in_omna[:package][:length],
+  package_width: variant_in_omna[:package][:width],
+  package_content: variant_in_omna[:package][:content]
 }
 ```
 

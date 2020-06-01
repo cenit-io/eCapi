@@ -35,49 +35,113 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 
 ### parse_from_api_response_2_integration_db_brand 
 
-> TODO: Description...
+> It transforms and returns the data of each product brand obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_brands](../webhooks/overview.md?id=get_brands).
+> * Action algorithm that makes the request to the api of the platform to integrate:
+>   [do_get_categories](../action-algorithms/do_get_categories.md).
+> * Data type where the transformed data will be stored: [DIBrand](../data-types/DIBrand.md).
 >
 > [[see more details]](parse_from_api_response_2_integration_db_brand ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_category 
 
-> TODO: Description...
+> It transforms and returns the data of each product category obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_categories](../webhooks/overview.md?id=get_categories).
+> * Action algorithm that makes the request to the api of the platform to integrate:
+>   [do_get_categories](../action-algorithms/do_get_categories.md).
+> * Data type where the transformed data will be stored: [DICategory](../data-types/DICategory.md).
 >
 > [[see more details]](parse_from_api_response_2_integration_db_category ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_order 
 
-> TODO: Description...
+> It transforms and returns the data of each order obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_orders](../webhooks/overview.md?id=get_orders).
+> * Action algorithms that makes the request to the api of the platform to integrate:
+>   [do_get_orders](../action-algorithms/do_get_orders.md) or [do_get_order](../action-algorithms/do_get_order.md)
+> * Data type where the transformed data will be stored: [DIOrder](../data-types/DIOrder.md).
 >
 > [[see more details]](parse_from_api_response_2_integration_db_order ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_product 
 
-> TODO: Description...
+> It transforms and returns the data of each product obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_products](../webhooks/overview.md?id=get_products).
+> * Action algorithms that makes the request to the api of the platform to integrate:
+>   [do_get_products](../action-algorithms/do_get_products.md) or [do_get_product](../action-algorithms/do_get_product.md)
+> * Data type where the transformed data will be stored: [DIProduct](../data-types/DIProduct.md).
 >
 > [[see more details]](parse_from_api_response_2_integration_db_product ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_product_images 
 
-> TODO: Description...
+> It transforms and returns the data of each product images obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_products](../webhooks/overview.md?id=get_products).
+> * Action algorithms that makes the request to the api of the platform to integrate:
+>   [do_get_products](../action-algorithms/do_get_products.md) or [do_get_product](../action-algorithms/do_get_product.md)
+> * Data type where the transformed data will be stored: [DIImage](../data-types/DIImage.md).
 >
 > [[see more details]](parse_from_api_response_2_integration_db_product_images ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_property 
 
-> TODO: Description...
+> It transforms and returns the data of each product property obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_category_attrs](../webhooks/overview.md?id=get_category_attrs).
+> * Action algorithm that makes the request to the api of the platform to integrate:
+>   [do_get_properties](../action-algorithms/do_get_properties.md).
+> * Data type where the transformed data will be stored: [DICategory](../data-types/DICategory.md).
 >
 > [[see more details]](parse_from_api_response_2_integration_db_property ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_variant_images 
 
-> TODO: Description...
+> It transforms and returns the data of each product variant images obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_products](../webhooks/overview.md?id=get_products).
+> * Action algorithms that makes the request to the api of the platform to integrate:
+>   [do_get_products](../action-algorithms/do_get_products.md) or [do_get_product](../action-algorithms/do_get_product.md)
+> * Data type where the transformed data will be stored: [DIImage](../data-types/DIImage.md).
 >
 > [[see more details]](parse_from_api_response_2_integration_db_variant_images ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_variants 
 
-> TODO: Description...
+> It transforms and returns the data of each product variant obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_products](../webhooks/overview.md?id=get_products).
+> * Action algorithms that makes the request to the api of the platform to integrate:
+>   [do_get_products](../action-algorithms/do_get_products.md) or [do_get_product](../action-algorithms/do_get_product.md)
+> * Data type where the transformed data will be stored: [DIVariant](../data-types/DIVariant.md).
 >
 > [[see more details]](parse_from_api_response_2_integration_db_variants ':class=see-more')
 
@@ -90,49 +154,43 @@ Note that all these algorithms have the prefix "**parse_from_integration_db_2_**
 
 ### parse_from_integration_db_2_ecapi_response_product_properties 
 
-> TODO: Description...
+> Build and returns the property lists to conform the details of a product in an integration.
 >
 > [[see more details]](parse_from_integration_db_2_ecapi_response_product_properties ':class=see-more')
 
 ### parse_from_integration_db_2_ecapi_response_variant_properties 
 
-> TODO: Description...
+> Build and returns the property lists to conform the details of a product variant in an integration.
 >
 > [[see more details]](parse_from_integration_db_2_ecapi_response_variant_properties ':class=see-more')
 
-### parse_from_integration_db_2_omna_db_base_authorization 
-
-> TODO: Description...
->
-> [[see more details]](parse_from_integration_db_2_omna_db_base_authorization ':class=see-more')
-
 ### parse_from_integration_db_2_omna_db_order 
 
-> TODO: Description...
+> Map the order data from record of [DIOrder](../data-types/DIOrder.md) to [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
 >
 > [[see more details]](parse_from_integration_db_2_omna_db_order ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_order_address 
 
-> TODO: Description...
+> Map the order shipping and billing address data from record of [DIOrder](../data-types/DIOrder.md) to [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
 >
 > [[see more details]](parse_from_integration_db_2_omna_db_order_address ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_order_line_items 
 
-> TODO: Description...
+> Map the order items data from record of [DIOrder](../data-types/DIOrder.md) to [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
 >
 > [[see more details]](parse_from_integration_db_2_omna_db_order_line_items ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_product 
 
-> TODO: Description...
+> Map the product data from record of [DIProduct](../data-types/DIProduct.md) to [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Product).
 >
 > [[see more details]](parse_from_integration_db_2_omna_db_product ':class=see-more')
 
 ### parse_from_integration_db_2_omna_db_variant 
 
-> TODO: Description...
+> Map the product variant data from record of [DIVariant](../data-types/DIVariant.md) to [OMNAv2::Variant](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Variant).
 >
 > [[see more details]](parse_from_integration_db_2_omna_db_variant ':class=see-more')
 
@@ -144,33 +202,15 @@ a [omna data type](https://cenit.io/json_data_type?f[namespace][99061][v]=OMNAv2
 
 Note that all these algorithms have the prefix "**parse_from_omna_db_2_**" in their names.
 
-### parse_from_omna_db_2_api_request_order 
-
-> TODO: Description...
->
-> [[see more details]](parse_from_omna_db_2_api_request_order ':class=see-more')
-
-### parse_from_omna_db_2_api_request_order_address 
-
-> TODO: Description...
->
-> [[see more details]](parse_from_omna_db_2_api_request_order_address ':class=see-more')
-
-### parse_from_omna_db_2_api_request_order_line_items 
-
-> TODO: Description...
->
-> [[see more details]](parse_from_omna_db_2_api_request_order_line_items ':class=see-more')
-
 ### parse_from_omna_db_2_integration_db_product 
 
-> TODO: Description...
+> Map the product data from record of [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Product) to [DIProduct](../data-types/DIProduct.md)
 >
 > [[see more details]](parse_from_omna_db_2_integration_db_product ':class=see-more')
 
 ### parse_from_omna_db_2_integration_db_variant 
 
-> TODO: Description...
+> Map the product variant data from record of [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Variant) to [DIVariant](../data-types/DIVariant.md)
 >
 > [[see more details]](parse_from_omna_db_2_integration_db_variant ':class=see-more')
 

@@ -188,6 +188,18 @@ Note that all these algorithms have the prefix "**parse_from_integration_db_2_**
 >
 > [[see more details]](parse_from_integration_db_2_ecapi_response_variant_properties ':class=see-more')
 
+### parse_from_integration_db_2_omna_db_base_authorization 
+
+> Returns the custom data, usually the template parameters, that will be used to create the authorization 
+> associated with the integration.
+> 
+> **Resources related with this parser:**
+> 
+> * Integration data type: [OMNAv2::Integration](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Integration).
+> * Authorization: [Authorization base template](../developer-guide/authorization).
+>
+> [[see more details]](parse_from_integration_db_2_omna_db_base_authorization ':class=see-more')
+
 ### parse_from_integration_db_2_omna_db_order 
 
 > Transforms and returns the data of an order from its intermediate data structure in OMNA to be stored 
@@ -255,6 +267,48 @@ In these algorithms, the origin of the information will always be a record of
 a [omna data type](https://cenit.io/json_data_type?f[namespace][99061][v]=OMNAv2).
 
 Note that all these algorithms have the prefix "**parse_from_omna_db_2_**" in their names.
+
+### parse_from_omna_db_2_api_request_order 
+
+> Transforms and returns the data of an order registered in OMNA to be exported to the remote platform to be integrated.
+> 
+> **Resources related with this parser:**
+> 
+> * Data type corresponding to the source of the order to be transformed: 
+>   [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
+> * Action algorithm to export the order: 
+>   [do_export_order_create](../action-algorithms/do_export_order_create.md) or 
+>   [do_export_order_update](../action-algorithms/do_export_order_update.md).
+> * Webhook to export the order:
+>   [create_order](../webhooks/overview?id=create_order) or 
+>   [update_order](../webhooks/overview?id=update_order).
+> 
+>
+> [[see more details]](parse_from_omna_db_2_api_request_order ':class=see-more')
+
+### parse_from_omna_db_2_api_request_order_address 
+
+> Transforms and returns the data of shipping and billing address of an order registered in OMNA to be exported 
+> to the remote platform to be integrated.
+> 
+> **Resources related with this parser:**
+> 
+> * Parser: [parse_from_omna_db_2_api_request_order](../parser-algorithms/parse_from_omna_db_2_api_request_order.md).
+> 
+>
+> [[see more details]](parse_from_omna_db_2_api_request_order_address ':class=see-more')
+
+### parse_from_omna_db_2_api_request_order_line_items 
+
+> Transforms and returns the data of order items of an order registered in OMNA to be exported 
+> to the remote platform to be integrated.
+> 
+> **Resources related with this parser:**
+> 
+> * Parser: [parse_from_omna_db_2_api_request_order](../parser-algorithms/parse_from_omna_db_2_api_request_order.md).
+> 
+>
+> [[see more details]](parse_from_omna_db_2_api_request_order_line_items ':class=see-more')
 
 ### parse_from_omna_db_2_integration_db_product 
 

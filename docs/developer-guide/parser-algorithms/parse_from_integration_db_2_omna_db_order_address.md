@@ -21,6 +21,8 @@ in the general data structure of orders in OMNA.
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
 > | source | true | Hash | Contains the data of the address to be transformed |
+>
+> **Returns:** A hash with the transformed address.
 
 ### Example
 ```ruby

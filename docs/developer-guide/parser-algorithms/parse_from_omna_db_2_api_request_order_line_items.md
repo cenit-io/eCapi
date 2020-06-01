@@ -2,7 +2,13 @@
  
 ## parse_from_omna_db_2_api_request_order_line_items
 
-TODO: Description...
+Transforms and returns the data of order items of an order registered in OMNA to be exported 
+to the remote platform to be integrated.
+
+**Resources related with this parser:**
+
+* Parser: [parse_from_omna_db_2_api_request_order](../parser-algorithms/parse_from_omna_db_2_api_request_order.md).
+
     
 ### Definition
 
@@ -14,7 +20,9 @@ TODO: Description...
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | source | true | - | - |
+> | source | true | Hash | Contains the data of the order to be transformed |
+>
+> **Returns:** A List of hash with the transformed order items.
 
 ### Example
 ```ruby

@@ -2,7 +2,13 @@
  
 ## parse_from_omna_db_2_api_request_order_address
 
-TODO: Description...
+Transforms and returns the data of shipping and billing address of an order registered in OMNA to be exported 
+to the remote platform to be integrated.
+
+**Resources related with this parser:**
+
+* Parser: [parse_from_omna_db_2_api_request_order](../parser-algorithms/parse_from_omna_db_2_api_request_order.md).
+
     
 ### Definition
 
@@ -14,7 +20,9 @@ TODO: Description...
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | source | true | - | - |
+> | source | true | Hash | Contains the data of the address to be transformed |
+>
+> **Returns:** A hash with the transformed address.
 
 ### Example
 ```ruby

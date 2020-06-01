@@ -100,12 +100,6 @@ Note that all these algorithms have the prefix "**parse_from_integration_db_2_**
 >
 > [[see more details]](parse_from_integration_db_2_ecapi_response_variant_properties ':class=see-more')
 
-### parse_from_integration_db_2_omna_db_base_authorization 
-
-> TODO: Description...
->
-> [[see more details]](parse_from_integration_db_2_omna_db_base_authorization ':class=see-more')
-
 ### parse_from_integration_db_2_omna_db_order 
 
 > TODO: Description...
@@ -143,24 +137,6 @@ In these algorithms, the origin of the information will always be a record of
 a [omna data type](https://cenit.io/json_data_type?f[namespace][99061][v]=OMNAv2).
 
 Note that all these algorithms have the prefix "**parse_from_omna_db_2_**" in their names.
-
-### parse_from_omna_db_2_api_request_order 
-
-> TODO: Description...
->
-> [[see more details]](parse_from_omna_db_2_api_request_order ':class=see-more')
-
-### parse_from_omna_db_2_api_request_order_address 
-
-> TODO: Description...
->
-> [[see more details]](parse_from_omna_db_2_api_request_order_address ':class=see-more')
-
-### parse_from_omna_db_2_api_request_order_line_items 
-
-> TODO: Description...
->
-> [[see more details]](parse_from_omna_db_2_api_request_order_line_items ':class=see-more')
 
 ### parse_from_omna_db_2_integration_db_product 
 

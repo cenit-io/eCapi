@@ -19,7 +19,7 @@ TODO: Description...
 ### Example
 ```ruby
 {
-  id: source[:brand_id],
+  brand_id: source[:brand_id],
   name: source[:name],
   name_en: source[:name_en]
 }

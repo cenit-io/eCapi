@@ -21,8 +21,12 @@ Set the value of each property in the data structure of the variant record corre
 ```ruby
 # Set the value of each property in the data structure of the variant record corresponding to the integration.
 
-di_variant.data[:attributes] ||= []
-request_data[:properties].each { |property| di_variant.data[:attributes][property[:id]] = property[:value] }
+request_data[:properties].each do |property|
+  key = property[:id]
+  value = property[:value]
+
+  di_variant.data[key] = value
+end
 ```
 
 ### See also

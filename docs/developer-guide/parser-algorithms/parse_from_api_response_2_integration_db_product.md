@@ -19,8 +19,8 @@ TODO: Description...
 ### Example
 ```ruby
 {
-  remote_product_id: source[:id],
-  category_id: source[:product_type],
+  remote_product_id: source[:item_id],
+  category_id: source[:primary_category].to_s,
 }
 ```
 

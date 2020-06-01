@@ -18,7 +18,7 @@ TODO: Description...
 
 ### Example
 ```ruby
-source[:images].select.map { |imag| { url: imag[:src] } }
+[] # Lazada has no images directly on the product
 ```
 
 ### See also

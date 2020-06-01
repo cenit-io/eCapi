@@ -19,16 +19,15 @@ TODO: Description...
 ### Example
 ```ruby
 source ||= {}
-
 {
   first_name: source[:first_name],
   last_name: source[:last_name],
   country: source[:country],
-  state: source[:province],
-  city: source[:city],
+  state: source[:address3],
+  city: [source[:city], source[:address4]].compact.join(', '),
   phone: [source[:phone], source[:phone]].compact.join(', '),
-  zip_code: source[:zip],
-  address: source[:address1]
+  zip_code: source[:post_code],
+  address: [source[:address1], source[:address5]].compact
 }
 ```
 

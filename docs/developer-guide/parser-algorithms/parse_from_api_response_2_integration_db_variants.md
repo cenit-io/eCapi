@@ -18,10 +18,10 @@ TODO: Description...
 
 ### Example
 ```ruby
-source[:variants].map do |variant|
+source[:skus].map do |variant|
   {
-    remote_variant_id: variant[:id],
-    sku: variant[:sku],
+    remote_variant_id: variant[:SkuId],
+    sku: variant[:SellerSku],
     data: variant.dup
   }
 end

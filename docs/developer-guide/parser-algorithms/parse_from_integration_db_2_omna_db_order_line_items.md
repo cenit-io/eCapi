@@ -20,15 +20,16 @@ TODO: Description...
 ```ruby
 source[:line_items].try(:map) do |item|
   {
-    id: item[:id],
+    id: item[:order_item_id],
     name: item[:name],
-    quantity: item[:quantity],
-    price: item[:price],
-    currency: source[:currency],
+    quantity: 1,
+    price: item[:paid_price],
+    currency: item[:currency],
     sku: item[:sku],
-    variation_id: item[:variant_id]
+    # variation_id: item[:variation_id],
   }
 end
+
 ```
 
 ### See also

@@ -19,15 +19,15 @@ TODO: Description...
 
 ### Example
 ```ruby
-variant.product.data[:options].map do |option|
+properties_definition.map do |property|
   {
-    id: option[:id],
-    label: option[:name],
-    required: true,
+    id: property.property_id,
+    label: property.label,
+    required: property.required,
     read_only: false,
-    input_type: 'single_select',
-    options: option[:values],
-    value: variant.data["option#{option[:position]}"],
+    input_type: property.input_type,
+    options: property.options,
+    value: variant.data[property.name]
   }
 end
 ```

@@ -18,7 +18,8 @@ TODO: Description...
 
 ### Example
 ```ruby
-[] # Shopify has no images directly on the variant
+# TODO: Implement a better structure to manage the products and variants images.
+source[:Images].select { |img| !img.blank? }.map { |url| { url: url } }
 ```
 
 ### See also

@@ -18,10 +18,18 @@ TODO: Description...
 
 ### Example
 ```ruby
-{
-  id: source[:category_id],
-  name: source[:category_name]
-}
+items = [source]
+categories = []
+
+while item = items.shift
+  if item[:children].blank?
+    categories << { category_id: item[:category_id], name: item[:name] }
+  else
+    item[:children].each { |children| items << children.merge(name: "#{item[:name]} > #{children[:name]}") }
+  end
+end
+
+categories
 ```
 
 ### See also

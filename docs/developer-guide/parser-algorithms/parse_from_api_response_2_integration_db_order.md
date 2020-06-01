@@ -18,19 +18,9 @@ TODO: Description...
 
 ### Example
 ```ruby
-state = begin
-  if source[:cancelled_at].present?
-    'cancelled'
-  elsif source[:closed_at].present?
-    'closed'
-  else
-    'open'
-  end
-end
-
 {
   number: source[:order_number],
-  status: state
+  status: source[:statuses].try(:first),
 }
 ```
 

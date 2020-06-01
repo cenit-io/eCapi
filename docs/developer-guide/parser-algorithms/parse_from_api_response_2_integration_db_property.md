@@ -19,13 +19,13 @@ TODO: Description...
 ### Example
 ```ruby
 {
-  property_id: source[:attribute_id],
-  name: source[:attribute_name],
-  label: source[:attribute_name],
+  property_id: source[:name],
+  name: source[:name],
+  label: source[:label],
   input_type: source[:input_type].underscore.to_sym,
-  required: source[:is_mandatory],
-  options: source[:options],
-  source: 'product'
+  required: source[:is_mandatory] == 1,
+  options: source[:options].collect { |o| o[:name] },
+  source: source[:attribute_type] == 'sku' ? 'variant' : 'product'
 }
 ```
 

@@ -35,49 +35,113 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 
 ### parse_from_api_response_2_integration_db_brand 
 
-> TODO: Description...
+> It transforms and returns the data of each product brand obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_brands](../webhooks/overview.md?id=get_brands).
+> * Action algorithm that makes the request to the api of the platform to integrate:
+>   [do_get_categories](../action-algorithms/do_get_categories.md).
+> * Data type where the transformed data will be stored: [DIBrand](../data-types/DIBrand.md)
 >
 > [[see more details]](parse_from_api_response_2_integration_db_brand ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_category 
 
-> TODO: Description...
+> It transforms and returns the data of each product category obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_categories](../webhooks/overview.md?id=get_categories).
+> * Action algorithm that makes the request to the api of the platform to integrate:
+>   [do_get_categories](../action-algorithms/do_get_categories.md).
+> * Data type where the transformed data will be stored: [DICategory](../data-types/DICategory.md)
 >
 > [[see more details]](parse_from_api_response_2_integration_db_category ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_order 
 
-> TODO: Description...
+> It transforms and returns the data of each order obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_orders](../webhooks/overview.md?id=get_orders).
+> * Action algorithms that makes the request to the api of the platform to integrate:
+>   [do_get_orders](../action-algorithms/do_get_orders.md) or [do_get_order](../action-algorithms/do_get_order.md)
+> * Data type where the transformed data will be stored: [DIOrder](../data-types/DIOrder.md)
 >
 > [[see more details]](parse_from_api_response_2_integration_db_order ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_product 
 
-> TODO: Description...
+> It transforms and returns the data of each product obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_products](../webhooks/overview.md?id=get_products).
+> * Action algorithms that makes the request to the api of the platform to integrate:
+>   [do_get_products](../action-algorithms/do_get_products.md) or [do_get_product](../action-algorithms/do_get_product.md)
+> * Data type where the transformed data will be stored: [DIProduct](../data-types/DIProduct.md)
 >
 > [[see more details]](parse_from_api_response_2_integration_db_product ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_product_images 
 
-> TODO: Description...
+> It transforms and returns the data of each product images obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_products](../webhooks/overview.md?id=get_products).
+> * Action algorithms that makes the request to the api of the platform to integrate:
+>   [do_get_products](../action-algorithms/do_get_products.md) or [do_get_product](../action-algorithms/do_get_product.md)
+> * Data type where the transformed data will be stored: [DIImage](../data-types/DIImage.md)
 >
 > [[see more details]](parse_from_api_response_2_integration_db_product_images ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_property 
 
-> TODO: Description...
+> It transforms and returns the data of each product property obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_category_attrs](../webhooks/overview.md?id=get_category_attrs).
+> * Action algorithm that makes the request to the api of the platform to integrate:
+>   [do_get_properties](../action-algorithms/do_get_properties.md).
+> * Data type where the transformed data will be stored: [DICategory](../data-types/DICategory.md)
 >
 > [[see more details]](parse_from_api_response_2_integration_db_property ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_variant_images 
 
-> TODO: Description...
+> It transforms and returns the data of each product variant images obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_products](../webhooks/overview.md?id=get_products).
+> * Action algorithms that makes the request to the api of the platform to integrate:
+>   [do_get_products](../action-algorithms/do_get_products.md) or [do_get_product](../action-algorithms/do_get_product.md)
+> * Data type where the transformed data will be stored: [DIImage](../data-types/DIImage.md)
 >
 > [[see more details]](parse_from_api_response_2_integration_db_variant_images ':class=see-more')
 
 ### parse_from_api_response_2_integration_db_variants 
 
-> TODO: Description...
+> It transforms and returns the data of each product variant obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_products](../webhooks/overview.md?id=get_products).
+> * Action algorithms that makes the request to the api of the platform to integrate:
+>   [do_get_products](../action-algorithms/do_get_products.md) or [do_get_product](../action-algorithms/do_get_product.md)
+> * Data type where the transformed data will be stored: [DIVariant](../data-types/DIVariant.md)
 >
 > [[see more details]](parse_from_api_response_2_integration_db_variants ':class=see-more')
 

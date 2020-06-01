@@ -3,6 +3,12 @@
 ## parse_from_integration_db_2_ecapi_response_product_properties
 
 Build and returns the property lists to conform the details of a product in an integration.
+
+**Resources related with this parser:**
+
+* OMNA API service to get product details: [Retrieve a Product](//https://doc-api.omna.io/api-spec/index.html#operation/get_product_beta_).
+* Data type that stores the product details for an integration: [DIProduct](../data-types/DIProduct.md).
+* Data type that stores the product properties definition: [DICategory](../data-types/DICategory.md).
     
 ### Definition
 

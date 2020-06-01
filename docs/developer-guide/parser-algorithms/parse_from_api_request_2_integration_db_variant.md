@@ -2,7 +2,13 @@
  
 ## parse_from_api_request_2_integration_db_variant
 
-Set the value of each property in the data structure of the variant record corresponding to the integration.
+It transforms and sets the data of the product variant properties, received from the **OMNA API service** be stored in 
+the intermediate data structure in OMNA.
+
+**Resources related with this parser:**
+
+* OMNA API service to update the specific properties of a product variant: [Update Variant Properties](//doc-api.omna.io/api-spec/index.html#operation/update_integration_variant_beta_).
+* Data type where the transformed data will be stored: [DIVariant](../data-types/DIVariant.md).
     
 ### Definition
 

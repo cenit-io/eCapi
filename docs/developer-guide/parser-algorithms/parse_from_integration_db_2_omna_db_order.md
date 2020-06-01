@@ -2,7 +2,13 @@
  
 ## parse_from_integration_db_2_omna_db_order
 
-TODO: Description...
+Transforms and returns the data of an order from its intermediate data structure in OMNA to be stored 
+in the general data structure of orders in OMNA.
+
+**Resources related with this parser:**
+
+* Data type corresponding to the source of the order to be transformed: [DIOrder](../data-types/DIOrder.md).
+* Data type where the transformed data will be stored: [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
     
 ### Definition
 
@@ -14,15 +20,15 @@ TODO: Description...
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | source | true | - | - |
+> | source | true | Hash | Contains the data of the order to be transformed |
 
 ### Example
 ```ruby
-# Mapping order from db record of LazadaXX channel to OMNAv2.
+# Mapping order data from db record of DIOrder to OMNAv2::Order.
 
 data = source[:data]
 
-ns_lazada = Cenit.namespace(:Ov2Lazada)
+ns_lazada = Cenit.namespace(:Ov2Anyone)
 parse_line_items = ns_lazada.algorithm(:parse_from_integration_db_2_omna_db_order_line_items)
 parse_address = ns_lazada.algorithm(:parse_from_integration_db_2_omna_db_order_address)
 
@@ -49,7 +55,7 @@ parse_address = ns_lazada.algorithm(:parse_from_integration_db_2_omna_db_order_a
   bill_address: parse_address.run([data[:address_billing]]),
 
   customer: {
-    # customer_id: nil,
+    customer_id: data[:customer_id],
     first_name: data[:customer_first_name],
     last_name: data[:customer_last_name]
   },

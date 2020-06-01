@@ -2,7 +2,13 @@
  
 ## parse_from_integration_db_2_omna_db_product
 
-TODO: Description...
+Transforms and returns the data of a product from its intermediate data structure in OMNA to be stored
+in the general data structure of products in OMNA.
+
+**Resources related with this parser:**
+
+* Data type corresponding to the source of the product to be transformed: [DIProduct](../data-types/DIProduct.md).
+* Data type where the transformed data will be stored: [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Product).
     
 ### Definition
 
@@ -14,11 +20,11 @@ TODO: Description...
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | source | true | - | - |
+> | source | true | Hash | Contains the data of the product to be transformed |
 
 ### Example
 ```ruby
-# Mapping product from db record of LazadaXX channel to OMNAv2.
+# Mapping product from db record of Ov2AnyoneXX channel to OMNAv2.
 
 data = source[:data]
 min_sku = data[:skus].min_by { |v| v[:price] }

@@ -15,6 +15,15 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 
 ### cancel_order 
 
+> It consists of the configuration, relative route and parameters, to consume the **order creation** service on the
+> platform to be integrated.
+> 
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+> corresponding to the integration instance in process, will be the one received by parameter in the 
+> action algorithm [do_export_order_create](../action-algorithms/do_export_order_create.md).
+
+### create_order 
+
 > It consists of the configuration, relative route and parameters, to consume the **order cancellation** service on the
 > platform to be integrated.
 > 
@@ -113,6 +122,15 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 > This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
 > corresponding to the integration instance in process, will be the one received by parameter in the 
 > action algorithm [do_get_products](../action-algorithms/do_get_products.md).
+
+### update_order 
+
+> It consists of the configuration, relative route and parameters, to consume the **order update** service on the
+> platform to be integrated.
+> 
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+> corresponding to the integration instance in process, will be the one received by parameter in the 
+> action algorithm [do_export_order_update](../action-algorithms/do_export_order_update.md).
 
 ### upload_image 
 

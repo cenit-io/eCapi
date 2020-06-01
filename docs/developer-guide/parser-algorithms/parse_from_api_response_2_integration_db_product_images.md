@@ -10,7 +10,7 @@ the intermediate data structure in OMNA.
 * Webhook from which the data is obtained: [get_products](../webhooks/overview.md?id=get_products).
 * Action algorithms that makes the request to the api of the platform to integrate:
   [do_get_products](../action-algorithms/do_get_products.md) or [do_get_product](../action-algorithms/do_get_product.md)
-* Data type where the transformed data will be stored: [DIImage](../data-types/DIImage.md)
+* Data type where the transformed data will be stored: [DIImage](../data-types/DIImage.md).
     
 ### Definition
 
@@ -24,7 +24,7 @@ the intermediate data structure in OMNA.
 > | ---- | -------- | ---- | ----------- |
 > | source | true | Hash | Contains the data of the product images to be transformed |
 >
-> **Returns:** A array of hash, with the same structure as the example shown below, with the data to be saved in a record of [DIImage](../data-types/DIImage.md)
+> **Returns:** A array of hash, with the same structure as the example shown below, with the data to be saved in a record of [DIImage](../data-types/DIImage.md).
 
 ### Example
 ```ruby

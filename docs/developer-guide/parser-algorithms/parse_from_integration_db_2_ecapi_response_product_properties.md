@@ -2,7 +2,7 @@
  
 ## parse_from_integration_db_2_ecapi_response_product_properties
 
-TODO: Description...
+Build and returns the property lists to conform the details of a product in an integration.
     
 ### Definition
 
@@ -14,8 +14,10 @@ TODO: Description...
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | product | true | - | - |
-> | properties_definition | true | - | - |
+> | di_product | true | OMNAv2::DIProduct \| Ov2Anyone::DIProduct | Contains the [DIProduct](../data-types/DIProduct.md) record from which you will get the property values. |
+> | properties_definition | true | Array | Contains the definition of properties for a product category ([DICategory](../data-types/DICategory.md) |
+>
+> **Returns:** The definition of the property list with its corresponding values ​​for the details of a product.
 
 ### Example
 ```ruby

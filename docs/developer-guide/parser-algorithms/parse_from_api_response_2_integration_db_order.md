@@ -10,7 +10,7 @@ the intermediate data structure in OMNA.
 * Webhook from which the data is obtained: [get_orders](../webhooks/overview.md?id=get_orders).
 * Action algorithms that makes the request to the api of the platform to integrate:
   [do_get_orders](../action-algorithms/do_get_orders.md) or [do_get_order](../action-algorithms/do_get_order.md)
-* Data type where the transformed data will be stored: [DIOrder](../data-types/DIOrder.md)
+* Data type where the transformed data will be stored: [DIOrder](../data-types/DIOrder.md).
     
 ### Definition
 
@@ -24,7 +24,7 @@ the intermediate data structure in OMNA.
 > | ---- | -------- | ---- | ----------- |
 > | source | true | Hash | Contains the data of the order to be transformed |
 >
-> **Returns:** A hash, with the same structure as the example shown below, with the data to be saved in a record of [DIOrder](../data-types/DIOrder.md)
+> **Returns:** A hash, with the same structure as the example shown below, with the data to be saved in a record of [DIOrder](../data-types/DIOrder.md).
 
 ### Example
 ```ruby

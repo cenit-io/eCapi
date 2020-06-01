@@ -10,7 +10,7 @@ the intermediate data structure in OMNA.
 * Webhook from which the data is obtained: [get_category_attrs](../webhooks/overview.md?id=get_category_attrs).
 * Action algorithm that makes the request to the api of the platform to integrate:
   [do_get_properties](../action-algorithms/do_get_properties.md).
-* Data type where the transformed data will be stored: [DICategory](../data-types/DICategory.md)
+* Data type where the transformed data will be stored: [DICategory](../data-types/DICategory.md).
     
 ### Definition
 
@@ -24,7 +24,7 @@ the intermediate data structure in OMNA.
 > | ---- | -------- | ---- | ----------- |
 > | source | true | Hash | Contains the data of the product property to be transformed |
 >
-> **Returns:** A hash, with the same structure as the example shown below, with the data to be saved in the properties attribute on the record of [DICategory](../data-types/DICategory.md)
+> **Returns:** A hash, with the same structure as the example shown below, with the data to be saved in the properties attribute on the record of [DICategory](../data-types/DICategory.md).
 
 ### Example
 ```ruby

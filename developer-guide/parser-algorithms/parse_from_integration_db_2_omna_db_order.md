@@ -21,6 +21,8 @@ in the general data structure of orders in OMNA.
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
 > | source | true | Hash | Contains the data of the order to be transformed |
+>
+> **Returns:** A hash with transformed data to ve stored in [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]&#x3D;OMNAv2&amp;f[name][24160][o]&#x3D;is&amp;f[name][24160][v]&#x3D;Order).
 
 ### Example
 ```ruby

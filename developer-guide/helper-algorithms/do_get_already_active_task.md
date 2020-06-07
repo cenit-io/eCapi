@@ -24,4 +24,5 @@ It is useful to avoid unnecessary execution of tasks that produce the same resul
 > | inputs | false | Array | Contains the parameters that will be passed to the algorithm |
 
 ### See also
+* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_get_already_active_task&f[namespace][40840][v]=OMNAv2)
 * [Others helper algorithms](overview?id=do_get_already_active_task)

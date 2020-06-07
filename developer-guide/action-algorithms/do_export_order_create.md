@@ -21,20 +21,6 @@ Allows submitting a request to the remote integration platform to create an orde
 >
 > **Returns:** A **Hash** with the order data created on the remote platform.
 
-### Example
-```ruby
-# Put order to the remote integration
-order = begin
-  response = webhook.submit!(body: { 'order' => data }.to_json)
-  response = JSON.parse(response, symbolize_names: true)
-
-  Cenit.fail(response[:errors]) if response[:errors]
-
-  response[:order]
-end
-
-order
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_export_order_create&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others action algorithms](overview?id=do_export_order_create)

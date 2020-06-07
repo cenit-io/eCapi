@@ -55,6 +55,12 @@ You can see this algorithms by entering [here](https://cenit.io/algorithm?f[name
 >
 > [[see more details]](do_get_properties_definition ':class=see-more')
 
+## do_import_logistics
+
+> Allows submitting a request to the remote integration platform to get and import the logistics.
+>
+> [[see more details]](do_import_logistics ':class=see-more')
+
 ## do_notify
 
 > Create a system notification.
@@ -122,7 +128,7 @@ You can see this algorithms by entering [here](https://cenit.io/algorithm?f[name
 > Search and returns a product variant by its id in omna or by its id in the remote platform to be integrate.
 > 
 > If only the product variant id (1st parameter) is provided, then the search is performed in the product variant registers of OMNA.
-> [ [See in Cenit-IO](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Variant") ]
+> [ [See in Cenit-IO](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Variant) ]
 > 
 > If the 2 parameters are provided, they are assumed to be (remote_variant_id and integration_id) and the search is 
 > carried out in the product variant registers on the intermediate structure used for this purpose.

@@ -30,34 +30,6 @@ Transforms and returns the data of an order registered in OMNA to be exported to
 >
 > **Returns:** The hash with the data to be exported.
 
-### Example
-```ruby
-# Mapping of an record of order of OMNAv2 for to be use in an API request for an integration of this channel.
-
-ns_omna = Cenit.namespace(:OMNAv2)
-do_require_algorithm = ns_omna.algorithm(:do_require_algorithm)
-
-parse_address = do_require_algorithm.run([source[:integration][:id], :parse_from_omna_db_2_api_request_order_address])
-parse_line_items = do_require_algorithm.run([source[:integration][:id], :parse_from_omna_db_2_api_request_order_line_items])
-
-{
-  shipping_address: parse_address.run([source[:ship_address]]),
-  billing_address: parse_address.run([source[:bill_address]]),
-  created_at: source[:created_date],
-  processed_at: source[:created_date],
-  currency: source[:currency],
-  tags: source[:integration][:channel],
-  line_items: parse_line_items.run([source]),
-  total_price: source[:total_price],
-  processing_method: 'direct',
-  taxes_included: true,
-  name: source[:number],
-  payment_gateway_names: source[:payments].map { |pm| pm[:method] },
-  inventory_behaviour: 'decrement_obeying_policy',
-
-  customer: { first_name: source[:customer][:first_name] }
-}
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_omna_db_2_api_request_order&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others parser algorithms](overview?id=parse_from_omna_db_2_api_request_order)

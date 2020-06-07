@@ -21,27 +21,9 @@ in the general data structure of products in OMNA.
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
 > | source | true | Hash | Contains the data of the product to be transformed |
-
-### Example
-```ruby
-# Mapping product from db record of Ov2AnyoneXX channel to OMNAv2.
-
-data = source[:data]
-min_sku = data[:skus].min_by { |v| v[:price] }
-
-{
-  name: data[:attributes][:name],
-  description: data[:attributes][:description],
-  price: min_sku[:price],
-  package: {
-    weight: min_sku[:package_weight],
-    height: min_sku[:package_height],
-    length: min_sku[:package_length],
-    width: min_sku[:package_width],
-    content: min_sku[:package_content]
-  }
-}
-```
+>
+> **Returns:** A hash with transformed data to be stored in [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]&#x3D;OMNAv2&amp;f[name][24160][o]&#x3D;is&amp;f[name][24160][v]&#x3D;Product).
 
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_integration_db_2_omna_db_product&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others parser algorithms](overview?id=parse_from_integration_db_2_omna_db_product)

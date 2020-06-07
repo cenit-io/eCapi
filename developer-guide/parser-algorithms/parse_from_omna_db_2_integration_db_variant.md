@@ -25,27 +25,6 @@ in the intermediate data structure in OMNA.
 >
 > **Returns:** Tha hash with the data to be store in [DIVariant](../data-types/DIVariant.md).
 
-### Example
-```ruby
-# Mapping variant from db record of OMNAv2.
-
-variant_in_omna = source
-
-price = variant_in_omna[:price]
-original_price = variant_in_omna[:original_price]
-
-{
-  SellerSku: target_sku,
-  price: variant_in_omna[:original_price],
-  special_price: original_price == price ? nil : price,
-  quantity: variant_in_omna[:quantity],
-  package_weight: variant_in_omna[:package][:weight],
-  package_height: variant_in_omna[:package][:height],
-  package_length: variant_in_omna[:package][:length],
-  package_width: variant_in_omna[:package][:width],
-  package_content: variant_in_omna[:package][:content]
-}
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_omna_db_2_integration_db_variant&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others parser algorithms](overview?id=parse_from_omna_db_2_integration_db_variant)

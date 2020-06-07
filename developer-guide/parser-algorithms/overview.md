@@ -73,6 +73,20 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 >
 > [[see more details]](parse_from_api_response_2_integration_db_category ':class=see-more')
 
+### parse_from_api_response_2_integration_db_logistic 
+
+> It transforms and returns the data of each logistic obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_logistics](../webhooks/overview.md?id=get_logistics).
+> * Action algorithm that makes the request to the api of the platform to integrate:
+>   [do_get_logistics](../action-algorithms/do_get_logistics.md).
+> * Data type where the transformed data will be stored: [DILogistic](../data-types/DILogistic.md).
+>
+> [[see more details]](parse_from_api_response_2_integration_db_logistic ':class=see-more')
+
 ### parse_from_api_response_2_integration_db_order 
 
 > It transforms and returns the data of each order obtained from the platform to be integrated to be stored in 
@@ -163,6 +177,21 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 In these algorithms, the origin of the information will always be a record of an intermediate [data type](../data-types/overview.md).
 
 Note that all these algorithms have the prefix "**parse_from_integration_db_2_**" in their names.
+
+### parse_from_integration_db_2_api_request_product 
+
+> Transforms and returns the data of a product from its intermediate data structure in OMNA to be send the
+> the remote platform to be integrated.
+> 
+> **Resources related with this parser:**
+> 
+> * Data type corresponding to the source of the product to be transformed: [DIProduct](../data-types/DIProduct.md).
+> * Action algorithm that performs and processes the submit of the data:
+>   [do_export_order_create](../action-algorithms/do_export_order_create.md) or [do_export_order_update](../action-algorithms/do_export_order_update.md).
+> * Webhook through which data is sent: [create_product](../webhooks/overview.md?id=create_product) or [update_product](../webhooks/overview.md?id=update_product).
+> 
+>
+> [[see more details]](parse_from_integration_db_2_api_request_product ':class=see-more')
 
 ### parse_from_integration_db_2_ecapi_response_product_properties 
 

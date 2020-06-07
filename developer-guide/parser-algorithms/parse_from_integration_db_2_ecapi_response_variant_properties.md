@@ -25,20 +25,6 @@ Build and returns the property lists to conform the details of a product variant
 >
 > **Returns:** The definition of the property list with its corresponding values ​​for the details of a variant.
 
-### Example
-```ruby
-properties_definition.map do |property|
-  {
-    id: property.property_id,
-    label: property.label,
-    required: property.required,
-    read_only: false,
-    input_type: property.input_type,
-    options: property.options,
-    value: variant.data[property.name]
-  }
-end
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_integration_db_2_ecapi_response_variant_properties&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others parser algorithms](overview?id=parse_from_integration_db_2_ecapi_response_variant_properties)

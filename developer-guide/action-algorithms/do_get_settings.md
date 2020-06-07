@@ -10,20 +10,6 @@ Returns the available integration settings with its available channels.
 > 
 > **Namespace:** Ov2Anyone
 
-### Example
-```ruby
-{
-  available_channels: [
-    { name: 'Ov2AnyoneID', title: 'Anyone [ID]' },
-    { name: 'Ov2AnyoneMY', title: 'Anyone [MY]' },
-    { name: 'Ov2AnyonePH', title: 'Anyone [PH]' },
-    { name: 'Ov2AnyoneSG', title: 'Anyone [SG]' },
-    { name: 'Ov2AnyoneTH', title: 'Anyone [TH]' },
-    { name: 'Ov2AnyoneVN', title: 'Anyone [VN]' },
-    { name: 'Ov2AnyoneSB', title: 'Anyone [Sandbox]' }
-  ]
-}
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_get_settings&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others action algorithms](overview?id=do_get_settings)

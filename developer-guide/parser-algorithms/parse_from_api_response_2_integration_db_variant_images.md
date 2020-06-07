@@ -24,12 +24,8 @@ the intermediate data structure in OMNA.
 > | ---- | -------- | ---- | ----------- |
 > | source | true | Hash | Contains the data of the product variant images to be transformed |
 >
-> **Returns:** A array of hash, with the same structure as the example shown below, with the data to be saved in a record of [DIImage](../data-types/DIImage.md).
-
-### Example
-```ruby
-source[:images].select.map { |url| { url: url } }
-```
+> **Returns:** A array of hash with the data to be saved in a record of [DIImage](../data-types/DIImage.md).
 
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_api_response_2_integration_db_variant_images&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others parser algorithms](overview?id=parse_from_api_response_2_integration_db_variant_images)

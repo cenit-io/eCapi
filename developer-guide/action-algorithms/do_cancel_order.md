@@ -18,23 +18,6 @@ Allows submitting a request to the remote integration platform to cancel an orde
 > | webhook | true | Setup::PlainWebhook | Contains the [cancel_order](../webhooks/overview?id=cancel_order) webhook |
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 
-### Example
-```ruby
-# Cancel the order in the remote integration
-data = {
-  ordersn: order.number,
-  cancel_reason: 'OUT_OF_STOCK',
-  item_id: order.line_items[0].id.to_i,
-  variation_id: order.line_items[0].variation_id.to_i
-}
-
-response = webhook.submit!(body: data.to_json)
-response = JSON.parse(response, symbolize_names: true)
-
-Cenit.fail(response[:error]) if response[:error]
-
-true
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_cancel_order&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others action algorithms](overview?id=do_cancel_order)

@@ -31,6 +31,15 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 > corresponding to the integration instance in process, will be the one received by parameter in the 
 > action algorithm [do_export_order_create](../action-algorithms/do_export_order_create.md).
 
+### create_product 
+
+> It consists of the configuration, relative route and parameters, to consume the **product creation** service on the
+> platform to be integrated.
+> 
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+> corresponding to the integration instance in process, will be the one received by parameter in the 
+> action algorithm [do_export_product_create](../action-algorithms/do_export_product_create.md).
+
 ### delete_product 
 
 > It consists of the configuration, relative route and parameters, to consume the **delete product** service on the
@@ -131,6 +140,15 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 > This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
 > corresponding to the integration instance in process, will be the one received by parameter in the 
 > action algorithm [do_export_order_update](../action-algorithms/do_export_order_update.md).
+
+### update_product 
+
+> It consists of the configuration, relative route and parameters, to consume the **product update** service on the
+> platform to be integrated.
+> 
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+> corresponding to the integration instance in process, will be the one received by parameter in the 
+> action algorithm [do_export_product_update](../action-algorithms/do_export_product_update.md).
 
 ### upload_image 
 

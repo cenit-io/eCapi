@@ -19,17 +19,6 @@ Allows submitting a request to the remote integration platform to get an product
 > | webhook | true | Setup::PlainWebhook | Contains the [get_product](../webhooks/overview?id=get_product) webhook |
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 
-### Example
-```ruby
-# Get product from integration
-data = { item_id: product_id.to_i }
-response = webhook.submit!(body: data.to_json)
-response = JSON.parse(response, symbolize_names: true)
-
-Cenit.fail(response[:msg] || response[:error]) if response[:error]
-
-response[:item]
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_get_product&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others action algorithms](overview?id=do_get_product)

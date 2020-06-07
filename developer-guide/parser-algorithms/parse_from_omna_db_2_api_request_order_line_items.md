@@ -24,21 +24,6 @@ to the remote platform to be integrated.
 >
 > **Returns:** A List of hash with the transformed order items.
 
-### Example
-```ruby
-source[:line_items].try(:map) do |item|
-  {
-    id: item[:id],
-    name: item[:name],
-    title: item[:name],
-    quantity: item[:quantity],
-    price: item[:price],
-    currency: source[:currency],
-    sku: item[:sku],
-    variant_id: item[:variation_id]
-  }
-end
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_omna_db_2_api_request_order_line_items&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others parser algorithms](overview?id=parse_from_omna_db_2_api_request_order_line_items)

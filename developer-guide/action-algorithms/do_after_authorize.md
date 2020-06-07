@@ -21,26 +21,8 @@ Allows validate the authorization and start some processes after successful auth
 > **Returns:** List of the names of the resources that should be imported initially.
 For each of these names, except for categories and brands, 
 should be created a algorithm with the same name and the prefix **do_import_**.
-(Ex: [do_import_logistics](do_import_logistics.md))
-
-### Example
-```ruby
-# Validate authorization
-begin
-  integration_country = integration.channel.gsub(/^Ov2Anyone/, '')
-
-  response = webhook.submit! # (parameters: ..., body: ...)
-  response = JSON.parse(response, symbolize_names: true)
-
-  if response[:country] != integration_country
-    integration.authorization.cancel!
-    Cenit.fail("Invalid store country, #{integration_country} expected and #{response[:country]} received.")
-  end
-end
-
-# Returns the names of the resources that should be imported initially
-%w(categories brands logistics)
-```
+(Ex: [do_import_logistics](do_import_logistics.md)).
 
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_after_authorize&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others action algorithms](overview?id=do_after_authorize)

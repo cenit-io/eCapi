@@ -1,12 +1,12 @@
 # Action algorithm
 
-## do_export_order_update
+## do_update_order
 
 Allows submitting a request to the remote integration platform to update an order.
     
 ### Definition
 
-> **Name:** do_export_order_update
+> **Name:** do_update_order
 > 
 > **Namespace:** Ov2Anyone
 >
@@ -23,5 +23,5 @@ Allows submitting a request to the remote integration platform to update an orde
 > **Returns:** A **Hash** with the order data updated on the remote platform.
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_export_order_update&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
-* [Others action algorithms](overview?id=do_export_order_update)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_update_order&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Others action algorithms](overview?id=do_update_order)

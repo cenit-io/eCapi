@@ -9,8 +9,8 @@ Transforms and returns the data of an order registered in OMNA to be exported to
 * Data type corresponding to the source of the order to be transformed: 
   [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
 * Action algorithm to export the order: 
-  [do_export_order_create](../action-algorithms/do_export_order_create.md) or 
-  [do_export_order_update](../action-algorithms/do_export_order_update.md).
+  [do_create_order](../action-algorithms/do_create_order.md) or 
+  [do_update_order](../action-algorithms/do_update_order.md).
 * Webhook to export the order:
   [create_order](../webhooks/overview?id=create_order) or 
   [update_order](../webhooks/overview?id=update_order).

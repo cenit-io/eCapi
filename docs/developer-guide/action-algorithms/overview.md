@@ -34,6 +34,12 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 >
 > [[see more details]](do_cancel_order ':class=see-more')
 
+## do_create_product
+
+> Allows submitting a request to the remote integration platform to create a product.
+>
+> [[see more details]](do_create_product ':class=see-more')
+
 ## do_delete_remote_product
 
 > Allows submitting a request to the remote integration platform to remove a product.
@@ -57,18 +63,6 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 > Allows submitting a request to the remote integration platform to update an order.
 >
 > [[see more details]](do_export_order_update ':class=see-more')
-
-## do_export_product_create
-
-> Allows submitting a request to the remote integration platform to create a product.
->
-> [[see more details]](do_export_product_create ':class=see-more')
-
-## do_export_product_update
-
-> Allows submitting a request to the remote integration platform to update a product.
->
-> [[see more details]](do_export_product_update ':class=see-more')
 
 ## do_get_brands
 
@@ -147,4 +141,10 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 > Allows submitting a request to the remote integration platform to get and import the logistics.
 >
 > [[see more details]](do_import_logistics ':class=see-more')
+
+## do_update_product
+
+> Allows submitting a request to the remote integration platform to update a product.
+>
+> [[see more details]](do_update_product ':class=see-more')
 

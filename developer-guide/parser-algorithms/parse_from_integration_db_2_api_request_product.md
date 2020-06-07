@@ -9,7 +9,7 @@ the remote platform to be integrated.
 
 * Data type corresponding to the source of the product to be transformed: [DIProduct](../data-types/DIProduct.md).
 * Action algorithm that performs and processes the submit of the data:
-  [do_export_order_create](../action-algorithms/do_export_order_create.md) or [do_export_order_update](../action-algorithms/do_export_order_update.md).
+  [do_create_order](../action-algorithms/do_create_order.md) or [do_update_order](../action-algorithms/do_update_order.md).
 * Webhook through which data is sent: [create_product](../webhooks/overview.md?id=create_product) or [update_product](../webhooks/overview.md?id=update_product).
 
     

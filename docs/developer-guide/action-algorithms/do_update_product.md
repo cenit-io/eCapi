@@ -1,12 +1,12 @@
 # Action algorithm
 
-## do_export_product_update
+## do_update_product
 
 Allows submitting a request to the remote integration platform to update a product.
     
 ### Definition
 
-> **Name:** do_export_product_update
+> **Name:** do_update_product
 > 
 > **Namespace:** Ov2Anyone
 >
@@ -20,5 +20,5 @@ Allows submitting a request to the remote integration platform to update a produ
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_export_product_update&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
-* [Others action algorithms](overview?id=do_export_product_update)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_update_product&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Others action algorithms](overview?id=do_update_product)

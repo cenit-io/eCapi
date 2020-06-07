@@ -19,21 +19,6 @@ Allows submitting a request to the remote integration platform to get an order.
 > | webhook | true | Setup::PlainWebhook | Contains the [get_order](../webhooks/overview?id=get_order) webhook |
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 
-### Example
-```ruby
-# Get order from integration
-order = begin
-  data = { ordersn_list: [number] }
-  response = webhook.with(conn).and(auth).submit!(body: data.to_json)
-  response = JSON.parse(response, symbolize_names: true)
-
-  Cenit.fail(response[:msg] || response[:error]) if response[:error]
-
-  response[:orders].first
-end
-
-order
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_get_order&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others action algorithms](overview?id=do_get_order)

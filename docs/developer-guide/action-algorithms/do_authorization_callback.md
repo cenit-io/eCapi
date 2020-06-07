@@ -17,15 +17,6 @@ Allows set the template parameters of the authorization from the callback params
 > | callback_params | true | Hash | Contains the parameters returned since authorization |
 > | template_parameters | true | Hash | Contains the reference to the authorization template parameters |
 
-### Example
-```ruby
-# Set the template_parameters with callback parameters.
-
-template_parameters['tp1'] = callback_params[:cbp1]
-template_parameters['tp2'] = callback_params[:cbp2]
-# ...
-template_parameters['tpN'] = callback_params[:cbpN]
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_authorization_callback&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others action algorithms](overview?id=do_authorization_callback)

@@ -18,15 +18,6 @@ Allows submitting a request to the remote integration platform to remove a produ
 > | webhook | true | Setup::PlainWebhook | Contains the [delete_product](../webhooks/overview?id=delete_product) webhook |
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 
-### Example
-```ruby
-response = webhook.submit!(template_parameters: { 'item_id' => product.remote_product_id })
-response = JSON.parse(response, symbolize_names: true)
-
-Cenit.fail(response[:error]) if response[:error]
-
-true
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_delete_remote_product&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others action algorithms](overview?id=do_delete_remote_product)

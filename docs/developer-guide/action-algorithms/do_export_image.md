@@ -19,22 +19,6 @@ Allows submitting a request to the remote integration platform to publish an ima
 > | webhook | true | Setup::PlainWebhook | Contains the [upload_image](../webhooks/overview?id=upload_image) webhook |
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 
-### Example
-```ruby
-# Upload image to the remote integration
-new_url = begin
-  data = { Image: { Url: url } }.to_xml(root: 'Request')
-
-  response = webhook.submit!(parameters: { 'payload' => data })
-  response = JSON.parse(response, symbolize_names: true)
-
-  Cenit.fail(response[:message]) if response[:code].to_i != 0
-
-  response[:data][:image][:url]
-end
-
-new_url
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_export_image&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others action algorithms](overview?id=do_export_image)

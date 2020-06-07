@@ -18,30 +18,6 @@ Allows submitting a request to the remote integration platform to get the produc
 > | webhook | true | Setup::PlainWebhook | Contains the [get_brands](../webhooks/overview?id=get_brands) webhook |
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 
-### Example
-```ruby
-limit = 1000
-offset = task.state[:offset] ||= 0
-
-# Get brands from the remote integration
-brands = begin
-  tps = { 'limit' => limit, 'offset' => offset }
-
-  response = webhook.submit!(template_parameters: tps)
-  response = JSON.parse(response, symbolize_names: true)
-
-  Cenit.fail(response[:message]) if response[:code].to_i != 0
-
-  response[:data]
-end
-
-if (items.count == limit)
-  task.state[:offset] += limit
-  task.state[:import_next_block] = true
-end
-
-brands
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_get_brands&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others action algorithms](overview?id=do_get_brands)

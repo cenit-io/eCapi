@@ -10,12 +10,6 @@ Returns the possible types of order documents available.
 > 
 > **Namespace:** Ov2Anyone
 
-### Example
-```ruby
-[
-  { type: 'airwayBill', title: 'Airway Bill' }
-]
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_get_order_document_types&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others action algorithms](overview?id=do_get_order_document_types)

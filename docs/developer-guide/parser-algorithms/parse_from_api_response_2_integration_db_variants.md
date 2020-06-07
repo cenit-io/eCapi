@@ -26,16 +26,6 @@ the intermediate data structure in OMNA.
 >
 > **Returns:** A array of hash with the data to be saved in a record of [DIVariant](../data-types/DIVariant.md).
 
-### Example
-```ruby
-source[:skus].map do |variant|
-  {
-    remote_variant_id: variant[:SkuId],
-    sku: variant[:SellerSku],
-    data: variant.dup
-  }
-end
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_api_response_2_integration_db_variants&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others parser algorithms](overview?id=parse_from_api_response_2_integration_db_variants)

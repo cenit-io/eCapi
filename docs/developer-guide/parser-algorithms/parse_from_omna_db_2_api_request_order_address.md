@@ -24,21 +24,6 @@ to the remote platform to be integrated.
 >
 > **Returns:** A hash with the transformed address.
 
-### Example
-```ruby
-source ||= {}
-last = '-' if source[:last_name].nil? || source[:last_name] == ''
-{
-  first_name: source[:first_name],
-  last_name: last,
-  country: source[:country],
-  province: source[:state],
-  city: source[:city].split(",")[0],
-  phone: "+#{source[:phone].split(",")[0]}",
-  zip: source[:zip_code],
-  address1: "#{source[:address][0]} #{source[:address][1]}",
-}
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_omna_db_2_api_request_order_address&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others parser algorithms](overview?id=parse_from_omna_db_2_api_request_order_address)

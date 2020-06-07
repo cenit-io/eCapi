@@ -24,15 +24,8 @@ the intermediate data structure in OMNA.
 > | ---- | -------- | ---- | ----------- |
 > | source | true | Hash | Contains the data of the order to be transformed |
 >
-> **Returns:** A hash, with the same structure as the example shown below, with the data to be saved in a record of [DIOrder](../data-types/DIOrder.md).
-
-### Example
-```ruby
-{
-  number: source[:order_number],
-  status: source[:statuses].try(:first),
-}
-```
+> **Returns:** A hash with the data to be saved in a record of [DIOrder](../data-types/DIOrder.md).
 
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_api_response_2_integration_db_order&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others parser algorithms](overview?id=parse_from_api_response_2_integration_db_order)

@@ -24,21 +24,6 @@ in the general data structure of orders in OMNA.
 >
 > **Returns:** A List of hash with the transformed order items.
 
-### Example
-```ruby
-source[:line_items].try(:map) do |item|
-  {
-    id: item[:order_item_id],
-    name: item[:name],
-    quantity: 1,
-    price: item[:paid_price],
-    currency: item[:currency],
-    sku: item[:sku],
-    # variation_id: item[:variation_id],
-  }
-end
-
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_integration_db_2_omna_db_order_line_items&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others parser algorithms](overview?id=parse_from_integration_db_2_omna_db_order_line_items)

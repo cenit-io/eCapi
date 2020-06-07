@@ -24,20 +24,6 @@ in the general data structure of orders in OMNA.
 >
 > **Returns:** A hash with the transformed address.
 
-### Example
-```ruby
-source ||= {}
-{
-  first_name: source[:first_name],
-  last_name: source[:last_name],
-  country: source[:country],
-  state: source[:address3],
-  city: [source[:city], source[:address4]].compact.join(', '),
-  phone: [source[:phone], source[:phone]].compact.join(', '),
-  zip_code: source[:post_code],
-  address: [source[:address1], source[:address5]].compact
-}
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_integration_db_2_omna_db_order_address&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others parser algorithms](overview?id=parse_from_integration_db_2_omna_db_order_address)

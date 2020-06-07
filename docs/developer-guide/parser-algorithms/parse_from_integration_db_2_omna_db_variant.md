@@ -22,30 +22,8 @@ in the general data structure of variants in OMNA.
 > | ---- | -------- | ---- | ----------- |
 > | source | true | Hash | Contains the data of the order to be transformed |
 >
-> **Returns:** A hash with transformed data to ve stored in [OMNAv2::Vatiant](https://cenit.io/json_data_type?f[namespace][24075][v]&#x3D;OMNAv2&amp;f[name][24160][o]&#x3D;is&amp;f[name][24160][v]&#x3D;Vatiant).
-
-### Example
-```ruby
-# Mapping variant from db record of Ov2AnyoneXX channel to OMNAv2.
-
-data = source[:data]
-data[:Images] ||= []
-
-{
-  sku: data[:SellerSku],
-  price: data[:special_price] || data[:price],
-  original_price: data[:price],
-  quantity: data[:quantity],
-  images: data[:Images].select { |img| !img.blank? },
-  package: {
-    weight: data[:package_weight],
-    height: data[:package_height],
-    length: data[:package_length],
-    width: data[:package_width],
-    content: data[:package_content]
-  }
-}
-```
+> **Returns:** A hash with transformed data to be stored in [OMNAv2::Vatiant](https://cenit.io/json_data_type?f[namespace][24075][v]&#x3D;OMNAv2&amp;f[name][24160][o]&#x3D;is&amp;f[name][24160][v]&#x3D;Vatiant).
 
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_integration_db_2_omna_db_variant&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others parser algorithms](overview?id=parse_from_integration_db_2_omna_db_variant)

@@ -50,6 +50,18 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 >
 > [[see more details]](DIImage ':class=see-more')
 
+### DILogistic 
+
+> Data structure to store the imported records of logistics for each integration channel.
+> 
+> **Algorithms related with this data type:**
+> 
+> * Action algorithm [do_get_logistics](../action-algorithms/do_get_logistics.md)
+> * Parser algorithm [parse_from_api_response_2_integration_db_logistic](../parser-algorithms/parse_from_api_response_2_integration_db_logistic.md)
+> 
+>
+> [[see more details]](DILogistic ':class=see-more')
+
 ### DIOrder 
 
 > Data structure to store the imported records of orders for each integration channel.

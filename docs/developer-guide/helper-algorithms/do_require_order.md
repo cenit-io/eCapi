@@ -22,4 +22,5 @@ If some of the resources are not found an exception is thrown.
 > **Returns:** The a record of OMNAv2::Order or Ov2Anyone::Order if the parameter integration_id is given.
 
 ### See also
+* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_require_order&f[namespace][40840][v]=OMNAv2)
 * [Others helper algorithms](overview?id=do_require_order)

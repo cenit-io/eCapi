@@ -53,4 +53,5 @@ custom attributes related to the associated category.
 ```
 
 ### See also
+* [This data type in Cenit-IO](https://cenit.io/json_data_type?f[name][40703][o]=is&f[name][40703][v]=DIProperty&f[namespace][40840][v]=OMNAv2)
 * [Others data types](overview?id=DIProperty)

@@ -23,7 +23,8 @@ If the resource is not found an exception is thrown.
 > | alg_name | true | String \| Symbol | Contains the name of the algorithm |
 > | throwing | false | Boolean | An exception is thrown when this parameter is true and the algorithm does not exist. |
 >
-> **Returns:** The required algorithm
+> **Returns:** The required algorithm.
 
 ### See also
+* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_require_algorithm&f[namespace][40840][v]=OMNAv2)
 * [Others helper algorithms](overview?id=do_require_algorithm)

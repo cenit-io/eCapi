@@ -46,4 +46,5 @@ Data structure to store the imported records of product images for each integrat
 ```
 
 ### See also
+* [This data type in Cenit-IO](https://cenit.io/json_data_type?f[name][40703][o]=is&f[name][40703][v]=DIImage&f[namespace][40840][v]=OMNAv2)
 * [Others data types](overview?id=DIImage)

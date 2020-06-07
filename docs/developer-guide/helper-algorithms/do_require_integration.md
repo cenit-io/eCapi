@@ -22,7 +22,8 @@ If the resource is not found an exception is thrown.
 > | integration | true | OMNAv2::Integration \| String | Contains the integration record or id |
 > | check_authorization | false | Boolean | An exception occurs when this parameter is true and integration is not authorized |
 >
-> **Returns:** The required integration
+> **Returns:** The required integration.
 
 ### See also
+* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_require_integration&f[namespace][40840][v]=OMNAv2)
 * [Others helper algorithms](overview?id=do_require_integration)

@@ -18,22 +18,6 @@ Allows submitting a request to the remote integration platform to get the produc
 > | category | true | String | Contains the product category id |
 > | webhook | true | Setup::PlainWebhook | Contains the [get_category_attrs](../webhooks/overview?id=get_category_attrs) webhook |
 
-### Example
-```ruby
-# Get categories attrs from the remote integration
-properties = begin
-  data = { 'category_id' => category.id }
-
-  response = webhook.submit!(body: data.to_json)
-  response = JSON.parse(response, symbolize_names: true)
-
-  Cenit.fail(response[:msg] || response[:error]) if response[:error]
-
-  response[:attributes]
-end
-
-properties
-```
-
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_get_properties&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others action algorithms](overview?id=do_get_properties)

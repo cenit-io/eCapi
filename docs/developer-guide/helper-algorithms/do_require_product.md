@@ -29,4 +29,5 @@ If some of the resources are not found an exception is thrown.
 > **Returns:** The a record of OMNAv2::Product or Ov2Anyone::Product if the parameter integration_id is given.
 
 ### See also
+* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_require_product&f[namespace][40840][v]=OMNAv2)
 * [Others helper algorithms](overview?id=do_require_product)

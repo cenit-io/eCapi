@@ -24,20 +24,8 @@ the intermediate data structure in OMNA.
 > | ---- | -------- | ---- | ----------- |
 > | source | true | Hash | Contains the data of the product property to be transformed |
 >
-> **Returns:** A hash, with the same structure as the example shown below, with the data to be saved in the properties attribute on the record of [DICategory](../data-types/DICategory.md).
-
-### Example
-```ruby
-{
-  property_id: source[:name],
-  name: source[:name],
-  label: source[:label],
-  input_type: source[:input_type].underscore.to_sym,
-  required: source[:is_mandatory] == 1,
-  options: source[:options].collect { |o| o[:name] },
-  source: source[:attribute_type] == 'sku' ? 'variant' : 'product'
-}
-```
+> **Returns:** A hash with the data to be saved in the properties attribute on the record of [DICategory](../data-types/DICategory.md).
 
 ### See also
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_api_response_2_integration_db_property&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
 * [Others parser algorithms](overview?id=parse_from_api_response_2_integration_db_property)

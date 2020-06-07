@@ -88,6 +88,12 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 >
 > [[see more details]](do_get_integration_metadata ':class=see-more')
 
+## do_get_logistics
+
+> Allows submitting a request to the remote integration platform to get the logistics.
+>
+> [[see more details]](do_get_logistics ':class=see-more')
+
 ## do_get_order
 
 > Allows submitting a request to the remote integration platform to get an order.

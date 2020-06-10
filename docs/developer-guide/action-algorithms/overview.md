@@ -46,6 +46,12 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 >
 > [[see more details]](do_create_product ':class=see-more')
 
+## do_create_variant
+
+> Allows submitting a request to the remote integration platform to create a product variant.
+>
+> [[see more details]](do_create_variant ':class=see-more')
+
 ## do_delete_remote_product
 
 > Allows submitting a request to the remote integration platform to remove a product.
@@ -130,12 +136,6 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 >
 > [[see more details]](do_get_settings ':class=see-more')
 
-## do_import_logistics
-
-> Allows submitting a request to the remote integration platform to get and import the logistics.
->
-> [[see more details]](do_import_logistics ':class=see-more')
-
 ## do_update_order
 
 > Allows submitting a request to the remote integration platform to update an order.
@@ -147,4 +147,10 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 > Allows submitting a request to the remote integration platform to update a product.
 >
 > [[see more details]](do_update_product ':class=see-more')
+
+## do_update_variant
+
+> Allows submitting a request to the remote integration platform to update a product variant.
+>
+> [[see more details]](do_update_variant ':class=see-more')
 

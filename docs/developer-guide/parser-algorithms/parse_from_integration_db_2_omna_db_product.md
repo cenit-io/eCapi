@@ -21,6 +21,7 @@ in the general data structure of products in OMNA.
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
 > | source | true | Hash | Contains the data of the product to be transformed |
+> | is_new_target | true | Boolean | Contains true if target will be a new record |
 >
 > **Returns:** A hash with transformed data to be stored in [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]&#x3D;OMNAv2&amp;f[name][24160][o]&#x3D;is&amp;f[name][24160][v]&#x3D;Product).
 

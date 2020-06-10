@@ -143,6 +143,20 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 >
 > [[see more details]](parse_from_api_response_2_integration_db_property ':class=see-more')
 
+### parse_from_api_response_2_integration_db_variant 
+
+> It transforms and returns the data of each product variant  obtained from the platform to be integrated to be stored in 
+> the intermediate data structure in OMNA.
+> 
+> **Resources related with this parser:**
+> 
+> * Webhook from which the data is obtained: [get_products](../webhooks/overview.md?id=get_products).
+> * Action algorithms that makes the request to the api of the platform to integrate:
+>   [do_get_products](../action-algorithms/do_get_products.md) or [do_get_product](../action-algorithms/do_get_product.md)
+> * Data type where the transformed data will be stored: [DIVariant](../data-types/DIVariant.md).
+>
+> [[see more details]](parse_from_api_response_2_integration_db_variant ':class=see-more')
+
 ### parse_from_api_response_2_integration_db_variant_images 
 
 > It transforms and returns the data of each product variant images obtained from the platform to be integrated to be stored in 
@@ -156,20 +170,6 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 > * Data type where the transformed data will be stored: [DIImage](../data-types/DIImage.md).
 >
 > [[see more details]](parse_from_api_response_2_integration_db_variant_images ':class=see-more')
-
-### parse_from_api_response_2_integration_db_variants 
-
-> It transforms and returns the data of each product variant obtained from the platform to be integrated to be stored in 
-> the intermediate data structure in OMNA.
-> 
-> **Resources related with this parser:**
-> 
-> * Webhook from which the data is obtained: [get_products](../webhooks/overview.md?id=get_products).
-> * Action algorithms that makes the request to the api of the platform to integrate:
->   [do_get_products](../action-algorithms/do_get_products.md) or [do_get_product](../action-algorithms/do_get_product.md)
-> * Data type where the transformed data will be stored: [DIVariant](../data-types/DIVariant.md).
->
-> [[see more details]](parse_from_api_response_2_integration_db_variants ':class=see-more')
 
 
 ## Parsers from integration db
@@ -187,11 +187,26 @@ Note that all these algorithms have the prefix "**parse_from_integration_db_2_**
 > 
 > * Data type corresponding to the source of the product to be transformed: [DIProduct](../data-types/DIProduct.md).
 > * Action algorithm that performs and processes the submit of the data:
->   [do_create_order](../action-algorithms/do_create_order.md) or [do_update_order](../action-algorithms/do_update_order.md).
+>   [do_create_product](../action-algorithms/do_create_product.md) or [do_update_product](../action-algorithms/do_update_product.md).
 > * Webhook through which data is sent: [create_product](../webhooks/overview.md?id=create_product) or [update_product](../webhooks/overview.md?id=update_product).
 > 
 >
 > [[see more details]](parse_from_integration_db_2_api_request_product ':class=see-more')
+
+### parse_from_integration_db_2_api_request_variant 
+
+> Transforms and returns the data of a product variant from its intermediate data structure in OMNA to be send the
+> the remote platform to be integrated.
+> 
+> **Resources related with this parser:**
+> 
+> * Data type corresponding to the source of the product variant to be transformed: [DIVariant](../data-types/DIVariant.md).
+> * Action algorithm that performs and processes the submit of the data:
+>   [do_create_variant](../action-algorithms/do_create_variant.md) or [do_update_variant](../action-algorithms/do_update_variant.md).
+> * Webhook through which data is sent: [create_variant](../webhooks/overview.md?id=create_variant) or [update_variant](../webhooks/overview.md?id=update_variant).
+> 
+>
+> [[see more details]](parse_from_integration_db_2_api_request_variant ':class=see-more')
 
 ### parse_from_integration_db_2_ecapi_response_product_properties 
 

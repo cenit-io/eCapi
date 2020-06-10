@@ -29,7 +29,7 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 > 
 > This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
 > corresponding to the integration instance in process, will be the one received by parameter in the 
-> action algorithm [do_export_order_create](../action-algorithms/do_export_order_create.md).
+> action algorithm [do_create_order](../action-algorithms/do_create_order.md).
 
 ### create_product 
 
@@ -38,7 +38,11 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 > 
 > This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
 > corresponding to the integration instance in process, will be the one received by parameter in the 
-> action algorithm [do_export_product_create](../action-algorithms/do_export_product_create.md).
+> action algorithm [do_create_product](../action-algorithms/do_create_product.md).
+
+### create_variant 
+
+> TODO: Description...
 
 ### delete_product 
 
@@ -139,7 +143,7 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 > 
 > This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
 > corresponding to the integration instance in process, will be the one received by parameter in the 
-> action algorithm [do_export_order_update](../action-algorithms/do_export_order_update.md).
+> action algorithm [do_update_order](../action-algorithms/do_update_order.md).
 
 ### update_product 
 
@@ -148,7 +152,11 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 > 
 > This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
 > corresponding to the integration instance in process, will be the one received by parameter in the 
-> action algorithm [do_export_product_update](../action-algorithms/do_export_product_update.md).
+> action algorithm [do_update_product](../action-algorithms/do_update_product.md).
+
+### update_variant 
+
+> TODO: Description...
 
 ### upload_image 
 

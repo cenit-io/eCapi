@@ -15,9 +15,9 @@ After some time you will see in the <b>Integration</b> menu in <b>Installed inte
 Then the user is ready to use the OMNA API services.
 
 ## 2. Omna API.
-This process is far complex because it involves to make the same actions programatically. 
-- 1. [authenticate](authentication) the user. 
-- 2. Use the [list of all available integrations](http://doc-api.omna.io/api-spec/#operation/get_available_integrations) services to get the list of available integrations.
+This process is more complex because it involves to make the same actions programatically. 
+- 1. [Authenticate](authentication) the user. 
+- 2. Use the [list of all available integrations](http://doc-api.omna.io/api-spec/#operation/get_available_integrations) services to get all available integrations.
 - 3. Search the OMNA_V2 integration id. This search is based on the fact that the name field of previous response has the value "OMNAv2"
 - 4. Use the [install available integration](http://doc-api.omna.io/api-spec/#operation/get_available_integrations) service using the id found.
 - 5. Check when the status of the [install available integration task is finished](Tasks?id=_2-example) in order to continue.

@@ -1,0 +1,6 @@
+summary: Export product ids
+value:
+   csv: Id, Name, Description, Price
+     "5ed65d35a187c16b020ffdd3","PRODUCT-TEST-01","First product","2.50" 
+     "5ed65d38a187c16b0f101fbe","PRODUCT-TEST-02","Second product","7.65"
+    

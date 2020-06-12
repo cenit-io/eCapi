@@ -1,0 +1,14 @@
+post:
+  tags:
+    - Products
+  operationId: export_product_beta_
+  summary: Export list of products.
+  description: |
+    Export list of products with specified ids to csv format.
+  requestBody:
+    $ref: '#/components/requestBodies/export_products_csv'
+  responses:
+    '200':
+      $ref: '#/components/responses/products_list_csv'
+    '404':
+      $ref: '#/components/responses/export_error'

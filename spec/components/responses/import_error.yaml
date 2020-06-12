@@ -1,0 +1,8 @@
+description: Import error
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/Exception'
+    example:
+      type: 'exception'
+      message: "Error on import from csv"

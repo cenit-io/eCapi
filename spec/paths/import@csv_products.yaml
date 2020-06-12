@@ -1,0 +1,14 @@
+post:
+  tags:
+    - Products
+  operationId: import_product_beta_
+  summary: Import products.
+  description: |
+    Import products from a cvs
+  requestBody:
+    $ref: '#/components/requestBodies/import_products_csv'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/import_error'

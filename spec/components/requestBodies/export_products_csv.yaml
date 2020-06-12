@@ -1,0 +1,14 @@
+description: Id comma separated list of products to be included in the csv.
+required: true
+content:
+  application/json:
+    schema:
+        properties:
+            product_ids:
+                description: Comma separated ids of products.
+                type : string
+                
+            
+    examples:
+      Ex1:
+        $ref: '#/components/examples/export_products_request'

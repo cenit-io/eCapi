@@ -1,0 +1,8 @@
+description: Export error
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/Exception'
+    example:
+      type: 'exception'
+      message: "Error on export to csv"

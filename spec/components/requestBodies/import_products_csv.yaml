@@ -1,0 +1,14 @@
+description: Id comma separated list of products to be included in the csv.
+required: true
+content:
+  application/json:
+    schema:
+        properties:
+            csv:
+                description: CSV raw text.
+                type : string
+                
+            
+    examples:
+      Ex1:
+        $ref: '#/components/examples/import_products_request'

@@ -23,7 +23,7 @@ the remote platform to be integrated.
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | source | true | Hash | Contains the data of the product variant to be transformed |
+> | source | true | Hash | Contains the data of the product variant to be transformed. In the field di_product_data you will find the data of its updated product in OMNA. |
 >
 > **Returns:** A hash with transformed data to be send to the remote platform to be integrated.
 

@@ -42,7 +42,12 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 
 ### create_variant 
 
-> TODO: Description...
+> It consists of the configuration, relative route and parameters, to consume the **product variant creation** service on 
+> the platform to be integrated.
+> 
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+> corresponding to the integration instance in process, will be the one received by parameter in the 
+> action algorithm [do_create_variant](../action-algorithms/do_create_variant.md).
 
 ### delete_product 
 
@@ -156,7 +161,12 @@ You can manage the connections by entering [here](https://cenit.io/plain_webhook
 
 ### update_variant 
 
-> TODO: Description...
+> It consists of the configuration, relative route and parameters, to consume the **product variant update** service on 
+> the platform to be integrated.
+> 
+> This webhook, already configured with the [connection](../connection.md) and [authorization](../authorization.md) 
+> corresponding to the integration instance in process, will be the one received by parameter in the 
+> action algorithm [do_update_variant](../action-algorithms/do_update_variant.md).
 
 ### upload_image 
 

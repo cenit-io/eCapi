@@ -14,7 +14,7 @@ Allows submitting a request to the remote integration platform to update a produ
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | data | true | - | Contains the data to be export. This is obtained from this [parser](../parser-algorithms/parse_from_omna_db_2_api_request_product.md). |
+> | data | true | - | Contains the data to be export. This is obtained from this [parser](../parser-algorithms/parse_from_integration_db_2_api_request_product.md). |
 > | integration | true | OMNAv2::Integration | Contains integration record |
 > | webhook | true | Setup::PlainWebhook | Contains the [update_product](../webhooks/overview?id=update_product) webhook |
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |

@@ -34,6 +34,12 @@ You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 >
 > [[see more details]](do_cancel_order ':class=see-more')
 
+## do_check_error_response
+
+> Check if an answer is an error and if so get the string corresponding to the message and throw an exception.
+>
+> [[see more details]](do_check_error_response ':class=see-more')
+
 ## do_create_order
 
 > Allows submitting a request to the remote integration platform to create an order.

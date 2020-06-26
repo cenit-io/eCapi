@@ -1,12 +1,12 @@
 # Helper algorithm
 
-## do_get_properties_definition
+## do_get_category_properties_definition
 
 Returns the definition of the properties for products or variants of a category in an integration.
     
 ### Definition
 
-> **Name:** do_get_properties_definition
+> **Name:** do_get_category_properties_definition
 > 
 > **Namespace:** OMNAv2
 >
@@ -21,5 +21,5 @@ Returns the definition of the properties for products or variants of a category 
 > **Returns:** The definition of the properties for products or variants of a category in an integration.
 
 ### See also
-* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_get_properties_definition&f[namespace][40840][v]=OMNAv2)
-* [Others helper algorithms](overview?id=do_get_properties_definition)
+* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_get_category_properties_definition&f[namespace][40840][v]=OMNAv2)
+* [Others helper algorithms](overview?id=do_get_category_properties_definition)

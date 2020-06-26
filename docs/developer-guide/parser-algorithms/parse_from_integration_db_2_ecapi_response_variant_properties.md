@@ -21,7 +21,7 @@ Build and returns the property lists to conform the details of a product variant
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
 > | di_variant | true | OMNAv2::DIVariant \| Ov2Anyone::DIVariant | Contains the [DIVariant](../data-types/DIVariant.md) record from which you will get the property values. |
-> | properties_definition | true | Array | Contains the definition of properties for a variant category ([DICategory](../data-types/DICategory.md) |
+> | category_properties_definition | true | Array | Contains the definition of properties for a variant category ([DICategory](../data-types/DICategory.md) |
 >
 > **Returns:** The definition of the property list with its corresponding values ​​for the details of a variant.
 

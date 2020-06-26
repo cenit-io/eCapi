@@ -43,17 +43,17 @@ You can see this algorithms by entering [here](https://cenit.io/algorithm?f[name
 >
 > [[see more details]](do_get_available_workflows ':class=see-more')
 
+## do_get_category_properties_definition
+
+> Returns the definition of the properties for products or variants of a category in an integration.
+>
+> [[see more details]](do_get_category_properties_definition ':class=see-more')
+
 ## do_get_integrations_settings
 
 > Returns the list of all available integration settings.
 >
 > [[see more details]](do_get_integrations_settings ':class=see-more')
-
-## do_get_properties_definition
-
-> Returns the definition of the properties for products or variants of a category in an integration.
->
-> [[see more details]](do_get_properties_definition ':class=see-more')
 
 ## do_import_logistics
 

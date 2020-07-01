@@ -2536,7 +2536,7 @@
             "readOnly": true,
             "allOf": [
               {
-                "$ref": "#/components/schemas/Integration"
+                "$ref": "#/components/schemas/IntegrationMin"
               }
             ]
           },
@@ -2569,6 +2569,92 @@
       },
       "Integration": {
         "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IntegrationMin"
+          },
+          {
+            "properties": {
+              "last_import_dates": {
+                "description": "The last import dates",
+                "type": "object",
+                "readOnly": true,
+                "properties": {
+                  "orders": {
+                    "description": "The last import orders date",
+                    "type": "string",
+                    "format": "date-time-iso8601",
+                    "readOnly": true
+                  },
+                  "products": {
+                    "description": "The last import products date",
+                    "type": "string",
+                    "format": "date-time-iso8601",
+                    "readOnly": true
+                  },
+                  "categories": {
+                    "description": "The last import product categories date",
+                    "type": "string",
+                    "format": "date-time-iso8601",
+                    "readOnly": true
+                  },
+                  "brands": {
+                    "description": "The last import product brands date",
+                    "type": "string",
+                    "format": "date-time-iso8601",
+                    "readOnly": true
+                  },
+                  "logistics": {
+                    "description": "The last import product logistics date",
+                    "type": "string",
+                    "format": "date-time-iso8601",
+                    "readOnly": true
+                  }
+                }
+              },
+              "keys_to_import_brands": {
+                "description": "Keys to define the brands to import",
+                "type": "string"
+              },
+              "metadata": {
+                "description": "Metadata of the authorized integration",
+                "type": "object",
+                "readOnly": true
+              },
+              "created_at": {
+                "$ref": "#/components/schemas/CreatedAt"
+              },
+              "updated_at": {
+                "$ref": "#/components/schemas/UpdatedAt"
+              }
+            }
+          }
+        ]
+      },
+      "IntegrationChannel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Channel identifier",
+            "type": "string"
+          },
+          "title": {
+            "description": "Channel title",
+            "type": "string"
+          },
+          "group": {
+            "description": "Channel group",
+            "type": "string"
+          }
+        }
+      },
+      "IntegrationId": {
+        "type": "string",
+        "writeOnly": true,
+        "description": "Integration identifier\n\n> You can see the available values by consulting the [integrations](#operation/get_integrations) service.\n"
+      },
+      "IntegrationMin": {
+        "type": "object",
         "description": "Integration",
         "properties": {
           "id": {
@@ -2593,57 +2679,8 @@
             "description": "If integration is authorized or not",
             "type": "boolean",
             "readOnly": true
-          },
-          "last_import_orders_date": {
-            "description": "The last import orders date",
-            "type": "string",
-            "format": "date-time-iso8601",
-            "readOnly": true
-          },
-          "last_import_products_date": {
-            "description": "The last import orders daten",
-            "type": "string",
-            "format": "date-time-iso8601",
-            "readOnly": true
-          },
-          "keys_to_import_brands": {
-            "description": "Keys to define the brands to import",
-            "type": "string"
-          },
-          "metadata": {
-            "description": "Metadata of the authorized integration",
-            "type": "object",
-            "readOnly": true
-          },
-          "created_at": {
-            "$ref": "#/components/schemas/CreatedAt"
-          },
-          "updated_at": {
-            "$ref": "#/components/schemas/UpdatedAt"
           }
         }
-      },
-      "IntegrationChannel": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "Channel identifier",
-            "type": "string"
-          },
-          "title": {
-            "description": "Channel title",
-            "type": "string"
-          },
-          "group": {
-            "description": "Channel group",
-            "type": "string"
-          }
-        }
-      },
-      "IntegrationId": {
-        "type": "string",
-        "writeOnly": true,
-        "description": "Integration identifier\n\n> You can see the available values by consulting the [integrations](#operation/get_integrations) service.\n"
       },
       "LineItem": {
         "title": "LineItem",
@@ -2757,7 +2794,7 @@
             "readOnly": true,
             "allOf": [
               {
-                "$ref": "#/components/schemas/Integration"
+                "$ref": "#/components/schemas/IntegrationMin"
               }
             ]
           },
@@ -3314,7 +3351,7 @@
             "readOnly": true,
             "allOf": [
               {
-                "$ref": "#/components/schemas/Integration"
+                "$ref": "#/components/schemas/IntegrationMin"
               }
             ]
           },
@@ -5687,10 +5724,8 @@
               "id": "shop_01",
               "name": "Shop-01",
               "channel": "Ov2LazadaSG",
-              "authorized": true,
-              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-              "created_at": "2019-06-07T00:06:52+00:00",
-              "updated_at": "2019-06-07T20:47:32+00:00"
+              "channel_title": "Lazada [SG]",
+              "authorized": true
             },
             "task": {
               "id": "5cfe690b25d9854b3b02241b",
@@ -5931,9 +5966,14 @@
             "channel": "Ov2LazadaSG",
             "channel_title": "Lazada SG",
             "authorized": true,
-            "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-            "last_import_products_date": "2020-01-13T04:11:23.000+00:00",
             "keys_to_import_brands": "A",
+            "last_import_dates": {
+              "orders": "2019-06-07T20:47:14+00:00",
+              "products": "2020-01-13T04:11:23.000+00:00",
+              "categories": "2020-01-13T04:11:23.000+00:00",
+              "brands": "2020-01-13T04:11:23.000+00:00",
+              "logistics": "2020-01-13T04:11:23.000+00:00"
+            },
             "metadata": {
               "name_company": "OMNA PTE LTD",
               "name": "OMNA.IO",
@@ -5958,9 +5998,6 @@
               "channel": "Ov2LazadaSG",
               "channel_title": "Lazada SG",
               "authorized": true,
-              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-              "last_import_products_date": "2019-06-07T20:47:14+00:00",
-              "keys_to_import_brands": "A",
               "created_at": "2019-06-07T00:06:52+00:00",
               "updated_at": "2019-06-07T20:47:32+00:00"
             },
@@ -5970,8 +6007,6 @@
               "channel": "Ov2LazadaMY",
               "channel_title": "Lazada MY",
               "authorized": true,
-              "last_import_orders_date": "2019-07-07T20:47:14+00:00",
-              "last_import_products_date": "2019-07-07T20:47:14+00:00",
               "created_at": "2019-07-07T00:06:52+00:00",
               "updated_at": "2019-07-07T20:47:32+00:00"
             }
@@ -6130,10 +6165,8 @@
               "id": "shop_01",
               "name": "Shop-01",
               "channel": "Ov2LazadaSG",
-              "authorized": false,
-              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-              "created_at": "2019-06-07T00:06:52+00:00",
-              "updated_at": "2019-06-07T20:47:32+00:00"
+              "channel_title": "Lazada [SG]",
+              "authorized": false
             }
           }
         }
@@ -7096,10 +7129,8 @@
               "id": "shop_01",
               "name": "Shop-01",
               "channel": "Ov2LazadaSG",
-              "authorized": true,
-              "last_import_orders_date": "2019-06-07T20:47:14+00:00",
-              "created_at": "2019-06-07T00:06:52+00:00",
-              "updated_at": "2019-06-07T20:47:32+00:00"
+              "channel_title": "Lazada [SG]",
+              "authorized": true
             },
             "created_at": "2019-06-07T00:06:52+00:00",
             "updated_at": "2019-06-07T20:47:32+00:00"

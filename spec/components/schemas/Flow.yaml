@@ -19,7 +19,7 @@ properties:
   integration:
     readOnly: true
     allOf:
-      - $ref: "#/components/schemas/Integration"
+      - $ref: "#/components/schemas/IntegrationMin"
   integration_id:
     $ref: "#/components/schemas/IntegrationId"
   scheduler:

@@ -50,7 +50,7 @@ properties:
   integration:
     readOnly: true
     allOf:
-      - $ref: "#/components/schemas/Integration"
+      - $ref: "#/components/schemas/IntegrationMin"
   created_at:
     $ref: "#/components/schemas/CreatedAt"
   updated_at:

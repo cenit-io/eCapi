@@ -21,6 +21,8 @@ in the intermediate data structure in OMNA.
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
 > | source | true | Hash | Contains the hash record of the [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Product) to be transformed |
+> | integration | true | OMNAv2::Integration | Contains the integration record |
+> | is_new_target | true | Boolean | Contains true if target will be a new record |
 >
 > **Returns:** Tha hash with the data to be store in [DIProduct](../data-types/DIProduct.md).
 

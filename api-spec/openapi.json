@@ -2900,7 +2900,7 @@
           },
           "variants": {
             "description": "Number of the product variants",
-            "type": "number",
+            "type": "integer",
             "readOnly": true,
             "minimum": 0
           },
@@ -2978,17 +2978,17 @@
           },
           "height": {
             "description": "Package height in cm",
-            "type": "number",
+            "type": "integer",
             "minimum": 0
           },
           "length": {
             "description": "Package length in cm",
-            "type": "number",
+            "type": "integer",
             "minimum": 0
           },
           "width": {
             "description": "Package width in cm",
-            "type": "number",
+            "type": "integer",
             "minimum": 0
           },
           "content": {

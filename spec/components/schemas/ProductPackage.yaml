@@ -7,15 +7,15 @@ properties:
     minimum: 0
   height:
     description: Package height in cm
-    type: number
+    type: integer
     minimum: 0
   length:
     description: Package length in cm
-    type: number
+    type: integer
     minimum: 0
   width:
     description: Package width in cm
-    type: number
+    type: integer
     minimum: 0
   content:
     description: What's in the package?

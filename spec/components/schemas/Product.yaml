@@ -17,7 +17,7 @@ properties:
     minimum: 0
   variants:
     description: Number of the product variants
-    type: number
+    type: integer
     readOnly: true
     minimum: 0
   package:

@@ -1,4 +1,4 @@
-description: Id comma separated list of products to be included in the csv.
+description: CSV content of data to be imported.
 required: true
 content:
   application/json:

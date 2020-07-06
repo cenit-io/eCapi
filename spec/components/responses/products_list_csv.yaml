@@ -3,7 +3,6 @@ content:
   application/text:
     schema:
       type: string
-      data: plain scv
 
     examples:
       Ex1:

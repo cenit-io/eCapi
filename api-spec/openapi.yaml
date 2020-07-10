@@ -87,6 +87,9 @@ tags:
   - name: Brands
     description: |
       Operations on the product brands of an Integration.
+  - name: Stock Locations
+    description: |
+      Operations on the stock locations.
   - name: Flows
     description: |
       Operations on the flows.
@@ -171,6 +174,9 @@ x-tagGroups:
       - Variants of an Integration
       - Categories
       - Brands
+  - name: Inventories
+    tags:
+      - Stock Locations
   - name: Workflows
     tags:
       - Flows
@@ -1465,6 +1471,90 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/startup_task'
+  /stock/locations:
+    get:
+      tags:
+        - Stock Locations
+      operationId: get_stock_locations
+      x-menu-position: 0
+      summary: List all Stock Locations
+      description: |
+        Returns the list of stock locations.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_stock_locations'
+        - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
+        - $ref: '#/components/parameters/query_filter_name'
+        - $ref: '#/components/parameters/query_filter_country'
+        - $ref: '#/components/parameters/query_filter_state'
+        - $ref: '#/components/parameters/query_filter_city'
+        - $ref: '#/components/parameters/query_filter_zip_code'
+        - $ref: '#/components/parameters/query_filter_phone'
+        - $ref: '#/components/parameters/query_without_data'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_stock_locations'
+      responses:
+        '200':
+          $ref: '#/components/responses/stock_location_items'
+    post:
+      tags:
+        - Stock Locations
+      operationId: create_stock_location
+      summary: Create a Stock Location
+      description: |
+        Create a new stock location.
+      requestBody:
+        $ref: '#/components/requestBodies/stock_location_create'
+      responses:
+        '200':
+          $ref: '#/components/responses/stock_location_item'
+        '400':
+          $ref: '#/components/responses/already_exists'
+  '/stock/locations/{stock_location_id}':
+    parameters:
+      - $ref: '#/components/parameters/path_stock_location_id'
+    get:
+      tags:
+        - Stock Locations
+      operationId: get_stock_location
+      summary: Retrieve a Stock Location
+      description: |
+        Find stock location by given id and returns it.
+      responses:
+        '200':
+          $ref: '#/components/responses/stock_location_item'
+        '404':
+          $ref: '#/components/responses/stock_location_not_found'
+    post:
+      tags:
+        - Stock Locations
+      operationId: update_stock_location
+      summary: Update a Stock Location
+      description: |
+        Find a stock location by a given id and update it scheduler.
+      requestBody:
+        $ref: '#/components/requestBodies/stock_location_update'
+      responses:
+        '200':
+          $ref: '#/components/responses/stock_location_item'
+        '404':
+          $ref: '#/components/responses/stock_location_not_found'
+    delete:
+      tags:
+        - Stock Locations
+      operationId: delete_stock_location
+      summary: Delete a Stock Location
+      description: |
+        Find a stock location by a given id and destroy it.
+      responses:
+        '200':
+          $ref: '#/components/responses/success'
+        '404':
+          $ref: '#/components/responses/stock_location_not_found'
   /tasks:
     parameters:
       - $ref: '#/components/parameters/query_filter_term_for_tasks'
@@ -2260,6 +2350,45 @@ components:
       enum:
         - ASC
         - DESC
+    StockLocation:
+      type: object
+      properties:
+        id:
+          description: Stock location identifier
+          type: string
+          readOnly: true
+        name:
+          description: The name of the stock location
+          type: string
+        address1:
+          description: The first line of the address
+          type: string
+        address2:
+          description: The second line of the address
+          type: string
+        city:
+          description: The city where the stock location is located
+          type: string
+        country:
+          description: 'The two-letter code ([ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format) corresponding to contry where the stock location is located'
+          type: string
+        state:
+          description: The two-letter code corresponding to state where the stock location is located
+          type: string
+        zip_code:
+          description: The zip or postal code
+          type: string
+        phone:
+          description: The phone number of the location
+          type: string
+        integration:
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/IntegrationMin'
+        created_at:
+          $ref: '#/components/schemas/CreatedAt'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAt'
     Success:
       type: object
       properties:
@@ -2956,6 +3085,42 @@ components:
           examples:
             Ex1:
               $ref: '#/components/examples/task_item_startup_response'
+    stock_location_item:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                $ref: '#/components/schemas/StockLocation'
+    stock_location_items:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                description: Stock Location representations in OMNA
+                type: array
+                items:
+                  $ref: '#/components/schemas/StockLocation'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
+    stock_location_not_found:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Exception'
+          example:
+            type: exception
+            message: 'Not found stock location with id: 5d04051125d9852c71016793'
     success:
       description: Success
       content:
@@ -3279,6 +3444,14 @@ components:
           - **brands**: To import the last product brands updates.
         type: string
         example: products
+    path_stock_location_id:
+      name: stock_location_id
+      in: path
+      required: true
+      schema:
+        description: Stock location identifier
+        type: string
+        example: 5d04051125d9852c71016793
     path_task_id:
       name: task_id
       in: path
@@ -3325,6 +3498,18 @@ components:
         description: It allows to filter items by channel name.
         type: string
         example: Ov2LazadaSG
+    query_filter_city:
+      name: city
+      in: query
+      schema:
+        description: It allows to filter items by city.
+        type: string
+    query_filter_country:
+      name: country
+      in: query
+      schema:
+        description: It allows to filter items by country.
+        type: string
     query_filter_flow_type:
       name: type
       in: query
@@ -3378,6 +3563,12 @@ components:
         description: It allows to filter items by integration.
         type: string
         example: shop_01
+    query_filter_name:
+      name: name
+      in: query
+      schema:
+        description: It allows to filter items by name.
+        type: string
     query_filter_order_created_after:
       name: created_after
       in: query
@@ -3424,6 +3615,12 @@ components:
         type: string
         format: date-time-iso8601
         example: 2018-01-30T00:00:00.000Z
+    query_filter_phone:
+      name: phone
+      in: query
+      schema:
+        description: It allows to filter items by phone.
+        type: string
     query_filter_product_created_after:
       name: created_after
       in: query
@@ -3456,6 +3653,12 @@ components:
         type: string
         format: date-time-iso8601
         example: 2018-01-30T00:00:00.000Z
+    query_filter_state:
+      name: state
+      in: query
+      schema:
+        description: It allows to filter items by state.
+        type: string
     query_filter_task_description:
       name: description
       in: query
@@ -3529,6 +3732,12 @@ components:
       schema:
         description: It allows to filter products that contain the value of the term in their ***name***.
         type: string
+    query_filter_term_for_stock_locations:
+      name: term
+      in: query
+      schema:
+        description: 'It allows to filter the stock locations that contain the value of the term in their ***name***, ***city***, ***zip_code*** or ***phone***.'
+        type: string
     query_filter_term_for_tasks:
       name: term
       in: query
@@ -3563,6 +3772,12 @@ components:
         description: It allows to filter items by webhook topic.
         type: string
         example: order/registered
+    query_filter_zip_code:
+      name: zip_code
+      in: query
+      schema:
+        description: It allows to filter items by zip code.
+        type: string
     query_limit:
       name: limit
       in: query
@@ -3738,6 +3953,35 @@ components:
             allOf:
               - $ref: '#/components/schemas/SortQueryParameter'
           price:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+    query_sort_for_stock_locations:
+      name: sort
+      in: query
+      schema:
+        description: |
+          It allows to sort ***stock locations*** list.
+          > If the sort parameter is omitted, the items list will be sorting by created_at descending.
+        properties:
+          created_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          updated_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          name:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          country:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          state:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          city:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          zip_code:
             allOf:
               - $ref: '#/components/schemas/SortQueryParameter'
     query_sort_for_tasks:
@@ -5396,6 +5640,43 @@ components:
               $ref: '#/components/examples/product_update_request_1'
             Ex2:
               $ref: '#/components/examples/product_update_request_2'
+    stock_location_create:
+      description: Stock Location that will be added to the system
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                allOf:
+                  - $ref: '#/components/schemas/StockLocation'
+                  - type: object
+                    properties:
+                      integration_id:
+                        $ref: '#/components/schemas/IntegrationId'
+                  - required:
+                      - name
+                      - address1
+                      - country
+                      - state
+                      - city
+                      - zip_code
+                      - phone
+                      - integration_id
+    stock_location_update:
+      description: Stock Location scheduler that will be updated
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                allOf:
+                  - $ref: '#/components/schemas/StockLocation'
     tenant_create:
       description: Tenant that will be added to the system
       required: true

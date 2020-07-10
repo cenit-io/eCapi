@@ -98,6 +98,10 @@ tags:
     description: |
       Operations on the product brands of an Integration.
 
+  - name: Stock Locations
+    description: |
+      Operations on the stock locations.
+
   - name: Flows
     description: |
       Operations on the flows.
@@ -190,6 +194,10 @@ x-tagGroups:
       - Variants of an Integration
       - Categories
       - Brands
+
+  - name: Inventories
+    tags:
+      - Stock Locations
 
   - name: Workflows
     tags:

@@ -1,0 +1,38 @@
+type: "object"
+properties:
+  id:
+    description: Stock location identifier
+    type: string
+    readOnly: true
+  name:
+    description: The name of the stock location
+    type: string
+  address1:
+    description: The first line of the address
+    type: string
+  address2:
+    description: The second line of the address
+    type: string
+  city:
+    description: The city where the stock location is located
+    type: string
+  country:
+    description: The two-letter code ([ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format) corresponding to contry where the stock location is located
+    type: string
+  state:
+    description: The two-letter code corresponding to state where the stock location is located
+    type: string
+  zip_code:
+    description: The zip or postal code
+    type: string
+  phone:
+    description: The phone number of the location
+    type: string
+  integration:
+    readOnly: true
+    allOf:
+      - $ref: "#/components/schemas/IntegrationMin"
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
+  updated_at:
+    $ref: "#/components/schemas/UpdatedAt"

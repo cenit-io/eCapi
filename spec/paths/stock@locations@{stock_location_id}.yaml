@@ -1,0 +1,43 @@
+parameters:
+  - $ref: '#/components/parameters/path_stock_location_id'
+
+get:
+  tags:
+    - Stock Locations
+  operationId: get_stock_location
+  summary: Retrieve a Stock Location
+  description: |
+    Find stock location by given id and returns it.
+  responses:
+    '200':
+      $ref: '#/components/responses/stock_location_item'
+    '404':
+      $ref: '#/components/responses/stock_location_not_found'
+
+post:
+  tags:
+    - Stock Locations
+  operationId: update_stock_location
+  summary: Update a Stock Location
+  description: |
+    Find a stock location by a given id and update it scheduler.
+  requestBody:
+    $ref: '#/components/requestBodies/stock_location_update'
+  responses:
+    '200':
+      $ref: '#/components/responses/stock_location_item'
+    '404':
+      $ref: '#/components/responses/stock_location_not_found'
+
+delete:
+  tags:
+    - Stock Locations
+  operationId: delete_stock_location
+  summary: Delete a Stock Location
+  description: |
+    Find a stock location by a given id and destroy it.
+  responses:
+    '200':
+      $ref: '#/components/responses/success'
+    '404':
+      $ref: '#/components/responses/stock_location_not_found'

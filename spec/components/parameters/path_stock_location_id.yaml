@@ -1,0 +1,7 @@
+name: stock_location_id
+in: path
+required: true
+schema:
+  description: Stock location identifier
+  type: string
+  example: 5d04051125d9852c71016793

@@ -1,0 +1,5 @@
+name: city
+in: query
+schema:
+  description: It allows to filter items by city.
+  type: string

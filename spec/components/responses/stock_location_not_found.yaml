@@ -1,0 +1,8 @@
+description: Not found
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/Exception'
+    example:
+      type: 'exception'
+      message: "Not found stock location with id: 5d04051125d9852c71016793"

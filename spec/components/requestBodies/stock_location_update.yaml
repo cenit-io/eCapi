@@ -1,0 +1,10 @@
+description: Stock Location scheduler that will be updated
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          allOf:
+            - $ref: "#/components/schemas/StockLocation"

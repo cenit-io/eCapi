@@ -1,0 +1,43 @@
+get:
+  tags:
+    - Stock Locations
+  operationId: get_stock_locations
+  x-menu-position: 0
+  summary: List all Stock Locations
+  description: |
+    Returns the list of stock locations.
+  parameters:
+    - $ref: '#/components/parameters/query_filter_term_for_stock_locations'
+    - $ref: '#/components/parameters/query_filter_integration'
+    - $ref: '#/components/parameters/query_filter_generic_created_after'
+    - $ref: '#/components/parameters/query_filter_generic_created_before'
+    - $ref: '#/components/parameters/query_filter_generic_updated_after'
+    - $ref: '#/components/parameters/query_filter_generic_updated_before'
+    - $ref: '#/components/parameters/query_filter_name'
+    - $ref: '#/components/parameters/query_filter_country'
+    - $ref: '#/components/parameters/query_filter_state'
+    - $ref: '#/components/parameters/query_filter_city'
+    - $ref: '#/components/parameters/query_filter_zip_code'
+    - $ref: '#/components/parameters/query_filter_phone'
+    - $ref: '#/components/parameters/query_without_data'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
+    - $ref: '#/components/parameters/query_sort_for_stock_locations'
+  responses:
+    '200':
+      $ref: '#/components/responses/stock_location_items'
+
+post:
+  tags:
+    - Stock Locations
+  operationId: create_stock_location
+  summary: Create a Stock Location
+  description: |
+    Create a new stock location.
+  requestBody:
+    $ref: '#/components/requestBodies/stock_location_create'
+  responses:
+    '200':
+      $ref: '#/components/responses/stock_location_item'
+    '400':
+      $ref: '#/components/responses/already_exists'

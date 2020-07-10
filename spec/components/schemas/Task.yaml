@@ -1,4 +1,4 @@
-type: object
+type: "object"
 readOnly: true
 properties:
   id:

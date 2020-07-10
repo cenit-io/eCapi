@@ -1,0 +1,28 @@
+name: sort
+in: query
+schema:
+  description: |
+    It allows to sort ***stock locations*** list.
+    > If the sort parameter is omitted, the items list will be sorting by created_at descending.
+  properties:
+    created_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    updated_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    name:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    country:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    state:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    city:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    zip_code:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"

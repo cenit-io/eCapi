@@ -1,0 +1,5 @@
+name: country
+in: query
+schema:
+  description: It allows to filter items by country.
+  type: string

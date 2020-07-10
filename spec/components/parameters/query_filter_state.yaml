@@ -1,0 +1,5 @@
+name: state
+in: query
+schema:
+  description: It allows to filter items by state.
+  type: string

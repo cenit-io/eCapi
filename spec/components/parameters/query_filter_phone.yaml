@@ -1,0 +1,5 @@
+name: phone
+in: query
+schema:
+  description: It allows to filter items by phone.
+  type: string

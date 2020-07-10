@@ -1,0 +1,5 @@
+name: zip_code
+in: query
+schema:
+  description: It allows to filter items by zip code.
+  type: string

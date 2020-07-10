@@ -1,0 +1,15 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ResponseResourceType'
+        data:
+          description: Stock Location representations in OMNA
+          type: array
+          items:
+            $ref: '#/components/schemas/StockLocation'
+        pagination:
+            $ref: '#/components/schemas/Pagination'

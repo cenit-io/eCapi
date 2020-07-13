@@ -1,7 +1,7 @@
 get:
   tags:
     - Stock Locations
-  operationId: get_stock_locations
+  operationId: get_stock_locations_beta_
   x-menu-position: 0
   summary: List all Stock Locations
   description: |
@@ -30,7 +30,7 @@ get:
 post:
   tags:
     - Stock Locations
-  operationId: create_stock_location
+  operationId: create_stock_location_beta_
   summary: Create a Stock Location
   description: |
     Create a new stock location.

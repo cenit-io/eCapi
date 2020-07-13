@@ -1994,7 +1994,7 @@
         "tags": [
           "Stock Locations"
         ],
-        "operationId": "get_stock_locations",
+        "operationId": "get_stock_locations_beta_",
         "x-menu-position": 0,
         "summary": "List all Stock Locations",
         "description": "Returns the list of stock locations.\n",
@@ -2058,7 +2058,7 @@
         "tags": [
           "Stock Locations"
         ],
-        "operationId": "create_stock_location",
+        "operationId": "create_stock_location_beta_",
         "summary": "Create a Stock Location",
         "description": "Create a new stock location.\n",
         "requestBody": {
@@ -2084,7 +2084,7 @@
         "tags": [
           "Stock Locations"
         ],
-        "operationId": "get_stock_location",
+        "operationId": "get_stock_location_beta_",
         "summary": "Retrieve a Stock Location",
         "description": "Find stock location by given id and returns it.\n",
         "responses": {
@@ -2100,7 +2100,7 @@
         "tags": [
           "Stock Locations"
         ],
-        "operationId": "update_stock_location",
+        "operationId": "update_stock_location_beta_",
         "summary": "Update a Stock Location",
         "description": "Find a stock location by a given id and update it scheduler.\n",
         "requestBody": {
@@ -2119,7 +2119,7 @@
         "tags": [
           "Stock Locations"
         ],
-        "operationId": "delete_stock_location",
+        "operationId": "delete_stock_location_beta_",
         "summary": "Delete a Stock Location",
         "description": "Find a stock location by a given id and destroy it.\n",
         "responses": {

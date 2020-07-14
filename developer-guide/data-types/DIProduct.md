@@ -7,9 +7,9 @@ Data structure to store the imported records of products for each integration ch
 **Algorithms related with this data type:**
 
 * Action algorithm [do_get_products](../action-algorithms/do_get_products.md).
-* Parser algorithm [parse_from_api_response_2_integration_db_product](../parser-algorithms/parse_from_api_response_2_integration_db_product.md).
-* Parser algorithm [parse_from_api_request_2_integration_db_product](../parser-algorithms/parse_from_api_request_2_integration_db_product.md).
-* Parser algorithm [parse_from_omna_db_2_integration_db_product](../parser-algorithms/parse_from_omna_db_2_integration_db_product.md).
+* Parser algorithm [parse_from_api_response_2_di_product](../parser-algorithms/parse_from_api_response_2_di_product.md).
+* Parser algorithm [parse_from_api_request_2_di_product](../parser-algorithms/parse_from_api_request_2_di_product.md).
+* Parser algorithm [parse_from_omna_2_di_product](../parser-algorithms/parse_from_omna_2_di_product.md).
 
     
 ### JSON SCHEMA

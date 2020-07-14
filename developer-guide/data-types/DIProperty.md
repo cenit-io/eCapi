@@ -11,7 +11,7 @@ custom attributes related to the associated category.
 **Algorithms related with this data type:**
 
 * Action algorithm [do_get_properties](../action-algorithms/do_get_properties.md).
-* Parser algorithm [parse_from_api_response_2_integration_db_property](../parser-algorithms/parse_from_api_response_2_integration_db_property.md).
+* Parser algorithm [parse_from_api_response_2_di_property](../parser-algorithms/parse_from_api_response_2_di_property.md).
 
     
 ### JSON SCHEMA

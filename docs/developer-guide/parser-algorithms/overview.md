@@ -172,7 +172,7 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 > [[see more details]](parse_from_api_response_2_di_variant_images ':class=see-more')
 
 
-## Parsers from integration db
+## Parsers from DI data types records
 
 In these algorithms, the origin of the information will always be a record of an intermediate [data type](../data-types/overview.md).
 
@@ -305,7 +305,7 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 > [[see more details]](parse_from_di_2_omna_variant ':class=see-more')
 
 
-## Parsers from omna db
+## Parsers from OMNAv2 data types records
 
 In these algorithms, the origin of the information will always be a record of 
 a [omna data type](https://cenit.io/json_data_type?f[namespace][99061][v]=OMNAv2).

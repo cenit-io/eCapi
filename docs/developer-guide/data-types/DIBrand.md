@@ -9,7 +9,7 @@ This structure is required only when the platform to be integrated have predefin
 **Algorithms related with this data type:**
 
 * Action algorithm [do_get_brands](../action-algorithms/do_get_brands.md)
-* Parser algorithm [parse_from_api_response_2_integration_db_brand](../parser-algorithms/parse_from_api_response_2_integration_db_brand.md)
+* Parser algorithm [parse_from_api_response_2_di_brand](../parser-algorithms/parse_from_api_response_2_di_brand.md)
     
 ### JSON SCHEMA
 ```json

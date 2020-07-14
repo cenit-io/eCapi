@@ -1,6 +1,6 @@
 # Parser algorithm
  
-## parse_from_integration_db_2_omna_db_order_address
+## parse_from_di_2_omna_order_address
 
 Transforms and returns the data of shipping and billing address of an order from its intermediate data structure in OMNA to be stored 
 in the general data structure of orders in OMNA.
@@ -12,7 +12,7 @@ in the general data structure of orders in OMNA.
     
 ### Definition
 
-> **Name:** parse_from_integration_db_2_omna_db_order_address
+> **Name:** parse_from_di_2_omna_order_address
 > 
 > **Namespace:** Ov2Anyone
 >
@@ -25,5 +25,5 @@ in the general data structure of orders in OMNA.
 > **Returns:** A hash with the transformed address.
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_integration_db_2_omna_db_order_address&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
-* [Others parser algorithms](overview?id=parse_from_integration_db_2_omna_db_order_address)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_di_2_omna_order_address&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Others parser algorithms](overview?id=parse_from_di_2_omna_order_address)

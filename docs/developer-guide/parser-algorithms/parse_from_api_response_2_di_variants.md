@@ -1,6 +1,6 @@
 # Parser algorithm
  
-## parse_from_api_response_2_integration_db_variants
+## parse_from_api_response_2_di_variants
 
 It transforms and returns the data of each product variant obtained from the platform to be integrated to be stored in 
 the intermediate data structure in OMNA.
@@ -14,7 +14,7 @@ the intermediate data structure in OMNA.
     
 ### Definition
 
-> **Name:** parse_from_api_response_2_integration_db_variants
+> **Name:** parse_from_api_response_2_di_variants
 > 
 > **Namespace:** Ov2Anyone
 >
@@ -27,5 +27,5 @@ the intermediate data structure in OMNA.
 > **Returns:** A array of hash with the data to be saved in a record of [DIVariant](../data-types/DIVariant.md).
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_api_response_2_integration_db_variants&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
-* [Others parser algorithms](overview?id=parse_from_api_response_2_integration_db_variants)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_api_response_2_di_variants&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Others parser algorithms](overview?id=parse_from_api_response_2_di_variants)

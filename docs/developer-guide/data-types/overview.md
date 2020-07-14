@@ -18,7 +18,7 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > **Algorithms related with this data type:**
 > 
 > * Action algorithm [do_get_brands](../action-algorithms/do_get_brands.md)
-> * Parser algorithm [parse_from_api_response_2_integration_db_brand](../parser-algorithms/parse_from_api_response_2_integration_db_brand.md)
+> * Parser algorithm [parse_from_api_response_2_di_brand](../parser-algorithms/parse_from_api_response_2_di_brand.md)
 >
 > [[see more details]](DIBrand ':class=see-more')
 
@@ -31,7 +31,7 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > **Algorithms related with this data type:**
 > 
 > * Action algorithm [do_get_categories](../action-algorithms/do_get_categories.md)
-> * Parser algorithm [parse_from_api_response_2_integration_db_category](../parser-algorithms/parse_from_api_response_2_integration_db_category.md)
+> * Parser algorithm [parse_from_api_response_2_di_category](../parser-algorithms/parse_from_api_response_2_di_category.md)
 > 
 >
 > [[see more details]](DICategory ':class=see-more')
@@ -45,8 +45,8 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > **Algorithms related with this data type:**
 > 
 > * Action algorithm [do_get_products](../action-algorithms/do_get_products.md).
-> * Parser algorithm [parse_from_api_response_2_integration_db_product_images](../parser-algorithms/parse_from_api_response_2_integration_db_product_images.md).
-> * Parser algorithm [parse_from_api_response_2_integration_db_variant_images](../parser-algorithms/parse_from_api_response_2_integration_db_variant_images.md).
+> * Parser algorithm [parse_from_api_response_2_di_product_images](../parser-algorithms/parse_from_api_response_2_di_product_images.md).
+> * Parser algorithm [parse_from_api_response_2_di_variant_images](../parser-algorithms/parse_from_api_response_2_di_variant_images.md).
 >
 > [[see more details]](DIImage ':class=see-more')
 
@@ -57,7 +57,7 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > **Algorithms related with this data type:**
 > 
 > * Action algorithm [do_get_logistics](../action-algorithms/do_get_logistics.md)
-> * Parser algorithm [parse_from_api_response_2_integration_db_logistic](../parser-algorithms/parse_from_api_response_2_integration_db_logistic.md)
+> * Parser algorithm [parse_from_api_response_2_di_logistic](../parser-algorithms/parse_from_api_response_2_di_logistic.md)
 > 
 >
 > [[see more details]](DILogistic ':class=see-more')
@@ -69,7 +69,7 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > **Algorithms related with this data type:**
 > 
 > * Action algorithm [do_get_orders](../action-algorithms/do_get_orders.md).
-> * Parser algorithm [parse_from_api_response_2_integration_db_order](../parser-algorithms/parse_from_api_response_2_integration_db_order.md).
+> * Parser algorithm [parse_from_api_response_2_di_order](../parser-algorithms/parse_from_api_response_2_di_order.md).
 > 
 >
 > [[see more details]](DIOrder ':class=see-more')
@@ -81,9 +81,9 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > **Algorithms related with this data type:**
 > 
 > * Action algorithm [do_get_products](../action-algorithms/do_get_products.md).
-> * Parser algorithm [parse_from_api_response_2_integration_db_product](../parser-algorithms/parse_from_api_response_2_integration_db_product.md).
-> * Parser algorithm [parse_from_api_request_2_integration_db_product](../parser-algorithms/parse_from_api_request_2_integration_db_product.md).
-> * Parser algorithm [parse_from_omna_db_2_integration_db_product](../parser-algorithms/parse_from_omna_db_2_integration_db_product.md).
+> * Parser algorithm [parse_from_api_response_2_di_product](../parser-algorithms/parse_from_api_response_2_di_product.md).
+> * Parser algorithm [parse_from_api_request_2_di_product](../parser-algorithms/parse_from_api_request_2_di_product.md).
+> * Parser algorithm [parse_from_omna_2_di_product](../parser-algorithms/parse_from_omna_2_di_product.md).
 > 
 >
 > [[see more details]](DIProduct ':class=see-more')
@@ -99,7 +99,7 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > **Algorithms related with this data type:**
 > 
 > * Action algorithm [do_get_properties](../action-algorithms/do_get_properties.md).
-> * Parser algorithm [parse_from_api_response_2_integration_db_property](../parser-algorithms/parse_from_api_response_2_integration_db_property.md).
+> * Parser algorithm [parse_from_api_response_2_di_property](../parser-algorithms/parse_from_api_response_2_di_property.md).
 > 
 >
 > [[see more details]](DIProperty ':class=see-more')
@@ -111,7 +111,7 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > **Algorithms related with this data type:**
 > 
 > * Action algorithm [do_get_products](../action-algorithms/do_get_products.md).
-> * Parser algorithm [parse_from_api_response_2_integration_db_product](../parser-algorithms/parse_from_api_response_2_integration_db_variant.md).
+> * Parser algorithm [parse_from_api_response_2_di_product](../parser-algorithms/parse_from_api_response_2_di_variant.md).
 > 
 >
 > [[see more details]](DIVariant ':class=see-more')

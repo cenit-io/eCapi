@@ -1,6 +1,6 @@
 # Parser algorithm
  
-## parse_from_integration_db_2_ecapi_response_product_properties
+## parse_from_di_2_ecapi_response_product_properties
 
 Build and returns the property lists to conform the details of a product in an integration.
 
@@ -12,7 +12,7 @@ Build and returns the property lists to conform the details of a product in an i
     
 ### Definition
 
-> **Name:** parse_from_integration_db_2_ecapi_response_product_properties
+> **Name:** parse_from_di_2_ecapi_response_product_properties
 > 
 > **Namespace:** Ov2Anyone
 >
@@ -26,5 +26,5 @@ Build and returns the property lists to conform the details of a product in an i
 > **Returns:** The definition of the property list with its corresponding values ​​for the details of a product.
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_integration_db_2_ecapi_response_product_properties&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
-* [Others parser algorithms](overview?id=parse_from_integration_db_2_ecapi_response_product_properties)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_di_2_ecapi_response_product_properties&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Others parser algorithms](overview?id=parse_from_di_2_ecapi_response_product_properties)

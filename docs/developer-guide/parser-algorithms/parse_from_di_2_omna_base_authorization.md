@@ -1,6 +1,6 @@
 # Parser algorithm
  
-## parse_from_integration_db_2_omna_db_base_authorization
+## parse_from_di_2_omna_base_authorization
 
 Returns the custom data, usually the template parameters, that will be used to create the authorization 
 associated with the integration.
@@ -12,7 +12,7 @@ associated with the integration.
     
 ### Definition
 
-> **Name:** parse_from_integration_db_2_omna_db_base_authorization
+> **Name:** parse_from_di_2_omna_base_authorization
 > 
 > **Namespace:** Ov2Anyone
 >
@@ -26,5 +26,5 @@ associated with the integration.
 > **Returns:** A hash with the custom data, usually the template parameters, that will be used to create the authorization associated with the integration.
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_integration_db_2_omna_db_base_authorization&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
-* [Others parser algorithms](overview?id=parse_from_integration_db_2_omna_db_base_authorization)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_di_2_omna_base_authorization&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Others parser algorithms](overview?id=parse_from_di_2_omna_base_authorization)

@@ -1,6 +1,6 @@
 # Parser algorithm
  
-## parse_from_omna_db_2_api_request_order
+## parse_from_omna_2_api_request_order
 
 Transforms and returns the data of an order registered in OMNA to be exported to the remote platform to be integrated.
 
@@ -18,7 +18,7 @@ Transforms and returns the data of an order registered in OMNA to be exported to
     
 ### Definition
 
-> **Name:** parse_from_omna_db_2_api_request_order
+> **Name:** parse_from_omna_2_api_request_order
 > 
 > **Namespace:** Ov2Anyone
 >
@@ -31,5 +31,5 @@ Transforms and returns the data of an order registered in OMNA to be exported to
 > **Returns:** The hash with the data to be exported.
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_omna_db_2_api_request_order&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
-* [Others parser algorithms](overview?id=parse_from_omna_db_2_api_request_order)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_omna_2_api_request_order&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Others parser algorithms](overview?id=parse_from_omna_2_api_request_order)

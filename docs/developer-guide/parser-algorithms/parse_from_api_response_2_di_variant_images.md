@@ -1,8 +1,8 @@
 # Parser algorithm
  
-## parse_from_api_response_2_integration_db_product_images
+## parse_from_api_response_2_di_variant_images
 
-It transforms and returns the data of each product images obtained from the platform to be integrated to be stored in 
+It transforms and returns the data of each product variant images obtained from the platform to be integrated to be stored in 
 the intermediate data structure in OMNA.
 
 **Resources related with this parser:**
@@ -14,7 +14,7 @@ the intermediate data structure in OMNA.
     
 ### Definition
 
-> **Name:** parse_from_api_response_2_integration_db_product_images
+> **Name:** parse_from_api_response_2_di_variant_images
 > 
 > **Namespace:** Ov2Anyone
 >
@@ -22,10 +22,10 @@ the intermediate data structure in OMNA.
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | source | true | Hash | Contains the data of the product images to be transformed |
+> | source | true | Hash | Contains the data of the product variant images to be transformed |
 >
 > **Returns:** A array of hash with the data to be saved in a record of [DIImage](../data-types/DIImage.md).
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_api_response_2_integration_db_product_images&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
-* [Others parser algorithms](overview?id=parse_from_api_response_2_integration_db_product_images)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_api_response_2_di_variant_images&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Others parser algorithms](overview?id=parse_from_api_response_2_di_variant_images)

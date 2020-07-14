@@ -1,6 +1,6 @@
 # Parser algorithm
  
-## parse_from_omna_db_2_integration_db_product
+## parse_from_omna_2_di_product
 
 Transforms and returns the data of a product from its general data structure of products in OMNA to be stored 
 in the intermediate data structure in OMNA.
@@ -12,7 +12,7 @@ in the intermediate data structure in OMNA.
     
 ### Definition
 
-> **Name:** parse_from_omna_db_2_integration_db_product
+> **Name:** parse_from_omna_2_di_product
 > 
 > **Namespace:** Ov2Anyone
 >
@@ -27,5 +27,5 @@ in the intermediate data structure in OMNA.
 > **Returns:** Tha hash with the data to be store in [DIProduct](../data-types/DIProduct.md).
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_omna_db_2_integration_db_product&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
-* [Others parser algorithms](overview?id=parse_from_omna_db_2_integration_db_product)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_omna_2_di_product&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Others parser algorithms](overview?id=parse_from_omna_2_di_product)

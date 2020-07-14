@@ -1,6 +1,6 @@
 # Parser algorithm
  
-## parse_from_api_request_2_integration_db_variant
+## parse_from_api_request_2_di_variant
 
 It transforms and sets the data of the product variant properties, received from the **OMNA API service** be stored in 
 the intermediate data structure in OMNA.
@@ -12,7 +12,7 @@ the intermediate data structure in OMNA.
     
 ### Definition
 
-> **Name:** parse_from_api_request_2_integration_db_variant
+> **Name:** parse_from_api_request_2_di_variant
 > 
 > **Namespace:** Ov2Anyone
 >
@@ -24,5 +24,5 @@ the intermediate data structure in OMNA.
 > | request_data | true | Hash | Contains the data received in the request to the variant properties update [service](//doc-api.omna.io/api-spec/#operation/update_integration_variant_beta_) |
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_api_request_2_integration_db_variant&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
-* [Others parser algorithms](overview?id=parse_from_api_request_2_integration_db_variant)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_api_request_2_di_variant&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Others parser algorithms](overview?id=parse_from_api_request_2_di_variant)

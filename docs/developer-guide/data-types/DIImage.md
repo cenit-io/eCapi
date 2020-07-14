@@ -9,8 +9,8 @@ Data structure to store the imported records of product images for each integrat
 **Algorithms related with this data type:**
 
 * Action algorithm [do_get_products](../action-algorithms/do_get_products.md).
-* Parser algorithm [parse_from_api_response_2_integration_db_product_images](../parser-algorithms/parse_from_api_response_2_integration_db_product_images.md).
-* Parser algorithm [parse_from_api_response_2_integration_db_variant_images](../parser-algorithms/parse_from_api_response_2_integration_db_variant_images.md).
+* Parser algorithm [parse_from_api_response_2_di_product_images](../parser-algorithms/parse_from_api_response_2_di_product_images.md).
+* Parser algorithm [parse_from_api_response_2_di_variant_images](../parser-algorithms/parse_from_api_response_2_di_variant_images.md).
     
 ### JSON SCHEMA
 ```json

@@ -9,7 +9,7 @@ This structure is required only when the platform to be integrated organizes the
 **Algorithms related with this data type:**
 
 * Action algorithm [do_get_categories](../action-algorithms/do_get_categories.md)
-* Parser algorithm [parse_from_api_response_2_integration_db_category](../parser-algorithms/parse_from_api_response_2_integration_db_category.md)
+* Parser algorithm [parse_from_api_response_2_di_category](../parser-algorithms/parse_from_api_response_2_di_category.md)
 
     
 ### JSON SCHEMA

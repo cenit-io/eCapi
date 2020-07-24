@@ -98,6 +98,10 @@ tags:
     description: |
       Operations on the product brands of an Integration.
 
+  - name: Logistics
+    description: |
+      Operations on the product logistics of a Shopee Integration.
+
   - name: Stock Locations
     description: |
       Operations on the stock locations.
@@ -194,6 +198,7 @@ x-tagGroups:
       - Variants of an Integration
       - Categories
       - Brands
+      - Logistics
 
   - name: Inventories
     tags:

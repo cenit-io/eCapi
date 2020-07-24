@@ -59,6 +59,10 @@
       "description": "Operations on the product brands of an Integration.\n"
     },
     {
+      "name": "Logistics",
+      "description": "Operations on the product logistics of a Shopee Integration.\n"
+    },
+    {
       "name": "Stock Locations",
       "description": "Operations on the stock locations.\n"
     },
@@ -114,7 +118,8 @@
         "Variants",
         "Variants of an Integration",
         "Categories",
-        "Brands"
+        "Brands",
+        "Logistics"
       ]
     },
     {
@@ -949,6 +954,29 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/flow_items"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/logistics/import": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Logistics"
+        ],
+        "operationId": "import_logistics_async_",
+        "summary": "Import logistics from an Integration",
+        "description": "Generate an async task to import the last updated product logistics from an integration.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/logistic_import_task"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
           }
         }
       }
@@ -4051,6 +4079,24 @@
             "example": {
               "type": "exception",
               "message": "Not found integration with id: shop_01"
+            }
+          }
+        }
+      },
+      "logistic_import_task": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/Task"
+                }
+              }
             }
           }
         }

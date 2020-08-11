@@ -11,11 +11,8 @@ content:
             - $ref: "#/components/schemas/Product"
             - type: object
               properties:
-                integrations:
-                  type: array
-                  readOnly: true
-                  items:
-                    $ref: "#/components/schemas/ProductIntegration"
+                integration:
+                  $ref: "#/components/schemas/ProductIntegration"
 
     examples:
       Ex1:

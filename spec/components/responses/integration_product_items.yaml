@@ -14,15 +14,8 @@ content:
               - $ref: "#/components/schemas/Product"
               - type: object
                 properties:
-                  integrations:
-                    type: array
-                    readOnly: true
-                    items:
-                      $ref: "#/components/schemas/ProductIntegration"
+                  integration:
+                     $ref: "#/components/schemas/ProductIntegration"
 
         pagination:
             $ref: '#/components/schemas/Pagination'
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/product_items_response'

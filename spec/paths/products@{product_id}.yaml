@@ -42,7 +42,7 @@ put:
     $ref: '#/components/requestBodies/product_link'
   responses:
     '200':
-      $ref: '#/components/responses/product_item'
+      $ref: '#/components/responses/task_item'
     '404':
       $ref: '#/components/responses/product_not_found'
       

@@ -17,4 +17,4 @@ get:
     Returns the variant list of a specific integration.
   responses:
     '200':
-      $ref: '#/components/responses/variant_items'
+      $ref: '#/components/responses/integration_variant_items'

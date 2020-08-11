@@ -14,14 +14,7 @@ content:
               - $ref: "#/components/schemas/Variant"
               - type: object
                 properties:
-                  integrations:
-                    type: array
-                    readOnly: true
-                    items:
-                      $ref: "#/components/schemas/VariantIntegration"
+                  integration:
+                    $ref: "#/components/schemas/VariantIntegration"
         pagination:
             $ref: '#/components/schemas/Pagination'
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/variant_items_response'

@@ -13,7 +13,7 @@ get:
     the given identifier of the remote variant.
   responses:
     '200':
-      $ref: '#/components/responses/variant_item'
+      $ref: '#/components/responses/integration_variant_item'
     '404':
       $ref: '#/components/responses/variant_not_found'
 
@@ -28,7 +28,7 @@ post:
     $ref: '#/components/requestBodies/variant_properties_update'
   responses:
     '200':
-      $ref: '#/components/responses/variant_item'
+      $ref: '#/components/responses/integration_variant_item'
     '404':
       $ref: '#/components/responses/variant_not_found'
 

@@ -957,7 +957,7 @@ paths:
         Returns the product list of a specific integration.
       responses:
         '200':
-          $ref: '#/components/responses/product_items'
+          $ref: '#/components/responses/integration_product_items'
   '/integrations/{integration_id}/products/{remote_product_id}':
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
@@ -972,7 +972,7 @@ paths:
         the given identifier of the remote product.
       responses:
         '200':
-          $ref: '#/components/responses/product_item'
+          $ref: '#/components/responses/integration_product_item'
         '404':
           $ref: '#/components/responses/product_not_found'
     post:
@@ -986,7 +986,7 @@ paths:
         $ref: '#/components/requestBodies/product_properties_update'
       responses:
         '200':
-          $ref: '#/components/responses/product_item'
+          $ref: '#/components/responses/integration_product_item'
         '404':
           $ref: '#/components/responses/product_not_found'
     patch:
@@ -1040,7 +1040,7 @@ paths:
         Returns the variant list of a specific integration.
       responses:
         '200':
-          $ref: '#/components/responses/variant_items'
+          $ref: '#/components/responses/integration_variant_items'
   '/integrations/{integration_id}/products/{remote_product_id}/variants/{remote_variant_id}':
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
@@ -1056,7 +1056,7 @@ paths:
         the given identifier of the remote variant.
       responses:
         '200':
-          $ref: '#/components/responses/variant_item'
+          $ref: '#/components/responses/integration_variant_item'
         '404':
           $ref: '#/components/responses/variant_not_found'
     post:
@@ -1070,7 +1070,7 @@ paths:
         $ref: '#/components/requestBodies/variant_properties_update'
       responses:
         '200':
-          $ref: '#/components/responses/variant_item'
+          $ref: '#/components/responses/integration_variant_item'
         '404':
           $ref: '#/components/responses/variant_not_found'
     patch:
@@ -1293,7 +1293,7 @@ paths:
         $ref: '#/components/requestBodies/product_link'
       responses:
         '200':
-          $ref: '#/components/responses/product_item'
+          $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/product_not_found'
     patch:
@@ -2211,11 +2211,6 @@ components:
           readOnly: true
           items:
             type: string
-        integrations:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/ProductIntegration'
         created_at:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
@@ -2539,11 +2534,6 @@ components:
           readOnly: true
           items:
             type: string
-        integrations:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/VariantIntegration'
         created_at:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
@@ -2898,6 +2888,83 @@ components:
           example:
             type: exception
             message: 'Not found integration with id: shop_01'
+    integration_product_item:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                allOf:
+                  - $ref: '#/components/schemas/Product'
+                  - type: object
+                    properties:
+                      integration:
+                        $ref: '#/components/schemas/ProductIntegration'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/product_item_response'
+    integration_product_items:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                description: Product representations in OMNA
+                type: array
+                items:
+                  allOf:
+                    - $ref: '#/components/schemas/Product'
+                    - type: object
+                      properties:
+                        integration:
+                          $ref: '#/components/schemas/ProductIntegration'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
+    integration_variant_item:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                allOf:
+                  - $ref: '#/components/schemas/Variant'
+                  - type: object
+                    properties:
+                      integration:
+                        $ref: '#/components/schemas/VariantIntegration'
+    integration_variant_items:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                description: Variant representations in OMNA
+                type: array
+                items:
+                  allOf:
+                    - $ref: '#/components/schemas/Variant'
+                    - type: object
+                      properties:
+                        integration:
+                          $ref: '#/components/schemas/VariantIntegration'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
     logistic_import_task:
       description: Success
       content:
@@ -3040,7 +3107,15 @@ components:
               type:
                 $ref: '#/components/schemas/ResponseResourceType'
               data:
-                $ref: '#/components/schemas/Product'
+                allOf:
+                  - $ref: '#/components/schemas/Product'
+                  - type: object
+                    properties:
+                      integrations:
+                        type: array
+                        readOnly: true
+                        items:
+                          $ref: '#/components/schemas/ProductIntegration'
           examples:
             Ex1:
               $ref: '#/components/examples/product_item_response'
@@ -3057,7 +3132,15 @@ components:
                 description: Product representations in OMNA
                 type: array
                 items:
-                  $ref: '#/components/schemas/Product'
+                  allOf:
+                    - $ref: '#/components/schemas/Product'
+                    - type: object
+                      properties:
+                        integrations:
+                          type: array
+                          readOnly: true
+                          items:
+                            $ref: '#/components/schemas/ProductIntegration'
               pagination:
                 $ref: '#/components/schemas/Pagination'
           examples:
@@ -3256,7 +3339,15 @@ components:
               type:
                 $ref: '#/components/schemas/ResponseResourceType'
               data:
-                $ref: '#/components/schemas/Variant'
+                allOf:
+                  - $ref: '#/components/schemas/Variant'
+                  - type: object
+                    properties:
+                      integrations:
+                        type: array
+                        readOnly: true
+                        items:
+                          $ref: '#/components/schemas/VariantIntegration'
           examples:
             Ex1:
               $ref: '#/components/examples/variant_item_response'
@@ -3273,7 +3364,15 @@ components:
                 description: Variant representations in OMNA
                 type: array
                 items:
-                  $ref: '#/components/schemas/Variant'
+                  allOf:
+                    - $ref: '#/components/schemas/Variant'
+                    - type: object
+                      properties:
+                        integrations:
+                          type: array
+                          readOnly: true
+                          items:
+                            $ref: '#/components/schemas/VariantIntegration'
               pagination:
                 $ref: '#/components/schemas/Pagination'
           examples:

@@ -1226,7 +1226,7 @@
         "description": "Returns the product list of a specific integration.\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/product_items"
+            "$ref": "#/components/responses/integration_product_items"
           }
         }
       }
@@ -1249,7 +1249,7 @@
         "description": "Retrieve the product that is linked with the given integration and have as identify on its source platform\nthe given identifier of the remote product.\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/product_item"
+            "$ref": "#/components/responses/integration_product_item"
           },
           "404": {
             "$ref": "#/components/responses/product_not_found"
@@ -1268,7 +1268,7 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/product_item"
+            "$ref": "#/components/responses/integration_product_item"
           },
           "404": {
             "$ref": "#/components/responses/product_not_found"
@@ -1357,7 +1357,7 @@
         "description": "Returns the variant list of a specific integration.\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/variant_items"
+            "$ref": "#/components/responses/integration_variant_items"
           }
         }
       }
@@ -1383,7 +1383,7 @@
         "description": "Retrieve the product variant that is liked in the given integration and have as identify on its source platform\nthe given identifier of the remote variant.\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/variant_item"
+            "$ref": "#/components/responses/integration_variant_item"
           },
           "404": {
             "$ref": "#/components/responses/variant_not_found"
@@ -1402,7 +1402,7 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/variant_item"
+            "$ref": "#/components/responses/integration_variant_item"
           },
           "404": {
             "$ref": "#/components/responses/variant_not_found"
@@ -1744,7 +1744,7 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/product_item"
+            "$ref": "#/components/responses/task_item"
           },
           "404": {
             "$ref": "#/components/responses/product_not_found"
@@ -3100,13 +3100,6 @@
               "type": "string"
             }
           },
-          "integrations": {
-            "type": "array",
-            "readOnly": true,
-            "items": {
-              "$ref": "#/components/schemas/ProductIntegration"
-            }
-          },
           "created_at": {
             "$ref": "#/components/schemas/CreatedAt"
           },
@@ -3511,13 +3504,6 @@
             "readOnly": true,
             "items": {
               "type": "string"
-            }
-          },
-          "integrations": {
-            "type": "array",
-            "readOnly": true,
-            "items": {
-              "$ref": "#/components/schemas/VariantIntegration"
             }
           },
           "created_at": {
@@ -4083,6 +4069,145 @@
           }
         }
       },
+      "integration_product_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
+                "data": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Product"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "integration": {
+                          "$ref": "#/components/schemas/ProductIntegration"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_item_response"
+              }
+            }
+          }
+        }
+      },
+      "integration_product_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
+                "data": {
+                  "description": "Product representations in OMNA",
+                  "type": "array",
+                  "items": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Product"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "integration": {
+                            "$ref": "#/components/schemas/ProductIntegration"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            }
+          }
+        }
+      },
+      "integration_variant_item": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
+                "data": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Variant"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "integration": {
+                          "$ref": "#/components/schemas/VariantIntegration"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "integration_variant_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
+                "data": {
+                  "description": "Variant representations in OMNA",
+                  "type": "array",
+                  "items": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Variant"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "integration": {
+                            "$ref": "#/components/schemas/VariantIntegration"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            }
+          }
+        }
+      },
       "logistic_import_task": {
         "description": "Success",
         "content": {
@@ -4304,7 +4429,23 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "$ref": "#/components/schemas/Product"
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Product"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "integrations": {
+                          "type": "array",
+                          "readOnly": true,
+                          "items": {
+                            "$ref": "#/components/schemas/ProductIntegration"
+                          }
+                        }
+                      }
+                    }
+                  ]
                 }
               }
             },
@@ -4330,7 +4471,23 @@
                   "description": "Product representations in OMNA",
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Product"
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Product"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "integrations": {
+                            "type": "array",
+                            "readOnly": true,
+                            "items": {
+                              "$ref": "#/components/schemas/ProductIntegration"
+                            }
+                          }
+                        }
+                      }
+                    ]
                   }
                 },
                 "pagination": {
@@ -4640,7 +4797,23 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "$ref": "#/components/schemas/Variant"
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Variant"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "integrations": {
+                          "type": "array",
+                          "readOnly": true,
+                          "items": {
+                            "$ref": "#/components/schemas/VariantIntegration"
+                          }
+                        }
+                      }
+                    }
+                  ]
                 }
               }
             },
@@ -4666,7 +4839,23 @@
                   "description": "Variant representations in OMNA",
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Variant"
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Variant"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "integrations": {
+                            "type": "array",
+                            "readOnly": true,
+                            "items": {
+                              "$ref": "#/components/schemas/VariantIntegration"
+                            }
+                          }
+                        }
+                      }
+                    ]
                   }
                 },
                 "pagination": {

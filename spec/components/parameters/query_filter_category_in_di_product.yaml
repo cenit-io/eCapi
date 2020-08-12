@@ -1,0 +1,6 @@
+name: category_id
+in: query
+schema:
+  description: It allows to filter items by the category of an integration.
+  type: string
+  example: 1532

@@ -8,6 +8,7 @@ get:
   parameters:
     - $ref: '#/components/parameters/query_filter_term_for_products'
     - $ref: '#/components/parameters/query_filter_integration'
+    - $ref: '#/components/parameters/query_filter_category_in_omna_product'
     - $ref: '#/components/parameters/query_filter_product_created_after'
     - $ref: '#/components/parameters/query_filter_product_created_before'
     - $ref: '#/components/parameters/query_filter_product_updated_after'

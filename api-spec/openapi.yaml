@@ -944,6 +944,11 @@ paths:
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
       - $ref: '#/components/parameters/query_filter_term_for_products'
+      - $ref: '#/components/parameters/query_filter_category_in_di_product'
+      - $ref: '#/components/parameters/query_filter_product_created_after'
+      - $ref: '#/components/parameters/query_filter_product_created_before'
+      - $ref: '#/components/parameters/query_filter_product_updated_after'
+      - $ref: '#/components/parameters/query_filter_product_updated_before'
       - $ref: '#/components/parameters/query_with_details'
       - $ref: '#/components/parameters/query_without_data'
       - $ref: '#/components/parameters/query_offset'
@@ -1225,6 +1230,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/query_filter_term_for_products'
         - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_category_in_omna_product'
         - $ref: '#/components/parameters/query_filter_product_created_after'
         - $ref: '#/components/parameters/query_filter_product_created_before'
         - $ref: '#/components/parameters/query_filter_product_updated_after'
@@ -3613,6 +3619,23 @@ components:
         description: Webhook identifier
         type: string
         example: 5d13be7025d9853de90012b6
+    query_filter_category_in_di_product:
+      name: category_id
+      in: query
+      schema:
+        description: It allows to filter items by the category of an integration.
+        type: string
+        example: 1532
+    query_filter_category_in_omna_product:
+      name: category_id
+      in: query
+      schema:
+        description: |
+          It allows to filter items by the category of an integration.
+
+          > This filter parameter is only supported in conjunction with the filter by integration.
+        type: string
+        example: 1532
     query_filter_channel_group:
       name: group
       in: query

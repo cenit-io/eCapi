@@ -1,0 +1,12 @@
+description: Webhook that will be updated
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          allOf:
+            - $ref: '#/components/schemas/Webhook'
+            - required: [topic, integration_id]
+

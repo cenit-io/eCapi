@@ -34,6 +34,8 @@ post:
   summary: Update a Webhook
   description: |
     Find a webhook by a given id and update it.
+  requestBody:
+    $ref: '#/components/requestBodies/webhook_update'
   responses:
     '200':
       $ref: '#/components/responses/webhook_item'

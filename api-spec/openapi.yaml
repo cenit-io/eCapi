@@ -1783,6 +1783,8 @@ paths:
       summary: Update a Webhook
       description: |
         Find a webhook by a given id and update it.
+      requestBody:
+        $ref: '#/components/requestBodies/webhook_update'
       responses:
         '200':
           $ref: '#/components/responses/webhook_item'
@@ -5964,6 +5966,21 @@ components:
               $ref: '#/components/examples/webhook_create_request_1'
             Ex2:
               $ref: '#/components/examples/webhook_create_request_2'
+    webhook_update:
+      description: Webhook that will be updated
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                allOf:
+                  - $ref: '#/components/schemas/Webhook'
+                  - required:
+                      - topic
+                      - integration_id
   securitySchemes:
     HMac:
       type: apiKey

@@ -2521,7 +2521,7 @@ components:
         quantity:
           description: Variant quantity
           type: integer
-          minimum: 0
+          readOnly: true
         package:
           allOf:
             - $ref: '#/components/schemas/ProductPackage'
@@ -5265,7 +5265,6 @@ components:
           sku: 0018227994576
           price: 159
           original_price: 200
-          quantity: 2
           package:
             weight: 1
             height: 1
@@ -5401,7 +5400,6 @@ components:
           sku: 0018227994576
           price: 159
           original_price: 200
-          quantity: 2
           package:
             weight: 1
             height: 1

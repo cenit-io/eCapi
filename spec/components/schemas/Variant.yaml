@@ -19,7 +19,7 @@ properties:
   quantity:
     description: Variant quantity
     type: integer
-    minimum: 0
+    readOnly: true
   package:
     allOf:
       - $ref: "#/components/schemas/ProductPackage"

@@ -4,7 +4,6 @@ value:
     sku: 0018227994576
     price: 159
     original_price: 200
-    quantity: 2
     package:
       weight: 1
       height: 1

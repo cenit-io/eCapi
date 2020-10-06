@@ -19,18 +19,19 @@ description: |
 
     // Interceptors to sign any request.
     axios.interceptors.request.use((config) => {
+      let msg, queryString, body;
+
       // Add token and timestamp to URL parameters.
       config.params = Object.assign({}, config.params, { token: current_tenant.token, timestamp: Date.now() });
 
-      // Merge all URL parameters and body data to be sent with the request.
-      let data = Object.assign({}, config.params, config.data);
+      queryString = qs.stringify(config.params);
+      body = config.data ? JSON.stringify(config.data) : '';
 
-      // Join the service path and the ordered sequence of characters, excluding the quotes,
-      // corresponding to the JSON of the parameters that will be sent.
-      let msg = config.url + JSON.stringify(data).replace(/["']/g, '').split('').sort().join('');
+      // Join the service path, queryString and body
+      msg = config.url + queryString + body;
 
-      // Generate the corresponding hmac parameter using the js-sha256 or similar library.
-      config.params.hmac = sha256.hmac.update(current_tenant.secret, msg).hex();
+      // Generate the corresponding hmac header using the js-sha256 or similar library.
+      config.headers.common['X-OMNA-HMac'] = sha256.hmac.update(current_tenant.secret, msg).hex();
 
       return config;
     });

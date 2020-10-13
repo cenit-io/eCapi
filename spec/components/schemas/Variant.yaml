@@ -17,7 +17,7 @@ properties:
     type: number
     minimum: 0
   quantity:
-    description: Variant quantity
+    description: Quantity of items available from the quantity
     type: integer
     readOnly: true
   package:

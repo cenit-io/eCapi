@@ -15,11 +15,14 @@ properties:
     description: Product price
     type: number
     minimum: 0
+  quantity:
+    description: Quantity of items available from the product
+    type: integer
+    readOnly: true
   variants:
     description: Number of the product variants
     type: integer
     readOnly: true
-    minimum: 0
   package:
     allOf:
       - $ref: "#/components/schemas/ProductPackage"

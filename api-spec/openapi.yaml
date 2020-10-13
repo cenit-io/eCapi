@@ -2205,11 +2205,14 @@ components:
           description: Product price
           type: number
           minimum: 0
+        quantity:
+          description: Quantity of items available from the product
+          type: integer
+          readOnly: true
         variants:
           description: Number of the product variants
           type: integer
           readOnly: true
-          minimum: 0
         package:
           allOf:
             - $ref: '#/components/schemas/ProductPackage'
@@ -2519,7 +2522,7 @@ components:
           type: number
           minimum: 0
         quantity:
-          description: Variant quantity
+          description: Quantity of items available from the quantity
           type: integer
           readOnly: true
         package:
@@ -5035,6 +5038,7 @@ components:
                     value: null
           images:
             - 'https://sg-live.slatic.net/p/ea02ecadf6a0887347a00a00afbc5a4c.jpg'
+          quantity: 0
           variants: 1
           created_at: '2020-04-16T22:49:15+00:00'
           updated_at: '2020-04-16T22:49:15+00:00'
@@ -5061,6 +5065,7 @@ components:
                   remote_product_id: '650628600'
             images:
               - 'https://sg-live.slatic.net/p/ea02ecadf6a0887347a00a00afbc5a4c.jpg'
+            quantity: 0
             variants: 1
             created_at: '2020-04-16T22:49:15+00:00'
             updated_at: '2020-04-16T22:49:15+00:00'
@@ -5084,6 +5089,7 @@ components:
             images:
               - 'https://sg-live.slatic.net/p/30324db42e46aebd60ed9cef59880078.jpg'
               - 'https://sg-live.slatic.net/p/16e6c249cb9b937749c3e48b6a4cf992.jpg'
+            quantity: 0
             variants: 4
             created_at: '2020-04-16T22:49:06+00:00'
             updated_at: '2020-04-17T21:14:12+00:00'

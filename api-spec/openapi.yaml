@@ -157,8 +157,8 @@ tags:
 servers:
   - url: 'https://cenit.io/app/ecapi-v1'
 security:
-  - Token: []
-    Timestamp: []
+  - Timestamp: []
+    Token: []
     HMac: []
 x-tagGroups:
   - name: Integrations
@@ -5988,12 +5988,12 @@ components:
   securitySchemes:
     HMac:
       type: apiKey
-      name: hmac
-      in: query
+      name: X-OMNA-HMac
+      in: header
       description: |
         Keyed-Hash message authentication code.
 
-        > Each service request must include an hmac parameter, which is generated using the tenant's
+        > Each service request must include an 'X-OMNA-HMac' header or hmac parameter, which is generated using the tenant's
           secret along with service path and the data sent in the request.
 
         ### Examples:
@@ -6011,7 +6011,8 @@ components:
             let msg, queryString, body;
 
             // Add token and timestamp to URL parameters.
-            config.params = Object.assign({}, config.params, { token: current_tenant.token, timestamp: Date.now() });
+            config.headers.common['X-OMNA-Token'] = current_tenant.token;
+            config.params = Object.assign({}, config.params, { timestamp: Date.now() });
 
             queryString = qs.stringify(config.params);
             body = config.data ? JSON.stringify(config.data) : '';
@@ -6032,8 +6033,12 @@ components:
       name: timestamp
       in: query
     Token:
-      description: |
-        Tenant authentication token. The token of the tenant is obtained from the ***sign_in***. When the user registers through the ***sign_in*** action, as a result of the request, the information about the token is returned.
       type: apiKey
-      name: token
-      in: query
+      name: X-OMNA-Token
+      in: header
+      description: |
+        Tenant authentication token.
+
+        > Each service request must include an **X-OMNA-Token** header or **token** parameter, which is obtained from
+          the ***sign_in***. When the user registers through the ***sign_in*** action, as a result of the request, the
+          information about the token is returned.

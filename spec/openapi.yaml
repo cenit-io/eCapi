@@ -16,7 +16,7 @@ info:
 
     The OMNA Commerce API is a simple connector API to integrate ecommerce sales channels, such us
     marketplaces and ecommerce platforms.
-    
+
     An easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.
 
     The list of available integrations include: Amazon Marketplace, Backmarket, Mercado Libre, Lazada, Qoo10, Shopee, Shopify.
@@ -37,7 +37,7 @@ info:
 
     * You can use your favorite HTTP/REST library for your programming language
     to use OMNA Commerce API.
-    
+
     * [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)
 
 tags:
@@ -175,8 +175,8 @@ servers:
   - url: 'https://cenit.io/app/ecapi-v1'
 
 security:
-  - Token: []
-    Timestamp: []
+  - Timestamp: []
+    Token: []
     HMac: []
 
 x-tagGroups:

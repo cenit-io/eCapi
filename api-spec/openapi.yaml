@@ -3706,6 +3706,19 @@ components:
         type: string
         format: date-time-iso8601
         example: 2018-01-30T00:00:00.000Z
+    query_filter_integration_authorization:
+      name: without_data
+      in: query
+      schema:
+        description: |
+          It allows to determine whether or not the information is included in the response records.
+
+          If its value is **true**:
+
+          - Only the pagination session is returned with the information of the number of records found.
+          - Parameters such as **with_details**, **limit** or **offset** will be ignored.
+        type: boolean
+        example: true
     query_filter_integration_channel:
       name: channel
       in: query

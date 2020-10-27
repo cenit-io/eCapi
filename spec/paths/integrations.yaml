@@ -6,13 +6,14 @@ get:
   description: |
     Returns the list of your integrations.
   parameters:
-    - $ref: '#/components/parameters/query_filter_term_for_integrations'
+     - $ref: '#/components/parameters/query_filter_term_for_integrations'
     - $ref: '#/components/parameters/query_filter_integration_channel'
     - $ref: '#/components/parameters/query_without_data'
     - $ref: '#/components/parameters/query_filter_generic_created_after'
     - $ref: '#/components/parameters/query_filter_generic_created_before'
     - $ref: '#/components/parameters/query_filter_generic_updated_after'
     - $ref: '#/components/parameters/query_filter_generic_updated_before'
+    - $ref: '#/components/parameters/query_filter_integration_authorization'
     - $ref: '#/components/parameters/query_offset'
     - $ref: '#/components/parameters/query_limit'
     - $ref: '#/components/parameters/query_sort_for_integrations'

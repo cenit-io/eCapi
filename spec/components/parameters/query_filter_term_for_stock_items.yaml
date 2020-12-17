@@ -1,0 +1,9 @@
+name: term
+in: query
+schema:
+  description: |
+    It allows to filter the stock items that contain the value of the term in their
+    ***stock_location.name***,
+    ***product.variant.sku***,
+    ***product.name***.
+  type: string

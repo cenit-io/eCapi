@@ -1,0 +1,6 @@
+name: variant_id
+in: query
+schema:
+  description: It allows to filter by product variant identifier
+  type: string
+  example: 5d04051125d9852c71016793

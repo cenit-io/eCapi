@@ -106,6 +106,10 @@ tags:
     description: |
       Operations on the stock locations.
 
+  - name: Stock Items
+    description: |
+      Operations on the stock items.
+
   - name: Flows
     description: |
       Operations on the flows.
@@ -203,6 +207,7 @@ x-tagGroups:
   - name: Inventories
     tags:
       - Stock Locations
+      - Stock Items
 
   - name: Workflows
     tags:

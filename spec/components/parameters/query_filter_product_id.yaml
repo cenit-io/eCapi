@@ -1,0 +1,6 @@
+name: product_id
+in: query
+schema:
+  description: It allows to filter by product identifier
+  type: string
+  example: 5d04051125d9852c71016793

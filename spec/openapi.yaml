@@ -35,10 +35,9 @@ info:
 
     * It accepts and returns JSON in the HTTP body.
 
-    * You can use your favorite HTTP/REST library for your programming language
-    to use OMNA Commerce API.
+    * You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API.
 
-    * [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)
+      [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)
 
 tags:
   - name: Available Integrations

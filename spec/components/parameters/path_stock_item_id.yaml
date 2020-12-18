@@ -1,0 +1,7 @@
+name: stock_item_id
+in: path
+required: true
+schema:
+  description: Stock item identifier
+  type: string
+  example: 5d04051125d9852c71016793

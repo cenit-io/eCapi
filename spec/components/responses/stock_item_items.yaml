@@ -1,0 +1,15 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ResponseResourceType'
+        data:
+          description: Stock Item representations in OMNA
+          type: array
+          items:
+            $ref: '#/components/schemas/StockItem'
+        pagination:
+            $ref: '#/components/schemas/Pagination'

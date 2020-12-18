@@ -1,15 +1,17 @@
+parameters:
+  - $ref: '#/components/parameters/path_product_id'
+
 get:
   tags:
     - Stock Items
-  operationId: get_stock_items_beta_
+  operationId: get_product_stock_items_beta_
   x-menu-position: 0
   summary: List all Stock Items
   description: |
-    Returns the list of stock items.
+    Returns the list of stock items of a product.
   parameters:
     - $ref: '#/components/parameters/query_filter_term_for_stock_items'
     - $ref: '#/components/parameters/query_filter_integration'
-    - $ref: '#/components/parameters/query_filter_product_id'
     - $ref: '#/components/parameters/query_filter_variant_id'
     - $ref: '#/components/parameters/query_filter_generic_created_after'
     - $ref: '#/components/parameters/query_filter_generic_created_before'

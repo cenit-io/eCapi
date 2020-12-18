@@ -1,0 +1,22 @@
+type: "object"
+properties:
+  id:
+    description: Stock item identifier
+    type: string
+    readOnly: true
+  count_on_hand:
+    description: The count of item on hand
+    type: integer
+  variant:
+    readOnly: true
+    allOf:
+      - $ref: "#/components/schemas/Variant"
+  stock_location:
+    readOnly: true
+    allOf:
+      - $ref: "#/components/schemas/StockLocation"
+    description: The stock location
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
+  updated_at:
+    $ref: "#/components/schemas/UpdatedAt"

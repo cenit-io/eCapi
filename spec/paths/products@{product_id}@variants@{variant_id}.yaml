@@ -8,7 +8,7 @@ get:
   operationId: get_variant_beta_
   summary: Retrieve a Variant
   description: |
-    Retrieves a single variant by its identifier.
+    Retrieves a single product variant by its identifier.
   responses:
     '200':
       $ref: '#/components/responses/variant_item'

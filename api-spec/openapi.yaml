@@ -35,10 +35,9 @@ info:
 
     * It accepts and returns JSON in the HTTP body.
 
-    * You can use your favorite HTTP/REST library for your programming language
-    to use OMNA Commerce API.
+    * You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API.
 
-    * [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)
+      [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)
 tags:
   - name: Available Integrations
     description: |
@@ -93,6 +92,9 @@ tags:
   - name: Stock Locations
     description: |
       Operations on the stock locations.
+  - name: Stock Items
+    description: |
+      Operations on the stock items.
   - name: Flows
     description: |
       Operations on the flows.
@@ -181,6 +183,7 @@ x-tagGroups:
   - name: Inventories
     tags:
       - Stock Locations
+      - Stock Items
   - name: Workflows
     tags:
       - Flows
@@ -426,6 +429,7 @@ paths:
         - $ref: '#/components/parameters/query_filter_generic_created_before'
         - $ref: '#/components/parameters/query_filter_generic_updated_after'
         - $ref: '#/components/parameters/query_filter_generic_updated_before'
+        - $ref: '#/components/parameters/query_filter_integration_authorization'
         - $ref: '#/components/parameters/query_offset'
         - $ref: '#/components/parameters/query_limit'
         - $ref: '#/components/parameters/query_sort_for_integrations'
@@ -1332,6 +1336,31 @@ paths:
           $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/product_not_found'
+  '/products/{product_id}/stock/items':
+    parameters:
+      - $ref: '#/components/parameters/path_product_id'
+    get:
+      tags:
+        - Stock Items
+      operationId: get_product_stock_items_beta_
+      x-menu-position: 0
+      summary: List all Stock Items
+      description: |
+        Returns the list of stock items of a product.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_stock_items'
+        - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_variant_id'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_stock_items'
+      responses:
+        '200':
+          $ref: '#/components/responses/stock_item_items'
   '/products/{product_id}/variants':
     parameters:
       - $ref: '#/components/parameters/path_product_id'
@@ -1381,7 +1410,7 @@ paths:
       operationId: get_variant_beta_
       summary: Retrieve a Variant
       description: |
-        Retrieves a single variant by its identifier.
+        Retrieves a single product variant by its identifier.
       responses:
         '200':
           $ref: '#/components/responses/variant_item'
@@ -1447,6 +1476,31 @@ paths:
           $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/variant_not_found'
+  '/products/{product_id}/variants/{variant_id}/stock/items':
+    parameters:
+      - $ref: '#/components/parameters/path_product_id'
+      - $ref: '#/components/parameters/path_variant_id'
+    get:
+      tags:
+        - Stock Items
+      operationId: get_varinat_stock_items_beta_
+      x-menu-position: 0
+      summary: List all Stock Items
+      description: |
+        Returns the list of stock items of a product variant.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_stock_items'
+        - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_stock_items'
+      responses:
+        '200':
+          $ref: '#/components/responses/stock_item_items'
   /sign_in:
     parameters:
       - $ref: '#/components/parameters/query_redirect_uri'
@@ -1496,6 +1550,30 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/startup_task'
+  /stock/items:
+    get:
+      tags:
+        - Stock Items
+      operationId: get_stock_items_beta_
+      x-menu-position: 0
+      summary: List all Stock Items
+      description: |
+        Returns the list of stock items.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_stock_items'
+        - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_product_id'
+        - $ref: '#/components/parameters/query_filter_variant_id'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_stock_items'
+      responses:
+        '200':
+          $ref: '#/components/responses/stock_item_items'
   /stock/locations:
     get:
       tags:
@@ -2375,6 +2453,29 @@ components:
       enum:
         - ASC
         - DESC
+    StockItem:
+      type: object
+      properties:
+        id:
+          description: Stock item identifier
+          type: string
+          readOnly: true
+        count_on_hand:
+          description: The count of item on hand
+          type: integer
+        variant:
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/Variant'
+        stock_location:
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/StockLocation'
+          description: The stock location
+        created_at:
+          $ref: '#/components/schemas/CreatedAt'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAt'
     StockLocation:
       type: object
       properties:
@@ -3209,6 +3310,33 @@ components:
           examples:
             Ex1:
               $ref: '#/components/examples/task_item_startup_response'
+    stock_item_item:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                $ref: '#/components/schemas/StockItem'
+    stock_item_items:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                description: Stock Item representations in OMNA
+                type: array
+                items:
+                  $ref: '#/components/schemas/StockItem'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
     stock_location_item:
       description: Success
       content:
@@ -3584,6 +3712,14 @@ components:
           - **brands**: To import the last product brands updates.
         type: string
         example: products
+    path_stock_item_id:
+      name: stock_item_id
+      in: path
+      required: true
+      schema:
+        description: Stock item identifier
+        type: string
+        example: 5d04051125d9852c71016793
     path_stock_location_id:
       name: stock_location_id
       in: path
@@ -3707,16 +3843,10 @@ components:
         format: date-time-iso8601
         example: 2018-01-30T00:00:00.000Z
     query_filter_integration_authorization:
-      name: without_data
+      name: authorized
       in: query
       schema:
-        description: |
-          It allows to determine whether or not the information is included in the response records.
-
-          If its value is **true**:
-
-          - Only the pagination session is returned with the information of the number of records found.
-          - Parameters such as **with_details**, **limit** or **offset** will be ignored.
+        description: It allows to filter integrations by the status of its authorization.
         type: boolean
         example: true
     query_filter_integration_channel:
@@ -3807,6 +3937,13 @@ components:
         type: string
         format: date-time-iso8601
         example: 2018-01-30T00:00:00.000Z
+    query_filter_product_id:
+      name: product_id
+      in: query
+      schema:
+        description: It allows to filter by product identifier
+        type: string
+        example: 5d04051125d9852c71016793
     query_filter_product_updated_after:
       name: updated_after
       in: query
@@ -3902,6 +4039,16 @@ components:
       schema:
         description: It allows to filter products that contain the value of the term in their ***name***.
         type: string
+    query_filter_term_for_stock_items:
+      name: term
+      in: query
+      schema:
+        description: |
+          It allows to filter the stock items that contain the value of the term in their
+          ***stock_location.name***,
+          ***product.variant.sku***,
+          ***product.name***.
+        type: string
     query_filter_term_for_stock_locations:
       name: term
       in: query
@@ -3935,6 +4082,13 @@ components:
         description: It allows to filter webhooks that contain the value of the term in their ***topic*** or ***address***.
         type: string
         example: orders
+    query_filter_variant_id:
+      name: variant_id
+      in: query
+      schema:
+        description: It allows to filter by product variant identifier
+        type: string
+        example: 5d04051125d9852c71016793
     query_filter_webhook_topic:
       name: topic
       in: query
@@ -4123,6 +4277,23 @@ components:
             allOf:
               - $ref: '#/components/schemas/SortQueryParameter'
           price:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+    query_sort_for_stock_items:
+      name: sort
+      in: query
+      schema:
+        description: |
+          It allows to sort ***stock items*** list.
+          > If the sort parameter is omitted, the items list will be sorting by created_at descending.
+        properties:
+          created_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          updated_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          count_on_hand:
             allOf:
               - $ref: '#/components/schemas/SortQueryParameter'
     query_sort_for_stock_locations:

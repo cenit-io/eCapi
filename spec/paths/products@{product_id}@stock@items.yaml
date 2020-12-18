@@ -5,8 +5,8 @@ get:
   tags:
     - Stock Items
   operationId: get_product_stock_items_beta_
-  x-menu-position: 0
-  summary: List all Stock Items
+  x-menu-position: 2
+  summary: List a Product Stock Items
   description: |
     Returns the list of stock items of a product.
   parameters:

@@ -6,8 +6,8 @@ get:
   tags:
     - Stock Items
   operationId: get_varinat_stock_items_beta_
-  x-menu-position: 0
-  summary: List all Stock Items
+  x-menu-position: 3
+  summary: List a Variant Stock Items
   description: |
     Returns the list of stock items of a product variant.
   parameters:

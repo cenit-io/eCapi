@@ -218,6 +218,8 @@ x-tagGroups:
     tags:
       - Users
 
+paths:
+
 externalDocs:
   description: Guides & Utilities
   url: /

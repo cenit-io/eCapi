@@ -1,0 +1,18 @@
+parameters:
+  - $ref: '#/components/parameters/path_stock_item_id'
+
+post:
+  tags:
+    - Stock Items
+  operationId: create_stock_movement_beta_
+  x-menu-position: 0
+  summary: Create stock movement
+  description: |
+    Add a new stock movement to a stock item
+  requestBody:
+    $ref: '#/components/requestBodies/stock_movement_create'
+  responses:
+    '200':
+      $ref: '#/components/responses/stock_movement_item'
+    '404':
+      $ref: '#/components/responses/stock_item_not_found'

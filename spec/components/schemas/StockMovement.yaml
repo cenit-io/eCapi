@@ -1,0 +1,22 @@
+type: "object"
+properties:
+  id:
+    description: Stock movement identifier
+    type: string
+    readOnly: true
+  quantity:
+    description: Value to decrease (-) or increase (+) over the quantity of item in hand
+    type: integer
+  action:
+    description: Represents the origin or cause of the movement
+    type: string
+    readOnly: true
+  stock_item:
+    readOnly: true
+    allOf:
+      - $ref: "#/components/schemas/StockLocation"
+    description: The stock location
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
+  updated_at:
+    $ref: "#/components/schemas/UpdatedAt"

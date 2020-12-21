@@ -1,0 +1,12 @@
+description: Stock Movement that will be added to the inventory
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          allOf:
+            - $ref: '#/components/schemas/StockMovement'
+            - type: object
+            - required: [quantity]

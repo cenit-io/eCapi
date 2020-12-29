@@ -178,6 +178,7 @@ servers:
   - url: 'https://cenit.io/app/ecapi-v1'
 
 security:
+  - OAuth1: []
   - Timestamp: []
     Token: []
     HMac: []

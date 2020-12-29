@@ -1,0 +1,37 @@
+type: apiKey
+name: Authorization
+in: header
+description: |
+  OAuth 1.0a Request Authorization
+
+  ### Examples:
+
+  #### JavaScript
+  ```JavaScript
+
+  const axios = require('axios');
+  const addOAuthInterceptor = require('axios-oauth-1.0a').default;
+
+  const token = '***';
+  const secret = '***';
+
+  axios.defaults.baseURL = 'https://cenit.io/app/ecapi_v1/';
+  axios.defaults.headers.post['Content-Type'] = 'application/json';
+  axios.defaults.headers.put['Content-Type'] = 'application/json';
+
+  addOAuthInterceptor(axios, { key: token, secret: secret, algorithm: "HMAC-SHA256" });
+
+  const request = axios({ method: 'get', url: 'products' });
+  ```
+
+  #### Ruby
+  ```Ruby
+  require 'oauth'
+
+  token = "***"
+  secret = "***"
+  consumer = OAuth::Consumer.new(token, secret)
+
+  url = "https://cenit.io/app/ecapi_v1/products"
+  response = consumer.request(:get, url, nil, {}, {})
+  ```

@@ -94,6 +94,9 @@
   ],
   "security": [
     {
+      "OAuth1": []
+    },
+    {
       "Timestamp": [],
       "Token": [],
       "HMac": []
@@ -9133,6 +9136,12 @@
         "name": "X-OMNA-HMac",
         "in": "header",
         "description": "Keyed-Hash message authentication code.\n\n> Each service request must include an 'X-OMNA-HMac' header or hmac parameter, which is generated using the tenant's\n  secret along with service path and the data sent in the request.\n\n### Examples:\n\n#### JavaScript\n```JavaScript\n  const current_tenant = { token: '....', secret: '...' };\n\n  axios.defaults.baseURL = 'https://cenit.io/app/ecapi-v1/';\n  axios.defaults.headers.post['Content-Type'] = 'application/json';\n  axios.defaults.headers.put['Content-Type'] = 'application/json';\n\n  // Interceptors to sign any request.\n  axios.interceptors.request.use((config) => {\n    let msg, queryString, body;\n\n    // Add token and timestamp to URL parameters.\n    config.headers.common['X-OMNA-Token'] = current_tenant.token;\n    config.params = Object.assign({}, config.params, { timestamp: Date.now() });\n\n    queryString = qs.stringify(config.params);\n    body = config.data ? JSON.stringify(config.data) : '';\n\n    // Join the service path, queryString and body\n    msg = config.url + queryString + body;\n\n    // Generate the corresponding hmac header using the js-sha256 or similar library.\n    config.headers.common['X-OMNA-HMac'] = sha256.hmac.update(current_tenant.secret, msg).hex();\n\n    return config;\n  });\n```\n"
+      },
+      "OAuth1": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header",
+        "description": "OAuth 1.0a Request Authorization\n\n### Examples:\n\n#### JavaScript\n```JavaScript\n\nconst axios = require('axios');\nconst addOAuthInterceptor = require('axios-oauth-1.0a').default;\n\nconst token = '***';\nconst secret = '***';\n\naxios.defaults.baseURL = 'https://cenit.io/app/ecapi_v1/';\naxios.defaults.headers.post['Content-Type'] = 'application/json';\naxios.defaults.headers.put['Content-Type'] = 'application/json';\n\naddOAuthInterceptor(axios, { key: token, secret: secret, algorithm: \"HMAC-SHA256\" });\n\nconst request = axios({ method: 'get', url: 'products' });\n```\n\n#### Ruby\n```Ruby\nrequire 'oauth'\n\ntoken = \"***\"\nsecret = \"***\"\nconsumer = OAuth::Consumer.new(token, secret)\n\nurl = \"https://cenit.io/app/ecapi_v1/products\"\nresponse = consumer.request(:get, url, nil, {}, {})\n```\n"
       },
       "Timestamp": {
         "description": "The timestamp of the request with less than 7200 seconds difference from UTC time.\n",

@@ -1572,6 +1572,24 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/stock_item_items'
+  '/stock/items/{stock_item_id}':
+    parameters:
+      - $ref: '#/components/parameters/path_stock_item_id'
+    post:
+      tags:
+        - Stock Items
+      operationId: create_stock_movement_beta_
+      x-menu-position: 0
+      summary: Create stock movement
+      description: |
+        Add a new stock movement to a stock item
+      requestBody:
+        $ref: '#/components/requestBodies/stock_movement_create'
+      responses:
+        '200':
+          $ref: '#/components/responses/stock_movement_item'
+        '404':
+          $ref: '#/components/responses/stock_item_not_found'
   /stock/locations:
     get:
       tags:
@@ -2516,6 +2534,29 @@ components:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
           $ref: '#/components/schemas/UpdatedAt'
+    StockMovement:
+      type: object
+      properties:
+        id:
+          description: Stock movement identifier
+          type: string
+          readOnly: true
+        quantity:
+          description: Value to decrease (-) or increase (+) over the quantity of item in hand
+          type: integer
+        action:
+          description: Represents the origin or cause of the movement
+          type: string
+          readOnly: true
+        stock_item:
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/StockLocation'
+          description: The stock location
+        created_at:
+          $ref: '#/components/schemas/CreatedAt'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAt'
     Success:
       type: object
       properties:
@@ -3338,6 +3379,15 @@ components:
                   $ref: '#/components/schemas/StockItem'
               pagination:
                 $ref: '#/components/schemas/Pagination'
+    stock_item_not_found:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Exception'
+          example:
+            type: exception
+            message: 'Not found stock item with id: 5d04051125d9852c71016793'
     stock_location_item:
       description: Success
       content:
@@ -3374,6 +3424,17 @@ components:
           example:
             type: exception
             message: 'Not found stock location with id: 5d04051125d9852c71016793'
+    stock_movement_item:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                $ref: '#/components/schemas/StockMovement'
     success:
       description: Success
       content:
@@ -6020,6 +6081,21 @@ components:
               data:
                 allOf:
                   - $ref: '#/components/schemas/StockLocation'
+    stock_movement_create:
+      description: Stock Movement that will be added to the inventory
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                allOf:
+                  - $ref: '#/components/schemas/StockMovement'
+                  - type: object
+                  - required:
+                      - quantity
     tenant_create:
       description: Tenant that will be added to the system
       required: true

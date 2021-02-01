@@ -3408,6 +3408,11 @@
             "type": "boolean",
             "readOnly": true
           },
+          "read_only": {
+            "description": "Define if the property is read only",
+            "type": "boolean",
+            "readOnly": true
+          },
           "input_type": {
             "description": "Property input component type",
             "type": "string",

@@ -4451,9 +4451,6 @@ components:
           price:
             allOf:
               - $ref: '#/components/schemas/SortQueryParameter'
-          quantity:
-            allOf:
-              - $ref: '#/components/schemas/SortQueryParameter'
           last_import_date:
             allOf:
               - $ref: '#/components/schemas/SortQueryParameter'

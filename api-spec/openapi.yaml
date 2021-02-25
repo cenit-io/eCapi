@@ -1744,6 +1744,25 @@ paths:
           $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/task_not_found'
+  /tasks/bulk/retry:
+    get:
+      tags:
+        - Tasks
+      operationId: retry_task_bulk_beta_
+      summary: Task Retry Bulk
+      description: |
+        Find the tasks for the given id list and retry their executions
+
+        > Only failed tasks can be retried.
+        >
+        > Only 100 tasks can be retry in the bulk action.
+      requestBody:
+        $ref: '#/components/requestBodies/task_id_list'
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/task_not_found'
   /tenants:
     get:
       tags:
@@ -5379,6 +5398,12 @@ components:
             width: 1
             content: null
             overwrite: false
+    task_bulk_retry_request:
+      value:
+        data:
+          task_ids:
+            - 6035665bb90e810c2400767f
+            - 60356805b90e810c2d009205
     task_item_response:
       value:
         type: task
@@ -6097,6 +6122,26 @@ components:
                   - type: object
                   - required:
                       - quantity
+    task_id_list:
+      description: Task identifier list
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  task_ids:
+                    description: Identifiers of the failed tasks which you want to retry.
+                    type: array
+                    items:
+                      type: string
+          examples:
+            Ex1:
+              $ref: '#/components/examples/task_bulk_retry_request'
     tenant_create:
       description: Tenant that will be added to the system
       required: true

@@ -1,0 +1,21 @@
+description: Task identifier list
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          type: object
+          properties:
+            task_ids:
+              description: Identifiers of the failed tasks which you want to retry.
+              type: array
+              items:
+                type: string
+
+
+
+    examples:
+      Ex1:
+        $ref: '#/components/examples/task_bulk_retry_request'

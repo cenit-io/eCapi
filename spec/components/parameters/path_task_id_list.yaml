@@ -1,0 +1,7 @@
+name: task_ids
+in: path
+required: true
+schema:
+  description: Task identifier list
+  type: array
+  example: "[6035665bb90e810c2400767f,60356805b90e810c2d009205]"

@@ -1,0 +1,19 @@
+parameters:
+  - $ref: '#/components/parameters/path_task_id_list'
+
+get:
+  tags:
+    - Tasks
+  operationId: retry_task_bulk_beta_
+  summary: Task Retry Bulk
+  description: |
+    Find the tasks for the given id list and retry their executions
+
+    > Only failed tasks can be retried.
+    >
+    > Only 100 tasks can be retry in the bulk action.
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/task_not_found'

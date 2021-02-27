@@ -1259,6 +1259,22 @@ paths:
           $ref: '#/components/responses/product_item'
         '404':
           $ref: '#/components/responses/product_not_found'
+    delete:
+      tags:
+        - Products
+      operationId: delete_some_products_beta_
+      summary: Delete some Product
+      description: |
+        Delete some products without integrations.
+
+        > The products will be permanently removed if and only if it has no associated integrations.
+      requestBody:
+        $ref: '#/components/requestBodies/product_ids'
+      responses:
+        '200':
+          $ref: '#/components/responses/success'
+        '404':
+          $ref: '#/components/responses/product_not_found'
   '/products/{product_id}':
     parameters:
       - $ref: '#/components/parameters/path_product_id'
@@ -1499,6 +1515,39 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/stock_item_items'
+  /products/link:
+    post:
+      tags:
+        - Products
+      operationId: link_some_products_async_beta_
+      summary: Link some Products
+      description: |
+        Generate asynchronous tasks to link some products with some integrations.
+
+        > If the process is successful, tasks will be added to create or update the products on the remote platforms of each linked integration.
+      requestBody:
+        $ref: '#/components/requestBodies/product_link_bulk'
+      responses:
+        '200':
+          $ref: '#/components/responses/task_items'
+        '404':
+          $ref: '#/components/responses/product_not_found'
+    delete:
+      tags:
+        - Products
+      operationId: unlink_some_products_async_beta_
+      summary: Unlink some Products
+      description: |
+        Generate asynchronous tasks to unlink some products with some integrations.
+
+        > If it is established that the products should be removed from the remote integration source, then a task is also created to achieve this goal.
+      requestBody:
+        $ref: '#/components/requestBodies/product_unlink_bulk'
+      responses:
+        '200':
+          $ref: '#/components/responses/task_items'
+        '404':
+          $ref: '#/components/responses/product_not_found'
   /sign_in:
     parameters:
       - $ref: '#/components/parameters/query_redirect_uri'
@@ -1754,13 +1803,11 @@ paths:
         Find the tasks for the given id list and retry their executions
 
         > Only failed tasks can be retried.
-        >
-        > Only 100 tasks can be retry in the bulk action.
       requestBody:
         $ref: '#/components/requestBodies/task_id_list'
       responses:
         '200':
-          $ref: '#/components/responses/task_item'
+          $ref: '#/components/responses/task_items'
         '404':
           $ref: '#/components/responses/task_not_found'
   /tenants:
@@ -5965,6 +6012,70 @@ components:
           examples:
             Ex1:
               $ref: '#/components/examples/product_create_request'
+    product_ids:
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  product_ids:
+                    description: Identifiers of the products to be removed.
+                    type: array
+                    minItems: 1
+                    maxItems: 100
+                    items:
+                      type: string
+                required:
+                  - product_ids
+    product_link_bulk:
+      description: |
+        Identifiers of the products and integrations that will be linked.
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  product_ids:
+                    description: Identifiers of the products to be linked.
+                    type: array
+                    minItems: 1
+                    maxItems: 100
+                    items:
+                      type: string
+                  integration_ids:
+                    description: Identifiers of the integrations with which you want to link the product.
+                    type: array
+                    items:
+                      type: string
+                  link_with_its_variants:
+                    description: |
+                      Establishes how the product integrations should be linked or not with its variants.
+                      * **NONE**: Do not link with any of its variants.
+                      * **SELECTED**: Link only selected product integrations with all its variants.
+                      * **NEW**: Link only new product integrations with all its variants.
+                      * **ALL**: Link all product integrations with all its variants.
+                    type: string
+                    enum:
+                      - NONE
+                      - SELECTED
+                      - NEW
+                      - ALL
+                required:
+                  - product_ids
+                  - integration_ids
+          examples:
+            Ex1:
+              $ref: '#/components/examples/product_link_request'
     product_link:
       required: true
       content:
@@ -6015,6 +6126,42 @@ components:
                     type: array
                     items:
                       $ref: '#/components/schemas/ProductProperty'
+    product_unlink_bulk:
+      description: |
+        Identifiers of the products and integrations that will be unlinked.
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  product_ids:
+                    description: Identifiers of the products to be unlinked.
+                    type: array
+                    minItems: 1
+                    maxItems: 100
+                    items:
+                      type: string
+                  integration_ids:
+                    description: Identifiers of the integrations with which you want to unlink the product.
+                    type: array
+                    items:
+                      type: string
+                  delete_from_integration:
+                    description: |
+                      Set whether the product should be removed from the remote integration source.
+                    type: boolean
+                    default: false
+                required:
+                  - product_ids
+                  - integration_ids
+          examples:
+            Ex1:
+              $ref: '#/components/examples/product_unlink_request'
     product_unlink:
       description: |
         Integrations IDs and data to set whether the product should be removed from the remote integration source.
@@ -6136,6 +6283,8 @@ components:
                 properties:
                   task_ids:
                     description: Identifiers of the failed tasks which you want to retry.
+                    minItems: 1
+                    maxItems: 100
                     type: array
                     items:
                       type: string

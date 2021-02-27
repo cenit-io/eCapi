@@ -1,0 +1,15 @@
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          type: object
+          properties:
+            product_ids:
+              description: Identifiers of the products to be removed.
+              type: array
+              items:
+                type: string
+          required: [product_ids]

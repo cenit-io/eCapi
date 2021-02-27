@@ -10,11 +10,11 @@ content:
           properties:
             task_ids:
               description: Identifiers of the failed tasks which you want to retry.
+              minItems: 1
+              maxItems: 100
               type: array
               items:
                 type: string
-
-
 
     examples:
       Ex1:

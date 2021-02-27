@@ -1,4 +1,3 @@
-
 get:
   tags:
     - Tasks
@@ -8,13 +7,11 @@ get:
     Find the tasks for the given id list and retry their executions
 
     > Only failed tasks can be retried.
-    >
-    > Only 100 tasks can be retry in the bulk action.
 
   requestBody:
     $ref: '#/components/requestBodies/task_id_list'
   responses:
     '200':
-      $ref: '#/components/responses/task_item'
+      $ref: '#/components/responses/task_items'
     '404':
       $ref: '#/components/responses/task_not_found'

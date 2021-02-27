@@ -7,7 +7,6 @@ get:
     Find the tasks for the given id list and retry their executions
 
     > Only failed tasks can be retried.
-
   requestBody:
     $ref: '#/components/requestBodies/task_id_list'
   responses:

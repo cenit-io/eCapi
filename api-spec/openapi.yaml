@@ -481,6 +481,22 @@ paths:
             }).catch((error) => {
               // Do something with the error
             });
+    delete:
+      tags:
+        - Connected Integrations
+      operationId: delete_some_integrations_async_beta_
+      summary: Delete some Integrations
+      description: |
+        Generate asynchronous tasks to delete some Integrations and all its Orders, Variants and Products.
+
+        > Authorized Integrations cannot be deleted.
+      requestBody:
+        $ref: '#/components/requestBodies/integration_ids'
+      responses:
+        '200':
+          $ref: '#/components/responses/task_items'
+        '404':
+          $ref: '#/components/responses/integration_not_found'
   '/integrations/{integration_id}':
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
@@ -535,7 +551,7 @@ paths:
       description: |
         Generate an async task to delete an Integration and all its Orders, Variants and Products.
 
-        > Authorized Integration or associated with workflows or webhooks cannot be deleted.
+        > Authorized Integration cannot be deleted.
       responses:
         '200':
           $ref: '#/components/responses/integration_delete_task'
@@ -631,12 +647,14 @@ paths:
       tags:
         - Connected Integrations
       operationId: deauthorize_integration
-      summary: Cancel the Authorization
+      summary: Unauthorize an integration
       description: |
         Find integration by given id and disallow their connection.
 
         > Only authorized integrations can be unauthorizes.
       responses:
+        '200':
+          $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/integration_not_found'
   '/integrations/{integration_id}/brands':
@@ -1109,6 +1127,23 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/product_import_task'
+        '404':
+          $ref: '#/components/responses/integration_not_found'
+  /integrations/authorize:
+    delete:
+      tags:
+        - Connected Integrations
+      operationId: deauthorize_some_integrations_beta
+      summary: Unauthorize some integrations
+      description: |
+        Find integrations by given ids and disallow their connections.
+
+        > Only authorized integrations can be unauthorizes.
+      requestBody:
+        $ref: '#/components/requestBodies/integration_ids'
+      responses:
+        '200':
+          $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/integration_not_found'
   /orders:
@@ -5913,6 +5948,26 @@ components:
                 data:
                   name: Shop-02
                   channel: ShopeeSG
+    integration_ids:
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  integration_ids:
+                    description: Identifiers of the integrations to be removed.
+                    type: array
+                    minItems: 1
+                    maxItems: 100
+                    items:
+                      type: string
+                required:
+                  - integration_ids
     integration_product_unlink:
       description: |
         Data to set whether the product should be removed from the remote integration source.

@@ -9,7 +9,7 @@ content:
           type: object
           properties:
             task_ids:
-              description: Identifiers of the failed tasks which you want to retry.
+              description: Identifiers of the tasks you want to process.
               minItems: 1
               maxItems: 100
               type: array

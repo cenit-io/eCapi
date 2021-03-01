@@ -1810,6 +1810,23 @@ paths:
           $ref: '#/components/responses/task_items'
         '404':
           $ref: '#/components/responses/task_not_found'
+  /tasks/delete/bulk:
+    delete:
+      tags:
+        - Tasks
+      operationId: delete_task_bulk_beta_
+      summary: Task Delete Bulk
+      description: |
+        Find the tasks for the given id list and delete them
+
+        > A running task can't be deleted.
+      requestBody:
+        $ref: '#/components/requestBodies/task_id_list'
+      responses:
+        '200':
+          $ref: '#/components/responses/success'
+        '404':
+          $ref: '#/components/responses/task_not_found'
   /tenants:
     get:
       tags:
@@ -6282,7 +6299,7 @@ components:
                 type: object
                 properties:
                   task_ids:
-                    description: Identifiers of the failed tasks which you want to retry.
+                    description: Identifiers of the tasks you want to process.
                     minItems: 1
                     maxItems: 100
                     type: array

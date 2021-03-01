@@ -35,3 +35,20 @@ post:
       $ref: '#/components/responses/integration_item'
     '400':
       $ref: '#/components/responses/already_exists'
+
+delete:
+  tags:
+    - Connected Integrations
+  operationId: delete_some_integrations_async_beta_
+  summary: Delete some Integrations
+  description: |
+    Generate asynchronous tasks to delete some Integrations and all its Orders, Variants and Products.
+
+    > Authorized Integrations cannot be deleted.
+  requestBody:
+    $ref: '#/components/requestBodies/integration_ids'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_items'
+    '404':
+      $ref: '#/components/responses/integration_not_found'

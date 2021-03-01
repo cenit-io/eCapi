@@ -18,11 +18,13 @@ delete:
   tags:
     - Connected Integrations
   operationId: deauthorize_integration
-  summary: Cancel the Authorization
+  summary: Unauthorize an integration
   description: |
     Find integration by given id and disallow their connection.
 
     > Only authorized integrations can be unauthorizes.
   responses:
+    '200':
+      $ref: '#/components/responses/success'
     '404':
       $ref: '#/components/responses/integration_not_found'

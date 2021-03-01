@@ -1,0 +1,17 @@
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          type: object
+          properties:
+            integration_ids:
+              description: Identifiers of the integrations to be removed.
+              type: array
+              minItems: 1
+              maxItems: 100
+              items:
+                type: string
+          required: [integration_ids]

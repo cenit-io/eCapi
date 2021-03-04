@@ -1129,6 +1129,22 @@ paths:
           $ref: '#/components/responses/product_import_task'
         '404':
           $ref: '#/components/responses/integration_not_found'
+  /integrations/all:
+    delete:
+      tags:
+        - Connected Integrations
+      operationId: delete_all_integrations_async_beta_
+      summary: Delete all Integrations
+      description: |
+        It finds all the unauthorized integrations and for each one it generates an asynchronous task to proceed
+        with its elimination and that of all its Orders, Variants and Products.
+
+        Authorized Integrations cannot be deleted
+      responses:
+        '200':
+          $ref: '#/components/responses/task_items'
+        '404':
+          $ref: '#/components/responses/integration_not_found'
   /integrations/authorize:
     delete:
       tags:

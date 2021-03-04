@@ -1496,6 +1496,24 @@
         }
       }
     },
+    "/integrations/all": {
+      "delete": {
+        "tags": [
+          "Connected Integrations"
+        ],
+        "operationId": "delete_all_integrations_async_beta_",
+        "summary": "Delete all Integrations",
+        "description": "It finds all the unauthorized integrations and for each one it generates an asynchronous task to proceed\nwith its elimination and that of all its Orders, Variants and Products.\n\nAuthorized Integrations cannot be deleted\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_items"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
     "/integrations/authorize": {
       "delete": {
         "tags": [

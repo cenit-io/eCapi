@@ -1,0 +1,16 @@
+delete:
+  tags:
+    - Connected Integrations
+  operationId: deauthorize_some_integrations_beta
+  summary: Unauthorize some integrations
+  description: |
+    Find integrations by given ids and disallow their connections.
+
+    > Only authorized integrations can be unauthorizes.
+  requestBody:
+    $ref: '#/components/requestBodies/integration_ids'
+  responses:
+    '200':
+      $ref: '#/components/responses/success'
+    '404':
+      $ref: '#/components/responses/integration_not_found'

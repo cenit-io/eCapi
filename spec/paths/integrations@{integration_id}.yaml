@@ -38,7 +38,7 @@ delete:
   description: |
     Generate an async task to delete an Integration and all its Orders, Variants and Products.
 
-    > Authorized Integration or associated with workflows or webhooks cannot be deleted.
+    > Authorized Integration cannot be deleted.
   responses:
     '200':
       $ref: '#/components/responses/integration_delete_task'

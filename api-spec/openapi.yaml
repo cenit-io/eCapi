@@ -1567,7 +1567,7 @@ paths:
         '200':
           $ref: '#/components/responses/stock_item_items'
   /products/link:
-    post:
+    put:
       tags:
         - Products
       operationId: link_some_products_async_beta_
@@ -1798,6 +1798,22 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/task_items'
+    delete:
+      tags:
+        - Tasks
+      operationId: delete_task_bulk_beta_
+      summary: Task Delete Bulk
+      description: |
+        Find the tasks for the given id list and delete them
+
+        > A running task can't be deleted.
+      requestBody:
+        $ref: '#/components/requestBodies/task_id_list'
+      responses:
+        '200':
+          $ref: '#/components/responses/success'
+        '404':
+          $ref: '#/components/responses/task_not_found'
   '/tasks/{task_id}':
     parameters:
       - $ref: '#/components/parameters/path_task_id'
@@ -1844,7 +1860,7 @@ paths:
           $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/task_not_found'
-  /tasks/bulk/retry:
+  /tasks/retry:
     get:
       tags:
         - Tasks
@@ -1859,23 +1875,6 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/task_items'
-        '404':
-          $ref: '#/components/responses/task_not_found'
-  /tasks/delete/bulk:
-    delete:
-      tags:
-        - Tasks
-      operationId: delete_task_bulk_beta_
-      summary: Task Delete Bulk
-      description: |
-        Find the tasks for the given id list and delete them
-
-        > A running task can't be deleted.
-      requestBody:
-        $ref: '#/components/requestBodies/task_id_list'
-      responses:
-        '200':
-          $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/task_not_found'
   /tenants:

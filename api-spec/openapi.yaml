@@ -1775,19 +1775,6 @@ paths:
         '404':
           $ref: '#/components/responses/stock_location_not_found'
   /tasks:
-    parameters:
-      - $ref: '#/components/parameters/query_filter_term_for_tasks'
-      - $ref: '#/components/parameters/query_filter_task_status'
-      - $ref: '#/components/parameters/query_filter_task_description'
-      - $ref: '#/components/parameters/query_with_details'
-      - $ref: '#/components/parameters/query_filter_generic_created_after'
-      - $ref: '#/components/parameters/query_filter_generic_created_before'
-      - $ref: '#/components/parameters/query_filter_generic_updated_after'
-      - $ref: '#/components/parameters/query_filter_generic_updated_before'
-      - $ref: '#/components/parameters/query_without_data'
-      - $ref: '#/components/parameters/query_offset'
-      - $ref: '#/components/parameters/query_limit'
-      - $ref: '#/components/parameters/query_sort_for_tasks'
     get:
       tags:
         - Tasks
@@ -1795,6 +1782,19 @@ paths:
       summary: List all Tasks
       description: |
         Returns the list of tasks executions.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_tasks'
+        - $ref: '#/components/parameters/query_filter_task_status'
+        - $ref: '#/components/parameters/query_filter_task_description'
+        - $ref: '#/components/parameters/query_with_details'
+        - $ref: '#/components/parameters/query_filter_generic_created_after'
+        - $ref: '#/components/parameters/query_filter_generic_created_before'
+        - $ref: '#/components/parameters/query_filter_generic_updated_after'
+        - $ref: '#/components/parameters/query_filter_generic_updated_before'
+        - $ref: '#/components/parameters/query_without_data'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_tasks'
       responses:
         '200':
           $ref: '#/components/responses/task_items'
@@ -1802,7 +1802,7 @@ paths:
       tags:
         - Tasks
       operationId: delete_task_bulk_beta_
-      summary: Task Delete Bulk
+      summary: Delete some tasks
       description: |
         Find the tasks for the given id list and delete them
 
@@ -1976,6 +1976,20 @@ paths:
           $ref: '#/components/responses/webhook_item'
         '400':
           $ref: '#/components/responses/already_exists'
+    delete:
+      tags:
+        - Webhooks
+      operationId: webhook_delete_bulk
+      summary: Delete some Webhooks
+      description: |
+        Find the webhooks for the given id list and delete them
+      requestBody:
+        $ref: '#/components/requestBodies/webhook_ids'
+      responses:
+        '200':
+          $ref: '#/components/responses/success'
+        '400':
+          $ref: '#/components/responses/webhook_not_found'
   '/webhooks/{webhook_id}':
     parameters:
       - $ref: '#/components/parameters/path_webhook_id'
@@ -5812,6 +5826,13 @@ components:
           integration_id: shop_01
           topic: order/updated
           address: 'http://myintegration.com/catch/order/updated'
+    webhook_ids_request:
+      value:
+        data:
+          webhook_ids:
+            - 6035665bb90e810c2400767f
+            - 60356805b90e810c2d009205
+            - 5d04051125d9852c71016793
     webhook_item_response:
       value:
         type: webhook
@@ -6357,7 +6378,6 @@ components:
                   - required:
                       - quantity
     task_id_list:
-      description: Task identifier list
       required: true
       content:
         application/json:
@@ -6370,11 +6390,13 @@ components:
                 properties:
                   task_ids:
                     description: Identifiers of the tasks you want to process.
+                    type: array
                     minItems: 1
                     maxItems: 100
-                    type: array
                     items:
                       type: string
+                required:
+                  - task_ids
           examples:
             Ex1:
               $ref: '#/components/examples/task_bulk_retry_request'
@@ -6513,6 +6535,29 @@ components:
               $ref: '#/components/examples/webhook_create_request_1'
             Ex2:
               $ref: '#/components/examples/webhook_create_request_2'
+    webhook_ids:
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  webhook_ids:
+                    description: Identifiers of the webhooks to be removed.
+                    type: array
+                    minItems: 1
+                    maxItems: 100
+                    items:
+                      type: string
+                required:
+                  - webhook_ids
+          examples:
+            Ex1:
+              $ref: '#/components/examples/webhook_ids_request'
     webhook_update:
       description: Webhook that will be updated
       required: true

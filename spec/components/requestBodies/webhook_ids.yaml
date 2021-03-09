@@ -7,14 +7,14 @@ content:
         data:
           type: object
           properties:
-            task_ids:
-              description: Identifiers of the tasks you want to process.
+            webhook_ids:
+              description: Identifiers of the webhooks to be removed.
               type: array
               minItems: 1
               maxItems: 100
               items:
                 type: string
-          required: [task_ids]
+          required: [webhook_ids]
     examples:
       Ex1:
-        $ref: '#/components/examples/task_bulk_retry_request'
+        $ref: '#/components/examples/webhook_ids_request'

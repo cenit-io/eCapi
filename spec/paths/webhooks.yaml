@@ -35,3 +35,20 @@ post:
       $ref: '#/components/responses/webhook_item'
     '400':
       $ref: '#/components/responses/already_exists'
+
+
+
+delete:
+  tags:
+    - Webhooks
+  operationId: webhook_delete_bulk
+  summary: Delete some Webhooks
+  description: |
+    Find the webhooks for the given id list and delete them
+  requestBody:
+    $ref: '#/components/requestBodies/webhook_ids'
+  responses:
+    '200':
+      $ref: '#/components/responses/success'
+    '400':
+      $ref: '#/components/responses/webhook_not_found'

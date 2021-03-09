@@ -1,16 +1,3 @@
-parameters:
-  - $ref: '#/components/parameters/query_filter_term_for_tasks'
-  - $ref: '#/components/parameters/query_filter_task_status'
-  - $ref: '#/components/parameters/query_filter_task_description'
-  - $ref: '#/components/parameters/query_with_details'
-  - $ref: '#/components/parameters/query_filter_generic_created_after'
-  - $ref: '#/components/parameters/query_filter_generic_created_before'
-  - $ref: '#/components/parameters/query_filter_generic_updated_after'
-  - $ref: '#/components/parameters/query_filter_generic_updated_before'
-  - $ref: '#/components/parameters/query_without_data'
-  - $ref: '#/components/parameters/query_offset'
-  - $ref: '#/components/parameters/query_limit'
-  - $ref: '#/components/parameters/query_sort_for_tasks'
 
 get:
   tags:
@@ -19,6 +6,19 @@ get:
   summary: List all Tasks
   description: |
     Returns the list of tasks executions.
+  parameters:
+    - $ref: '#/components/parameters/query_filter_term_for_tasks'
+    - $ref: '#/components/parameters/query_filter_task_status'
+    - $ref: '#/components/parameters/query_filter_task_description'
+    - $ref: '#/components/parameters/query_with_details'
+    - $ref: '#/components/parameters/query_filter_generic_created_after'
+    - $ref: '#/components/parameters/query_filter_generic_created_before'
+    - $ref: '#/components/parameters/query_filter_generic_updated_after'
+    - $ref: '#/components/parameters/query_filter_generic_updated_before'
+    - $ref: '#/components/parameters/query_without_data'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
+    - $ref: '#/components/parameters/query_sort_for_tasks'
   responses:
     '200':
       $ref: '#/components/responses/task_items'
@@ -27,7 +27,7 @@ delete:
   tags:
     - Tasks
   operationId: delete_task_bulk_beta_
-  summary: Task Delete Bulk
+  summary: Delete some tasks
   description: |
     Find the tasks for the given id list and delete them
 

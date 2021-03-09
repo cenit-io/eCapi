@@ -563,6 +563,25 @@
             "source": "// See the authentication section to learn how to sign any request.\n\nlet request = axios({\n  method: 'POST',\n  url: 'integrations',\n  data: { name: \"Shop-01\", channel: \"Ov2LazadaSG\" }\n});\n\nrequest.then((response) => {\n  // Do something with the response\n}).catch((error) => {\n  // Do something with the error\n});"
           }
         ]
+      },
+      "delete": {
+        "tags": [
+          "Connected Integrations"
+        ],
+        "operationId": "delete_some_integrations_async_beta_",
+        "summary": "Delete some Integrations",
+        "description": "Generate asynchronous tasks to delete some Integrations and all its Orders, Variants and Products.\n\n> Authorized Integrations cannot be deleted.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/integration_ids"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_items"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
       }
     },
     "/integrations/{integration_id}": {
@@ -618,7 +637,7 @@
         ],
         "operationId": "delete_integration_async_",
         "summary": "Delete an Integration",
-        "description": "Generate an async task to delete an Integration and all its Orders, Variants and Products.\n\n> Authorized Integration or associated with workflows or webhooks cannot be deleted.\n",
+        "description": "Generate an async task to delete an Integration and all its Orders, Variants and Products.\n\n> Authorized Integration cannot be deleted.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/integration_delete_task"
@@ -696,9 +715,12 @@
           "Connected Integrations"
         ],
         "operationId": "deauthorize_integration",
-        "summary": "Cancel the Authorization",
+        "summary": "Unauthorize an integration",
         "description": "Find integration by given id and disallow their connection.\n\n> Only authorized integrations can be unauthorizes.\n",
         "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
           "404": {
             "$ref": "#/components/responses/integration_not_found"
           }
@@ -1474,6 +1496,45 @@
         }
       }
     },
+    "/integrations/all": {
+      "delete": {
+        "tags": [
+          "Connected Integrations"
+        ],
+        "operationId": "delete_all_integrations_async_beta_",
+        "summary": "Delete all Integrations",
+        "description": "It finds all the unauthorized integrations and for each one it generates an asynchronous task to proceed\nwith its elimination and that of all its Orders, Variants and Products.\n\nAuthorized Integrations cannot be deleted\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_items"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/authorize": {
+      "delete": {
+        "tags": [
+          "Connected Integrations"
+        ],
+        "operationId": "deauthorize_some_integrations_beta",
+        "summary": "Unauthorize some integrations",
+        "description": "Find integrations by given ids and disallow their connections.\n\n> Only authorized integrations can be unauthorizes.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/integration_ids"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
     "/orders": {
       "parameters": [
         {
@@ -1709,6 +1770,25 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/product_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "delete_some_products_beta_",
+        "summary": "Delete some Product",
+        "description": "Delete some products without integrations.\n\n> The products will be permanently removed if and only if it has no associated integrations.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/product_ids"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
           },
           "404": {
             "$ref": "#/components/responses/product_not_found"
@@ -2091,6 +2171,46 @@
         }
       }
     },
+    "/products/link": {
+      "put": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "link_some_products_async_beta_",
+        "summary": "Link some Products",
+        "description": "Generate asynchronous tasks to link some products with some integrations.\n\n> If the process is successful, tasks will be added to create or update the products on the remote platforms of each linked integration.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/product_link_bulk"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_items"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "unlink_some_products_async_beta_",
+        "summary": "Unlink some Products",
+        "description": "Generate asynchronous tasks to unlink some products with some integrations.\n\n> If it is established that the products should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/product_unlink_bulk"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_items"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      }
+    },
     "/sign_in": {
       "parameters": [
         {
@@ -2370,44 +2490,6 @@
       }
     },
     "/tasks": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/query_filter_term_for_tasks"
-        },
-        {
-          "$ref": "#/components/parameters/query_filter_task_status"
-        },
-        {
-          "$ref": "#/components/parameters/query_filter_task_description"
-        },
-        {
-          "$ref": "#/components/parameters/query_with_details"
-        },
-        {
-          "$ref": "#/components/parameters/query_filter_generic_created_after"
-        },
-        {
-          "$ref": "#/components/parameters/query_filter_generic_created_before"
-        },
-        {
-          "$ref": "#/components/parameters/query_filter_generic_updated_after"
-        },
-        {
-          "$ref": "#/components/parameters/query_filter_generic_updated_before"
-        },
-        {
-          "$ref": "#/components/parameters/query_without_data"
-        },
-        {
-          "$ref": "#/components/parameters/query_offset"
-        },
-        {
-          "$ref": "#/components/parameters/query_limit"
-        },
-        {
-          "$ref": "#/components/parameters/query_sort_for_tasks"
-        }
-      ],
       "get": {
         "tags": [
           "Tasks"
@@ -2415,9 +2497,66 @@
         "operationId": "get_tasks",
         "summary": "List all Tasks",
         "description": "Returns the list of tasks executions.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_tasks"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_task_status"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_task_description"
+          },
+          {
+            "$ref": "#/components/parameters/query_with_details"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_without_data"
+          },
+          {
+            "$ref": "#/components/parameters/query_offset"
+          },
+          {
+            "$ref": "#/components/parameters/query_limit"
+          },
+          {
+            "$ref": "#/components/parameters/query_sort_for_tasks"
+          }
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_items"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tasks"
+        ],
+        "operationId": "delete_task_bulk_beta_",
+        "summary": "Delete some tasks",
+        "description": "Find the tasks for the given id list and delete them\n\n> A running task can't be deleted.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/task_id_list"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_not_found"
           }
         }
       }
@@ -2477,6 +2616,27 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_not_found"
+          }
+        }
+      }
+    },
+    "/tasks/retry": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "operationId": "retry_task_bulk_beta_",
+        "summary": "Task Retry Bulk",
+        "description": "Find the tasks for the given id list and retry their executions\n\n> Only failed tasks can be retried.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/task_id_list"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_items"
           },
           "404": {
             "$ref": "#/components/responses/task_not_found"
@@ -2651,6 +2811,25 @@
           },
           "400": {
             "$ref": "#/components/responses/already_exists"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "webhook_delete_bulk",
+        "summary": "Delete some Webhooks",
+        "description": "Find the webhooks for the given id list and delete them\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/webhook_ids"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "400": {
+            "$ref": "#/components/responses/webhook_not_found"
           }
         }
       }
@@ -3581,6 +3760,21 @@
                 "$ref": "#/components/schemas/IntegrationMin"
               }
             ]
+          },
+          "ability": {
+            "description": "Ability to can updated or deleted",
+            "type": "object",
+            "readOnly": true,
+            "properties": {
+              "update": {
+                "type": "boolean",
+                "default": false
+              },
+              "delete": {
+                "type": "boolean",
+                "default": false
+              }
+            }
           },
           "created_at": {
             "$ref": "#/components/schemas/CreatedAt"
@@ -7801,6 +7995,16 @@
           }
         }
       },
+      "task_bulk_retry_request": {
+        "value": {
+          "data": {
+            "task_ids": [
+              "6035665bb90e810c2400767f",
+              "60356805b90e810c2d009205"
+            ]
+          }
+        }
+      },
       "task_item_response": {
         "value": {
           "type": "task",
@@ -8201,6 +8405,17 @@
           }
         }
       },
+      "webhook_ids_request": {
+        "value": {
+          "data": {
+            "webhook_ids": [
+              "6035665bb90e810c2400767f",
+              "60356805b90e810c2d009205",
+              "5d04051125d9852c71016793"
+            ]
+          }
+        }
+      },
       "webhook_item_response": {
         "value": {
           "type": "webhook",
@@ -8442,6 +8657,37 @@
           }
         }
       },
+      "integration_ids": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "integration_ids": {
+                      "description": "Identifiers of the integrations to be removed.",
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 100,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "integration_ids"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
       "integration_product_unlink": {
         "description": "Data to set whether the product should be removed from the remote integration source.\n",
         "required": true,
@@ -8621,6 +8867,92 @@
           }
         }
       },
+      "product_ids": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "product_ids": {
+                      "description": "Identifiers of the products to be removed.",
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 100,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "product_ids"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "product_link_bulk": {
+        "description": "Identifiers of the products and integrations that will be linked.\n",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "product_ids": {
+                      "description": "Identifiers of the products to be linked.",
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 100,
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "integration_ids": {
+                      "description": "Identifiers of the integrations with which you want to link the product.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "link_with_its_variants": {
+                      "description": "Establishes how the product integrations should be linked or not with its variants.\n* **NONE**: Do not link with any of its variants.\n* **SELECTED**: Link only selected product integrations with all its variants.\n* **NEW**: Link only new product integrations with all its variants.\n* **ALL**: Link all product integrations with all its variants.\n",
+                      "type": "string",
+                      "enum": [
+                        "NONE",
+                        "SELECTED",
+                        "NEW",
+                        "ALL"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "product_ids",
+                    "integration_ids"
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_link_request"
+              }
+            }
+          }
+        }
+      },
       "product_link": {
         "required": true,
         "content": {
@@ -8686,6 +9018,56 @@
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+      },
+      "product_unlink_bulk": {
+        "description": "Identifiers of the products and integrations that will be unlinked.\n",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "product_ids": {
+                      "description": "Identifiers of the products to be unlinked.",
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 100,
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "integration_ids": {
+                      "description": "Identifiers of the integrations with which you want to unlink the product.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "delete_from_integration": {
+                      "description": "Set whether the product should be removed from the remote integration source.\n",
+                      "type": "boolean",
+                      "default": false
+                    }
+                  },
+                  "required": [
+                    "product_ids",
+                    "integration_ids"
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/product_unlink_request"
               }
             }
           }
@@ -8867,6 +9249,42 @@
                     }
                   ]
                 }
+              }
+            }
+          }
+        }
+      },
+      "task_id_list": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "task_ids": {
+                      "description": "Identifiers of the tasks you want to process.",
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 100,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "task_ids"
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/task_bulk_retry_request"
               }
             }
           }
@@ -9094,6 +9512,42 @@
               },
               "Ex2": {
                 "$ref": "#/components/examples/webhook_create_request_2"
+              }
+            }
+          }
+        }
+      },
+      "webhook_ids": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "webhook_ids": {
+                      "description": "Identifiers of the webhooks to be removed.",
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 100,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "webhook_ids"
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "Ex1": {
+                "$ref": "#/components/examples/webhook_ids_request"
               }
             }
           }

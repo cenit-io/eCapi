@@ -1,4 +1,4 @@
-post:
+put:
   tags:
     - Products
   operationId: link_some_products_async_beta_

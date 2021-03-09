@@ -311,6 +311,20 @@ paths:
           $ref: '#/components/responses/flow_item'
         '400':
           $ref: '#/components/responses/already_exists'
+    delete:
+      tags:
+        - Flows
+      operationId: delete_some_flows_beta_
+      summary: Delete some Flows
+      description: |
+        It finds and destroy the some flows and its schedulers given the flows ids.
+      requestBody:
+        $ref: '#/components/requestBodies/flow_ids'
+      responses:
+        '200':
+          $ref: '#/components/responses/success'
+        '404':
+          $ref: '#/components/responses/flow_not_found'
   '/flows/{flow_id}':
     parameters:
       - $ref: '#/components/parameters/path_flow_id'
@@ -383,6 +397,20 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/flow_item'
+        '404':
+          $ref: '#/components/responses/flow_not_found'
+  /flows/all:
+    delete:
+      tags:
+        - Flows
+      operationId: delete_all_flows_beta_
+      summary: Delete all Flows
+      description: |
+        It finds all flows and for each one it generates an asynchronous task to proceed
+        with its destruction and that of all its schedulers.
+      responses:
+        '200':
+          $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/flow_not_found'
   /flows/types:
@@ -5931,6 +5959,26 @@ components:
               $ref: '#/components/examples/flow_create_request_1'
             Ex2:
               $ref: '#/components/examples/flow_create_request_2'
+    flow_ids:
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  flow_ids:
+                    description: Identifiers of the flows to be removed.
+                    type: array
+                    minItems: 1
+                    maxItems: 100
+                    items:
+                      type: string
+                required:
+                  - flow_ids
     flow_update:
       description: Flow scheduler that will be updated
       required: true

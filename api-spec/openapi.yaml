@@ -2681,6 +2681,17 @@ components:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/IntegrationMin'
+        ability:
+          description: Ability to can updated or deleted
+          type: object
+          readOnly: true
+          properties:
+            update:
+              type: boolean
+              default: false
+            delete:
+              type: boolean
+              default: false
         created_at:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:

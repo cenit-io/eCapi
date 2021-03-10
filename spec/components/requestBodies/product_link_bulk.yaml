@@ -35,7 +35,3 @@ content:
                 - NEW
                 - ALL
           required: [product_ids, integration_ids]
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/product_link_request'

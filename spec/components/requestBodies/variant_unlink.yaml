@@ -20,7 +20,3 @@ content:
               type: boolean
               default: false
           required: [integration_ids]
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/variant_unlink_request'

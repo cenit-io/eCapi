@@ -1,7 +1,0 @@
-value:
-  data:
-    integration_ids:
-      - shop_01
-      - shop_02
-      - shop_05
-    link_with_its_variants: NONE

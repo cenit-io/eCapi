@@ -5502,22 +5502,6 @@ components:
           offset: 0
           limit: 10
           total: 2
-    product_link_request:
-      value:
-        data:
-          integration_ids:
-            - shop_01
-            - shop_02
-            - shop_05
-          link_with_its_variants: NONE
-    product_unlink_request:
-      value:
-        data:
-          integration_ids:
-            - shop_01
-            - shop_02
-            - shop_05
-          delete_from_integration: true
     product_update_request_1:
       summary: Update price
       value:
@@ -5803,8 +5787,6 @@ components:
             - shop_01
             - shop_02
             - shop_05
-    variant_unlink_request:
-      $ref: '#/components/examples/product_unlink_request'
     variant_update_request_1:
       summary: Update price
       value:
@@ -6192,9 +6174,6 @@ components:
                 required:
                   - product_ids
                   - integration_ids
-          examples:
-            Ex1:
-              $ref: '#/components/examples/product_link_request'
     product_link:
       required: true
       content:
@@ -6226,9 +6205,6 @@ components:
                       - ALL
                 required:
                   - integration_ids
-          examples:
-            Ex1:
-              $ref: '#/components/examples/product_link_request'
     product_properties_update:
       description: Product properties that will be updated
       required: true
@@ -6278,9 +6254,6 @@ components:
                 required:
                   - product_ids
                   - integration_ids
-          examples:
-            Ex1:
-              $ref: '#/components/examples/product_unlink_request'
     product_unlink:
       description: |
         Integrations IDs and data to set whether the product should be removed from the remote integration source.
@@ -6306,9 +6279,6 @@ components:
                     default: false
                 required:
                   - integration_ids
-          examples:
-            Ex1:
-              $ref: '#/components/examples/product_unlink_request'
     product_update:
       description: Product properties that will be updated
       required: true
@@ -6505,9 +6475,6 @@ components:
                     default: false
                 required:
                   - integration_ids
-          examples:
-            Ex1:
-              $ref: '#/components/examples/variant_unlink_request'
     variant_update:
       description: Variant properties that will be updated
       required: true

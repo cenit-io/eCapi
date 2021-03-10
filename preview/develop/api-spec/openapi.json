@@ -7945,30 +7945,6 @@
           }
         }
       },
-      "product_link_request": {
-        "value": {
-          "data": {
-            "integration_ids": [
-              "shop_01",
-              "shop_02",
-              "shop_05"
-            ],
-            "link_with_its_variants": "NONE"
-          }
-        }
-      },
-      "product_unlink_request": {
-        "value": {
-          "data": {
-            "integration_ids": [
-              "shop_01",
-              "shop_02",
-              "shop_05"
-            ],
-            "delete_from_integration": true
-          }
-        }
-      },
       "product_update_request_1": {
         "summary": "Update price",
         "value": {
@@ -8356,9 +8332,6 @@
             ]
           }
         }
-      },
-      "variant_unlink_request": {
-        "$ref": "#/components/examples/product_unlink_request"
       },
       "variant_update_request_1": {
         "summary": "Update price",
@@ -8944,11 +8917,6 @@
                   ]
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/product_link_request"
-              }
             }
           }
         }
@@ -8987,11 +8955,6 @@
                     "integration_ids"
                   ]
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/product_link_request"
               }
             }
           }
@@ -9064,11 +9027,6 @@
                   ]
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/product_unlink_request"
-              }
             }
           }
         }
@@ -9103,11 +9061,6 @@
                     "integration_ids"
                   ]
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/product_unlink_request"
               }
             }
           }
@@ -9440,11 +9393,6 @@
                     "integration_ids"
                   ]
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/variant_unlink_request"
               }
             }
           }

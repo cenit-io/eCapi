@@ -1,0 +1,13 @@
+delete:
+  tags:
+    - Flows
+  operationId: delete_all_flows_beta_
+  summary: Delete all Flows
+  description: |
+    It finds all flows and for each one it generates an asynchronous task to proceed
+    with its destruction and that of all its schedulers.
+  responses:
+    '200':
+      $ref: '#/components/responses/success'
+    '404':
+      $ref: '#/components/responses/flow_not_found'

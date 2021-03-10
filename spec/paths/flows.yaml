@@ -37,3 +37,19 @@ post:
       $ref: '#/components/responses/flow_item'
     '400':
       $ref: '#/components/responses/already_exists'
+
+delete:
+  tags:
+    - Flows
+  operationId: delete_some_flows_beta_
+  summary: Delete some Flows
+  description: |
+    It finds and destroy the some flows and its schedulers given the flows ids.
+
+  requestBody:
+    $ref: '#/components/requestBodies/flow_ids'
+  responses:
+    '200':
+      $ref: '#/components/responses/success'
+    '404':
+      $ref: '#/components/responses/flow_not_found'

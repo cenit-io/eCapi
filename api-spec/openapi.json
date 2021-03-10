@@ -2929,6 +2929,21 @@
         }
       }
     },
+    "/webhooks/all": {
+      "delete": {
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "delete_all_webhooks_async_beta_",
+        "summary": "Delete all Webhooks",
+        "description": "It finds all webhooks and delete them.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          }
+        }
+      }
+    },
     "/webhooks/topics": {
       "get": {
         "tags": [

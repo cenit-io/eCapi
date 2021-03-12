@@ -522,7 +522,7 @@ paths:
         $ref: '#/components/requestBodies/integration_ids'
       responses:
         '200':
-          $ref: '#/components/responses/task_items'
+          $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/integration_not_found'
   '/integrations/{integration_id}':
@@ -1170,7 +1170,7 @@ paths:
         Authorized Integrations cannot be deleted
       responses:
         '200':
-          $ref: '#/components/responses/task_items'
+          $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/integration_not_found'
   /integrations/authorize:
@@ -1608,7 +1608,7 @@ paths:
         $ref: '#/components/requestBodies/product_link_bulk'
       responses:
         '200':
-          $ref: '#/components/responses/task_items'
+          $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/product_not_found'
     delete:
@@ -1624,7 +1624,7 @@ paths:
         $ref: '#/components/requestBodies/product_unlink_bulk'
       responses:
         '200':
-          $ref: '#/components/responses/task_items'
+          $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/product_not_found'
   /sign_in:

@@ -613,7 +613,7 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/task_items"
+            "$ref": "#/components/responses/task_item"
           },
           "404": {
             "$ref": "#/components/responses/integration_not_found"
@@ -1543,7 +1543,7 @@
         "description": "It finds all the unauthorized integrations and for each one it generates an asynchronous task to proceed\nwith its elimination and that of all its Orders, Variants and Products.\n\nAuthorized Integrations cannot be deleted\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/task_items"
+            "$ref": "#/components/responses/task_item"
           },
           "404": {
             "$ref": "#/components/responses/integration_not_found"
@@ -2221,7 +2221,7 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/task_items"
+            "$ref": "#/components/responses/task_item"
           },
           "404": {
             "$ref": "#/components/responses/product_not_found"
@@ -2240,7 +2240,7 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/task_items"
+            "$ref": "#/components/responses/task_item"
           },
           "404": {
             "$ref": "#/components/responses/product_not_found"

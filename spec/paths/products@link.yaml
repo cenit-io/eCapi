@@ -11,7 +11,7 @@ put:
     $ref: '#/components/requestBodies/product_link_bulk'
   responses:
     '200':
-      $ref: '#/components/responses/task_items'
+      $ref: '#/components/responses/task_item'
     '404':
       $ref: '#/components/responses/product_not_found'
 
@@ -28,7 +28,7 @@ delete:
     $ref: '#/components/requestBodies/product_unlink_bulk'
   responses:
     '200':
-      $ref: '#/components/responses/task_items'
+      $ref: '#/components/responses/task_item'
     '404':
       $ref: '#/components/responses/product_not_found'
 

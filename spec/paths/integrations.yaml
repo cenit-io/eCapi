@@ -42,7 +42,7 @@ delete:
   operationId: delete_some_integrations_async_beta_
   summary: Delete some Integrations
   description: |
-    Generate asynchronous tasks to delete some Integrations and all its Orders, Variants and Products.
+    Generate an asynchronous task to delete some Integrations and all its Orders, Variants and Products.
 
     > Authorized Integrations cannot be deleted.
   requestBody:

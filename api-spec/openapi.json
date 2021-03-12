@@ -488,6 +488,27 @@
         }
       }
     },
+    "/flows/start": {
+      "get": {
+        "tags": [
+          "Flows"
+        ],
+        "operationId": "start_some_flows_async_beta_",
+        "summary": "Start some Flows",
+        "description": "It finds the flows given the its ids and for each one generate a asynchronous task\nto be start the flow processing.\n\n> If exists any task associate to the one flow in the execution or pending state,\nthen the same task is returned, otherwise a new task is created.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/flow_ids"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/flow_not_found"
+          }
+        }
+      }
+    },
     "/flows/types": {
       "get": {
         "tags": [
@@ -1540,7 +1561,7 @@
         ],
         "operationId": "delete_all_integrations_async_beta_",
         "summary": "Delete all Integrations",
-        "description": "It finds all the unauthorized integrations and for each one it generates an asynchronous task to proceed\nwith its elimination and that of all its Orders, Variants and Products.\n\nAuthorized Integrations cannot be deleted\n",
+        "description": "It finds all the unauthorized integrations and for each one it generates an asynchronous task to proceed\nwith its elimination and that of all its Orders, Variants and Products.\n\n> Authorized Integrations cannot be deleted\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
@@ -8590,7 +8611,7 @@
                   "type": "object",
                   "properties": {
                     "flow_ids": {
-                      "description": "Identifiers of the flows to be removed.",
+                      "description": "Identifiers of the flows to be processing.",
                       "type": "array",
                       "minItems": 1,
                       "maxItems": 100,
@@ -8726,7 +8747,7 @@
                   "type": "object",
                   "properties": {
                     "integration_ids": {
-                      "description": "Identifiers of the integrations to be removed.",
+                      "description": "Identifiers of the integrations to be processing.",
                       "type": "array",
                       "minItems": 1,
                       "maxItems": 100,

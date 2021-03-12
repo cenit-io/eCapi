@@ -7,7 +7,7 @@ delete:
     It finds all the unauthorized integrations and for each one it generates an asynchronous task to proceed
     with its elimination and that of all its Orders, Variants and Products.
 
-    Authorized Integrations cannot be deleted
+    > Authorized Integrations cannot be deleted
   responses:
     '200':
       $ref: '#/components/responses/task_item'

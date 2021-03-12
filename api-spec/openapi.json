@@ -475,12 +475,12 @@
         "tags": [
           "Flows"
         ],
-        "operationId": "delete_all_flows_beta_",
+        "operationId": "delete_all_flows_async_beta_",
         "summary": "Delete all Flows",
-        "description": "It finds all flows and for each one it generates an asynchronous task to proceed\nwith its destruction and that of all its schedulers.\n",
+        "description": "It finds all flows and generate an asynchronous task to destroy all this flows and that its schedulers.\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/success"
+            "$ref": "#/components/responses/task_item"
           },
           "404": {
             "$ref": "#/components/responses/flow_not_found"
@@ -495,7 +495,7 @@
         ],
         "operationId": "start_some_flows_async_beta_",
         "summary": "Start some Flows",
-        "description": "It finds the flows given the its ids and for each one generate a asynchronous task\nto be start the flow processing.\n\n> If exists any task associate to the one flow in the execution or pending state,\nthen the same task is returned, otherwise a new task is created.\n",
+        "description": "It finds the flows given the its ids and generate an asynchronous task to be start this flows processing.\n\n> If exists any task associate to the one flow in the execution or pending state,\nthen the same task is returned, otherwise a new task is created.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/flow_ids"
         },
@@ -628,7 +628,7 @@
         ],
         "operationId": "delete_some_integrations_async_beta_",
         "summary": "Delete some Integrations",
-        "description": "Generate asynchronous tasks to delete some Integrations and all its Orders, Variants and Products.\n\n> Authorized Integrations cannot be deleted.\n",
+        "description": "Generate an asynchronous task to delete some Integrations and all its Orders, Variants and Products.\n\n> Authorized Integrations cannot be deleted.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/integration_ids"
         },
@@ -1561,7 +1561,7 @@
         ],
         "operationId": "delete_all_integrations_async_beta_",
         "summary": "Delete all Integrations",
-        "description": "It finds all the unauthorized integrations and for each one it generates an asynchronous task to proceed\nwith its elimination and that of all its Orders, Variants and Products.\n\n> Authorized Integrations cannot be deleted\n",
+        "description": "It finds all the unauthorized integrations and generate an asynchronous task to delete this Integrations\nwith all its Orders, Variants and Products.\n\n> Authorized Integrations cannot be deleted\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"

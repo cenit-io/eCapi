@@ -1859,6 +1859,23 @@ paths:
           $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/task_not_found'
+  '/tasks/{status}/all':
+    parameters:
+      - $ref: '#/components/parameters/path_task_status'
+    delete:
+      tags:
+        - Tasks
+      operationId: delete_all_tasks_by_status_async_beta_
+      summary: Delete all tasks by status
+      description: |
+        It finds all tasks with the given status and generate an asynchronous task to delete them.
+
+        > The tasks in running status can not be deleted.
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/not_found'
   '/tasks/{task_id}':
     parameters:
       - $ref: '#/components/parameters/path_task_id'
@@ -2086,7 +2103,9 @@ paths:
         It finds all webhooks and delete them.
       responses:
         '200':
-          $ref: '#/components/responses/success'
+          $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/not_found'
   /webhooks/topics:
     get:
       tags:
@@ -3370,6 +3389,15 @@ components:
               email: lazada@example.omna.io
               short_code: SG11D8C
               cb: false
+    not_found:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Exception'
+          example:
+            type: exception
+            message: 'Elements not found '
     order_doc_types:
       description: Success
       content:
@@ -4016,6 +4044,14 @@ components:
         description: Task identifier
         type: string
         example: 5d029d6625d985755e02202c
+    path_task_status:
+      name: status
+      in: path
+      required: true
+      schema:
+        description: Task status
+        type: string
+        example: failed
     path_tenant_id:
       name: tenant_id
       in: path

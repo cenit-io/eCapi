@@ -2619,6 +2619,29 @@
         }
       }
     },
+    "/tasks/{status}/all": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_task_status"
+        }
+      ],
+      "delete": {
+        "tags": [
+          "Tasks"
+        ],
+        "operationId": "delete_all_tasks_by_status_async_beta_",
+        "summary": "Delete all tasks by status",
+        "description": "It finds all tasks with the given status and generate an asynchronous task to delete them.\n\n> The tasks in running status can not be deleted.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
+          }
+        }
+      }
+    },
     "/tasks/{task_id}": {
       "parameters": [
         {
@@ -2960,7 +2983,10 @@
         "description": "It finds all webhooks and delete them.\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/success"
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found"
           }
         }
       }
@@ -4820,6 +4846,20 @@
           }
         }
       },
+      "not_found": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Exception"
+            },
+            "example": {
+              "type": "exception",
+              "message": "Elements not found "
+            }
+          }
+        }
+      },
       "order_doc_types": {
         "description": "Success",
         "content": {
@@ -5795,6 +5835,16 @@
           "description": "Task identifier",
           "type": "string",
           "example": "5d029d6625d985755e02202c"
+        }
+      },
+      "path_task_status": {
+        "name": "status",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "description": "Task status",
+          "type": "string",
+          "example": "failed"
         }
       },
       "path_tenant_id": {

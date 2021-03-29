@@ -1,0 +1,7 @@
+name: status
+in: path
+required: true
+schema:
+  description: Task status
+  type: string
+  example: failed

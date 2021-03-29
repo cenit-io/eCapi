@@ -1,0 +1,17 @@
+parameters:
+  - $ref: '#/components/parameters/path_task_status'
+
+delete:
+  tags:
+    - Tasks
+  operationId: delete_all_tasks_by_status_async_beta_
+  summary: Delete all tasks by status
+  description: |
+    It finds all tasks with the given status and generate an asynchronous task to delete them.
+
+    > The tasks in running status can not be deleted.
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/not_found'

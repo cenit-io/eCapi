@@ -8,4 +8,6 @@ delete:
 
   responses:
     '200':
-      $ref: '#/components/responses/success'
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/not_found'

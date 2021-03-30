@@ -14,7 +14,3 @@ content:
                 Set whether the product should be removed from the remote integration source.
               type: boolean
               default: false
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/integration_product_unlink_request'

@@ -105,6 +105,10 @@ tags:
     description: |
       Operations on the stock locations.
 
+  - name: Stock Locations of an Integration
+    description: |
+      Operations on the stock locations of an Integration.
+
   - name: Stock Items
     description: |
       Operations on the stock items.
@@ -207,6 +211,7 @@ x-tagGroups:
   - name: Inventories
     tags:
       - Stock Locations
+      - Stock Locations of an Integration
       - Stock Items
 
   - name: Workflows

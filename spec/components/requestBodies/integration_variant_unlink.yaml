@@ -14,7 +14,3 @@ content:
                 Set whether the variant should be removed from the remote integration source.
               type: boolean
               default: false
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/integration_variant_unlink_request'

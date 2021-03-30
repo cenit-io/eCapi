@@ -31,7 +31,7 @@ post:
     '404':
       $ref: '#/components/responses/product_not_found'
 
-patch:
+delete:
   tags:
     - Products of an Integration
   operationId: unlink_integration_product_async_beta_

@@ -1,0 +1,23 @@
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          type: object
+          properties:
+            link_with_its_variants:
+              description: |
+                Establishes how the product integrations should be linked or not with its variants.
+                * **NONE**: Do not link with any of its variants.
+                * **SELECTED**: Link only selected product integrations with all its variants.
+                * **NEW**: Link only new product integrations with all its variants.
+                * **ALL**: Link all product integrations with all its variants.
+              type: string
+              enum:
+                - NONE
+                - SELECTED
+                - NEW
+                - ALL
+          required: [integration_ids]

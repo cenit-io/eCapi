@@ -1,15 +1,5 @@
 parameters:
   - $ref: '#/components/parameters/path_integration_id'
-  - $ref: '#/components/parameters/query_filter_term_for_products'
-  - $ref: '#/components/parameters/query_filter_category_in_di_product'
-  - $ref: '#/components/parameters/query_filter_product_created_after'
-  - $ref: '#/components/parameters/query_filter_product_created_before'
-  - $ref: '#/components/parameters/query_filter_product_updated_after'
-  - $ref: '#/components/parameters/query_filter_product_updated_before'
-  - $ref: '#/components/parameters/query_with_details'
-  - $ref: '#/components/parameters/query_without_data'
-  - $ref: '#/components/parameters/query_offset'
-  - $ref: '#/components/parameters/query_limit'
 
 get:
   tags:
@@ -18,6 +8,51 @@ get:
   summary: List all Products from an Integration
   description: |
     Returns the product list of a specific integration.
+  parameters:
+    - $ref: '#/components/parameters/query_filter_term_for_products'
+    - $ref: '#/components/parameters/query_filter_category_in_di_product'
+    - $ref: '#/components/parameters/query_filter_product_created_after'
+    - $ref: '#/components/parameters/query_filter_product_created_before'
+    - $ref: '#/components/parameters/query_filter_product_updated_after'
+    - $ref: '#/components/parameters/query_filter_product_updated_before'
+    - $ref: '#/components/parameters/query_with_details'
+    - $ref: '#/components/parameters/query_without_data'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
   responses:
     '200':
       $ref: '#/components/responses/integration_product_items'
+
+put:
+  tags:
+    - Products of an Integration
+  operationId: link_integration_products_async_beta_
+  summary: link all Products with an Integration
+  description: |
+    Generate an async task to link all products with an integration.
+
+    > If the process is successful, tasks will be added to create or update the products on the remote platforms of each linked integration.
+  requestBody:
+    $ref: '#/components/requestBodies/integration_product_link'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/integration_not_found'
+
+delete:
+  tags:
+    - Products of an Integration
+  operationId: unlink_integration_products_async_beta_
+  summary: Unlink all Products with an Integration
+  description: |
+    Generate an async task to unlink all products with an integration.
+
+    > If it is established that the products should be removed from the remote integration source, then a task is also created to achieve this goal.
+  requestBody:
+    $ref: '#/components/requestBodies/integration_product_unlink'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/integration_not_found'

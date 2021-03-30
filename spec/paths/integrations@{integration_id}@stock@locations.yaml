@@ -1,0 +1,30 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+
+get:
+  tags:
+    - Stock Locations of an Integration
+  operationId: get_integration_stock_locations_beta_
+  x-menu-position: 0
+  summary: List all Stock Locations from an Integration
+  description: |
+    Returns the stock locations of a specific integration.
+  parameters:
+    - $ref: '#/components/parameters/query_filter_term_for_stock_locations'
+    - $ref: '#/components/parameters/query_filter_generic_created_after'
+    - $ref: '#/components/parameters/query_filter_generic_created_before'
+    - $ref: '#/components/parameters/query_filter_generic_updated_after'
+    - $ref: '#/components/parameters/query_filter_generic_updated_before'
+    - $ref: '#/components/parameters/query_filter_name'
+    - $ref: '#/components/parameters/query_filter_country'
+    - $ref: '#/components/parameters/query_filter_state'
+    - $ref: '#/components/parameters/query_filter_city'
+    - $ref: '#/components/parameters/query_filter_zip_code'
+    - $ref: '#/components/parameters/query_filter_phone'
+    - $ref: '#/components/parameters/query_without_data'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
+    - $ref: '#/components/parameters/query_sort_for_stock_locations'
+  responses:
+    '200':
+      $ref: '#/components/responses/stock_location_items'

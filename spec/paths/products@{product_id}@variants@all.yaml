@@ -1,0 +1,13 @@
+parameters:
+  - $ref: '#/components/parameters/path_product_id'
+
+delete:
+  tags:
+    - Variants
+  operationId: delete_all_unlinked_variants_beta_
+  summary: Delete unliked variants
+  description: |
+    It finds all unlinked variants for product with the given id and generate an asynchronous task to delete them.
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'

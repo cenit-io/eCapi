@@ -1452,6 +1452,18 @@ paths:
           $ref: '#/components/responses/product_item'
         '404':
           $ref: '#/components/responses/product_not_found'
+    put:
+      tags:
+        - Products
+      operationId: update_products_beta_
+      summary: Update multiple Product
+      description: |
+        Update the common properties of multiple products with the same information.
+      requestBody:
+        $ref: '#/components/requestBodies/product_update_bulk'
+      responses:
+        '200':
+          $ref: '#/components/responses/product_items'
     delete:
       tags:
         - Products
@@ -5695,25 +5707,6 @@ components:
           offset: 0
           limit: 10
           total: 2
-    product_update_request_1:
-      summary: Update price
-      value:
-        data:
-          price: 159
-    product_update_request_2:
-      summary: Update all
-      value:
-        data:
-          name: IPod Nano - 4GB
-          desciption: IPod Nano - 4GB ...
-          price: 159
-          package:
-            weight: 1
-            height: 1
-            length: 1
-            width: 1
-            content: null
-            overwrite: false
     task_bulk_retry_request:
       value:
         data:
@@ -6512,6 +6505,35 @@ components:
                     default: false
                 required:
                   - integration_ids
+    product_update_bulk:
+      description: Product properties that will be updated
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                allOf:
+                  - $ref: '#/components/schemas/Product'
+                  - type: object
+                    properties:
+                      package:
+                        type: object
+                        required:
+                          - overwrite
+                        properties:
+                          overwrite:
+                            description: Do overwrite package information in all variants
+                            type: boolean
+                      product_ids:
+                        description: Identifiers of the products to be updated
+                        type: array
+                        minItems: 1
+                        maxItems: 100
+                        items:
+                          type: string
     product_update:
       description: Product properties that will be updated
       required: true
@@ -6534,11 +6556,6 @@ components:
                           overwrite:
                             description: Do overwrite package information in all variants
                             type: boolean
-          examples:
-            Ex1:
-              $ref: '#/components/examples/product_update_request_1'
-            Ex2:
-              $ref: '#/components/examples/product_update_request_2'
     stock_location_create:
       description: Stock Location that will be added to the system
       required: true

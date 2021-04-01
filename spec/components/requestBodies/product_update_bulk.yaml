@@ -17,3 +17,10 @@ content:
                     overwrite:
                       description: Do overwrite package information in all variants
                       type: boolean
+                product_ids:
+                  description: Identifiers of the products to be updated
+                  type: array
+                  minItems: 1
+                  maxItems: 100
+                  items:
+                    type: string

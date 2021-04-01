@@ -37,6 +37,19 @@ post:
     '404':
       $ref: '#/components/responses/product_not_found'
 
+put:
+  tags:
+    - Products
+  operationId: update_products_beta_
+  summary: Update multiple Product
+  description: |
+    Update the common properties of multiple products with the same information.
+  requestBody:
+    $ref: '#/components/requestBodies/product_update_bulk'
+  responses:
+    '200':
+      $ref: '#/components/responses/product_items'
+
 delete:
   tags:
     - Products

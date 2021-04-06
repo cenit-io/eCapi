@@ -1,0 +1,36 @@
+parameters:
+  - $ref: '#/components/parameters/path_product_id'
+
+put:
+  tags:
+    - Variants
+  operationId: link_some_variants_async_beta_
+  summary: Link some Variants
+  description: |
+    Generate asynchronous tasks to link some variants with some integrations.
+
+    > If the process is successful, tasks will be added to create or update the variants on the remote platforms of each linked integration.
+  requestBody:
+    $ref: '#/components/requestBodies/variant_link_bulk'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/variant_not_found'
+
+delete:
+  tags:
+    - Variants
+  operationId: unlink_some_variants_async_beta_
+  summary: Unlink some Variants
+  description: |
+    Generate asynchronous tasks to unlink some variants with some integrations.
+
+    > If it is established that the variants should be removed from the remote integration source, then a task is also created to achieve this goal.
+  requestBody:
+    $ref: '#/components/requestBodies/variant_unlink_bulk'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/variant_not_found'

@@ -38,3 +38,20 @@ post:
       $ref: '#/components/responses/variant_item'
     '404':
       $ref: '#/components/responses/variant_not_found'
+
+delete:
+  tags:
+    - Variants
+  operationId: delete_some_variants_beta_
+  summary: Delete some Variants
+  description: |
+    Delete some variants without integrations.
+
+    > The variants will be permanently removed if and only if it has no associated integrations.
+  requestBody:
+    $ref: '#/components/requestBodies/variant_ids'
+  responses:
+    '200':
+      $ref: '#/components/responses/success'
+    '404':
+      $ref: '#/components/responses/variant_not_found'

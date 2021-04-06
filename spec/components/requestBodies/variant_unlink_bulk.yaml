@@ -1,0 +1,29 @@
+description: |
+  Identifiers of the variants and integrations that will be unlinked.
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          type: object
+          properties:
+            variant_ids:
+              description: Identifiers of the variants to be unlinked.
+              type: array
+              minItems: 1
+              maxItems: 100
+              items:
+                type: string
+            integration_ids:
+              description: Identifiers of the integrations with which you want to unlink the variant.
+              type: array
+              items:
+                type: string
+            delete_from_integration:
+              description: |
+                Set whether the variant should be removed from the remote integration source.
+              type: boolean
+              default: false
+          required: [variant_ids, integration_ids]

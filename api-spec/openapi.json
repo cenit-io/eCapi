@@ -2250,6 +2250,25 @@
             "$ref": "#/components/responses/variant_not_found"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Variants"
+        ],
+        "operationId": "delete_some_variants_beta_",
+        "summary": "Delete some Variants",
+        "description": "Delete some variants without integrations.\n\n> The variants will be permanently removed if and only if it has no associated integrations.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/variant_ids"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/variant_not_found"
+          }
+        }
       }
     },
     "/products/{product_id}/variants/{variant_id}": {
@@ -2420,6 +2439,51 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
+          }
+        }
+      }
+    },
+    "/products/{product_id}/variants/link": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_product_id"
+        }
+      ],
+      "put": {
+        "tags": [
+          "Variants"
+        ],
+        "operationId": "link_some_variants_async_beta_",
+        "summary": "Link some Variants",
+        "description": "Generate asynchronous tasks to link some variants with some integrations.\n\n> If the process is successful, tasks will be added to create or update the variants on the remote platforms of each linked integration.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/variant_link_bulk"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/variant_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Variants"
+        ],
+        "operationId": "unlink_some_variants_async_beta_",
+        "summary": "Unlink some Variants",
+        "description": "Generate asynchronous tasks to unlink some variants with some integrations.\n\n> If it is established that the variants should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/variant_unlink_bulk"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/variant_not_found"
           }
         }
       }
@@ -9673,6 +9737,77 @@
           }
         }
       },
+      "variant_ids": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "variant_ids": {
+                      "description": "Identifiers of the variants to be processing.",
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 100,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "variant_ids"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "variant_link_bulk": {
+        "description": "Identifiers of the variants and integrations that will be linked.\n",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "variant_ids": {
+                      "description": "Identifiers of the variants to be linked.",
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 100,
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "integration_ids": {
+                      "description": "Identifiers of the integrations with which you want to link the variant.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "variant_ids",
+                    "integration_ids"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
       "variant_link": {
         "required": true,
         "content": {
@@ -9727,6 +9862,51 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      },
+      "variant_unlink_bulk": {
+        "description": "Identifiers of the variants and integrations that will be unlinked.\n",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "variant_ids": {
+                      "description": "Identifiers of the variants to be unlinked.",
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 100,
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "integration_ids": {
+                      "description": "Identifiers of the integrations with which you want to unlink the variant.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "delete_from_integration": {
+                      "description": "Set whether the variant should be removed from the remote integration source.\n",
+                      "type": "boolean",
+                      "default": false
+                    }
+                  },
+                  "required": [
+                    "variant_ids",
+                    "integration_ids"
+                  ]
                 }
               }
             }

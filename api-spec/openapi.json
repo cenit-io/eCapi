@@ -9471,37 +9471,43 @@
               ],
               "properties": {
                 "data": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/Product"
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 100,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "product_id"
+                    ],
+                    "properties": {
+                      "product_id": {
+                        "description": "Identifier of the product to be updated",
+                        "type": "string"
+                      }
                     },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "package": {
-                          "type": "object",
-                          "required": [
-                            "overwrite"
-                          ],
-                          "properties": {
-                            "overwrite": {
-                              "description": "Do overwrite package information in all variants",
-                              "type": "boolean"
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/Product"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "package": {
+                            "type": "object",
+                            "required": [
+                              "overwrite"
+                            ],
+                            "properties": {
+                              "overwrite": {
+                                "description": "Do overwrite package information in all variants",
+                                "type": "boolean"
+                              }
                             }
-                          }
-                        },
-                        "product_ids": {
-                          "description": "Identifiers of the products to be updated",
-                          "type": "array",
-                          "minItems": 1,
-                          "maxItems": 100,
-                          "items": {
-                            "type": "string"
                           }
                         }
                       }
-                    }
-                  ]
+                    ]
+                  }
                 }
               }
             }

@@ -1470,7 +1470,7 @@ paths:
       operationId: delete_some_products_beta_
       summary: Delete some Product
       description: |
-        Delete some products without integrations.
+        Delete some unlinked products.
 
         > The products will be permanently removed if and only if it has no associated integrations.
       requestBody:
@@ -1547,7 +1547,7 @@ paths:
       operationId: delete_product_beta_
       summary: Delete a Product
       description: |
-        Delete a product without integrations.
+        Delete a unlinked product.
 
         > The product will be permanently removed if and only if it has no associated integrations.
       responses:
@@ -1625,7 +1625,7 @@ paths:
       operationId: delete_some_variants_beta_
       summary: Delete some Variants
       description: |
-        Delete some variants without integrations.
+        Delete some unlinked product variants.
 
         > The variants will be permanently removed if and only if it has no associated integrations.
       requestBody:
@@ -1703,7 +1703,7 @@ paths:
       operationId: delete_variant_beta_
       summary: Delete a variant
       description: |
-        Delete a product variant without integrations.
+        Delete a unlinked product variant.
 
         > The variant will be permanently removed if and only if it has no associated integrations.
       responses:
@@ -1745,7 +1745,7 @@ paths:
       operationId: delete_all_unlinked_variants_beta_
       summary: Delete unliked variants
       description: |
-        It finds all unlinked variants for product with the given id and generate an asynchronous task to delete them.
+        Generate an asynchronous task to remove all unlinked variants of a product.
       responses:
         '200':
           $ref: '#/components/responses/task_item'
@@ -1784,6 +1784,17 @@ paths:
           $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/variant_not_found'
+  /products/all:
+    delete:
+      tags:
+        - Variants
+      operationId: delete_all_unlinked_products_beta_
+      summary: Delete unliked products
+      description: |
+        Generate an asynchronous task to remove all unlinked products.
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
   /products/link:
     put:
       tags:

@@ -1,4 +1,4 @@
-description: Product properties that will be updated
+description: Products properties that will be updated
 required: true
 content:
   application/json:
@@ -17,13 +17,4 @@ content:
                 description: Identifier of the product to be updated
                 type: string
             allOf:
-              - $ref: "#/components/schemas/Product"
-              - type: object
-                properties:
-                  package:
-                    type: "object"
-                    required: [overwrite]
-                    properties:
-                      overwrite:
-                        description: Do overwrite package information in all variants
-                        type: boolean
+              - $ref: "#/components/schemas/ProductUpdate"

@@ -7,13 +7,4 @@ content:
       properties:
         data:
           allOf:
-            - $ref: "#/components/schemas/Product"
-            - type: object
-              properties:
-                package:
-                  type: "object"
-                  required: [overwrite]
-                  properties:
-                    overwrite:
-                      description: Do overwrite package information in all variants
-                      type: boolean
+            - $ref: "#/components/schemas/ProductUpdate"

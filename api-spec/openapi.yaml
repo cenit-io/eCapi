@@ -2799,6 +2799,19 @@ components:
         value:
           description: Value of the property in the product instance
           type: string
+    ProductUpdate:
+      allOf:
+        - $ref: '#/components/schemas/Product'
+        - type: object
+          properties:
+            package:
+              type: object
+              required:
+                - overwrite
+              properties:
+                overwrite:
+                  description: Do overwrite package information in all variants
+                  type: boolean
     ResponseResourceType:
       description: Response resource type
       type: string
@@ -6557,7 +6570,7 @@ components:
                 required:
                   - integration_ids
     product_update_bulk:
-      description: Product properties that will be updated
+      description: Products properties that will be updated
       required: true
       content:
         application/json:
@@ -6578,17 +6591,7 @@ components:
                       description: Identifier of the product to be updated
                       type: string
                   allOf:
-                    - $ref: '#/components/schemas/Product'
-                    - type: object
-                      properties:
-                        package:
-                          type: object
-                          required:
-                            - overwrite
-                          properties:
-                            overwrite:
-                              description: Do overwrite package information in all variants
-                              type: boolean
+                    - $ref: '#/components/schemas/ProductUpdate'
     product_update:
       description: Product properties that will be updated
       required: true
@@ -6600,17 +6603,7 @@ components:
             properties:
               data:
                 allOf:
-                  - $ref: '#/components/schemas/Product'
-                  - type: object
-                    properties:
-                      package:
-                        type: object
-                        required:
-                          - overwrite
-                        properties:
-                          overwrite:
-                            description: Do overwrite package information in all variants
-                            type: boolean
+                  - $ref: '#/components/schemas/ProductUpdate'
     stock_location_create:
       description: Stock Location that will be added to the system
       required: true

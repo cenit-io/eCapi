@@ -3974,6 +3974,30 @@
           }
         }
       },
+      "ProductUpdate": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Product"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "package": {
+                "type": "object",
+                "required": [
+                  "overwrite"
+                ],
+                "properties": {
+                  "overwrite": {
+                    "description": "Do overwrite package information in all variants",
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
       "ResponseResourceType": {
         "description": "Response resource type",
         "type": "string",
@@ -9461,7 +9485,7 @@
         }
       },
       "product_update_bulk": {
-        "description": "Product properties that will be updated",
+        "description": "Products properties that will be updated",
         "required": true,
         "content": {
           "application/json": {
@@ -9487,24 +9511,7 @@
                     },
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/Product"
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "package": {
-                            "type": "object",
-                            "required": [
-                              "overwrite"
-                            ],
-                            "properties": {
-                              "overwrite": {
-                                "description": "Do overwrite package information in all variants",
-                                "type": "boolean"
-                              }
-                            }
-                          }
-                        }
+                        "$ref": "#/components/schemas/ProductUpdate"
                       }
                     ]
                   }
@@ -9527,24 +9534,7 @@
                 "data": {
                   "allOf": [
                     {
-                      "$ref": "#/components/schemas/Product"
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "package": {
-                          "type": "object",
-                          "required": [
-                            "overwrite"
-                          ],
-                          "properties": {
-                            "overwrite": {
-                              "description": "Do overwrite package information in all variants",
-                              "type": "boolean"
-                            }
-                          }
-                        }
-                      }
+                      "$ref": "#/components/schemas/ProductUpdate"
                     }
                   ]
                 }

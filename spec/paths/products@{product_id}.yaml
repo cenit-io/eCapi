@@ -69,7 +69,7 @@ delete:
   operationId: delete_product_beta_
   summary: Delete a Product
   description: |
-    Delete a product without integrations.
+    Delete a unlinked product.
 
     > The product will be permanently removed if and only if it has no associated integrations.
   responses:

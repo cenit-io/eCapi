@@ -7,7 +7,7 @@ delete:
   operationId: delete_all_unlinked_variants_beta_
   summary: Delete unliked variants
   description: |
-    It finds all unlinked variants for product with the given id and generate an asynchronous task to delete them.
+    Generate an asynchronous task to remove all unlinked variants of a product.
   responses:
     '200':
       $ref: '#/components/responses/task_item'

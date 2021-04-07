@@ -70,7 +70,7 @@ delete:
   operationId: delete_variant_beta_
   summary: Delete a variant
   description: |
-    Delete a product variant without integrations.
+    Delete a unlinked product variant.
 
     > The variant will be permanently removed if and only if it has no associated integrations.
   responses:

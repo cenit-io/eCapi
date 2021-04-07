@@ -45,7 +45,7 @@ delete:
   operationId: delete_some_variants_beta_
   summary: Delete some Variants
   description: |
-    Delete some variants without integrations.
+    Delete some unlinked product variants.
 
     > The variants will be permanently removed if and only if it has no associated integrations.
   requestBody:

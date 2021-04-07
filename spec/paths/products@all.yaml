@@ -1,0 +1,10 @@
+delete:
+  tags:
+    - Variants
+  operationId: delete_all_unlinked_products_beta_
+  summary: Delete unliked products
+  description: |
+    Generate an asynchronous task to remove all unlinked products.
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'

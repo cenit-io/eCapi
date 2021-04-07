@@ -56,7 +56,7 @@ delete:
   operationId: delete_some_products_beta_
   summary: Delete some Product
   description: |
-    Delete some products without integrations.
+    Delete some unlinked products.
 
     > The products will be permanently removed if and only if it has no associated integrations.
   requestBody:

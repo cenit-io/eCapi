@@ -1,6 +1,6 @@
 parameters:
   - $ref: '#/components/parameters/path_integration_id'
-  - $ref: '#/components/parameters/path_remote_product_id'
+  - $ref: '#/components/parameters/path_product_id'
   - $ref: '#/components/parameters/query_filter_term_for_variants'
   - $ref: '#/components/parameters/query_with_details'
   - $ref: '#/components/parameters/query_without_data'

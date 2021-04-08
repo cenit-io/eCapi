@@ -29,40 +29,6 @@ post:
     '404':
       $ref: '#/components/responses/product_not_found'
 
-put:
-  tags:
-    - Products
-  operationId: link_product_async_beta_
-  summary: Link a Product
-  description: |
-    Generate an async task to link a product with some integrations.
-
-    > If the process is successful, tasks will be added to create or update the product on the remote platforms of each linked integration.
-  requestBody:
-    $ref: '#/components/requestBodies/product_link'
-  responses:
-    '200':
-      $ref: '#/components/responses/task_item'
-    '404':
-      $ref: '#/components/responses/product_not_found'
-      
-patch:
-  tags:
-    - Products
-  operationId: unlink_product_async_beta_
-  summary: Unlink a Product
-  description: |
-    Generate an async task to unlink a product with some integrations.
-
-    > If it is established that the product should be removed from the remote integration source, then a task is also created to achieve this goal.
-  requestBody:
-    $ref: '#/components/requestBodies/product_unlink'
-  responses:
-    '200':
-      $ref: '#/components/responses/task_item'
-    '404':
-      $ref: '#/components/responses/product_not_found'
-
 delete:
   tags:
     - Products

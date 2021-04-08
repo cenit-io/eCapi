@@ -1,7 +1,7 @@
 parameters:
   - $ref: '#/components/parameters/path_integration_id'
-  - $ref: '#/components/parameters/path_remote_product_id'
-  - $ref: '#/components/parameters/path_remote_variant_id'
+  - $ref: '#/components/parameters/path_product_id'
+  - $ref: '#/components/parameters/path_variant_id'
 
 get:
   tags:
@@ -29,22 +29,5 @@ post:
   responses:
     '200':
       $ref: '#/components/responses/integration_variant_item'
-    '404':
-      $ref: '#/components/responses/variant_not_found'
-
-patch:
-  tags:
-    - Variants of an Integration
-  operationId: unlink_integration_variant_async_beta_
-  summary: Unlink a Variant with an Integration
-  description: |
-    Generate an async task to unlink a product variant with an integration.
-
-    > If it is established that the product variant should be removed from the remote integration source, then a task is also created to achieve this goal.
-  requestBody:
-    $ref: '#/components/requestBodies/integration_variant_unlink'
-  responses:
-    '200':
-      $ref: '#/components/responses/task_item'
     '404':
       $ref: '#/components/responses/variant_not_found'

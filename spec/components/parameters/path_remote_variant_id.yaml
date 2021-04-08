@@ -1,7 +1,0 @@
-name: remote_variant_id
-in: path
-required: true
-schema:
-  description: Identifier of the remote variant of the integration.
-  type: string
-  example: 5d04051125d9852c71016793

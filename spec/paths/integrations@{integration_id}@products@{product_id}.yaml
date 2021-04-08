@@ -1,6 +1,6 @@
 parameters:
   - $ref: '#/components/parameters/path_integration_id'
-  - $ref: '#/components/parameters/path_remote_product_id'
+  - $ref: '#/components/parameters/path_product_id'
 
 get:
   tags:
@@ -28,22 +28,5 @@ post:
   responses:
     '200':
       $ref: '#/components/responses/integration_product_item'
-    '404':
-      $ref: '#/components/responses/product_not_found'
-
-delete:
-  tags:
-    - Products of an Integration
-  operationId: unlink_integration_product_async_beta_
-  summary: Unlink a Product with an Integration
-  description: |
-    Generate an async task to unlink a product with an integration.
-
-    > If it is established that the product should be removed from the remote integration source, then a task is also created to achieve this goal.
-  requestBody:
-    $ref: '#/components/requestBodies/integration_product_unlink'
-  responses:
-    '200':
-      $ref: '#/components/responses/task_item'
     '404':
       $ref: '#/components/responses/product_not_found'

@@ -3654,6 +3654,23 @@
         "writeOnly": true,
         "description": "Integration identifier\n\n> You can see the available values by consulting the [integrations](#operation/get_integrations) service.\n"
       },
+      "IntegrationIDs": {
+        "type": "object",
+        "required": [
+          "integration_ids"
+        ],
+        "properties": {
+          "integration_ids": {
+            "description": "Identifiers of the integations to be processed.",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 100,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "IntegrationMin": {
         "type": "object",
         "description": "Integration",
@@ -3932,6 +3949,23 @@
           }
         }
       },
+      "ProductIDs": {
+        "type": "object",
+        "required": [
+          "product_ids"
+        ],
+        "properties": {
+          "product_ids": {
+            "description": "Identifiers of the products to be processed.",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 100,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "ProductIntegration": {
         "type": "object",
         "properties": {
@@ -3962,6 +3996,24 @@
                 }
               }
             }
+          }
+        }
+      },
+      "ProductLinkVariants": {
+        "type": "object",
+        "required": [
+          "link_with_its_variants"
+        ],
+        "properties": {
+          "link_with_its_variants": {
+            "description": "Establishes how the product integrations should be linked or not with its variants.\n* **NONE**: Do not link with any of its variants.\n* **SELECTED**: Link its variants only with the selected integrations.\n* **NEW**: Link its variants only with integrations that are new to the product.\n* **ALL**: Links its variants to all product integrations.\n",
+            "type": "string",
+            "enum": [
+              "NONE",
+              "SELECTED",
+              "NEW",
+              "ALL"
+            ]
           }
         }
       },
@@ -4450,6 +4502,23 @@
           },
           "updated_at": {
             "$ref": "#/components/schemas/UpdatedAt"
+          }
+        }
+      },
+      "VariantIDs": {
+        "type": "object",
+        "required": [
+          "variant_ids"
+        ],
+        "properties": {
+          "variant_ids": {
+            "description": "Identifiers of the product variants to be processed.",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 100,
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -8744,17 +8813,6 @@
           }
         }
       },
-      "variant_link_request": {
-        "value": {
-          "data": {
-            "integration_ids": [
-              "shop_01",
-              "shop_02",
-              "shop_05"
-            ]
-          }
-        }
-      },
       "variant_update_request_1": {
         "summary": "Update price",
         "value": {
@@ -8960,7 +9018,7 @@
                   "type": "object",
                   "properties": {
                     "flow_ids": {
-                      "description": "Identifiers of the flows to be processing.",
+                      "description": "Identifiers of the flows to be processed.",
                       "type": "array",
                       "minItems": 1,
                       "maxItems": 100,
@@ -9094,19 +9152,10 @@
               "properties": {
                 "data": {
                   "type": "object",
-                  "properties": {
-                    "integration_ids": {
-                      "description": "Identifiers of the integrations to be processing.",
-                      "type": "array",
-                      "minItems": 1,
-                      "maxItems": 100,
-                      "items": {
-                        "type": "string"
-                      }
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/IntegrationIDs"
                     }
-                  },
-                  "required": [
-                    "integration_ids"
                   ]
                 }
               }
@@ -9125,20 +9174,10 @@
               "properties": {
                 "data": {
                   "type": "object",
-                  "properties": {
-                    "link_with_its_variants": {
-                      "description": "Establishes how the product integrations should be linked or not with its variants.\n* **NONE**: Do not link with any of its variants.\n* **SELECTED**: Link only selected product integrations with all its variants.\n* **NEW**: Link only new product integrations with all its variants.\n* **ALL**: Link all product integrations with all its variants.\n",
-                      "type": "string",
-                      "enum": [
-                        "NONE",
-                        "SELECTED",
-                        "NEW",
-                        "ALL"
-                      ]
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ProductLinkVariants"
                     }
-                  },
-                  "required": [
-                    "integration_ids"
                   ]
                 }
               }
@@ -9326,19 +9365,10 @@
               "properties": {
                 "data": {
                   "type": "object",
-                  "properties": {
-                    "product_ids": {
-                      "description": "Identifiers of the products to be removed.",
-                      "type": "array",
-                      "minItems": 1,
-                      "maxItems": 100,
-                      "items": {
-                        "type": "string"
-                      }
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ProductIDs"
                     }
-                  },
-                  "required": [
-                    "product_ids"
                   ]
                 }
               }
@@ -9358,37 +9388,16 @@
               "properties": {
                 "data": {
                   "type": "object",
-                  "properties": {
-                    "product_ids": {
-                      "description": "Identifiers of the products to be linked.",
-                      "type": "array",
-                      "minItems": 1,
-                      "maxItems": 100,
-                      "items": {
-                        "type": "string"
-                      }
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ProductIDs"
                     },
-                    "integration_ids": {
-                      "description": "Identifiers of the integrations with which you want to link the product.",
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
+                    {
+                      "$ref": "#/components/schemas/IntegrationIDs"
                     },
-                    "link_with_its_variants": {
-                      "description": "Establishes how the product integrations should be linked or not with its variants.\n* **NONE**: Do not link with any of its variants.\n* **SELECTED**: Link only selected product integrations with all its variants.\n* **NEW**: Link only new product integrations with all its variants.\n* **ALL**: Link all product integrations with all its variants.\n",
-                      "type": "string",
-                      "enum": [
-                        "NONE",
-                        "SELECTED",
-                        "NEW",
-                        "ALL"
-                      ]
+                    {
+                      "$ref": "#/components/schemas/ProductLinkVariants"
                     }
-                  },
-                  "required": [
-                    "product_ids",
-                    "integration_ids"
                   ]
                 }
               }
@@ -9407,27 +9416,13 @@
               "properties": {
                 "data": {
                   "type": "object",
-                  "properties": {
-                    "integration_ids": {
-                      "description": "Identifiers of the integrations with which you want to link the product.",
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/IntegrationIDs"
                     },
-                    "link_with_its_variants": {
-                      "description": "Establishes how the product integrations should be linked or not with its variants.\n* **NONE**: Do not link with any of its variants.\n* **SELECTED**: Link only selected product integrations with all its variants.\n* **NEW**: Link only new product integrations with all its variants.\n* **ALL**: Link all product integrations with all its variants.\n",
-                      "type": "string",
-                      "enum": [
-                        "NONE",
-                        "SELECTED",
-                        "NEW",
-                        "ALL"
-                      ]
+                    {
+                      "$ref": "#/components/schemas/ProductLinkVariants"
                     }
-                  },
-                  "required": [
-                    "integration_ids"
                   ]
                 }
               }
@@ -9843,19 +9838,10 @@
               "properties": {
                 "data": {
                   "type": "object",
-                  "properties": {
-                    "variant_ids": {
-                      "description": "Identifiers of the variants to be processing.",
-                      "type": "array",
-                      "minItems": 1,
-                      "maxItems": 100,
-                      "items": {
-                        "type": "string"
-                      }
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/VariantIDs"
                     }
-                  },
-                  "required": [
-                    "variant_ids"
                   ]
                 }
               }
@@ -9875,27 +9861,13 @@
               "properties": {
                 "data": {
                   "type": "object",
-                  "properties": {
-                    "variant_ids": {
-                      "description": "Identifiers of the variants to be linked.",
-                      "type": "array",
-                      "minItems": 1,
-                      "maxItems": 100,
-                      "items": {
-                        "type": "string"
-                      }
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/VariantIDs"
                     },
-                    "integration_ids": {
-                      "description": "Identifiers of the integrations with which you want to link the variant.",
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
+                    {
+                      "$ref": "#/components/schemas/IntegrationIDs"
                     }
-                  },
-                  "required": [
-                    "variant_ids",
-                    "integration_ids"
                   ]
                 }
               }
@@ -9914,24 +9886,12 @@
               "properties": {
                 "data": {
                   "type": "object",
-                  "properties": {
-                    "integration_ids": {
-                      "description": "Identifiers of the integrations with which you want to link the variant.",
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/IntegrationIDs"
                     }
-                  },
-                  "required": [
-                    "integration_ids"
                   ]
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/variant_link_request"
               }
             }
           }

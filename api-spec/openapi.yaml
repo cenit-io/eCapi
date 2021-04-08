@@ -2562,6 +2562,18 @@ components:
         Integration identifier
 
         > You can see the available values by consulting the [integrations](#operation/get_integrations) service.
+    IntegrationIDs:
+      type: object
+      required:
+        - integration_ids
+      properties:
+        integration_ids:
+          description: Identifiers of the integations to be processed.
+          type: array
+          minItems: 1
+          maxItems: 100
+          items:
+            type: string
     IntegrationMin:
       type: object
       description: Integration
@@ -2757,6 +2769,18 @@ components:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
           $ref: '#/components/schemas/UpdatedAt'
+    ProductIDs:
+      type: object
+      required:
+        - product_ids
+      properties:
+        product_ids:
+          description: Identifiers of the products to be processed.
+          type: array
+          minItems: 1
+          maxItems: 100
+          items:
+            type: string
     ProductIntegration:
       type: object
       properties:
@@ -2780,6 +2804,24 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/ProductProperty'
+    ProductLinkVariants:
+      type: object
+      required:
+        - link_with_its_variants
+      properties:
+        link_with_its_variants:
+          description: |
+            Establishes how the product integrations should be linked or not with its variants.
+            * **NONE**: Do not link with any of its variants.
+            * **SELECTED**: Link its variants only with the selected integrations.
+            * **NEW**: Link its variants only with integrations that are new to the product.
+            * **ALL**: Links its variants to all product integrations.
+          type: string
+          enum:
+            - NONE
+            - SELECTED
+            - NEW
+            - ALL
     ProductPackage:
       description: Package dimensions and content
       type: object
@@ -3154,6 +3196,18 @@ components:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
           $ref: '#/components/schemas/UpdatedAt'
+    VariantIDs:
+      type: object
+      required:
+        - variant_ids
+      properties:
+        variant_ids:
+          description: Identifiers of the product variants to be processed.
+          type: array
+          minItems: 1
+          maxItems: 100
+          items:
+            type: string
     VariantIntegration:
       type: object
       properties:
@@ -6061,13 +6115,6 @@ components:
           offset: 0
           limit: 10
           total: 1
-    variant_link_request:
-      value:
-        data:
-          integration_ids:
-            - shop_01
-            - shop_02
-            - shop_05
     variant_update_request_1:
       summary: Update price
       value:
@@ -6206,7 +6253,7 @@ components:
                 type: object
                 properties:
                   flow_ids:
-                    description: Identifiers of the flows to be processing.
+                    description: Identifiers of the flows to be processed.
                     type: array
                     minItems: 1
                     maxItems: 100
@@ -6288,16 +6335,8 @@ components:
             properties:
               data:
                 type: object
-                properties:
-                  integration_ids:
-                    description: Identifiers of the integrations to be processing.
-                    type: array
-                    minItems: 1
-                    maxItems: 100
-                    items:
-                      type: string
-                required:
-                  - integration_ids
+                allOf:
+                  - $ref: '#/components/schemas/IntegrationIDs'
     integration_product_link:
       required: true
       content:
@@ -6308,22 +6347,8 @@ components:
             properties:
               data:
                 type: object
-                properties:
-                  link_with_its_variants:
-                    description: |
-                      Establishes how the product integrations should be linked or not with its variants.
-                      * **NONE**: Do not link with any of its variants.
-                      * **SELECTED**: Link only selected product integrations with all its variants.
-                      * **NEW**: Link only new product integrations with all its variants.
-                      * **ALL**: Link all product integrations with all its variants.
-                    type: string
-                    enum:
-                      - NONE
-                      - SELECTED
-                      - NEW
-                      - ALL
-                required:
-                  - integration_ids
+                allOf:
+                  - $ref: '#/components/schemas/ProductLinkVariants'
     integration_product_unlink:
       description: |
         Data to set whether the product should be removed from the remote integration source.
@@ -6444,16 +6469,8 @@ components:
             properties:
               data:
                 type: object
-                properties:
-                  product_ids:
-                    description: Identifiers of the products to be removed.
-                    type: array
-                    minItems: 1
-                    maxItems: 100
-                    items:
-                      type: string
-                required:
-                  - product_ids
+                allOf:
+                  - $ref: '#/components/schemas/ProductIDs'
     product_link_bulk:
       description: |
         Identifiers of the products and integrations that will be linked.
@@ -6466,35 +6483,10 @@ components:
             properties:
               data:
                 type: object
-                properties:
-                  product_ids:
-                    description: Identifiers of the products to be linked.
-                    type: array
-                    minItems: 1
-                    maxItems: 100
-                    items:
-                      type: string
-                  integration_ids:
-                    description: Identifiers of the integrations with which you want to link the product.
-                    type: array
-                    items:
-                      type: string
-                  link_with_its_variants:
-                    description: |
-                      Establishes how the product integrations should be linked or not with its variants.
-                      * **NONE**: Do not link with any of its variants.
-                      * **SELECTED**: Link only selected product integrations with all its variants.
-                      * **NEW**: Link only new product integrations with all its variants.
-                      * **ALL**: Link all product integrations with all its variants.
-                    type: string
-                    enum:
-                      - NONE
-                      - SELECTED
-                      - NEW
-                      - ALL
-                required:
-                  - product_ids
-                  - integration_ids
+                allOf:
+                  - $ref: '#/components/schemas/ProductIDs'
+                  - $ref: '#/components/schemas/IntegrationIDs'
+                  - $ref: '#/components/schemas/ProductLinkVariants'
     product_link:
       required: true
       content:
@@ -6505,27 +6497,9 @@ components:
             properties:
               data:
                 type: object
-                properties:
-                  integration_ids:
-                    description: Identifiers of the integrations with which you want to link the product.
-                    type: array
-                    items:
-                      type: string
-                  link_with_its_variants:
-                    description: |
-                      Establishes how the product integrations should be linked or not with its variants.
-                      * **NONE**: Do not link with any of its variants.
-                      * **SELECTED**: Link only selected product integrations with all its variants.
-                      * **NEW**: Link only new product integrations with all its variants.
-                      * **ALL**: Link all product integrations with all its variants.
-                    type: string
-                    enum:
-                      - NONE
-                      - SELECTED
-                      - NEW
-                      - ALL
-                required:
-                  - integration_ids
+                allOf:
+                  - $ref: '#/components/schemas/IntegrationIDs'
+                  - $ref: '#/components/schemas/ProductLinkVariants'
     product_properties_update_bulk:
       description: Products properties that will be updated
       required: true
@@ -6780,16 +6754,8 @@ components:
             properties:
               data:
                 type: object
-                properties:
-                  variant_ids:
-                    description: Identifiers of the variants to be processing.
-                    type: array
-                    minItems: 1
-                    maxItems: 100
-                    items:
-                      type: string
-                required:
-                  - variant_ids
+                allOf:
+                  - $ref: '#/components/schemas/VariantIDs'
     variant_link_bulk:
       description: |
         Identifiers of the variants and integrations that will be linked.
@@ -6802,22 +6768,9 @@ components:
             properties:
               data:
                 type: object
-                properties:
-                  variant_ids:
-                    description: Identifiers of the variants to be linked.
-                    type: array
-                    minItems: 1
-                    maxItems: 100
-                    items:
-                      type: string
-                  integration_ids:
-                    description: Identifiers of the integrations with which you want to link the variant.
-                    type: array
-                    items:
-                      type: string
-                required:
-                  - variant_ids
-                  - integration_ids
+                allOf:
+                  - $ref: '#/components/schemas/VariantIDs'
+                  - $ref: '#/components/schemas/IntegrationIDs'
     variant_link:
       required: true
       content:
@@ -6828,17 +6781,8 @@ components:
             properties:
               data:
                 type: object
-                properties:
-                  integration_ids:
-                    description: Identifiers of the integrations with which you want to link the variant.
-                    type: array
-                    items:
-                      type: string
-                required:
-                  - integration_ids
-          examples:
-            Ex1:
-              $ref: '#/components/examples/variant_link_request'
+                allOf:
+                  - $ref: '#/components/schemas/IntegrationIDs'
     variant_properties_update:
       description: Variant properties that will be updated
       required: true

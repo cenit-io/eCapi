@@ -22,12 +22,28 @@ get:
   responses:
     '200':
       $ref: '#/components/responses/integration_product_items'
+    '404':
+      $ref: '#/components/responses/integration_not_found'
+post:
+  tags:
+    - Products of an Integration
+  operationId: update_some_integration_product_beta_
+  summary: Update multiple Products properties
+  description: |
+    Update the specific properties of multiple products of an integration.
+  requestBody:
+    $ref: '#/components/requestBodies/product_properties_update_bulk'
+  responses:
+    '200':
+      $ref: '#/components/responses/integration_product_items'
+    '404':
+      $ref: '#/components/responses/integration_not_found'
 
 put:
   tags:
     - Products of an Integration
   operationId: link_integration_products_async_beta_
-  summary: link all Products with an Integration
+  summary: Link all Products with an Integration
   description: |
     Generate an async task to link all products with an integration.
 

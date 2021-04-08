@@ -6,12 +6,5 @@ content:
       properties:
         data:
           type: object
-          properties:
-            product_ids:
-              description: Identifiers of the products to be removed.
-              type: array
-              minItems: 1
-              maxItems: 100
-              items:
-                type: string
-          required: [product_ids]
+          allOf:
+            - $ref: "#/components/schemas/ProductIDs"

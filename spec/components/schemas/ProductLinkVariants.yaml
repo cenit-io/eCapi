@@ -1,0 +1,16 @@
+type: object
+required: [link_with_its_variants]
+properties:
+  link_with_its_variants:
+    description: |
+      Establishes how the product integrations should be linked or not with its variants.
+      * **NONE**: Do not link with any of its variants.
+      * **SELECTED**: Link its variants only with the selected integrations.
+      * **NEW**: Link its variants only with integrations that are new to the product.
+      * **ALL**: Links its variants to all product integrations.
+    type: string
+    enum:
+      - NONE
+      - SELECTED
+      - NEW
+      - ALL

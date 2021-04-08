@@ -8,30 +8,7 @@ content:
       properties:
         data:
           type: object
-          properties:
-            product_ids:
-              description: Identifiers of the products to be linked.
-              type: array
-              minItems: 1
-              maxItems: 100
-              items:
-                type: string
-            integration_ids:
-              description: Identifiers of the integrations with which you want to link the product.
-              type: array
-              items:
-                type: string
-            link_with_its_variants:
-              description: |
-                Establishes how the product integrations should be linked or not with its variants.
-                * **NONE**: Do not link with any of its variants.
-                * **SELECTED**: Link only selected product integrations with all its variants.
-                * **NEW**: Link only new product integrations with all its variants.
-                * **ALL**: Link all product integrations with all its variants.
-              type: string
-              enum:
-                - NONE
-                - SELECTED
-                - NEW
-                - ALL
-          required: [product_ids, integration_ids]
+          allOf:
+            - $ref: "#/components/schemas/ProductIDs"
+            - $ref: "#/components/schemas/IntegrationIDs"
+            - $ref: "#/components/schemas/ProductLinkVariants"

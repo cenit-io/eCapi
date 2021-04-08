@@ -1378,13 +1378,13 @@
         }
       }
     },
-    "/integrations/{integration_id}/products/{remote_product_id}": {
+    "/integrations/{integration_id}/products/{product_id}": {
       "parameters": [
         {
           "$ref": "#/components/parameters/path_integration_id"
         },
         {
-          "$ref": "#/components/parameters/path_remote_product_id"
+          "$ref": "#/components/parameters/path_product_id"
         }
       ],
       "get": {
@@ -1421,7 +1421,17 @@
             "$ref": "#/components/responses/product_not_found"
           }
         }
-      },
+      }
+    },
+    "/integrations/{integration_id}/products/{product_id}/link": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_product_id"
+        }
+      ],
       "delete": {
         "tags": [
           "Products of an Integration"
@@ -1442,39 +1452,13 @@
         }
       }
     },
-    "/integrations/{integration_id}/products/{remote_product_id}/import": {
+    "/integrations/{integration_id}/products/{product_id}/variants": {
       "parameters": [
         {
           "$ref": "#/components/parameters/path_integration_id"
         },
         {
-          "$ref": "#/components/parameters/path_remote_product_id"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Products of an Integration"
-        ],
-        "operationId": "import_integration_product_async_",
-        "summary": "Import a Product from an Integration",
-        "description": "Generate an async task to import a specific product from an integration.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/product_import_task"
-          },
-          "404": {
-            "$ref": "#/components/responses/integration_not_found"
-          }
-        }
-      }
-    },
-    "/integrations/{integration_id}/products/{remote_product_id}/variants": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/path_integration_id"
-        },
-        {
-          "$ref": "#/components/parameters/path_remote_product_id"
+          "$ref": "#/components/parameters/path_product_id"
         },
         {
           "$ref": "#/components/parameters/query_filter_term_for_variants"
@@ -1509,16 +1493,16 @@
         }
       }
     },
-    "/integrations/{integration_id}/products/{remote_product_id}/variants/{remote_variant_id}": {
+    "/integrations/{integration_id}/products/{product_id}/variants/{variant_id}": {
       "parameters": [
         {
           "$ref": "#/components/parameters/path_integration_id"
         },
         {
-          "$ref": "#/components/parameters/path_remote_product_id"
+          "$ref": "#/components/parameters/path_product_id"
         },
         {
-          "$ref": "#/components/parameters/path_remote_variant_id"
+          "$ref": "#/components/parameters/path_variant_id"
         }
       ],
       "get": {
@@ -1555,8 +1539,21 @@
             "$ref": "#/components/responses/variant_not_found"
           }
         }
-      },
-      "patch": {
+      }
+    },
+    "/integrations/{integration_id}/products/{product_id}/variants/{variant_id}/link": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_product_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_variant_id"
+        }
+      ],
+      "delete": {
         "tags": [
           "Variants of an Integration"
         ],
@@ -1572,6 +1569,32 @@
           },
           "404": {
             "$ref": "#/components/responses/variant_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/products/{remote_product_id}/import": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_remote_product_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Products of an Integration"
+        ],
+        "operationId": "import_integration_product_async_",
+        "summary": "Import a Product from an Integration",
+        "description": "Generate an async task to import a specific product from an integration.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/product_import_task"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
           }
         }
       }
@@ -2070,6 +2093,29 @@
           }
         }
       },
+      "delete": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "delete_product_beta_",
+        "summary": "Delete a Product",
+        "description": "Delete a unlinked product.\n\n> The product will be permanently removed if and only if it has no associated integrations.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      }
+    },
+    "/products/{product_id}/link": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_product_id"
+        }
+      ],
       "put": {
         "tags": [
           "Products"
@@ -2089,7 +2135,7 @@
           }
         }
       },
-      "patch": {
+      "delete": {
         "tags": [
           "Products"
         ],
@@ -2102,22 +2148,6 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
-          },
-          "404": {
-            "$ref": "#/components/responses/product_not_found"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Products"
-        ],
-        "operationId": "delete_product_beta_",
-        "summary": "Delete a Product",
-        "description": "Delete a unlinked product.\n\n> The product will be permanently removed if and only if it has no associated integrations.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/success"
           },
           "404": {
             "$ref": "#/components/responses/product_not_found"
@@ -6076,16 +6106,6 @@
         "required": true,
         "schema": {
           "description": "Identifier of the remote product of the integration.",
-          "type": "string",
-          "example": "5d04051125d9852c71016793"
-        }
-      },
-      "path_remote_variant_id": {
-        "name": "remote_variant_id",
-        "in": "path",
-        "required": true,
-        "schema": {
-          "description": "Identifier of the remote variant of the integration.",
           "type": "string",
           "example": "5d04051125d9852c71016793"
         }

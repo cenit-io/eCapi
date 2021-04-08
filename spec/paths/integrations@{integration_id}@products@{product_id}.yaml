@@ -20,7 +20,7 @@ post:
   tags:
     - Products of an Integration
   operationId: update_integration_product_beta_
-  summary: Update a Product
+  summary: Update a Product properties
   description: |
     Update the specific properties of a product in an integration.
   requestBody:

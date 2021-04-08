@@ -44,9 +44,9 @@ delete:
   tags:
     - Products of an Integration
   operationId: unlink_integration_products_async_beta_
-  summary: Unlink all Products with an Integration
+  summary: Unlink all Products from an Integration
   description: |
-    Generate an async task to unlink all products with an integration.
+    Generate an async task to unlink all products from an integration.
 
     > If it is established that the products should be removed from the remote integration source, then a task is also created to achieve this goal.
   requestBody:

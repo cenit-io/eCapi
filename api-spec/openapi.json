@@ -1363,8 +1363,8 @@
           "Products of an Integration"
         ],
         "operationId": "unlink_integration_products_async_beta_",
-        "summary": "Unlink all Products with an Integration",
-        "description": "Generate an async task to unlink all products with an integration.\n\n> If it is established that the products should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
+        "summary": "Unlink all Products from an Integration",
+        "description": "Generate an async task to unlink all products from an integration.\n\n> If it is established that the products should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/integration_product_unlink"
         },
@@ -1408,7 +1408,7 @@
           "Products of an Integration"
         ],
         "operationId": "update_integration_product_beta_",
-        "summary": "Update a Product",
+        "summary": "Update a Product properties",
         "description": "Update the specific properties of a product in an integration.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/product_properties_update"
@@ -1437,8 +1437,8 @@
           "Products of an Integration"
         ],
         "operationId": "unlink_integration_product_async_beta_",
-        "summary": "Unlink a Product with an Integration",
-        "description": "Generate an async task to unlink a product with an integration.\n\n> If it is established that the product should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
+        "summary": "Unlink a Product from an Integration",
+        "description": "Generate an async task to unlink a product from an integration.\n\n> If it is established that the product should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/integration_product_unlink"
         },
@@ -1558,8 +1558,8 @@
           "Variants of an Integration"
         ],
         "operationId": "unlink_integration_variant_async_beta_",
-        "summary": "Unlink a Variant with an Integration",
-        "description": "Generate an async task to unlink a product variant with an integration.\n\n> If it is established that the product variant should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
+        "summary": "Unlink a Variant from an Integration",
+        "description": "Generate an async task to unlink a product variant from an integration.\n\n> If it is established that the product variant should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/integration_variant_unlink"
         },

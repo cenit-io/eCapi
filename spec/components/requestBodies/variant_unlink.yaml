@@ -8,15 +8,5 @@ content:
       properties:
         data:
           type: object
-          properties:
-            integration_ids:
-              description: Identifiers of the integrations with which you want to unlink the variant.
-              type: array
-              items:
-                type: string
-            delete_from_integration:
-              description: |
-                Set whether the variant should be removed from the remote integration source.
-              type: boolean
-              default: false
-          required: [integration_ids]
+          allOf:
+            - $ref: "#/components/schemas/ULinks"

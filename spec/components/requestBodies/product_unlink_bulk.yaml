@@ -8,22 +8,6 @@ content:
       properties:
         data:
           type: object
-          properties:
-            product_ids:
-              description: Identifiers of the products to be unlinked.
-              type: array
-              minItems: 1
-              maxItems: 100
-              items:
-                type: string
-            integration_ids:
-              description: Identifiers of the integrations with which you want to unlink the product.
-              type: array
-              items:
-                type: string
-            delete_from_integration:
-              description: |
-                Set whether the product should be removed from the remote integration source.
-              type: boolean
-              default: false
-          required: [product_ids, integration_ids]
+          allOf:
+            - $ref: "#/components/schemas/ProductIDs"
+            - $ref: "#/components/schemas/ULinks"

@@ -1,0 +1,8 @@
+type: object
+allOf:
+  - $ref: "#/components/schemas/IntegrationIDs"
+  - properties:
+      delete_from_integration:
+        description: Set whether the product should be removed from the remote integration source.
+        type: boolean
+        default: false

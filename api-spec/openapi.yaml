@@ -318,10 +318,10 @@ paths:
     delete:
       tags:
         - Flows
-      operationId: delete_some_flows_beta_
-      summary: Delete some Flows
+      operationId: delete_multiple_flows_beta_
+      summary: Delete multiple Flows
       description: |
-        It finds and destroy the some flows and its schedulers given the flows ids.
+        It finds and destroy multiple flows and its schedulers.
       requestBody:
         $ref: '#/components/requestBodies/flow_ids'
       responses:
@@ -420,10 +420,10 @@ paths:
     get:
       tags:
         - Flows
-      operationId: start_some_flows_async_beta_
-      summary: Start some Flows
+      operationId: start_multiple_flows_async_beta_
+      summary: Start multiple Flows
       description: |
-        It finds the flows given the its ids and generate an asynchronous task to be start this flows processing.
+        It generates an asynchronous task to start multiple stream processing.
 
         > If exists any task associate to the one flow in the execution or pending state,
         then the same task is returned, otherwise a new task is created.
@@ -533,10 +533,10 @@ paths:
     delete:
       tags:
         - Connected Integrations
-      operationId: delete_some_integrations_async_beta_
-      summary: Delete some Integrations
+      operationId: delete_multiple_integrations_async_beta_
+      summary: Delete multiple Integrations
       description: |
-        Generate an asynchronous task to delete some Integrations and all its Orders, Variants and Products.
+        It generates an asynchronous task to delete multiple Integrations and all its Orders, Variants and Products.
 
         > Authorized Integrations cannot be deleted.
       requestBody:
@@ -1038,7 +1038,7 @@ paths:
     post:
       tags:
         - Products of an Integration
-      operationId: update_some_integration_product_beta_
+      operationId: update_multiple_integration_product_beta_
       summary: Update multiple Products properties
       description: |
         Update the specific properties of multiple products of an integration.
@@ -1316,10 +1316,10 @@ paths:
     delete:
       tags:
         - Connected Integrations
-      operationId: deauthorize_some_integrations_beta
-      summary: Unauthorize some integrations
+      operationId: deauthorize_multiple_integrations_beta
+      summary: Unauthorize multiple integrations
       description: |
-        Find integrations by given ids and disallow their connections.
+        It eliminate the connection authorizations in multiple integrations.
 
         > Only authorized integrations can be unauthorizes.
       requestBody:
@@ -1492,10 +1492,10 @@ paths:
     delete:
       tags:
         - Products
-      operationId: delete_some_products_beta_
-      summary: Delete some Product
+      operationId: delete_multiple_products_beta_
+      summary: Delete multiple Product
       description: |
-        Delete some unlinked products.
+        It delete multiple unlinked products.
 
         > The products will be permanently removed if and only if it has no associated integrations.
       requestBody:
@@ -1557,7 +1557,7 @@ paths:
       operationId: link_product_async_beta_
       summary: Link a Product
       description: |
-        Generate an async task to link a product with some integrations.
+        It generates an asynchronous task to link a product with multiple integrations.
 
         > If the process is successful, tasks will be added to create or update the product on the remote platforms of each linked integration.
       requestBody:
@@ -1573,7 +1573,7 @@ paths:
       operationId: unlink_product_async_beta_
       summary: Unlink a Product
       description: |
-        Generate an async task to unlink a product with some integrations.
+        It generates an asynchronous task to unlink a product with multiple integrations.
 
         > If it is established that the product should be removed from the remote integration source, then a task is also created to achieve this goal.
       requestBody:
@@ -1650,10 +1650,10 @@ paths:
     delete:
       tags:
         - Variants
-      operationId: delete_some_variants_beta_
-      summary: Delete some Variants
+      operationId: delete_multiple_variants_beta_
+      summary: Delete multiple Variants
       description: |
-        Delete some unlinked product variants.
+        It delete multiple unlinked product variants.
 
         > The variants will be permanently removed if and only if it has no associated integrations.
       requestBody:
@@ -1699,7 +1699,7 @@ paths:
       operationId: link_variant_beta_
       summary: Link a Variant
       description: |
-        Generate an async task to link a product variant with some integrations.
+        It generates an asynchronous task to link a product variant with multiple integrations.
 
         > If the process is successful, tasks will be added to create or update the product variant on the remote platforms of each linked integration.
       requestBody:
@@ -1715,7 +1715,7 @@ paths:
       operationId: unlink_variant_async_beta_
       summary: Unlink a Variant
       description: |
-        Generate an async task to unlink a product variant with some integrations.
+        It generates an asynchronous task to unlink a product variant with multiple integrations.
 
         > If it is established that the product variant should be removed from the remote integration source, then a task is also created to achieve this goal.
       requestBody:
@@ -1783,12 +1783,12 @@ paths:
     put:
       tags:
         - Variants
-      operationId: link_some_variants_async_beta_
-      summary: Link some Variants
+      operationId: link_multiple_variants_async_beta_
+      summary: Link multiple Variants
       description: |
-        Generate asynchronous tasks to link some variants with some integrations.
+        It generatea an asynchronous task to link multiple variants with multiple integrations.
 
-        > If the process is successful, tasks will be added to create or update the variants on the remote platforms of each linked integration.
+        > If the process is successful, some tasks will be added to create or update the variants on the remote platforms of each linked integration.
       requestBody:
         $ref: '#/components/requestBodies/variant_link_bulk'
       responses:
@@ -1799,10 +1799,10 @@ paths:
     delete:
       tags:
         - Variants
-      operationId: unlink_some_variants_async_beta_
-      summary: Unlink some Variants
+      operationId: unlink_multiple_variants_async_beta_
+      summary: Unlink multiple Variants
       description: |
-        Generate asynchronous tasks to unlink some variants with some integrations.
+        It generate an asynchronous task to unlink multiple variants with multiple integrations.
 
         > If it is established that the variants should be removed from the remote integration source, then a task is also created to achieve this goal.
       requestBody:
@@ -1827,12 +1827,12 @@ paths:
     put:
       tags:
         - Products
-      operationId: link_some_products_async_beta_
-      summary: Link some Products
+      operationId: link_multiple_products_async_beta_
+      summary: Link multiple Products
       description: |
-        Generate asynchronous tasks to link some products with some integrations.
+        It generates an asynchronous task to link multiple products with multiple integrations.
 
-        > If the process is successful, tasks will be added to create or update the products on the remote platforms of each linked integration.
+        > If the process is successful, some tasks will be added to create or update the products on the remote platforms of each linked integration.
       requestBody:
         $ref: '#/components/requestBodies/product_link_bulk'
       responses:
@@ -1843,10 +1843,10 @@ paths:
     delete:
       tags:
         - Products
-      operationId: unlink_some_products_async_beta_
-      summary: Unlink some Products
+      operationId: unlink_multiple_products_async_beta_
+      summary: Unlink multiple Products
       description: |
-        Generate asynchronous tasks to unlink some products with some integrations.
+        It generate an asynchronous tasks to unlink multiple products with multiple integrations.
 
         > If it is established that the products should be removed from the remote integration source, then a task is also created to achieve this goal.
       requestBody:
@@ -2059,11 +2059,9 @@ paths:
       tags:
         - Tasks
       operationId: delete_task_bulk_beta_
-      summary: Delete some tasks
+      summary: Delete multiple tasks
       description: |
-        Find the tasks for the given id list and delete them
-
-        > A running task can't be deleted.
+        It delete multiple tasks that are not running.
       requestBody:
         $ref: '#/components/requestBodies/task_id_list'
       responses:
@@ -2254,9 +2252,9 @@ paths:
       tags:
         - Webhooks
       operationId: webhook_delete_bulk
-      summary: Delete some Webhooks
+      summary: Delete multiple Webhooks
       description: |
-        Find the webhooks for the given id list and delete them
+        It delete multiple webhooks.
       requestBody:
         $ref: '#/components/requestBodies/webhook_ids'
       responses:
@@ -3129,6 +3127,15 @@ components:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
           $ref: '#/components/schemas/UpdatedAt'
+    ULinks:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/IntegrationIDs'
+        - properties:
+            delete_from_integration:
+              description: Set whether the product should be removed from the remote integration source.
+              type: boolean
+              default: false
     UpdatedAt:
       description: Date in iso8601 when the record was updated
       type: string
@@ -6556,27 +6563,9 @@ components:
             properties:
               data:
                 type: object
-                properties:
-                  product_ids:
-                    description: Identifiers of the products to be unlinked.
-                    type: array
-                    minItems: 1
-                    maxItems: 100
-                    items:
-                      type: string
-                  integration_ids:
-                    description: Identifiers of the integrations with which you want to unlink the product.
-                    type: array
-                    items:
-                      type: string
-                  delete_from_integration:
-                    description: |
-                      Set whether the product should be removed from the remote integration source.
-                    type: boolean
-                    default: false
-                required:
-                  - product_ids
-                  - integration_ids
+                allOf:
+                  - $ref: '#/components/schemas/ProductIDs'
+                  - $ref: '#/components/schemas/ULinks'
     product_unlink:
       description: |
         Integrations IDs and data to set whether the product should be removed from the remote integration source.
@@ -6589,19 +6578,8 @@ components:
             properties:
               data:
                 type: object
-                properties:
-                  integration_ids:
-                    description: Identifiers of the integrations with which you want to unlink the product.
-                    type: array
-                    items:
-                      type: string
-                  delete_from_integration:
-                    description: |
-                      Set whether the product should be removed from the remote integration source.
-                    type: boolean
-                    default: false
-                required:
-                  - integration_ids
+                allOf:
+                  - $ref: '#/components/schemas/ULinks'
     product_update_bulk:
       description: Products properties that will be updated
       required: true
@@ -6811,27 +6789,9 @@ components:
             properties:
               data:
                 type: object
-                properties:
-                  variant_ids:
-                    description: Identifiers of the variants to be unlinked.
-                    type: array
-                    minItems: 1
-                    maxItems: 100
-                    items:
-                      type: string
-                  integration_ids:
-                    description: Identifiers of the integrations with which you want to unlink the variant.
-                    type: array
-                    items:
-                      type: string
-                  delete_from_integration:
-                    description: |
-                      Set whether the variant should be removed from the remote integration source.
-                    type: boolean
-                    default: false
-                required:
-                  - variant_ids
-                  - integration_ids
+                allOf:
+                  - $ref: '#/components/schemas/VariantIDs'
+                  - $ref: '#/components/schemas/ULinks'
     variant_unlink:
       description: |
         Integrations IDs and data to set whether the variant should be removed from the remote integration source.
@@ -6844,19 +6804,8 @@ components:
             properties:
               data:
                 type: object
-                properties:
-                  integration_ids:
-                    description: Identifiers of the integrations with which you want to unlink the variant.
-                    type: array
-                    items:
-                      type: string
-                  delete_from_integration:
-                    description: |
-                      Set whether the variant should be removed from the remote integration source.
-                    type: boolean
-                    default: false
-                required:
-                  - integration_ids
+                allOf:
+                  - $ref: '#/components/schemas/ULinks'
     variant_update:
       description: Variant properties that will be updated
       required: true

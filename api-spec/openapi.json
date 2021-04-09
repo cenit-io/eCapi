@@ -355,9 +355,9 @@
         "tags": [
           "Flows"
         ],
-        "operationId": "delete_some_flows_beta_",
-        "summary": "Delete some Flows",
-        "description": "It finds and destroy the some flows and its schedulers given the flows ids.\n",
+        "operationId": "delete_multiple_flows_beta_",
+        "summary": "Delete multiple Flows",
+        "description": "It finds and destroy multiple flows and its schedulers.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/flow_ids"
         },
@@ -498,9 +498,9 @@
         "tags": [
           "Flows"
         ],
-        "operationId": "start_some_flows_async_beta_",
-        "summary": "Start some Flows",
-        "description": "It finds the flows given the its ids and generate an asynchronous task to be start this flows processing.\n\n> If exists any task associate to the one flow in the execution or pending state,\nthen the same task is returned, otherwise a new task is created.\n",
+        "operationId": "start_multiple_flows_async_beta_",
+        "summary": "Start multiple Flows",
+        "description": "It generates an asynchronous task to start multiple stream processing.\n\n> If exists any task associate to the one flow in the execution or pending state,\nthen the same task is returned, otherwise a new task is created.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/flow_ids"
         },
@@ -631,9 +631,9 @@
         "tags": [
           "Connected Integrations"
         ],
-        "operationId": "delete_some_integrations_async_beta_",
-        "summary": "Delete some Integrations",
-        "description": "Generate an asynchronous task to delete some Integrations and all its Orders, Variants and Products.\n\n> Authorized Integrations cannot be deleted.\n",
+        "operationId": "delete_multiple_integrations_async_beta_",
+        "summary": "Delete multiple Integrations",
+        "description": "It generates an asynchronous task to delete multiple Integrations and all its Orders, Variants and Products.\n\n> Authorized Integrations cannot be deleted.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/integration_ids"
         },
@@ -1346,7 +1346,7 @@
         "tags": [
           "Products of an Integration"
         ],
-        "operationId": "update_some_integration_product_beta_",
+        "operationId": "update_multiple_integration_product_beta_",
         "summary": "Update multiple Products properties",
         "description": "Update the specific properties of multiple products of an integration.\n",
         "requestBody": {
@@ -1781,9 +1781,9 @@
         "tags": [
           "Connected Integrations"
         ],
-        "operationId": "deauthorize_some_integrations_beta",
-        "summary": "Unauthorize some integrations",
-        "description": "Find integrations by given ids and disallow their connections.\n\n> Only authorized integrations can be unauthorizes.\n",
+        "operationId": "deauthorize_multiple_integrations_beta",
+        "summary": "Unauthorize multiple integrations",
+        "description": "It eliminate the connection authorizations in multiple integrations.\n\n> Only authorized integrations can be unauthorizes.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/integration_ids"
         },
@@ -2058,9 +2058,9 @@
         "tags": [
           "Products"
         ],
-        "operationId": "delete_some_products_beta_",
-        "summary": "Delete some Product",
-        "description": "Delete some unlinked products.\n\n> The products will be permanently removed if and only if it has no associated integrations.\n",
+        "operationId": "delete_multiple_products_beta_",
+        "summary": "Delete multiple Product",
+        "description": "It delete multiple unlinked products.\n\n> The products will be permanently removed if and only if it has no associated integrations.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/product_ids"
         },
@@ -2144,7 +2144,7 @@
         ],
         "operationId": "link_product_async_beta_",
         "summary": "Link a Product",
-        "description": "Generate an async task to link a product with some integrations.\n\n> If the process is successful, tasks will be added to create or update the product on the remote platforms of each linked integration.\n",
+        "description": "It generates an asynchronous task to link a product with multiple integrations.\n\n> If the process is successful, tasks will be added to create or update the product on the remote platforms of each linked integration.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/product_link"
         },
@@ -2163,7 +2163,7 @@
         ],
         "operationId": "unlink_product_async_beta_",
         "summary": "Unlink a Product",
-        "description": "Generate an async task to unlink a product with some integrations.\n\n> If it is established that the product should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
+        "description": "It generates an asynchronous task to unlink a product with multiple integrations.\n\n> If it is established that the product should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/product_unlink"
         },
@@ -2307,9 +2307,9 @@
         "tags": [
           "Variants"
         ],
-        "operationId": "delete_some_variants_beta_",
-        "summary": "Delete some Variants",
-        "description": "Delete some unlinked product variants.\n\n> The variants will be permanently removed if and only if it has no associated integrations.\n",
+        "operationId": "delete_multiple_variants_beta_",
+        "summary": "Delete multiple Variants",
+        "description": "It delete multiple unlinked product variants.\n\n> The variants will be permanently removed if and only if it has no associated integrations.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/variant_ids"
         },
@@ -2373,7 +2373,7 @@
         ],
         "operationId": "link_variant_beta_",
         "summary": "Link a Variant",
-        "description": "Generate an async task to link a product variant with some integrations.\n\n> If the process is successful, tasks will be added to create or update the product variant on the remote platforms of each linked integration.\n",
+        "description": "It generates an asynchronous task to link a product variant with multiple integrations.\n\n> If the process is successful, tasks will be added to create or update the product variant on the remote platforms of each linked integration.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/variant_link"
         },
@@ -2392,7 +2392,7 @@
         ],
         "operationId": "unlink_variant_async_beta_",
         "summary": "Unlink a Variant",
-        "description": "Generate an async task to unlink a product variant with some integrations.\n\n> If it is established that the product variant should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
+        "description": "It generates an asynchronous task to unlink a product variant with multiple integrations.\n\n> If it is established that the product variant should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/variant_unlink"
         },
@@ -2505,9 +2505,9 @@
         "tags": [
           "Variants"
         ],
-        "operationId": "link_some_variants_async_beta_",
-        "summary": "Link some Variants",
-        "description": "Generate asynchronous tasks to link some variants with some integrations.\n\n> If the process is successful, tasks will be added to create or update the variants on the remote platforms of each linked integration.\n",
+        "operationId": "link_multiple_variants_async_beta_",
+        "summary": "Link multiple Variants",
+        "description": "It generatea an asynchronous task to link multiple variants with multiple integrations.\n\n> If the process is successful, some tasks will be added to create or update the variants on the remote platforms of each linked integration.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/variant_link_bulk"
         },
@@ -2524,9 +2524,9 @@
         "tags": [
           "Variants"
         ],
-        "operationId": "unlink_some_variants_async_beta_",
-        "summary": "Unlink some Variants",
-        "description": "Generate asynchronous tasks to unlink some variants with some integrations.\n\n> If it is established that the variants should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
+        "operationId": "unlink_multiple_variants_async_beta_",
+        "summary": "Unlink multiple Variants",
+        "description": "It generate an asynchronous task to unlink multiple variants with multiple integrations.\n\n> If it is established that the variants should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/variant_unlink_bulk"
         },
@@ -2560,9 +2560,9 @@
         "tags": [
           "Products"
         ],
-        "operationId": "link_some_products_async_beta_",
-        "summary": "Link some Products",
-        "description": "Generate asynchronous tasks to link some products with some integrations.\n\n> If the process is successful, tasks will be added to create or update the products on the remote platforms of each linked integration.\n",
+        "operationId": "link_multiple_products_async_beta_",
+        "summary": "Link multiple Products",
+        "description": "It generates an asynchronous task to link multiple products with multiple integrations.\n\n> If the process is successful, some tasks will be added to create or update the products on the remote platforms of each linked integration.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/product_link_bulk"
         },
@@ -2579,9 +2579,9 @@
         "tags": [
           "Products"
         ],
-        "operationId": "unlink_some_products_async_beta_",
-        "summary": "Unlink some Products",
-        "description": "Generate asynchronous tasks to unlink some products with some integrations.\n\n> If it is established that the products should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
+        "operationId": "unlink_multiple_products_async_beta_",
+        "summary": "Unlink multiple Products",
+        "description": "It generate an asynchronous tasks to unlink multiple products with multiple integrations.\n\n> If it is established that the products should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/product_unlink_bulk"
         },
@@ -2930,8 +2930,8 @@
           "Tasks"
         ],
         "operationId": "delete_task_bulk_beta_",
-        "summary": "Delete some tasks",
-        "description": "Find the tasks for the given id list and delete them\n\n> A running task can't be deleted.\n",
+        "summary": "Delete multiple tasks",
+        "description": "It delete multiple tasks that are not running.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/task_id_list"
         },
@@ -3226,8 +3226,8 @@
           "Webhooks"
         ],
         "operationId": "webhook_delete_bulk",
-        "summary": "Delete some Webhooks",
-        "description": "Find the webhooks for the given id list and delete them\n",
+        "summary": "Delete multiple Webhooks",
+        "description": "It delete multiple webhooks.\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/webhook_ids"
         },
@@ -4412,6 +4412,23 @@
             "$ref": "#/components/schemas/UpdatedAt"
           }
         }
+      },
+      "ULinks": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IntegrationIDs"
+          },
+          {
+            "properties": {
+              "delete_from_integration": {
+                "description": "Set whether the product should be removed from the remote integration source.",
+                "type": "boolean",
+                "default": false
+              }
+            }
+          }
+        ]
       },
       "UpdatedAt": {
         "description": "Date in iso8601 when the record was updated",
@@ -9510,32 +9527,13 @@
               "properties": {
                 "data": {
                   "type": "object",
-                  "properties": {
-                    "product_ids": {
-                      "description": "Identifiers of the products to be unlinked.",
-                      "type": "array",
-                      "minItems": 1,
-                      "maxItems": 100,
-                      "items": {
-                        "type": "string"
-                      }
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ProductIDs"
                     },
-                    "integration_ids": {
-                      "description": "Identifiers of the integrations with which you want to unlink the product.",
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "delete_from_integration": {
-                      "description": "Set whether the product should be removed from the remote integration source.\n",
-                      "type": "boolean",
-                      "default": false
+                    {
+                      "$ref": "#/components/schemas/ULinks"
                     }
-                  },
-                  "required": [
-                    "product_ids",
-                    "integration_ids"
                   ]
                 }
               }
@@ -9555,22 +9553,10 @@
               "properties": {
                 "data": {
                   "type": "object",
-                  "properties": {
-                    "integration_ids": {
-                      "description": "Identifiers of the integrations with which you want to unlink the product.",
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "delete_from_integration": {
-                      "description": "Set whether the product should be removed from the remote integration source.\n",
-                      "type": "boolean",
-                      "default": false
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ULinks"
                     }
-                  },
-                  "required": [
-                    "integration_ids"
                   ]
                 }
               }
@@ -9935,32 +9921,13 @@
               "properties": {
                 "data": {
                   "type": "object",
-                  "properties": {
-                    "variant_ids": {
-                      "description": "Identifiers of the variants to be unlinked.",
-                      "type": "array",
-                      "minItems": 1,
-                      "maxItems": 100,
-                      "items": {
-                        "type": "string"
-                      }
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/VariantIDs"
                     },
-                    "integration_ids": {
-                      "description": "Identifiers of the integrations with which you want to unlink the variant.",
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "delete_from_integration": {
-                      "description": "Set whether the variant should be removed from the remote integration source.\n",
-                      "type": "boolean",
-                      "default": false
+                    {
+                      "$ref": "#/components/schemas/ULinks"
                     }
-                  },
-                  "required": [
-                    "variant_ids",
-                    "integration_ids"
                   ]
                 }
               }
@@ -9980,22 +9947,10 @@
               "properties": {
                 "data": {
                   "type": "object",
-                  "properties": {
-                    "integration_ids": {
-                      "description": "Identifiers of the integrations with which you want to unlink the variant.",
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "delete_from_integration": {
-                      "description": "Set whether the variant should be removed from the remote integration source.\n",
-                      "type": "boolean",
-                      "default": false
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ULinks"
                     }
-                  },
-                  "required": [
-                    "integration_ids"
                   ]
                 }
               }

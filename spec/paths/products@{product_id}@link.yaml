@@ -7,7 +7,7 @@ put:
   operationId: link_product_async_beta_
   summary: Link a Product
   description: |
-    Generate an async task to link a product with some integrations.
+    It generates an asynchronous task to link a product with multiple integrations.
 
     > If the process is successful, tasks will be added to create or update the product on the remote platforms of each linked integration.
   requestBody:
@@ -24,7 +24,7 @@ delete:
   operationId: unlink_product_async_beta_
   summary: Unlink a Product
   description: |
-    Generate an async task to unlink a product with some integrations.
+    It generates an asynchronous task to unlink a product with multiple integrations.
 
     > If it is established that the product should be removed from the remote integration source, then a task is also created to achieve this goal.
   requestBody:

@@ -42,10 +42,10 @@ post:
 delete:
   tags:
     - Variants
-  operationId: delete_some_variants_beta_
-  summary: Delete some Variants
+  operationId: delete_multiple_variants_beta_
+  summary: Delete multiple Variants
   description: |
-    Delete some unlinked product variants.
+    It delete multiple unlinked product variants.
 
     > The variants will be permanently removed if and only if it has no associated integrations.
   requestBody:

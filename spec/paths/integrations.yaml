@@ -39,10 +39,10 @@ post:
 delete:
   tags:
     - Connected Integrations
-  operationId: delete_some_integrations_async_beta_
-  summary: Delete some Integrations
+  operationId: delete_multiple_integrations_async_beta_
+  summary: Delete multiple Integrations
   description: |
-    Generate an asynchronous task to delete some Integrations and all its Orders, Variants and Products.
+    It generates an asynchronous task to delete multiple Integrations and all its Orders, Variants and Products.
 
     > Authorized Integrations cannot be deleted.
   requestBody:

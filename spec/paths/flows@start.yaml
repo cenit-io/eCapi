@@ -1,10 +1,10 @@
 get:
   tags:
     - Flows
-  operationId: start_some_flows_async_beta_
-  summary: Start some Flows
+  operationId: start_multiple_flows_async_beta_
+  summary: Start multiple Flows
   description: |
-    It finds the flows given the its ids and generate an asynchronous task to be start this flows processing.
+    It generates an asynchronous task to start multiple stream processing.
 
     > If exists any task associate to the one flow in the execution or pending state,
     then the same task is returned, otherwise a new task is created.

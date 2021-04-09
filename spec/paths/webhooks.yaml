@@ -42,9 +42,9 @@ delete:
   tags:
     - Webhooks
   operationId: webhook_delete_bulk
-  summary: Delete some Webhooks
+  summary: Delete multiple Webhooks
   description: |
-    Find the webhooks for the given id list and delete them
+    It delete multiple webhooks.
   requestBody:
     $ref: '#/components/requestBodies/webhook_ids'
   responses:

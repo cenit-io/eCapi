@@ -27,12 +27,9 @@ delete:
   tags:
     - Tasks
   operationId: delete_task_bulk_beta_
-  summary: Delete some tasks
+  summary: Delete multiple tasks
   description: |
-    Find the tasks for the given id list and delete them
-
-    > A running task can't be deleted.
-
+    It delete multiple tasks that are not running.
   requestBody:
     $ref: '#/components/requestBodies/task_id_list'
   responses:

@@ -1,10 +1,10 @@
 delete:
   tags:
     - Connected Integrations
-  operationId: deauthorize_some_integrations_beta
-  summary: Unauthorize some integrations
+  operationId: deauthorize_multiple_integrations_beta
+  summary: Unauthorize multiple integrations
   description: |
-    Find integrations by given ids and disallow their connections.
+    It eliminate the connection authorizations in multiple integrations.
 
     > Only authorized integrations can be unauthorizes.
   requestBody:

@@ -4,12 +4,12 @@ parameters:
 put:
   tags:
     - Variants
-  operationId: link_some_variants_async_beta_
-  summary: Link some Variants
+  operationId: link_multiple_variants_async_beta_
+  summary: Link multiple Variants
   description: |
-    Generate asynchronous tasks to link some variants with some integrations.
+    It generatea an asynchronous task to link multiple variants with multiple integrations.
 
-    > If the process is successful, tasks will be added to create or update the variants on the remote platforms of each linked integration.
+    > If the process is successful, some tasks will be added to create or update the variants on the remote platforms of each linked integration.
   requestBody:
     $ref: '#/components/requestBodies/variant_link_bulk'
   responses:
@@ -21,10 +21,10 @@ put:
 delete:
   tags:
     - Variants
-  operationId: unlink_some_variants_async_beta_
-  summary: Unlink some Variants
+  operationId: unlink_multiple_variants_async_beta_
+  summary: Unlink multiple Variants
   description: |
-    Generate asynchronous tasks to unlink some variants with some integrations.
+    It generate an asynchronous task to unlink multiple variants with multiple integrations.
 
     > If it is established that the variants should be removed from the remote integration source, then a task is also created to achieve this goal.
   requestBody:

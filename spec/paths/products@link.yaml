@@ -1,12 +1,12 @@
 put:
   tags:
     - Products
-  operationId: link_some_products_async_beta_
-  summary: Link some Products
+  operationId: link_multiple_products_async_beta_
+  summary: Link multiple Products
   description: |
-    Generate asynchronous tasks to link some products with some integrations.
+    It generates an asynchronous task to link multiple products with multiple integrations.
 
-    > If the process is successful, tasks will be added to create or update the products on the remote platforms of each linked integration.
+    > If the process is successful, some tasks will be added to create or update the products on the remote platforms of each linked integration.
   requestBody:
     $ref: '#/components/requestBodies/product_link_bulk'
   responses:
@@ -18,10 +18,10 @@ put:
 delete:
   tags:
     - Products
-  operationId: unlink_some_products_async_beta_
-  summary: Unlink some Products
+  operationId: unlink_multiple_products_async_beta_
+  summary: Unlink multiple Products
   description: |
-    Generate asynchronous tasks to unlink some products with some integrations.
+    It generate an asynchronous tasks to unlink multiple products with multiple integrations.
 
     > If it is established that the products should be removed from the remote integration source, then a task is also created to achieve this goal.
   requestBody:

@@ -27,7 +27,7 @@ get:
 post:
   tags:
     - Products of an Integration
-  operationId: update_some_integration_product_beta_
+  operationId: update_multiple_integration_product_beta_
   summary: Update multiple Products properties
   description: |
     Update the specific properties of multiple products of an integration.

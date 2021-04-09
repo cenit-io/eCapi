@@ -36,7 +36,7 @@ put:
   operationId: link_variant_beta_
   summary: Link a Variant
   description: |
-    Generate an async task to link a product variant with some integrations.
+    It generates an asynchronous task to link a product variant with multiple integrations.
 
     > If the process is successful, tasks will be added to create or update the product variant on the remote platforms of each linked integration.
   requestBody:
@@ -53,7 +53,7 @@ patch:
   operationId: unlink_variant_async_beta_
   summary: Unlink a Variant
   description: |
-    Generate an async task to unlink a product variant with some integrations.
+    It generates an asynchronous task to unlink a product variant with multiple integrations.
 
     > If it is established that the product variant should be removed from the remote integration source, then a task is also created to achieve this goal.
   requestBody:

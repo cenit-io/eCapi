@@ -41,11 +41,10 @@ post:
 delete:
   tags:
     - Flows
-  operationId: delete_some_flows_beta_
-  summary: Delete some Flows
+  operationId: delete_multiple_flows_beta_
+  summary: Delete multiple Flows
   description: |
-    It finds and destroy the some flows and its schedulers given the flows ids.
-
+    It finds and destroy multiple flows and its schedulers.
   requestBody:
     $ref: '#/components/requestBodies/flow_ids'
   responses:

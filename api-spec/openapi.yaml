@@ -1330,19 +1330,6 @@ paths:
         '404':
           $ref: '#/components/responses/integration_not_found'
   /orders:
-    parameters:
-      - $ref: '#/components/parameters/query_filter_term_for_orders'
-      - $ref: '#/components/parameters/query_filter_integration'
-      - $ref: '#/components/parameters/query_filter_order_number'
-      - $ref: '#/components/parameters/query_filter_order_status'
-      - $ref: '#/components/parameters/query_filter_order_created_after'
-      - $ref: '#/components/parameters/query_filter_order_created_before'
-      - $ref: '#/components/parameters/query_filter_order_updated_after'
-      - $ref: '#/components/parameters/query_filter_order_updated_before'
-      - $ref: '#/components/parameters/query_without_data'
-      - $ref: '#/components/parameters/query_offset'
-      - $ref: '#/components/parameters/query_limit'
-      - $ref: '#/components/parameters/query_sort_for_orders'
     get:
       tags:
         - Orders
@@ -1350,9 +1337,34 @@ paths:
       summary: List all Orders
       description: |
         Returns the list of orders.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_orders'
+        - $ref: '#/components/parameters/query_filter_integration'
+        - $ref: '#/components/parameters/query_filter_order_number'
+        - $ref: '#/components/parameters/query_filter_order_status'
+        - $ref: '#/components/parameters/query_filter_order_created_after'
+        - $ref: '#/components/parameters/query_filter_order_created_before'
+        - $ref: '#/components/parameters/query_filter_order_updated_after'
+        - $ref: '#/components/parameters/query_filter_order_updated_before'
+        - $ref: '#/components/parameters/query_without_data'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_orders'
       responses:
         '200':
           $ref: '#/components/responses/order_items'
+    patch:
+      tags:
+        - Orders
+      operationId: order_import_bulk
+      summary: Re-import some orders
+      description: |
+        Some tasks will be added to re-import orders from the remote platforms of each integration.
+      requestBody:
+        $ref: '#/components/requestBodies/order_id_list'
+      responses:
+        '200':
+          $ref: '#/components/responses/task_items'
   '/orders/{order_id}':
     parameters:
       - $ref: '#/components/parameters/path_order_id'
@@ -5420,6 +5432,12 @@ components:
             title: Shipping Label
           - type: carrierManifest
             title: Carrier Manifest
+    order_id_list_request:
+      value:
+        data:
+          order_ids:
+            - 6035665bb90e810c2400767f
+            - 60356805b90e810c2d009205
     order_import_response:
       value:
         type: task
@@ -6447,6 +6465,29 @@ components:
           examples:
             Ex1:
               $ref: '#/components/examples/native_service_request'
+    order_id_list:
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  order_ids:
+                    description: Identifiers of the orders you want to process.
+                    type: array
+                    minItems: 1
+                    maxItems: 100
+                    items:
+                      type: string
+                required:
+                  - order_ids
+          examples:
+            Ex1:
+              $ref: '#/components/examples/order_id_list_request'
     product_create:
       description: Product that will be added to the system
       required: true

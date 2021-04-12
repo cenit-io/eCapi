@@ -1857,7 +1857,7 @@
         "summary": "Re-import some orders",
         "description": "Some tasks will be added to re-import orders from the remote platforms of each integration.\n",
         "requestBody": {
-          "$ref": "#/components/requestBodies/order_id_list"
+          "$ref": "#/components/requestBodies/order_ids"
         },
         "responses": {
           "200": {
@@ -2965,7 +2965,7 @@
         "summary": "Delete multiple tasks",
         "description": "It delete multiple tasks that are not running.\n",
         "requestBody": {
-          "$ref": "#/components/requestBodies/task_id_list"
+          "$ref": "#/components/requestBodies/task_ids"
         },
         "responses": {
           "200": {
@@ -3071,7 +3071,7 @@
         "summary": "Task Retry Bulk",
         "description": "Find the tasks for the given id list and retry their executions\n\n> Only failed tasks can be retried.\n",
         "requestBody": {
-          "$ref": "#/components/requestBodies/task_id_list"
+          "$ref": "#/components/requestBodies/task_ids"
         },
         "responses": {
           "200": {
@@ -7909,16 +7909,6 @@
           ]
         }
       },
-      "order_id_list_request": {
-        "value": {
-          "data": {
-            "order_ids": [
-              "6035665bb90e810c2400767f",
-              "60356805b90e810c2d009205"
-            ]
-          }
-        }
-      },
       "order_import_response": {
         "value": {
           "type": "task",
@@ -8518,16 +8508,6 @@
             "offset": 0,
             "limit": 10,
             "total": 2
-          }
-        }
-      },
-      "task_bulk_retry_request": {
-        "value": {
-          "data": {
-            "task_ids": [
-              "6035665bb90e810c2400767f",
-              "60356805b90e810c2d009205"
-            ]
           }
         }
       },
@@ -9354,7 +9334,7 @@
           }
         }
       },
-      "order_id_list": {
+      "order_ids": {
         "required": true,
         "content": {
           "application/json": {
@@ -9365,6 +9345,9 @@
               "properties": {
                 "data": {
                   "type": "object",
+                  "required": [
+                    "order_ids"
+                  ],
                   "properties": {
                     "order_ids": {
                       "description": "Identifiers of the orders you want to process.",
@@ -9375,16 +9358,8 @@
                         "type": "string"
                       }
                     }
-                  },
-                  "required": [
-                    "order_ids"
-                  ]
+                  }
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/order_id_list_request"
               }
             }
           }
@@ -9770,7 +9745,7 @@
           }
         }
       },
-      "task_id_list": {
+      "task_ids": {
         "required": true,
         "content": {
           "application/json": {
@@ -9781,6 +9756,9 @@
               "properties": {
                 "data": {
                   "type": "object",
+                  "required": [
+                    "task_ids"
+                  ],
                   "properties": {
                     "task_ids": {
                       "description": "Identifiers of the tasks you want to process.",
@@ -9791,16 +9769,8 @@
                         "type": "string"
                       }
                     }
-                  },
-                  "required": [
-                    "task_ids"
-                  ]
+                  }
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/task_bulk_retry_request"
               }
             }
           }

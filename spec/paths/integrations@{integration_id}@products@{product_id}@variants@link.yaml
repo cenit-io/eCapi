@@ -1,7 +1,6 @@
 parameters:
   - $ref: '#/components/parameters/path_integration_id'
   - $ref: '#/components/parameters/path_product_id'
-  - $ref: '#/components/parameters/path_variant_id'
 
 delete:
   tags:

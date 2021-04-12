@@ -18,3 +18,18 @@ get:
   responses:
     '200':
       $ref: '#/components/responses/integration_variant_items'
+
+post:
+  tags:
+    - Variants of an Integration
+  operationId: update_multiple_integration_variant_beta_
+  summary: Update multiple Variant properties
+  description: |
+    Update the specific properties of multiple product variants of an integration.
+  requestBody:
+    $ref: '#/components/requestBodies/variant_properties_update_bulk'
+  responses:
+    '200':
+      $ref: '#/components/responses/integration_variant_items'
+    '404':
+      $ref: '#/components/responses/integration_not_found'

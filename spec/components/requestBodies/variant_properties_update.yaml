@@ -7,12 +7,9 @@ content:
       properties:
         data:
           type: object
+          required: [properties]
           properties:
             properties:
               type: array
               items:
                 $ref: "#/components/schemas/VariantProperty"
-
-#    examples:
-#      Ex1:
-#        $ref: '#/components/examples/variant_properties_update_request_1'

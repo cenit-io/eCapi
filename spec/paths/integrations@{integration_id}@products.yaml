@@ -24,6 +24,7 @@ get:
       $ref: '#/components/responses/integration_product_items'
     '404':
       $ref: '#/components/responses/integration_not_found'
+
 post:
   tags:
     - Products of an Integration

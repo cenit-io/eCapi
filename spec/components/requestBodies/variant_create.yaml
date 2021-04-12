@@ -8,7 +8,7 @@ content:
         data:
           allOf:
             - $ref: "#/components/schemas/Variant"
-            - required: [price, quantity]
+            - required: [sku price]
 
     examples:
       Ex1:

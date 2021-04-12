@@ -1,0 +1,20 @@
+description: Variants properties that will be updated
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          type: array
+          minItems: 1
+          maxItems: 100
+          items:
+            type: object
+            required: [variant_id]
+            properties:
+              variant_id:
+                description: Identifier of the variant to be updated
+                type: string
+            allOf:
+              - $ref: "#/components/schemas/Variant"

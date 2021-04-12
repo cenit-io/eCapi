@@ -8,9 +8,3 @@ content:
         data:
           allOf:
             - $ref: "#/components/schemas/Variant"
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/variant_update_request_1'
-      Ex2:
-        $ref: '#/components/examples/variant_update_request_2'

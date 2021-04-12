@@ -39,6 +39,19 @@ post:
     '404':
       $ref: '#/components/responses/variant_not_found'
 
+put:
+  tags:
+    - Variants
+  operationId: update_variants_beta_
+  summary: Update multiple Variants
+  description: |
+    Update the common properties of multiple product variants.
+  requestBody:
+    $ref: '#/components/requestBodies/variant_update_bulk'
+  responses:
+    '200':
+      $ref: '#/components/responses/variant_items'
+
 delete:
   tags:
     - Variants

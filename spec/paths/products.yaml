@@ -41,9 +41,9 @@ put:
   tags:
     - Products
   operationId: update_products_beta_
-  summary: Update multiple Product
+  summary: Update multiple Products
   description: |
-    Update the common properties of multiple products with the same information.
+    Update the common properties of multiple products.
   requestBody:
     $ref: '#/components/requestBodies/product_update_bulk'
   responses:

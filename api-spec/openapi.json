@@ -1475,6 +1475,25 @@
             "$ref": "#/components/responses/integration_variant_items"
           }
         }
+      },
+      "post": {
+        "tags": [
+          "Variants of an Integration"
+        ],
+        "operationId": "update_multiple_integration_variant_beta_",
+        "summary": "Update multiple Variant properties",
+        "description": "Update the specific properties of multiple product variants of an integration.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/variant_properties_update_bulk"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/integration_variant_items"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
       }
     },
     "/integrations/{integration_id}/products/{product_id}/variants/{variant_id}": {
@@ -9951,6 +9970,45 @@
           }
         }
       },
+      "variant_properties_update_bulk": {
+        "description": "Variants properties that will be updated",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 100,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "variant_id",
+                      "properties"
+                    ],
+                    "properties": {
+                      "variant_id": {
+                        "description": "Identifier of the variant to be updated",
+                        "type": "string"
+                      },
+                      "properties": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/components/schemas/VariantProperty"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "variant_properties_update": {
         "description": "Variant properties that will be updated",
         "required": true,
@@ -9963,6 +10021,9 @@
               "properties": {
                 "data": {
                   "type": "object",
+                  "required": [
+                    "properties"
+                  ],
                   "properties": {
                     "properties": {
                       "type": "array",

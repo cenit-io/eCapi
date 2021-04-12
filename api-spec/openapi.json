@@ -1360,44 +1360,6 @@
             "$ref": "#/components/responses/integration_not_found"
           }
         }
-      },
-      "put": {
-        "tags": [
-          "Products of an Integration"
-        ],
-        "operationId": "link_integration_products_async_beta_",
-        "summary": "Link all Products with an Integration",
-        "description": "Generate an async task to link all products with an integration.\n\n> If the process is successful, tasks will be added to create or update the products on the remote platforms of each linked integration.\n",
-        "requestBody": {
-          "$ref": "#/components/requestBodies/integration_product_link"
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/task_item"
-          },
-          "404": {
-            "$ref": "#/components/responses/integration_not_found"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Products of an Integration"
-        ],
-        "operationId": "unlink_integration_products_async_beta_",
-        "summary": "Unlink all Products from an Integration",
-        "description": "Generate an async task to unlink all products from an integration.\n\n> If it is established that the products should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
-        "requestBody": {
-          "$ref": "#/components/requestBodies/integration_product_unlink"
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/task_item"
-          },
-          "404": {
-            "$ref": "#/components/responses/integration_not_found"
-          }
-        }
       }
     },
     "/integrations/{integration_id}/products/{product_id}": {
@@ -1595,6 +1557,35 @@
         }
       }
     },
+    "/integrations/{integration_id}/products/{product_id}/variants/link": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_product_id"
+        }
+      ],
+      "delete": {
+        "tags": [
+          "Variants of an Integration"
+        ],
+        "operationId": "unlink_integration_variants_async_beta_",
+        "summary": "Unlink all Variants from an Integration",
+        "description": "Generate an async task to unlink all variants from an integration.\n\n> If it is established that the product variants should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/integration_variant_unlink"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
     "/integrations/{integration_id}/products/{remote_product_id}/import": {
       "parameters": [
         {
@@ -1637,6 +1628,51 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/product_import_task"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/products/link": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        }
+      ],
+      "put": {
+        "tags": [
+          "Products of an Integration"
+        ],
+        "operationId": "link_integration_products_async_beta_",
+        "summary": "Link all Products with an Integration",
+        "description": "Generate an async task to link all products with an integration.\n\n> If the process is successful, tasks will be added to create or update the products on the remote platforms of each linked integration.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/integration_product_link"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/integration_not_found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Products of an Integration"
+        ],
+        "operationId": "unlink_integration_products_async_beta_",
+        "summary": "Unlink all Products from an Integration",
+        "description": "Generate an async task to unlink all products from an integration.\n\n> If it is established that the products should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/integration_product_unlink"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
           },
           "404": {
             "$ref": "#/components/responses/integration_not_found"
@@ -2399,6 +2435,32 @@
           }
         }
       },
+      "delete": {
+        "tags": [
+          "Variants"
+        ],
+        "operationId": "delete_variant_beta_",
+        "summary": "Delete a variant",
+        "description": "Delete a unlinked product variant.\n\n> The variant will be permanently removed if and only if it has no associated integrations.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success"
+          },
+          "404": {
+            "$ref": "#/components/responses/variant_not_found"
+          }
+        }
+      }
+    },
+    "/products/{product_id}/variants/{variant_id}/link": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_product_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_variant_id"
+        }
+      ],
       "put": {
         "tags": [
           "Variants"
@@ -2418,7 +2480,7 @@
           }
         }
       },
-      "patch": {
+      "delete": {
         "tags": [
           "Variants"
         ],
@@ -2431,22 +2493,6 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/task_item"
-          },
-          "404": {
-            "$ref": "#/components/responses/variant_not_found"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Variants"
-        ],
-        "operationId": "delete_variant_beta_",
-        "summary": "Delete a variant",
-        "description": "Delete a unlinked product variant.\n\n> The variant will be permanently removed if and only if it has no associated integrations.\n",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/success"
           },
           "404": {
             "$ref": "#/components/responses/variant_not_found"

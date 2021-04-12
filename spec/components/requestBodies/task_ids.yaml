@@ -6,15 +6,12 @@ content:
       properties:
         data:
           type: object
+          required: [task_ids]
           properties:
-            order_ids:
-              description: Identifiers of the orders you want to process.
+            task_ids:
+              description: Identifiers of the tasks you want to process.
               type: array
               minItems: 1
               maxItems: 100
               items:
                 type: string
-          required: [order_ids]
-    examples:
-      Ex1:
-        $ref: '#/components/examples/order_id_list_request'

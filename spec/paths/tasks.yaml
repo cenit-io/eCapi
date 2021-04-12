@@ -31,7 +31,7 @@ delete:
   description: |
     It delete multiple tasks that are not running.
   requestBody:
-    $ref: '#/components/requestBodies/task_id_list'
+    $ref: '#/components/requestBodies/task_ids'
   responses:
     '200':
       $ref: '#/components/responses/success'

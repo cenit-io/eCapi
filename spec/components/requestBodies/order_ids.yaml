@@ -6,15 +6,12 @@ content:
       properties:
         data:
           type: object
+          required: [order_ids]
           properties:
-            task_ids:
-              description: Identifiers of the tasks you want to process.
+            order_ids:
+              description: Identifiers of the orders you want to process.
               type: array
               minItems: 1
               maxItems: 100
               items:
                 type: string
-          required: [task_ids]
-    examples:
-      Ex1:
-        $ref: '#/components/examples/task_bulk_retry_request'

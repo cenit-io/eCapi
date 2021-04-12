@@ -1836,7 +1836,7 @@
         "tags": [
           "Connected Integrations"
         ],
-        "operationId": "deauthorize_multiple_integrations_beta",
+        "operationId": "deauthorize_multiple_integrations_beta_",
         "summary": "Unauthorize multiple integrations",
         "description": "It eliminate the connection authorizations in multiple integrations.\n\n> Only authorized integrations can be unauthorizes.\n",
         "requestBody": {

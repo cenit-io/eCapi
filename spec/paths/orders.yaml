@@ -1,17 +1,3 @@
-parameters:
-  - $ref: '#/components/parameters/query_filter_term_for_orders'
-  - $ref: '#/components/parameters/query_filter_integration'
-  - $ref: '#/components/parameters/query_filter_order_number'
-  - $ref: '#/components/parameters/query_filter_order_status'
-  - $ref: '#/components/parameters/query_filter_order_created_after'
-  - $ref: '#/components/parameters/query_filter_order_created_before'
-  - $ref: '#/components/parameters/query_filter_order_updated_after'
-  - $ref: '#/components/parameters/query_filter_order_updated_before'
-  - $ref: '#/components/parameters/query_without_data'
-  - $ref: '#/components/parameters/query_offset'
-  - $ref: '#/components/parameters/query_limit'
-  - $ref: '#/components/parameters/query_sort_for_orders'
-
 get:
   tags:
     - Orders
@@ -19,6 +5,33 @@ get:
   summary: List all Orders
   description: |
     Returns the list of orders.
+  parameters:
+    - $ref: '#/components/parameters/query_filter_term_for_orders'
+    - $ref: '#/components/parameters/query_filter_integration'
+    - $ref: '#/components/parameters/query_filter_order_number'
+    - $ref: '#/components/parameters/query_filter_order_status'
+    - $ref: '#/components/parameters/query_filter_order_created_after'
+    - $ref: '#/components/parameters/query_filter_order_created_before'
+    - $ref: '#/components/parameters/query_filter_order_updated_after'
+    - $ref: '#/components/parameters/query_filter_order_updated_before'
+    - $ref: '#/components/parameters/query_without_data'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
+    - $ref: '#/components/parameters/query_sort_for_orders'
   responses:
     '200':
       $ref: '#/components/responses/order_items'
+
+
+patch:
+  tags:
+    - Orders
+  operationId: order_import_bulk
+  summary: Re-import some orders
+  description: |
+    Some tasks will be added to re-import orders from the remote platforms of each integration.
+  requestBody:
+    $ref: '#/components/requestBodies/order_id_list'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_items'

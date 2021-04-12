@@ -22,27 +22,19 @@
   {{redocHead}}
 
   <style>
-    img.sc-kafWEX.btCIRv {
+    img[alt=logo] {
       background-color: transparent !important;
     }
 
-    .sc-dnqmqq.ioYTqA {
+    div[data-section-id^="operation/"] h2 {
       text-transform: uppercase;
     }
 
-    .dluJDj {
-      padding-top: 0px !important;
-    }
-
-    .sc-ifAKCX.ddXLZs[data-section-id$=_beta] .sc-dnqmqq.ioYTqA:after,
-    .sc-ifAKCX.ddXLZs[data-section-id*=_beta_] .sc-dnqmqq.ioYTqA:after,
-    .sc-btzYZH.hndQyM[data-item-id$=_beta] .sc-bYSBpT.gpHEtH:after,
-    .sc-btzYZH.hndQyM[data-item-id*=_beta_] .sc-bYSBpT.gpHEtH:after,
-    .sc-ifAKCX.ddXLZs[data-section-id$=_async] .sc-dnqmqq.ioYTqA:after,
-    .sc-ifAKCX.ddXLZs[data-section-id*=_async_] .sc-dnqmqq.ioYTqA:after,
-    .sc-btzYZH.hndQyM[data-item-id$=_async] .sc-bYSBpT.gpHEtH:after,
-    .sc-btzYZH.hndQyM[data-item-id*=_async_] .sc-bYSBpT.gpHEtH:after,
-    .sc-ifAKCX.ddXLZs [type=warning] {
+    div[data-section-id*=_beta_] h2:after,
+    li[data-item-id*=_beta_] label span:nth-child(2):after,
+    div[data-section-id*=_async_] h2:after,
+    li[data-item-id*=_async_] label span:nth-child(2):after,
+    div [type=warning] {
       background-color: rgb(212, 173, 3);
       color: red;
       line-height: 1.5em;
@@ -53,43 +45,42 @@
       top: -10px;
     }
 
-    .sc-ifAKCX.ddXLZs[data-section-id*=_async_] .sc-dnqmqq.ioYTqA:after,
-    .sc-btzYZH.hndQyM[data-item-id*=_async_] .sc-bYSBpT.gpHEtH:after {
+    div[data-section-id*=_async_] h2:after,
+    li[data-item-id*=_async_] label span:nth-child(2):after {
       content: "ASYNC";
     }
 
-    .sc-ifAKCX.ddXLZs[data-section-id*=_beta_] .sc-dnqmqq.ioYTqA:after,
-    .sc-btzYZH.hndQyM[data-item-id*=_beta_] .sc-bYSBpT.gpHEtH:after {
+    div[data-section-id*=_beta_] h2:after,
+    li[data-item-id*=_beta_] label span:nth-child(2):after {
       content: "BETA";
     }
 
-    .sc-ifAKCX.ddXLZs[data-section-id*=_async_].sc-ifAKCX.ddXLZs[data-section-id*=_beta_] .sc-dnqmqq.ioYTqA:after,
-    .sc-btzYZH.hndQyM[data-item-id*=_async_].sc-btzYZH.hndQyM[data-item-id*=_beta_] .sc-bYSBpT.gpHEtH:after {
+    div[data-section-id*=_async_beta_] h2:after,
+    li[data-item-id*=_async_beta_] label span:nth-child(2):after {
       content: "ASYNC-BETA";
     }
 
-    .sc-btzYZH.hndQyM[data-item-id*=_beta_] .sc-bYSBpT.gpHEtH:after,
-    .sc-btzYZH.hndQyM[data-item-id*=_async_] .sc-bYSBpT.gpHEtH:after {
+    li[data-item-id*=_beta_] label span:nth-child(2):after,
+    li[data-item-id*=_async_] label span:nth-child(2):after {
       border-radius: 5px;
       padding: 2px 5px;
       font-size: 50%;
       top: -5px;
     }
 
-    .sc-fjdhpX.qoMel {
-      padding: 0px 10px !important;
-      top: -5px !important;
-    }
-
-    .sc-bxivhb.cjtbAK.header, .sc-bxivhb.cjtbAK h1, label[type=group] {
+    div[data-section-id^="tag/"] h1, label[type=group] {
       background-color: lightskyblue;
+      text-transform: uppercase;
     }
 
-    .sc-bxivhb.cjtbAK h1 {
+    div[data-section-id^="tag/"] h1 {
       font-variant: small-caps;
       font-weight: bolder;
       font-size: 1.5em;
       color: black;
+      padding-left: 1em;
+      margin-left: -1em;
+      margin-right: -1em;
     }
 
     label[type=group] {
@@ -119,9 +110,6 @@
           }
         },
         document.getElementById("redoc_container"),
-        function () {
-          $('.sc-bxivhb.cjtbAK:has(h1)').addClass('header')
-        }
       );
     })
   </script>

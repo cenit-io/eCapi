@@ -925,7 +925,7 @@
           "Categories"
         ],
         "operationId": "get_integration_categories",
-        "summary": "List all categories from an Integration",
+        "summary": "List all categories",
         "description": "Returns the list of product categories for a specific integration.\n",
         "parameters": [
           {
@@ -977,11 +977,37 @@
           "Categories"
         ],
         "operationId": "get_category",
-        "summary": "Retrieve a category from an Integration",
+        "summary": "Retrieve a category",
         "description": "Retrieve a product category by its identify.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/category_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/category_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/categories/{category_id}/properties": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_category_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "operationId": "get_properties_definitions",
+        "summary": "List property definitions",
+        "description": "Returns the list of property definitions for a category in an integration.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/property_items"
           },
           "404": {
             "$ref": "#/components/responses/category_not_found"
@@ -1000,7 +1026,7 @@
           "Categories"
         ],
         "operationId": "import_categories_async_",
-        "summary": "Import categories from an Integration",
+        "summary": "Import categories",
         "description": "Generate an async task to import the last updated product categories from an integration.\n",
         "responses": {
           "200": {
@@ -5649,6 +5675,27 @@
             "example": {
               "type": "exception",
               "message": "Not found product with id: 5d04051125d9852c71016793"
+            }
+          }
+        }
+      },
+      "property_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductProperty"
+                  }
+                }
+              }
             }
           }
         }

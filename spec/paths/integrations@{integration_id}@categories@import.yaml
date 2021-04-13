@@ -5,7 +5,7 @@ get:
   tags:
     - Categories
   operationId: import_categories_async_
-  summary: Import categories from an Integration
+  summary: Import categories
   description: |
     Generate an async task to import the last updated product categories from an integration.
   responses:

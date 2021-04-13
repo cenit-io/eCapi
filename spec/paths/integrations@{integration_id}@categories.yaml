@@ -5,7 +5,7 @@ get:
   tags:
     - Categories
   operationId: get_integration_categories
-  summary: List all categories from an Integration
+  summary: List all categories
   description: |
     Returns the list of product categories for a specific integration.
   parameters:

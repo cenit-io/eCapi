@@ -5,12 +5,12 @@ parameters:
 get:
   tags:
     - Categories
-  operationId: get_category
-  summary: Retrieve a category
+  operationId: get_properties_definitions
+  summary: List property definitions
   description: |
-    Retrieve a product category by its identify.
+    Returns the list of property definitions for a category in an integration.
   responses:
     '200':
-      $ref: '#/components/responses/category_item'
+      $ref: '#/components/responses/property_items'
     '404':
       $ref: '#/components/responses/category_not_found'

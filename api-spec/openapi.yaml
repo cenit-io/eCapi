@@ -1513,8 +1513,7 @@ paths:
       description: |
         Some tasks will be added to start the export flows of  orders to one or more target integrations.
 
-        > If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the
-        order export workflow defined with its has the scheduler disabled.
+        > If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the order export workflow defined with its has the scheduler disabled.
       requestBody:
         $ref: '#/components/requestBodies/export_orders'
       responses:

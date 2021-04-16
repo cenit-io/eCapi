@@ -2064,6 +2064,24 @@
         }
       }
     },
+    "/orders/export": {
+      "patch": {
+        "tags": [
+          "Orders"
+        ],
+        "operationId": "order_export_bulk",
+        "summary": "Export some orders",
+        "description": "Some tasks will be added to start the export flows of  orders to one or more target integrations.\n\n> If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the\norder export workflow defined with its has the scheduler disabled.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/export_orders"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_items"
+          }
+        }
+      }
+    },
     "/products": {
       "get": {
         "tags": [
@@ -9086,6 +9104,41 @@
                   "properties": {
                     "target_integration_id": {
                       "description": "Target integration identify.\n",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "export_orders": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": [
+                    "order_ids"
+                  ],
+                  "properties": {
+                    "order_ids": {
+                      "description": "Identifiers of the orders you want to process.",
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 100,
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "target_integration_id": {
+                      "description": "Target integration identify.",
                       "type": "string"
                     }
                   }

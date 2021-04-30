@@ -27,6 +27,10 @@
       "description": "This term refers to the configuration of a connection that will allow access to the set of resources and services\nthrough integration with other foreign platforms.\n"
     },
     {
+      "name": "Plans & Subscriptions",
+      "description": "Operations on the plans and subscriptions.\n"
+    },
+    {
       "name": "Orders",
       "description": "Operations on the orders\n"
     },
@@ -111,7 +115,8 @@
       "name": "Integrations",
       "tags": [
         "Available Integrations",
-        "Connected Integrations"
+        "Connected Integrations",
+        "Plans & Subscriptions"
       ]
     },
     {
@@ -3014,6 +3019,21 @@
         }
       }
     },
+    "/subscription/plans": {
+      "get": {
+        "tags": [
+          "Plans & Subscriptions"
+        ],
+        "operationId": "get_plans",
+        "summary": "List available plans",
+        "description": "Returns the list of available plans.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/plan_items"
+          }
+        }
+      }
+    },
     "/tasks": {
       "get": {
         "tags": [
@@ -4032,6 +4052,60 @@
           "status": {
             "description": "The payment status",
             "type": "string"
+          }
+        }
+      },
+      "Plan": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the plan."
+          },
+          "name": {
+            "type": "string",
+            "description": "The plan name, meant to be displayable to the customer."
+          },
+          "currency": {
+            "type": "string",
+            "description": "Three-letter ISO currency code."
+          },
+          "interval": {
+            "type": "string",
+            "description": "The frequency at which a subscription is billed. Expressed in day, week, month or year."
+          },
+          "interval_count": {
+            "type": "integer",
+            "description": "The number of intervals (specified in the interval attribute) between billing for the subscription."
+          },
+          "description": {
+            "type": "string",
+            "description": "Explicit description of the plan."
+          },
+          "trial_period_days": {
+            "type": "integer",
+            "description": "Default number of trial days when subscribing a customer to plan."
+          },
+          "tiers": {
+            "type": "array",
+            "description": "Each element represents a pricing tier.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "unit_amount": {
+                  "type": "number",
+                  "description": "Price of one unit."
+                },
+                "flat_amount": {
+                  "type": "number",
+                  "description": "Price of a fixed amount of units."
+                },
+                "up_to": {
+                  "type": "integer",
+                  "description": "Maximum number of units supported by this price tier."
+                }
+              }
+            }
           }
         }
       },
@@ -5571,6 +5645,27 @@
             "example": {
               "type": "exception",
               "message": "Not found order with number: 9151224232846"
+            }
+          }
+        }
+      },
+      "plan_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Plan"
+                  }
+                }
+              }
             }
           }
         }

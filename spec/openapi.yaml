@@ -65,6 +65,10 @@ tags:
       This term refers to the configuration of a connection that will allow access to the set of resources and services
       through integration with other foreign platforms.
 
+  - name: Plans & Subscriptions
+    description: |
+      Operations on the plans and subscriptions.
+
   - name: Orders
     description: |
       Operations on the orders
@@ -192,6 +196,7 @@ x-tagGroups:
     tags:
       - Available Integrations
       - Connected Integrations
+      - Plans & Subscriptions
 
   - name: Orders
     tags:

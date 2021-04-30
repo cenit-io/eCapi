@@ -1,0 +1,38 @@
+type: "object"
+properties:
+  id:
+    type: string
+    description: Unique identifier for the plan.
+  name:
+    type: string
+    description: The plan name, meant to be displayable to the customer.
+  currency:
+    type: string
+    description: Three-letter ISO currency code.
+  interval:
+    type: string
+    description: The frequency at which a subscription is billed. Expressed in day, week, month or year.
+  interval_count:
+    type: integer
+    description: The number of intervals (specified in the interval attribute) between billing for the subscription.
+  description:
+    type: string
+    description: Explicit description of the plan.
+  trial_period_days:
+    type: integer
+    description: Default number of trial days when subscribing a customer to plan.
+  tiers:
+    type: array
+    description: Each element represents a pricing tier.
+    items:
+      type: object
+      properties:
+        unit_amount:
+          type: number
+          description: Price of one unit.
+        flat_amount:
+          type: number
+          description: Price of a fixed amount of units.
+        up_to:
+          type: integer
+          description: Maximum number of units supported by this price tier.

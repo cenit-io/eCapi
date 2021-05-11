@@ -30,5 +30,5 @@ properties:
     type: string
     readOnly: true
   value:
-    description: Value of the property in the product instance
+    description: Value of the property in the product/variant instance
     type: string

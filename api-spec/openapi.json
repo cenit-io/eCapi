@@ -994,7 +994,7 @@
         }
       }
     },
-    "/integrations/{integration_id}/categories/{category_id}/properties": {
+    "/integrations/{integration_id}/categories/{category_id}/product/properties": {
       "parameters": [
         {
           "$ref": "#/components/parameters/path_integration_id"
@@ -1007,12 +1007,38 @@
         "tags": [
           "Categories"
         ],
-        "operationId": "get_properties_definitions",
-        "summary": "List property definitions",
-        "description": "Returns the list of property definitions for a category in an integration.\n",
+        "operationId": "get_product_properties_definitions",
+        "summary": "List product property definitions",
+        "description": "Returns the list of product property definitions for a category in an integration.\n",
         "responses": {
           "200": {
-            "$ref": "#/components/responses/property_items"
+            "$ref": "#/components/responses/product_property_items"
+          },
+          "404": {
+            "$ref": "#/components/responses/category_not_found"
+          }
+        }
+      }
+    },
+    "/integrations/{integration_id}/categories/{category_id}/variant/properties": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_integration_id"
+        },
+        {
+          "$ref": "#/components/parameters/path_category_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "operationId": "get_variant_properties_definitions",
+        "summary": "List variant property definitions",
+        "description": "Returns the list of variant property definitions for a category in an integration.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/variant_property_items"
           },
           "404": {
             "$ref": "#/components/responses/category_not_found"
@@ -4303,7 +4329,7 @@
             "readOnly": true
           },
           "value": {
-            "description": "Value of the property in the product instance",
+            "description": "Value of the property in the product/variant instance",
             "type": "string"
           }
         }
@@ -5792,7 +5818,7 @@
           }
         }
       },
-      "property_items": {
+      "product_property_items": {
         "description": "Success",
         "content": {
           "application/json": {
@@ -6247,6 +6273,27 @@
             "example": {
               "type": "exception",
               "message": "Not found variant with id: 5d54835a25d985682d014e0e"
+            }
+          }
+        }
+      },
+      "variant_property_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VariantProperty"
+                  }
+                }
+              }
             }
           }
         }

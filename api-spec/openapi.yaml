@@ -2147,6 +2147,31 @@ paths:
           $ref: '#/components/responses/success'
         '404':
           $ref: '#/components/responses/stock_location_not_found'
+  /subscription:
+    get:
+      tags:
+        - Plans & Subscriptions
+      operationId: get_subscription
+      summary: Get subscription
+      description: |
+        Returns the subscription of the active tenant
+      responses:
+        '200':
+          $ref: '#/components/responses/subscription_item'
+        '404':
+          $ref: '#/components/responses/subscription_not_found'
+    post:
+      tags:
+        - Plans & Subscriptions
+      operationId: create_subscription
+      summary: Create a subscription
+      description: |
+        Create a new subscription.
+      requestBody:
+        $ref: '#/components/requestBodies/subscription_create'
+      responses:
+        '200':
+          $ref: '#/components/responses/subscription_item'
   /subscription/plans:
     get:
       tags:
@@ -3225,6 +3250,47 @@ components:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
           $ref: '#/components/schemas/UpdatedAt'
+    Subscription:
+      description: Subscription representation in OMNA
+      type: object
+      readOnly: true
+      properties:
+        id:
+          description: Unique identifier for the subscription.
+          type: string
+        status:
+          description: The subscription status.
+          type: string
+        trial_ends_on:
+          description: Date the trial period ends in iso8601 format.
+          type: string
+          format: date-time-iso8601
+        billing_on:
+          description: Billing date in iso8601 format.
+          type: string
+          format: date-time-iso8601
+        confirmation_url:
+          description: Url for subscription confirmation.
+          type: string
+        plan:
+          allOf:
+            - $ref: '#/components/schemas/Plan'
+    SubscriptionCreate:
+      type: object
+      properties:
+        plan_id:
+          type: string
+          description: Unique identifier of the plan to which you want to create the subscription.
+        integration_id:
+          type: string
+          description: |
+            Identifier of the integration that will process the subscription.
+            If no integration is defined, the Stripe platform will be used to process payments and subscriptions.
+
+            > At the moment, only integration with Shopify is supported.
+        redirect_uri:
+          description: Url where you want to redirect after confirming the subscription.
+          type: string
     Success:
       type: object
       properties:
@@ -4159,6 +4225,28 @@ components:
                 $ref: '#/components/schemas/ResponseResourceType'
               data:
                 $ref: '#/components/schemas/StockMovement'
+    subscription_item:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Subscription'
+    subscription_not_found:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Exception'
+          example:
+            type: exception
+            message: 'Not found subscription with id: 33627787050'
     success:
       description: Success
       content:
@@ -6891,6 +6979,21 @@ components:
                   - type: object
                   - required:
                       - quantity
+    subscription_create:
+      description: Subscription that will be added to the system
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                allOf:
+                  - $ref: '#/components/schemas/SubscriptionCreate'
+                  - required:
+                      - plan_id
+                      - redirect_uri
     task_ids:
       required: true
       content:

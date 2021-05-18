@@ -1,0 +1,25 @@
+get:
+  tags:
+    - Plans & Subscriptions
+  operationId: get_subscription
+  summary: Get subscription
+  description: |
+    Returns the subscription of the active tenant
+  responses:
+    '200':
+      $ref: '#/components/responses/subscription_item'
+    '404':
+      $ref: '#/components/responses/subscription_not_found'
+
+post:
+  tags:
+    - Plans & Subscriptions
+  operationId: create_subscription
+  summary: Create a subscription
+  description: |
+    Create a new subscription.
+  requestBody:
+    $ref: '#/components/requestBodies/subscription_create'
+  responses:
+    '200':
+      $ref: '#/components/responses/subscription_item'

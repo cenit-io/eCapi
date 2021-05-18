@@ -6124,10 +6124,7 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "type": "object",
-                  "items": {
-                    "$ref": "#/components/schemas/Subscription"
-                  }
+                  "$ref": "#/components/schemas/Subscription"
                 }
               }
             }

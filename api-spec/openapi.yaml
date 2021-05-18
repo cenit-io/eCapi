@@ -4235,9 +4235,7 @@ components:
               type:
                 $ref: '#/components/schemas/ResponseResourceType'
               data:
-                type: object
-                items:
-                  $ref: '#/components/schemas/Subscription'
+                $ref: '#/components/schemas/Subscription'
     subscription_not_found:
       description: Not found
       content:

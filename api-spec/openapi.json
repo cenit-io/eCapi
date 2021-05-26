@@ -3077,6 +3077,19 @@
             "$ref": "#/components/responses/subscription_item"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Plans & Subscriptions"
+        ],
+        "operationId": "cancel_subscription",
+        "summary": "Cancel subscription",
+        "description": "Cancel the active subscription\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/subscription_item"
+          }
+        }
       }
     },
     "/subscription/plans": {

@@ -1,0 +1,12 @@
+description: Success
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ResponseResourceType'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/VariantProperty'

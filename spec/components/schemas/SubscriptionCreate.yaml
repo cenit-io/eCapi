@@ -1,0 +1,15 @@
+type: "object"
+properties:
+  plan_id:
+    type: string
+    description: Unique identifier of the plan to which you want to create the subscription.
+  integration_id:
+    type: string
+    description: |
+      Identifier of the integration that will process the subscription.
+      If no integration is defined, the Stripe platform will be used to process payments and subscriptions.
+
+      > At the moment, only integration with Shopify is supported.
+  redirect_uri:
+    description: Url where you want to redirect after confirming the subscription.
+    type: string

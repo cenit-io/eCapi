@@ -1,0 +1,24 @@
+description: Subscription representation in OMNA
+type: object
+readOnly: true
+properties:
+  id:
+    description: Unique identifier for the subscription.
+    type: string
+  status:
+    description: The subscription status.
+    type: string
+  trial_ends_on:
+    description: Date the trial period ends in iso8601 format.
+    type: string
+    format: date-time-iso8601
+  billing_on:
+    description: Billing date in iso8601 format.
+    type: string
+    format: date-time-iso8601
+  confirmation_url:
+    description: Url for subscription confirmation.
+    type: string
+  plan:
+    allOf:
+      - $ref: "#/components/schemas/Plan"

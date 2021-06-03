@@ -1,0 +1,10 @@
+get:
+  tags:
+    - Plans & Subscriptions
+  operationId: get_plans
+  summary: List available plans
+  description: |
+    Returns the list of available plans.
+  responses:
+    '200':
+      $ref: '#/components/responses/plan_items'

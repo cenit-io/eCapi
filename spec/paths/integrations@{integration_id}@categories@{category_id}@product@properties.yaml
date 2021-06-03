@@ -1,0 +1,16 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+  - $ref: '#/components/parameters/path_category_id'
+
+get:
+  tags:
+    - Categories
+  operationId: get_product_properties_definitions
+  summary: List product property definitions
+  description: |
+    Returns the list of product property definitions for a category in an integration.
+  responses:
+    '200':
+      $ref: '#/components/responses/product_property_items'
+    '404':
+      $ref: '#/components/responses/category_not_found'

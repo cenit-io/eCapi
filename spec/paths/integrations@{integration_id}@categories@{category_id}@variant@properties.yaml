@@ -5,12 +5,12 @@ parameters:
 get:
   tags:
     - Categories
-  operationId: get_properties_definitions
-  summary: List property definitions
+  operationId: get_variant_properties_definitions
+  summary: List variant property definitions
   description: |
-    Returns the list of property definitions for a category in an integration.
+    Returns the list of variant property definitions for a category in an integration.
   responses:
     '200':
-      $ref: '#/components/responses/property_items'
+      $ref: '#/components/responses/variant_property_items'
     '404':
       $ref: '#/components/responses/category_not_found'

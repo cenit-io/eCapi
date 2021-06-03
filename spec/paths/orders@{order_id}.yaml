@@ -37,9 +37,9 @@ patch:
   tags:
     - Orders
   operationId: import_order_by_id_async_
-  summary: Reimport an Order
+  summary: Re-Import an Order
   description: |
-    Generate an async task to reimport a specific order from its integration.
+    Generate an async task to re-import a specific order from its integration.
   responses:
     '200':
       $ref: '#/components/responses/order_import_task'

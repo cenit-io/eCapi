@@ -1432,12 +1432,12 @@ paths:
       operationId: order_import_bulk
       summary: Re-import some orders
       description: |
-        Some tasks will be added to re-import orders from the remote platforms of each integration.
+        Generate an async task to re-import some orders from its integrations.
       requestBody:
         $ref: '#/components/requestBodies/order_ids'
       responses:
         '200':
-          $ref: '#/components/responses/task_items'
+          $ref: '#/components/responses/task_item'
   '/orders/{order_id}':
     parameters:
       - $ref: '#/components/parameters/path_order_id'
@@ -1474,9 +1474,9 @@ paths:
       tags:
         - Orders
       operationId: import_order_by_id_async_
-      summary: Reimport an Order
+      summary: Re-Import an Order
       description: |
-        Generate an async task to reimport a specific order from its integration.
+        Generate an async task to re-import a specific order from its integration.
       responses:
         '200':
           $ref: '#/components/responses/order_import_task'

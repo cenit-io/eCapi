@@ -1,4 +1,5 @@
-- [Home](../overview)
+- [Home](home)
+- [Principal Menu](principal-menu)
 - [Overview](overview)
 - [Quick Start](quick-start)
 - [User setup](user-setup) 

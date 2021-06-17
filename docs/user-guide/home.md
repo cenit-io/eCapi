@@ -23,16 +23,22 @@
     <img width="800" src="/assets/images/user-guide/homepage/homepage_original.jpg"/>
 </div>
 
->In the second step, it will be necessary to connect the integrations that were installed, for this you can use the button on that card to move to the Connected Integration section, where this operation can be realized (SWatchee the Connected Integrations section)
+>In the second step, it will be necessary to connect the integrations that were installed, for this you can use the button on that card to move to the Connected Integration section, where this operation can be realized (Watch the Connected Integrations section)
 
 <div align=center>
     <img width="800" src="/assets/images/user-guide/homepage/homepage_second_step.jpg"/>
 </div>
 
->Finally, in step number three, once our integrations are connected, import the orders and products from the connected stores, for complete this step, the button on the card will redirect us to the Workflows view in order to perform this task (Watch the Workflows section )
+>In the third step, it will be necessary to choose a plan and activate them, for this you can use the button on that card to move to the Plans Board section, where this operation can be realized (Watch the Plans section)
 
 <div align=center>
-    <img width="800" src="/assets/images/user-guide/homepage/homepage_3_step.jpg"/>
+    <img width="800" src="/assets/images/user-guide/homepage/homepage_step_3.jpg"/>
+</div>
+
+>Finally, in step number four, once our plan are been selected, import the orders and products from the connected stores, for complete this step, the button on the card will redirect us to the Workflows view in order to perform this task (Watch the Workflows section )
+
+<div align=center>
+    <img width="800" src="/assets/images/user-guide/homepage/homepage_homepage_step_4_step.jpg"/>
 </div>
 
 ## 3. Steps Completed

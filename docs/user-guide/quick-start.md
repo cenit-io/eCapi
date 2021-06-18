@@ -12,7 +12,7 @@
 >Once successfully authenticated, you will be redirected to the application's home page.
 
 ## 2. Install omna collection
->In the left side menu go to the option Integrations / Available integrations and install the omna collection, as shown in the image below.
+>On the left side menu go to the option Integrations / Available integrations and install the omna collection, as shown in the image below.
     <div align=center>
         <img src="/assets/images/user-guide/install_omna_collection.jpg">
     </div>

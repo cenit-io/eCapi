@@ -1,5 +1,6 @@
 - [Home](home)
 - [Principal Menu](principal-menu)
+- [Generic Lists](generic-list)
 - [Overview](overview)
 - [Quick Start](quick-start)
 - [User setup](user-setup) 

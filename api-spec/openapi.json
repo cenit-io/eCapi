@@ -261,7 +261,7 @@
     "/available/integrations/channels": {
       "get": {
         "tags": [
-          "Connected Integrations"
+          "Available Integrations"
         ],
         "operationId": "get_integration_channels",
         "summary": "List all Integration Channels",
@@ -2715,7 +2715,7 @@
     "/products/all": {
       "delete": {
         "tags": [
-          "Variants"
+          "Products"
         ],
         "operationId": "delete_all_unlinked_products_beta_",
         "summary": "Delete unliked products",

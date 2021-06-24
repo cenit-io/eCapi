@@ -3120,9 +3120,14 @@ components:
           format: date
         time:
           description: |
-            Hour and minute in which the task will be executed
+            Hour and minute or periodicity in which the task will be executed
 
-            **Format:** HH:MM
+            **Format for hour and minute:** HH:MM
+            **Format for periodicity between 20 and 999 minutes:** 30m
+            **Format for periodicity between 1 and 999 hours:** 12h
+            **Format for periodicity between 1 and 999 days:** 15d
+            **Format for periodicity between 1 and 999 weeks:** 2w
+            **Format for periodicity between 1 and 999 months:** 3M
           type: string
           format: time
         days_of_week:
@@ -3133,6 +3138,8 @@ components:
             ```
             ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
             ```
+
+            > This parameter will be ignored when the time parameter has the periodicity format.
           type: array
           items:
             type: string
@@ -3144,6 +3151,8 @@ components:
             ```
             ['First', 'Second', 'Third', 'Fourth', 'Last']
             ```
+
+            > This parameter will be ignored when the time parameter has the periodicity format.
           type: array
           items:
             type: string
@@ -3155,9 +3164,8 @@ components:
             ```
             ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
             ```
-          type: array
-          items:
-            type: string
+
+            > This parameter will be ignored when the time parameter has the periodicity format.
     SortQueryParameter:
       description: Sort criterial
       type: string

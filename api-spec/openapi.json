@@ -4430,30 +4430,26 @@
             "format": "date"
           },
           "time": {
-            "description": "Hour and minute in which the task will be executed\n\n**Format:** HH:MM\n",
+            "description": "Hour and minute or periodicity in which the task will be executed\n\n**Format for hour and minute:** HH:MM\n**Format for periodicity between 20 and 999 minutes:** 30m\n**Format for periodicity between 1 and 999 hours:** 12h\n**Format for periodicity between 1 and 999 days:** 15d\n**Format for periodicity between 1 and 999 weeks:** 2w\n**Format for periodicity between 1 and 999 months:** 3M\n",
             "type": "string",
             "format": "time"
           },
           "days_of_week": {
-            "description": "Days of the week in which the task will be executed.\n\nValues supported:\n```\n['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']\n```\n",
+            "description": "Days of the week in which the task will be executed.\n\nValues supported:\n```\n['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']\n```\n\n> This parameter will be ignored when the time parameter has the periodicity format.\n",
             "type": "array",
             "items": {
               "type": "string"
             }
           },
           "weeks_of_month": {
-            "description": "Weeks of the month in which the task will be executed\n\nValues supported:\n```\n['First', 'Second', 'Third', 'Fourth', 'Last']\n```\n",
+            "description": "Weeks of the month in which the task will be executed\n\nValues supported:\n```\n['First', 'Second', 'Third', 'Fourth', 'Last']\n```\n\n> This parameter will be ignored when the time parameter has the periodicity format.\n",
             "type": "array",
             "items": {
               "type": "string"
             }
           },
           "months_of_year": {
-            "description": "Months of the year in which the task will be executed.\n\nValues supported:\n```\n['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']\n```\n",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "description": "Months of the year in which the task will be executed.\n\nValues supported:\n```\n['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']\n```\n\n> This parameter will be ignored when the time parameter has the periodicity format.\n"
           }
         }
       },

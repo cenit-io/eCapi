@@ -4430,7 +4430,7 @@
             "format": "date"
           },
           "time": {
-            "description": "Hour and minute or periodicity in which the task will be executed\n\n**Format for hour and minute:** HH:MM\n\n**Format for periodicity between 20 and 999 minutes:** 30m\n\n**Format for periodicity between 1 and 999 hours:** 12h\n\n**Format for periodicity between 1 and 999 days:** 15d\n\n**Format for periodicity between 1 and 999 weeks:** 2w\n\n**Format for periodicity between 1 and 999 months:** 3M\n",
+            "description": "Hour and minute or periodicity in which the task will be executed\n\n**Format for:**\n\n- **Estimated hour and minute:** HH:MM\n- **Periodicity between 20 and 999 minutes:** 30m\n- **Periodicity between 1 and 999 hours:** 12h\n- **Periodicity between 1 and 999 days:** 15d\n- **Periodicity between 1 and 999 weeks:** 2w\n- **Periodicity between 1 and 999 months:** 3M\n",
             "type": "string",
             "format": "time"
           },

@@ -3123,10 +3123,15 @@ components:
             Hour and minute or periodicity in which the task will be executed
 
             **Format for hour and minute:** HH:MM
+
             **Format for periodicity between 20 and 999 minutes:** 30m
+
             **Format for periodicity between 1 and 999 hours:** 12h
+
             **Format for periodicity between 1 and 999 days:** 15d
+
             **Format for periodicity between 1 and 999 weeks:** 2w
+
             **Format for periodicity between 1 and 999 months:** 3M
           type: string
           format: time

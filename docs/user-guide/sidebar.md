@@ -1,6 +1,7 @@
 - [Home](../overview)
 - [Overview](overview)
 - [Quick Start](quick-start)
+- [Task](tasks)
 - [User setup](user-setup) 
 - [Async services](async-services)
 - [Authentication](authentication) 

@@ -1,6 +1,6 @@
 get:
   tags:
-    - Connected Integrations
+    - Available Integrations
   operationId: get_integration_channels
   summary: List all Integration Channels
   description: |

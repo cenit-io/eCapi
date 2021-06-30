@@ -23,4 +23,3 @@ This process is more complex because it involves to make the same actions progra
 - 5. Check when the status of the [install available integration task is finished](Tasks?id=_2-example) in order to continue.
 
 
-	

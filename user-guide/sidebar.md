@@ -9,9 +9,9 @@
   - [Inventory]()
 
 - Integrations
-  - [Available Integrations]()
-  - [Connected Integrations]()
-  - [Channels]()
+  - [Available Integrations](available-integrations)
+  - [Connected Integrations](connected-integrations)
+  - [Channels](channels)
 
 - Tasks
   - [Task](tasks)

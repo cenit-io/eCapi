@@ -17,9 +17,9 @@
   - [Task](tasks)
 
 - Settings
-  - [Tenants]()
+  - [Tenants](tenants)
   - [Workflow]()
-  - [Plans]()
+  - [Plans](plans)
 
 
 

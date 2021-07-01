@@ -4024,6 +4024,17 @@
               "$ref": "#/components/schemas/LineItem"
             }
           },
+          "shipments": {
+            "description": "Order shipments",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Shipment"
+            }
+          },
+          "original_raw_data": {
+            "description": "Original raw data taken from remote integration platforms",
+            "type": "object"
+          },
           "created_date": {
             "description": "Date in iso8601 when the order was created",
             "type": "string",
@@ -4450,6 +4461,27 @@
           },
           "months_of_year": {
             "description": "Months of the year in which the task will be executed.\n\nValues supported:\n```\n['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']\n```\n\n> This parameter will be ignored when the time parameter has the periodicity format.\n"
+          }
+        }
+      },
+      "Shipment": {
+        "title": "Shipment",
+        "type": "object",
+        "properties": {
+          "cost": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string"
+          },
+          "shipping_method": {
+            "type": "string"
+          },
+          "stock_location_name": {
+            "type": "string"
+          },
+          "tracking_code": {
+            "type": "string"
           }
         }
       },
@@ -5719,11 +5751,6 @@
                   "$ref": "#/components/schemas/Order"
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/order_item_response"
-              }
             }
           }
         }
@@ -5747,11 +5774,6 @@
                 "pagination": {
                   "$ref": "#/components/schemas/Pagination"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/order_items_response"
               }
             }
           }
@@ -8348,190 +8370,6 @@
                 "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
               }
             ]
-          }
-        }
-      },
-      "order_item_response": {
-        "value": {
-          "type": "order",
-          "data": {
-            "id": "9151224232845",
-            "number": "9151224232845",
-            "total_price": 2,
-            "total_quantity": 1,
-            "status": "cancelled",
-            "payments": [
-              {
-                "method": "COD",
-                "status": "paid",
-                "currency": "USD",
-                "amount": 2
-              }
-            ],
-            "ship_address": {
-              "country": "Singapore",
-              "state": "Singapore",
-              "city": "Singapore, Singapore",
-              "phone": "6590547759, 6590547759",
-              "zip_code": "549751",
-              "address": [
-                "21 DA SILVA LANE,",
-                "549751"
-              ]
-            },
-            "bill_address": {
-              "country": "Singapore",
-              "state": "Singapore",
-              "city": "Singapore, Singapore",
-              "phone": "6590547759, 6590547759",
-              "zip_code": "549751",
-              "address": [
-                "21 DA SILVA LANE,",
-                "549751"
-              ]
-            },
-            "last_import_date": "2019-06-07T20:47:26+00:00",
-            "customer": {
-              "firstname": "Christy Lee"
-            },
-            "line_items": [
-              {
-                "id": "9151224432845",
-                "name": "Short sleeve t-shirt",
-                "quantity": 1,
-                "price": 1.51,
-                "sku": "2468"
-              }
-            ],
-            "integration": {
-              "id": "shop_01",
-              "name": "Shop-01",
-              "channel": "Ov2LazadaSG",
-              "channel_title": "Lazada [SG]",
-              "authorized": false
-            }
-          }
-        }
-      },
-      "order_items_response": {
-        "value": {
-          "type": "order",
-          "data": [
-            {
-              "id": "9151224232845",
-              "number": "9151224232845",
-              "total_price": 2,
-              "total_quantity": 1,
-              "status": "cancelled",
-              "payments": [
-                {
-                  "method": "COD",
-                  "status": "paid",
-                  "currency": "USD",
-                  "amount": 2
-                }
-              ],
-              "ship_address": {
-                "country": "Singapore",
-                "state": "Singapore",
-                "city": "Singapore, Singapore",
-                "phone": "6590547759, 6590547759",
-                "zip_code": "549751",
-                "address": [
-                  "21 DA SILVA LANE,",
-                  "549751"
-                ]
-              },
-              "bill_address": {
-                "country": "Singapore",
-                "state": "Singapore",
-                "city": "Singapore, Singapore",
-                "phone": "6590547759, 6590547759",
-                "zip_code": "549751",
-                "address": [
-                  "21 DA SILVA LANE,",
-                  "549751"
-                ]
-              },
-              "last_import_date": "2019-06-07T20:47:26+00:00",
-              "customer": {
-                "firstname": "Christy Lee"
-              },
-              "line_items": [
-                {
-                  "id": "9151224432845",
-                  "name": "Short sleeve t-shirt",
-                  "quantity": 1,
-                  "price": 1.51,
-                  "sku": "2468"
-                }
-              ],
-              "integration": {
-                "id": "shop_01",
-                "name": "Shop-01",
-                "channel": "Ov2LazadaSG"
-              }
-            },
-            {
-              "id": "9170283050978",
-              "number": "9170283050978",
-              "total_price": 1,
-              "total_quantity": 1,
-              "status": "cancelled",
-              "payments": [
-                {
-                  "method": "COD",
-                  "status": "paid",
-                  "currency": "USD",
-                  "amount": 1
-                }
-              ],
-              "ship_address": {
-                "country": "Singapore",
-                "state": "Singapore",
-                "city": "Singapore, Singapore",
-                "phone": "6583221206, 6583221206",
-                "zip_code": "637665",
-                "address": [
-                  "98 NANYANG CRESCENT,#06-06",
-                  "637665"
-                ]
-              },
-              "bill_address": {
-                "country": "Singapore",
-                "state": "Singapore",
-                "city": "Singapore, Singapore",
-                "phone": "6583221206, 6583221206",
-                "zip_code": "637665",
-                "address": [
-                  "98 NANYANG CRESCENT,#06-06",
-                  "637665"
-                ]
-              },
-              "last_import_date": "2019-06-07T20:47:27+00:00",
-              "customer": {
-                "firstname": "Aravind Dasari"
-              },
-              "line_items": [
-                {
-                  "id": "9170283250978",
-                  "name": "Actxa Swift / Swift+ Charging Cradle",
-                  "quantity": 1,
-                  "price": 1,
-                  "sku": "0018227994491"
-                }
-              ],
-              "integration": {
-                "id": "shop_01",
-                "name": "Shop-01",
-                "channel": "Ov2LazadaSG"
-              }
-            }
-          ],
-          "pagination": {
-            "offset": 0,
-            "limit": 10,
-            "total": 2
           }
         }
       },

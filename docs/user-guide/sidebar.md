@@ -18,7 +18,7 @@
 
 - Settings
   - [Tenants](tenants)
-  - [Workflow]()
+  - [Workflow](workflows)
   - [Plans](plans)
 
 

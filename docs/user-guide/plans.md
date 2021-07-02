@@ -4,11 +4,11 @@
 
 The plans are those that allow the functionalities of the application to be activated, they provide an additional benefit depending on the category of the plan, so it is important to have one selected. If no plan is selected, the app will let you know by displaying a highlighted notification.
 
-To access the plans view you must go to the Settings / Plans menu or you can also access it through the Account Information view in the Current Plan section.
+To access the plans view you must go to the **Settings / Plans** menu, or you can also access it through the Account Information view in the Current Plan section.
 <div align=center><img width="800" src="/assets/images/settings/plan.jpg"/></div>
 
 ### Select plan
-To select a plan you must click on the link "Get it Now" of the desired plan, as shown below.
+To select a plan you must click on the link **Get it Now** of the desired plan, as shown below.
 <div align=center><img width="800" src="/assets/images/settings/selected-plan.jpg"/></div>
 
 ### Subscribe

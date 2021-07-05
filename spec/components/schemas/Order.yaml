@@ -15,6 +15,9 @@ properties:
   status:
     description: Order status
     type: string
+  financial_status:
+    description: Financial status
+    type: string
   payments:
     description: The information of the payments
     type: "array"

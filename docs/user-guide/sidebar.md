@@ -4,7 +4,7 @@
 
 - [Home Page](overview)
 - Data
-  - [Product]()
+  - [Product](prods)
   - [Orders]()
   - [Inventory]()
 

@@ -10,7 +10,7 @@ In the area of connected integrations is where all the channels linked to OMNA a
 ## Add Integration
 
 With this option you can add an integration to the application given a sales channel.
->Note: Another way to add integrations is through the Integrations / Channels menu.
+>**Note: Another way to add integrations is through the Integrations / Channels menu.**
 
 ### Step 1
 

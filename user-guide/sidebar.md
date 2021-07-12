@@ -1,5 +1,5 @@
 - [Installation](install-from-shopify)
-- [Quick Start](quick-start)
+- [Quick Start](quick-start-ofs)
 - [Home Page](overview)
 - Data
   - [Product](prods)

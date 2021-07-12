@@ -1,11 +1,11 @@
 - [Quick Start](quick-start)
 
-- [General concerns]()
+<!-- - [General concerns]() -->
 
 - [Home Page](overview)
 - Data
-  - [Product]()
-  - [Orders](orders)
+  - [Product](prods)
+  - [Orders]()
   - [Inventory]()
 
 - Integrations

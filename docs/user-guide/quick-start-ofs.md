@@ -1,4 +1,4 @@
-##Quick Start
+## Quick Start
 
 Once the OMNA app installation is complete, you will have OMNA dashboard like this:
 

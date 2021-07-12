@@ -1,4 +1,4 @@
-**Quick Start:**
+**Quick Start**
 
 This section briefly describes the minimum configuration required for the application to function properly.
 

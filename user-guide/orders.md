@@ -1,6 +1,5 @@
-**Orders**
-
 # Orders
+
 In this view, the user will see all the orders synchronized by the application in a list, where they will be informed of some characteristics of the orders such as: order number, when it was created or updated, order status, the integration to which it belongs and the total price. You can also search, apply filters and analyze an order in more depth through the details action.
 <div align=center><img width="800" src="/assets/images/data/orders.jpg"/></div>
 

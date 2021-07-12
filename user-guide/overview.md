@@ -1,7 +1,5 @@
 **User Guide:**
 
-> TODO: General Overview ...
-
 ## Top Menu
 The top menu is where the user will have access to the tenants and the user's account itself.
 <div align=center><img width="800" src="/assets/images/top-menu/top-menu.jpg"/></div>

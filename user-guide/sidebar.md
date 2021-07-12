@@ -1,6 +1,6 @@
 - [Quick Start](quick-start)
 
-- [General concerns]()
+<!-- - [General concerns]() -->
 
 - [Home Page](overview)
 - Data

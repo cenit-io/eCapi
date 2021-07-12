@@ -1,6 +1,6 @@
 # OMNA App installation process
 
-**Find OMNA at Shopify store**
+**Find out OMNA at Shopify store**
 
 Go to your Shopify store administration, link Apps, and click on Shopify Store. 
 
@@ -66,4 +66,4 @@ If you open this new link, you will see an embebed application.
 
 This view will have a link to your OMNA workspace (Go to OMNA).
 
->To know how start to use OMNA app, please consult a [Quick Start](quick-start)
+>To know how start to use OMNA app, please consult a [Quick Start](quick-start-ofs)

@@ -8,7 +8,7 @@ Go to your Shopify store administration, link Apps, and click on Shopify Store.
     <img width="800" src="/assets/images/installation/installation_0.png"/>
 </div>
 
-There, you could find out OMNA in the search box. Also you can go directly to https://apps.shopify.com/omna-2?surface_detail=OMNA&surface_inter_position=1&surface_intra_position=3&surface_type=search.
+There, you could find out OMNA in the search box. Also you can go directly to [OMNA app](https://apps.shopify.com/omna-2?surface_detail=OMNA&surface_inter_position=1&surface_intra_position=3&surface_type=search)
 
 <div align=center>
     <img width="800" src="/assets/images/installation/installation_1.png"/>

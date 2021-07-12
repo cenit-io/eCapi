@@ -4,8 +4,8 @@
 
 - [Home Page](overview)
 - Data
-  - [Product]()
-  - [Orders](orders)
+  - [Product](prods)
+  - [Orders]()
   - [Inventory]()
 
 - Integrations

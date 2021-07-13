@@ -1,4 +1,4 @@
-- [App Guide](/user-guide/install-from-shopify)
+- [App Guide](/user-guide/quick-start-ofs)
 <!-- - [Developer Guide](/developer-guide/overview) -->
 - **Links**
 - [API-Specification](//doc-api.omna.io/api-spec/)

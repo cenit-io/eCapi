@@ -4,7 +4,7 @@
 - Data
   - [Product](prods)
   - [Orders](orders)
-  - [Inventory]()
+  - [Inventory](inventory)
 - Integrations
   - [Available Integrations](available-integrations)
   - [Connected Integrations](connected-integrations)

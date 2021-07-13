@@ -3,7 +3,7 @@
 - [Home Page](overview)
 - Data
   - [Product](prods)
-  - [Orders]()
+  - [Orders](orders)
   - [Inventory]()
 - Integrations
   - [Available Integrations](available-integrations)

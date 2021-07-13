@@ -3,8 +3,8 @@
 - [Home Page](overview)
 - Data
   - [Product](prods)
-  - [Orders]()
-  - [Inventory]()
+  - [Orders](orders)
+  - [Inventory](inventory)
 - Integrations
   - [Available Integrations](available-integrations)
   - [Connected Integrations](connected-integrations)

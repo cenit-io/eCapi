@@ -21,7 +21,7 @@ The next step you should do to start to use OMNA app is to subscribe to a plan. 
 
 To start to sync up data from any marketplace
 
-### 1.Install integrations collections 
+### Install integrations collections 
 
 After OMNA collection is installed, proceed to install the collections of the marketplace in which you want to operate. The following example shows how to install the collection for Lazada marketplace.
     <div align=center>
@@ -44,7 +44,7 @@ Once the application is authorized in the corresponding sales channel, it will b
         <img src="/assets/images/user-guide/lazada_channel_authorized.jpg">
     </div>
 
-### 4.Import product from channel X
+### Import product from channel X
 
 To import products from a sale channel, click on the channel menu.
     <div align=center>
@@ -59,7 +59,7 @@ A task will be executed in the background which will carry out the import proces
         <img src="/assets/images/user-guide/import_products_task.jpg">
     </div>
 
-### 5.How to export product to channel Y
+### How to export product to channel Y
 
 Select the product to link to the channel in Data / Products and click on the "Link" option as shown in the following image.
     <div align=center>
@@ -74,7 +74,7 @@ A task will be executed in the background which will carry out the link process 
         <img src="/assets/images/user-guide/link_product_task.jpg">
     </div>
 
-### 6.Import order from channel X
+### Import order from channel X
 
 To import orders from a sale channel, click on channel menu.
     <div align=center>
@@ -89,7 +89,7 @@ A task will be executed in the background which will carry out the import proces
         <img src="/assets/images/user-guide/import_orders_task.jpg">
     </div>
 
-### 7.Export order to channel Y
+### Export order to channel Y
 
 Select the order to be exported in Data / Orders menu and click on the order details option.
     <div align=center>

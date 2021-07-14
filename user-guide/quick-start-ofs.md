@@ -1,67 +1,68 @@
 ## Quick Start
 
-Once the OMNA app installation is complete, you will have OMNA dashboard like this:
+Upon complete installation, you would have access to the OMNA dashboard:
 
 <div align=center>
 	<img width="800" src="/assets/images/quick-start/dashboard.png"/>
 </div>
 
-**Configuration OMNA made for you**
+**Default Configuration For Shopify Store**
 
-The configuration made by default after the installation:
-- Step 1 completed: This means that you have already OMNA. At this point you have the functionalities of OMNA  ready to use. See your (available integrations menu)[https://app.omna.io/available-integrations] to check out this.
-- Step 2 completed: For using OMNA app you must have configurated integration to sync information among differents marketplace. At this point OMNA installation at least has cofigurate for you [the connection for your Shopify store](https://app.omna.io/connected-integrations). There you should include more integrations to sync information. Please see [Integration documentation](connected-integrations).
-- Workflow configuration: For start to use Shopify integration. OMNA will start to import your Shopify products, orders, and stock locations. Go to [Workflow](https://app.omna.io/workflows) menu to check out this.
+We have simplified the onboarding process merchants who onboarded via Shopify:
+- **Step 1** Completed: This step is automatically completed as part of the installation process. You can also explore new integrations that have yet to be installed on your account by clicking [here](https://app.omna.io/available-integrations).
+- **Step 2** Partially Completed: By default, the Shopify integration is already installed as part of the installation process; you can check the status of it by clicking [here](https://app.omna.io/connected-integrations). To install more integrations for marketplaces, visit our [Integration Guide](connected-integrations) for additional details.
+- **Workflow Configuration**: To start using the Shopify integration, OMNA will import your Shopify products, orders and stock locations. Visit [Workflow](https://app.omna.io/workflows) menu to find out more. 
 
-**What's next?**
+**Subscribing To An OMNA Plan**
 
-The next step you should do to start to use OMNA app is to subscribe to a plan. For that, please continue with the steps oriented in the home page, and go to [Plans](https://app.omna.io/plans).
+We offer several subscription plans to suit your business requirements; please subscribe to any of the plans by visiting the [Subscription Plan](https://app.omna.io/plans) page to enjoy the full functionalities of our solution.
 
-**Quick Start to sync up data**
+**Connecting With Marketplaces**
 
-To start to sync up data from any marketplace
+Here is the guide to connect your marketplace accounts with OMNA 
 
-### Install integrations collections 
+### Install Marketplace Integrations 
 
-After OMNA collection is installed, proceed to install the collections of the marketplace in which you want to operate. The following example shows how to install the collection for Lazada marketplace.
+OMNA offers integration with multiple marketplaces, e-commerce platforms and sales channels. By default, your OMNA account would only come with Shopify integration installed. You can easily install new integrations, the screenshot below shows the step to install the Lazada integration:
     <div align=center>
         <img src="/assets/images/user-guide/install_lazada_collection.jpg">
     </div>
-After installing the collection for Lazada, the Integrations / Channels menu will shows Lazada's sales channels that can be linked OMNA, these channels must be connected and authorized so that the application can work with them.
+After installing the Lazada integration, the "Integrations/Channels" menu will show Lazada as an installed sales channel. You need to authorise and connect your Lazada merchant account with OMNA before any synchronisation can occur.
     <div align=center>
         <img src="/assets/images/user-guide/channels.jpg">
     </div>
-Click on the **+** symbol of the desired channel to connect it, in this example the Lazada Malaysia channel was used. In the dialog box, check the Authorized option to automatically proceed to authorize the channel after pressing the Save button.
+Click on the **+** button on the desired Channel to be connected. A "pop-up" window will be presented, select the "Authorized" checkbox and click on "Save".
     <div align=center>
         <img src="/assets/images/user-guide/connecting_lazada_my_channel.jpg">
     </div>
-Then you will be redirected to the Lazada authentication page where you must authorize the application by entering your credentials.
+You will automatically be redirected to the Lazada Open Platform. Enter your Lazada Seller Centre credentials and grant permission to OMNA. This experience might differ between different integrations (e.g. Shopee, Qoo10).
     <div align=center>
         <img src="/assets/images/user-guide/lazada_authorization_request.jpg">
     </div>
-Once the application is authorized in the corresponding sales channel, it will be indicated in the Integrations / Connected Integrations menu that the channel is ready for the synchronization of orders and products, as shown below.
+Upon a successful connection, you will see a successful status, as highlighted below. This integration is now ready to be used
     <div align=center>
         <img src="/assets/images/user-guide/lazada_channel_authorized.jpg">
     </div>
 
-### Import product from channel X
+### Importing Products From Lazada
 
-To import products from a sale channel, click on the channel menu.
+To import products from a connected sales channel e.g. Lazada, open the "Connected Integrations" menu.
     <div align=center>
         <img src="/assets/images/user-guide/lazada_channel_menu.jpg">
     </div>
-Select option import products.
+Select "Import products"
     <div align=center>
         <img src="/assets/images/user-guide/import_products.jpg">
     </div>
-A task will be executed in the background which will carry out the import process of the products when it is finished.
+A task will be created to import the products into your OMNA account. You can monitor the process under the "Tasks" menu page.
     <div align=center>
         <img src="/assets/images/user-guide/import_products_task.jpg">
     </div>
 
-### How to export product to channel Y
+### How To Export Product To Lazada
 
-Select the product to link to the channel in Data / Products and click on the "Link" option as shown in the following image.
+Under the "Data > Products" menu, select the product to be exported. You can select multiple products by selecting the checkbox. Click on the "link" button.
+
     <div align=center>
         <img src="/assets/images/user-guide/link_product_to_channel.jpg">
     </div>
@@ -69,12 +70,12 @@ Select the channel to which you want to link the product, and click save.
     <div align=center>
         <img src="/assets/images/user-guide/link_product_to_channel_2.jpg">
     </div>
-A task will be executed in the background which will carry out the link process of the products when it is finished.
+A task will be created to export the products to the sales channel. You can monitor the process under the "Tasks" menu page.
     <div align=center>
         <img src="/assets/images/user-guide/link_product_task.jpg">
     </div>
 
-### Import order from channel X
+### Import Order From Lazada
 
 To import orders from a sale channel, click on channel menu.
     <div align=center>
@@ -84,14 +85,14 @@ Select option import orders.
     <div align=center>
         <img src="/assets/images/user-guide/import_orders.jpg">
     </div>
-A task will be executed in the background which will carry out the import process of the orders when it is finished.
+A task will be created to import orders from the sales channel. You can monitor the process under the "Tasks" menu page.
     <div align=center>
         <img src="/assets/images/user-guide/import_orders_task.jpg">
     </div>
 
-### Export order to channel Y
+### Export Order To Shopify
 
-Select the order to be exported in Data / Orders menu and click on the order details option.
+Select the order to be exported in "Data > Orders" menu and click on the order details option.
     <div align=center>
         <img src="/assets/images/user-guide/order_details.jpg">
     </div>
@@ -103,7 +104,7 @@ Select the desired integration and click on save option.
     <div align=center>
         <img src="/assets/images/user-guide/export_order_to_integration.jpg">
     </div>
-A task will be executed in the background which will carry out the export process of the orders when it is finished.
+A task will be created to export orders to Shopify. You can monitor the process under the "Tasks" menu page.
     <div align=center>
         <img src="/assets/images/user-guide/export_order_task.jpg">
     </div>

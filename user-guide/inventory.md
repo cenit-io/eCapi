@@ -18,7 +18,7 @@ In this view the user could have the list of locations imported from the integra
 - Step 1: Fill out the new inventory data.
 In this form you should include the data of the new location and the integration you want to link it, and save it.
 <div align=center>
-    <img width="800" src="/assets/images/inventory/locations_add_new.png"/>
+    <img width="800" src="/assets/images/inventory/inventory_add_new.png"/>
 </div>
 
 ### Stock Items
@@ -26,7 +26,7 @@ In this form you should include the data of the new location and the integration
 The stock items information shows the relation between product, sku, and inventory per stock location, and integration.
 
 <div align=center>
-    <img width="800" src="/assets/images/inventory/stock_item.png"/>
+    <img width="800" src="/assets/images/inventory/stock_items.png"/>
 </div>
 
 #### Edit Stock item

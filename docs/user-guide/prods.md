@@ -1,11 +1,10 @@
 ## Products
 
-At this view the user will find out all the products synchronized by the application. 
-OMNA shows you the most significant product characteristics detailed such as: image, name, price, number of variants, integration to which it belongs, and the actions that can be carried out on each product, such as editing and deleting. You can also apply filters and search criteria.
+On this page, you will find all the products that were imported or created in OMNA. You would be able to see key product attributes in the table view. In addition, the checkbox on the left will enable you to bulk select products and perform tasks in bulk.
 
 <div align=center><img width="800" src="/assets/images/data/products.jpg"/></div>
 
-### Product actions
+### Product Actions
 
 There are actions that can be performed on a set of products while others are performed on a specific product.
 
@@ -15,7 +14,7 @@ There are actions that can be performed on a set of products while others are pe
 
 #### Link Products
 
-Every product could be linked to one or more integrations.
+Every product could be linked to one or more sales channel.
 
 - Step 1
 Select the products to link.

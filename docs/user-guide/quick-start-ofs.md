@@ -62,7 +62,6 @@ A task will be created to import the products into your OMNA account. You can mo
 ### How To Export Product To Lazada
 
 Under the "Data > Products" menu, select the product to be exported. You can select multiple products by selecting the checkbox. Click on the "link" button.
-
     <div align=center>
         <img src="/assets/images/user-guide/link_product_to_channel.jpg">
     </div>

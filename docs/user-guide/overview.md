@@ -1,8 +1,8 @@
-## Home Page Tour
+## Navigation Bar 
 
-This guide wants to show you the principals areas of the home page where you could focus, and be helpful for you.
+This guide aims to give you a quick overview on the key sections of the OMNA application.
 
-The App has three different scenarios: Top Menu, Side Menu, and Content area where the app shows all time the contents you're working with.
+The user interface consists of 3 main sections: Top Menu, Side Menu and Main Content areas which will be shown on all pages.
 
 <div align=center>
 	<img width="800" src="/assets/images/quick-start/dashboard.png"/>
@@ -10,46 +10,46 @@ The App has three different scenarios: Top Menu, Side Menu, and Content area whe
 
 ### Top Menu
 
-The top menu is where the user will have access to the tenants and the user's account itself.
+The Top Menu is where the user will have access to the tenants and the user's account.
 
 <div align=center><img width="800" src="/assets/images/top-menu/top-menu.jpg"/></div>
 
-#### Tenant Menu
+#### Top Menu > Tenants
 
-In the tenant menu you will have access to all the tenants related to the user and you can also quickly switch between one tenant and another.
+You will have access to all the tenants related to the user in the tenant menu, and you can also quickly switch between one tenant and another.
 
 <div align=center><img width="800" src="/assets/images/top-menu/tenant-menu.jpg"/></div>
 
 #### Tenants
 
-A tenant will represent differents workspace where you could organize integrations and data. Let's say you have a bussines A where you sale some kind of products, so you are going to have a tenant with some connected integrations to manage your products/orders etc. Now, let's say you have another bussines B. For that you can create another tenant and create there connected integrations to manage others product/orders. 
+A user can have multiple tenants. A tenant is considered a separate entity in our system, and there can't be any data sharing between tenants. 
 
-In addition, each tenant is a different environment, so they will need to set the environment for each tenant (like install available integrations, create/authorize connected integrations, subscribe to a plan, etc).
+The purpose of having multiple tenants is to allow merchants who operate multiple businesses or business units to segregate their data into separate entities. 
 
-To view the tenants associated with your user, you can go to the tenants menu at the top where the tenants will be listed or if you want a more detailed view you can go to the [Settings/Tenants](https://app.omna.io/tenants) option on the left side menu.
+Each tenant will require its own subscription plan, and usage quota cannot be shared among tenants even if they belong to the same user. 
 
-In this last view you can see the name of the tenant, if it is ready or not to work with the application, the expiration date and when it was created and updated. In addition, you will have access to a set of actions such as adding a new tenant, searching for a tenant in the list, updating the list, and removing a tenant. Note that the current user tenant can not be deleted, to do so, you will have to switch to a different tenant.
+To quickly switch between tenants, simply click on the "Tenants" menu on the Top Menu. 
+
+For a more detailed view of the list of tenants, you can visit [Settings > Tenants](https://app.omna.io/tenants) via the Side Menu.
 
 <div align=center><img width="800" src="/assets/images/settings/tenant-list.jpg"/></div>
 
 #### User Menu
 
-In the user menu you can access the information of the user account and can log out.
+In the User Menu, you can access the information of the user account and log out.
 <div align=center><img width="800" src="/assets/images/top-menu/user-menu.jpg"/></div>
 
 #### Account Information
 
-This page shows detailed information about the user's account, as well as options to go to the list of tenants associated with the user and to the plan selection view.
+This page shows detailed information about your user account, such as User Profile. In addition, you will see the current tenant profile and associated subscription plan. 
 
-In the user's profile section, you will be able to see the data related to the user's account, such as location, email and username.
-On the other hand, in the tenant section you will be able to see the data of the tenant currently in use, as well as a link to the list view of the tenants. 
-Finally, in the current plan section you will have information about the current plan, as well as a link in view to select the plans.
+You can select a different tenant or change your subscription plan on this page as well. 
 
 <div align=center><img width="800" src="/assets/images/top-menu/account-info.jpg"/></div>
 
 ### Side Menu
 
-The side menu is where you could find the different areas where you should work out with our application.
+You would be spending most of your time navigating the Side Menu as it contains the navigation links to most of OMNA's functionality.
 
 #### Data
 

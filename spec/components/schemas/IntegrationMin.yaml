@@ -19,3 +19,11 @@ properties:
     description: If integration is authorized or not
     type: boolean
     readOnly: true
+  icon:
+    description: Integration icon url
+    type: string
+    readOnly: true
+  logo:
+    description: Integration logo url
+    type: string
+    readOnly: true

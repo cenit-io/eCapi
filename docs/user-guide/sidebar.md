@@ -1,25 +1,20 @@
-- [Quick Start](quick-start)
-
-- [General concerns]()
-
+- [Installation](install-from-shopify)
+- [Quick Start](quick-start-ofs)
 - [Home Page](overview)
 - Data
-  - [Product]()
-  - [Orders]()
-  - [Inventory]()
-
+  - [Product](prods)
+  - [Orders](orders)
+  - [Inventory](inventory)
 - Integrations
   - [Available Integrations](available-integrations)
   - [Connected Integrations](connected-integrations)
   - [Channels](channels)
-
 - Tasks
   - [Task](tasks)
-
 - Settings
-  - [Tenants]()
-  - [Workflow]()
-  - [Plans]()
+  - [Tenants](tenants)
+  - [Workflow](workflows)
+  - [Plans](plans)
 
 
 

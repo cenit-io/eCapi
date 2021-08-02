@@ -1,4 +1,4 @@
-patch:
+put:
   tags:
     - Orders
   operationId: order_export_bulk

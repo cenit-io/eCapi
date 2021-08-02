@@ -1,0 +1,15 @@
+parameters:
+  - $ref: '#/components/parameters/path_order_id'
+
+get:
+  tags:
+    - Orders
+  operationId: import_order_by_id_async_
+  summary: Re-Import an Order
+  description: |
+    Generate an async task to re-import a specific order from its integration.
+  responses:
+    '200':
+      $ref: '#/components/responses/order_import_task'
+    '404':
+      $ref: '#/components/responses/order_not_found'

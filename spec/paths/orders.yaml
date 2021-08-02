@@ -21,17 +21,3 @@ get:
   responses:
     '200':
       $ref: '#/components/responses/order_items'
-
-
-patch:
-  tags:
-    - Orders
-  operationId: order_import_bulk
-  summary: Re-import some orders
-  description: |
-    Generate an async task to re-import some orders from its integrations.
-  requestBody:
-    $ref: '#/components/requestBodies/order_ids'
-  responses:
-    '200':
-      $ref: '#/components/responses/task_item'

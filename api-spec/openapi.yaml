@@ -1426,18 +1426,6 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/order_items'
-    patch:
-      tags:
-        - Orders
-      operationId: order_import_bulk
-      summary: Re-import some orders
-      description: |
-        Generate an async task to re-import some orders from its integrations.
-      requestBody:
-        $ref: '#/components/requestBodies/order_ids'
-      responses:
-        '200':
-          $ref: '#/components/responses/task_item'
   '/orders/{order_id}':
     parameters:
       - $ref: '#/components/parameters/path_order_id'
@@ -1468,18 +1456,6 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/task_item'
-        '404':
-          $ref: '#/components/responses/order_not_found'
-    patch:
-      tags:
-        - Orders
-      operationId: import_order_by_id_async_
-      summary: Re-Import an Order
-      description: |
-        Generate an async task to re-import a specific order from its integration.
-      responses:
-        '200':
-          $ref: '#/components/responses/order_import_task'
         '404':
           $ref: '#/components/responses/order_not_found'
     delete:
@@ -1524,8 +1500,23 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/order_doc_types'
+  '/orders/{order_id}/import':
+    parameters:
+      - $ref: '#/components/parameters/path_order_id'
+    get:
+      tags:
+        - Orders
+      operationId: import_order_by_id_async_
+      summary: Re-Import an Order
+      description: |
+        Generate an async task to re-import a specific order from its integration.
+      responses:
+        '200':
+          $ref: '#/components/responses/order_import_task'
+        '404':
+          $ref: '#/components/responses/order_not_found'
   /orders/export:
-    patch:
+    put:
       tags:
         - Orders
       operationId: order_export_bulk
@@ -1539,6 +1530,19 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/task_items'
+  /orders/import:
+    patch:
+      tags:
+        - Orders
+      operationId: order_import_bulk
+      summary: Re-import some orders
+      description: |
+        Generate an async task to re-import some orders from its integrations.
+      requestBody:
+        $ref: '#/components/requestBodies/order_ids'
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
   /products:
     get:
       tags:
@@ -2756,6 +2760,14 @@ components:
           description: If integration is authorized or not
           type: boolean
           readOnly: true
+        icon:
+          description: Integration icon url
+          type: string
+          readOnly: true
+        logo:
+          description: Integration logo url
+          type: string
+          readOnly: true
     LineItem:
       title: LineItem
       type: object
@@ -2992,28 +3004,21 @@ components:
           items:
             type: string
     ProductIntegration:
-      type: object
-      properties:
-        id:
-          description: Integration identifier
-          type: string
-        name:
-          description: Integration name
-          type: string
-        channel:
-          description: Integration channel identifier
-          type: string
-        product:
-          description: Details of the remote product of the integration.
-          type: object
+      allOf:
+        - $ref: '#/components/schemas/IntegrationMin'
+        - type: object
           properties:
-            remote_product_id:
-              description: Identifier of the remote product of the integration.
-              type: string
-            properties:
-              type: array
-              items:
-                $ref: '#/components/schemas/ProductProperty'
+            product:
+              description: Details of the remote product of the integration.
+              type: object
+              properties:
+                remote_product_id:
+                  description: Identifier of the remote product of the integration.
+                  type: string
+                properties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ProductProperty'
     ProductLinkVariants:
       type: object
       required:
@@ -3493,28 +3498,21 @@ components:
           items:
             type: string
     VariantIntegration:
-      type: object
-      properties:
-        id:
-          description: Integration identifier
-          type: string
-        name:
-          description: Integration name
-          type: string
-        channel:
-          description: Integration channel identifier
-          type: string
-        variant:
-          description: Details of the remote variant of the integration
-          type: object
+      allOf:
+        - $ref: '#/components/schemas/IntegrationMin'
+        - type: object
           properties:
-            remote_variant_id:
-              description: Identifier of the remote variant of the integration
-              type: string
-            properties:
-              type: array
-              items:
-                $ref: '#/components/schemas/VariantProperty'
+            variant:
+              description: Details of the remote variant of the integration
+              type: object
+              properties:
+                remote_variant_id:
+                  description: Identifier of the remote variant of the integration
+                  type: string
+                properties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/VariantProperty'
     VariantProperty:
       allOf:
         - $ref: '#/components/schemas/ProductProperty'
@@ -3858,9 +3856,6 @@ components:
                     properties:
                       integration:
                         $ref: '#/components/schemas/ProductIntegration'
-          examples:
-            Ex1:
-              $ref: '#/components/examples/product_item_response'
     integration_product_items:
       description: Success
       content:
@@ -4086,9 +4081,6 @@ components:
                         readOnly: true
                         items:
                           $ref: '#/components/schemas/ProductIntegration'
-          examples:
-            Ex1:
-              $ref: '#/components/examples/product_item_response'
     product_items:
       description: Success
       content:
@@ -4113,9 +4105,6 @@ components:
                             $ref: '#/components/schemas/ProductIntegration'
               pagination:
                 $ref: '#/components/schemas/Pagination'
-          examples:
-            Ex1:
-              $ref: '#/components/examples/product_items_response'
     product_not_found:
       description: Not found
       content:
@@ -5813,249 +5802,6 @@ components:
               message: Importing form 1 to 3.
             - type: info
               message: 'Importing products updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 integration.'
-    product_item_response:
-      value:
-        type: product
-        data:
-          id: 5e98e0eb25d98575bc04bad1
-          name: TESTING (DO NOT BUY)- Baby One Suit
-          description: <p><strong>(TEST - DO NOT BUY)</strong></p> <p>...</p>
-          price: 10
-          package:
-            weight: 1
-            height: 1
-            length: 1
-            width: 1
-            content: null
-          integrations:
-            - id: lazada_sg
-              name: lazada-sg
-              channel: Ov2LazadaSG
-              channel_title: 'Lazada [SG]'
-              product:
-                remote_product_id: '650628600'
-                properties:
-                  - id: category_id
-                    label: Category
-                    required: true
-                    read_only: true
-                    input_type: single_select_with_remote_options
-                    options:
-                      - id: '8911'
-                        name: Mother & Baby > Baby Gear > Playards & Playpens
-                    options_service_path: /integrations/lazada_sg/categories
-                    value: '8911'
-                  - id: video
-                    label: Video URL
-                    required: false
-                    read_only: false
-                    input_type: text
-                    options: []
-                    value: null
-                  - id: brand
-                    label: Brand
-                    required: true
-                    read_only: false
-                    input_type: single_select_with_remote_options
-                    options:
-                      - id: '23888'
-                        name: 3M
-                    value: 3M
-                    options_service_path: /integrations/lazada_sg/brands
-                  - id: model
-                    label: Model
-                    required: false
-                    read_only: false
-                    input_type: text
-                    options: []
-                    value: null
-                  - id: Folded_dimension
-                    label: Folded dimension
-                    required: false
-                    read_only: false
-                    input_type: text
-                    options: []
-                    value: null
-                  - id: Maxmium_child_weight
-                    label: Maximum child weight
-                    required: false
-                    read_only: false
-                    input_type: numeric
-                    options: []
-                    value: null
-                  - id: No_of_pieces
-                    label: No of Pieces
-                    required: false
-                    read_only: false
-                    input_type: numeric
-                    options: []
-                    value: null
-                  - id: Open_dimension
-                    label: Open Dimension
-                    required: false
-                    read_only: false
-                    input_type: text
-                    options: []
-                    value: null
-                  - id: warranty_type
-                    label: Warranty Type
-                    required: false
-                    read_only: false
-                    input_type: single_select
-                    options:
-                      - International Manufacturer Warranty
-                      - International Seller Warranty
-                      - Local (Singapore) manufacturer warranty
-                      - Local seller warranty
-                      - No Warranty
-                      - Non-local warranty
-                    value: International Manufacturer Warranty
-                  - id: wheels
-                    label: Wheels
-                    required: false
-                    read_only: false
-                    input_type: single_select
-                    options:
-                      - 'No'
-                      - 'Yes'
-                    value: 'No'
-                  - id: warranty
-                    label: Warranty Period
-                    required: false
-                    read_only: false
-                    input_type: single_select
-                    options:
-                      - 1 Month
-                      - 1 Year
-                      - 10 Months
-                      - 10 Years
-                      - 11 Months
-                      - 12 Years
-                      - 15 Years
-                      - 18 Months
-                      - 2 Months
-                      - 2 Years
-                      - 25 Years
-                      - 3 Months
-                      - 3 Years
-                      - 30 Years
-                      - 4 Months
-                      - 4 Years
-                      - 5 Months
-                      - 5 Years
-                      - 6 Months
-                      - 6 Years
-                      - 7 Months
-                      - 7 Years
-                      - 8 Months
-                      - 8 Years
-                      - 9 Months
-                      - Life Time Warranty
-                    value: 1 Month
-                  - id: product_warranty
-                    label: Warranty Policy
-                    required: false
-                    read_only: false
-                    input_type: text
-                    options: []
-                    value: null
-                  - id: short_description
-                    label: Highlights
-                    required: true
-                    read_only: false
-                    input_type: rich_text
-                    options: []
-                    value: <p>TEST - DO NOT BUY</p>
-                  - id: delivery_option_express
-                    label: Delivery Option Express
-                    required: false
-                    read_only: false
-                    input_type: single_select
-                    options:
-                      - 'No'
-                      - 'Yes'
-                    value: null
-                  - id: delivery_option_economy
-                    label: Delivery Option Economy
-                    required: false
-                    read_only: false
-                    input_type: single_select
-                    options:
-                      - 'No'
-                      - 'Yes'
-                    value: null
-                  - id: Hazmat
-                    label: Dangerous Goods
-                    required: false
-                    read_only: false
-                    input_type: multi_select
-                    options:
-                      - Battery
-                      - Flammable
-                      - Liquid
-                      - None
-                    value: null
-          images:
-            - 'https://sg-live.slatic.net/p/ea02ecadf6a0887347a00a00afbc5a4c.jpg'
-          quantity: 0
-          variants: 1
-          created_at: '2020-04-16T22:49:15+00:00'
-          updated_at: '2020-04-16T22:49:15+00:00'
-    product_items_response:
-      value:
-        type: product
-        data:
-          - id: 5e98e0eb25d98575bc04bad1
-            name: TESTING (DO NOT BUY)- Baby One Suit
-            description: <p><strong>(TEST - DO NOT BUY)</strong></p> <p>...</p>
-            price: 10
-            package:
-              weight: 1
-              height: 1
-              length: 1
-              width: 1
-              content: null
-            integrations:
-              - id: lazada_sg
-                name: lazada-sg
-                channel: Ov2LazadaSG
-                channel_title: 'Lazada [SG]'
-                product:
-                  remote_product_id: '650628600'
-            images:
-              - 'https://sg-live.slatic.net/p/ea02ecadf6a0887347a00a00afbc5a4c.jpg'
-            quantity: 0
-            variants: 1
-            created_at: '2020-04-16T22:49:15+00:00'
-            updated_at: '2020-04-16T22:49:15+00:00'
-          - id: 5e98e0e225d98532b50d6740
-            name: Cherry Midi Dress (TESTING - DO NOT BUY)
-            description: '<p><strong>(TESTING - DO NOT BUY)</strong></p> <p>A stunner silhouette, ...</p>'
-            price: 50
-            package:
-              weight: 1
-              height: 1
-              length: 1
-              width: 1
-              content: ...
-            integrations:
-              - id: lazada_sg
-                name: lazada-sg
-                channel: Ov2LazadaSG
-                channel_title: 'Lazada [SG]'
-                product:
-                  remote_product_id: '628860213'
-            images:
-              - 'https://sg-live.slatic.net/p/30324db42e46aebd60ed9cef59880078.jpg'
-              - 'https://sg-live.slatic.net/p/16e6c249cb9b937749c3e48b6a4cf992.jpg'
-            quantity: 0
-            variants: 4
-            created_at: '2020-04-16T22:49:06+00:00'
-            updated_at: '2020-04-17T21:14:12+00:00'
-        pagination:
-          offset: 0
-          limit: 10
-          total: 2
     task_item_response:
       value:
         type: task

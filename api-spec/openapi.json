@@ -485,7 +485,7 @@
         "tags": [
           "Flows"
         ],
-        "operationId": "delete_all_flows_async_beta_",
+        "operationId": "delete_all_flows_async",
         "summary": "Delete all Flows",
         "description": "It finds all flows and generate an asynchronous task to destroy all this flows and that its schedulers.\n",
         "responses": {
@@ -503,7 +503,7 @@
         "tags": [
           "Flows"
         ],
-        "operationId": "start_multiple_flows_async_beta_",
+        "operationId": "start_multiple_flows_async",
         "summary": "Start multiple Flows",
         "description": "It generates an asynchronous task to start multiple stream processing.\n\n> If exists any task associate to the one flow in the execution or pending state,\nthen the same task is returned, otherwise a new task is created.\n",
         "requestBody": {
@@ -1170,7 +1170,7 @@
         "tags": [
           "Orders of an Integration"
         ],
-        "operationId": "export_orders_async_beta_",
+        "operationId": "export_orders_async",
         "summary": "Export updated Orders of an integration",
         "description": "Generate an async task to export the updated orders to to one or more target integrations.\n\n> If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the\norder export workflow defined with its scheduler disabled.\n",
         "requestBody": {
@@ -1215,7 +1215,7 @@
         "tags": [
           "Orders of an Integration"
         ],
-        "operationId": "export_order_async_beta_",
+        "operationId": "export_order_async",
         "summary": "Export an Order of an Integration",
         "description": "Generate an async task to start the export flows of a specific order to one or more target integrations.\n\n> If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the\norder export workflow defined with its scheduler disabled.\n",
         "requestBody": {
@@ -1355,7 +1355,7 @@
         "tags": [
           "Products of an Integration"
         ],
-        "operationId": "get_integration_products_beta_",
+        "operationId": "get_integration_products",
         "summary": "List all Products from an Integration",
         "description": "Returns the product list of a specific integration.\n",
         "parameters": [
@@ -1432,7 +1432,7 @@
         "tags": [
           "Products of an Integration"
         ],
-        "operationId": "get_integration_product_beta_",
+        "operationId": "get_integration_product",
         "summary": "Retrieve a Product from an Integration",
         "description": "Retrieve the product that is linked with the given integration and have as identify on its source platform\nthe given identifier of the remote product.\n",
         "responses": {
@@ -1448,7 +1448,7 @@
         "tags": [
           "Products of an Integration"
         ],
-        "operationId": "update_integration_product_beta_",
+        "operationId": "update_integration_product",
         "summary": "Update a Product properties",
         "description": "Update the specific properties of a product in an integration.\n",
         "requestBody": {
@@ -1477,7 +1477,7 @@
         "tags": [
           "Products of an Integration"
         ],
-        "operationId": "unlink_integration_product_async_beta_",
+        "operationId": "unlink_integration_product_async",
         "summary": "Unlink a Product from an Integration",
         "description": "Generate an async task to unlink a product from an integration.\n\n> If it is established that the product should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
         "requestBody": {
@@ -1524,7 +1524,7 @@
         "tags": [
           "Variants of an Integration"
         ],
-        "operationId": "get_integration_variants_beta_",
+        "operationId": "get_integration_variants",
         "summary": "List all Variants from an Integration",
         "description": "Returns the variant list of a specific integration.\n",
         "responses": {
@@ -1537,7 +1537,7 @@
         "tags": [
           "Variants of an Integration"
         ],
-        "operationId": "update_multiple_integration_variant_beta_",
+        "operationId": "update_multiple_integration_variant",
         "summary": "Update multiple Variant properties",
         "description": "Update the specific properties of multiple product variants of an integration.\n",
         "requestBody": {
@@ -1569,7 +1569,7 @@
         "tags": [
           "Variants of an Integration"
         ],
-        "operationId": "get_integration_variant_beta_",
+        "operationId": "get_integration_variant",
         "summary": "Retrieve an Variant from an Integration",
         "description": "Retrieve the product variant that is liked in the given integration and have as identify on its source platform\nthe given identifier of the remote variant.\n",
         "responses": {
@@ -1585,7 +1585,7 @@
         "tags": [
           "Variants of an Integration"
         ],
-        "operationId": "update_integration_variant_beta_",
+        "operationId": "update_integration_variant",
         "summary": "Update a Variant",
         "description": "Update the specific properties of a product variant in an integration.\n",
         "requestBody": {
@@ -1617,7 +1617,7 @@
         "tags": [
           "Variants of an Integration"
         ],
-        "operationId": "unlink_integration_variant_async_beta_",
+        "operationId": "unlink_integration_variant_async",
         "summary": "Unlink a Variant from an Integration",
         "description": "Generate an async task to unlink a product variant from an integration.\n\n> If it is established that the product variant should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
         "requestBody": {
@@ -1646,7 +1646,7 @@
         "tags": [
           "Variants of an Integration"
         ],
-        "operationId": "unlink_integration_variants_async_beta_",
+        "operationId": "unlink_integration_variants_async",
         "summary": "Unlink all Variants from an Integration",
         "description": "Generate an async task to unlink all variants from an integration.\n\n> If it is established that the product variants should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
         "requestBody": {
@@ -1721,7 +1721,7 @@
         "tags": [
           "Products of an Integration"
         ],
-        "operationId": "link_integration_products_async_beta_",
+        "operationId": "link_integration_products_async",
         "summary": "Link all Products with an Integration",
         "description": "Generate an async task to link all products with an integration.\n\n> If the process is successful, tasks will be added to create or update the products on the remote platforms of each linked integration.\n",
         "requestBody": {
@@ -1740,7 +1740,7 @@
         "tags": [
           "Products of an Integration"
         ],
-        "operationId": "unlink_integration_products_async_beta_",
+        "operationId": "unlink_integration_products_async",
         "summary": "Unlink all Products from an Integration",
         "description": "Generate an async task to unlink all products from an integration.\n\n> If it is established that the products should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
         "requestBody": {
@@ -1766,7 +1766,7 @@
         "tags": [
           "Stock Locations of an Integration"
         ],
-        "operationId": "get_integration_stock_locations_beta_",
+        "operationId": "get_integration_stock_locations",
         "x-menu-position": 0,
         "summary": "List all Stock Locations from an Integration",
         "description": "Returns the stock locations of a specific integration.\n",
@@ -1875,7 +1875,7 @@
         "tags": [
           "Connected Integrations"
         ],
-        "operationId": "delete_all_integrations_async_beta_",
+        "operationId": "delete_all_integrations_async",
         "summary": "Delete all Integrations",
         "description": "It finds all the unauthorized integrations and generate an asynchronous task to delete this Integrations\nwith all its Orders, Variants and Products.\n\n> Authorized Integrations cannot be deleted\n",
         "responses": {
@@ -1893,7 +1893,7 @@
         "tags": [
           "Connected Integrations"
         ],
-        "operationId": "deauthorize_multiple_integrations_beta_",
+        "operationId": "deauthorize_multiple_integrations",
         "summary": "Unauthorize multiple integrations",
         "description": "It eliminate the connection authorizations in multiple integrations.\n\n> Only authorized integrations can be unauthorizes.\n",
         "requestBody": {
@@ -1988,7 +1988,7 @@
         "tags": [
           "Orders"
         ],
-        "operationId": "export_order_by_id_async_beta_",
+        "operationId": "export_order_by_id_async",
         "summary": "Export an Order",
         "description": "Generate an async task to start the export flows of a specific order to one or more target integrations.\n\n> If the **target_integrarion_id** parameter is omitted, the order will be exported to all integrations that have the\norder export workflow defined with its has the scheduler disabled.\n",
         "requestBody": {
@@ -2007,7 +2007,7 @@
         "tags": [
           "Orders"
         ],
-        "operationId": "cancel_order_by_id_async_beta_",
+        "operationId": "cancel_order_by_id_async",
         "summary": "Cancel an Order",
         "description": "Generate an async task to cancel a specific order in its integration.\n",
         "responses": {
@@ -2127,7 +2127,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "get_products_beta_",
+        "operationId": "get_products",
         "summary": "List all Products",
         "description": "Retrieves a list of products.\n",
         "parameters": [
@@ -2178,7 +2178,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "create_product_beta_",
+        "operationId": "create_product",
         "summary": "Create a Product",
         "description": "Create a new product.\n",
         "requestBody": {
@@ -2197,7 +2197,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "update_products_beta_",
+        "operationId": "update_products",
         "summary": "Update multiple Products",
         "description": "Update the common properties of multiple products.\n",
         "requestBody": {
@@ -2239,7 +2239,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "get_product_beta_",
+        "operationId": "get_product",
         "summary": "Retrieve a Product",
         "description": "Retrieves a single product by its identifier.\n",
         "responses": {
@@ -2255,7 +2255,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "update_product_beta_",
+        "operationId": "update_product",
         "summary": "Update a Product",
         "description": "Update the common properties of a product.\n",
         "requestBody": {
@@ -2274,7 +2274,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "delete_product_beta_",
+        "operationId": "delete_product",
         "summary": "Delete a Product",
         "description": "Delete a unlinked product.\n\n> The product will be permanently removed if and only if it has no associated integrations.\n",
         "responses": {
@@ -2297,7 +2297,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "link_product_async_beta_",
+        "operationId": "link_product_async",
         "summary": "Link a Product",
         "description": "It generates an asynchronous task to link a product with multiple integrations.\n\n> If the process is successful, tasks will be added to create or update the product on the remote platforms of each linked integration.\n",
         "requestBody": {
@@ -2316,7 +2316,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "unlink_product_async_beta_",
+        "operationId": "unlink_product_async",
         "summary": "Unlink a Product",
         "description": "It generates an asynchronous task to unlink a product with multiple integrations.\n\n> If it is established that the product should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
         "requestBody": {
@@ -2342,7 +2342,7 @@
         "tags": [
           "Stock Items"
         ],
-        "operationId": "get_product_stock_items_beta_",
+        "operationId": "get_product_stock_items",
         "x-menu-position": 2,
         "summary": "List a Product Stock Items",
         "description": "Returns the list of stock items of a product.\n",
@@ -2385,6 +2385,32 @@
         }
       }
     },
+    "/products/{product_id}/unify": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_product_id"
+        }
+      ],
+      "put": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "unify_products_async_beta_",
+        "summary": "Unify some Products",
+        "description": "Its generates an asynchronous task to unify some products in a single product linked with all the integrations of the products to unify.\n\n> The secondary products to be unified must have one and only one integration different from the integrations of main product.\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/product_unify"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_item"
+          },
+          "404": {
+            "$ref": "#/components/responses/product_not_found"
+          }
+        }
+      }
+    },
     "/products/{product_id}/variants": {
       "parameters": [
         {
@@ -2395,7 +2421,7 @@
         "tags": [
           "Variants"
         ],
-        "operationId": "get_variants_beta_",
+        "operationId": "get_variants",
         "summary": "List all Variants",
         "description": "Retrieves a list of product variants.\n",
         "parameters": [
@@ -2443,7 +2469,7 @@
         "tags": [
           "Variants"
         ],
-        "operationId": "create_variant_beta_",
+        "operationId": "create_variant",
         "summary": "Create a Variant",
         "description": "Create a new product variant.\n",
         "requestBody": {
@@ -2462,7 +2488,7 @@
         "tags": [
           "Variants"
         ],
-        "operationId": "update_variants_beta_",
+        "operationId": "update_variants",
         "summary": "Update multiple Variants",
         "description": "Update the common properties of multiple product variants.\n",
         "requestBody": {
@@ -2507,7 +2533,7 @@
         "tags": [
           "Variants"
         ],
-        "operationId": "get_variant_beta_",
+        "operationId": "get_variant",
         "summary": "Retrieve a Variant",
         "description": "Retrieves a single product variant by its identifier.\n",
         "responses": {
@@ -2523,7 +2549,7 @@
         "tags": [
           "Variants"
         ],
-        "operationId": "update_variant_beta_",
+        "operationId": "update_variant",
         "summary": "Update a Variant",
         "description": "Update the common properties of a variant.\n",
         "requestBody": {
@@ -2542,7 +2568,7 @@
         "tags": [
           "Variants"
         ],
-        "operationId": "delete_variant_beta_",
+        "operationId": "delete_variant",
         "summary": "Delete a variant",
         "description": "Delete a unlinked product variant.\n\n> The variant will be permanently removed if and only if it has no associated integrations.\n",
         "responses": {
@@ -2568,7 +2594,7 @@
         "tags": [
           "Variants"
         ],
-        "operationId": "link_variant_beta_",
+        "operationId": "link_variant",
         "summary": "Link a Variant",
         "description": "It generates an asynchronous task to link a product variant with multiple integrations.\n\n> If the process is successful, tasks will be added to create or update the product variant on the remote platforms of each linked integration.\n",
         "requestBody": {
@@ -2587,7 +2613,7 @@
         "tags": [
           "Variants"
         ],
-        "operationId": "unlink_variant_async_beta_",
+        "operationId": "unlink_variant_async",
         "summary": "Unlink a Variant",
         "description": "It generates an asynchronous task to unlink a product variant with multiple integrations.\n\n> If it is established that the product variant should be removed from the remote integration source, then a task is also created to achieve this goal.\n",
         "requestBody": {
@@ -2616,7 +2642,7 @@
         "tags": [
           "Stock Items"
         ],
-        "operationId": "get_varinat_stock_items_beta_",
+        "operationId": "get_varinat_stock_items",
         "x-menu-position": 3,
         "summary": "List a Variant Stock Items",
         "description": "Returns the list of stock items of a product variant.\n",
@@ -2838,7 +2864,7 @@
         "tags": [
           "Stock Items"
         ],
-        "operationId": "get_stock_items_beta_",
+        "operationId": "get_stock_items",
         "x-menu-position": 0,
         "summary": "List all Stock Items",
         "description": "Returns the list of stock items.\n",
@@ -2894,7 +2920,7 @@
         "tags": [
           "Stock Items"
         ],
-        "operationId": "create_stock_movement_beta_",
+        "operationId": "create_stock_movement",
         "x-menu-position": 0,
         "summary": "Create stock movement",
         "description": "Add a new stock movement to a stock item\n",
@@ -2916,7 +2942,7 @@
         "tags": [
           "Stock Locations"
         ],
-        "operationId": "get_stock_locations_beta_",
+        "operationId": "get_stock_locations",
         "x-menu-position": 0,
         "summary": "List all Stock Locations",
         "description": "Returns the list of stock locations.\n",
@@ -3006,7 +3032,7 @@
         "tags": [
           "Stock Locations"
         ],
-        "operationId": "get_stock_location_beta_",
+        "operationId": "get_stock_location",
         "summary": "Retrieve a Stock Location",
         "description": "Find stock location by given id and returns it.\n",
         "responses": {
@@ -9491,6 +9517,42 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      },
+      "product_unify": {
+        "description": "Identifiers of the products that will be unified.\n",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ProductIDs"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "unify_its_variants": {
+                          "description": "It establishes what action to take on the product variants in the unification process.\n  * **UNIFY**: Unify the variants with the same sku and add the others in the final product.\n  * **APPEND**: Add to the final product, the variants of each product to be unified.\n",
+                          "type": "string",
+                          "enum": [
+                            "UNIFY",
+                            "APPEND"
+                          ]
+                        }
+                      }
+                    }
+                  ]
                 }
               }
             }

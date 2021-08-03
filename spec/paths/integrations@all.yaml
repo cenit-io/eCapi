@@ -1,7 +1,7 @@
 delete:
   tags:
     - Connected Integrations
-  operationId: delete_all_integrations_async_beta_
+  operationId: delete_all_integrations_async
   summary: Delete all Integrations
   description: |
     It finds all the unauthorized integrations and generate an asynchronous task to delete this Integrations

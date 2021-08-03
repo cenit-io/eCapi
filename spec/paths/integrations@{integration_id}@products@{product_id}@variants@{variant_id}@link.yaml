@@ -6,7 +6,7 @@ parameters:
 delete:
   tags:
     - Variants of an Integration
-  operationId: unlink_integration_variant_async_beta_
+  operationId: unlink_integration_variant_async
   summary: Unlink a Variant from an Integration
   description: |
     Generate an async task to unlink a product variant from an integration.

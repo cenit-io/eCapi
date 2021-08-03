@@ -11,7 +11,7 @@ parameters:
 get:
   tags:
     - Variants of an Integration
-  operationId: get_integration_variants_beta_
+  operationId: get_integration_variants
   summary: List all Variants from an Integration
   description: |
     Returns the variant list of a specific integration.
@@ -22,7 +22,7 @@ get:
 post:
   tags:
     - Variants of an Integration
-  operationId: update_multiple_integration_variant_beta_
+  operationId: update_multiple_integration_variant
   summary: Update multiple Variant properties
   description: |
     Update the specific properties of multiple product variants of an integration.

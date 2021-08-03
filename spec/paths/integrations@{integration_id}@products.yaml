@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Products of an Integration
-  operationId: get_integration_products_beta_
+  operationId: get_integration_products
   summary: List all Products from an Integration
   description: |
     Returns the product list of a specific integration.

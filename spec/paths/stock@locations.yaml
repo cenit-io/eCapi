@@ -1,7 +1,7 @@
 get:
   tags:
     - Stock Locations
-  operationId: get_stock_locations_beta_
+  operationId: get_stock_locations
   x-menu-position: 0
   summary: List all Stock Locations
   description: |

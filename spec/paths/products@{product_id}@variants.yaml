@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Variants
-  operationId: get_variants_beta_
+  operationId: get_variants
   summary: List all Variants
   description: |
     Retrieves a list of product variants.
@@ -27,7 +27,7 @@ get:
 post:
   tags:
     - Variants
-  operationId: create_variant_beta_
+  operationId: create_variant
   summary: Create a Variant
   description: |
     Create a new product variant.
@@ -42,7 +42,7 @@ post:
 put:
   tags:
     - Variants
-  operationId: update_variants_beta_
+  operationId: update_variants
   summary: Update multiple Variants
   description: |
     Update the common properties of multiple product variants.

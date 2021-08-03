@@ -1,7 +1,7 @@
 get:
   tags:
     - Stock Items
-  operationId: get_stock_items_beta_
+  operationId: get_stock_items
   x-menu-position: 0
   summary: List all Stock Items
   description: |

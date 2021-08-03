@@ -5,7 +5,7 @@ parameters:
 delete:
   tags:
     - Products of an Integration
-  operationId: unlink_integration_product_async_beta_
+  operationId: unlink_integration_product_async
   summary: Unlink a Product from an Integration
   description: |
     Generate an async task to unlink a product from an integration.

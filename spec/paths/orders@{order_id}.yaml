@@ -16,7 +16,7 @@ get:
 put:
   tags:
     - Orders
-  operationId: export_order_by_id_async_beta_
+  operationId: export_order_by_id_async
   summary: Export an Order
   description: |
     Generate an async task to start the export flows of a specific order to one or more target integrations.
@@ -36,7 +36,7 @@ put:
 delete:
   tags:
     - Orders
-  operationId: cancel_order_by_id_async_beta_
+  operationId: cancel_order_by_id_async
   summary: Cancel an Order
   description: |
     Generate an async task to cancel a specific order in its integration.

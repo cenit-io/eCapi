@@ -5,7 +5,7 @@ parameters:
 get:
   tags:
     - Stock Items
-  operationId: get_varinat_stock_items_beta_
+  operationId: get_varinat_stock_items
   x-menu-position: 3
   summary: List a Variant Stock Items
   description: |

@@ -18,7 +18,7 @@ get:
 put:
   tags:
     - Orders of an Integration
-  operationId: export_order_async_beta_
+  operationId: export_order_async
   summary: Export an Order of an Integration
   description: |
     Generate an async task to start the export flows of a specific order to one or more target integrations.

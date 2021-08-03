@@ -5,7 +5,7 @@ parameters:
 put:
   tags:
     - Variants
-  operationId: link_variant_beta_
+  operationId: link_variant
   summary: Link a Variant
   description: |
     It generates an asynchronous task to link a product variant with multiple integrations.
@@ -22,7 +22,7 @@ put:
 delete:
   tags:
     - Variants
-  operationId: unlink_variant_async_beta_
+  operationId: unlink_variant_async
   summary: Unlink a Variant
   description: |
     It generates an asynchronous task to unlink a product variant with multiple integrations.

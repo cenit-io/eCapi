@@ -1,7 +1,7 @@
 get:
   tags:
     - Products
-  operationId: get_products_beta_
+  operationId: get_products
   summary: List all Products
   description: |
     Retrieves a list of products.
@@ -25,7 +25,7 @@ get:
 post:
   tags:
     - Products
-  operationId: create_product_beta_
+  operationId: create_product
   summary: Create a Product
   description: |
     Create a new product.
@@ -40,7 +40,7 @@ post:
 put:
   tags:
     - Products
-  operationId: update_products_beta_
+  operationId: update_products
   summary: Update multiple Products
   description: |
     Update the common properties of multiple products.

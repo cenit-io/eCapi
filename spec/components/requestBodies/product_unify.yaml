@@ -1,0 +1,23 @@
+description: |
+  Identifiers of the products that will be unified.
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          type: object
+          allOf:
+            - $ref: "#/components/schemas/ProductIDs"
+            - type: object
+              properties:
+                unify_its_variants:
+                  description: |
+                    It establishes what action to take on the product variants in the unification process.
+                      * **UNIFY**: Unify the variants with the same sku and add the others in the final product.
+                      * **APPEND**: Add to the final product, the variants of each product to be unified.
+                  type: string
+                  enum:
+                    - UNIFY
+                    - APPEND

@@ -2303,7 +2303,7 @@ paths:
   '/tasks/{task_id}/retry':
     parameters:
       - $ref: '#/components/parameters/path_task_id'
-    get:
+    put:
       tags:
         - Tasks
       operationId: retry_task_beta_
@@ -2318,7 +2318,7 @@ paths:
         '404':
           $ref: '#/components/responses/task_not_found'
   /tasks/retry:
-    get:
+    put:
       tags:
         - Tasks
       operationId: retry_task_bulk_beta_

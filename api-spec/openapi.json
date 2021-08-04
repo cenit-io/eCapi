@@ -3282,7 +3282,7 @@
           "$ref": "#/components/parameters/path_task_id"
         }
       ],
-      "get": {
+      "put": {
         "tags": [
           "Tasks"
         ],
@@ -3300,7 +3300,7 @@
       }
     },
     "/tasks/retry": {
-      "get": {
+      "put": {
         "tags": [
           "Tasks"
         ],

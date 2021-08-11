@@ -10,7 +10,3 @@ content:
           type: array
           items:
             $ref: '#/components/schemas/FlowType'
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/flow_type_response'

@@ -8,7 +8,3 @@ content:
           $ref: '#/components/schemas/ResponseResourceType'
         data:
           $ref: '#/components/schemas/Category'
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/category_item_response'

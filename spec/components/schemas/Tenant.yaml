@@ -20,6 +20,10 @@ properties:
     type: string
     format: date-time-iso8601
     readOnly: true
+  is_ready:
+    description: It will be true when the core resources have been installed and the tenant is ready to operate.
+    type: boolean
+    readOnly: true
   created_at:
     $ref: "#/components/schemas/CreatedAt"
   updated_at:

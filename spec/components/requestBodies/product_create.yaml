@@ -9,7 +9,3 @@ content:
           allOf:
             - $ref: "#/components/schemas/Product"
             - required: [name, description, price]
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/product_create_request'

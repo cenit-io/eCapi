@@ -15,6 +15,3 @@ content:
               items:
                 type: string
           required: [webhook_ids]
-    examples:
-      Ex1:
-        $ref: '#/components/examples/webhook_ids_request'

@@ -13,7 +13,3 @@ content:
               properties:
                 user:
                   $ref: '#/components/schemas/User'
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/tenant_item_response'

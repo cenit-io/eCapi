@@ -9,7 +9,3 @@ content:
           allOf:
             - $ref: "#/components/schemas/Variant"
             - required: [sku price]
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/variant_create_request'

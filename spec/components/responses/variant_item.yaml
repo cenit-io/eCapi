@@ -16,7 +16,3 @@ content:
                   readOnly: true
                   items:
                     $ref: "#/components/schemas/VariantIntegration"
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/variant_item_response'

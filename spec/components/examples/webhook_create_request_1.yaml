@@ -1,6 +1,0 @@
-summary: For when an order is registered
-value:
-  data:
-    integration_id: shop_01
-    topic: order/registered
-    address: 'http://myintegration.com/catch/order/registered'

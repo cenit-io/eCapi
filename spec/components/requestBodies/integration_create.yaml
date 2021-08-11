@@ -9,17 +9,3 @@ content:
           allOf:
             - $ref: "#/components/schemas/Integration"
             - required: [name, channel]
-
-    examples:
-      e1:
-        summary: To Lazada integration
-        value:
-          data:
-            name: Shop-01
-            channel: LazadaSG
-      e2:
-        summary: To Shopee integration
-        value:
-          data:
-            name: Shop-02
-            channel: ShopeeSG

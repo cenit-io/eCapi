@@ -2138,7 +2138,7 @@
             "$ref": "#/components/parameters/query_filter_integration"
           },
           {
-            "$ref": "#/components/parameters/query_filter_category_in_omna_product"
+            "$ref": "#/components/parameters/query_filter_category_in_product"
           },
           {
             "$ref": "#/components/parameters/query_filter_product_created_after"
@@ -4818,6 +4818,11 @@
             "format": "date-time-iso8601",
             "readOnly": true
           },
+          "is_ready": {
+            "description": "It will be true when the core resources have been installed and the tenant is ready to operate.",
+            "type": "boolean",
+            "readOnly": true
+          },
           "created_at": {
             "$ref": "#/components/schemas/CreatedAt"
           },
@@ -5065,11 +5070,6 @@
                   "$ref": "#/components/schemas/Task"
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/brand_import_response"
-              }
             }
           }
         }
@@ -5087,11 +5087,6 @@
                 "data": {
                   "$ref": "#/components/schemas/Brand"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/brand_item_response"
               }
             }
           }
@@ -5116,11 +5111,6 @@
                 "pagination": {
                   "$ref": "#/components/schemas/Pagination"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/brand_items_response"
               }
             }
           }
@@ -5154,11 +5144,6 @@
                   "$ref": "#/components/schemas/Task"
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/category_import_response"
-              }
             }
           }
         }
@@ -5176,11 +5161,6 @@
                 "data": {
                   "$ref": "#/components/schemas/Category"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/category_item_response"
               }
             }
           }
@@ -5205,11 +5185,6 @@
                 "pagination": {
                   "$ref": "#/components/schemas/Pagination"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/category_items_response"
               }
             }
           }
@@ -5243,11 +5218,6 @@
                   "$ref": "#/components/schemas/Collection"
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/collection_item_response"
-              }
             }
           }
         }
@@ -5271,11 +5241,6 @@
                 "pagination": {
                   "$ref": "#/components/schemas/Pagination"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/collection_items_response"
               }
             }
           }
@@ -5309,11 +5274,6 @@
                   "$ref": "#/components/schemas/Flow"
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/flow_item_response"
-              }
             }
           }
         }
@@ -5337,11 +5297,6 @@
                 "pagination": {
                   "$ref": "#/components/schemas/Pagination"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/flow_items_response"
               }
             }
           }
@@ -5378,11 +5333,6 @@
                   }
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/flow_type_response"
-              }
             }
           }
         }
@@ -5404,11 +5354,6 @@
                   }
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/integration_channels_response"
-              }
             }
           }
         }
@@ -5427,11 +5372,6 @@
                   "$ref": "#/components/schemas/Task"
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/integration_delete_response"
-              }
             }
           }
         }
@@ -5449,11 +5389,6 @@
                 "data": {
                   "$ref": "#/components/schemas/Integration"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/integration_item_response"
               }
             }
           }
@@ -5478,11 +5413,6 @@
                 "pagination": {
                   "$ref": "#/components/schemas/Pagination"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/integration_items_response"
               }
             }
           }
@@ -5739,11 +5669,6 @@
                   "$ref": "#/components/schemas/OrderDocument"
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/order_doc_response"
-              }
             }
           }
         }
@@ -5761,11 +5686,6 @@
                 "data": {
                   "$ref": "#/components/schemas/Task"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/order_import_response"
               }
             }
           }
@@ -5861,11 +5781,6 @@
                 "data": {
                   "$ref": "#/components/schemas/Task"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/product_import_response"
               }
             }
           }
@@ -5995,14 +5910,6 @@
                   "$ref": "#/components/schemas/Task"
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/product_import_response"
-              },
-              "Ex2": {
-                "$ref": "#/components/examples/category_import_response"
-              }
             }
           }
         }
@@ -6026,11 +5933,6 @@
                 "data": {
                   "$ref": "#/components/schemas/Task"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/task_item_startup_response"
               }
             }
           }
@@ -6251,11 +6153,6 @@
                   "$ref": "#/components/schemas/Pagination"
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/task_items_response"
-              }
             }
           }
         }
@@ -6300,11 +6197,6 @@
                   ]
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/tenant_item_response"
-              }
             }
           }
         }
@@ -6328,11 +6220,6 @@
                 "pagination": {
                   "$ref": "#/components/schemas/Pagination"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/tenant_items_response"
               }
             }
           }
@@ -6382,11 +6269,6 @@
                   ]
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/variant_item_response"
-              }
             }
           }
         }
@@ -6427,11 +6309,6 @@
                 "pagination": {
                   "$ref": "#/components/schemas/Pagination"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/variant_items_response"
               }
             }
           }
@@ -6486,11 +6363,6 @@
                   "$ref": "#/components/schemas/Webhook"
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/webhook_item_response"
-              }
             }
           }
         }
@@ -6514,11 +6386,6 @@
                 "pagination": {
                   "$ref": "#/components/schemas/Pagination"
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/webhook_items_response"
               }
             }
           }
@@ -6785,7 +6652,7 @@
           "example": 1532
         }
       },
-      "query_filter_category_in_omna_product": {
+      "query_filter_category_in_product": {
         "name": "category_id",
         "in": "query",
         "schema": {
@@ -7661,7 +7528,7 @@
                 }
               ]
             },
-            "is_ready_to_omna": {
+            "is_ready": {
               "allOf": [
                 {
                   "$ref": "#/components/schemas/SortQueryParameter"
@@ -7779,197 +7646,6 @@
       }
     },
     "examples": {
-      "brand_import_response": {
-        "value": {
-          "type": "task",
-          "data": {
-            "id": "5cfe690b25d9854b3b02241b",
-            "status": "completed",
-            "progress": 100,
-            "description": "Importing last updated brands from 'Shop-01' integration.",
-            "created_at": "2019-06-10T14:28:27+00:00",
-            "updated_at": "2019-06-10T14:28:43+00:00",
-            "executions": [
-              {
-                "status": "completed",
-                "started_at": "2019-06-10T14:28:27+00:00",
-                "completed_at": "2019-06-10T14:28:43+00:00"
-              }
-            ],
-            "notifications": [
-              {
-                "type": "info",
-                "message": "Imported brand 1785 from Shop-01 integration."
-              },
-              {
-                "type": "info",
-                "message": "Imported brand 8834 from Shop-01 integration."
-              },
-              {
-                "type": "info",
-                "message": "Imported brand 1615 from Shop-01 integration."
-              },
-              {
-                "type": "info",
-                "message": "Importing form 1 to 3."
-              },
-              {
-                "type": "info",
-                "message": "Importing brands updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
-              }
-            ]
-          }
-        }
-      },
-      "brand_item_response": {
-        "value": {
-          "type": "category",
-          "data": {
-            "id": "147528",
-            "name": "Royal Chair",
-            "updated_at": "2020-01-20T20:02:47+00:00",
-            "installed_at": "2020-01-20T20:01:06+00:00"
-          }
-        }
-      },
-      "brand_items_response": {
-        "value": {
-          "type": "brand",
-          "data": [
-            {
-              "id": "147528",
-              "name": "Royal Chair",
-              "updated_at": "2020-01-20T20:02:47+00:00",
-              "installed_at": "2020-01-20T20:01:06+00:00"
-            },
-            {
-              "id": "147527",
-              "name": "niYung",
-              "updated_at": "2020-01-20T20:02:47+00:00",
-              "installed_at": "2020-01-20T20:01:06+00:00"
-            }
-          ],
-          "pagination": {
-            "offset": 0,
-            "limit": 5,
-            "total": 2
-          }
-        }
-      },
-      "category_import_response": {
-        "value": {
-          "type": "task",
-          "data": {
-            "id": "5cfe690b25d9854b3b02241b",
-            "status": "completed",
-            "progress": 100,
-            "description": "Importing last updated categories from 'Shop-01' integration.",
-            "created_at": "2019-06-10T14:28:27+00:00",
-            "updated_at": "2019-06-10T14:28:43+00:00",
-            "executions": [
-              {
-                "status": "completed",
-                "started_at": "2019-06-10T14:28:27+00:00",
-                "completed_at": "2019-06-10T14:28:43+00:00"
-              }
-            ],
-            "notifications": [
-              {
-                "type": "info",
-                "message": "Imported category 1785 from Shop-01 integration."
-              },
-              {
-                "type": "info",
-                "message": "Imported category 8834 from Shop-01 integration."
-              },
-              {
-                "type": "info",
-                "message": "Imported category 1615 from Shop-01 integration."
-              },
-              {
-                "type": "info",
-                "message": "Importing form 1 to 3."
-              },
-              {
-                "type": "info",
-                "message": "Importing categories updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
-              }
-            ]
-          }
-        }
-      },
-      "category_item_response": {
-        "value": {
-          "type": "category",
-          "data": {
-            "id": "4180",
-            "name": "Women's Shoes and Clothing > Women Shoes > Wedges > Wedge Sandals",
-            "updated_at": "2020-01-20T20:02:47+00:00",
-            "installed_at": "2020-01-20T20:01:06+00:00"
-          }
-        }
-      },
-      "category_items_response": {
-        "value": {
-          "type": "category",
-          "data": [
-            {
-              "id": "4180",
-              "name": "Women's Shoes and Clothing > Women Shoes > Wedges > Wedge Sandals",
-              "updated_at": "2020-01-20T20:02:47+00:00",
-              "installed_at": "2020-01-20T20:01:06+00:00"
-            },
-            {
-              "id": "4183",
-              "name": "Women's Shoes and Clothing > Women Shoes > Wedges > Slides & Mules",
-              "updated_at": "2020-01-20T20:02:47+00:00",
-              "installed_at": "2020-01-20T20:01:06+00:00"
-            }
-          ],
-          "pagination": {
-            "offset": 0,
-            "limit": 5,
-            "total": 2
-          }
-        }
-      },
-      "collection_item_response": {
-        "value": {
-          "type": "collection",
-          "data": {
-            "id": "5dc99ad825d985238605db73",
-            "name": "omna_v2",
-            "title": "OMNAv2",
-            "shared_version": "0.0.1",
-            "summary": "OMNA Commerce LTD",
-            "status": "outdated",
-            "updated_at": "2020-01-20T20:02:47+00:00",
-            "installed_at": "2020-01-20T20:01:06+00:00"
-          }
-        }
-      },
-      "collection_items_response": {
-        "value": {
-          "type": "collection",
-          "data": [
-            {
-              "id": "5dc99ad825d985238605db73",
-              "name": "omna_v2",
-              "title": "OMNAv2",
-              "shared_version": "0.0.1",
-              "summary": "OMNA Commerce LTD",
-              "status": "outdated",
-              "updated_at": "2020-01-20T20:02:47+00:00",
-              "installed_at": "2020-01-20T20:01:06+00:00"
-            }
-          ],
-          "pagination": {
-            "offset": 0,
-            "limit": 5,
-            "total": 1
-          }
-        }
-      },
       "flow_create_request_1": {
         "summary": "With scheduler",
         "value": {
@@ -8009,155 +7685,6 @@
           }
         }
       },
-      "flow_item_response": {
-        "value": {
-          "type": "flow",
-          "data": {
-            "id": "5d04051125d9852c71016793",
-            "type": "import_orders",
-            "title": "Import orders from integration",
-            "created_at": "2019-06-07T00:06:52+00:00",
-            "updated_at": "2019-06-07T20:47:32+00:00",
-            "integration": {
-              "id": "shop_01",
-              "name": "Shop-01",
-              "channel": "Ov2LazadaSG",
-              "channel_title": "Lazada [SG]",
-              "authorized": true
-            },
-            "task": {
-              "id": "5cfe690b25d9854b3b02241b",
-              "status": "completed",
-              "progress": 100,
-              "description": "Importing last updated orders from 'Shop-01' integration.",
-              "created_at": "2019-06-10T14:28:27+00:00",
-              "updated_at": "2019-06-10T14:28:43+00:00",
-              "executions": [
-                {
-                  "status": "completed",
-                  "started_at": "2019-06-10T14:28:27+00:00",
-                  "completed_at": "2019-06-10T14:28:43+00:00"
-                }
-              ],
-              "notifications": [
-                {
-                  "type": "info",
-                  "message": "Imported order 17851977370457 from Shop-01 integration."
-                },
-                {
-                  "type": "info",
-                  "message": "Imported order 8834309804556 from Shop-01 integration."
-                },
-                {
-                  "type": "info",
-                  "message": "Imported order 16159781406633 from Shop-01 integration."
-                },
-                {
-                  "type": "info",
-                  "message": "Importing form 1 to 3."
-                },
-                {
-                  "type": "info",
-                  "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
-                }
-              ],
-              "scheduler": {
-                "active": true,
-                "start_date": "2019-06-20",
-                "end_date": "2019-06-21",
-                "time": "12:0",
-                "days_of_week": [
-                  "Mon",
-                  "Wed",
-                  "Fri"
-                ],
-                "weeks_of_month": [
-                  "First",
-                  "Third",
-                  "Last"
-                ],
-                "months_of_year": [
-                  "Jan",
-                  "Apr",
-                  "Jul",
-                  "Oct"
-                ]
-              }
-            }
-          }
-        }
-      },
-      "flow_items_response": {
-        "value": {
-          "type": "flow",
-          "data": [
-            {
-              "id": "5d04051125d9852c71016793",
-              "type": "import_orders",
-              "title": "Import orders from integration",
-              "created_at": "2019-06-07T00:06:52+00:00",
-              "updated_at": "2019-06-07T20:47:32+00:00",
-              "integration": {
-                "id": "shop_01",
-                "name": "Shop-01",
-                "channel": "Ov2LazadaSG"
-              },
-              "task": {
-                "id": "5cfe690b25d9854b3b02241b",
-                "status": "completed",
-                "progress": 100,
-                "description": "Importing last updated orders from 'Shop-01' integration.",
-                "scheduler": {
-                  "active": true,
-                  "start_date": "2019-06-20",
-                  "end_date": "2019-06-21",
-                  "time": "12:0",
-                  "days_of_week": [
-                    "Mon",
-                    "Wed",
-                    "Fri"
-                  ],
-                  "weeks_of_month": [
-                    "First",
-                    "Third",
-                    "Last"
-                  ],
-                  "months_of_year": [
-                    "Jan",
-                    "Apr",
-                    "Jul",
-                    "Oct"
-                  ]
-                }
-              }
-            }
-          ],
-          "pagination": {
-            "offset": 0,
-            "limit": 10,
-            "total": 1
-          }
-        }
-      },
-      "flow_type_response": {
-        "value": {
-          "type": "flow-type",
-          "data": [
-            {
-              "type": "import_orders",
-              "title": "Import orders from integration"
-            },
-            {
-              "type": "import_products",
-              "title": "Import products from integration"
-            },
-            {
-              "type": "export_orders",
-              "title": "Export orders to an integration"
-            }
-          ]
-        }
-      },
       "flow_update_request": {
         "summary": "With scheduler",
         "value": {
@@ -8186,136 +7713,6 @@
           }
         }
       },
-      "integration_channels_response": {
-        "value": {
-          "type": "integration-channel",
-          "data": [
-            {
-              "name": "LazadaID",
-              "title": "Lazada Indonesia",
-              "group": "Lazada"
-            },
-            {
-              "name": "LazadaMY",
-              "title": "Lazada Malaysia",
-              "group": "Lazada"
-            },
-            {
-              "name": "ShopeeTH",
-              "title": "Shopee Thailand",
-              "group": "Shopee"
-            },
-            {
-              "name": "ShopeeVN",
-              "title": "Shopee Vietnam",
-              "group": "Shopee"
-            }
-          ]
-        }
-      },
-      "integration_delete_response": {
-        "value": {
-          "type": "task",
-          "data": {
-            "id": "5cfe690b25d9854b3b02241b",
-            "status": "completed",
-            "progress": 100,
-            "description": "Deleting the integration 'Shop-01' of 'LazadaSG' channel.",
-            "created_at": "2019-06-10T14:28:27+00:00",
-            "updated_at": "2019-06-10T14:28:43+00:00",
-            "executions": [
-              {
-                "status": "completed",
-                "started_at": "2019-06-10T14:28:27+00:00",
-                "completed_at": "2019-06-10T14:28:43+00:00"
-              }
-            ],
-            "notifications": [
-              {
-                "type": "info",
-                "message": "The integration 'Shop-01' of 'LazadaSG' channel has been eliminated."
-              },
-              {
-                "type": "info",
-                "message": "Deleting the records of its products."
-              },
-              {
-                "type": "info",
-                "message": "Deleting the records of its variants."
-              },
-              {
-                "type": "info",
-                "message": "Deleting the records of its orders."
-              },
-              {
-                "type": "info",
-                "message": "Deleting its authorization."
-              }
-            ]
-          }
-        }
-      },
-      "integration_item_response": {
-        "value": {
-          "type": "integration",
-          "data": {
-            "id": "shop_01",
-            "name": "Shop-01",
-            "channel": "Ov2LazadaSG",
-            "channel_title": "Lazada SG",
-            "authorized": true,
-            "keys_to_import_brands": "A",
-            "last_import_dates": {
-              "orders": "2019-06-07T20:47:14+00:00",
-              "products": "2020-01-13T04:11:23.000+00:00",
-              "categories": "2020-01-13T04:11:23.000+00:00",
-              "brands": "2020-01-13T04:11:23.000+00:00",
-              "logistics": "2020-01-13T04:11:23.000+00:00"
-            },
-            "metadata": {
-              "name_company": "OMNA PTE LTD",
-              "name": "OMNA.IO",
-              "location": "Singapore",
-              "seller_id": "100038428,",
-              "email": "lazada@omna.io",
-              "short_code": "SG11D8C",
-              "cb": false
-            },
-            "created_at": "2019-06-07T00:06:52+00:00",
-            "updated_at": "2019-06-07T20:47:32+00:00"
-          }
-        }
-      },
-      "integration_items_response": {
-        "value": {
-          "type": "integration",
-          "data": [
-            {
-              "id": "shop_01",
-              "name": "Shop-01",
-              "channel": "Ov2LazadaSG",
-              "channel_title": "Lazada SG",
-              "authorized": true,
-              "created_at": "2019-06-07T00:06:52+00:00",
-              "updated_at": "2019-06-07T20:47:32+00:00"
-            },
-            {
-              "id": "shop_02",
-              "name": "Shop-02",
-              "channel": "Ov2LazadaMY",
-              "channel_title": "Lazada MY",
-              "authorized": true,
-              "created_at": "2019-07-07T00:06:52+00:00",
-              "updated_at": "2019-07-07T20:47:32+00:00"
-            }
-          ],
-          "pagination": {
-            "offset": 0,
-            "limit": 10,
-            "total": 2
-          }
-        }
-      },
       "native_service_request": {
         "summary": "Get shop metadata from Lazada integration",
         "value": {
@@ -8323,16 +7720,6 @@
             "path": "/seller/get",
             "method": "GET",
             "params": {}
-          }
-        }
-      },
-      "order_doc_response": {
-        "value": {
-          "type": "order-document",
-          "data": {
-            "file": "T3JkZXIgZG9jdWVtbnQgZXhhbXBsZS4uLgo=",
-            "mime_type": "text/html",
-            "document_type": "invoice"
           }
         }
       },
@@ -8353,522 +7740,6 @@
               "title": "Carrier Manifest"
             }
           ]
-        }
-      },
-      "order_import_response": {
-        "value": {
-          "type": "task",
-          "data": {
-            "id": "5cfe690b25d9854b3b02241b",
-            "status": "completed",
-            "progress": 100,
-            "description": "Importing last updated orders from 'Shop-01' integration.",
-            "created_at": "2019-06-10T14:28:27+00:00",
-            "updated_at": "2019-06-10T14:28:43+00:00",
-            "executions": [
-              {
-                "status": "completed",
-                "started_at": "2019-06-10T14:28:27+00:00",
-                "completed_at": "2019-06-10T14:28:43+00:00"
-              }
-            ],
-            "notifications": [
-              {
-                "type": "info",
-                "message": "Imported order 17851977370457 from Shop-01 integration."
-              },
-              {
-                "type": "info",
-                "message": "Imported order 8834309804556 from Shop-01 integration."
-              },
-              {
-                "type": "info",
-                "message": "Imported order 16159781406633 from Shop-01 integration."
-              },
-              {
-                "type": "info",
-                "message": "Importing form 1 to 3."
-              },
-              {
-                "type": "info",
-                "message": "Importing orders updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
-              }
-            ]
-          }
-        }
-      },
-      "product_create_request": {
-        "summary": "Create a product",
-        "value": {
-          "data": {
-            "name": "IPod Nano - 4GB",
-            "desciption": "IPod Nano - 4GB ...",
-            "price": 159,
-            "package": {
-              "weight": 1,
-              "height": 1,
-              "length": 1,
-              "width": 1,
-              "content": null
-            }
-          }
-        }
-      },
-      "product_import_response": {
-        "value": {
-          "type": "task",
-          "data": {
-            "id": "5cfe690b25d9854b3b02241b",
-            "status": "completed",
-            "progress": 100,
-            "description": "Importing last updated products from 'Shop-01' integration.",
-            "created_at": "2019-06-10T14:28:27+00:00",
-            "updated_at": "2019-06-10T14:28:43+00:00",
-            "executions": [
-              {
-                "status": "completed",
-                "started_at": "2019-06-10T14:28:27+00:00",
-                "completed_at": "2019-06-10T14:28:43+00:00"
-              }
-            ],
-            "notifications": [
-              {
-                "type": "info",
-                "message": "Imported product 17851977370457 from Shop-01 integration."
-              },
-              {
-                "type": "info",
-                "message": "Imported product 8834309804556 from Shop-01 integration."
-              },
-              {
-                "type": "info",
-                "message": "Imported product 16159781406633 from Shop-01 integration."
-              },
-              {
-                "type": "info",
-                "message": "Importing form 1 to 3."
-              },
-              {
-                "type": "info",
-                "message": "Importing products updated after '2019-03-12 14:28:27 UTC' from Shop-01 integration."
-              }
-            ]
-          }
-        }
-      },
-      "task_item_response": {
-        "value": {
-          "type": "task",
-          "data": {
-            "id": "5cfe690b25d9854b3b02241b",
-            "status": "completed",
-            "progress": 100,
-            "description": "Description of the task to be executed ...",
-            "created_at": "2019-06-10T14:28:27+00:00",
-            "updated_at": "2019-06-10T14:28:43+00:00",
-            "executions": [
-              {
-                "status": "completed",
-                "started_at": "2019-06-10T14:28:27+00:00",
-                "completed_at": "2019-06-10T14:28:43+00:00"
-              }
-            ],
-            "notifications": [
-              {
-                "type": "info",
-                "message": "Last notification during task execution..."
-              },
-              {
-                "type": "info",
-                "message": "..."
-              },
-              {
-                "type": "info",
-                "message": "Second notification during task execution.."
-              },
-              {
-                "type": "info",
-                "message": "First notification during task execution..."
-              }
-            ],
-            "scheduler": {
-              "active": true,
-              "start_date": "2019-06-20",
-              "end_date": "2019-06-21",
-              "time": "12:0",
-              "days_of_week": [
-                "Mon",
-                "Wed",
-                "Fri"
-              ],
-              "weeks_of_month": [
-                "First",
-                "Third",
-                "Last"
-              ],
-              "months_of_year": [
-                "Jan",
-                "Apr",
-                "Jul",
-                "Oct"
-              ]
-            }
-          }
-        }
-      },
-      "task_item_startup_response": {
-        "value": {
-          "type": "task",
-          "data": {
-            "id": "5cfe690b25d9854b3b02241b",
-            "status": "completed",
-            "progress": 100,
-            "description": "Start up the OMNA Commerce for the tenant: t1 / f8sf8f8f78dsf8v8fd87ff86",
-            "created_at": "2019-06-10T14:28:27+00:00",
-            "updated_at": "2019-06-10T14:28:43+00:00",
-            "executions": [
-              {
-                "status": "completed",
-                "started_at": "2019-06-10T14:28:27+00:00",
-                "completed_at": "2019-06-10T14:28:43+00:00"
-              }
-            ]
-          }
-        }
-      },
-      "task_items_response": {
-        "value": {
-          "type": "task",
-          "data": [
-            {
-              "id": "5cfe690b25d9854b3b02241b",
-              "status": "completed",
-              "progress": 100,
-              "description": "Importing last updated orders from 'Shop-01' integration.",
-              "created_at": "2019-06-10T13:35:27+00:00",
-              "updated_at": "2019-06-10T13:35:43+00:00",
-              "scheduler": {
-                "active": true,
-                "start_date": "2019-06-20",
-                "end_date": "2019-06-21",
-                "time": "12:0",
-                "days_of_week": [
-                  "Mon",
-                  "Wed",
-                  "Fri"
-                ],
-                "weeks_of_month": [
-                  "First",
-                  "Third",
-                  "Last"
-                ],
-                "months_of_year": [
-                  "Jan",
-                  "Apr",
-                  "Jul",
-                  "Oct"
-                ]
-              }
-            },
-            {
-              "id": "5cfe5ca825d9854aff021043",
-              "status": "completed",
-              "progress": 100,
-              "description": "Importing last updated orders from 'Shop-01' integration.",
-              "created_at": "2019-06-10T13:35:27+00:00",
-              "updated_at": "2019-06-10T13:35:43+00:00"
-            }
-          ],
-          "pagination": {
-            "offset": 0,
-            "limit": 10,
-            "total": 2
-          }
-        }
-      },
-      "tenant_item_response": {
-        "value": {
-          "type": "tenent",
-          "data": {
-            "id": "f8sf8f8f78dsf8v8fd87ff86",
-            "name": "main_omna",
-            "token": "rXfNJmFUpsyv3zocVolI",
-            "secret": "42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38",
-            "deactivation": "2019-07-03T15:48:57+00:00",
-            "created_at": "2019-05-02T18:16:34+00:00",
-            "updated_at": "2019-06-03T15:48:57+00:00",
-            "user": {
-              "name": "Alejandro Pérez Pérez",
-              "email": "alepp@example.com",
-              "picture": "http://example.com/users/pictures/alepp.png"
-            }
-          }
-        }
-      },
-      "tenant_items_response": {
-        "value": {
-          "type": "tenant",
-          "data": [
-            {
-              "id": "f8sf8f8f78dsf8v8fd87ff86",
-              "name": "tenant_01",
-              "token": "rXfNJmFUpsyv3zocVolI",
-              "secret": "42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38",
-              "deactivation": "2019-07-03T15:48:57+00:00",
-              "is_ready_to_omna": true,
-              "created_at": "2019-05-02T18:16:34+00:00",
-              "updated_at": "2019-06-03T15:48:57+00:00"
-            },
-            {
-              "id": "7d78jdudsdsd997dskds89d8",
-              "name": "tenant_02",
-              "token": "DG8W9yz6hXJjpP9SVoXv",
-              "secret": "e11875f2a1611d98ca87e867d9898f045b72ef09e0b3ac737477e897c6972cce",
-              "deactivation": "2019-06-06T20:55:24+00:00",
-              "is_ready_to_omna": false,
-              "created_at": "2019-05-07T15:11:16+00:00",
-              "updated_at": "2019-05-13T19:58:28+00:00"
-            }
-          ],
-          "pagination": {
-            "offset": 0,
-            "limit": 10,
-            "total": 2
-          }
-        }
-      },
-      "variant_create_request": {
-        "summary": "Create a variant",
-        "value": {
-          "data": {
-            "sku": "0018227994576",
-            "price": 159,
-            "original_price": 200,
-            "package": {
-              "weight": 1,
-              "height": 1,
-              "length": 1,
-              "width": 1,
-              "content": "1 phone, 1 battery and 1 mSD of 32GB"
-            }
-          }
-        }
-      },
-      "variant_item_response": {
-        "value": {
-          "type": "variant",
-          "data": {
-            "id": "5e98e0ec25d98532cd0d5426",
-            "sku": "25",
-            "price": 0,
-            "original_price": 10,
-            "quantity": 0,
-            "package": {
-              "weight": 1,
-              "height": 1,
-              "length": 1,
-              "width": 1,
-              "content": null
-            },
-            "product": {
-              "id": "5e98e0eb25d98575bc04bad1",
-              "name": "TESTING (DO NOT BUY)- Baby One Suit"
-            },
-            "integrations": [
-              {
-                "id": "lazada_sg",
-                "name": "lazada-sg",
-                "channel": "Ov2LazadaSG",
-                "channel_title": "Lazada [SG]",
-                "variant": {
-                  "remote_variant_id": "1964880303",
-                  "properties": [
-                    {
-                      "id": "color_family",
-                      "label": "Color Family",
-                      "required": true,
-                      "read_only": false,
-                      "input_type": "multi_enum_input",
-                      "options": [
-                        "Antique White",
-                        "Apricot",
-                        "Aqua",
-                        "Army Green",
-                        "Avocado",
-                        "Beige",
-                        "Black",
-                        "Blue",
-                        "Blue Gray",
-                        "Blueberry",
-                        "Blush Pink",
-                        "Bronze",
-                        "Light blue",
-                        "…"
-                      ],
-                      "value": "Antique White"
-                    },
-                    {
-                      "id": "special_from_date",
-                      "label": "Start date of promotion",
-                      "required": false,
-                      "read_only": false,
-                      "input_type": "date",
-                      "options": [],
-                      "value": null
-                    },
-                    {
-                      "id": "special_to_date",
-                      "label": "End date of promotion",
-                      "required": false,
-                      "read_only": false,
-                      "input_type": "date",
-                      "options": [],
-                      "value": null
-                    },
-                    {
-                      "id": "tax_class",
-                      "label": "Taxes",
-                      "required": false,
-                      "read_only": false,
-                      "input_type": "single_select",
-                      "options": [
-                        "default"
-                      ],
-                      "value": null
-                    }
-                  ],
-                  "last_sync_task": {
-                    "task": "TODO: ..."
-                  }
-                }
-              }
-            ],
-            "images": [
-              "https://sg-live.slatic.net/p/ea02ecadf6a0887347a00a00afbc5a4c.jpg"
-            ],
-            "created_at": "2020-04-16T22:49:16+00:00",
-            "updated_at": "2020-04-20T22:22:33+00:00"
-          }
-        }
-      },
-      "variant_items_response": {
-        "value": {
-          "type": "variant",
-          "data": [
-            {
-              "id": "5e98e0ec25d98532cd0d5426",
-              "sku": "25",
-              "price": 0,
-              "original_price": 10,
-              "quantity": 0,
-              "package": {
-                "weight": 1,
-                "height": 1,
-                "length": 1,
-                "width": 1,
-                "content": null
-              },
-              "product": {
-                "id": "5e98e0eb25d98575bc04bad1",
-                "name": "TESTING (DO NOT BUY)- Baby One Suit"
-              },
-              "integrations": [
-                {
-                  "id": "lazada_sg",
-                  "name": "lazada-sg",
-                  "channel": "Ov2LazadaSG",
-                  "channel_title": "Lazada [SG]",
-                  "variant": {
-                    "remote_variant_id": "1964880303"
-                  }
-                }
-              ],
-              "images": [
-                "https://sg-live.slatic.net/p/ea02ecadf6a0887347a00a00afbc5a4c.jpg"
-              ],
-              "created_at": "2020-04-16T22:49:16+00:00",
-              "updated_at": "2020-04-20T22:22:33+00:00"
-            }
-          ],
-          "pagination": {
-            "offset": 0,
-            "limit": 10,
-            "total": 1
-          }
-        }
-      },
-      "webhook_create_request_1": {
-        "summary": "For when an order is registered",
-        "value": {
-          "data": {
-            "integration_id": "shop_01",
-            "topic": "order/registered",
-            "address": "http://myintegration.com/catch/order/registered"
-          }
-        }
-      },
-      "webhook_create_request_2": {
-        "summary": "For when an order is updated",
-        "value": {
-          "data": {
-            "integration_id": "shop_01",
-            "topic": "order/updated",
-            "address": "http://myintegration.com/catch/order/updated"
-          }
-        }
-      },
-      "webhook_ids_request": {
-        "value": {
-          "data": {
-            "webhook_ids": [
-              "6035665bb90e810c2400767f",
-              "60356805b90e810c2d009205",
-              "5d04051125d9852c71016793"
-            ]
-          }
-        }
-      },
-      "webhook_item_response": {
-        "value": {
-          "type": "webhook",
-          "data": {
-            "id": "5d13be7025d9853de90012b6",
-            "topic": "order/registered",
-            "address": "http://myintegration.com/catch/order/registered",
-            "integration": {
-              "id": "shop_01",
-              "name": "Shop-01",
-              "channel": "Ov2LazadaSG",
-              "channel_title": "Lazada [SG]",
-              "authorized": true
-            },
-            "created_at": "2019-06-07T00:06:52+00:00",
-            "updated_at": "2019-06-07T20:47:32+00:00"
-          }
-        }
-      },
-      "webhook_items_response": {
-        "value": {
-          "type": "webhook",
-          "data": [
-            {
-              "id": "5d13be7025d9853de90012b6",
-              "topic": "order/registered",
-              "address": "http://myintegration.com",
-              "integration": {
-                "id": "shop_01",
-                "name": "Shop-01",
-                "channel": "Ov2LazadaSG"
-              },
-              "created_at": "2019-06-07T00:06:52+00:00",
-              "updated_at": "2019-06-07T20:47:32+00:00"
-            }
-          ],
-          "pagination": {
-            "offset": 0,
-            "limit": 5,
-            "total": 1
-          }
         }
       },
       "webhook_topics_response": {
@@ -9111,26 +7982,6 @@
                   ]
                 }
               }
-            },
-            "examples": {
-              "e1": {
-                "summary": "To Lazada integration",
-                "value": {
-                  "data": {
-                    "name": "Shop-01",
-                    "channel": "LazadaSG"
-                  }
-                }
-              },
-              "e2": {
-                "summary": "To Shopee integration",
-                "value": {
-                  "data": {
-                    "name": "Shop-02",
-                    "channel": "ShopeeSG"
-                  }
-                }
-              }
             }
           }
         }
@@ -9225,26 +8076,6 @@
                       "description": "Keys to define the brands to import",
                       "type": "string"
                     }
-                  }
-                }
-              }
-            },
-            "examples": {
-              "e1": {
-                "summary": "To Lazada integration",
-                "value": {
-                  "data": {
-                    "name": "Shop-01",
-                    "keys_to_import_brands": "A"
-                  }
-                }
-              },
-              "e2": {
-                "summary": "To Shopee integration",
-                "value": {
-                  "data": {
-                    "name": "Shop-01",
-                    "keys_to_import_brands": "A"
                   }
                 }
               }
@@ -9369,11 +8200,6 @@
                     }
                   ]
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/product_create_request"
               }
             }
           }
@@ -9870,11 +8696,6 @@
                   ]
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/variant_create_request"
-              }
             }
           }
         }
@@ -10150,14 +8971,6 @@
                   ]
                 }
               }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/webhook_create_request_1"
-              },
-              "Ex2": {
-                "$ref": "#/components/examples/webhook_create_request_2"
-              }
             }
           }
         }
@@ -10188,11 +9001,6 @@
                     "webhook_ids"
                   ]
                 }
-              }
-            },
-            "examples": {
-              "Ex1": {
-                "$ref": "#/components/examples/webhook_ids_request"
               }
             }
           }

@@ -25,7 +25,7 @@ description: |
       config.headers.common['X-OMNA-Token'] = current_tenant.token;
       config.params = Object.assign({}, config.params, { timestamp: Date.now() });
 
-      queryString = qs.stringify(config.params);
+      queryString = qs.stringify(config.params, { encode: false });
       body = config.data ? JSON.stringify(config.data) : '';
 
       // Join the service path, queryString and body

@@ -2,10 +2,10 @@
   "openapi": "3.0.0",
   "info": {
     "version": "v1",
-    "title": "OMNA Commerce API",
+    "title": "eCommerce API",
     "termsOfService": "https://cenit.io/terms",
     "contact": {
-      "email": "hello@omna.io",
+      "email": "support@cenit.io",
       "url": "https://cenitio.slack.com/messages/support"
     },
     "license": {
@@ -2851,7 +2851,7 @@
         ],
         "operationId": "startup_tenant_async_",
         "summary": "Startup",
-        "description": "Generate an async task to startup OMNA Commerce in the authenticated tenant.\n\n> It is not necessary to call this service when the tenant has been created with the application or api of OMNA.\n",
+        "description": "Generate an async task to startup the platform in the authenticated tenant.\n\n> It is not necessary to call this service when the tenant has been created with the platform application or api.\n",
         "responses": {
           "200": {
             "$ref": "#/components/responses/startup_task"
@@ -5598,18 +5598,6 @@
                   "type": "object",
                   "description": "Response of the request to the native API service"
                 }
-              }
-            },
-            "example": {
-              "type": "native-service-response",
-              "data": {
-                "name_company": "OMNA PTE LTD",
-                "name": "OMNA.IO",
-                "location": "Singapore",
-                "seller_id": 100038428,
-                "email": "lazada@example.omna.io",
-                "short_code": "SG11D8C",
-                "cb": false
               }
             }
           }
@@ -9040,7 +9028,7 @@
         "type": "apiKey",
         "name": "X-OMNA-HMac",
         "in": "header",
-        "description": "Keyed-Hash message authentication code.\n\n> Each service request must include an 'X-OMNA-HMac' header or hmac parameter, which is generated using the tenant's\n  secret along with service path and the data sent in the request.\n\n### Examples:\n\n#### JavaScript\n```JavaScript\n  const current_tenant = { token: '....', secret: '...' };\n\n  axios.defaults.baseURL = 'https://cenit.io/app/ecapi-v1/';\n  axios.defaults.headers.post['Content-Type'] = 'application/json';\n  axios.defaults.headers.put['Content-Type'] = 'application/json';\n\n  // Interceptors to sign any request.\n  axios.interceptors.request.use((config) => {\n    let msg, queryString, body;\n\n    // Add token and timestamp to URL parameters.\n    config.headers.common['X-OMNA-Token'] = current_tenant.token;\n    config.params = Object.assign({}, config.params, { timestamp: Date.now() });\n\n    queryString = qs.stringify(config.params);\n    body = config.data ? JSON.stringify(config.data) : '';\n\n    // Join the service path, queryString and body\n    msg = config.url + queryString + body;\n\n    // Generate the corresponding hmac header using the js-sha256 or similar library.\n    config.headers.common['X-OMNA-HMac'] = sha256.hmac.update(current_tenant.secret, msg).hex();\n\n    return config;\n  });\n```\n"
+        "description": "Keyed-Hash message authentication code.\n\n> Each service request must include an 'X-OMNA-HMac' header or hmac parameter, which is generated using the tenant's\n  secret along with service path and the data sent in the request.\n\n### Examples:\n\n#### JavaScript\n```JavaScript\n  const current_tenant = { token: '....', secret: '...' };\n\n  axios.defaults.baseURL = 'https://cenit.io/app/ecapi-v1/';\n  axios.defaults.headers.post['Content-Type'] = 'application/json';\n  axios.defaults.headers.put['Content-Type'] = 'application/json';\n\n  // Interceptors to sign any request.\n  axios.interceptors.request.use((config) => {\n    let msg, queryString, body;\n\n    // Add token and timestamp to URL parameters.\n    config.headers.common['X-OMNA-Token'] = current_tenant.token;\n    config.params = Object.assign({}, config.params, { timestamp: Date.now() });\n\n    queryString = qs.stringify(config.params, { encode: false });\n    body = config.data ? JSON.stringify(config.data) : '';\n\n    // Join the service path, queryString and body\n    msg = config.url + queryString + body;\n\n    // Generate the corresponding hmac header using the js-sha256 or similar library.\n    config.headers.common['X-OMNA-HMac'] = sha256.hmac.update(current_tenant.secret, msg).hex();\n\n    return config;\n  });\n```\n"
       },
       "OAuth1": {
         "type": "apiKey",

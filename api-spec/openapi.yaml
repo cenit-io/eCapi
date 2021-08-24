@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
   version: v1
-  title: OMNA Commerce API
+  title: eCommerce API
   termsOfService: 'https://cenit.io/terms'
   contact:
-    email: hello@omna.io
+    email: support@cenit.io
     url: 'https://cenitio.slack.com/messages/support'
   license:
     name: Apache 2.0
@@ -2038,9 +2038,9 @@ paths:
       operationId: startup_tenant_async_
       summary: Startup
       description: |
-        Generate an async task to startup OMNA Commerce in the authenticated tenant.
+        Generate an async task to startup the platform in the authenticated tenant.
 
-        > It is not necessary to call this service when the tenant has been created with the application or api of OMNA.
+        > It is not necessary to call this service when the tenant has been created with the platform application or api.
       responses:
         '200':
           $ref: '#/components/responses/startup_task'
@@ -3915,16 +3915,6 @@ components:
               data:
                 type: object
                 description: Response of the request to the native API service
-          example:
-            type: native-service-response
-            data:
-              name_company: OMNA PTE LTD
-              name: OMNA.IO
-              location: Singapore
-              seller_id: 100038428
-              email: lazada@example.omna.io
-              short_code: SG11D8C
-              cb: false
     not_found:
       description: Not found
       content:
@@ -6155,7 +6145,7 @@ components:
             config.headers.common['X-OMNA-Token'] = current_tenant.token;
             config.params = Object.assign({}, config.params, { timestamp: Date.now() });
 
-            queryString = qs.stringify(config.params);
+            queryString = qs.stringify(config.params, { encode: false });
             body = config.data ? JSON.stringify(config.data) : '';
 
             // Join the service path, queryString and body

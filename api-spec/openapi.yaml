@@ -1033,6 +1033,7 @@ paths:
   '/integrations/{integration_id}/orders/import':
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
+      - $ref: '#/components/parameters/query_filter_generic_updated_after'
     get:
       tags:
         - Orders of an Integration
@@ -1262,6 +1263,7 @@ paths:
   '/integrations/{integration_id}/products/import':
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
+      - $ref: '#/components/parameters/query_filter_generic_updated_after'
     get:
       tags:
         - Products of an Integration

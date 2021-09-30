@@ -13,3 +13,6 @@ allOf:
             type: array
             items:
               $ref: "#/components/schemas/ProductProperty"
+          stock_item:
+            description: Stock items
+            $ref: "#/components/schemas/StockItemMin"

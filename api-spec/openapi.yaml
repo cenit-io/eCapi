@@ -3248,6 +3248,21 @@ components:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
           $ref: '#/components/schemas/UpdatedAt'
+    StockItemMin:
+      type: object
+      properties:
+        id:
+          description: Stock item identifier
+          type: string
+          readOnly: true
+        count_on_hand:
+          description: The count of item on hand
+          type: integer
+        stock_location:
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/StockLocationMin'
+          description: The stock location
     StockLocation:
       type: object
       properties:
@@ -3298,29 +3313,42 @@ components:
           $ref: '#/components/schemas/CreatedAt'
         updated_at:
           $ref: '#/components/schemas/UpdatedAt'
-    StockMovement:
+    StockLocationMin:
       type: object
       properties:
         id:
-          description: Stock movement identifier
+          description: Stock location identifier
           type: string
           readOnly: true
-        quantity:
-          description: Value to decrease (-) or increase (+) over the quantity of item in hand
-          type: integer
-        action:
-          description: Represents the origin or cause of the movement
+        name:
+          description: The name of the stock location
           type: string
-          readOnly: true
-        stock_item:
-          readOnly: true
-          allOf:
-            - $ref: '#/components/schemas/StockLocation'
-          description: The stock location
-        created_at:
-          $ref: '#/components/schemas/CreatedAt'
-        updated_at:
-          $ref: '#/components/schemas/UpdatedAt'
+    StockMovement:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/StockLocationMin'
+        - type: object
+          properties:
+            id:
+              description: Stock movement identifier
+              type: string
+              readOnly: true
+            quantity:
+              description: Value to decrease (-) or increase (+) over the quantity of item in hand
+              type: integer
+            action:
+              description: Represents the origin or cause of the movement
+              type: string
+              readOnly: true
+            stock_item:
+              readOnly: true
+              allOf:
+                - $ref: '#/components/schemas/StockLocation'
+              description: The stock location
+            created_at:
+              $ref: '#/components/schemas/CreatedAt'
+            updated_at:
+              $ref: '#/components/schemas/UpdatedAt'
     Subscription:
       description: Subscription representation in OMNA
       type: object
@@ -3538,6 +3566,9 @@ components:
                   type: array
                   items:
                     $ref: '#/components/schemas/VariantProperty'
+                stock_item:
+                  description: Stock items
+                  $ref: '#/components/schemas/StockItemMin'
     VariantProperty:
       allOf:
         - $ref: '#/components/schemas/ProductProperty'

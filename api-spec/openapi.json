@@ -4947,11 +4947,6 @@
             "type": "number",
             "minimum": 0
           },
-          "original_price": {
-            "description": "Variant original price",
-            "type": "number",
-            "minimum": 0
-          },
           "quantity": {
             "description": "Quantity of items available from the quantity",
             "type": "integer",

@@ -16,7 +16,7 @@ get:
 put:
   tags:
     - Orders
-  operationId: export_order_by_id_async_beta_
+  operationId: export_order_by_id_async
   summary: Export an Order
   description: |
     Generate an async task to start the export flows of a specific order to one or more target integrations.
@@ -33,23 +33,10 @@ put:
     '404':
       $ref: '#/components/responses/order_not_found'
 
-patch:
-  tags:
-    - Orders
-  operationId: import_order_by_id_async_
-  summary: Reimport an Order
-  description: |
-    Generate an async task to reimport a specific order from its integration.
-  responses:
-    '200':
-      $ref: '#/components/responses/order_import_task'
-    '404':
-      $ref: '#/components/responses/order_not_found'
-
 delete:
   tags:
     - Orders
-  operationId: cancel_order_by_id_async_beta_
+  operationId: cancel_order_by_id_async
   summary: Cancel an Order
   description: |
     Generate an async task to cancel a specific order in its integration.

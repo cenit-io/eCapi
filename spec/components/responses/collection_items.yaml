@@ -12,7 +12,3 @@ content:
             $ref: '#/components/schemas/Collection'
         pagination:
             $ref: '#/components/schemas/Pagination'
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/collection_items_response'

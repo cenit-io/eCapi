@@ -1,6 +1,0 @@
-summary: For when an order is updated
-value:
-  data:
-    integration_id: shop_01
-    topic: order/updated
-    address: 'http://myintegration.com/catch/order/updated'

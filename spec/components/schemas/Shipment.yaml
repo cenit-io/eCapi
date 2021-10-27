@@ -1,0 +1,13 @@
+title: "Shipment"
+type: "object"
+properties:
+  cost:
+    type: number
+  status:
+    type: string
+  shipping_method:
+    type: string
+  stock_location_name:
+    type: "string"
+  tracking_code:
+    type: string

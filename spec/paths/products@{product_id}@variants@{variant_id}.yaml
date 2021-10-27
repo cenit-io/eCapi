@@ -5,7 +5,7 @@ parameters:
 get:
   tags:
     - Variants
-  operationId: get_variant_beta_
+  operationId: get_variant
   summary: Retrieve a Variant
   description: |
     Retrieves a single product variant by its identifier.
@@ -18,7 +18,7 @@ get:
 post:
   tags:
     - Variants
-  operationId: update_variant_beta_
+  operationId: update_variant
   summary: Update a Variant
   description: |
     Update the common properties of a variant.
@@ -33,7 +33,7 @@ post:
 delete:
   tags:
     - Variants
-  operationId: delete_variant_beta_
+  operationId: delete_variant
   summary: Delete a variant
   description: |
     Delete a unlinked product variant.

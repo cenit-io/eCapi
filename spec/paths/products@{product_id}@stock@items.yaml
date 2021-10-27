@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Stock Items
-  operationId: get_product_stock_items_beta_
+  operationId: get_product_stock_items
   x-menu-position: 2
   summary: List a Product Stock Items
   description: |

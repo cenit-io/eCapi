@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Products
-  operationId: get_product_beta_
+  operationId: get_product
   summary: Retrieve a Product
   description: |
     Retrieves a single product by its identifier.
@@ -17,7 +17,7 @@ get:
 post:
   tags:
     - Products
-  operationId: update_product_beta_
+  operationId: update_product
   summary: Update a Product
   description: |
     Update the common properties of a product.
@@ -32,7 +32,7 @@ post:
 delete:
   tags:
     - Products
-  operationId: delete_product_beta_
+  operationId: delete_product
   summary: Delete a Product
   description: |
     Delete a unlinked product.

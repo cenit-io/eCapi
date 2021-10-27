@@ -1,6 +1,5 @@
-- [Overview](overview)
-- [User Guide](/user-guide/overview)
-- [Developer Guide](/developer-guide/overview)
+- [App Guide](/user-guide/quick-start-ofs)
+<!-- - [Developer Guide](/developer-guide/overview) -->
 - **Links**
 - [API-Specification](//doc-api.omna.io/api-spec/)
 - **Utils**

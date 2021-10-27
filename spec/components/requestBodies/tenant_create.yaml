@@ -9,7 +9,3 @@ content:
           allOf:
             - $ref: '#/components/schemas/Tenant'
             - required: [name]
-
-#    examples:
-#      Ex1:
-#        $ref: '#/components/examples/tenant_create_request_1'

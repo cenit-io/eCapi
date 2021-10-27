@@ -9,9 +9,3 @@ content:
           allOf:
             - $ref: '#/components/schemas/Webhook'
             - required: [topic, address, integration_id]
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/webhook_create_request_1'
-      Ex2:
-        $ref: '#/components/examples/webhook_create_request_2'

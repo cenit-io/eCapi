@@ -5,7 +5,7 @@ parameters:
 get:
   tags:
     - Products of an Integration
-  operationId: get_integration_product_beta_
+  operationId: get_integration_product
   summary: Retrieve a Product from an Integration
   description: |
     Retrieve the product that is linked with the given integration and have as identify on its source platform
@@ -19,7 +19,7 @@ get:
 post:
   tags:
     - Products of an Integration
-  operationId: update_integration_product_beta_
+  operationId: update_integration_product
   summary: Update a Product properties
   description: |
     Update the specific properties of a product in an integration.

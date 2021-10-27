@@ -4,7 +4,7 @@ parameters:
 put:
   tags:
     - Products
-  operationId: link_product_async_beta_
+  operationId: link_product_async
   summary: Link a Product
   description: |
     It generates an asynchronous task to link a product with multiple integrations.
@@ -21,7 +21,7 @@ put:
 delete:
   tags:
     - Products
-  operationId: unlink_product_async_beta_
+  operationId: unlink_product_async
   summary: Unlink a Product
   description: |
     It generates an asynchronous task to unlink a product with multiple integrations.

@@ -13,7 +13,3 @@ content:
               properties:
                 integration:
                   $ref: "#/components/schemas/ProductIntegration"
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/product_item_response'

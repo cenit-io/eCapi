@@ -21,7 +21,7 @@ get:
 put:
   tags:
     - Orders of an Integration
-  operationId: export_orders_async_beta_
+  operationId: export_orders_async
   summary: Export updated Orders of an integration
   description: |
     Generate an async task to export the updated orders to to one or more target integrations.

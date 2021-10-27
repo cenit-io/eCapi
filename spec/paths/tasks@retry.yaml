@@ -1,4 +1,4 @@
-get:
+put:
   tags:
     - Tasks
   operationId: retry_task_bulk_beta_

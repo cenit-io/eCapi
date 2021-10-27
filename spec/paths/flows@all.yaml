@@ -1,7 +1,7 @@
 delete:
   tags:
     - Flows
-  operationId: delete_all_flows_async_beta_
+  operationId: delete_all_flows_async
   summary: Delete all Flows
   description: |
     It finds all flows and generate an asynchronous task to destroy all this flows and that its schedulers.

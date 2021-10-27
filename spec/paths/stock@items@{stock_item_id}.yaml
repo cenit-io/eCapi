@@ -4,7 +4,7 @@ parameters:
 post:
   tags:
     - Stock Items
-  operationId: create_stock_movement_beta_
+  operationId: create_stock_movement
   x-menu-position: 0
   summary: Create stock movement
   description: |

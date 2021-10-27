@@ -10,7 +10,3 @@ content:
           type: array
           items:
             $ref: '#/components/schemas/IntegrationChannel'
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/integration_channels_response'

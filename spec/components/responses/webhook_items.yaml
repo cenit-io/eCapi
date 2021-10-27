@@ -12,7 +12,3 @@ content:
             $ref: '#/components/schemas/Webhook'
         pagination:
             $ref: '#/components/schemas/Pagination'
-
-    examples:
-      Ex1:
-        $ref: '#/components/examples/webhook_items_response'

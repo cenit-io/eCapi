@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Stock Locations of an Integration
-  operationId: get_integration_stock_locations_beta_
+  operationId: get_integration_stock_locations
   x-menu-position: 0
   summary: List all Stock Locations from an Integration
   description: |

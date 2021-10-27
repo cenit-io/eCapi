@@ -21,9 +21,16 @@ properties:
     format: date
   time:
     description: |
-      Hour and minute in which the task will be executed
+      Hour and minute or periodicity in which the task will be executed
 
-      **Format:** HH:MM
+      **Format for:**
+
+      - **Estimated hour and minute:** HH:MM
+      - **Periodicity between 20 and 999 minutes:** 30m
+      - **Periodicity between 1 and 999 hours:** 12h
+      - **Periodicity between 1 and 999 days:** 15d
+      - **Periodicity between 1 and 999 weeks:** 2w
+      - **Periodicity between 1 and 999 months:** 3M
     type: string
     format: time
   days_of_week:
@@ -34,6 +41,8 @@ properties:
       ```
       ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
       ```
+
+      > This parameter will be ignored when the time parameter has the periodicity format.
     type: array
     items:
       type: string
@@ -45,6 +54,8 @@ properties:
       ```
       ['First', 'Second', 'Third', 'Fourth', 'Last']
       ```
+
+      > This parameter will be ignored when the time parameter has the periodicity format.
     type: array
     items:
       type: string
@@ -56,6 +67,5 @@ properties:
       ```
       ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
       ```
-    type: array
-    items:
-      type: string
+
+      > This parameter will be ignored when the time parameter has the periodicity format.

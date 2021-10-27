@@ -15,6 +15,9 @@ properties:
   status:
     description: Order status
     type: string
+  financial_status:
+    description: Financial status
+    type: string
   payments:
     description: The information of the payments
     type: "array"
@@ -33,6 +36,14 @@ properties:
     type: "array"
     items:
       $ref: "#/components/schemas/LineItem"
+  shipments:
+    description: Order shipments
+    type: "array"
+    items:
+      $ref: "#/components/schemas/Shipment"
+  original_raw_data:
+    description: Original raw data taken from remote integration platforms
+    type: "object"
   created_date:
     description: Date in iso8601 when the order was created
     type: string

@@ -1,0 +1,9 @@
+type: "object"
+properties:
+  id:
+    description: Stock location identifier
+    type: string
+    readOnly: true
+  name:
+    description: The name of the stock location
+    type: string

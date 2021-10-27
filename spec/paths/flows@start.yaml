@@ -1,7 +1,7 @@
 get:
   tags:
     - Flows
-  operationId: start_multiple_flows_async_beta_
+  operationId: start_multiple_flows_async
   summary: Start multiple Flows
   description: |
     It generates an asynchronous task to start multiple stream processing.

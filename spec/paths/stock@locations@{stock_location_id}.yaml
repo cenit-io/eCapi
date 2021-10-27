@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Stock Locations
-  operationId: get_stock_location_beta_
+  operationId: get_stock_location
   summary: Retrieve a Stock Location
   description: |
     Find stock location by given id and returns it.

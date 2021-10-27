@@ -1,0 +1,19 @@
+parameters:
+  - $ref: '#/components/parameters/path_product_id'
+
+put:
+  tags:
+    - Products
+  operationId: unify_products_async_beta_
+  summary: Unify some Products
+  description: |
+    Its generates an asynchronous task to unify some products in a single product linked with all the integrations of the products to unify.
+
+    > The secondary products to be unified must have one and only one integration different from the integrations of main product.
+  requestBody:
+    $ref: '#/components/requestBodies/product_unify'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/product_not_found'

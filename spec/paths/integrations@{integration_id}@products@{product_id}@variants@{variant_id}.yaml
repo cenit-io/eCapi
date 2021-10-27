@@ -6,7 +6,7 @@ parameters:
 get:
   tags:
     - Variants of an Integration
-  operationId: get_integration_variant_beta_
+  operationId: get_integration_variant
   summary: Retrieve an Variant from an Integration
   description: |
     Retrieve the product variant that is liked in the given integration and have as identify on its source platform
@@ -20,7 +20,7 @@ get:
 post:
   tags:
     - Variants of an Integration
-  operationId: update_integration_variant_beta_
+  operationId: update_integration_variant
   summary: Update a Variant
   description: |
     Update the specific properties of a product variant in an integration.

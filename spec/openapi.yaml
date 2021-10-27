@@ -77,6 +77,10 @@ tags:
     description: |
       Operations on the orders of an Integration.
 
+  - name: Statuses
+    description: |
+      Operations on the order statuses of an Integration.
+
   - name: Products
     description: |
       Operations on the products.
@@ -202,6 +206,7 @@ x-tagGroups:
     tags:
       - Orders
       - Orders of an Integration
+      - Statuses
 
   - name: Products
     tags:

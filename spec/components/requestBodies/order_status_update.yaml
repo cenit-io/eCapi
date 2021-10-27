@@ -1,0 +1,13 @@
+required: true
+content:
+  application/json:
+    schema:
+      required: [data]
+      properties:
+        data:
+          type: object
+          properties:
+            status_id:
+              description: Identifier of the new status of the order to be processed.
+              type: string
+          required: [status_id]

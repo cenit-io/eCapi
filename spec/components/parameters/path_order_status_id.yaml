@@ -1,0 +1,7 @@
+name: status_id
+in: path
+required: true
+schema:
+  description: Order status identifier
+  type: string
+  example: 6

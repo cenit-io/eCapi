@@ -1,0 +1,18 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+  - $ref: '#/components/parameters/path_order_number'
+
+put:
+  tags:
+    - Orders of an Integration
+  operationId: update_order_status_async_beta_
+  summary: Update status an order
+  description: |
+    Generate an async task to update status a specific order in its integration.
+  requestBody:
+    $ref: '#/components/requestBodies/order_status_update'
+  responses:
+    '200':
+      $ref: '#/components/responses/task_item'
+    '404':
+      $ref: '#/components/responses/order_not_found'

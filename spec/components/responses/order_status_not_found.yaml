@@ -1,0 +1,8 @@
+description: Not found
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/Exception'
+    example:
+      type: 'exception'
+      message: "Not found order status with id: 53"

@@ -1,0 +1,16 @@
+name: sort
+in: query
+schema:
+  description: |
+    It allows to sort ***order statuses*** list.
+    > If the sort parameter is omitted, the order statuses list will be sorting by created_at descending.
+  properties:
+    created_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    updated_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    name:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"

@@ -1,0 +1,19 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+
+get:
+  tags:
+    - Statuses
+  operationId: get_integration_order_statuses
+  summary: List all Order Statuses from an Integration
+  description: |
+    Returns the order statuses list of a specific integration.
+  parameters:
+    - $ref: '#/components/parameters/query_filter_term_for_order_statuses'
+    - $ref: '#/components/parameters/query_without_data'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
+    - $ref: '#/components/parameters/query_sort_for_order_statuses'
+  responses:
+    '200':
+      $ref: '#/components/responses/order_status_items'

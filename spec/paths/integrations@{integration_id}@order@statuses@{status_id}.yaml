@@ -1,0 +1,16 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+  - $ref: '#/components/parameters/path_order_status_id'
+
+get:
+  tags:
+    - Statuses
+  operationId: get_order_status
+  summary: Retrieve an Order Status from an Integration
+  description: |
+    Retrieve an order status by its id.
+  responses:
+    '200':
+      $ref: '#/components/responses/order_status_item'
+    '404':
+      $ref: '#/components/responses/order_status_not_found'

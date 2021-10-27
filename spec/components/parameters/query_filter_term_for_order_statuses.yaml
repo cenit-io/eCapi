@@ -1,0 +1,7 @@
+name: term
+in: query
+schema:
+  description: |
+    It allows to filter ***order statuses*** that contain the value of the term in their ***name***.
+  type: string
+  example: Cancel

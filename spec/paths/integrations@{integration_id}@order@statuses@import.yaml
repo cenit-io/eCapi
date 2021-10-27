@@ -1,0 +1,14 @@
+parameters:
+  - $ref: '#/components/parameters/path_integration_id'
+get:
+  tags:
+    - Statuses
+  operationId: import_order_statuses_async_
+  summary: Import updated Order Statuses from an Integration
+  description: |
+    Generate an async task to import the last updated order statuses from an integration.
+  responses:
+    '200':
+      $ref: '#/components/responses/order_status_import_task'
+    '404':
+      $ref: '#/components/responses/integration_not_found'

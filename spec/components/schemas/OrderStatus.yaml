@@ -1,0 +1,13 @@
+type: "object"
+properties:
+  id:
+    type: string
+    readOnly: true
+    description: Order status identifier
+  name:
+    type: string
+    description: Order status name
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
+  updated_at:
+    $ref: "#/components/schemas/UpdatedAt"

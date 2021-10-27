@@ -71,6 +71,9 @@ tags:
   - name: Orders of an Integration
     description: |
       Operations on the orders of an Integration.
+  - name: Statuses
+    description: |
+      Operations on the order statuses of an Integration.
   - name: Products
     description: |
       Operations on the products.
@@ -179,6 +182,7 @@ x-tagGroups:
     tags:
       - Orders
       - Orders of an Integration
+      - Statuses
   - name: Products
     tags:
       - Products
@@ -901,6 +905,56 @@ paths:
           $ref: '#/components/responses/logistic_import_task'
         '404':
           $ref: '#/components/responses/integration_not_found'
+  '/integrations/{integration_id}/order/statuses':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+    get:
+      tags:
+        - Statuses
+      operationId: get_integration_order_statuses
+      summary: List all Order Statuses from an Integration
+      description: |
+        Returns the order statuses list of a specific integration.
+      parameters:
+        - $ref: '#/components/parameters/query_filter_term_for_order_statuses'
+        - $ref: '#/components/parameters/query_without_data'
+        - $ref: '#/components/parameters/query_offset'
+        - $ref: '#/components/parameters/query_limit'
+        - $ref: '#/components/parameters/query_sort_for_order_statuses'
+      responses:
+        '200':
+          $ref: '#/components/responses/order_status_items'
+  '/integrations/{integration_id}/order/statuses/{status_id}':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+      - $ref: '#/components/parameters/path_order_status_id'
+    get:
+      tags:
+        - Statuses
+      operationId: get_order_status
+      summary: Retrieve an Order Status from an Integration
+      description: |
+        Retrieve an order status by its id.
+      responses:
+        '200':
+          $ref: '#/components/responses/order_status_item'
+        '404':
+          $ref: '#/components/responses/order_status_not_found'
+  '/integrations/{integration_id}/order/statuses/import':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+    get:
+      tags:
+        - Statuses
+      operationId: import_order_statuses_async_
+      summary: Import updated Order Statuses from an Integration
+      description: |
+        Generate an async task to import the last updated order statuses from an integration.
+      responses:
+        '200':
+          $ref: '#/components/responses/order_status_import_task'
+        '404':
+          $ref: '#/components/responses/integration_not_found'
   '/integrations/{integration_id}/orders':
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
@@ -1030,6 +1084,24 @@ paths:
           $ref: '#/components/responses/order_import_task'
         '404':
           $ref: '#/components/responses/integration_not_found'
+  '/integrations/{integration_id}/orders/{number}/statuses':
+    parameters:
+      - $ref: '#/components/parameters/path_integration_id'
+      - $ref: '#/components/parameters/path_order_number'
+    put:
+      tags:
+        - Orders of an Integration
+      operationId: update_order_status_async_beta_
+      summary: Update status an order
+      description: |
+        Generate an async task to update status a specific order in its integration.
+      requestBody:
+        $ref: '#/components/requestBodies/order_status_update'
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
+        '404':
+          $ref: '#/components/responses/order_not_found'
   '/integrations/{integration_id}/orders/import':
     parameters:
       - $ref: '#/components/parameters/path_integration_id'
@@ -1515,6 +1587,23 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/order_import_task'
+        '404':
+          $ref: '#/components/responses/order_not_found'
+  '/orders/{order_id}/statuses':
+    parameters:
+      - $ref: '#/components/parameters/path_order_id'
+    put:
+      tags:
+        - Orders
+      operationId: update_order_status_by_id_async_beta_
+      summary: Update status an order
+      description: |
+        Generate an async task to update status a specific order in its integration.
+      requestBody:
+        $ref: '#/components/requestBodies/order_status_update'
+      responses:
+        '200':
+          $ref: '#/components/responses/task_item'
         '404':
           $ref: '#/components/responses/order_not_found'
   /orders/export:
@@ -2904,6 +2993,20 @@ components:
         name:
           description: Nombre legible del tipo de documento
           type: string
+    OrderStatus:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Order status identifier
+        name:
+          type: string
+          description: Order status name
+        created_at:
+          $ref: '#/components/schemas/CreatedAt'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAt'
     Pagination:
       type: object
       properties:
@@ -4029,6 +4132,61 @@ components:
           example:
             type: exception
             message: 'Not found order with number: 9151224232846'
+    order_status_import_task:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                $ref: '#/components/schemas/Task'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/order_status_import_response'
+    order_status_item:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                $ref: '#/components/schemas/OrderStatus'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/order_status_item_response'
+    order_status_items:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                $ref: '#/components/schemas/ResponseResourceType'
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderStatus'
+              pagination:
+                $ref: '#/components/schemas/Pagination'
+          examples:
+            Ex1:
+              $ref: '#/components/examples/order_status_items_response'
+    order_status_not_found:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Exception'
+          example:
+            type: exception
+            message: 'Not found order status with id: 53'
     plan_items:
       description: Success
       content:
@@ -4544,6 +4702,14 @@ components:
         description: Order number
         type: string
         example: 9170283050978
+    path_order_status_id:
+      name: status_id
+      in: path
+      required: true
+      schema:
+        description: Order status identifier
+        type: string
+        example: 6
     path_product_id:
       name: product_id
       in: path
@@ -4898,6 +5064,14 @@ components:
         description: It allows to filter integrations settings that contain the value of the term in their ***id*** or ***name***.
         type: string
         example: Shop-Lazada
+    query_filter_term_for_order_statuses:
+      name: term
+      in: query
+      schema:
+        description: |
+          It allows to filter ***order statuses*** that contain the value of the term in their ***name***.
+        type: string
+        example: Cancel
     query_filter_term_for_orders:
       name: term
       in: query
@@ -5103,6 +5277,23 @@ components:
             allOf:
               - $ref: '#/components/schemas/SortQueryParameter'
           channel:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+    query_sort_for_order_statuses:
+      name: sort
+      in: query
+      schema:
+        description: |
+          It allows to sort ***order statuses*** list.
+          > If the sort parameter is omitted, the order statuses list will be sorting by created_at descending.
+        properties:
+          created_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          updated_at:
+            allOf:
+              - $ref: '#/components/schemas/SortQueryParameter'
+          name:
             allOf:
               - $ref: '#/components/schemas/SortQueryParameter'
     query_sort_for_orders:
@@ -5374,6 +5565,55 @@ components:
             title: Shipping Label
           - type: carrierManifest
             title: Carrier Manifest
+    order_status_import_response:
+      value:
+        type: task
+        data:
+          id: 5cfe690b25d9854b3b02241b
+          status: completed
+          progress: 100
+          description: Importing last updated order statuses from 'Shop-01' integration.
+          created_at: '2019-06-10T14:28:27+00:00'
+          updated_at: '2019-06-10T14:28:43+00:00'
+          executions:
+            - status: completed
+              started_at: '2019-06-10T14:28:27+00:00'
+              completed_at: '2019-06-10T14:28:43+00:00'
+          notifications:
+            - type: info
+              message: Imported order status 1 from Shop-01 integration.
+            - type: info
+              message: Imported order status 2 from Shop-01 integration.
+            - type: info
+              message: Imported order status 3 from Shop-01 integration.
+            - type: info
+              message: Importing form 1 to 3.
+            - type: info
+              message: 'Importing order statuses updated after ''2019-03-12 14:28:27 UTC'' from Shop-01 integration.'
+    order_status_item_response:
+      value:
+        type: order_status
+        data:
+          id: '6'
+          name: Canceled
+          updated_at: '2020-01-20T20:02:47+00:00'
+          installed_at: '2020-01-20T20:01:06+00:00'
+    order_status_items_response:
+      value:
+        type: order_status
+        data:
+          - id: '6'
+            name: Canceled
+            updated_at: '2020-01-20T20:02:47+00:00'
+            installed_at: '2020-01-20T20:01:06+00:00'
+          - id: '7'
+            name: Refunded
+            updated_at: '2020-01-20T20:02:47+00:00'
+            installed_at: '2020-01-20T20:01:06+00:00'
+        pagination:
+          offset: 0
+          limit: 5
+          total: 2
     webhook_topics_response:
       value:
         type: webhook-topic
@@ -5645,6 +5885,22 @@ components:
                     maxItems: 100
                     items:
                       type: string
+    order_status_update:
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                properties:
+                  status_id:
+                    description: Identifier of the new status of the order to be processed.
+                    type: string
+                required:
+                  - status_id
     product_create:
       description: Product that will be added to the system
       required: true

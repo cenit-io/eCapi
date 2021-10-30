@@ -11,7 +11,7 @@ The task structure brings a lot of information usefull to inform the user the st
 
 ## 2. Example.
 You can make a call to a service like:
->[install an available integration](/eCapi/api-spec/#operation/install_available_integration_async_)<div style="background-color:#E09D43; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PATCH </div> /available/integrations/<b>{collection_id}</b></br> </br> 
+>[install an available integration](//cenit-io.github.io/eCapi/api-spec/#operation/install_available_integration_async_)<div style="background-color:#E09D43; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PATCH </div> /available/integrations/<b>{collection_id}</b></br> </br> 
 
 After this, a json like this will outcome:
 ```json
@@ -32,4 +32,4 @@ After this, a json like this will outcome:
 ```
 Then use the <b>id</b> of this json to know the state of the task in further requests.
 
- >[Get task status](/eCapi/api-spec/#operation/get_task)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /tasks/<b>{task_id}</b> </br> </br> 
+ >[Get task status](//cenit-io.github.io/eCapi/api-spec/#operation/get_task)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /tasks/<b>{task_id}</b> </br> </br> 

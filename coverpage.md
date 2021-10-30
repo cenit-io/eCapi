@@ -6,4 +6,4 @@
 > An easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.
 
 [Get Started](overview)
-[API-Specification](/eCapi/api-spec/)
+[API-Specification](//cenit-io.github.io/eCapi/api-spec/)

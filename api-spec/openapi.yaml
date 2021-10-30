@@ -3608,6 +3608,10 @@ components:
         sku:
           description: Variant name
           type: string
+        master:
+          description: If it is the default variant relative to a simple product
+          type: boolean
+          readOnly: true
         price:
           description: Variant price
           type: number

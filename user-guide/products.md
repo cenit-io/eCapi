@@ -5,82 +5,82 @@ Category, Brand and Variants, also the product could belong to many other e-comm
 
 > This basic operations are very simple. This operations work directly with the entity on OMNA API. Do not affect entities on integrated e-commerce.
 
->[Create](http://doc-api.omna.io/api-spec/#operation/create_product_beta_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> /products </br> </br> 
+>[Create](/eCapi/api-spec/#operation/create_product_beta_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> /products </br> </br> 
 
-> [Remove](http://doc-api.omna.io/api-spec/#operation/delete_product_beta_) <div style="background-color:#E27A7A; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> DELETE </div> /products/<b>{product_id}</b>
+> [Remove](/eCapi/api-spec/#operation/delete_product_beta_) <div style="background-color:#E27A7A; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> DELETE </div> /products/<b>{product_id}</b>
 
->[Update](http://doc-api.omna.io/api-spec/#operation/update_product_beta_) <div style="background-color:#248fB2; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> /products/ <b> {product_id} </b>
+>[Update](/eCapi/api-spec/#operation/update_product_beta_) <div style="background-color:#248fB2; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> /products/ <b> {product_id} </b>
 
->[Retrieve](http://doc-api.omna.io/api-spec/#operation/get_product_beta_) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /products/<b> {product_id} </b>
+>[Retrieve](/eCapi/api-spec/#operation/get_product_beta_) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /products/<b> {product_id} </b>
 
 ## 2. Link and unlink.
 
 > Every product could be linked to one or more integrations or not linked with any integrated e-commerce. Those operations affect the link status of the product and also potencially affect the entity on remote e-commerce integrations.
 
->[Link](http://doc-api.omna.io/api-spec/#operation/#link_product_async_beta_)<div style="background-color:#9B708B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PUT </div> /products/ <b>{product_id} </b>
+>[Link](/eCapi/api-spec/#operation/#link_product_async_beta_)<div style="background-color:#9B708B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PUT </div> /products/ <b>{product_id} </b>
 
->[Unlink](http://doc-api.omna.io/api-spec/#operation/#unlink_product_async_beta_)<div style="background-color:#E09D43; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PATCH </div> /products/<b>{product_id}</b>
+>[Unlink](/eCapi/api-spec/#operation/#unlink_product_async_beta_)<div style="background-color:#E09D43; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PATCH </div> /products/<b>{product_id}</b>
 
 ## 3. List and filter
->[List and filter products](http://doc-api.omna.io/api-spec/#operation/get_products_beta_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /products </br></br>
-It allows to get a paginated list of product, it has a lot of parameters to order, filter, paginate and an option to bring full information of records or not. For detailed information of all this parameters go [here](http://doc-api.omna.io/api-spec/#operation/get_products_beta_)
+>[List and filter products](/eCapi/api-spec/#operation/get_products_beta_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /products </br></br>
+It allows to get a paginated list of product, it has a lot of parameters to order, filter, paginate and an option to bring full information of records or not. For detailed information of all this parameters go [here](/eCapi/api-spec/#operation/get_products_beta_)
 
 ## 4. Variants.
 >A variant of a product is basically the same product with some specified caracteristic. A product could have many variants, also a variant could be linked to many e-commerce integration. In order to manage the varians the following API are exposed:
 
->[Create](http://doc-api.omna.io/api-spec/#operation/create_variant_beta_)<div style="background-color:#248fB2; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> /products/<b> {product_id} </b>/variants 
+>[Create](/eCapi/api-spec/#operation/create_variant_beta_)<div style="background-color:#248fB2; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> /products/<b> {product_id} </b>/variants 
 
->[Remove](http://doc-api.omna.io/api-spec/#operation/delete_variant_beta_)<div style="background-color:#E27A7A; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> DELETE </div> /products/<b>{product_id}</b>/variants/<b>{variant_id}</b>
+>[Remove](/eCapi/api-spec/#operation/delete_variant_beta_)<div style="background-color:#E27A7A; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> DELETE </div> /products/<b>{product_id}</b>/variants/<b>{variant_id}</b>
 
->[Update](http://doc-api.omna.io/api-spec/#operation/update_variant_beta_)<div style="background-color:#248fB2; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> /products/<b>{product_id}</b>/variants/<b>{variant_id}</b>	
+>[Update](/eCapi/api-spec/#operation/update_variant_beta_)<div style="background-color:#248fB2; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> /products/<b>{product_id}</b>/variants/<b>{variant_id}</b>	
 
->[Retrieve](http://doc-api.omna.io/api-spec/#operation/get_variant_beta_)
+>[Retrieve](/eCapi/api-spec/#operation/get_variant_beta_)
 > <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /products/<b>{product_id}</b>/variants/<b>{variant_id}</b>
 
->[List and filter variants](http://doc-api.omna.io/api-spec/#operation/get_variants_beta_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /products/<b>{product_id}</b>/variants </br> </br> It allows to get a paginated list of variants of a product, it has a lot of parameters to filter, order, paginate and an option to bring full information of records or not. For detailed information of all this parameters go [here](http://doc-api.omna.io/api-spec/#operation/get_variants_beta_)
+>[List and filter variants](/eCapi/api-spec/#operation/get_variants_beta_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /products/<b>{product_id}</b>/variants </br> </br> It allows to get a paginated list of variants of a product, it has a lot of parameters to filter, order, paginate and an option to bring full information of records or not. For detailed information of all this parameters go [here](/eCapi/api-spec/#operation/get_variants_beta_)
 
->[Link](http://doc-api.omna.io/api-spec/#operation/#link_variant_beta_) <div style="background-color:#9B708B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PUT </div> /products/{product_id}/<b>{product_id}</b>/variants/<b>{variant_id}</b>
+>[Link](/eCapi/api-spec/#operation/#link_variant_beta_) <div style="background-color:#9B708B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PUT </div> /products/{product_id}/<b>{product_id}</b>/variants/<b>{variant_id}</b>
 
->[Unlink](http://doc-api.omna.io/api-spec/#operation/#unlink_variant_async_beta_)<div style="background-color:#E09D43; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PATCH </div> /products/<b>{product_id}</b>/variants/<b>{variant_id}</b>
+>[Unlink](/eCapi/api-spec/#operation/#unlink_variant_async_beta_)<div style="background-color:#E09D43; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PATCH </div> /products/<b>{product_id}</b>/variants/<b>{variant_id}</b>
 
 ## 5. Working on Integration.
 > The following set of api operations are intended to operate directly on an integrated e-commerce. The ids used in parameters are the e-commerce system identifier.
 
->[Update a product](http://doc-api.omna.io/api-spec/#operation/#update_integration_product_beta_) <div style="background-color:#248fB2; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>. 
+>[Update a product](/eCapi/api-spec/#operation/#update_integration_product_beta_) <div style="background-color:#248fB2; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>. 
 
->[Update a variant](http://doc-api.omna.io/api-spec/#operation/#update_integration_variant_beta_) <div style="background-color:#248fB2; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>/variants/<b>{remote_variant_id}</b>. 
+>[Update a variant](/eCapi/api-spec/#operation/#update_integration_variant_beta_) <div style="background-color:#248fB2; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>/variants/<b>{remote_variant_id}</b>. 
 
->[Retrieve a product](http://doc-api.omna.io/api-spec/#operation/#get_integration_product_beta_) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>.
+>[Retrieve a product](/eCapi/api-spec/#operation/#get_integration_product_beta_) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>.
 
->[Retrieve a variant](http://doc-api.omna.io/api-spec/#operation/#get_integration_variant_beta_) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>/variants/<b>{remote_variant_id}</b>.
+>[Retrieve a variant](/eCapi/api-spec/#operation/#get_integration_variant_beta_) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>/variants/<b>{remote_variant_id}</b>.
 
->[List and filter products](http://doc-api.omna.io/api-spec/#operation/get_integration_products_beta_) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products </br></br>
-It allows to get a paginated list of products of some integration, it has a lot of parameters to filter, order, paginate and an option to bring full information of records or not. For detailed information of all this parameters go [here](http://doc-api.omna.io/api-spec/#operation/get_integration_products_beta_)
+>[List and filter products](/eCapi/api-spec/#operation/get_integration_products_beta_) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products </br></br>
+It allows to get a paginated list of products of some integration, it has a lot of parameters to filter, order, paginate and an option to bring full information of records or not. For detailed information of all this parameters go [here](/eCapi/api-spec/#operation/get_integration_products_beta_)
 
->[List and filter variants](http://doc-api.omna.io/api-spec/#operation/get_integration_variants_beta_) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products/variants </br></br>
-It allows to get a paginated list of variants of some integration, it has a lot of parameters to filter, order, paginate and an option to bring full information of records or not. For detailed information of all this parameters go [here](http://doc-api.omna.io/api-spec/#operation/get_integration_variants_beta_)
+>[List and filter variants](/eCapi/api-spec/#operation/get_integration_variants_beta_) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products/variants </br></br>
+It allows to get a paginated list of variants of some integration, it has a lot of parameters to filter, order, paginate and an option to bring full information of records or not. For detailed information of all this parameters go [here](/eCapi/api-spec/#operation/get_integration_variants_beta_)
 
->[Unlink product](http://doc-api.omna.io/api-spec/#operation/#unlink_integration_product_async_beta_)<div style="background-color:#E09D43; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PATCH </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>
+>[Unlink product](/eCapi/api-spec/#operation/#unlink_integration_product_async_beta_)<div style="background-color:#E09D43; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PATCH </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>
 
->[Unlink variant](http://doc-api.omna.io/api-spec/#operation/#unlink_integration_variant_async_beta_)<div style="background-color:#E09D43; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PATCH </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>/variants/<b>{remote_variant_id}</b>
+>[Unlink variant](/eCapi/api-spec/#operation/#unlink_integration_variant_async_beta_)<div style="background-color:#E09D43; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> PATCH </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>/variants/<b>{remote_variant_id}</b>
 
->[Import product](http://doc-api.omna.io/api-spec/#operation/#import_integration_product_async_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>/import
+>[Import product](/eCapi/api-spec/#operation/#import_integration_product_async_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products/<b>{remote_product_id}</b>/import
 
->[Import product updates](http://doc-api.omna.io/api-spec/#operation/#import_products_async_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products/import
+>[Import product updates](/eCapi/api-spec/#operation/#import_products_async_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products/import
 
 ## 6. Brands and Categories.
 > Brands and categories are e-commerce concepts wich help to group products. OMNA offer api services to handle this concepts.
 
->[Retrieve a brand](http://doc-api.omna.io/api-spec/#operation/#get_brand) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/brands/<b>{brand_id}</b>.
+>[Retrieve a brand](/eCapi/api-spec/#operation/#get_brand) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/brands/<b>{brand_id}</b>.
 
->[Retrieve a category](http://doc-api.omna.io/api-spec/#operation/#get_category) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/categories/<b>{category_id}</b>.
+>[Retrieve a category](/eCapi/api-spec/#operation/#get_category) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/categories/<b>{category_id}</b>.
 
->[List and filter brands](http://doc-api.omna.io/api-spec/#operation/get_integration_brands) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/brands</br></br>
-It allows to get a paginated list of brands of some integration, it has a lot of parameters to filter, order, paginate and an option to bring full information of records or not. For detailed information of all this parameters go [here](http://doc-api.omna.io/api-spec/#operation/get_integration_brands)
+>[List and filter brands](/eCapi/api-spec/#operation/get_integration_brands) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/brands</br></br>
+It allows to get a paginated list of brands of some integration, it has a lot of parameters to filter, order, paginate and an option to bring full information of records or not. For detailed information of all this parameters go [here](/eCapi/api-spec/#operation/get_integration_brands)
 
->[List and filter categories](http://doc-api.omna.io/api-spec/#operation/get_integration_categories) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/categories</br></br>
-It allows to get a paginated list of categories of some integration, it has a lot of parameters to filter, order, paginate and an option to bring full information of records or not. For detailed information of all this parameters go [here](http://doc-api.omna.io/api-spec/#operation/get_integration_categories)
+>[List and filter categories](/eCapi/api-spec/#operation/get_integration_categories) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/categories</br></br>
+It allows to get a paginated list of categories of some integration, it has a lot of parameters to filter, order, paginate and an option to bring full information of records or not. For detailed information of all this parameters go [here](/eCapi/api-spec/#operation/get_integration_categories)
 
->[Import brand](http://doc-api.omna.io/api-spec/#operation/#import_brands_async_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/brand/import
+>[Import brand](/eCapi/api-spec/#operation/#import_brands_async_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/brand/import
 
->[Import category](http://doc-api.omna.io/api-spec/#operation/#import_categories_async_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/categories/import
+>[Import category](/eCapi/api-spec/#operation/#import_categories_async_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/categories/import

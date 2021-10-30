@@ -28,7 +28,7 @@
 - [Authentication](authentication) 
 - [Products](products) 
 - **Links**
-- [API-Specification](//doc-api.omna.io/api-spec/)
+- [API-Specification](/eCapi/api-spec/)
 - **Utils**
-- [Postman](//doc-api.omna.io/api-spec/swagger-ui/)
-- [Swagger-UI](//doc-api.omna.io/api-spec/swagger-ui/) -->
+- [Postman](/eCapi/api-spec/swagger-ui/)
+- [Swagger-UI](/eCapi/api-spec/swagger-ui/) -->

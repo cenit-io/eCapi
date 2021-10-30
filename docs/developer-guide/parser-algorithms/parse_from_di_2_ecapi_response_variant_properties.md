@@ -6,7 +6,7 @@ Build and returns the property lists to conform the details of a product variant
 
 **Resources related with this parser:**
 
-* OMNA API service to get product variant details: [Retrieve a Product Variant](//https://doc-api.omna.io/api-spec/index.html#operation/get_variant_beta_).
+* OMNA API service to get product variant details: [Retrieve a Product Variant](/eCapi/api-spec/index.html#operation/get_variant_beta_).
 * Data type that stores the product variant details for an integration: [DIVariant](../data-types/DIVariant.md).
 * Data type that stores the product variant properties definition: [DICategory](../data-types/DICategory.md).
     

@@ -3,20 +3,20 @@
 
 ## 1. Redirect to authentication page.
 
->Redirect to authentication page through [sign_in](/eCapi/api-spec/#operation/sign_in) api request.
+>Redirect to authentication page through [sign_in](//cenit-io.github.io/eCapi/api-spec/#operation/sign_in) api request.
 ><div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> https://cenit.io/users/sign_in?redirect_url=http://my.example.com/home
 	<div align=center>
 		<img width="800" src="/assets/images/user-guide/sign_in.jpg"/>
 	</div>
 
-After authentication process is validated, and sucess authorized, the system send an authentication token to [redirect_uri](/eCapi/api-spec/#operation/sign_in) parameter value passed in [sign_in](/eCapi/api-spec/#operation/sign_in).
+After authentication process is validated, and sucess authorized, the system send an authentication token to [redirect_uri](//cenit-io.github.io/eCapi/api-spec/#operation/sign_in) parameter value passed in [sign_in](//cenit-io.github.io/eCapi/api-spec/#operation/sign_in).
 	
 ><div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> http://my.example.com/home?code=rxfnjmfupsyv3zocvoli </br></br>
 	
 This code (Authentication Token) should be readed and use it in the next step.
 	
 ## 2. Get the access token
->Get the access token through [get_access_token](/eCapi/api-spec/#operation/get_access_token_async_) api request 
+>Get the access token through [get_access_token](//cenit-io.github.io/eCapi/api-spec/#operation/get_access_token_async_) api request 
 ><div style="background-color:#248fB2; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> https://cenit.io/users/get_access_token</br></br> "code" : "rxfnjmfupsyv3zocvoli" </br></br>
    
 The result of this call is a json with the a token, the secret code, and information of the user authenticated. This 

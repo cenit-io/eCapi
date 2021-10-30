@@ -20,7 +20,7 @@ Note that all these algorithms have the prefix "**parse_from_api_request_2_**" i
 > 
 > **Resources related with this parser:**
 > 
-> * OMNA API service to update the specific properties of a product: [Update Product Properties](/eCapi/api-spec/index.html#operation/update_integration_product_beta_).
+> * OMNA API service to update the specific properties of a product: [Update Product Properties](//cenit-io.github.io/eCapi/api-spec/index.html#operation/update_integration_product_beta_).
 > * Data type where the transformed data will be stored: [DIProduct](../data-types/DIProduct.md).
 >
 > [[see more details]](parse_from_api_request_2_di_product ':class=see-more')
@@ -32,7 +32,7 @@ Note that all these algorithms have the prefix "**parse_from_api_request_2_**" i
 > 
 > **Resources related with this parser:**
 > 
-> * OMNA API service to update the specific properties of a product variant: [Update Variant Properties](/eCapi/api-spec/index.html#operation/update_integration_variant_beta_).
+> * OMNA API service to update the specific properties of a product variant: [Update Variant Properties](//cenit-io.github.io/eCapi/api-spec/index.html#operation/update_integration_variant_beta_).
 > * Data type where the transformed data will be stored: [DIVariant](../data-types/DIVariant.md).
 >
 > [[see more details]](parse_from_api_request_2_di_variant ':class=see-more')
@@ -214,7 +214,7 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 > 
 > **Resources related with this parser:**
 > 
-> * OMNA API service to get product details: [Retrieve a Product](/eCapi/api-spec/index.html#operation/get_product_beta_).
+> * OMNA API service to get product details: [Retrieve a Product](//cenit-io.github.io/eCapi/api-spec/index.html#operation/get_product_beta_).
 > * Data type that stores the product details for an integration: [DIProduct](../data-types/DIProduct.md).
 > * Data type that stores the product properties definition: [DICategory](../data-types/DICategory.md).
 >
@@ -226,7 +226,7 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 > 
 > **Resources related with this parser:**
 > 
-> * OMNA API service to get product variant details: [Retrieve a Product Variant](/eCapi/api-spec/index.html#operation/get_variant_beta_).
+> * OMNA API service to get product variant details: [Retrieve a Product Variant](//cenit-io.github.io/eCapi/api-spec/index.html#operation/get_variant_beta_).
 > * Data type that stores the product variant details for an integration: [DIVariant](../data-types/DIVariant.md).
 > * Data type that stores the product variant properties definition: [DICategory](../data-types/DICategory.md).
 >

@@ -3,13 +3,13 @@
 ## 1. OMNA APP
 After login on OMNA APP, if the user is new and OMNA API is not installed you could see a message like this:
 
-><div align=center><img width="800" src="/assets/images/user-guide/install_omnav2_message.jpg"/></div>
+><div align=center><img width="800" src="assets/images/user-guide/install_omnav2_message.jpg"/></div>
 
 The go to <b>Integration</b> menu in <b>Available integrations </b>, and will see a list of available integrations to install.
-><div align=center><img width="800" src="/assets/images/user-guide/available_integrations.jpg"/></div>
+><div align=center><img width="800" src="assets/images/user-guide/available_integrations.jpg"/></div>
 
 Then click on <b>install</b> action on omna_v2, and a message like this will apear.
-><div align=center><img width="800" src="/assets/images/user-guide/install_started_message.jpg"/></div>
+><div align=center><img width="800" src="assets/images/user-guide/install_started_message.jpg"/></div>
 
 After some time you will see in the <b>Integration</b> menu in <b>Installed integrations </b> the Omna V2 integration installed.
 Then the user is ready to use the OMNA API services.

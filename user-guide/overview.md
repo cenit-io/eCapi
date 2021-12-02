@@ -5,20 +5,20 @@ This guide aims to give you a quick overview on the key sections of the OMNA app
 The user interface consists of 3 main sections: Top Menu, Side Menu and Main Content areas which will be shown on all pages.
 
 <div align=center>
-	<img width="800" src="/assets/images/quick-start/dashboard.png"/>
+	<img width="800" src="assets/images/quick-start/dashboard.png"/>
 </div>
 
 ### Top Menu
 
 The Top Menu is where the user will have access to the tenants and the user's account.
 
-<div align=center><img width="800" src="/assets/images/top-menu/top-menu.jpg"/></div>
+<div align=center><img width="800" src="assets/images/top-menu/top-menu.jpg"/></div>
 
 #### Top Menu > Tenants
 
 You will have access to all the tenants related to the user in the tenant menu, and you can also quickly switch between one tenant and another.
 
-<div align=center><img width="800" src="/assets/images/top-menu/tenant-menu.jpg"/></div>
+<div align=center><img width="800" src="assets/images/top-menu/tenant-menu.jpg"/></div>
 
 #### Tenants
 
@@ -32,12 +32,12 @@ To quickly switch between tenants, simply click on the "Tenants" menu on the Top
 
 For a more detailed view of the list of tenants, you can visit [Settings > Tenants](https://app.omna.io/tenants) via the Side Menu.
 
-<div align=center><img width="800" src="/assets/images/settings/tenant-list.jpg"/></div>
+<div align=center><img width="800" src="assets/images/settings/tenant-list.jpg"/></div>
 
 #### User Menu
 
 In the User Menu, you can access the information of the user account and log out.
-<div align=center><img width="800" src="/assets/images/top-menu/user-menu.jpg"/></div>
+<div align=center><img width="800" src="assets/images/top-menu/user-menu.jpg"/></div>
 
 #### Account Information
 
@@ -45,7 +45,7 @@ This page shows detailed information about your user account, such as User Profi
 
 You can select a different tenant or change your subscription plan on this page as well. 
 
-<div align=center><img width="800" src="/assets/images/top-menu/account-info.jpg"/></div>
+<div align=center><img width="800" src="assets/images/top-menu/account-info.jpg"/></div>
 
 ### Side Menu
 

@@ -12,4 +12,4 @@ To quickly switch between tenants, simply click on the "Tenants" menu on the Top
 
 For a more detailed view of the list of tenants, you can visit [Settings > Tenants](https://app.omna.io/tenants) via the Side Menu.
 
-<div align=center><img width="800" src="/assets/images/settings/tenant-list.jpg"/></div>
+<div align=center><img width="800" src="assets/images/settings/tenant-list.jpg"/></div>

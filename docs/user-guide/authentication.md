@@ -6,7 +6,7 @@
 >Redirect to authentication page through [sign_in](//cenit-io.github.io/eCapi/api-spec/#operation/sign_in) api request.
 ><div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> https://cenit.io/users/sign_in?redirect_url=http://my.example.com/home
 	<div align=center>
-		<img width="800" src="/assets/images/user-guide/sign_in.jpg"/>
+		<img width="800" src="assets/images/user-guide/sign_in.jpg"/>
 	</div>
 
 After authentication process is validated, and sucess authorized, the system send an authentication token to [redirect_uri](//cenit-io.github.io/eCapi/api-spec/#operation/sign_in) parameter value passed in [sign_in](//cenit-io.github.io/eCapi/api-spec/#operation/sign_in).

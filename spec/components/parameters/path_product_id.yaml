@@ -2,6 +2,6 @@ name: product_id
 in: path
 required: true
 schema:
-  description: Product identifier in OMNA
+  description: Product identifier in CenitIO eCommerce
   type: string
   example: 5d04051125d9852c71016793

@@ -7,7 +7,7 @@ content:
         type:
           $ref: '#/components/schemas/ResponseResourceType'
         data:
-          description: Product representations in OMNA
+          description: Product representations in CenitIO eCommerce
           type: array
           items:
             allOf:

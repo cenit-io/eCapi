@@ -1,10 +1,10 @@
 type: apiKey
-name: X-OMNA-HMac
+name: X-HMac
 in: header
 description: |
   Keyed-Hash message authentication code.
 
-  > Each service request must include an 'X-OMNA-HMac' header or hmac parameter, which is generated using the tenant's
+  > Each service request must include an 'X-HMac' header or hmac parameter, which is generated using the tenant's
     secret along with service path and the data sent in the request.
 
   ### Examples:
@@ -22,7 +22,7 @@ description: |
       let msg, queryString, body;
 
       // Add token and timestamp to URL parameters.
-      config.headers.common['X-OMNA-Token'] = current_tenant.token;
+      config.headers.common['X-Token'] = current_tenant.token;
       config.params = Object.assign({}, config.params, { timestamp: Date.now() });
 
       queryString = qs.stringify(config.params, { encode: false });
@@ -32,7 +32,7 @@ description: |
       msg = config.url + queryString + body;
 
       // Generate the corresponding hmac header using the js-sha256 or similar library.
-      config.headers.common['X-OMNA-HMac'] = sha256.hmac.update(current_tenant.secret, msg).hex();
+      config.headers.common['X-HMac'] = sha256.hmac.update(current_tenant.secret, msg).hex();
 
       return config;
     });

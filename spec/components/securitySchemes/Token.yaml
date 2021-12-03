@@ -1,9 +1,9 @@
 type: apiKey
-name: X-OMNA-Token
+name: X-Token
 in: header
 description: |
   Tenant authentication token.
 
-  > Each service request must include an **X-OMNA-Token** header or **token** parameter, which is obtained from
+  > Each service request must include an **X-Token** header or **token** parameter, which is obtained from
     the ***sign_in***. When the user registers through the ***sign_in*** action, as a result of the request, the
     information about the token is returned.

@@ -7,7 +7,7 @@ content:
         type:
           $ref: '#/components/schemas/ResponseResourceType'
         data:
-          description: Stock Location representations in OMNA
+          description: Stock Location representations in CenitIO eCommerce
           type: array
           items:
             $ref: '#/components/schemas/StockLocation'

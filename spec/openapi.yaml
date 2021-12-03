@@ -10,11 +10,11 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
-    url: omna_logo.png
+    url: logo.png
   description: |
     # Introduction
 
-    The OMNA Commerce API is a simple connector API to integrate ecommerce sales channels, such us
+    The CenitIO eCommerce API is a simple connector API to integrate ecommerce sales channels, such us
     marketplaces and ecommerce platforms.
 
     An easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.
@@ -35,30 +35,30 @@ info:
 
     * It accepts and returns JSON in the HTTP body.
 
-    * You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API.
+    * You can use your favorite HTTP/REST library for your programming language to use CenitIO eCommerce API.
 
       [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)
 
 tags:
   - name: Available Integrations
     description: |
-      This term refers to the set of resources and services that can be included in OMNA for the expansion of
+      This term refers to the set of resources and services that can be included in CenitIO eCommerce for the expansion of
       its scope and integration with other platforms.
 
       ### Available Integrations:
 
-      - **OMNAv2**: It is the main collection and the basis for working at OMNA Commerce LTD.
-      - **OMNAv2-Lazada**: It includes support for the integration of OMNA with Lazada's marketplaces.
-      - **OMNAv2-Shopee**: It includes support for the integration of OMNA with Shopee's marketplaces.
-      - **OMNAv2-Shopify**: It includes support for the integration of OMNA with Shopify's marketplaces.
+      - **Integration-Core**: It is the main collection and the basis for working at CenitIO eCommerce LTD.
+      - **Integration-Lazada**: It includes support for the integration of CenitIO eCommerce with Lazada's marketplaces.
+      - **Integration-Shopee**: It includes support for the integration of CenitIO eCommerce with Shopee's marketplaces.
+      - **Integration-Shopify**: It includes support for the integration of CenitIO eCommerce with Shopify's marketplaces.
 
       ### Future Integrations:
 
-      - **OMNAv2-Qoo10**: It includes support for the integration of OMNA with Qoo10's marketplaces.
-      - **OMNAv2-AmazonMWS**: It includes support for the integration of OMNA with AmazonMWS's marketplaces.
-      - **OMNAv2-MercadoLible**: It includes support for the integration of OMNA with MercadoLible's marketplaces.
-      - **OMNAv2-Backmarket**: It includes support for the integration of OMNA with Backmarket's marketplaces.
-      - **OMNAv2-Shipstation**: It includes support for the integration of OMNA with Shipstation's shipping platform for ecommerce fulfillment.
+      - **Integration-Qoo10**: It includes support for the integration of CenitIO eCommerce with Qoo10's marketplaces.
+      - **Integration-AmazonMWS**: It includes support for the integration of CenitIO eCommerce with AmazonMWS's marketplaces.
+      - **Integration-MercadoLible**: It includes support for the integration of CenitIO eCommerce with MercadoLible's marketplaces.
+      - **Integration-Backmarket**: It includes support for the integration of CenitIO eCommerce with Backmarket's marketplaces.
+      - **Integration-Shipstation**: It includes support for the integration of CenitIO eCommerce with Shipstation's shipping platform for ecommerce fulfillment.
 
   - name: Connected Integrations
     description: |
@@ -162,9 +162,9 @@ tags:
       Webhooks created through the API are verified by calculating a digital signature. Each webhook request includes
       **X-HMac-Sha256** header, which is generated using the tenant shared secret along with the data sent in the request.
 
-      To verify that the request came from OMNA, compute the **HMAC** digest according to the following algorithm and
+      To verify that the request came from CenitIO eCommerce, compute the **HMAC** digest according to the following algorithm and
       compare it to the value in the **X-HMac-Sha256** header. If they match, then you can be sure that the webhook was
-      sent from OMNA.
+      sent from CenitIO eCommerce.
 
       **The following Ruby example apply to Sinatra or RoR web frameworks to verify a webhook request:**
 

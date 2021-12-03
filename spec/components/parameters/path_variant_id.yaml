@@ -2,6 +2,6 @@ name: variant_id
 in: path
 required: true
 schema:
-  description: Variant identifier in OMNA
+  description: Variant identifier in CenitIO eCommerce
   type: string
   example: 5d04051125d9852c71016793

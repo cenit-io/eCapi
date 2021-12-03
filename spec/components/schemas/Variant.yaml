@@ -1,4 +1,4 @@
-description: Variant representation in OMNA
+description: Variant representation in CenitIO eCommerce
 type: object
 properties:
   id:

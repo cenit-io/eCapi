@@ -1,4 +1,4 @@
-description: Subscription representation in OMNA
+description: Subscription representation in CenitIO eCommerce
 type: object
 readOnly: true
 properties:

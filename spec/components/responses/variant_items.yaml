@@ -7,7 +7,7 @@ content:
         type:
           $ref: '#/components/schemas/ResponseResourceType'
         data:
-          description: Variant representations in OMNA
+          description: Variant representations in CenitIO eCommerce
           type: array
           items:
             allOf:

@@ -1,4 +1,4 @@
-description: Product representation in OMNA
+description: Product representation in CenitIO eCommerce
 type: object
 properties:
   id:

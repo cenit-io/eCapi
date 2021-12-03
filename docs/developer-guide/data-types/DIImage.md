@@ -22,21 +22,21 @@ Data structure to store the imported records of product images for each integrat
     },
     "image_in_omna": {
       "$ref": {
-        "namespace": "OMNAv2",
+        "namespace": "eCore",
         "name": "Image"
       },
       "referenced": true
     },
     "product": {
       "$ref": {
-        "namespace": "OMNAv2",
+        "namespace": "eCore",
         "name": "DIProduct"
       },
       "referenced": true
     },
     "variant": {
       "$ref": {
-        "namespace": "OMNAv2",
+        "namespace": "eCore",
         "name": "DIVariant"
       },
       "referenced": true
@@ -46,5 +46,5 @@ Data structure to store the imported records of product images for each integrat
 ```
 
 ### See also
-* [This data type in Cenit-IO](https://cenit.io/json_data_type?f[name][40703][o]=is&f[name][40703][v]=DIImage&f[namespace][40840][v]=OMNAv2)
+* [This data type in Cenit-IO](https://cenit.io/json_data_type?f[name][40703][o]=is&f[name][40703][v]=DIImage&f[namespace][40840][v]=eCore)
 * [Others data types](overview?id=DIImage)

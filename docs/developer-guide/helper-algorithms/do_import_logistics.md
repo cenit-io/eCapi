@@ -8,7 +8,7 @@ Allows submitting a request to the remote integration platform to get and import
 
 > **Name:** do_import_logistics
 > 
-> **Namespace:** OMNAv2
+> **Namespace:** eCore
 >
 > **Parameters:**
 > 
@@ -18,5 +18,5 @@ Allows submitting a request to the remote integration platform to get and import
 > | task | true | - | - |
 
 ### See also
-* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_import_logistics&f[namespace][40840][v]=OMNAv2)
+* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_import_logistics&f[namespace][40840][v]=eCore)
 * [Others helper algorithms](overview?id=do_import_logistics)

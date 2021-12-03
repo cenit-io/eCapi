@@ -15,7 +15,7 @@ Allows submitting a request to the remote integration platform to update a produ
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
 > | data | true | Hash | Contains the data to be export. This is obtained from this [parser](../parser-algorithms/parse_from_di_2_api_request_variant.md). |
-> | integration | true | OMNAv2::Integration | Contains integration record |
+> | integration | true | eCore::Integration | Contains integration record |
 > | webhook | true | Setup::PlainWebhook | Contains the [update_variant](../webhooks/overview?id=update_variant) webhook |
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 >

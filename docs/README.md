@@ -1,4 +1,4 @@
-# OMNA Commerce API
+# CenitIO eCommerce API
 
 ## Quick Start
 

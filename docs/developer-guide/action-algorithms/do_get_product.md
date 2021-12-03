@@ -14,7 +14,7 @@ Allows submitting a request to the remote integration platform to get an product
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | integration | true | OMNAv2::Integration | Contains integration record |
+> | integration | true | eCore::Integration | Contains integration record |
 > | product_id | true | String | Contains the id of the product to be obtain |
 > | webhook | true | Setup::PlainWebhook | Contains the [get_product](../webhooks/overview?id=get_product) webhook |
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |

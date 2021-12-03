@@ -20,7 +20,7 @@ the intermediate data structure in OMNA.
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | di_product | true | OMNAv2::DIProduct \| Ov2Anyone::DIProduct | Contains the record of [DIProduct](../data-types/DIProduct.md) that to be updated |
+> | di_product | true | eCore::DIProduct \| Ov2Anyone::DIProduct | Contains the record of [DIProduct](../data-types/DIProduct.md) that to be updated |
 > | request_data | true | Hash | Contains the data received in the request to the product properties update [service](//cenit-io.github.io/eCapi/api-spec/#operation/update_integration_product_beta_) |
 
 ### See also

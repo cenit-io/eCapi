@@ -13,17 +13,17 @@ If the resource is not found an exception is thrown.
 
 > **Name:** do_require_connection
 > 
-> **Namespace:** OMNAv2
+> **Namespace:** eCore
 >
 > **Parameters:**
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | integration | true | OMNAv2::Integration \| String | Contains the integration record or id |
+> | integration | true | eCore::Integration \| String | Contains the integration record or id |
 > | name | false | String \| Symbol | Contains the name of the connection |
 >
 > **Returns:** The required connection.
 
 ### See also
-* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_require_connection&f[namespace][40840][v]=OMNAv2)
+* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_require_connection&f[namespace][40840][v]=eCore)
 * [Others helper algorithms](overview?id=do_require_connection)

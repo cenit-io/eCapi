@@ -34,14 +34,14 @@ Data structure to store the imported records of orders for each integration chan
     },
     "integration": {
       "$ref": {
-        "namespace": "OMNAv2",
+        "namespace": "eCore",
         "name": "Integration"
       },
       "referenced": true
     },
     "order_in_omna": {
       "$ref": {
-        "namespace": "OMNAv2",
+        "namespace": "eCore",
         "name": "Order"
       },
       "referenced": true
@@ -51,5 +51,5 @@ Data structure to store the imported records of orders for each integration chan
 ```
 
 ### See also
-* [This data type in Cenit-IO](https://cenit.io/json_data_type?f[name][40703][o]=is&f[name][40703][v]=DIOrder&f[namespace][40840][v]=OMNAv2)
+* [This data type in Cenit-IO](https://cenit.io/json_data_type?f[name][40703][o]=is&f[name][40703][v]=DIOrder&f[namespace][40840][v]=eCore)
 * [Others data types](overview?id=DIOrder)

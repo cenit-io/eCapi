@@ -9,7 +9,7 @@ Data structure to store the imported records of products for each integration ch
 * Action algorithm [do_get_products](../action-algorithms/do_get_products.md).
 * Parser algorithm [parse_from_api_response_2_di_product](../parser-algorithms/parse_from_api_response_2_di_product.md).
 * Parser algorithm [parse_from_api_request_2_di_product](../parser-algorithms/parse_from_api_request_2_di_product.md).
-* Parser algorithm [parse_from_omna_2_di_product](../parser-algorithms/parse_from_omna_2_di_product.md).
+* Parser algorithm [parse_from_core_2_di_product](../parser-algorithms/parse_from_core_2_di_product.md).
 
     
 ### JSON SCHEMA
@@ -22,7 +22,7 @@ Data structure to store the imported records of products for each integration ch
     },
     "product_in_omna": {
       "$ref": {
-        "namespace": "OMNAv2",
+        "namespace": "eCore",
         "name": "Product"
       },
       "referenced": true
@@ -36,7 +36,7 @@ Data structure to store the imported records of products for each integration ch
     },
     "integration": {
       "$ref": {
-        "namespace": "OMNAv2",
+        "namespace": "eCore",
         "name": "Integration"
       },
       "referenced": true
@@ -53,5 +53,5 @@ Data structure to store the imported records of products for each integration ch
 ```
 
 ### See also
-* [This data type in Cenit-IO](https://cenit.io/json_data_type?f[name][40703][o]=is&f[name][40703][v]=DIProduct&f[namespace][40840][v]=OMNAv2)
+* [This data type in Cenit-IO](https://cenit.io/json_data_type?f[name][40703][o]=is&f[name][40703][v]=DIProduct&f[namespace][40840][v]=eCore)
 * [Others data types](overview?id=DIProduct)

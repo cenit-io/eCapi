@@ -1,6 +1,6 @@
-# OMNA Commerce API
+# CenitIO eCommerce API
 
-The **OMNA Commerce API** is simple connector API to integrate eCommerce sale channels, such as 
+The **CenitIO eCommerce API** is simple connector API to integrate eCommerce sale channels, such as 
 marketplaces and eCommerce platforms.
 
 An easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.

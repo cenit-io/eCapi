@@ -14,7 +14,7 @@ Allows submitting a request to the remote integration platform to get the orders
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | integration | true | OMNAv2::Integration | Contains integration record |
+> | integration | true | eCore::Integration | Contains integration record |
 > | webhook | true | Setup::PlainWebhook | Contains the [get_orders](../webhooks/overview?id=get_orders) webhook |
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 

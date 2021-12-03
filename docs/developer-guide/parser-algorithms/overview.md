@@ -232,19 +232,19 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 >
 > [[see more details]](parse_from_di_2_ecapi_response_variant_properties ':class=see-more')
 
-### parse_from_di_2_omna_base_authorization 
+### parse_from_di_2_core_base_authorization 
 
 > Returns the custom data, usually the template parameters, that will be used to create the authorization 
 > associated with the integration.
 > 
 > **Resources related with this parser:**
 > 
-> * Integration data type: [OMNAv2::Integration](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Integration).
+> * Integration data type: [eCore::Integration](https://cenit.io/json_data_type?f[namespace][24075][v]=eCore&f[name][24160][o]=is&f[name][24160][v]=Integration).
 > * Authorization: [Authorization base template](../developer-guide/authorization).
 >
-> [[see more details]](parse_from_di_2_omna_base_authorization ':class=see-more')
+> [[see more details]](parse_from_di_2_core_base_authorization ':class=see-more')
 
-### parse_from_di_2_omna_order 
+### parse_from_di_2_core_order 
 
 > Transforms and returns the data of an order from its intermediate data structure in OMNA to be stored 
 > in the general data structure of orders in OMNA.
@@ -252,11 +252,11 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 > **Resources related with this parser:**
 > 
 > * Data type corresponding to the source of the order to be transformed: [DIOrder](../data-types/DIOrder.md).
-> * Data type where the transformed data will be stored: [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
+> * Data type where the transformed data will be stored: [eCore::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=eCore&f[name][24160][o]=is&f[name][24160][v]=Order).
 >
-> [[see more details]](parse_from_di_2_omna_order ':class=see-more')
+> [[see more details]](parse_from_di_2_core_order ':class=see-more')
 
-### parse_from_di_2_omna_order_address 
+### parse_from_di_2_core_order_address 
 
 > Transforms and returns the data of shipping and billing address of an order from its intermediate data structure in OMNA to be stored 
 > in the general data structure of orders in OMNA.
@@ -264,11 +264,11 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 > **Resources related with this parser:**
 > 
 > * Data type corresponding to the source of the order to be transformed: [DIOrder](../data-types/DIOrder.md).
-> * Data type where the transformed data will be stored: [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
+> * Data type where the transformed data will be stored: [eCore::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=eCore&f[name][24160][o]=is&f[name][24160][v]=Order).
 >
-> [[see more details]](parse_from_di_2_omna_order_address ':class=see-more')
+> [[see more details]](parse_from_di_2_core_order_address ':class=see-more')
 
-### parse_from_di_2_omna_order_line_items 
+### parse_from_di_2_core_order_line_items 
 
 > Transforms and returns the data of the order items from its intermediate data structure in OMNA to be stored 
 > in the general data structure of orders in OMNA.
@@ -276,11 +276,11 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 > **Resources related with this parser:**
 > 
 > * Data type corresponding to the source of the order to be transformed: [DIOrder](../data-types/DIOrder.md).
-> * Data type where the transformed data will be stored: [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
+> * Data type where the transformed data will be stored: [eCore::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=eCore&f[name][24160][o]=is&f[name][24160][v]=Order).
 >
-> [[see more details]](parse_from_di_2_omna_order_line_items ':class=see-more')
+> [[see more details]](parse_from_di_2_core_order_line_items ':class=see-more')
 
-### parse_from_di_2_omna_product 
+### parse_from_di_2_core_product 
 
 > Transforms and returns the data of a product from its intermediate data structure in OMNA to be stored
 > in the general data structure of products in OMNA.
@@ -288,11 +288,11 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 > **Resources related with this parser:**
 > 
 > * Data type corresponding to the source of the product to be transformed: [DIProduct](../data-types/DIProduct.md).
-> * Data type where the transformed data will be stored: [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Product).
+> * Data type where the transformed data will be stored: [eCore::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=eCore&f[name][24160][o]=is&f[name][24160][v]=Product).
 >
-> [[see more details]](parse_from_di_2_omna_product ':class=see-more')
+> [[see more details]](parse_from_di_2_core_product ':class=see-more')
 
-### parse_from_di_2_omna_variant 
+### parse_from_di_2_core_variant 
 
 > Transforms and returns the data of a product variant from its intermediate data structure in OMNA to be stored
 > in the general data structure of variants in OMNA.
@@ -300,26 +300,26 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 > **Resources related with this parser:**
 > 
 > * Data type corresponding to the source of the product variant to be transformed: [DIVariant](../data-types/DIVariant.md).
-> * Data type where the transformed data will be stored: [OMNAv2::Variant](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Variant).
+> * Data type where the transformed data will be stored: [eCore::Variant](https://cenit.io/json_data_type?f[namespace][24075][v]=eCore&f[name][24160][o]=is&f[name][24160][v]=Variant).
 >
-> [[see more details]](parse_from_di_2_omna_variant ':class=see-more')
+> [[see more details]](parse_from_di_2_core_variant ':class=see-more')
 
 
-## Parsers from OMNAv2 data types records
+## Parsers from eCore data types records
 
 In these algorithms, the origin of the information will always be a record of 
-a [omna data type](https://cenit.io/json_data_type?f[namespace][99061][v]=OMNAv2).
+a [omna data type](https://cenit.io/json_data_type?f[namespace][99061][v]=eCore).
 
-Note that all these algorithms have the prefix "**parse_from_omna_2_**" in their names.
+Note that all these algorithms have the prefix "**parse_from_core_2_**" in their names.
 
-### parse_from_omna_2_api_request_order 
+### parse_from_core_2_api_request_order 
 
 > Transforms and returns the data of an order registered in OMNA to be exported to the remote platform to be integrated.
 > 
 > **Resources related with this parser:**
 > 
 > * Data type corresponding to the source of the order to be transformed: 
->   [OMNAv2::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Order).
+>   [eCore::Order](https://cenit.io/json_data_type?f[namespace][24075][v]=eCore&f[name][24160][o]=is&f[name][24160][v]=Order).
 > * Action algorithm to export the order: 
 >   [do_create_order](../action-algorithms/do_create_order.md) or 
 >   [do_update_order](../action-algorithms/do_update_order.md).
@@ -328,53 +328,53 @@ Note that all these algorithms have the prefix "**parse_from_omna_2_**" in their
 >   [update_order](../webhooks/overview?id=update_order).
 > 
 >
-> [[see more details]](parse_from_omna_2_api_request_order ':class=see-more')
+> [[see more details]](parse_from_core_2_api_request_order ':class=see-more')
 
-### parse_from_omna_2_api_request_order_address 
+### parse_from_core_2_api_request_order_address 
 
 > Transforms and returns the data of shipping and billing address of an order registered in OMNA to be exported 
 > to the remote platform to be integrated.
 > 
 > **Resources related with this parser:**
 > 
-> * Parser: [parse_from_omna_2_api_request_order](../parser-algorithms/parse_from_omna_2_api_request_order.md).
+> * Parser: [parse_from_core_2_api_request_order](../parser-algorithms/parse_from_core_2_api_request_order.md).
 > 
 >
-> [[see more details]](parse_from_omna_2_api_request_order_address ':class=see-more')
+> [[see more details]](parse_from_core_2_api_request_order_address ':class=see-more')
 
-### parse_from_omna_2_api_request_order_line_items 
+### parse_from_core_2_api_request_order_line_items 
 
 > Transforms and returns the data of order items of an order registered in OMNA to be exported 
 > to the remote platform to be integrated.
 > 
 > **Resources related with this parser:**
 > 
-> * Parser: [parse_from_omna_2_api_request_order](../parser-algorithms/parse_from_omna_2_api_request_order.md).
+> * Parser: [parse_from_core_2_api_request_order](../parser-algorithms/parse_from_core_2_api_request_order.md).
 > 
 >
-> [[see more details]](parse_from_omna_2_api_request_order_line_items ':class=see-more')
+> [[see more details]](parse_from_core_2_api_request_order_line_items ':class=see-more')
 
-### parse_from_omna_2_di_product 
+### parse_from_core_2_di_product 
 
 > Transforms and returns the data of a product from its general data structure of products in OMNA to be stored 
 > in the intermediate data structure in OMNA.
 > 
 > **Resources related with this parser:**
 > 
-> * Data type corresponding to the source of the product to be transformed: [OMNAv2::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Product).
+> * Data type corresponding to the source of the product to be transformed: [eCore::Product](https://cenit.io/json_data_type?f[namespace][24075][v]=eCore&f[name][24160][o]=is&f[name][24160][v]=Product).
 > * Data type where the transformed data will be stored: [DIProduct](../data-types/DIProduct.md).
 >
-> [[see more details]](parse_from_omna_2_di_product ':class=see-more')
+> [[see more details]](parse_from_core_2_di_product ':class=see-more')
 
-### parse_from_omna_2_di_variant 
+### parse_from_core_2_di_variant 
 
 > Transforms and returns the data of a product variant from its general data structure of variants in OMNA to be stored 
 > in the intermediate data structure in OMNA.
 > 
 > **Resources related with this parser:**
 > 
-> * Data type corresponding to the source of the product variant to be transformed: [OMNAv2::Variant](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=is&f[name][24160][v]=Variant).
+> * Data type corresponding to the source of the product variant to be transformed: [eCore::Variant](https://cenit.io/json_data_type?f[namespace][24075][v]=eCore&f[name][24160][o]=is&f[name][24160][v]=Variant).
 > * Data type where the transformed data will be stored: [DIVariant](../data-types/DIVariant.md).
 >
-> [[see more details]](parse_from_omna_2_di_variant ':class=see-more')
+> [[see more details]](parse_from_core_2_di_variant ':class=see-more')
 

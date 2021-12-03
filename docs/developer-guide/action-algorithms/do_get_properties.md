@@ -14,7 +14,7 @@ Allows submitting a request to the remote integration platform to get the produc
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | integration | true | OMNAv2::Integration | Contains integration record |
+> | integration | true | eCore::Integration | Contains integration record |
 > | category | true | String | Contains the product category id |
 > | webhook | true | Setup::PlainWebhook | Contains the [get_category_attrs](../webhooks/overview?id=get_category_attrs) webhook |
 

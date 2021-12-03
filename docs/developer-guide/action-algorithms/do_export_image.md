@@ -15,7 +15,7 @@ Allows submitting a request to the remote integration platform to publish an ima
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
 > | url | true | String | Contains the url of the image to be exported |
-> | integration | true | OMNAv2::Integration | Contains integration record |
+> | integration | true | eCore::Integration | Contains integration record |
 > | webhook | true | Setup::PlainWebhook | Contains the [upload_image](../webhooks/overview?id=upload_image) webhook |
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 

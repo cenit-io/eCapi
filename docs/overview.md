@@ -1,5 +1,3 @@
-# CenitIO eCommerce API
-
 The **CenitIO eCommerce API** is simple connector API to integrate eCommerce sale channels, such as 
 marketplaces and eCommerce platforms.
 

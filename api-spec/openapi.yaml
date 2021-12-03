@@ -10,11 +10,11 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
-    url: omna_logo.png
+    url: logo.png
   description: |
     # Introduction
 
-    The OMNA Commerce API is a simple connector API to integrate ecommerce sales channels, such us
+    The CenitIO eCommerce API is a simple connector API to integrate ecommerce sales channels, such us
     marketplaces and ecommerce platforms.
 
     An easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.
@@ -35,29 +35,29 @@ info:
 
     * It accepts and returns JSON in the HTTP body.
 
-    * You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API.
+    * You can use your favorite HTTP/REST library for your programming language to use CenitIO eCommerce API.
 
       [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)
 tags:
   - name: Available Integrations
     description: |
-      This term refers to the set of resources and services that can be included in OMNA for the expansion of
+      This term refers to the set of resources and services that can be included in CenitIO eCommerce for the expansion of
       its scope and integration with other platforms.
 
       ### Available Integrations:
 
-      - **OMNAv2**: It is the main collection and the basis for working at OMNA Commerce LTD.
-      - **OMNAv2-Lazada**: It includes support for the integration of OMNA with Lazada's marketplaces.
-      - **OMNAv2-Shopee**: It includes support for the integration of OMNA with Shopee's marketplaces.
-      - **OMNAv2-Shopify**: It includes support for the integration of OMNA with Shopify's marketplaces.
+      - **Integration-Core**: It is the main collection and the basis for working at CenitIO eCommerce LTD.
+      - **Integration-Lazada**: It includes support for the integration of CenitIO eCommerce with Lazada's marketplaces.
+      - **Integration-Shopee**: It includes support for the integration of CenitIO eCommerce with Shopee's marketplaces.
+      - **Integration-Shopify**: It includes support for the integration of CenitIO eCommerce with Shopify's marketplaces.
 
       ### Future Integrations:
 
-      - **OMNAv2-Qoo10**: It includes support for the integration of OMNA with Qoo10's marketplaces.
-      - **OMNAv2-AmazonMWS**: It includes support for the integration of OMNA with AmazonMWS's marketplaces.
-      - **OMNAv2-MercadoLible**: It includes support for the integration of OMNA with MercadoLible's marketplaces.
-      - **OMNAv2-Backmarket**: It includes support for the integration of OMNA with Backmarket's marketplaces.
-      - **OMNAv2-Shipstation**: It includes support for the integration of OMNA with Shipstation's shipping platform for ecommerce fulfillment.
+      - **Integration-Qoo10**: It includes support for the integration of CenitIO eCommerce with Qoo10's marketplaces.
+      - **Integration-AmazonMWS**: It includes support for the integration of CenitIO eCommerce with AmazonMWS's marketplaces.
+      - **Integration-MercadoLible**: It includes support for the integration of CenitIO eCommerce with MercadoLible's marketplaces.
+      - **Integration-Backmarket**: It includes support for the integration of CenitIO eCommerce with Backmarket's marketplaces.
+      - **Integration-Shipstation**: It includes support for the integration of CenitIO eCommerce with Shipstation's shipping platform for ecommerce fulfillment.
   - name: Connected Integrations
     description: |
       This term refers to the configuration of a connection that will allow access to the set of resources and services
@@ -143,9 +143,9 @@ tags:
       Webhooks created through the API are verified by calculating a digital signature. Each webhook request includes
       **X-HMac-Sha256** header, which is generated using the tenant shared secret along with the data sent in the request.
 
-      To verify that the request came from OMNA, compute the **HMAC** digest according to the following algorithm and
+      To verify that the request came from CenitIO eCommerce, compute the **HMAC** digest according to the following algorithm and
       compare it to the value in the **X-HMac-Sha256** header. If they match, then you can be sure that the webhook was
-      sent from OMNA.
+      sent from CenitIO eCommerce.
 
       **The following Ruby example apply to Sinatra or RoR web frameworks to verify a webhook request:**
 
@@ -2096,7 +2096,7 @@ paths:
       summary: Sign in
       security: []
       description: |
-        Authenticate in OMNA to obtain the **authentication code** with which you can obtain
+        Authenticate in CenitIO eCommerce Application to obtain the **authentication code** with which you can obtain
         the token and the tenant's secret from the authenticated user.
 
         > The **authentication code** will be sent to the given uri for the redirect (redirect_uri).
@@ -3077,7 +3077,7 @@ components:
                 type: integer
                 description: Maximum number of units supported by this price tier.
     Product:
-      description: Product representation in OMNA
+      description: Product representation in CenitIO eCommerce
       type: object
       properties:
         id:
@@ -3456,7 +3456,7 @@ components:
             updated_at:
               $ref: '#/components/schemas/UpdatedAt'
     Subscription:
-      description: Subscription representation in OMNA
+      description: Subscription representation in CenitIO eCommerce
       type: object
       readOnly: true
       properties:
@@ -3598,7 +3598,7 @@ components:
           type: string
           readOnly: true
     Variant:
-      description: Variant representation in OMNA
+      description: Variant representation in CenitIO eCommerce
       type: object
       properties:
         id:
@@ -3983,7 +3983,7 @@ components:
               type:
                 $ref: '#/components/schemas/ResponseResourceType'
               data:
-                description: Product representations in OMNA
+                description: Product representations in CenitIO eCommerce
                 type: array
                 items:
                   allOf:
@@ -4020,7 +4020,7 @@ components:
               type:
                 $ref: '#/components/schemas/ResponseResourceType'
               data:
-                description: Variant representations in OMNA
+                description: Variant representations in CenitIO eCommerce
                 type: array
                 items:
                   allOf:
@@ -4244,7 +4244,7 @@ components:
               type:
                 $ref: '#/components/schemas/ResponseResourceType'
               data:
-                description: Product representations in OMNA
+                description: Product representations in CenitIO eCommerce
                 type: array
                 items:
                   allOf:
@@ -4336,7 +4336,7 @@ components:
               type:
                 $ref: '#/components/schemas/ResponseResourceType'
               data:
-                description: Stock Item representations in OMNA
+                description: Stock Item representations in CenitIO eCommerce
                 type: array
                 items:
                   $ref: '#/components/schemas/StockItem'
@@ -4372,7 +4372,7 @@ components:
               type:
                 $ref: '#/components/schemas/ResponseResourceType'
               data:
-                description: Stock Location representations in OMNA
+                description: Stock Location representations in CenitIO eCommerce
                 type: array
                 items:
                   $ref: '#/components/schemas/StockLocation'
@@ -4530,7 +4530,7 @@ components:
               type:
                 $ref: '#/components/schemas/ResponseResourceType'
               data:
-                description: Variant representations in OMNA
+                description: Variant representations in CenitIO eCommerce
                 type: array
                 items:
                   allOf:
@@ -4719,7 +4719,7 @@ components:
       in: path
       required: true
       schema:
-        description: Product identifier in OMNA
+        description: Product identifier in CenitIO eCommerce
         type: string
         example: 5d04051125d9852c71016793
     path_remote_product_id:
@@ -4791,7 +4791,7 @@ components:
       in: path
       required: true
       schema:
-        description: Variant identifier in OMNA
+        description: Variant identifier in CenitIO eCommerce
         type: string
         example: 5d04051125d9852c71016793
     path_webhook_id:
@@ -6411,12 +6411,12 @@ components:
   securitySchemes:
     HMac:
       type: apiKey
-      name: X-OMNA-HMac
+      name: X-HMac
       in: header
       description: |
         Keyed-Hash message authentication code.
 
-        > Each service request must include an 'X-OMNA-HMac' header or hmac parameter, which is generated using the tenant's
+        > Each service request must include an 'X-HMac' header or hmac parameter, which is generated using the tenant's
           secret along with service path and the data sent in the request.
 
         ### Examples:
@@ -6434,7 +6434,7 @@ components:
             let msg, queryString, body;
 
             // Add token and timestamp to URL parameters.
-            config.headers.common['X-OMNA-Token'] = current_tenant.token;
+            config.headers.common['X-Token'] = current_tenant.token;
             config.params = Object.assign({}, config.params, { timestamp: Date.now() });
 
             queryString = qs.stringify(config.params, { encode: false });
@@ -6444,7 +6444,7 @@ components:
             msg = config.url + queryString + body;
 
             // Generate the corresponding hmac header using the js-sha256 or similar library.
-            config.headers.common['X-OMNA-HMac'] = sha256.hmac.update(current_tenant.secret, msg).hex();
+            config.headers.common['X-HMac'] = sha256.hmac.update(current_tenant.secret, msg).hex();
 
             return config;
           });
@@ -6495,11 +6495,11 @@ components:
       in: query
     Token:
       type: apiKey
-      name: X-OMNA-Token
+      name: X-Token
       in: header
       description: |
         Tenant authentication token.
 
-        > Each service request must include an **X-OMNA-Token** header or **token** parameter, which is obtained from
+        > Each service request must include an **X-Token** header or **token** parameter, which is obtained from
           the ***sign_in***. When the user registers through the ***sign_in*** action, as a result of the request, the
           information about the token is returned.

@@ -1,6 +1,6 @@
 ## Products
 
-On this page, you will find all the products that were imported or created in OMNA. You would be able to see key product attributes in the table view. In addition, the checkbox on the left will enable you to bulk select products and perform tasks in bulk.
+On this page, you will find all the products that were imported or created in CenitIO eCommerce Application. You would be able to see key product attributes in the table view. In addition, the checkbox on the left will enable you to bulk select products and perform tasks in bulk.
 
 <div align=center><img width="800" src="assets/images/data/products.jpg"/></div>
 

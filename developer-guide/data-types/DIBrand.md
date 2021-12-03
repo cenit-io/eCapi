@@ -27,7 +27,7 @@ This structure is required only when the platform to be integrated have predefin
     },
     "integration": {
       "$ref": {
-        "namespace": "OMNAv2",
+        "namespace": "eCore",
         "name": "Integration"
       },
       "referenced": true
@@ -37,5 +37,5 @@ This structure is required only when the platform to be integrated have predefin
 ```
 
 ### See also
-* [This data type in Cenit-IO](https://cenit.io/json_data_type?f[name][40703][o]=is&f[name][40703][v]=DIBrand&f[namespace][40840][v]=OMNAv2)
+* [This data type in Cenit-IO](https://cenit.io/json_data_type?f[name][40703][o]=is&f[name][40703][v]=DIBrand&f[namespace][40840][v]=eCore)
 * [Others data types](overview?id=DIBrand)

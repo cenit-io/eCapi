@@ -18,5 +18,4 @@ Before beginning development, you should identify and have the following items o
 * URL base of the API of the platform to be integrate.
 * Authentication mechanism. (Basic, oAuth, oAuth2, ...)
 * API documentation of the platform to be integrate.
-* Have access to Cenit-IO and [pull](https://cenit.io/cross_shared_collection/5dc99ad825d985238605db73/pull) 
-  the [OMNAv2](https://cenit.io/cross_shared_collection/5dc99ad825d985238605db73) collection on your tenant.
+* Have access to Cenit-IO and pull the **Integration-Core** collection on your tenant.

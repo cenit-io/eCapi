@@ -20,7 +20,7 @@ the intermediate data structure in OMNA.
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | di_variant | true | OMNAv2::DIVariant \| Ov2Anyone::DIVariant | Contains the record of [DIVariant](../data-types/DIVariant.md) that to be updated |
+> | di_variant | true | eCore::DIVariant \| Ov2Anyone::DIVariant | Contains the record of [DIVariant](../data-types/DIVariant.md) that to be updated |
 > | request_data | true | Hash | Contains the data received in the request to the variant properties update [service](//cenit-io.github.io/eCapi/api-spec/#operation/update_integration_variant_beta_) |
 
 ### See also

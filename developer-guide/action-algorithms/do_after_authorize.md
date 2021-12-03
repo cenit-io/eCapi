@@ -14,7 +14,7 @@ Allows validate the authorization and start some processes after successful auth
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | integration | true | OMNAv2::Integration \| String | Contains the integration record or id |
+> | integration | true | eCore::Integration \| String | Contains the integration record or id |
 > | webhook | true | Setup::PlainWebhook | Contains the [get_integration_metadata](../webhooks/overview?id=get_integration_metadata) webhook |
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 >

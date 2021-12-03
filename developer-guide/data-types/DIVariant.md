@@ -20,7 +20,7 @@ Data structure to store the imported records of product variants for each integr
     },
     "variant_in_omna": {
       "$ref": {
-        "namespace": "OMNAv2",
+        "namespace": "eCore",
         "name": "Variant"
       },
       "referenced": true
@@ -34,14 +34,14 @@ Data structure to store the imported records of product variants for each integr
     },
     "product": {
       "$ref": {
-        "namespace": "OMNAv2",
+        "namespace": "eCore",
         "name": "DIProduct"
       },
       "referenced": true
     },
     "integration": {
       "$ref": {
-        "namespace": "OMNAv2",
+        "namespace": "eCore",
         "name": "Integration"
       },
       "referenced": true
@@ -58,5 +58,5 @@ Data structure to store the imported records of product variants for each integr
 ```
 
 ### See also
-* [This data type in Cenit-IO](https://cenit.io/json_data_type?f[name][40703][o]=is&f[name][40703][v]=DIVariant&f[namespace][40840][v]=OMNAv2)
+* [This data type in Cenit-IO](https://cenit.io/json_data_type?f[name][40703][o]=is&f[name][40703][v]=DIVariant&f[namespace][40840][v]=eCore)
 * [Others data types](overview?id=DIVariant)

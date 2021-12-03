@@ -1,5 +1,5 @@
 
-> <b>Authentication</b> is a simple process where the system could verified the client is she claims to be. All this services are available even if no [OMNAV2 is installed](user-setup) in the user tennant. After this you can access all OMNA API services.
+> <b>Authentication</b> is a simple process where the system could verified the client is she claims to be. All this services are available even if no [Ebanux is installed](user-setup) in the user tennant. After this you can access all CenitIO eCommerce API services.
 
 ## 1. Redirect to authentication page.
 
@@ -23,26 +23,26 @@ The result of this call is a json with the a token, the secret code, and informa
 information will be used in other calls to api rest.
 ```json
 	{
-	"type": "tenent",
-	"data": {
-				"id": "f8sf8f8f78dsf8v8fd87ff86",
-				"name": "main_omna",
-				"token": "rXfNJmFUpsyv3zocVolI",
-				"secret": "42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38",
-				"deactivation": "2019-07-03T15:48:57+00:00",
-				"created_at": "2019-05-02T18:16:34+00:00",
-				"updated_at": "2019-06-03T15:48:57+00:00",
-				"user": {
-							"name": "Alejandro Pérez Pérez",
-							"email": "alepp@example.com",
-							"picture": "http://example.com/users/pictures/alepp.png"
-				}
-			}
+        "type": "tenent",
+        "data": {
+            "id": "f8sf8f8f78dsf8v8fd87ff86",
+            "name": "tenant-sample",
+            "token": "rXfNJmFUpsyv3zocVolI",
+            "secret": "42b22ff1c8dd674c3912dbd2c79cc46682206cd8f2238c4faa8539a82e66bf38",
+            "deactivation": "2019-07-03T15:48:57+00:00",
+            "created_at": "2019-05-02T18:16:34+00:00",
+            "updated_at": "2019-06-03T15:48:57+00:00",
+            "user": {
+                "name": "User Sample",
+                "email": "user_sample@example.com",
+                "picture": "http://example.com/users/pictures/alepp.png"
+            }
+        }
 	}
 ```
 
 ## 3. Sign a request
-After the token is obtained, every request to OMNA API services must be signed in order to authorize the operation. The sign process of every request is described bellow:
+After the token is obtained, every request to CenitIO eCommerce API services must be signed in order to authorize the operation. The sign process of every request is described bellow:
 1. Add token and current datetime as url request parameter.
 2. Take all params (url parameters and body parameters) in a json string representation.
 3. Remove all quotes
@@ -77,9 +77,9 @@ const current_tenant = { token: '....', secret: '...' };
   });
 ```
 
-## 4. OMNA APP.
-   The three steps above explained is simplified if you use the OMNA APP. It offers a direct way to sign the request. First you must go to OMNA APP, login, go to the section of Developers, and in API keys subsection copy the two fields "Secret code" and "Token". After this you could use them in the third step described above without doing the previous two steps.
+## 4. CenitIO eCommerce Application.
+   The three steps above explained is simplified if you use the CenitIO eCommerce Application. It offers a direct way to sign the request. First you must go to CenitIO eCommerce Application, login, go to the section of Developers, and in API keys subsection copy the two fields "Secret code" and "Token". After this you could use them in the third step described above without doing the previous two steps.
    
-   TODO: Image of the OMNA APP with token and secret.
+   TODO: Image of the CenitIO eCommerce Application with token and secret.
 
 

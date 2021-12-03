@@ -1,6 +1,6 @@
 ## Quick Start
 
-Upon complete installation, you would have access to the OMNA dashboard:
+Upon complete installation, you would have access to the CenitIO eCommerce Application dashboard:
 
 <div align=center>
 	<img width="800" src="assets/images/quick-start/dashboard.png"/>
@@ -11,23 +11,23 @@ Upon complete installation, you would have access to the OMNA dashboard:
 We have simplified the onboarding process merchants who onboarded via Shopify:
 - **Step 1** Completed: This step is automatically completed as part of the installation process. You can also explore new integrations that have yet to be installed on your account by clicking [here](https://app.omna.io/available-integrations).
 - **Step 2** Partially Completed: By default, the Shopify integration is already installed as part of the installation process; you can check the status of it by clicking [here](https://app.omna.io/connected-integrations). To install more integrations for marketplaces, visit our [Integration Guide](connected-integrations) for additional details.
-- **Workflow Configuration**: To start using the Shopify integration, OMNA will import your Shopify products, orders and stock locations. Visit [Workflow](https://app.omna.io/workflows) menu to find out more. 
+- **Workflow Configuration**: To start using the Shopify integration, CenitIO eCommerce Application will import your Shopify products, orders and stock locations. Visit [Workflow](https://app.omna.io/workflows) menu to find out more. 
 
-**Subscribing To An OMNA Plan**
+**Subscribing To An CenitIO eCommerce Plan**
 
 We offer several subscription plans to suit your business requirements; please subscribe to any of the plans by visiting the [Subscription Plan](https://app.omna.io/plans) page to enjoy the full functionalities of our solution.
 
 **Connecting With Marketplaces**
 
-Here is the guide to connect your marketplace accounts with OMNA 
+Here is the guide to connect your marketplace accounts with CenitIO eCommerce Application 
 
 ### Install Marketplace Integrations 
 
-OMNA offers integration with multiple marketplaces, e-commerce platforms and sales channels. By default, your OMNA account would only come with Shopify integration installed. You can easily install new integrations, the screenshot below shows the step to install the Lazada integration:
+CenitIO eCommerce offers integration with multiple marketplaces, e-commerce platforms and sales channels. By default, your CenitIO eCommerce account would only come with Shopify integration installed. You can easily install new integrations, the screenshot below shows the step to install the Lazada integration:
     <div align=center>
         <img src="assets/images/user-guide/install_lazada_collection.jpg">
     </div>
-After installing the Lazada integration, the "Integrations/Channels" menu will show Lazada as an installed sales channel. You need to authorise and connect your Lazada merchant account with OMNA before any synchronisation can occur.
+After installing the Lazada integration, the "Integrations/Channels" menu will show Lazada as an installed sales channel. You need to authorise and connect your Lazada merchant account with CenitIO eCommerce before any synchronisation can occur.
     <div align=center>
         <img src="assets/images/user-guide/channels.jpg">
     </div>
@@ -35,7 +35,7 @@ Click on the **+** button on the desired Channel to be connected. A "pop-up" win
     <div align=center>
         <img src="assets/images/user-guide/connecting_lazada_my_channel.jpg">
     </div>
-You will automatically be redirected to the Lazada Open Platform. Enter your Lazada Seller Centre credentials and grant permission to OMNA. This experience might differ between different integrations (e.g. Shopee, Qoo10).
+You will automatically be redirected to the Lazada Open Platform. Enter your Lazada Seller Centre credentials and grant permission to CenitIO eCommerce. This experience might differ between different integrations (e.g. Shopee, Qoo10).
     <div align=center>
         <img src="assets/images/user-guide/lazada_authorization_request.jpg">
     </div>
@@ -54,7 +54,7 @@ Select "Import products"
     <div align=center>
         <img src="assets/images/user-guide/import_products.jpg">
     </div>
-A task will be created to import the products into your OMNA account. You can monitor the process under the "Tasks" menu page.
+A task will be created to import the products into your CenitIO eCommerce account. You can monitor the process under the "Tasks" menu page.
     <div align=center>
         <img src="assets/images/user-guide/import_products_task.jpg">
     </div>

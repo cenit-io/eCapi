@@ -11,7 +11,7 @@ Otherwise it will be put at the end of the execution queue created for task of t
 
 > **Name:** do_set_asynchronous_task
 > 
-> **Namespace:** OMNAv2
+> **Namespace:** eCore
 >
 > **Parameters:**
 > 
@@ -24,5 +24,5 @@ Otherwise it will be put at the end of the execution queue created for task of t
 > **Returns:** The task found or created.
 
 ### See also
-* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_set_asynchronous_task&f[namespace][40840][v]=OMNAv2)
+* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_set_asynchronous_task&f[namespace][40840][v]=eCore)
 * [Others helper algorithms](overview?id=do_set_asynchronous_task)

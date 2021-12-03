@@ -1,7 +1,7 @@
 **Channels:**
 
 # Channels
-This section is where OMNA is linked with the sales channels.
+This section is where you link to sales channels.
 
 ## Link a Channel
 

@@ -13,14 +13,14 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     },
     "x-logo": {
-      "url": "omna_logo.png"
+      "url": "logo.png"
     },
-    "description": "# Introduction\n\nThe OMNA Commerce API is a simple connector API to integrate ecommerce sales channels, such us\nmarketplaces and ecommerce platforms.\n\nAn easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.\n\nThe list of available integrations include: Amazon Marketplace, Backmarket, Mercado Libre, Lazada, Qoo10, Shopee, Shopify.\n\nThese integrations are related with 34 Countries: Argentina, Australia, Bolivia, Brasil, Canada, Chile, Colombia, Costa Rica, Dominicana, Ecuador, France, Germany, Guatemala, Honduras, India, Indonesia, Indonesia, Japan, Malaysia, Mexico, Nicaragua, Panama, Paraguay, Peru, Philippines, Salvador, Singapore, Spain, Thailand, Turkey, United Kingdom, Unit Arab Emirates, Uruguay, United States, Venezuela, Vietnam.\n\nIt is built on top of an integration platform https://cenit.io\n\nThis API is for individual retailers, SaaS services, or any business that needs to handle multiple commerce integrations.\n\n* It is built over REST services on HTTPS.\n\n* It has predictable resource URLs.\n\n* It returns HTTP response codes to indicate errors.\n\n* It accepts and returns JSON in the HTTP body.\n\n* You can use your favorite HTTP/REST library for your programming language to use OMNA Commerce API.\n\n  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)\n"
+    "description": "# Introduction\n\nThe CenitIO eCommerce API is a simple connector API to integrate ecommerce sales channels, such us\nmarketplaces and ecommerce platforms.\n\nAn easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.\n\nThe list of available integrations include: Amazon Marketplace, Backmarket, Mercado Libre, Lazada, Qoo10, Shopee, Shopify.\n\nThese integrations are related with 34 Countries: Argentina, Australia, Bolivia, Brasil, Canada, Chile, Colombia, Costa Rica, Dominicana, Ecuador, France, Germany, Guatemala, Honduras, India, Indonesia, Indonesia, Japan, Malaysia, Mexico, Nicaragua, Panama, Paraguay, Peru, Philippines, Salvador, Singapore, Spain, Thailand, Turkey, United Kingdom, Unit Arab Emirates, Uruguay, United States, Venezuela, Vietnam.\n\nIt is built on top of an integration platform https://cenit.io\n\nThis API is for individual retailers, SaaS services, or any business that needs to handle multiple commerce integrations.\n\n* It is built over REST services on HTTPS.\n\n* It has predictable resource URLs.\n\n* It returns HTTP response codes to indicate errors.\n\n* It accepts and returns JSON in the HTTP body.\n\n* You can use your favorite HTTP/REST library for your programming language to use CenitIO eCommerce API.\n\n  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)\n"
   },
   "tags": [
     {
       "name": "Available Integrations",
-      "description": "This term refers to the set of resources and services that can be included in OMNA for the expansion of\nits scope and integration with other platforms.\n\n### Available Integrations:\n\n- **OMNAv2**: It is the main collection and the basis for working at OMNA Commerce LTD.\n- **OMNAv2-Lazada**: It includes support for the integration of OMNA with Lazada's marketplaces.\n- **OMNAv2-Shopee**: It includes support for the integration of OMNA with Shopee's marketplaces.\n- **OMNAv2-Shopify**: It includes support for the integration of OMNA with Shopify's marketplaces.\n\n### Future Integrations:\n\n- **OMNAv2-Qoo10**: It includes support for the integration of OMNA with Qoo10's marketplaces.\n- **OMNAv2-AmazonMWS**: It includes support for the integration of OMNA with AmazonMWS's marketplaces.\n- **OMNAv2-MercadoLible**: It includes support for the integration of OMNA with MercadoLible's marketplaces.\n- **OMNAv2-Backmarket**: It includes support for the integration of OMNA with Backmarket's marketplaces.\n- **OMNAv2-Shipstation**: It includes support for the integration of OMNA with Shipstation's shipping platform for ecommerce fulfillment.\n"
+      "description": "This term refers to the set of resources and services that can be included in CenitIO eCommerce for the expansion of\nits scope and integration with other platforms.\n\n### Available Integrations:\n\n- **Integration-Core**: It is the main collection and the basis for working at CenitIO eCommerce LTD.\n- **Integration-Lazada**: It includes support for the integration of CenitIO eCommerce with Lazada's marketplaces.\n- **Integration-Shopee**: It includes support for the integration of CenitIO eCommerce with Shopee's marketplaces.\n- **Integration-Shopify**: It includes support for the integration of CenitIO eCommerce with Shopify's marketplaces.\n\n### Future Integrations:\n\n- **Integration-Qoo10**: It includes support for the integration of CenitIO eCommerce with Qoo10's marketplaces.\n- **Integration-AmazonMWS**: It includes support for the integration of CenitIO eCommerce with AmazonMWS's marketplaces.\n- **Integration-MercadoLible**: It includes support for the integration of CenitIO eCommerce with MercadoLible's marketplaces.\n- **Integration-Backmarket**: It includes support for the integration of CenitIO eCommerce with Backmarket's marketplaces.\n- **Integration-Shipstation**: It includes support for the integration of CenitIO eCommerce with Shipstation's shipping platform for ecommerce fulfillment.\n"
     },
     {
       "name": "Connected Integrations",
@@ -92,7 +92,7 @@
     },
     {
       "name": "Webhooks",
-      "description": "A webhook is a hook through which a notification is sent to a URL of the user's choice when a certain event occurs.\nThey allow to receive real-time HTTP notifications of changes to specific objects. Webhooks facilitate syncing\nand relaying data between two endpoints.\n\n### Anatomy of a webhook\n\nAfter you configure a webhook subscription, the events that you specified will trigger a webhook notification\neach time they occur. This notification contains a JSON payload and and HTTP headers that provide context.\nFor example, the order/updated webhook includes the following headers:\n\n- **X-Tenant-Token**: 5cfe690b25d9854b3b02241b,\n- **X-Topic**: order/updated,\n- **X-API-Version**: v1\n- **X-HMac-Sha256**: d24c9128362b0518f9ca2bf767b4a60a59aefe0f63ebeb7d47ec594442fc7a8f\n\nSome HTTP headers are particularly useful for your app:\n\n- **X-Topic** represents the type of object and the event that occurred.\n- **X-HMac-Sha256** and **X-Tenant-Token** are used to verify webhooks.\n- **X-API-Version** is used to confirm what version of the API used to serialize the webhook event payload.\n\n### Verifying webhooks\n\nWebhooks created through the API are verified by calculating a digital signature. Each webhook request includes\n**X-HMac-Sha256** header, which is generated using the tenant shared secret along with the data sent in the request.\n\nTo verify that the request came from OMNA, compute the **HMAC** digest according to the following algorithm and\ncompare it to the value in the **X-HMac-Sha256** header. If they match, then you can be sure that the webhook was\nsent from OMNA.\n\n**The following Ruby example apply to Sinatra or RoR web frameworks to verify a webhook request:**\n\n```Ruby\n  require 'openssl'\n\n  request.body.rewind\n  body = request.body.read\n\n  secret = '...' # Get this from tenant with equal to **X-Tenant-Token** header.\n\n  hmac1 = request.headers['X-HMac-Sha256']\n  hmac2 = OpenSSL::HMAC.hexdigest('sha256', secret, body)\n\n  raise 'The request is not valid...' if hmac1 != hmac2\n```\n"
+      "description": "A webhook is a hook through which a notification is sent to a URL of the user's choice when a certain event occurs.\nThey allow to receive real-time HTTP notifications of changes to specific objects. Webhooks facilitate syncing\nand relaying data between two endpoints.\n\n### Anatomy of a webhook\n\nAfter you configure a webhook subscription, the events that you specified will trigger a webhook notification\neach time they occur. This notification contains a JSON payload and and HTTP headers that provide context.\nFor example, the order/updated webhook includes the following headers:\n\n- **X-Tenant-Token**: 5cfe690b25d9854b3b02241b,\n- **X-Topic**: order/updated,\n- **X-API-Version**: v1\n- **X-HMac-Sha256**: d24c9128362b0518f9ca2bf767b4a60a59aefe0f63ebeb7d47ec594442fc7a8f\n\nSome HTTP headers are particularly useful for your app:\n\n- **X-Topic** represents the type of object and the event that occurred.\n- **X-HMac-Sha256** and **X-Tenant-Token** are used to verify webhooks.\n- **X-API-Version** is used to confirm what version of the API used to serialize the webhook event payload.\n\n### Verifying webhooks\n\nWebhooks created through the API are verified by calculating a digital signature. Each webhook request includes\n**X-HMac-Sha256** header, which is generated using the tenant shared secret along with the data sent in the request.\n\nTo verify that the request came from CenitIO eCommerce, compute the **HMAC** digest according to the following algorithm and\ncompare it to the value in the **X-HMac-Sha256** header. If they match, then you can be sure that the webhook was\nsent from CenitIO eCommerce.\n\n**The following Ruby example apply to Sinatra or RoR web frameworks to verify a webhook request:**\n\n```Ruby\n  require 'openssl'\n\n  request.body.rewind\n  body = request.body.read\n\n  secret = '...' # Get this from tenant with equal to **X-Tenant-Token** header.\n\n  hmac1 = request.headers['X-HMac-Sha256']\n  hmac2 = OpenSSL::HMAC.hexdigest('sha256', secret, body)\n\n  raise 'The request is not valid...' if hmac1 != hmac2\n```\n"
     },
     {
       "name": "Users",
@@ -2967,7 +2967,7 @@
         "operationId": "sign_in",
         "summary": "Sign in",
         "security": [],
-        "description": "Authenticate in OMNA to obtain the **authentication code** with which you can obtain\nthe token and the tenant's secret from the authenticated user.\n\n> The **authentication code** will be sent to the given uri for the redirect (redirect_uri).\n>\n> This **authentication code** will only be valid once and will expire in 10 minutes.\n>\n> Use this **authentication code** to obtain the tenant's token and secret through the\n  '[Get Access Token](#operation/get_access_token_async_)' service.\n",
+        "description": "Authenticate in CenitIO eCommerce Application to obtain the **authentication code** with which you can obtain\nthe token and the tenant's secret from the authenticated user.\n\n> The **authentication code** will be sent to the given uri for the redirect (redirect_uri).\n>\n> This **authentication code** will only be valid once and will expire in 10 minutes.\n>\n> Use this **authentication code** to obtain the tenant's token and secret through the\n  '[Get Access Token](#operation/get_access_token_async_)' service.\n",
         "responses": {
           "303": {
             "$ref": "#/components/responses/sign_in"
@@ -4415,7 +4415,7 @@
         }
       },
       "Product": {
-        "description": "Product representation in OMNA",
+        "description": "Product representation in CenitIO eCommerce",
         "type": "object",
         "properties": {
           "id": {
@@ -4901,7 +4901,7 @@
         ]
       },
       "Subscription": {
-        "description": "Subscription representation in OMNA",
+        "description": "Subscription representation in CenitIO eCommerce",
         "type": "object",
         "readOnly": true,
         "properties": {
@@ -5096,7 +5096,7 @@
         }
       },
       "Variant": {
-        "description": "Variant representation in OMNA",
+        "description": "Variant representation in CenitIO eCommerce",
         "type": "object",
         "properties": {
           "id": {
@@ -5698,7 +5698,7 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "description": "Product representations in OMNA",
+                  "description": "Product representations in CenitIO eCommerce",
                   "type": "array",
                   "items": {
                     "allOf": [
@@ -5765,7 +5765,7 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "description": "Variant representations in OMNA",
+                  "description": "Variant representations in CenitIO eCommerce",
                   "type": "array",
                   "items": {
                     "allOf": [
@@ -6133,7 +6133,7 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "description": "Product representations in OMNA",
+                  "description": "Product representations in CenitIO eCommerce",
                   "type": "array",
                   "items": {
                     "allOf": [
@@ -6269,7 +6269,7 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "description": "Stock Item representations in OMNA",
+                  "description": "Stock Item representations in CenitIO eCommerce",
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/StockItem"
@@ -6326,7 +6326,7 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "description": "Stock Location representations in OMNA",
+                  "description": "Stock Location representations in CenitIO eCommerce",
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/StockLocation"
@@ -6586,7 +6586,7 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "description": "Variant representations in OMNA",
+                  "description": "Variant representations in CenitIO eCommerce",
                   "type": "array",
                   "items": {
                     "allOf": [
@@ -6860,7 +6860,7 @@
         "in": "path",
         "required": true,
         "schema": {
-          "description": "Product identifier in OMNA",
+          "description": "Product identifier in CenitIO eCommerce",
           "type": "string",
           "example": "5d04051125d9852c71016793"
         }
@@ -6940,7 +6940,7 @@
         "in": "path",
         "required": true,
         "schema": {
-          "description": "Variant identifier in OMNA",
+          "description": "Variant identifier in CenitIO eCommerce",
           "type": "string",
           "example": "5d04051125d9852c71016793"
         }
@@ -9492,9 +9492,9 @@
     "securitySchemes": {
       "HMac": {
         "type": "apiKey",
-        "name": "X-OMNA-HMac",
+        "name": "X-HMac",
         "in": "header",
-        "description": "Keyed-Hash message authentication code.\n\n> Each service request must include an 'X-OMNA-HMac' header or hmac parameter, which is generated using the tenant's\n  secret along with service path and the data sent in the request.\n\n### Examples:\n\n#### JavaScript\n```JavaScript\n  const current_tenant = { token: '....', secret: '...' };\n\n  axios.defaults.baseURL = 'https://cenit.io/app/ecapi-v1/';\n  axios.defaults.headers.post['Content-Type'] = 'application/json';\n  axios.defaults.headers.put['Content-Type'] = 'application/json';\n\n  // Interceptors to sign any request.\n  axios.interceptors.request.use((config) => {\n    let msg, queryString, body;\n\n    // Add token and timestamp to URL parameters.\n    config.headers.common['X-OMNA-Token'] = current_tenant.token;\n    config.params = Object.assign({}, config.params, { timestamp: Date.now() });\n\n    queryString = qs.stringify(config.params, { encode: false });\n    body = config.data ? JSON.stringify(config.data) : '';\n\n    // Join the service path, queryString and body\n    msg = config.url + queryString + body;\n\n    // Generate the corresponding hmac header using the js-sha256 or similar library.\n    config.headers.common['X-OMNA-HMac'] = sha256.hmac.update(current_tenant.secret, msg).hex();\n\n    return config;\n  });\n```\n"
+        "description": "Keyed-Hash message authentication code.\n\n> Each service request must include an 'X-HMac' header or hmac parameter, which is generated using the tenant's\n  secret along with service path and the data sent in the request.\n\n### Examples:\n\n#### JavaScript\n```JavaScript\n  const current_tenant = { token: '....', secret: '...' };\n\n  axios.defaults.baseURL = 'https://cenit.io/app/ecapi-v1/';\n  axios.defaults.headers.post['Content-Type'] = 'application/json';\n  axios.defaults.headers.put['Content-Type'] = 'application/json';\n\n  // Interceptors to sign any request.\n  axios.interceptors.request.use((config) => {\n    let msg, queryString, body;\n\n    // Add token and timestamp to URL parameters.\n    config.headers.common['X-Token'] = current_tenant.token;\n    config.params = Object.assign({}, config.params, { timestamp: Date.now() });\n\n    queryString = qs.stringify(config.params, { encode: false });\n    body = config.data ? JSON.stringify(config.data) : '';\n\n    // Join the service path, queryString and body\n    msg = config.url + queryString + body;\n\n    // Generate the corresponding hmac header using the js-sha256 or similar library.\n    config.headers.common['X-HMac'] = sha256.hmac.update(current_tenant.secret, msg).hex();\n\n    return config;\n  });\n```\n"
       },
       "OAuth1": {
         "type": "apiKey",
@@ -9510,9 +9510,9 @@
       },
       "Token": {
         "type": "apiKey",
-        "name": "X-OMNA-Token",
+        "name": "X-Token",
         "in": "header",
-        "description": "Tenant authentication token.\n\n> Each service request must include an **X-OMNA-Token** header or **token** parameter, which is obtained from\n  the ***sign_in***. When the user registers through the ***sign_in*** action, as a result of the request, the\n  information about the token is returned.\n"
+        "description": "Tenant authentication token.\n\n> Each service request must include an **X-Token** header or **token** parameter, which is obtained from\n  the ***sign_in***. When the user registers through the ***sign_in*** action, as a result of the request, the\n  information about the token is returned.\n"
       }
     }
   }

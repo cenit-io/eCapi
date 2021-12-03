@@ -8,7 +8,7 @@ Create a system notification.
 
 > **Name:** do_notify
 > 
-> **Namespace:** OMNAv2
+> **Namespace:** eCore
 >
 > **Parameters:**
 > 
@@ -20,5 +20,5 @@ Create a system notification.
 > | context | false | Setup::Tenant \| Setup::AlgorithmExecution | Contains the context in which the notification will be sent |
 
 ### See also
-* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_notify&f[namespace][40840][v]=OMNAv2)
+* [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_notify&f[namespace][40840][v]=eCore)
 * [Others helper algorithms](overview?id=do_notify)

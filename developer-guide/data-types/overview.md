@@ -2,7 +2,7 @@
 
 These data types store intermediate data imported or exported from or to the remote platform to be integrated, respectively.
 
-You can see their definitions in [Cenit-IO](https://cenit.io/json_data_type?f[namespace][24075][v]=OMNAv2&f[name][24160][o]=like&f[name][24160][v]=ID).
+You can see their definitions in [Cenit-IO](https://cenit.io/json_data_type?f[namespace][24075][v]=eCore&f[name][24160][o]=like&f[name][24160][v]=ID).
 
 These data types are the ones that will be used by default unless you decide to create an identical representation in 
 the [namespaces](../namespaces.md) corresponding to the integration.
@@ -83,7 +83,7 @@ the [namespaces](../namespaces.md) corresponding to the integration.
 > * Action algorithm [do_get_products](../action-algorithms/do_get_products.md).
 > * Parser algorithm [parse_from_api_response_2_di_product](../parser-algorithms/parse_from_api_response_2_di_product.md).
 > * Parser algorithm [parse_from_api_request_2_di_product](../parser-algorithms/parse_from_api_request_2_di_product.md).
-> * Parser algorithm [parse_from_omna_2_di_product](../parser-algorithms/parse_from_omna_2_di_product.md).
+> * Parser algorithm [parse_from_core_2_di_product](../parser-algorithms/parse_from_core_2_di_product.md).
 > 
 >
 > [[see more details]](DIProduct ':class=see-more')

@@ -1,9 +1,9 @@
-> Products are the core concept of all e-commerce sites. In the omna api, as many others e-commerce system has 3 other concept related with the product:
-Category, Brand and Variants, also the product could belong to many other e-commerce integrations. Currently the main source of products are the e-commerce integration, and the creation, update, removal and link through OMNA API are in beta state.
+> Products are the core concept of all e-commerce sites. In the CenitIO eCommerce API, as many others e-commerce system has 3 other concept related with the product:
+Category, Brand and Variants, also the product could belong to many other e-commerce integrations. Currently the main source of products are the e-commerce integration, and the creation, update, removal and link through CenitIO eCommerce API are in beta state.
 
 ## 1. Basic operations
 
-> This basic operations are very simple. This operations work directly with the entity on OMNA API. Do not affect entities on integrated e-commerce.
+> This basic operations are very simple. This operations work directly with the entity on CenitIO eCommerce API. Do not affect entities on integrated e-commerce.
 
 >[Create](//cenit-io.github.io/eCapi/api-spec/#operation/create_product_beta_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> POST </div> /products </br> </br> 
 
@@ -69,7 +69,7 @@ It allows to get a paginated list of variants of some integration, it has a lot 
 >[Import product updates](//cenit-io.github.io/eCapi/api-spec/#operation/#import_products_async_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products/import
 
 ## 6. Brands and Categories.
-> Brands and categories are e-commerce concepts wich help to group products. OMNA offer api services to handle this concepts.
+> Brands and categories are e-commerce concepts wich help to group products. CenitIO eCommerce Application offer api services to handle this concepts.
 
 >[Retrieve a brand](//cenit-io.github.io/eCapi/api-spec/#operation/#get_brand) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/brands/<b>{brand_id}</b>.
 

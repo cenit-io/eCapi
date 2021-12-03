@@ -2,7 +2,7 @@
 
 # Connected Integrations
 
-In the area of connected integrations is where all the channels linked to OMNA are found where they may or may not be authorized. Each integration has a set of options that will allow its control.
+In the area of connected integrations is where all the channels linked to CenitIO eCommerce are found where they may or may not be authorized. Each integration has a set of options that will allow its control.
 <div align=center>
     <img width="800" src="assets/images/integrations/connected-integrations.jpg"/>
 </div>
@@ -42,7 +42,7 @@ After the authorization process is complete, you will see the added integration 
 </div>
 
 ### Import products
-This option triggers a task which imports all updated products from the integration to OMNA application, in order to synchronize.
+This option triggers a task which imports all updated products from the integration to CenitIO eCommerce Application, in order to synchronize.
 <div align=center>
     <img width="800" src="assets/images/integrations/import-products.jpg"/>
 </div>
@@ -52,7 +52,7 @@ This option triggers a task which imports all updated products from the integrat
 </div>
 
 ### Import orders
-Triggers a task which imports all updated orders from the integration to OMNA application.
+Triggers a task which imports all updated orders from the integration to CenitIO eCommerce Application.
 <div align=center>
     <img width="800" src="assets/images/integrations/import-orders.jpg"/>
 </div>
@@ -62,7 +62,7 @@ Triggers a task which imports all updated orders from the integration to OMNA ap
 </div>
 
 ### Import brands
-Triggers a task which imports all updated brands from the integration to OMNA application.
+Triggers a task which imports all updated brands from the integration to CenitIO eCommerce Application.
 <div align=center>
     <img width="800" src="assets/images/integrations/import-brands.jpg"/>
 </div>
@@ -72,7 +72,7 @@ Triggers a task which imports all updated brands from the integration to OMNA ap
 </div>
 
 ### Import categories
-Triggers a task which imports all updated categories from the integration to OMNA application.
+Triggers a task which imports all updated categories from the integration to CenitIO eCommerce Application.
 <div align=center>
     <img width="800" src="assets/images/integrations/import-categories.jpg"/>
 </div>
@@ -82,14 +82,14 @@ Triggers a task which imports all updated categories from the integration to OMN
 </div>
 
 ### View categories
-Shows the categories loaded by the OMNA application and the update date and time.
+Shows the categories loaded by the CenitIO eCommerce Application and the update date and time.
 
 ### View brands
-Shows the brands loaded by the OMNA application and the update date and time.
+Shows the brands loaded by the CenitIO eCommerce Application and the update date and time.
 
 ### Authorize
-In order for OMNA to work with the connected integration, you have to authorize it on the selected channel. This option will send you to sign in to your account of the channel of your choice.
+In order for CenitIO eCommerce to work with the connected integration, you have to authorize it on the selected channel. This option will send you to sign in to your account of the channel of your choice.
 
 ### Unauthorize
-This option revokes OMNA authorization on the connected integration.
+This option revokes CenitIO eCommerce authorization on the connected integration.
 

@@ -11,24 +11,24 @@ Go to the authentication page and complete the process successfully.
 	</div>
 Once successfully authenticated, you will be redirected to the application's home page.
 
-## 2. Install omna collection
-On the left side menu go to the option Integrations / Available integrations and install the omna collection, as shown in the image below.
+## 2. Install core collection
+On the left side menu go to the option Integrations / Available integrations and install the core collection, as shown in the image below.
     <div align=center>
-        <img src="assets/images/user-guide/install_omna_collection.jpg">
+        <img src="assets/images/user-guide/install_collection.jpg">
     </div>
 
-Once the installation of the omna collection is complete, the status of the collection will be updated to "installed" as shown in the image.
+Once the installation of the core collection is complete, the status of the collection will be updated to "installed" as shown in the image.
     <div align=center>
         <img src="assets/images/user-guide/omna_collection_installed.jpg">
     </div>
 
 ## 3. Install integrations collections 
 
-After installing the omna collection, proceed to install the collections of the marketplace in which you want to operate. The following example shows how to install the collection for Lazada marketplace.
+After installing the core collection, proceed to install the collections of the marketplace in which you want to operate. The following example shows how to install the collection for Lazada marketplace.
     <div align=center>
         <img src="assets/images/user-guide/install_lazada_collection.jpg">
     </div>
-After installing the collection for Lazada, the Integrations / Channels menu will shows Lazada's sales channels that can be linked omna, these channels must be connected and authorized so that the application can work with them.
+After installing the collection for Lazada, the Integrations / Channels menu will shows Lazada's sales channels that can be linked, these channels must be connected and authorized so that the application can work with them.
     <div align=center>
         <img src="assets/images/user-guide/channels.jpg">
     </div>

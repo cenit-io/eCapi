@@ -1,4 +1,4 @@
-get:
+post:
   tags:
     - Flows
   operationId: start_multiple_flows_async

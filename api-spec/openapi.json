@@ -504,7 +504,7 @@
       }
     },
     "/flows/start": {
-      "get": {
+      "post": {
         "tags": [
           "Flows"
         ],

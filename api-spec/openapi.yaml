@@ -425,7 +425,7 @@ paths:
         '404':
           $ref: '#/components/responses/flow_not_found'
   /flows/start:
-    get:
+    post:
       tags:
         - Flows
       operationId: start_multiple_flows_async

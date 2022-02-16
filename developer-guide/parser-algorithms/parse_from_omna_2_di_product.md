@@ -2,8 +2,8 @@
  
 ## parse_from_core_2_di_product
 
-Transforms and returns the data of a product from its general data structure of products in OMNA to be stored 
-in the intermediate data structure in OMNA.
+Transforms and returns the data of a product from its general data structure of products in core to be stored 
+in the intermediate data structure in core.
 
 **Resources related with this parser:**
 
@@ -14,7 +14,7 @@ in the intermediate data structure in OMNA.
 
 > **Name:** parse_from_core_2_di_product
 > 
-> **Namespace:** Ov2Anyone
+> **Namespace:** eCwAnyone
 >
 > **Parameters:**
 > 
@@ -27,5 +27,5 @@ in the intermediate data structure in OMNA.
 > **Returns:** Tha hash with the data to be store in [DIProduct](../data-types/DIProduct.md).
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_core_2_di_product&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_core_2_di_product&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=eCw)
 * [Others parser algorithms](overview?id=parse_from_core_2_di_product)

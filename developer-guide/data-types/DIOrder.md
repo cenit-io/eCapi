@@ -39,7 +39,7 @@ Data structure to store the imported records of orders for each integration chan
       },
       "referenced": true
     },
-    "order_in_omna": {
+    "order_in_core": {
       "$ref": {
         "namespace": "eCore",
         "name": "Order"

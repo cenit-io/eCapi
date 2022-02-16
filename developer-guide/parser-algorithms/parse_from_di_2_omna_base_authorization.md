@@ -14,7 +14,7 @@ associated with the integration.
 
 > **Name:** parse_from_di_2_core_base_authorization
 > 
-> **Namespace:** Ov2Anyone
+> **Namespace:** eCwAnyone
 >
 > **Parameters:**
 > 
@@ -26,5 +26,5 @@ associated with the integration.
 > **Returns:** A hash with the custom data, usually the template parameters, that will be used to create the authorization associated with the integration.
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_di_2_core_base_authorization&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_di_2_core_base_authorization&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=eCw)
 * [Others parser algorithms](overview?id=parse_from_di_2_core_base_authorization)

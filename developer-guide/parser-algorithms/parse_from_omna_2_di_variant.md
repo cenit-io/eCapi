@@ -2,8 +2,8 @@
  
 ## parse_from_core_2_di_variant
 
-Transforms and returns the data of a product variant from its general data structure of variants in OMNA to be stored 
-in the intermediate data structure in OMNA.
+Transforms and returns the data of a product variant from its general data structure of variants in core to be stored 
+in the intermediate data structure in core.
 
 **Resources related with this parser:**
 
@@ -14,7 +14,7 @@ in the intermediate data structure in OMNA.
 
 > **Name:** parse_from_core_2_di_variant
 > 
-> **Namespace:** Ov2Anyone
+> **Namespace:** eCwAnyone
 >
 > **Parameters:**
 > 
@@ -26,5 +26,5 @@ in the intermediate data structure in OMNA.
 > **Returns:** Tha hash with the data to be store in [DIVariant](../data-types/DIVariant.md).
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_core_2_di_variant&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_core_2_di_variant&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=eCw)
 * [Others parser algorithms](overview?id=parse_from_core_2_di_variant)

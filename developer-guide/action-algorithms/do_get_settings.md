@@ -8,10 +8,10 @@ Returns the available integration settings with its available channels.
 
 > **Name:** do_get_settings
 > 
-> **Namespace:** Ov2Anyone
+> **Namespace:** eCwAnyone
 >
 > **Returns:** A list of the available integration settings with its available channels.
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_get_settings&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_get_settings&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=eCw)
 * [Others action algorithms](overview?id=do_get_settings)

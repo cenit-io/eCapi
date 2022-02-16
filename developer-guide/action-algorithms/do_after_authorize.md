@@ -8,7 +8,7 @@ Allows validate the authorization and start some processes after successful auth
 
 > **Name:** do_after_authorize
 > 
-> **Namespace:** Ov2Anyone
+> **Namespace:** eCwAnyone
 >
 > **Parameters:**
 > 
@@ -24,5 +24,5 @@ should be created a algorithm with the same name and the prefix **do_import_**.
 (Ex: [do_import_logistics](do_import_logistics.md)).
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_after_authorize&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_after_authorize&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=eCw)
 * [Others action algorithms](overview?id=do_after_authorize)

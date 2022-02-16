@@ -1,5 +1,5 @@
 - [App Guide](/user-guide/quick-start-ofs)
-<!-- - [Developer Guide](/developer-guide/overview) -->
+- [Developer Guide](/developer-guide/overview)
 - **Links**
 - [API-Specification](//cenit-io.github.io/eCapi/api-spec/)
 - **Utils**

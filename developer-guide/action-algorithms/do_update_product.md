@@ -8,7 +8,7 @@ Allows submitting a request to the remote integration platform to update a produ
 
 > **Name:** do_update_product
 > 
-> **Namespace:** Ov2Anyone
+> **Namespace:** eCwAnyone
 >
 > **Parameters:**
 > 
@@ -22,5 +22,5 @@ Allows submitting a request to the remote integration platform to update a produ
 > **Returns:** A hash with the data of the product updated on the remote platform.
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_update_product&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_update_product&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=eCw)
 * [Others action algorithms](overview?id=do_update_product)

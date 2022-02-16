@@ -2,7 +2,7 @@
  
 ## parse_from_di_2_api_request_product
 
-Transforms and returns the data of a product from its intermediate data structure in OMNA to be send the
+Transforms and returns the data of a product from its intermediate data structure in core to be send the
 the remote platform to be integrated.
 
 **Resources related with this parser:**
@@ -17,18 +17,18 @@ the remote platform to be integrated.
 
 > **Name:** parse_from_di_2_api_request_product
 > 
-> **Namespace:** Ov2Anyone
+> **Namespace:** eCwAnyone
 >
 > **Parameters:**
 > 
 > | Name | Required | Type | Description |
 > | ---- | -------- | ---- | ----------- |
-> | source | true | Hash | Contains the data of the product to be transformed. In the field di_variants_data you will find the data of its updated variants in OMNA. |
+> | source | true | Hash | Contains the data of the product to be transformed. In the field di_variants_data you will find the data of its updated variants in core. |
 > | integration | true | eCore::Integration | Contains the integration record |
 > | is_new_target | true | Boolean | Contains true if target will be a new record |
 >
 > **Returns:** A hash with transformed data to be send to the remote platform to be integrated.
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_di_2_api_request_product&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_di_2_api_request_product&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=eCw)
 * [Others parser algorithms](overview?id=parse_from_di_2_api_request_product)

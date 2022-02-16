@@ -110,9 +110,9 @@ You can see this algorithms by entering [here](https://cenit.io/algorithm?f[name
 
 ## do_require_product
 
-> Search and returns a product by its id in omna or by its id in the remote platform to be integrate.
+> Search and returns a product by its id in core or by its id in the remote platform to be integrate.
 > 
-> If only the product id (1st parameter) is provided, then the search is performed in the product registers of OMNA.
+> If only the product id (1st parameter) is provided, then the search is performed in the product registers of core namespace.
 > [ [See in Cenit-IO](https://cenit.io/json_data_type?f[namespace][24075][v]=eCore&f[name][24160][o]=is&f[name][24160][v]=Product) ]
 > 
 > If the 2 parameters are provided, they are assumed to be (remote_product_id and integration_id) and the search is 
@@ -125,9 +125,9 @@ You can see this algorithms by entering [here](https://cenit.io/algorithm?f[name
 
 ## do_require_variant
 
-> Search and returns a product variant by its id in omna or by its id in the remote platform to be integrate.
+> Search and returns a product variant by its id in core or by its id in the remote platform to be integrate.
 > 
-> If only the product variant id (1st parameter) is provided, then the search is performed in the product variant registers of OMNA.
+> If only the product variant id (1st parameter) is provided, then the search is performed in the product variant registers of core namespace.
 > [ [See in Cenit-IO](https://cenit.io/json_data_type?f[namespace][24075][v]=eCore&f[name][24160][o]=is&f[name][24160][v]=Variant) ]
 > 
 > If the 2 parameters are provided, they are assumed to be (remote_variant_id and integration_id) and the search is 

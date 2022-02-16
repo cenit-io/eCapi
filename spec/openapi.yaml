@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: v1
-  title: eCommerce API
+  title: Edge-Connection-API
   termsOfService: 'https://cenit.io/terms'
   contact:
     email: support@cenit.io
@@ -14,7 +14,7 @@ info:
   description: |
     # Introduction
 
-    The CenitIO eCommerce API is a simple connector API to integrate ecommerce sales channels, such us
+    The CenitIO Edge-Connection-API is a simple connector API to integrate foreings platforms, such us
     marketplaces and ecommerce platforms.
 
     An easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.
@@ -35,7 +35,7 @@ info:
 
     * It accepts and returns JSON in the HTTP body.
 
-    * You can use your favorite HTTP/REST library for your programming language to use CenitIO eCommerce API.
+    * You can use your favorite HTTP/REST library for your programming language to use CenitIO Edge-Connection-API.
 
       [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)
 

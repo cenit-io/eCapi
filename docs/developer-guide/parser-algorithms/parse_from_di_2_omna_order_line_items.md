@@ -2,8 +2,8 @@
  
 ## parse_from_di_2_core_order_line_items
 
-Transforms and returns the data of the order items from its intermediate data structure in OMNA to be stored 
-in the general data structure of orders in OMNA.
+Transforms and returns the data of the order items from its intermediate data structure in core to be stored 
+in the general data structure of orders in core.
 
 **Resources related with this parser:**
 
@@ -14,7 +14,7 @@ in the general data structure of orders in OMNA.
 
 > **Name:** parse_from_di_2_core_order_line_items
 > 
-> **Namespace:** Ov2Anyone
+> **Namespace:** eCwAnyone
 >
 > **Parameters:**
 > 
@@ -25,5 +25,5 @@ in the general data structure of orders in OMNA.
 > **Returns:** A List of hash with the transformed order items.
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_di_2_core_order_line_items&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=parse_from_di_2_core_order_line_items&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=eCw)
 * [Others parser algorithms](overview?id=parse_from_di_2_core_order_line_items)

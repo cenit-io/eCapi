@@ -7,32 +7,32 @@ everyone has to have the prefix "**parse_**" in their name.
 
 You can manage the algorithms by entering [here](https://cenit.io/algorithm).
 
-## Parsers from omna-api request
+## Parsers from core-api request
 
-In these algorithms the origin of the information will always be the parameters received in a request to an OMNA API service.
+In these algorithms the origin of the information will always be the parameters received in a request to an eCAPI service.
 
 Note that all these algorithms have the prefix "**parse_from_api_request_2_**" in their names.
 
 ### parse_from_api_request_2_di_product 
 
-> It transforms and sets the data of the product properties, received from the **OMNA API service** be stored in 
-> the intermediate data structure in OMNA.
+> It transforms and sets the data of the product properties, received from the **eCAPI service** be stored in 
+> the intermediate data structure in core.
 > 
 > **Resources related with this parser:**
 > 
-> * OMNA API service to update the specific properties of a product: [Update Product Properties](//cenit-io.github.io/eCapi/api-spec/index.html#operation/update_integration_product_beta_).
+> * eCAPI service to update the specific properties of a product: [Update Product Properties](//cenit-io.github.io/eCapi/api-spec/index.html#operation/update_integration_product_beta_).
 > * Data type where the transformed data will be stored: [DIProduct](../data-types/DIProduct.md).
 >
 > [[see more details]](parse_from_api_request_2_di_product ':class=see-more')
 
 ### parse_from_api_request_2_di_variant 
 
-> It transforms and sets the data of the product variant properties, received from the **OMNA API service** be stored in 
-> the intermediate data structure in OMNA.
+> It transforms and sets the data of the product variant properties, received from the **eCAPI service** be stored in 
+> the intermediate data structure in core.
 > 
 > **Resources related with this parser:**
 > 
-> * OMNA API service to update the specific properties of a product variant: [Update Variant Properties](//cenit-io.github.io/eCapi/api-spec/index.html#operation/update_integration_variant_beta_).
+> * eCAPI service to update the specific properties of a product variant: [Update Variant Properties](//cenit-io.github.io/eCapi/api-spec/index.html#operation/update_integration_variant_beta_).
 > * Data type where the transformed data will be stored: [DIVariant](../data-types/DIVariant.md).
 >
 > [[see more details]](parse_from_api_request_2_di_variant ':class=see-more')
@@ -48,7 +48,7 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 ### parse_from_api_response_2_di_brand 
 
 > It transforms and returns the data of each product brand obtained from the platform to be integrated to be stored in 
-> the intermediate data structure in OMNA.
+> the intermediate data structure in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -62,7 +62,7 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 ### parse_from_api_response_2_di_category 
 
 > It transforms and returns the data of each product category obtained from the platform to be integrated to be stored in 
-> the intermediate data structure in OMNA.
+> the intermediate data structure in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -76,7 +76,7 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 ### parse_from_api_response_2_di_logistic 
 
 > It transforms and returns the data of each logistic obtained from the platform to be integrated to be stored in 
-> the intermediate data structure in OMNA.
+> the intermediate data structure in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -90,7 +90,7 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 ### parse_from_api_response_2_di_order 
 
 > It transforms and returns the data of each order obtained from the platform to be integrated to be stored in 
-> the intermediate data structure in OMNA.
+> the intermediate data structure in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -104,7 +104,7 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 ### parse_from_api_response_2_di_product 
 
 > It transforms and returns the data of each product obtained from the platform to be integrated to be stored in 
-> the intermediate data structure in OMNA.
+> the intermediate data structure in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -118,7 +118,7 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 ### parse_from_api_response_2_di_product_images 
 
 > It transforms and returns the data of each product images obtained from the platform to be integrated to be stored in 
-> the intermediate data structure in OMNA.
+> the intermediate data structure in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -132,7 +132,7 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 ### parse_from_api_response_2_di_property 
 
 > It transforms and returns the data of each product property obtained from the platform to be integrated to be stored in 
-> the intermediate data structure in OMNA.
+> the intermediate data structure in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -146,7 +146,7 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 ### parse_from_api_response_2_di_variant 
 
 > It transforms and returns the data of each product variant  obtained from the platform to be integrated to be stored in 
-> the intermediate data structure in OMNA.
+> the intermediate data structure in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -160,7 +160,7 @@ Note that all these algorithms have the prefix "**parse_from_api_response_2_**" 
 ### parse_from_api_response_2_di_variant_images 
 
 > It transforms and returns the data of each product variant images obtained from the platform to be integrated to be stored in 
-> the intermediate data structure in OMNA.
+> the intermediate data structure in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -180,7 +180,7 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 
 ### parse_from_di_2_api_request_product 
 
-> Transforms and returns the data of a product from its intermediate data structure in OMNA to be send the
+> Transforms and returns the data of a product from its intermediate data structure in core to be send the
 > the remote platform to be integrated.
 > 
 > **Resources related with this parser:**
@@ -195,7 +195,7 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 
 ### parse_from_di_2_api_request_variant 
 
-> Transforms and returns the data of a product variant from its intermediate data structure in OMNA to be send the
+> Transforms and returns the data of a product variant from its intermediate data structure in core to be send the
 > the remote platform to be integrated.
 > 
 > **Resources related with this parser:**
@@ -214,7 +214,7 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 > 
 > **Resources related with this parser:**
 > 
-> * OMNA API service to get product details: [Retrieve a Product](//cenit-io.github.io/eCapi/api-spec/index.html#operation/get_product_beta_).
+> * eCAPI service to get product details: [Retrieve a Product](//cenit-io.github.io/eCapi/api-spec/index.html#operation/get_product_beta_).
 > * Data type that stores the product details for an integration: [DIProduct](../data-types/DIProduct.md).
 > * Data type that stores the product properties definition: [DICategory](../data-types/DICategory.md).
 >
@@ -226,7 +226,7 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 > 
 > **Resources related with this parser:**
 > 
-> * OMNA API service to get product variant details: [Retrieve a Product Variant](//cenit-io.github.io/eCapi/api-spec/index.html#operation/get_variant_beta_).
+> * eCAPI service to get product variant details: [Retrieve a Product Variant](//cenit-io.github.io/eCapi/api-spec/index.html#operation/get_variant_beta_).
 > * Data type that stores the product variant details for an integration: [DIVariant](../data-types/DIVariant.md).
 > * Data type that stores the product variant properties definition: [DICategory](../data-types/DICategory.md).
 >
@@ -246,8 +246,8 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 
 ### parse_from_di_2_core_order 
 
-> Transforms and returns the data of an order from its intermediate data structure in OMNA to be stored 
-> in the general data structure of orders in OMNA.
+> Transforms and returns the data of an order from its intermediate data structure in core to be stored 
+> in the general data structure of orders in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -258,8 +258,8 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 
 ### parse_from_di_2_core_order_address 
 
-> Transforms and returns the data of shipping and billing address of an order from its intermediate data structure in OMNA to be stored 
-> in the general data structure of orders in OMNA.
+> Transforms and returns the data of shipping and billing address of an order from its intermediate data structure in core to be stored 
+> in the general data structure of orders in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -270,8 +270,8 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 
 ### parse_from_di_2_core_order_line_items 
 
-> Transforms and returns the data of the order items from its intermediate data structure in OMNA to be stored 
-> in the general data structure of orders in OMNA.
+> Transforms and returns the data of the order items from its intermediate data structure in core to be stored 
+> in the general data structure of orders in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -282,8 +282,8 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 
 ### parse_from_di_2_core_product 
 
-> Transforms and returns the data of a product from its intermediate data structure in OMNA to be stored
-> in the general data structure of products in OMNA.
+> Transforms and returns the data of a product from its intermediate data structure in core to be stored
+> in the general data structure of products in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -294,8 +294,8 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 
 ### parse_from_di_2_core_variant 
 
-> Transforms and returns the data of a product variant from its intermediate data structure in OMNA to be stored
-> in the general data structure of variants in OMNA.
+> Transforms and returns the data of a product variant from its intermediate data structure in core to be stored
+> in the general data structure of variants in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -308,13 +308,13 @@ Note that all these algorithms have the prefix "**parse_from_di_2_**" in their n
 ## Parsers from eCore data types records
 
 In these algorithms, the origin of the information will always be a record of 
-a [omna data type](https://cenit.io/json_data_type?f[namespace][99061][v]=eCore).
+a [core data type](https://cenit.io/json_data_type?f[namespace][99061][v]=eCore).
 
 Note that all these algorithms have the prefix "**parse_from_core_2_**" in their names.
 
 ### parse_from_core_2_api_request_order 
 
-> Transforms and returns the data of an order registered in OMNA to be exported to the remote platform to be integrated.
+> Transforms and returns the data of an order registered in core to be exported to the remote platform to be integrated.
 > 
 > **Resources related with this parser:**
 > 
@@ -332,7 +332,7 @@ Note that all these algorithms have the prefix "**parse_from_core_2_**" in their
 
 ### parse_from_core_2_api_request_order_address 
 
-> Transforms and returns the data of shipping and billing address of an order registered in OMNA to be exported 
+> Transforms and returns the data of shipping and billing address of an order registered in core to be exported 
 > to the remote platform to be integrated.
 > 
 > **Resources related with this parser:**
@@ -344,7 +344,7 @@ Note that all these algorithms have the prefix "**parse_from_core_2_**" in their
 
 ### parse_from_core_2_api_request_order_line_items 
 
-> Transforms and returns the data of order items of an order registered in OMNA to be exported 
+> Transforms and returns the data of order items of an order registered in core to be exported 
 > to the remote platform to be integrated.
 > 
 > **Resources related with this parser:**
@@ -356,8 +356,8 @@ Note that all these algorithms have the prefix "**parse_from_core_2_**" in their
 
 ### parse_from_core_2_di_product 
 
-> Transforms and returns the data of a product from its general data structure of products in OMNA to be stored 
-> in the intermediate data structure in OMNA.
+> Transforms and returns the data of a product from its general data structure of products in core to be stored 
+> in the intermediate data structure in core.
 > 
 > **Resources related with this parser:**
 > 
@@ -368,8 +368,8 @@ Note that all these algorithms have the prefix "**parse_from_core_2_**" in their
 
 ### parse_from_core_2_di_variant 
 
-> Transforms and returns the data of a product variant from its general data structure of variants in OMNA to be stored 
-> in the intermediate data structure in OMNA.
+> Transforms and returns the data of a product variant from its general data structure of variants in core to be stored 
+> in the intermediate data structure in core.
 > 
 > **Resources related with this parser:**
 > 

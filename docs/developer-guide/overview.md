@@ -1,6 +1,6 @@
 # Guide to create a new available integration
 
-An integration contains a collection of resources that allow the synchronization of the information between OMNA and a 
+An integration contains a collection of resources that allow the synchronization of the information between eCAPI and a 
 remote platform that has an API that allows communication between the parties.
 
 All these resources must be organized in [namespaces](namespaces) relative to the name of the platform to be integrated.

@@ -8,7 +8,7 @@ Allows submitting a request to the remote integration platform to get the produc
 
 > **Name:** do_get_brands
 > 
-> **Namespace:** Ov2Anyone
+> **Namespace:** eCwAnyone
 >
 > **Parameters:**
 > 
@@ -19,5 +19,5 @@ Allows submitting a request to the remote integration platform to get the produc
 > | task | true | Setup::AlgorithmExecution | Contains a reference to the running task |
 
 ### See also
-* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_get_brands&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=Ov2)
+* [Code examples](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_get_brands&f[namespace][40840][o]=starts_with&f[namespace][40840][v]=eCw)
 * [Others action algorithms](overview?id=do_get_brands)

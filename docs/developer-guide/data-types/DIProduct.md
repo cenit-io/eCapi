@@ -20,7 +20,7 @@ Data structure to store the imported records of products for each integration ch
     "remote_product_id": {
       "type": "string"
     },
-    "product_in_omna": {
+    "product_in_core": {
       "$ref": {
         "namespace": "eCore",
         "name": "Product"

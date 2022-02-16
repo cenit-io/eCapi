@@ -19,7 +19,7 @@ If some of the resources are not found an exception is thrown.
 > | number_or_id | true | String | Contains the order number, id or remote id |
 > | integration_id | false | eCore::Integration \| String | Contains the integration record o id |
 >
-> **Returns:** The a record of eCore::Order or Ov2Anyone::Order if the parameter integration_id is given.
+> **Returns:** The a record of eCore::Order or eCwAnyone::Order if the parameter integration_id is given.
 
 ### See also
 * [This algorithm in Cenit-IO](https://cenit.io/algorithm?f[name][40703][o]=is&f[name][40703][v]=do_require_order&f[namespace][40840][v]=eCore)

@@ -18,7 +18,7 @@ Data structure to store the imported records of product variants for each integr
     "remote_variant_id": {
       "type": "string"
     },
-    "variant_in_omna": {
+    "variant_in_core": {
       "$ref": {
         "namespace": "eCore",
         "name": "Variant"

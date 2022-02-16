@@ -20,7 +20,7 @@ Data structure to store the imported records of product images for each integrat
     "url": {
       "type": "string"
     },
-    "image_in_omna": {
+    "image_in_core": {
       "$ref": {
         "namespace": "eCore",
         "name": "Image"

@@ -1,9 +1,0 @@
-- [Home](../overview)
-- [Overview](overview)
-- [Quick Start](quick-start)
-- [Authentication](authentication) 
-- **Links**
-- [API-Specification](//doc-api.omna.io/api-spec/)
-- **Utils**
-- [Postman](//doc-api.omna.io/api-spec/swagger-ui/)
-- [Swagger-UI](//doc-api.omna.io/api-spec/swagger-ui/)

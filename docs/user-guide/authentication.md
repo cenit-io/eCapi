@@ -1,5 +1,5 @@
 
-> <b>Authentication</b> is a simple process where the system could verified the client is she claims to be. All this services are available even if no [Ebanux is installed](user-setup) in the user tennant. After this you can access all CenitIO eCommerce API services.
+> <b>Authentication</b> is a simple process where the system could verified the client is she claims to be. All this services are available even if no [Ebanux is installed](user-setup) in the user tennant. After this you can access all ecapi services.
 
 ## 1. Redirect to authentication page.
 
@@ -42,7 +42,7 @@ information will be used in other calls to api rest.
 ```
 
 ## 3. Sign a request
-After the token is obtained, every request to CenitIO eCommerce API services must be signed in order to authorize the operation. The sign process of every request is described bellow:
+After the token is obtained, every request to ecapi services must be signed in order to authorize the operation. The sign process of every request is described bellow:
 1. Add token and current datetime as url request parameter.
 2. Take all params (url parameters and body parameters) in a json string representation.
 3. Remove all quotes

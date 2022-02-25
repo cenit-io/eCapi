@@ -8,7 +8,7 @@ get:
   summary: Sign in
   security: []
   description: |
-    Authenticate in CenitIO eCommerce Application to obtain the **authentication code** with which you can obtain
+    Authenticate in Edge Connector App to obtain the **authentication code** with which you can obtain
     the token and the tenant's secret from the authenticated user.
 
     > The **authentication code** will be sent to the given uri for the redirect (redirect_uri).

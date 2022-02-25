@@ -1,4 +1,4 @@
-description: Subscription representation in CenitIO eCommerce
+description: Subscription representation in Edge Connector
 type: object
 readOnly: true
 properties:

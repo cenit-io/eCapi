@@ -7,7 +7,7 @@ content:
         type:
           $ref: '#/components/schemas/ResponseResourceType'
         data:
-          description: Variant representations in CenitIO eCommerce
+          description: Variant representations in Edge Connector
           type: array
           items:
             allOf:

@@ -1,4 +1,4 @@
-description: Variant representation in CenitIO eCommerce
+description: Variant representation in Edge Connector
 type: object
 properties:
   id:

@@ -77,9 +77,9 @@ const current_tenant = { token: '....', secret: '...' };
   });
 ```
 
-## 4. CenitIO eCommerce Application.
-   The three steps above explained is simplified if you use the CenitIO eCommerce Application. It offers a direct way to sign the request. First you must go to CenitIO eCommerce Application, login, go to the section of Developers, and in API keys subsection copy the two fields "Secret code" and "Token". After this you could use them in the third step described above without doing the previous two steps.
+## 4. Edge Connector App.
+   The three steps above explained is simplified if you use the Edge Connector App. It offers a direct way to sign the request. First you must go to Edge Connector App, login, go to the section of Developers, and in API keys subsection copy the two fields "Secret code" and "Token". After this you could use them in the third step described above without doing the previous two steps.
    
-   TODO: Image of the CenitIO eCommerce Application with token and secret.
+   TODO: Image of the Edge Connector App with token and secret.
 
 

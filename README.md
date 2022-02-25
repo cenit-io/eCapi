@@ -1,4 +1,4 @@
-# CenitIO eCommerce API
+# Edge Connect API (ecapi)
 
 ## Quick Start
 

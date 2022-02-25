@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Spec Reference | CenitIO eCommerce API</title>
-  <meta name="description" content="simple connector API to integrate ecommerce sale channels">
+  <title>Spec Reference | Edge Connect API</title>
+  <meta name="description" content="Single standardized API to integrate business cloud services">
   <meta name="keywords" content="Channel,Connector,Integration,eCommerce">
   <!-- needed for adaptive design -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,7 +69,8 @@
       top: -5px;
     }
 
-    div[data-section-id^="tag/"] h1, label[type=group] {
+    div[data-section-id^="tag/"] h1,
+    label[type=group] {
       background-color: lightskyblue;
       text-transform: uppercase;
     }
@@ -101,20 +103,22 @@
   <script type="text/javascript">
     $(document).ready(function () {
       Redoc.init('./openapi.json', {
-          menuToggle: true,
-          theme: {
-            logo: {"gutter": "20px 30px 14px 30px"},
-            colors: {"text": {"primary": "#333333"}},
-            rightPanel: {"backgroundColor": "#263238"},
-            links: {"color": "#6CC496"}
-          }
-        },
+        menuToggle: true,
+        theme: {
+          logo: { "gutter": "20px 30px 14px 30px" },
+          colors: { "text": { "primary": "#333333" } },
+          rightPanel: { "backgroundColor": "#263238" },
+          links: { "color": "#6CC496" }
+        }
+      },
         document.getElementById("redoc_container"),
       );
     })
   </script>
 </head>
+
 <body>
-<div id="redoc_container"></div>
+  <div id="redoc_container"></div>
 </body>
+
 </html>

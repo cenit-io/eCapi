@@ -2,25 +2,22 @@
   "openapi": "3.0.0",
   "info": {
     "version": "v1",
-    "title": "Edge-Connection-API",
+    "title": "Edge Connector API",
     "termsOfService": "https://cenit.io/terms",
     "contact": {
       "email": "support@cenit.io",
-      "url": "https://cenitio.slack.com/messages/support"
+      "url": "https://web.cenit.io"
     },
     "license": {
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-logo": {
-      "url": "logo.png"
-    },
-    "description": "# Introduction\n\nThe CenitIO Edge-Connection-API is a simple connector API to integrate foreings platforms, such us\nmarketplaces and ecommerce platforms.\n\nAn easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.\n\nThe list of available integrations include: Amazon Marketplace, Backmarket, Mercado Libre, Lazada, Qoo10, Shopee, Shopify.\n\nThese integrations are related with 34 Countries: Argentina, Australia, Bolivia, Brasil, Canada, Chile, Colombia, Costa Rica, Dominicana, Ecuador, France, Germany, Guatemala, Honduras, India, Indonesia, Indonesia, Japan, Malaysia, Mexico, Nicaragua, Panama, Paraguay, Peru, Philippines, Salvador, Singapore, Spain, Thailand, Turkey, United Kingdom, Unit Arab Emirates, Uruguay, United States, Venezuela, Vietnam.\n\nIt is built on top of an integration platform https://cenit.io\n\nThis API is for individual retailers, SaaS services, or any business that needs to handle multiple commerce integrations.\n\n* It is built over REST services on HTTPS.\n\n* It has predictable resource URLs.\n\n* It returns HTTP response codes to indicate errors.\n\n* It accepts and returns JSON in the HTTP body.\n\n* You can use your favorite HTTP/REST library for your programming language to use CenitIO Edge-Connection-API.\n\n  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)\n"
+    "description": "# Introduction\n\nThe CenitIO Edge Connector API is a single connector API to integrate business cloud services, such us\nmarketplaces and ecommerce platforms, CRM, File Storages and more.\n\nAn easy way to consolidate orders, synchronize inventory and listing product information to ecommerce solutions.\n\nThis API is for individual retailers, SaaS services, or any business that needs to handle multiple business integrations.\n\n* It is built over REST services on HTTPS.\n\n* It has predictable resource URLs.\n\n* It returns HTTP response codes to indicate errors.\n\n* It accepts and returns JSON in the HTTP body.\n\n* You can use your favorite HTTP/REST library for your programming language to use CenitIO Edge-Connection-API.\n\n  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)\n\nIt is built on top of the integration platform https://cenit.io      \n"
   },
   "tags": [
     {
       "name": "Available Integrations",
-      "description": "This term refers to the set of resources and services that can be included in CenitIO eCommerce for the expansion of\nits scope and integration with other platforms.\n\n### Available Integrations:\n\n- **Integration-Core**: It is the main collection and the basis for working at CenitIO eCommerce LTD.\n- **Integration-Lazada**: It includes support for the integration of CenitIO eCommerce with Lazada's marketplaces.\n- **Integration-Shopee**: It includes support for the integration of CenitIO eCommerce with Shopee's marketplaces.\n- **Integration-Shopify**: It includes support for the integration of CenitIO eCommerce with Shopify's marketplaces.\n\n### Future Integrations:\n\n- **Integration-Qoo10**: It includes support for the integration of CenitIO eCommerce with Qoo10's marketplaces.\n- **Integration-AmazonMWS**: It includes support for the integration of CenitIO eCommerce with AmazonMWS's marketplaces.\n- **Integration-MercadoLible**: It includes support for the integration of CenitIO eCommerce with MercadoLible's marketplaces.\n- **Integration-Backmarket**: It includes support for the integration of CenitIO eCommerce with Backmarket's marketplaces.\n- **Integration-Shipstation**: It includes support for the integration of CenitIO eCommerce with Shipstation's shipping platform for ecommerce fulfillment.\n"
+      "description": "This term refers to the set of resources and services that can be included in Edge Connector for the expansion of\nits scope and integration with other platforms.\n\n### Available Integrations:\n\n- **Integration-Core**: It is the main collection and the basis for working at Edge Connector LTD.\n- **Integration-Lazada**: It includes support for the integration of Edge Connector with Lazada's marketplaces.\n- **Integration-Shopee**: It includes support for the integration of Edge Connector with Shopee's marketplaces.\n- **Integration-Shopify**: It includes support for the integration of Edge Connector with Shopify's marketplaces.\n\n### Future Integrations:\n\n- **Integration-Qoo10**: It includes support for the integration of Edge Connector with Qoo10's marketplaces.\n- **Integration-AmazonMWS**: It includes support for the integration of Edge Connector with AmazonMWS's marketplaces.\n- **Integration-MercadoLible**: It includes support for the integration of Edge Connector with MercadoLible's marketplaces.\n- **Integration-Backmarket**: It includes support for the integration of Edge Connector with Backmarket's marketplaces.\n- **Integration-Shipstation**: It includes support for the integration of Edge Connector with Shipstation's shipping platform for ecommerce fulfillment.\n"
     },
     {
       "name": "Connected Integrations",
@@ -92,7 +89,7 @@
     },
     {
       "name": "Webhooks",
-      "description": "A webhook is a hook through which a notification is sent to a URL of the user's choice when a certain event occurs.\nThey allow to receive real-time HTTP notifications of changes to specific objects. Webhooks facilitate syncing\nand relaying data between two endpoints.\n\n### Anatomy of a webhook\n\nAfter you configure a webhook subscription, the events that you specified will trigger a webhook notification\neach time they occur. This notification contains a JSON payload and and HTTP headers that provide context.\nFor example, the order/updated webhook includes the following headers:\n\n- **X-Tenant-Token**: 5cfe690b25d9854b3b02241b,\n- **X-Topic**: order/updated,\n- **X-API-Version**: v1\n- **X-HMac-Sha256**: d24c9128362b0518f9ca2bf767b4a60a59aefe0f63ebeb7d47ec594442fc7a8f\n\nSome HTTP headers are particularly useful for your app:\n\n- **X-Topic** represents the type of object and the event that occurred.\n- **X-HMac-Sha256** and **X-Tenant-Token** are used to verify webhooks.\n- **X-API-Version** is used to confirm what version of the API used to serialize the webhook event payload.\n\n### Verifying webhooks\n\nWebhooks created through the API are verified by calculating a digital signature. Each webhook request includes\n**X-HMac-Sha256** header, which is generated using the tenant shared secret along with the data sent in the request.\n\nTo verify that the request came from CenitIO eCommerce, compute the **HMAC** digest according to the following algorithm and\ncompare it to the value in the **X-HMac-Sha256** header. If they match, then you can be sure that the webhook was\nsent from CenitIO eCommerce.\n\n**The following Ruby example apply to Sinatra or RoR web frameworks to verify a webhook request:**\n\n```Ruby\n  require 'openssl'\n\n  request.body.rewind\n  body = request.body.read\n\n  secret = '...' # Get this from tenant with equal to **X-Tenant-Token** header.\n\n  hmac1 = request.headers['X-HMac-Sha256']\n  hmac2 = OpenSSL::HMAC.hexdigest('sha256', secret, body)\n\n  raise 'The request is not valid...' if hmac1 != hmac2\n```\n"
+      "description": "A webhook is a hook through which a notification is sent to a URL of the user's choice when a certain event occurs.\nThey allow to receive real-time HTTP notifications of changes to specific objects. Webhooks facilitate syncing\nand relaying data between two endpoints.\n\n### Anatomy of a webhook\n\nAfter you configure a webhook subscription, the events that you specified will trigger a webhook notification\neach time they occur. This notification contains a JSON payload and and HTTP headers that provide context.\nFor example, the order/updated webhook includes the following headers:\n\n- **X-Tenant-Token**: 5cfe690b25d9854b3b02241b,\n- **X-Topic**: order/updated,\n- **X-API-Version**: v1\n- **X-HMac-Sha256**: d24c9128362b0518f9ca2bf767b4a60a59aefe0f63ebeb7d47ec594442fc7a8f\n\nSome HTTP headers are particularly useful for your app:\n\n- **X-Topic** represents the type of object and the event that occurred.\n- **X-HMac-Sha256** and **X-Tenant-Token** are used to verify webhooks.\n- **X-API-Version** is used to confirm what version of the API used to serialize the webhook event payload.\n\n### Verifying webhooks\n\nWebhooks created through the API are verified by calculating a digital signature. Each webhook request includes\n**X-HMac-Sha256** header, which is generated using the tenant shared secret along with the data sent in the request.\n\nTo verify that the request came from Edge Connector, compute the **HMAC** digest according to the following algorithm and\ncompare it to the value in the **X-HMac-Sha256** header. If they match, then you can be sure that the webhook was\nsent from Edge Connector.\n\n**The following Ruby example apply to Sinatra or RoR web frameworks to verify a webhook request:**\n\n```Ruby\n  require 'openssl'\n\n  request.body.rewind\n  body = request.body.read\n\n  secret = '...' # Get this from tenant with equal to **X-Tenant-Token** header.\n\n  hmac1 = request.headers['X-HMac-Sha256']\n  hmac2 = OpenSSL::HMAC.hexdigest('sha256', secret, body)\n\n  raise 'The request is not valid...' if hmac1 != hmac2\n```\n"
     },
     {
       "name": "Users",
@@ -2967,7 +2964,7 @@
         "operationId": "sign_in",
         "summary": "Sign in",
         "security": [],
-        "description": "Authenticate in CenitIO eCommerce Application to obtain the **authentication code** with which you can obtain\nthe token and the tenant's secret from the authenticated user.\n\n> The **authentication code** will be sent to the given uri for the redirect (redirect_uri).\n>\n> This **authentication code** will only be valid once and will expire in 10 minutes.\n>\n> Use this **authentication code** to obtain the tenant's token and secret through the\n  '[Get Access Token](#operation/get_access_token_async_)' service.\n",
+        "description": "Authenticate in Edge Connector App to obtain the **authentication code** with which you can obtain\nthe token and the tenant's secret from the authenticated user.\n\n> The **authentication code** will be sent to the given uri for the redirect (redirect_uri).\n>\n> This **authentication code** will only be valid once and will expire in 10 minutes.\n>\n> Use this **authentication code** to obtain the tenant's token and secret through the\n  '[Get Access Token](#operation/get_access_token_async_)' service.\n",
         "responses": {
           "303": {
             "$ref": "#/components/responses/sign_in"
@@ -4415,7 +4412,7 @@
         }
       },
       "Product": {
-        "description": "Product representation in CenitIO eCommerce",
+        "description": "Product representation in Edge Connector",
         "type": "object",
         "properties": {
           "id": {
@@ -4901,7 +4898,7 @@
         ]
       },
       "Subscription": {
-        "description": "Subscription representation in CenitIO eCommerce",
+        "description": "Subscription representation in Edge Connector",
         "type": "object",
         "readOnly": true,
         "properties": {
@@ -5096,7 +5093,7 @@
         }
       },
       "Variant": {
-        "description": "Variant representation in CenitIO eCommerce",
+        "description": "Variant representation in Edge Connector",
         "type": "object",
         "properties": {
           "id": {
@@ -5698,7 +5695,7 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "description": "Product representations in CenitIO eCommerce",
+                  "description": "Product representations in Edge Connector",
                   "type": "array",
                   "items": {
                     "allOf": [
@@ -5765,7 +5762,7 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "description": "Variant representations in CenitIO eCommerce",
+                  "description": "Variant representations in Edge Connector",
                   "type": "array",
                   "items": {
                     "allOf": [
@@ -6133,7 +6130,7 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "description": "Product representations in CenitIO eCommerce",
+                  "description": "Product representations in Edge Connector",
                   "type": "array",
                   "items": {
                     "allOf": [
@@ -6269,7 +6266,7 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "description": "Stock Item representations in CenitIO eCommerce",
+                  "description": "Stock Item representations in Edge Connector",
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/StockItem"
@@ -6326,7 +6323,7 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "description": "Stock Location representations in CenitIO eCommerce",
+                  "description": "Stock Location representations in Edge Connector",
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/StockLocation"
@@ -6586,7 +6583,7 @@
                   "$ref": "#/components/schemas/ResponseResourceType"
                 },
                 "data": {
-                  "description": "Variant representations in CenitIO eCommerce",
+                  "description": "Variant representations in Edge Connector",
                   "type": "array",
                   "items": {
                     "allOf": [
@@ -6860,7 +6857,7 @@
         "in": "path",
         "required": true,
         "schema": {
-          "description": "Product identifier in CenitIO eCommerce",
+          "description": "Product identifier in Edge Connector",
           "type": "string",
           "example": "5d04051125d9852c71016793"
         }
@@ -6940,7 +6937,7 @@
         "in": "path",
         "required": true,
         "schema": {
-          "description": "Variant identifier in CenitIO eCommerce",
+          "description": "Variant identifier in Edge Connector",
           "type": "string",
           "example": "5d04051125d9852c71016793"
         }

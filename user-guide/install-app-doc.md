@@ -1,9 +1,9 @@
 **App installation process:**
 
-At the moment you install CenitIO eCommerce Application through Shopify there are the steps you will see. Please continue the guide below:
+At the moment you install Edge Connector App through Shopify there are the steps you will see. Please continue the guide below:
 
 # Log in page
-You will see a login page. There you should log in with a new CenitIO eCommerce user.
+You will see a login page. There you should log in with a new Edge Connector user.
 
 # 
 

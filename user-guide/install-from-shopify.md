@@ -1,6 +1,6 @@
-# CenitIO eCommerce Installation Guide
+# Edge Connector Installation Guide
 
-**Locate CenitIO eCommerce Application In Your Shopify Admin Dashboard**
+**Locate Edge Connector App In Your Shopify Admin Dashboard**
 
 Enter your Shopify's store admin dashboard, click on "Apps", and click on "Shop for apps" to enter the Shopify App Store. 
 
@@ -8,7 +8,7 @@ Enter your Shopify's store admin dashboard, click on "Apps", and click on "Shop 
     <img width="800" src="assets/images/installation/installation_0.png"/>
 </div>
 
-Search for ["CenitIO eCommerce Application"](https://apps.shopify.com/ebanux) to find the app listing. Alternatively, you can visit the app listing directly at [https://apps.shopify.com/ebanux](https://apps.shopify.com/ebanux)
+Search for ["Edge Connector App"](https://apps.shopify.com/ebanux) to find the app listing. Alternatively, you can visit the app listing directly at [https://apps.shopify.com/ebanux](https://apps.shopify.com/ebanux)
 
 <div align=center>
     <img width="800" src="assets/images/installation/installation_1.png"/>
@@ -18,13 +18,13 @@ Click on "Add app" button to start the installation process. A new browser tab w
 
 **Login**
 
-You would be prompted to create a secured CenitIO eCommerce account. We support multiple login methods such as email/password or SSO providers such as Google, Facebook & Github.
+You would be prompted to create a secured Edge Connector account. We support multiple login methods such as email/password or SSO providers such as Google, Facebook & Github.
 
 <div align=center>
     <img width="800" src="assets/images/installation/installation_01.png"/>
 </div>
 
-After you have successfully registered an account, CenitIO eCommerce Application will be installed on your Shopify store.
+After you have successfully registered an account, Edge Connector App will be installed on your Shopify store.
 
 <div align=center>
     <img width="800" src="assets/images/installation/installation_02.png"/>
@@ -41,7 +41,7 @@ The app installation will begin, and you should be presented with the screen bel
 </div>
 
 In the background, the installation process is ongoing to configure the app for your Shopify store. Some of the installation processes include:
-- Completing the configuration of the new user account for use on CenitIO eCommerce Application
+- Completing the configuration of the new user account for use on Edge Connector App
 - Installation of integration to support Shopify 2-way synchronisation
 - Setup basic integration workflows (e.g. importing products, importing stock-locations, importing orders). For more information on other integration workflows, [click here](workflows) to find out more.
 
@@ -51,16 +51,16 @@ This process usually takes 1-2 minutes but could take longer during busier times
     <img width="800" src="assets/images/installation/home.png"/>
 </div>
 
-Congratulations, CenitIO eCommerce Application has been successfully installed on your Shopify store. You can now find the CenitIO eCommerce Application within your Shopify Admin dashboard.
+Congratulations, Edge Connector App has been successfully installed on your Shopify store. You can now find the Edge Connector App within your Shopify Admin dashboard.
 
 <div align=center>
     <img width="800" src="assets/images/installation/omna_installed.png"/>
 </div>
 
-If you open this link, you will be redirected to the CenitIO eCommerce Application for the full user experience.
+If you open this link, you will be redirected to the Edge Connector App for the full user experience.
 
 <div align=center>
     <img width="800" src="assets/images/installation/dashboard.png"/>
 </div>
 
->To start using the CenitIO eCommerce Application, visit our [Quick Start](quick-start-ofs) guide
+>To start using the Edge Connector App, visit our [Quick Start](quick-start-ofs) guide

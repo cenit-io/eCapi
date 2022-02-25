@@ -69,7 +69,7 @@ It allows to get a paginated list of variants of some integration, it has a lot 
 >[Import product updates](//cenit-io.github.io/eCapi/api-spec/#operation/#import_products_async_)<div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/products/import
 
 ## 6. Brands and Categories.
-> Brands and categories are e-commerce concepts wich help to group products. CenitIO eCommerce Application offer api services to handle this concepts.
+> Brands and categories are e-commerce concepts wich help to group products. Edge Connector App offer api services to handle this concepts.
 
 >[Retrieve a brand](//cenit-io.github.io/eCapi/api-spec/#operation/#get_brand) <div style="background-color:#6BBD5B; color:white; border:0px solid brown;border-radius:0px; float:left; padding-right: 5px; padding-left: 5px; margin-right:20px;"> GET </div> /integrations/<b>{integration_id}</b>/brands/<b>{brand_id}</b>.
 

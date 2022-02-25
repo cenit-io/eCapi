@@ -1,7 +1,9 @@
-- [App Guide](/user-guide/quick-start-ofs)
-- [Developer Guide](/developer-guide/overview)
-- **Links**
+- **Edge Connector**
+- [Ecommerce integrations](/integrations/ecommerce_integrations)
+- **Edge Connector API**
 - [API-Specification](//cenit-io.github.io/eCapi/api-spec/)
-- **Utils**
+- [Developer Guide](/developer-guide/overview)
 - [Postman](//cenit-io.github.io/eCapi/api-spec/swagger-ui/)
 - [Swagger-UI](//cenit-io.github.io/eCapi/api-spec/swagger-ui/)
+- **Edge Connector APP**
+- [App Guide](/user-guide/quick-start-ofs)

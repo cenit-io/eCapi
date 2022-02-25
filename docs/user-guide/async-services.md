@@ -1,5 +1,5 @@
 
-> Some CenitIO eCommerce API services takes to much time to complete, such task becomes in <b>async</b> such that a pattern is used in order to know when the operations completes or to know the Z. A services which is async uses this kind of pattern and all this method will return an identifier to a task entity that could be accessed later to check the task status. 
+> Some ecapi services takes to much time to complete, such task becomes in <b>async</b> such that a pattern is used in order to know when the operations completes or to know the Z. A services which is async uses this kind of pattern and all this method will return an identifier to a task entity that could be accessed later to check the task status. 
 
 ## 1. Task stucture.
 The task structure brings a lot of information usefull to inform the user the status of certain task, or to use in the logic of the application to raise some event when certain task conditions are meet. Some of this fields are:

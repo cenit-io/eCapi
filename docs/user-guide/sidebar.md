@@ -1,3 +1,4 @@
+- **Developer Guide**
 - [Installation](install-from-shopify)
 - [Quick Start](quick-start-ofs)
 - [Home Page](overview)

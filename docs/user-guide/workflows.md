@@ -7,9 +7,9 @@ The flows allow the user to configure a set of predetermined tasks to run on an 
 
 >**Note: If a scheduler was created for a flow it will be by default deactivate, in order to activate you must do it manually on the flow actions.**
 
-There are two kinds of flows, the **import flows** which are responsible for importing information such as products, orders, product categories, warehouses, etc. from a specific integration to CenitIO eCommerce, and, the **export flows**, which do the reverse process, export information from Omna to a specific integration.
+There are two kinds of flows, the **import flows** which are responsible for importing information such as products, orders, product categories, warehouses, etc. from a specific integration to Edge Connector, and, the **export flows**, which do the reverse process, export information from Omna to a specific integration.
 
-If the **export flow** types are configured for products or orders for an **X integration**, then whenever a product or order from a **Y integration** arrives at CenitIO eCommerce and a **link** was made to the previously mentioned **X integration**, then it is automatically It will export the product or order because the flow was configured in advance.
+If the **export flow** types are configured for products or orders for an **X integration**, then whenever a product or order from a **Y integration** arrives at Edge Connector and a **link** was made to the previously mentioned **X integration**, then it is automatically It will export the product or order because the flow was configured in advance.
 
 To see the workflows created, you must go to the **Settings / Workflow** menu, in this view a list of the workflows will be shown where you can see their name, integration, when it was created, when it was updated, if it has an active schedule, and the actions to be taken. they can run on workflows. You can also add new workflows, search and filter by various search criteria.
 <div align=center>

@@ -1,4 +1,4 @@
->Before a user could use the Edge Connect API(ecapi), it must be configured to use it. The ecapi must be installed and a tenant in Cenit IO assigned to it. In order to do so, there are two ways, one easy way using [CenitIO eCommerce Application --DEV--](https://develop.d2px3nipkhew1t.amplifyapp.com/), and a hard way using ecapi global services. Both ways are described here.
+>Before a user could use the Edge Connect API(ecapi), it must be configured to use it. The ecapi must be installed and a tenant in Cenit IO assigned to it. In order to do so, there are two ways, one easy way using [Edge Connector App --DEV--](https://develop.d2px3nipkhew1t.amplifyapp.com/), and a hard way using ecapi global services. Both ways are described here.
 
 ## 1. Ebanux APP
 After login on Ebanux APP, if the user is new and ecapi is not installed you could see a message like this:

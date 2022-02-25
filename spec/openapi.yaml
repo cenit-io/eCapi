@@ -1,31 +1,25 @@
 openapi: 3.0.0
 info:
   version: v1
-  title: Edge-Connection-API
+  title: Edge Connector API
   termsOfService: 'https://cenit.io/terms'
   contact:
     email: support@cenit.io
-    url: 'https://cenitio.slack.com/messages/support'
+    url: 'https://web.cenit.io'
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-  x-logo:
-    url: logo.png
+  # x-logo:
+  #   url: logo.svg
   description: |
     # Introduction
 
-    The CenitIO Edge-Connection-API is a simple connector API to integrate foreings platforms, such us
-    marketplaces and ecommerce platforms.
+    The CenitIO Edge Connector API is a single connector API to integrate business cloud services, such us
+    marketplaces and ecommerce platforms, CRM, File Storages and more.
 
-    An easy way to consolidate orders, synchronize inventory and listing product information to commerce solutions.
+    An easy way to consolidate orders, synchronize inventory and listing product information to ecommerce solutions.
 
-    The list of available integrations include: Amazon Marketplace, Backmarket, Mercado Libre, Lazada, Qoo10, Shopee, Shopify.
-
-    These integrations are related with 34 Countries: Argentina, Australia, Bolivia, Brasil, Canada, Chile, Colombia, Costa Rica, Dominicana, Ecuador, France, Germany, Guatemala, Honduras, India, Indonesia, Indonesia, Japan, Malaysia, Mexico, Nicaragua, Panama, Paraguay, Peru, Philippines, Salvador, Singapore, Spain, Thailand, Turkey, United Kingdom, Unit Arab Emirates, Uruguay, United States, Venezuela, Vietnam.
-
-    It is built on top of an integration platform https://cenit.io
-
-    This API is for individual retailers, SaaS services, or any business that needs to handle multiple commerce integrations.
+    This API is for individual retailers, SaaS services, or any business that needs to handle multiple business integrations.
 
     * It is built over REST services on HTTPS.
 
@@ -39,26 +33,28 @@ info:
 
       [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb5947e10923dee87507)
 
+    It is built on top of the integration platform https://cenit.io      
+
 tags:
   - name: Available Integrations
     description: |
-      This term refers to the set of resources and services that can be included in CenitIO eCommerce for the expansion of
+      This term refers to the set of resources and services that can be included in Edge Connector for the expansion of
       its scope and integration with other platforms.
 
       ### Available Integrations:
 
-      - **Integration-Core**: It is the main collection and the basis for working at CenitIO eCommerce LTD.
-      - **Integration-Lazada**: It includes support for the integration of CenitIO eCommerce with Lazada's marketplaces.
-      - **Integration-Shopee**: It includes support for the integration of CenitIO eCommerce with Shopee's marketplaces.
-      - **Integration-Shopify**: It includes support for the integration of CenitIO eCommerce with Shopify's marketplaces.
+      - **Integration-Core**: It is the main collection and the basis for working at Edge Connector LTD.
+      - **Integration-Lazada**: It includes support for the integration of Edge Connector with Lazada's marketplaces.
+      - **Integration-Shopee**: It includes support for the integration of Edge Connector with Shopee's marketplaces.
+      - **Integration-Shopify**: It includes support for the integration of Edge Connector with Shopify's marketplaces.
 
       ### Future Integrations:
 
-      - **Integration-Qoo10**: It includes support for the integration of CenitIO eCommerce with Qoo10's marketplaces.
-      - **Integration-AmazonMWS**: It includes support for the integration of CenitIO eCommerce with AmazonMWS's marketplaces.
-      - **Integration-MercadoLible**: It includes support for the integration of CenitIO eCommerce with MercadoLible's marketplaces.
-      - **Integration-Backmarket**: It includes support for the integration of CenitIO eCommerce with Backmarket's marketplaces.
-      - **Integration-Shipstation**: It includes support for the integration of CenitIO eCommerce with Shipstation's shipping platform for ecommerce fulfillment.
+      - **Integration-Qoo10**: It includes support for the integration of Edge Connector with Qoo10's marketplaces.
+      - **Integration-AmazonMWS**: It includes support for the integration of Edge Connector with AmazonMWS's marketplaces.
+      - **Integration-MercadoLible**: It includes support for the integration of Edge Connector with MercadoLible's marketplaces.
+      - **Integration-Backmarket**: It includes support for the integration of Edge Connector with Backmarket's marketplaces.
+      - **Integration-Shipstation**: It includes support for the integration of Edge Connector with Shipstation's shipping platform for ecommerce fulfillment.
 
   - name: Connected Integrations
     description: |
@@ -162,9 +158,9 @@ tags:
       Webhooks created through the API are verified by calculating a digital signature. Each webhook request includes
       **X-HMac-Sha256** header, which is generated using the tenant shared secret along with the data sent in the request.
 
-      To verify that the request came from CenitIO eCommerce, compute the **HMAC** digest according to the following algorithm and
+      To verify that the request came from Edge Connector, compute the **HMAC** digest according to the following algorithm and
       compare it to the value in the **X-HMac-Sha256** header. If they match, then you can be sure that the webhook was
-      sent from CenitIO eCommerce.
+      sent from Edge Connector.
 
       **The following Ruby example apply to Sinatra or RoR web frameworks to verify a webhook request:**
 

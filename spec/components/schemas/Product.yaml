@@ -1,4 +1,4 @@
-description: Product representation in CenitIO eCommerce
+description: Product representation in Edge Connector
 type: object
 properties:
   id:

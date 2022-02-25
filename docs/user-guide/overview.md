@@ -1,6 +1,6 @@
 ## Navigation Bar 
 
-This guide aims to give you a quick overview on the key sections of the CenitIO eCommerce Application.
+This guide aims to give you a quick overview on the key sections of the Edge Connector App.
 
 The user interface consists of 3 main sections: Top Menu, Side Menu and Main Content areas which will be shown on all pages.
 
@@ -49,7 +49,7 @@ You can select a different tenant or change your subscription plan on this page 
 
 ### Side Menu
 
-You would be spending most of your time navigating the Side Menu as it contains the navigation links to most of CenitIO eCommerce Application functionality.
+You would be spending most of your time navigating the Side Menu as it contains the navigation links to most of Edge Connector App functionality.
 
 #### Data
 

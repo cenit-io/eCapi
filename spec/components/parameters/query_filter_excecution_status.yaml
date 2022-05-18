@@ -1,0 +1,6 @@
+name: type
+in: query
+schema:
+  description: It allows to filter executions by status.
+  type: string
+  example: completed

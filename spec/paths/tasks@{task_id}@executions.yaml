@@ -1,0 +1,28 @@
+parameters:
+  - $ref: '#/components/parameters/path_task_id'
+
+get:
+  tags:
+    - Tasks
+  operationId: get_task_executions
+  summary: Retrieve all executions from a Task
+  description: |
+    Find a task by a given id and returns its executions.
+  parameters:
+    - $ref: '#/components/parameters/query_filter_execution_status'
+    - $ref: '#/components/parameters/query_filter_generic_created_after'
+    - $ref: '#/components/parameters/query_filter_generic_created_before'
+    - $ref: '#/components/parameters/query_filter_generic_updated_after'
+    - $ref: '#/components/parameters/query_filter_generic_updated_before'
+    - $ref: '#/components/parameters/query_filter_execution_completed_after'
+    - $ref: '#/components/parameters/query_filter_execution_completed_before'
+    - $ref: '#/components/parameters/query_filter_execution_started_after'
+    - $ref: '#/components/parameters/query_filter_execution_started_before'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
+    - $ref: '#/components/parameters/query_sort_for_executions'
+  responses:
+    '200':
+      $ref: '#/components/responses/execution_items'
+    '404':
+      $ref: '#/components/responses/task_not_found'

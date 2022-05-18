@@ -3425,6 +3425,113 @@
         }
       }
     },
+    "/tasks/{task_id}/executions": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_task_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "operationId": "get_task_executions",
+        "summary": "Retrieve all executions from a Task",
+        "description": "Find a task by a given id and returns its executions.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_execution_status"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_updated_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_execution_completed_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_execution_completed_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_execution_started_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_execution_started_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_offset"
+          },
+          {
+            "$ref": "#/components/parameters/query_limit"
+          },
+          {
+            "$ref": "#/components/parameters/query_sort_for_executions"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/execution_items"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_not_found"
+          }
+        }
+      }
+    },
+    "/tasks/{task_id}/notifications": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/path_task_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "operationId": "get_task_notifications",
+        "summary": "Retrieve all notifications from a Task",
+        "description": "Find a task by a given id and returns its notifications.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/query_filter_term_for_notifications"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_notification_type"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_after"
+          },
+          {
+            "$ref": "#/components/parameters/query_filter_generic_created_before"
+          },
+          {
+            "$ref": "#/components/parameters/query_offset"
+          },
+          {
+            "$ref": "#/components/parameters/query_limit"
+          },
+          {
+            "$ref": "#/components/parameters/query_sort_for_notifications"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/notification_items"
+          },
+          "404": {
+            "$ref": "#/components/responses/task_not_found"
+          }
+        }
+      }
+    },
     "/tasks/{task_id}/retry": {
       "parameters": [
         {
@@ -3928,6 +4035,12 @@
             "description": "Date in iso8601 when the task was completed",
             "type": "string",
             "format": "date-time-iso8601"
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/UpdatedAt"
           }
         }
       },
@@ -4162,6 +4275,9 @@
           "message": {
             "description": "Notification message",
             "type": "string"
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/CreatedAt"
           }
         }
       },
@@ -4984,14 +5100,16 @@
             "type": "string"
           },
           "executions": {
-            "description": "Dates that started and completed each instance of execution of the task",
+            "deprecated": true,
+            "description": "Dates that started and completed each instance of execution of the task\n\n> Limited to the last 200 items, you can see all items using the [tasks/:task_id/executions](#operation/get_task_executions) service.\n",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Execution"
             }
           },
           "notifications": {
-            "description": "Notifications of tasks",
+            "deprecated": true,
+            "description": "Notifications of the task\n\n> Limited to the last 200 items, you can see all items using the [tasks/:task_id/notifications](#operation/get_task_notifications) service.\n",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Notification"
@@ -5482,6 +5600,30 @@
           }
         }
       },
+      "execution_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Execution"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
+            }
+          }
+        }
+      },
       "flow_item": {
         "description": "Success",
         "content": {
@@ -5835,6 +5977,30 @@
             "example": {
               "type": "exception",
               "message": "Elements not found "
+            }
+          }
+        }
+      },
+      "notification_items": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/ResponseResourceType"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Notification"
+                  }
+                },
+                "pagination": {
+                  "$ref": "#/components/schemas/Pagination"
+                }
+              }
             }
           }
         }
@@ -7004,6 +7170,55 @@
           "type": "string"
         }
       },
+      "query_filter_excecution_status": {
+        "name": "type",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter executions by status.",
+          "type": "string",
+          "example": "completed"
+        }
+      },
+      "query_filter_execution_completed_after": {
+        "name": "completed_after",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter executions by completed date less than a given date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-15T00:00:00.000Z"
+        }
+      },
+      "query_filter_execution_completed_before": {
+        "name": "completed_before",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter orders by completed date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-30T00:00:00.000Z"
+        }
+      },
+      "query_filter_execution_started_after": {
+        "name": "started_after",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter executions by started date less than a given date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-15T00:00:00.000Z"
+        }
+      },
+      "query_filter_execution_started_before": {
+        "name": "started_before",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter orders by started date.",
+          "type": "string",
+          "format": "date-time-iso8601",
+          "example": "2018-01-30T00:00:00.000Z"
+        }
+      },
       "query_filter_flow_type": {
         "name": "type",
         "in": "query",
@@ -7086,6 +7301,15 @@
         "schema": {
           "description": "It allows to filter items by name.",
           "type": "string"
+        }
+      },
+      "query_filter_notification_type": {
+        "name": "type",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter notifications by type.",
+          "type": "string",
+          "example": "warning"
         }
       },
       "query_filter_order_created_after": {
@@ -7279,6 +7503,15 @@
         "in": "query",
         "schema": {
           "description": "It allows to filter integrations settings that contain the value of the term in their ***id*** or ***name***.",
+          "type": "string",
+          "example": "Shop-Lazada"
+        }
+      },
+      "query_filter_term_for_notifications": {
+        "name": "term",
+        "in": "query",
+        "schema": {
+          "description": "It allows to filter notifications that contain the value of the term in their ***message***.",
           "type": "string",
           "example": "Shop-Lazada"
         }
@@ -7539,6 +7772,50 @@
           }
         }
       },
+      "query_sort_for_executions": {
+        "name": "sort",
+        "in": "query",
+        "schema": {
+          "description": "It allows to sort ***executions*** list.\n> If the sort parameter is omitted, the executions list will be sorting by created_at descending.\n",
+          "properties": {
+            "created_at": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "updated_at": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "started_at": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "completed_at": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "status": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            }
+          }
+        }
+      },
       "query_sort_for_flows": {
         "name": "sort",
         "in": "query",
@@ -7597,6 +7874,29 @@
               ]
             },
             "channel": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "query_sort_for_notifications": {
+        "name": "sort",
+        "in": "query",
+        "schema": {
+          "description": "It allows to sort ***notifications*** list.\n> If the sort parameter is omitted, the notifications list will be sorting by created_at descending.\n",
+          "properties": {
+            "created_at": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SortQueryParameter"
+                }
+              ]
+            },
+            "type": {
               "allOf": [
                 {
                   "$ref": "#/components/schemas/SortQueryParameter"

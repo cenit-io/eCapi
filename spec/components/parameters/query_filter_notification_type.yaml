@@ -1,0 +1,6 @@
+name: type
+in: query
+schema:
+  description: It allows to filter notifications by type.
+  type: string
+  example: warning

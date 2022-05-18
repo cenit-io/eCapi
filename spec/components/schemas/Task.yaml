@@ -14,12 +14,20 @@ properties:
     description: Task execution description
     type: string
   executions:
-    description: Dates that started and completed each instance of execution of the task
+    deprecated: true
+    description: |
+      Dates that started and completed each instance of execution of the task
+
+      > Limited to the last 200 items, you can see all items using the [tasks/:task_id/executions](#operation/get_task_executions) service.
     type: array
     items:
       $ref: "#/components/schemas/Execution"
   notifications:
-    description: Notifications of tasks
+    deprecated: true
+    description: |
+      Notifications of the task
+
+      > Limited to the last 200 items, you can see all items using the [tasks/:task_id/notifications](#operation/get_task_notifications) service.
     type: array
     items:
       $ref: "#/components/schemas/Notification"

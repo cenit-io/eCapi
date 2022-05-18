@@ -1,0 +1,23 @@
+parameters:
+  - $ref: '#/components/parameters/path_task_id'
+
+get:
+  tags:
+    - Tasks
+  operationId: get_task_notifications
+  summary: Retrieve all notifications from a Task
+  description: |
+    Find a task by a given id and returns its notifications.
+  parameters:
+    - $ref: '#/components/parameters/query_filter_term_for_notifications'
+    - $ref: '#/components/parameters/query_filter_notification_type'
+    - $ref: '#/components/parameters/query_filter_generic_created_after'
+    - $ref: '#/components/parameters/query_filter_generic_created_before'
+    - $ref: '#/components/parameters/query_offset'
+    - $ref: '#/components/parameters/query_limit'
+    - $ref: '#/components/parameters/query_sort_for_notifications'
+  responses:
+    '200':
+      $ref: '#/components/responses/notification_items'
+    '404':
+      $ref: '#/components/responses/task_not_found'

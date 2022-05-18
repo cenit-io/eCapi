@@ -1,0 +1,15 @@
+name: sort
+in: query
+schema:
+  description: |
+    It allows to sort ***notifications*** list.
+    > If the sort parameter is omitted, the tasks list will be sorting by created_at descending.
+  properties:
+    created_at:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+    type:
+      allOf:
+        - $ref: "#/components/schemas/SortQueryParameter"
+
+

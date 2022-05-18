@@ -6,3 +6,5 @@ properties:
   message:
     description: Notification message
     type: string
+  created_at:
+    $ref: "#/components/schemas/CreatedAt"
